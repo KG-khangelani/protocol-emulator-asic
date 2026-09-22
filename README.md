@@ -10,8 +10,9 @@ reprogrammable temporal machine. Its architecture is still a hypothesis.
 
 **Current state: M0 scaffold.** The repo contains a deterministic GPIO baseline,
 pin-level tests, and the official Tiny Tapeout CMOS5L physical-flow workflow.
-Structural checks passed during setup. RTL simulation, synthesis and GDS have
-not run in the setup environment; **M0 is not complete**. No UART, SPI, I2C or VM
+GitHub CI passed static checks, the GPIO RTL regression, generic synthesis and
+the docs build; see [E0002](evidence/E0002-ci/README.md). The CMOS5L physical
+build has not run; **M0 is not complete**. No UART, SPI, I2C or VM
 is implemented yet.
 
 ## Start with Codex

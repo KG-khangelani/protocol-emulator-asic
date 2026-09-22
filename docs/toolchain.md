@@ -50,4 +50,5 @@ The setup runner lacks Icarus, cocotb, Yosys and Docker. Native installation
 could not complete because the environment could not perform package-manager
 privilege transitions; a Python package lookup also yielded no usable HDL tool.
 These are environment observations, not a verdict on design correctness.
-No physical-flow output, timing margin or successful simulator run was produced.
+The later GitHub CI run passed RTL and generic synthesis (E0002). No physical-flow
+output or timing margin has been produced.

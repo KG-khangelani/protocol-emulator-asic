@@ -1,7 +1,7 @@
 # Current state
 
 Updated: 2026-09-22. Phase: **M0 — toolchain establishment**.
-Hard deadline: **2027-01-18**. Active task: **M0-T01**.
+Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -13,22 +13,25 @@ efficiently express useful digital communication protocols under hard temporal c
 - Private GitHub repository created: https://github.com/KG-khangelani/protocol-emulator-asic
 - Codex instructions, specifications, ledger, backlog and reproducibility commands created.
 - M0 GPIO counter, cocotb tests and CI prepared.
-- Static repository checks pass; see `evidence/E0001-bootstrap/`.
+- Local static checks pass; see `evidence/E0001-bootstrap/`.
+- GitHub CI passed static, GPIO RTL regression, generic synthesis and docs build;
+  see `evidence/E0002-ci/` for the tested source revision and result links.
 
 ## Blocked or unverified
 
 - Icarus, cocotb, Yosys and Docker are absent in the setup environment.
-  Native package installation failed. No simulation or synthesis pass is claimed.
-- Devcontainer, GitHub Actions, CMOS5L hardening, precheck, gate-level tests,
+  Native package installation failed locally. GitHub CI provides the passing
+  simulation/synthesis evidence.
+- Devcontainer, CMOS5L hardening, precheck, gate-level tests,
   post-route timing/area, GDS and repeatability are unverified.
 - The physical workflow retains mutable upstream action refs. Record actual
   tool/action/PDK identities during the first build and pin successful versions.
 
 ## Next executable action
 
-Run `test` on the populated remote and inspect its uploaded evidence. Resolve
-any test failure before running the manually triggered `gds` workflow. Archive
-the physical evidence, then perform a clean rerun of the same source revision.
+Run the manually triggered `gds` workflow for the baseline, inspect build,
+precheck and gate-level results, and archive physical evidence. Perform a clean
+rerun. Also archive the passing CI artifact before its 21 December expiry.
 
 ## Handoff boundaries
 

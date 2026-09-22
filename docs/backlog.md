@@ -12,9 +12,10 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Prepare Codex instructions, CI and evidence collection.
 - [x] Run static repository checks.
 - [x] Create GitHub remote.
-- [ ] Populate remote and pass CI.
-- [ ] Pass cycle-level simulation; preserve FST and JUnit results.
-- [ ] Pass generic synthesis sanity check.
+- [x] Populate remote and pass CI (E0002).
+- [x] Pass cycle-level simulation; FST/JUnit uploaded to CI artifact (E0002).
+- [ ] Archive CI artifact durably before 21 December 2026.
+- [x] Pass generic synthesis sanity check (E0002).
 - [ ] Complete official CMOS5L RTL-to-GDS build and precheck.
 - [ ] Pass gate-level regression.
 - [ ] Record mapped area, post-route timing/slack, violations, utilization and GDS hash.

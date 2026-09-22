@@ -32,6 +32,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | ID | Experiment | Result | Limit |
 |---|---|---|---|
 | E0001 | Bootstrap consistency and tool availability | Static pass; HDL stages blocked | No behavioral or physical evidence; `../evidence/E0001-bootstrap/` |
+| E0002 | GitHub CI baseline | Static, RTL and generic synthesis PASS; docs PASS | No physical/GL proof; `../evidence/E0002-ci/` |
 
 ## Open questions
 

@@ -1,6 +1,6 @@
 # M0 GPIO behavioral specification
 
-Status: implemented, **not yet simulated**. This is a toolchain probe; it does
+Status: implemented; **RTL regression passed in E0002**. This is a toolchain probe; it does
 not establish any claim about a programmable protocol architecture.
 
 Top: `tt_um_khangelani_protocol_emulator`. One clock domain. Initial timing
