@@ -1,0 +1,120 @@
+{
+  "repository": "https://github.com/TinyTapeout/ttihp-verilog-template",
+  "branch": "cmos5l",
+  "commit": "b86a2a781484bcab7ba522dc5de540086695a430",
+  "retrieved": "2026-09-22",
+  "import_method": "GitHub connector; all 22 files verified against Git blob SHA-1 before the import commit",
+  "files": [
+    {
+      "path": ".devcontainer/Dockerfile",
+      "mode": "100644",
+      "sha": "89645dbb6ca54f47a4a0fb205249cd36d0d83944"
+    },
+    {
+      "path": ".devcontainer/copy_tt_support_tools.sh",
+      "mode": "100755",
+      "sha": "7064826d0b1b9dcdc957600a102aefdb00c09bb0"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "mode": "100644",
+      "sha": "0ca5a7abf51fae0478461c9ed1da1bd9c917549b"
+    },
+    {
+      "path": ".github/workflows/docs.yaml",
+      "mode": "100644",
+      "sha": "09db6edbe4dfae31043a9139b51c8cc718ec705a"
+    },
+    {
+      "path": ".github/workflows/fpga.yaml",
+      "mode": "100644",
+      "sha": "29c31a0226c615fbff97b0d774af83b5e12f4300"
+    },
+    {
+      "path": ".github/workflows/gds.yaml",
+      "mode": "100644",
+      "sha": "4e0f50b38f8338f47b32eddd262dc166803cc9b7"
+    },
+    {
+      "path": ".github/workflows/test.yaml",
+      "mode": "100644",
+      "sha": "f24528f208e8f84ead442aad6746ff15db2e63f0"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "sha": "65ffd2859c836e0dfe1c0b862c200592062e7621"
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "mode": "100644",
+      "sha": "12c462549404859f0e294b95a64edc30a47a97cd"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "mode": "100644",
+      "sha": "c8d6ad4b0c58acee19d2d448ce9f1d225a222b61"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "sha": "9806e075a574d73b028a63324bb099c5157dc00e"
+    },
+    {
+      "path": "docs/info.md",
+      "mode": "100644",
+      "sha": "ce1f04c223c5b4dc125ab66d74caf18164c2ca00"
+    },
+    {
+      "path": "info.yaml",
+      "mode": "100644",
+      "sha": "c80cb74794a3ecff9d550b0c80b4cbf523eab01e"
+    },
+    {
+      "path": "src/config.json",
+      "mode": "100644",
+      "sha": "e19276da46a9ede15577db4e7641dfefa853e0cb"
+    },
+    {
+      "path": "src/project.v",
+      "mode": "100644",
+      "sha": "cd6f7406fa2a1a66d4ddd3b8028d358dfefd52eb"
+    },
+    {
+      "path": "test/Makefile",
+      "mode": "100644",
+      "sha": "0929e0cd168390793b8f19bd9d0fe8b21cfe15ec"
+    },
+    {
+      "path": "test/README.md",
+      "mode": "100644",
+      "sha": "971c227cbac1b7dd7c6966d37d98e6a1fc960fb5"
+    },
+    {
+      "path": "test/requirements.txt",
+      "mode": "100644",
+      "sha": "e316b1d0d52ca2c70f1730448719cc6a47fcb551"
+    },
+    {
+      "path": "test/tb.gtkw",
+      "mode": "100644",
+      "sha": "d22d1abbe1d918a2ffd789fdf2e479b20f43dc4c"
+    },
+    {
+      "path": "test/tb.v",
+      "mode": "100644",
+      "sha": "2e86ae518d74d560e4bd1e10364a428478333f8a"
+    },
+    {
+      "path": "test/test.py",
+      "mode": "100644",
+      "sha": "26592e796f634036b7705543ffae3bad340fcd52"
+    }
+  ],
+  "limitation": "Template is pinned; upstream workflow action branches and container dependencies are still mutable. Record resolved versions during M0 hardening."
+}

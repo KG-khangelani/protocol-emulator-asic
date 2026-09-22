@@ -1,47 +1,18 @@
-# Sample testbench for a Tiny Tapeout project
+<!-- Modified from the template test instructions, 2026-09-22. -->
+# GPIO regression
 
-This is a sample testbench for a Tiny Tapeout project. It uses [cocotb](https://docs.cocotb.org/en/stable/) to drive the DUT and check the outputs.
-See below to get started or for more information, check the [website](https://tinytapeout.com/hdl/testing/).
+Run `make setup` and `make test` from the repository root. Icarus Verilog must
+be installed separately. Tests use pin observations, never internal DUT state.
 
-## Setting up
+- `reset_wrap_hold_and_resume`: reset priority, two wraps, pause and resume.
+- `seeded_control_and_input_noise`: 1,024 cycles, seed 20260922, sampled control
+  variations and between-edge input/control perturbations.
 
-1. Edit [Makefile](Makefile) and modify `PROJECT_SOURCES` to point to your Verilog files.
-2. Edit [tb.v](tb.v) and replace `tt_um_example` with your module name.
+The specification is `../docs/specs/m0-gpio.md`. Results are `results.xml` and
+`tb.fst`; open the waveform using GTKWave or Surfer. The official CMOS5L
+`gl_test` action supplies the gate-level netlist and PDK environment and runs
+the same harness using `make GATES=yes`.
 
-## How to run
-
-To run the RTL simulation:
-
-```sh
-make -B
-```
-
-To run gatelevel simulation, first harden your project and copy `../runs/wokwi/results/final/verilog/gl/{your_module_name}.v` to `gate_level_netlist.v`.
-
-Then run:
-
-```sh
-make -B GATES=yes
-```
-
-If you wish to save the waveform in VCD format instead of FST format, edit tb.v to use `$dumpfile("tb.vcd");` and then run:
-
-```sh
-make -B FST=
-```
-
-This will generate `tb.vcd` instead of `tb.fst`.
-
-## How to view the waveform file
-
-Using GTKWave
-
-```sh
-gtkwave tb.fst tb.gtkw
-```
-
-Using Surfer
-
-```sh
-surfer tb.fst
-```
+If running gate-level tests locally, use the current unpowered IHP netlist
+path documented by the official hardening guide and provide `PDK_ROOT`.
+See `../docs/toolchain.md`. Zero-delay gate-level tests do not validate SDF timing.

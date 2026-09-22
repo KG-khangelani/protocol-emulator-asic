@@ -1,0 +1,2 @@
+PASS: metadata, pinout, source list, top module, clock target, Python syntax and workflow YAML
+LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check

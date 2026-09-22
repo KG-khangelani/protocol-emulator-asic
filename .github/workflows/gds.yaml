@@ -1,7 +1,7 @@
+# Modified 2026-09-22: manual physical gate; viewer disabled until Pages setup.
 name: gds
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
@@ -38,6 +38,7 @@ jobs:
         uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l
 
   viewer:
+    if: ${{ false }} # Enable explicitly after GitHub Pages is configured.
     needs: gds
     runs-on: ubuntu-24.04
     permissions:

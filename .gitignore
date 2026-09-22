@@ -1,3 +1,4 @@
+# Modified 2026-09-22: exclude local tooling, secrets and bulk output.
 .DS_Store
 .idea
 *.vcd
@@ -11,3 +12,13 @@ test/sim_build
 test/__pycache__/
 test/results.xml
 test/gate_level_netlist.v
+
+build/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+tt/
+.pdk/

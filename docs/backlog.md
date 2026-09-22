@@ -1,0 +1,41 @@
+# Executable backlog
+
+## M0-T01 — Establish RTL-to-GDS baseline (active)
+
+Outcome: a reproducible, deterministic GPIO design hardened with the official
+IHP CMOS5L Tiny Tapeout flow.
+
+- [x] Import and identify the official template.
+- [x] Set the documented 6x4 competition allocation.
+- [x] Specify waveform, reset, enable and unused-pin behavior.
+- [x] Implement baseline RTL and independent pin-level regression.
+- [x] Prepare Codex instructions, CI and evidence collection.
+- [x] Run static repository checks.
+- [x] Create GitHub remote.
+- [ ] Populate remote and pass CI.
+- [ ] Pass cycle-level simulation; preserve FST and JUnit results.
+- [ ] Pass generic synthesis sanity check.
+- [ ] Complete official CMOS5L RTL-to-GDS build and precheck.
+- [ ] Pass gate-level regression.
+- [ ] Record mapped area, post-route timing/slack, violations, utilization and GDS hash.
+- [ ] Record resolved action/tool/PDK versions and environment.
+- [ ] Clean rerun reproduces the functional result and physical acceptance.
+
+Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.
+Do not substitute a static syntax check or generic synthesis for physical fit.
+
+## Follow-on tasks
+
+| ID | Work | Exit gate | State |
+|---|---|---|---|
+| M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Queued |
+| M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Queued |
+| M1-T03 | Add GET, BRANCH and bounded LOOP only as needed | Bounded behavior; cost delta recorded | Queued |
+| M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | Queued |
+| M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |
+| M3-T02 | Compare architecture and instruction ablations | Program bytes, cycles, mapped area and verification cost | Queued |
+| M4-T01 | Temporal IR and compiler | Deterministic output, diagnostics and timing checks | Queued |
+| M5-T01 | Formal/random/FPGA/physical release validation | Reproducible submission evidence | Queued |
+
+Do not preallocate a program-memory size or promise a protocol bitrate before
+measurement establishes feasibility.

@@ -1,40 +1,70 @@
 # SPDX-FileCopyrightText: © 2024 Tiny Tapeout
 # SPDX-License-Identifier: Apache-2.0
-
+# Modified 2026-09-22: independent M0 pin-level cycle oracle.
+import random
 import cocotb
-from cocotb.clock import Clock
-from cocotb.triggers import ClockCycles
+from cocotb.triggers import Timer
 
+SEED = 20260922
 
-@cocotb.test()
-async def test_project(dut):
-    dut._log.info("Start")
+def observe(dut, expected):
+    assert int(dut.uo_out.value) == expected, f"expected {expected:#04x}, got {dut.uo_out.value}"
+    assert int(dut.uio_oe.value) == 0, "bidirectional pins must remain inputs"
+    assert int(dut.uio_out.value) == 0, "unused output path must be defined"
 
-    # Set the clock period to 10 us (100 KHz)
-    clock = Clock(dut.clk, 10, unit="us")
-    cocotb.start_soon(clock.start())
-
-    # Reset
-    dut._log.info("Reset")
-    dut.ena.value = 1
+def initialise(dut):
+    dut.clk.value = 0
+    dut.rst_n.value = 0
+    dut.ena.value = 0
     dut.ui_in.value = 0
     dut.uio_in.value = 0
-    dut.rst_n.value = 0
-    await ClockCycles(dut.clk, 10)
-    dut.rst_n.value = 1
 
-    dut._log.info("Test project behavior")
+async def cycle(dut, expected, reset_n=1, enable=1, noise=None):
+    # Inputs change while clock is low; observe one ns after the active edge.
+    dut.rst_n.value = reset_n
+    dut.ena.value = enable
+    await Timer(10, unit="ns")
+    dut.clk.value = 1
+    await Timer(1, unit="ns")
+    observe(dut, expected)
+    if noise:
+        dut.ui_in.value = noise.randrange(256)
+        dut.uio_in.value = noise.randrange(256)
+        dut.ena.value = 1 - enable
+        dut.rst_n.value = 1 - reset_n
+    await Timer(9, unit="ns")
+    observe(dut, expected)  # no state transition between active edges
+    dut.clk.value = 0
 
-    # Set the input values you want to test
-    dut.ui_in.value = 20
-    dut.uio_in.value = 30
+@cocotb.test()
+async def reset_wrap_hold_and_resume(dut):
+    initialise(dut)
+    await cycle(dut, 0, reset_n=0, enable=0)
+    for n in range(1, 513):
+        await cycle(dut, n % 256)
+    for _ in range(17):
+        await cycle(dut, 0, enable=0)
+    await cycle(dut, 1)
+    await cycle(dut, 2)
+    # Reset must win even when disabled and when state is nonzero.
+    await cycle(dut, 0, reset_n=0, enable=0)
+    await cycle(dut, 1)
+    await cycle(dut, 0, reset_n=0, enable=1)
+    await cycle(dut, 1)
 
-    # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, 1)
-
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == 50
-
-    # Keep testing the module by changing the input values, waiting for
-    # one or more clock cycles, and asserting the expected output values.
+@cocotb.test()
+async def seeded_control_and_input_noise(dut):
+    initialise(dut)
+    rng = random.Random(SEED)
+    dut._log.info("seed=%d", SEED)
+    await cycle(dut, 0, reset_n=0, enable=0)
+    # Oracle counts accepted edges since the latest sampled reset.
+    accepted_edges = 0
+    for _ in range(1024):
+        reset_n = int(rng.randrange(13) != 0)
+        enable = rng.randrange(2)
+        if not reset_n:
+            accepted_edges = 0
+        elif enable:
+            accepted_edges += 1
+        await cycle(dut, accepted_edges % 256, reset_n, enable, rng)

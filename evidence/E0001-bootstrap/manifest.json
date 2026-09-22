@@ -1,0 +1,100 @@
+{
+  "created_utc": "20260922T222950684162Z",
+  "git_head": "a9849e775f969c221756472ddc30de3865735daf",
+  "git_status": "",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "source_sha256": {
+    ".devcontainer/Dockerfile": "17931634d2321aa99db588c5657cd4659eaaa1770c12991c852a2b6a722f3276",
+    ".devcontainer/copy_tt_support_tools.sh": "1955f567349cca921a961947ac0bee27942077b4cdbd0d72f99a49a4c0ec3435",
+    ".devcontainer/devcontainer.json": "893f821c045fc7e465fac185e9ea591882ebaaad68fe05fc53036c92e3b5d69b",
+    ".editorconfig": "36c67edabe554a90074f0e80a2b2453715175271464d524c17775068b30b3251",
+    ".github/pull_request_template.md": "2e02ed812deb4a3e6bcc86eb91c533f77bed46e648f677c1b634084574e5be21",
+    ".github/workflows/docs.yaml": "e9306fb94b648bdc4d38fefe1740f0447a25face64008a08752a63d731fd4ceb",
+    ".github/workflows/fpga.yaml": "695d07a4acf9de12b4e6846f7a37ac7180326aa2d609e4d21d1344316fdbdf5e",
+    ".github/workflows/gds.yaml": "20b7f666e73d3b2b1efb2509cd671670cdcff9cbbff4d6ada0f8064a5c3bcf9c",
+    ".github/workflows/test.yaml": "a328c3f3f51affc20e0f9534643f209694c5dd5cb583a42ec26c78c9be48de81",
+    ".gitignore": "b23b51453688ed9eaecc74b6f810d2f6d504d136a4653368a0f3fb4f883250df",
+    ".vscode/extensions.json": "660e9bafc4970b9d5333abc7920c16f7ffd037c92eae3a98a2502eee309faf52",
+    ".vscode/settings.json": "7e8716faf75d190bd27b428aec68d5ce3e5390b6029f92625fb988688063e48a",
+    "AGENTS.md": "e2289fe6ded77110c94b69770fe58b413479d7087f27fb5f98b49b2e6a4455a1",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "Makefile": "36e012de2171af4e167d166a268bb2f4e97c199ba040154a28f653d5dafe4628",
+    "README.md": "13f418e17f2ce27b69504d5016cce22fc43f37c274c1bbef41f36553aa4478bf",
+    "docs/backlog.md": "d3604240523e3fd70ced1958fcbf0a99d3ea5634b623f7c6a68fd4249bba303e",
+    "docs/decisions/0001-bootstrap.md": "693b8394c9a590f0f73f32ec1b9a852196d3d9a4aa5165f6de42c835ddef86a3",
+    "docs/info.md": "d335bdd52ca5671c955799265a6624d09d15dbf09a367e1f18456c51a92321ea",
+    "docs/milestones.md": "4ca5ca7cf33172bb5c1ac5f18dda12f4d14379f0b466ffb5694bdd0b95d81c78",
+    "docs/research-ledger.md": "082e20b8b90e1ff321032ff74271bae006acbe3a8e6a359bb96d289d6edadc10",
+    "docs/source-pack.md": "abbd03b4ea9dba8e23355b323ec41f2f4bddf35bcfe01a1c8b4cca4d2844e40a",
+    "docs/sources.md": "971cfb2bc8917e47c7c061d638cd29cffd222b0fdcce6a0f50c6eae27857361c",
+    "docs/specs/m0-gpio.md": "2a6fe048d0c1b598887f155f50b1121647c21ec2894f82029e493b63f00b5f30",
+    "docs/state.md": "9d43aa833ff343997566295296b7bac49b2f65d0a9a2de280893cacdad1600fa",
+    "docs/toolchain.md": "e81468bf017c58d62a3a063c0ce763085e31d46741062658ae4c8058a9b27055",
+    "docs/upstream-template.json": "5cc16d7d3c846fab539872d6d4f6dd3d313e1b248670fcf13ebdc7ee0f5a4b65",
+    "docs/verification.md": "a1aeb344d62e031b727ac5a630056ccae4e6f566b84d7d1cdb15d64b5c0fbfdf",
+    "info.yaml": "291e7e0c183d62568a8cf88ab8a0f5355ba9c47a647ba2511eeee2e5c98d04b7",
+    "requirements-dev.txt": "b9ee955c652d18eb036dc539d0c98a2fad4ca4dde259a575d65faad63b6f6f23",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "src/project.v": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c",
+    "test/Makefile": "e02a4fb1980c063fc55c7d7abe40ee1b7ec245af44f6160943f7034997dd01ef",
+    "test/README.md": "dadc8d454bb011c2b0eb59f27648ae089c179d64298c75083b7cf2e8bf8f0b8d",
+    "test/requirements.txt": "4273151bc1544b57436ccd1af30e6428beb0291e4f9fba3307db8115ef53f60d",
+    "test/tb.gtkw": "aad62770ad1b98dc6151569c325fdb6101e5fd74e3412e2a0ccb7fbab08c4ba6",
+    "test/tb.v": "62da6cacff4b134258932027cc59610a709a5d54e61ce9f36cf85574e29ccee3",
+    "test/test.py": "08716e19e9aeafedb120dcefd6106c120bc823dabff41d1bfebb560ba8eba9e5",
+    "tools/check_junit.py": "ceab8260fdb5ee3538fa6f7b32582d019b8b7f0e64a0a4737b931958174277e6",
+    "tools/check_project.py": "230f89fa2d5782247d05695356580f64d9ba4f3f25ecf585b14b7aad082dbdcf",
+    "tools/collect_evidence.py": "652a02cf2f7a7eff6a1daf0832c6e66fd72d2a06e2aaaef555244da0ad22177e",
+    "tools/doctor.py": "196a6773b7a5b2e036dfc2bd7ce915cb930761a15730069374b7449a4dde85b1"
+  },
+  "tools": {
+    "iverilog": "MISSING",
+    "vvp": "MISSING",
+    "yosys": "MISSING",
+    "git": "git version 2.51.1",
+    "cocotb": "MISSING",
+    "PyYAML": "6.0.3"
+  },
+  "stages": [
+    {
+      "name": "static",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check_project.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl",
+      "command": [
+        "make",
+        "test"
+      ],
+      "status": "BLOCKED",
+      "missing": [
+        "iverilog",
+        "vvp",
+        "cocotb-config"
+      ]
+    },
+    {
+      "name": "generic_synthesis",
+      "command": [
+        "make",
+        "synth"
+      ],
+      "status": "BLOCKED",
+      "missing": [
+        "yosys"
+      ]
+    }
+  ],
+  "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
+  "artifact_sha256": {
+    "generic_synthesis.log": "8d064b36a16faf9426b66a3d8323dc55d1f9615e5f0ec78a04dc7da3ee85bb61",
+    "rtl.log": "3dde475b605a6dc2072b367a0ced9e933ce13dc0389060748ed88a336f0675ca",
+    "static.log": "b97a50bf02e1e19aa0c25b63f5cba897c257cb8c278b9ede58d01b660442fc64"
+  }
+}
