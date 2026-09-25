@@ -7,9 +7,14 @@
 */
 module tb ();
 
-  // Dump the signals to a FST file. You can view it with gtkwave or surfer.
+  // Normal regression uses compact FST. The learning target requests readable
+  // VCD so a source-controlled walkthrough can explain selected clock edges.
   initial begin
+`ifdef LEARNING_VCD
+    $dumpfile("../build/m0-learning.vcd");
+`else
     $dumpfile("tb.fst");
+`endif
     $dumpvars(0, tb);
     #1;
   end

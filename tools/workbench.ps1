@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'TestVerilator', 'Formal', 'Synth', 'Evidence', 'LearnM0', 'All', 'Shell')]
+    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'TestVerilator', 'Formal', 'Synth', 'Evidence', 'LearnM0', 'LearnWaveform', 'All', 'Shell')]
     [string]$Command = 'All',
     [ValidateSet('All', 'RTL', 'Verification', 'Physical', 'Claims')]
     [string]$Section = 'All'
@@ -45,6 +45,7 @@ $inside = switch ($Command) {
     'Synth'    { @('make', 'synth') }
     'Evidence' { @('make', 'evidence') }
     'LearnM0'  { @('python3', 'tools/m0_walkthrough.py', '--section', $Section.ToLowerInvariant()) }
+    'LearnWaveform' { @('make', 'learn-waveform') }
     'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'test-verilator', 'formal', 'synth') }
     'Shell'    { @('bash') }
 }

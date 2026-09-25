@@ -14,6 +14,12 @@ ifeq ($(SIM),verilator)
 COMPILE_ARGS += --timing
 endif
 
+# The learning target writes text VCD instead of compact FST so the repository's
+# Python walkthrough can inspect the same simulated edges without a GUI viewer.
+ifeq ($(LEARNING_VCD),yes)
+COMPILE_ARGS += -DLEARNING_VCD
+endif
+
 ifneq ($(GATES),yes)
 
 # RTL simulation:

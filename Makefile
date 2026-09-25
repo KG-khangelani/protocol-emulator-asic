@@ -4,9 +4,9 @@ ifneq ($(wildcard .venv/bin/python),)
 PYTHON := $(CURDIR)/.venv/bin/python
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
-.PHONY: help setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify clean
+.PHONY: help setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify learn-waveform clean
 help:
-	@echo "setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify clean"
+	@echo "setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify learn-waveform clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
@@ -38,5 +38,11 @@ learn-m0:
 	$(PYTHON) tools/m0_walkthrough.py --section $(LEARN_SECTION)
 learn-m0-verify:
 	$(PYTHON) tools/m0_walkthrough.py --verify
+learn-waveform:
+	rm -f build/m0-learning.vcd test/results-learning.xml
+	mkdir -p build
+	$(MAKE) -C test FST= LEARNING_VCD=yes SIM_BUILD=sim_build/icarus-learning COCOTB_RESULTS_FILE=results-learning.xml
+	$(PYTHON) tools/check_junit.py test/results-learning.xml
+	$(PYTHON) tools/m0_waveform_walkthrough.py build/m0-learning.vcd
 clean:
-	rm -rf build test/sim_build test/results.xml test/results-verilator.xml test/tb.fst
+	rm -rf build test/sim_build test/results.xml test/results-verilator.xml test/results-learning.xml test/tb.fst
