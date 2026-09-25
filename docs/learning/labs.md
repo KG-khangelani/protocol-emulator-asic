@@ -24,6 +24,10 @@ The command validates that its inputs agree, but it cannot validate human
 understanding. The final restatement remains a conversation and is never
 auto-marked as a pass.
 
+`Evidence` also reruns the waveform lab and retains its VCD and JUnit result, so
+the teaching command is checked in CI. That still validates software behaviour,
+not the learner's explanation.
+
 ## Lab 0 — Is the repository internally consistent?
 
 **Idea:** A static checker can compare names and configuration without running
@@ -51,19 +55,21 @@ enable, and disabling the counter preserves its value.
 **Predict:** Starting at `00`, with reset released and enable asserted, three
 rising edges should produce `01`, `02`, `03`.
 
-**Run:**
+**Run the readable waveform lab:**
 
 ```powershell
-.\tools\workbench.ps1 test
+.\tools\workbench.ps1 LearnWaveform
 ```
 
-**Inspect:** Open the retained FST waveform and find `clk`, `rst_n`, `ena` and
-`uo_out`. Check the prediction at the first three active edges.
+**Inspect:** Read the printed reset, count, wrap, hold, resume and reset-priority
+rows. The underlying text waveform remains at `build/m0-learning.vcd`; a full
+viewer can display it later, but no viewer knowledge is needed for this lab.
 
-**Restate:** Explain why changing an input halfway between rising edges cannot
-immediately change the counter state.
+**Restate:** Choose one printed row. Name the sampled `rst_n` and `ena` values,
+say whether `uo_out` changed, and explain why. Then explain why changing an
+input halfway between rising edges cannot immediately change the counter state.
 
-## Lab 1B — Ask a second simulator
+## Lab 2 — Ask a second simulator
 
 **Idea:** Icarus and Verilator are independent implementations. Agreement makes
 a simulator-specific mistake less likely, while both still share the same test
@@ -85,7 +91,7 @@ that Verilator first translates the hardware into C++ and invokes `g++`.
 **Restate:** Explain why two agreeing simulators increase confidence without
 turning the finite test scenarios into a proof of every input sequence.
 
-## Lab 1A — Check the ingredient batch
+## Lab 3 — Check the ingredient batch
 
 **Idea:** A result is reproducible only when we can identify the tools that
 produced it. `Doctor` compares installed version outputs and dependency hashes
@@ -106,7 +112,7 @@ hash. Then open `tools/workbench/toolchain.lock.json` and match one value.
 **Restate:** Explain why “I used Yosys” is weaker evidence than naming its exact
 version, input commit and command.
 
-## Lab 1C — Try every allowed digital control sequence
+## Lab 4 — Try every allowed digital control sequence
 
 **Idea:** Simulation samples chosen scenarios. Formal verification translates
 the RTL and its assertions into equations, then asks a solver whether any
@@ -131,7 +137,7 @@ back to a row of the M0 state-transition table.
 either result alone, and why neither establishes physical timing or analog
 behavior.
 
-## Lab 2 — Distinguish source logic from physical evidence
+## Lab 5 — Distinguish source logic from physical evidence
 
 **Idea:** Yosys can translate the design into generic logic quickly. LibreLane
 maps it to IHP cells, places those cells, routes wires and checks timing.

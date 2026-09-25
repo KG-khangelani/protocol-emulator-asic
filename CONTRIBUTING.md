@@ -20,14 +20,14 @@ result, and only then converging on a decision.
 
 ## Before a commit
 
-Run the checks supported by the current environment. Until the container
-workbench is complete, the Windows-safe structural command is:
+Run the checks supported by the current environment. The quick Windows-safe
+structural command is:
 
 ```powershell
 & .\.venv\Scripts\python.exe tools\check_project.py
 ```
 
-Once available, use `tools/workbench.ps1 evidence` for the full fast gate.
+Use `.\tools\workbench.ps1 Evidence` for the full locked fast gate.
 Report missing tools as `BLOCKED`; do not reinterpret them as a pass.
 
 Update `docs/state.md`, the backlog, affected decisions and the research ledger

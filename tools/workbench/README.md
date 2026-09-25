@@ -11,6 +11,7 @@ From PowerShell at the repository root:
 .\tools\workbench.ps1 Setup
 .\tools\workbench.ps1 Doctor
 .\tools\workbench.ps1 LearnM0
+.\tools\workbench.ps1 LearnWaveform
 .\tools\workbench.ps1 All
 ```
 
@@ -19,10 +20,13 @@ minutes. Docker caches the verified result. `Doctor` shows what is installed;
 `All` verifies every installed version, then runs static checks, Verible lint,
 the same cocotb tests through both Icarus and Verilator, the M0 proof/cover/
 mutation suite, and generic synthesis. Individual commands are `Check`, `Lint`,
-`Test`, `TestVerilator`, `Formal`, `Synth`, `Evidence`, `LearnM0`, and `Shell`.
+`Test`, `TestVerilator`, `Formal`, `Synth`, `Evidence`, `LearnM0`,
+`LearnWaveform`, and `Shell`.
 The read-only `LearnM0` tour connects archived source lines to E0007/E0010
 evidence and explicitly stops at a teach-back prompt. Use, for example,
 `.\tools\workbench.ps1 LearnM0 Physical` to focus on the physical-flow claim.
+`LearnWaveform` reruns the real M0 simulation as text VCD, checks every rising
+edge, and prints a small table intended for first-time waveform reading.
 
 On Linux or WSL, use the equivalent `./tools/workbench.sh` commands. Both
 wrappers mount this repository at `/workspace`, so generated output appears in

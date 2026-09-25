@@ -11,6 +11,8 @@ when a new term first becomes necessary.
 | Test oracle | An independent rule for what the design should output. | The Python-side expected counter in `test/test.py`. |
 | Simulator diversity | Running the same oracle through independently implemented simulators to expose tool-specific behavior. | Icarus `results.xml` and Verilator `results-verilator.xml`. |
 | Waveform | A time plot of digital signal values. | `test/tb.fst` after simulation. |
+| FST | A compact binary waveform format suited to saving complete regressions. | Normal `Test` output at `test/tb.fst`. |
+| VCD | A readable text waveform format; larger than FST but convenient for teaching and simple tools. | `build/m0-learning.vcd` after `LearnWaveform`. |
 | Formal verification | Exhaustively searches the mathematical model for a counterexample to stated properties. | `formal/m0_gpio_formal.sv` and `build/formal/`. |
 | Assertion | A rule the implementation must satisfy for every allowed formal state. | Reset/count/hold/output rules in the M0 formal harness. |
 | Assumption | A restriction on the environment; an incorrect one can hide real failures. | Used only in the M0 cover task to request a readable wrap witness. |

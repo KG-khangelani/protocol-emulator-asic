@@ -18,6 +18,16 @@ Run `.\tools\workbench.ps1 LearnM0` for the evidence-backed guided tour before
 answering these. The command can verify that its source records agree; only the
 owner's explanations and follow-up reasoning can satisfy this learning gate.
 
+Start with two small steps rather than answering everything at once:
+
+1. Complete: “Generic synthesis establishes ____. It cannot establish ____.
+   E0010 adds ____.”
+2. Run `.\tools\workbench.ps1 LearnWaveform`, choose one printed row, and explain
+   which control inputs were sampled and why the output changed or held.
+
+We will refine an incomplete answer together. The remaining prompts deepen the
+same model; they are not assumed knowledge.
+
 - Point to the line of RTL that creates clocked state.
 - Explain reset priority using the waveform and specification table.
 - Name one behaviour covered by the cocotb oracle and one behaviour it cannot

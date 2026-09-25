@@ -47,6 +47,7 @@ run inside the pinned Linux workbench:
 .\tools\workbench.ps1 Setup
 .\tools\workbench.ps1 Doctor
 .\tools\workbench.ps1 LearnM0
+.\tools\workbench.ps1 LearnWaveform
 .\tools\workbench.ps1 All
 ```
 
@@ -55,10 +56,13 @@ rejects version drift, and `All` currently runs consistency checks, Verible
 lint, the same cocotb regression through Icarus and Verilator, the M0 formal
 proof/witness/falsification suite, and generic Yosys synthesis. Individual
 commands include `Check`, `Lint`, `Test`, `TestVerilator`, `Formal`, `Synth`,
-`Evidence`, `LearnM0`, and `Shell`. `LearnM0` is a read-only, evidence-backed
-tour; add `Physical` as its second argument to focus on synthesis-to-GDS.
+`Evidence`, `LearnM0`, `LearnWaveform`, and `Shell`. `LearnM0` is a read-only,
+evidence-backed tour; add `Physical` as its second argument to focus on
+synthesis-to-GDS. `LearnWaveform` reruns the M0 Icarus test in readable VCD mode
+and prints the reset, count, wrap, hold, resume and reset-priority edges.
 
-`make evidence` writes logs and a machine-readable manifest under
+`make evidence` reruns the verification stages, including the readable waveform
+walkthrough, and writes logs plus a machine-readable manifest under
 `build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero
 exit code. A generic Yosys result does not establish IHP area or timing.
 

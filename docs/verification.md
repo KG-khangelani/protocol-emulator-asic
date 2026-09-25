@@ -7,6 +7,7 @@ physical timing and real hardware observations as separate evidence categories.
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
 | RTL | Same `test/test.py` oracle through Icarus and Verilator, seed 20260922 | Wrap, reset priority, hold/resume, input noise, defined pin direction, simulator agreement |
+| Readable waveform | `LearnWaveform` VCD parser plus intentionally corrupted edge | Every M0 rising edge matches the transition table; learner can explain a selected edge |
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
 | Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |

@@ -26,17 +26,23 @@ and fails on a missing or different version. `Check` performs static consistency
 only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
 `Test` invokes cocotb/Icarus, while `TestVerilator` runs the same oracle through
 an independently implemented simulator; both reject missing, empty, skipped or
-failed JUnit results. `Formal` proves the M0 state/output contract, creates a
+failed JUnit results. `LearnWaveform` reruns Icarus in readable VCD mode, checks
+all rising-edge transitions, deliberately corrupts one edge to verify rejection,
+and prints selected events for a first-time waveform reader. `Formal` proves the M0 state/output contract, creates a
 reset-to-wrap witness, and confirms the assertions reject an increment-by-two
 mutant. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
 `build/synth.json`. `Evidence` records source hashes, exact commands, versions,
-and stage status. See `formal/README.md` for the proof assumptions and limits.
+stage status, and the learning waveform/JUnit artifacts. See `formal/README.md`
+for the proof assumptions and limits.
 
 GitHub's Docker setup and build actions are also pinned by commit. E0011
 qualifies Node 24-native setup-buildx v4.4.1 and build-push v7.4.0: the locked
 image identity is unchanged, all seven stages pass, the artifact uploads, and
 the prior Node 20 deprecation annotation is absent. These actions orchestrate
-the container; they do not replace or redefine the EDA tools inside it.
+the container; they do not replace or redefine the EDA tools inside it. That
+seven-stage statement describes E0011's historical source. Current evidence
+adds `learning_waveform` as an eighth checked stage without changing the RTL or
+physical acceptance flow.
 
 ## Physical gate
 
