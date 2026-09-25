@@ -1,0 +1,82 @@
+{
+  "schema": "protocol-emulator-evaluation-contract-v1",
+  "clock_target_hz": 50000000,
+  "primary_boundary": {
+    "id": "CHIP_COMPLETE",
+    "includes": [
+      "Tiny Tapeout top level",
+      "execution engine",
+      "program and data storage",
+      "post-fabrication loader and readback path",
+      "pin value and direction control",
+      "input synchronization",
+      "required queues and protocol-independent support logic"
+    ]
+  },
+  "secondary_boundary": {
+    "id": "CORE_ATTRIBUTION",
+    "purpose": "Explain where cost comes from; never substitute for the primary competition result."
+  },
+  "execution_statuses": [
+    {
+      "id": "PASS",
+      "meaning": "The declared command and checks completed successfully."
+    },
+    {
+      "id": "FAIL",
+      "meaning": "The workload or acceptance check ran and did not meet its declared expectation."
+    },
+    {
+      "id": "BLOCKED",
+      "meaning": "An attempted run could not complete; the exact blocker must be retained."
+    },
+    {
+      "id": "NOT_EVALUATED",
+      "meaning": "No qualifying run exists. This is neither a pass nor a failure."
+    },
+    {
+      "id": "NOT_APPLICABLE",
+      "meaning": "The metric genuinely does not apply; a written reason is required."
+    }
+  ],
+  "value_provenance": [
+    {
+      "id": "MEASURED",
+      "meaning": "Produced by a retained command, tool identity and artifact in this repository."
+    },
+    {
+      "id": "DERIVED",
+      "meaning": "Calculated from measured values with the formula and inputs retained."
+    },
+    {
+      "id": "UPSTREAM_OTHER_TECH",
+      "meaning": "Reported by a pinned external source under different implementation conditions; context only."
+    }
+  ],
+  "mandatory_workloads": [
+    "K-PIN-TRACE",
+    "K-INPUT-WAIT",
+    "K-SHIFT-8",
+    "K-BOUNDED-LOOP",
+    "P-RELOAD",
+    "P-UART-TX-8N1",
+    "P-UART-RX-8N1",
+    "P-SPI-HOST-4MODE",
+    "P-I2C-CONTROLLER-100K"
+  ],
+  "primary_metrics": [
+    "mandatory_workload_result",
+    "protocol_specific_rtl_delta",
+    "program_bits_per_workload",
+    "complete_state_bits",
+    "input_to_output_latency_cycles",
+    "edge_error_cycles",
+    "bounded_wait_cycles",
+    "cmos5l_cell_area_um2",
+    "cmos5l_cell_count",
+    "post_route_setup_slack_ns",
+    "post_route_hold_slack_ns",
+    "physical_check_violations"
+  ],
+  "comparison_rule": "Only compare values with the same boundary, workload, clock, source revision, toolchain, unit and evidence stage."
+}

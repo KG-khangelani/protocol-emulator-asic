@@ -70,6 +70,10 @@ efficiently express useful digital communication protocols under hard temporal c
   the temporal-sequencer hypothesis and tiny CPUs against exact locked upstream
   sources. It makes no architecture selection and treats external result claims
   as `NOT_EVALUATED` until reproduced.
+- The architecture evaluation contract now fixes complete-chip accounting,
+  shared microkernel/protocol workloads, two-axis result labels, falsification
+  gates and a non-weighted selection rule before candidate measurements exist.
+  This completes R0 research without opening M1 or selecting an ISA.
 
 ## Blocked or unverified
 

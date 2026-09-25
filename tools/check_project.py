@@ -88,8 +88,10 @@ require(
     "invalid research source observation timestamp",
 )
 established = research_sources["established_references"]
+standards = research_sources["standards"]
 competition = research_sources["contemporary_competition_scan"]
 require({source["id"] for source in established} == {"S9", "S10", "S11", "S12"}, "unexpected established research source set")
+require({source["id"] for source in standards} == {"S13"}, "unexpected research standard set")
 require({source["id"] for source in competition} == {"C1", "C2", "C3"}, "unexpected competition research source set")
 for source in established:
     require(re.fullmatch(r"[0-9a-f]{40}", source["commit"]), f"invalid source commit: {source['id']}")
@@ -100,5 +102,23 @@ for source in established:
 for source in competition:
     require(re.fullmatch(r"[0-9a-f]{40}", source["commit"]), f"invalid competition commit: {source['id']}")
     require(re.fullmatch(r"[0-9a-f]{40}", source["readme_git_blob_sha"]), f"invalid competition README blob: {source['id']}")
-print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, research source identities, learning entrypoint and Linux workspace ownership")
+evaluation = json.loads((ROOT / "docs/research/evaluation-contract.json").read_text())
+require(
+    evaluation["schema"] == "protocol-emulator-evaluation-contract-v1",
+    "unexpected architecture evaluation schema",
+)
+require(evaluation["primary_boundary"]["id"] == "CHIP_COMPLETE", "complete-chip boundary must remain primary")
+require(evaluation["secondary_boundary"]["id"] == "CORE_ATTRIBUTION", "unexpected attribution boundary")
+require(
+    {status["id"] for status in evaluation["execution_statuses"]}
+    == {"PASS", "FAIL", "BLOCKED", "NOT_EVALUATED", "NOT_APPLICABLE"},
+    "unexpected architecture execution-status vocabulary",
+)
+require(
+    {status["id"] for status in evaluation["value_provenance"]}
+    == {"MEASURED", "DERIVED", "UPSTREAM_OTHER_TECH"},
+    "unexpected architecture value-provenance vocabulary",
+)
+require(len(evaluation["mandatory_workloads"]) == len(set(evaluation["mandatory_workloads"])), "duplicate architecture workload")
+print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, research source/evaluation identities, learning entrypoint and Linux workspace ownership")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")

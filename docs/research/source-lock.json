@@ -1,7 +1,7 @@
 {
   "schema": "protocol-emulator-research-sources-v1",
-  "observed_at_utc": "2026-09-25T10:49:31Z",
-  "method": "GitHub REST API metadata and immutable content identities",
+  "observed_at_utc": "2026-09-25T10:54:14Z",
+  "method": "GitHub REST API metadata and immutable content identities, plus direct inspection of the primary standards publisher document",
   "claim_boundary": "The lock proves which upstream text and source files were inspected. It does not reproduce any upstream area, timing, protocol, or verification claim.",
   "established_references": [
     {
@@ -115,6 +115,19 @@
           "url": "https://github.com/lowRISC/opentitan/blob/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip/uart/README.md"
         }
       ]
+    }
+  ],
+  "standards": [
+    {
+      "id": "S13",
+      "name": "I2C-bus specification and user manual",
+      "publisher": "NXP Semiconductors",
+      "document": "UM10204",
+      "revision": "7.0",
+      "published": "2021-10-01",
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "observed_at_utc": "2026-09-25T10:54:14Z",
+      "claim_boundary": "Protocol and digital timing authority; this project still needs separate pad, board and silicon evidence for electrical compliance."
     }
   ],
   "contemporary_competition_scan": [

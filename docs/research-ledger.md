@@ -36,7 +36,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | ID | Claim | Falsification gate | State |
 |---|---|---|---|
 | H1 | A temporal VM covers UART, SPI and I2C compactly | Requires protocol-specific RTL escape paths or misses timing/fit | Unproven |
-| H2 | Explicit timing instructions simplify verification | Comparable controllers require fewer properties or expose fewer failure modes | Unproven |
+| H2 | Explicit timing instructions simplify verification | A program plus timing table cannot predict every required edge/response, or hidden latency prevents bounded properties | Unproven |
 | H3 | The candidate instruction set is near minimal | Removing/merging an instruction preserves coverage at acceptable cost | Unproven |
 | H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Unproven |
 
@@ -49,6 +49,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D3 | Use a locked Docker workbench for the fast verification lane | `decisions/0003-locked-workbench.md` |
 | D4 | Keep M0 physical acceptance on the official flow with direct actions and successful candidate inputs pinned immutably | `decisions/0004-pinned-physical-flow.md`, E0006, E0010 |
 | D5 | Pin Node 24-native Docker CI orchestration releases and qualify them without changing the EDA image | `decisions/0005-node24-ci-actions.md`, E0011 |
+| D6 | Compare CHIP_COMPLETE candidates with shared workloads, two-axis result labels and predeclared falsification/selection rules | `decisions/0006-architecture-evaluation-contract.md`, `research/evaluation-contract.md` |
 
 ## Experimental results
 

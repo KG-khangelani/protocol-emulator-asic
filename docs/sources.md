@@ -16,6 +16,7 @@ Checked: 2026-09-25. Recheck changeable rules before a release/submission.
 | S10 | https://github.com/olofk/serv/tree/f200eb2ed7b69ac1c6b8eddd47654522aeee5ce8 | Immutable SERV bit-serial CPU reference |
 | S11 | https://github.com/YosysHQ/picorv32/tree/ef203c2b0a3fb793280f5114941416c425c5b461 | Immutable PicoRV32 configurable CPU reference; archived at observation |
 | S12 | https://github.com/lowRISC/opentitan/tree/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip | Immutable OpenTitan protocol-IP documentation reference |
+| S13 | https://www.nxp.com/docs/en/user-guide/UM10204.pdf | NXP UM10204 Rev. 7.0 I2C-bus specification and digital timing authority |
 | C1 | https://github.com/Abagel-coder/protocol-emulator/tree/3546bcf6836ecc5256602812337cb92b11f0723f | Contemporary competition architecture self-report; not independently reproduced |
 | C2 | https://github.com/satyaammu93/jane-street-asic-2026/tree/65e0a742c1f91ac730c137afea5e154287267d67/protocol_emulator | Contemporary competition architecture self-report; not independently reproduced |
 | C3 | https://github.com/sjrai007/gp_pae/tree/621f4326131681d3d76320b83e9d14375961ce3a | Contemporary competition architecture self-report; not independently reproduced |
@@ -30,5 +31,5 @@ The template's old inline tile-size comment is not used as a physical-area
 measurement. Physical reports will be the authority for usable area and fit.
 
 Research metadata, licenses, Git blob identities and the observation timestamp
-for S9-S12 and C1-C3 are locked in `research/source-lock.json`. Upstream claims
+for S9-S13 and C1-C3 are locked in `research/source-lock.json`. Upstream claims
 remain upstream claims until reproduced in this repository's controlled flow.
