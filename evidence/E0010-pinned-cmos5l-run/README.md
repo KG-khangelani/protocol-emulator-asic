@@ -66,6 +66,11 @@ curating this record. Later work in between changed evidence, documentation,
 formal checks, and developer infrastructure, not the physical RTL,
 configuration, tests, or GDS workflow.
 
+`source-project.v` retains the exact M0 RTL from the run as a teaching snapshot.
+Its Git blob ID and SHA-256 are recorded in `result.json`, so the guided M0
+walkthrough can keep pointing to stable source lines after later milestones
+change the live RTL.
+
 ## Claim boundary
 
 This satisfies the **technical** M0 physical-flow gate: a corrected complete

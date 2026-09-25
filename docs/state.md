@@ -56,6 +56,10 @@ efficiently express useful digital communication protocols under hard temporal c
   resolved environment. Their metrics and 393,577-record GDS structures match;
   their exact GDS hashes differ only in 32 timestamp records. The technical M0
   physical gate is satisfied.
+- `workbench.ps1 LearnM0` provides a read-only guided inspection of the archived
+  RTL, fast verification, physical evidence, claim boundaries, and teach-back
+  prompt. Its verification mode is part of the static check; it cannot mark
+  owner fluency automatically.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 

@@ -76,5 +76,7 @@ require("--env HOME=/tmp" in workbench_sh, "Linux workbench user needs a writabl
 require(re.search(r"all\) inside=\(make .*test-verilator formal synth\)", workbench_sh), "Linux All command must include formal verification")
 workbench_ps1 = (ROOT / "tools/workbench.ps1").read_text()
 require(re.search(r"'All'.*'test-verilator', 'formal', 'synth'", workbench_ps1), "PowerShell All command must include formal verification")
-print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs and Linux workspace ownership")
+require("'LearnM0'" in workbench_ps1 and "tools/m0_walkthrough.py" in workbench_ps1, "PowerShell wrapper must expose the M0 walkthrough")
+require("learnm0|learn-m0" in workbench_sh and "tools/m0_walkthrough.py" in workbench_sh, "Linux wrapper must expose the M0 walkthrough")
+print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, learning entrypoint and Linux workspace ownership")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")

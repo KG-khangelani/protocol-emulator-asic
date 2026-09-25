@@ -46,6 +46,7 @@ run inside the pinned Linux workbench:
 ```powershell
 .\tools\workbench.ps1 Setup
 .\tools\workbench.ps1 Doctor
+.\tools\workbench.ps1 LearnM0
 .\tools\workbench.ps1 All
 ```
 
@@ -54,7 +55,8 @@ rejects version drift, and `All` currently runs consistency checks, Verible
 lint, the same cocotb regression through Icarus and Verilator, the M0 formal
 proof/witness/falsification suite, and generic Yosys synthesis. Individual
 commands include `Check`, `Lint`, `Test`, `TestVerilator`, `Formal`, `Synth`,
-`Evidence`, and `Shell`.
+`Evidence`, `LearnM0`, and `Shell`. `LearnM0` is a read-only, evidence-backed
+tour; add `Physical` as its second argument to focus on synthesis-to-GDS.
 
 `make evidence` writes logs and a machine-readable manifest under
 `build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero

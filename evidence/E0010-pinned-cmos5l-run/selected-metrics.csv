@@ -3,6 +3,8 @@ synthesis_mapped_cell_count,58,cells,Logic cells after CMOS5L technology mapping
 synthesis_mapped_cell_area,803.7792,um^2,Technology-mapped synthesis area
 final_standard_cell_count,80,cells,Placed standard cells including inserted buffers
 final_standard_cell_area,1166.66,um^2,Placed standard-cell area
+timing_repair_buffer_count,19,cells,Buffers inserted by the physical flow for timing repair
+clock_buffer_count,3,cells,Buffers inserted on the clock network
 instance_utilization,0.129282,percent,Standard-cell area divided by core area
 worst_setup_slack,13.585833287351596,ns,Minimum recorded setup margin at the 20 ns target
 worst_hold_slack,0.17207752376737762,ns,Minimum recorded hold margin

@@ -4,6 +4,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 image="protocol-emulator-asic-workbench:2026-07-29"
 command="${1:-All}"
+section="${2:-all}"
 
 build_workbench() {
     docker build \
@@ -31,9 +32,10 @@ case "${command,,}" in
     formal) inside=(make formal) ;;
     synth) inside=(make synth) ;;
     evidence) inside=(make evidence) ;;
+    learnm0|learn-m0) inside=(python3 tools/m0_walkthrough.py --section "${section,,}") ;;
     all) inside=(make doctor check lint test test-verilator formal synth) ;;
     shell) inside=(bash) ;;
-    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|All|Shell}" >&2; exit 2 ;;
+    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|LearnM0|All|Shell} [section]" >&2; exit 2 ;;
 esac
 
 exec docker run --rm --init \

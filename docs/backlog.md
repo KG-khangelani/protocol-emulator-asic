@@ -29,6 +29,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Pin direct workflow actions and the qualified physical-flow inputs.
 - [x] Add and remotely validate the non-gating upstream drift canary (E0008).
 - [x] Clean repository-pinned rerun reproduces the functional and physical result (E0010).
+- [x] Provide a runnable, source-backed M0 evidence walkthrough.
 - [ ] Complete and record the M0 owner fluency teach-back.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.

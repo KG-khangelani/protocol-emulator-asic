@@ -88,6 +88,8 @@
     "synthesis_mapped_area_um2": 803.7792,
     "final_standard_cells": 80,
     "final_standard_cell_area_um2": 1166.66,
+    "timing_repair_buffers": 19,
+    "clock_buffers": 3,
     "instance_utilization_percent": 0.129282,
     "worst_setup_slack_ns": 13.585833287351596,
     "worst_hold_slack_ns": 0.17207752376737762,
@@ -138,6 +140,11 @@
   "physical_input_equivalence": {
     "repository_head_checked": "40466485f879e0c1efe6183b98764540d84e9afc",
     "all_blob_ids_match_source_commit": true,
+    "archived_source": {
+      "path": "source-project.v",
+      "git_blob_sha1": "b7ec2316d58b385de55b9fefe732a9c8b45f1faa",
+      "sha256": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c"
+    },
     "blob_ids": {
       ".github/workflows/gds.yaml": "c2c0ca535474abb5ce17ef67b15c871b0e015195",
       "info.yaml": "90cc5a6fb55572d53db83e6e0fa96278fcee2665",

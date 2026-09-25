@@ -1,7 +1,9 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'TestVerilator', 'Formal', 'Synth', 'Evidence', 'All', 'Shell')]
-    [string]$Command = 'All'
+    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'TestVerilator', 'Formal', 'Synth', 'Evidence', 'LearnM0', 'All', 'Shell')]
+    [string]$Command = 'All',
+    [ValidateSet('All', 'RTL', 'Verification', 'Physical', 'Claims')]
+    [string]$Section = 'All'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -42,6 +44,7 @@ $inside = switch ($Command) {
     'Formal'   { @('make', 'formal') }
     'Synth'    { @('make', 'synth') }
     'Evidence' { @('make', 'evidence') }
+    'LearnM0'  { @('python3', 'tools/m0_walkthrough.py', '--section', $Section.ToLowerInvariant()) }
     'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'test-verilator', 'formal', 'synth') }
     'Shell'    { @('bash') }
 }

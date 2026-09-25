@@ -1,11 +1,12 @@
 PYTHON ?= python3
+LEARN_SECTION ?= all
 ifneq ($(wildcard .venv/bin/python),)
 PYTHON := $(CURDIR)/.venv/bin/python
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
-.PHONY: help setup doctor check lint test test-verilator formal synth evidence clean
+.PHONY: help setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify clean
 help:
-	@echo "setup doctor check lint test test-verilator formal synth evidence clean"
+	@echo "setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
@@ -13,6 +14,7 @@ doctor:
 	$(PYTHON) tools/doctor.py
 check:
 	$(PYTHON) tools/check_project.py
+	$(PYTHON) tools/m0_walkthrough.py --verify
 lint:
 	verible-verilog-lint --rules_config_search src/project.v formal/m0_gpio_formal.sv formal/mutants/m0_increment_by_two.v
 test:
@@ -32,5 +34,9 @@ synth:
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'
 evidence:
 	$(PYTHON) tools/collect_evidence.py
+learn-m0:
+	$(PYTHON) tools/m0_walkthrough.py --section $(LEARN_SECTION)
+learn-m0-verify:
+	$(PYTHON) tools/m0_walkthrough.py --verify
 clean:
 	rm -rf build test/sim_build test/results.xml test/results-verilator.xml test/tb.fst

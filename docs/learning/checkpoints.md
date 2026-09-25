@@ -14,6 +14,10 @@ experiment before relying on the concept in a design decision.
 
 ## M0 teach-back prompts
 
+Run `.\tools\workbench.ps1 LearnM0` for the evidence-backed guided tour before
+answering these. The command can verify that its source records agree; only the
+owner's explanations and follow-up reasoning can satisfy this learning gate.
+
 - Point to the line of RTL that creates clocked state.
 - Explain reset priority using the waveform and specification table.
 - Name one behaviour covered by the cocotb oracle and one behaviour it cannot

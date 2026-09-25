@@ -3,6 +3,27 @@
 Each lab follows **explain → predict → run → inspect → restate → record**.
 The prediction is important: it turns command execution into model building.
 
+## Guided M0 tour — start here
+
+If the individual tools are still unfamiliar, first run the read-only tour:
+
+```powershell
+.\tools\workbench.ps1 LearnM0
+```
+
+It reads the exact archived M0 RTL, E0007 fast-verification record, E0010
+physical record, JUnit results, and tool lock. It then connects each plain-
+language claim to its concrete number or source line. To revisit only the
+generic-synthesis-versus-physical-fit distinction, run:
+
+```powershell
+.\tools\workbench.ps1 LearnM0 Physical
+```
+
+The command validates that its inputs agree, but it cannot validate human
+understanding. The final restatement remains a conversation and is never
+auto-marked as a pass.
+
 ## Lab 0 — Is the repository internally consistent?
 
 **Idea:** A static checker can compare names and configuration without running
