@@ -11,6 +11,7 @@ physical timing and real hardware observations as separate evidence categories.
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
 | Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |
 | Formal | M0 SBY/Z3 proof, wrap covers, self-composition, and expected-failing mutant | Preserve remote evidence; extend to M1 execution semantics |
+| GDS reproducibility | `tools/compare_gds_records.py` | Separate BGNLIB/BGNSTR timestamp drift from geometry-record differences |
 | Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
 
