@@ -1,0 +1,61 @@
+{
+  "id": "E0004",
+  "checked_utc": "2026-09-25",
+  "source_commit": "b281e1537b69d777fd6e06545e7b594d6479cc0c",
+  "decision": "READY_TO_PUBLISH",
+  "secret_scanner": {
+    "name": "gitleaks",
+    "version": "8.30.1",
+    "image": "ghcr.io/gitleaks/gitleaks@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "history": {
+      "commits_scanned": 7,
+      "bytes_scanned": 128140,
+      "findings": 0,
+      "status": "PASS"
+    },
+    "directory": {
+      "bytes_scanned": 266246282,
+      "findings": 0,
+      "status": "PASS",
+      "includes_ignored_artifacts": true
+    }
+  },
+  "history_review": {
+    "git_pack_size": "54.01 KiB",
+    "largest_blob_path": "evidence/E0002-ci/verification-9119567.zip",
+    "largest_blob_size_in_bytes": 18746,
+    "unexpected_bulk_files": 0,
+    "status": "PASS"
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "github_detected": true,
+    "status": "PASS"
+  },
+  "ci": {
+    "commit": "b281e1537b69d777fd6e06545e7b594d6479cc0c",
+    "test": {
+      "status": "PASS",
+      "run_id": 36111127703,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36111127703"
+    },
+    "docs": {
+      "status": "PASS",
+      "run_id": 36111127698,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36111127698"
+    }
+  },
+  "dependency_advisory": {
+    "package": "pytest",
+    "affected_constraint": "<9.0.3",
+    "repository_version": "9.0.3",
+    "source_fix_commit": "5457cf42a32c26fdcd48095bdbbba6acd532d058",
+    "github_graph_state": "REFRESH_QUEUED"
+  },
+  "limits": [
+    "Pattern-based scanning is not proof that no sensitive information exists",
+    "The audit record commit itself is reviewed separately before publication",
+    "Workflow action references are not all immutable",
+    "This audit makes no claim that M0 is technically complete"
+  ]
+}
