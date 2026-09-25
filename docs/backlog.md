@@ -33,6 +33,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Provide and remotely qualify a beginner-readable M0 waveform walkthrough (E0012).
 - [x] Expose and remotely qualify conservative fluency status without automatic promotion (E0013).
 - [x] Qualify Node 24 Docker CI actions and remove the Node 20 runtime warning (E0011).
+- [ ] Qualify Docker-independent `LearnStatus` and `LearnM0 RTL` on clean Windows CI.
 - [ ] Complete and record the M0 owner fluency teach-back.
 
 Reference: `docs/specs/m0-gpio.md`; evidence index: `evidence/README.md`.

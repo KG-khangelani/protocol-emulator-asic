@@ -12,6 +12,42 @@ $image = 'protocol-emulator-asic-workbench:2026-07-29'
 $dockerfile = Join-Path $repoRoot 'tools\workbench\Dockerfile'
 $context = Join-Path $repoRoot 'tools\workbench'
 
+# The two read-only lessons inspect committed text evidence and use only the
+# Python standard library. Prefer a working host Python so a Docker outage does
+# not block the learning half of the project. All EDA execution remains in the
+# locked container below; if Python is unavailable, these commands retain the
+# container fallback.
+if ($Command -in @('LearnStatus', 'LearnM0')) {
+    $hostPython = $null
+    foreach ($candidate in @(Get-Command python -CommandType Application -All -ErrorAction SilentlyContinue)) {
+        & $candidate.Source --version *> $null
+        if ($LASTEXITCODE -eq 0) {
+            $hostPython = $candidate
+            break
+        }
+    }
+    if ($null -ne $hostPython) {
+        $lessonArguments = @()
+        if ($Command -eq 'LearnStatus') {
+            $lessonArguments += (Join-Path $repoRoot 'tools\learning_status.py')
+        }
+        else {
+            $lessonArguments += @(
+                (Join-Path $repoRoot 'tools\m0_walkthrough.py'),
+                '--section',
+                $Section.ToLowerInvariant()
+            )
+        }
+        Write-Output 'HOST LEARNING MODE: read-only evidence lesson; Docker and EDA tools are not required.'
+        & $hostPython.Source @lessonArguments
+        if ($LASTEXITCODE -ne 0) {
+            throw "host Python lesson exited with status $LASTEXITCODE"
+        }
+        exit 0
+    }
+    Write-Output 'Host Python is unavailable; using the locked Docker fallback for this lesson.'
+}
+
 function Invoke-CheckedDocker {
     param([string[]]$Arguments)
     & docker @Arguments

@@ -79,6 +79,12 @@ require(re.search(r"'All'.*'test-verilator', 'formal', 'synth'", workbench_ps1),
 require("'LearnM0'" in workbench_ps1 and "tools/m0_walkthrough.py" in workbench_ps1, "PowerShell wrapper must expose the M0 walkthrough")
 require("'LearnWaveform'" in workbench_ps1 and "learn-waveform" in workbench_ps1, "PowerShell wrapper must expose the waveform walkthrough")
 require("'LearnStatus'" in workbench_ps1 and "learn-status" in workbench_ps1, "PowerShell wrapper must expose learning status")
+require(
+    "HOST LEARNING MODE" in workbench_ps1
+    and "Get-Command python" in workbench_ps1
+    and "tools\\learning_status.py" in workbench_ps1,
+    "read-only PowerShell lessons must expose the Docker-independent host-Python path",
+)
 require("learnm0|learn-m0" in workbench_sh and "tools/m0_walkthrough.py" in workbench_sh, "Linux wrapper must expose the M0 walkthrough")
 require("learnwaveform|learn-waveform" in workbench_sh and "make learn-waveform" in workbench_sh, "Linux wrapper must expose the waveform walkthrough")
 require("learnstatus|learn-status" in workbench_sh and "make learn-status" in workbench_sh, "Linux wrapper must expose learning status")

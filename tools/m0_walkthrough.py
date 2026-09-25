@@ -174,7 +174,15 @@ def print_rtl(model: dict) -> None:
     print(f"Otherwise enable advances it by one: {path}:{anchors['increment']}")
     print(f"The register is exposed on the output pins: {path}:{anchors['output']}")
     print("Mental model: this is a tiny state machine. The clock edge is the moment it may act.")
-    print("Predict: count=0x2A and ena=0 at the next edge -> count remains 0x2A.")
+    print("\nTranslate the short signal names:")
+    print("  clk   clock: the repeating timing pulse; M0 acts only on its rising edge")
+    print("  rst_n reset-not: 0 means reset now; 1 means normal operation")
+    print("  ena   enable: 1 means count; 0 means pause and remember")
+    print("  00    hexadecimal zero: the eight output bits are all zero")
+    print("\nWorked row: rst_n=1, ena=0, before=00, after=00.")
+    print("Why: reset is not active, and enable says pause, so the register remembers 00.")
+    print("Practice: restate that 'why' sentence in your own words; terminology is optional.")
+    print("Next prediction: count=0x2A and ena=0 at a rising edge -> count remains 0x2A.")
 
 
 def print_verification(model: dict) -> None:

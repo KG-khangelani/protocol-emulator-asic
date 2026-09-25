@@ -20,8 +20,10 @@ efficiently express useful digital communication protocols under hard temporal c
   GitHub-reported SHA-256.
 - Publication controls are enabled: GitHub secret scanning, push protection,
   Dependabot security updates and private vulnerability reporting.
-- Docker Desktop is available locally. The project Python environment passes
-  static checks; native Windows `make`, Icarus and Yosys remain absent.
+- Docker Desktop was qualified locally for E0005/E0009. The current host has a
+  Docker Desktop 4.90 stale-AF_UNIX-socket startup failure; the Docker data disk
+  remains preserved and remote CI is unaffected. The project Python environment
+  passes static checks; native Windows `make`, Icarus and Yosys remain absent.
 - A locked Linux/amd64 Docker workbench provides exact-version checks, Verible
   lint, simulation and generic Yosys synthesis from Windows. E0005 records its
   initial Icarus validation; the current candidate also passes the same two
@@ -71,6 +73,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - `workbench.ps1 LearnStatus` now exposes one conservative M0-M5 learning
   record: technical and fluency gates are separate, every criterion starts as
   `NOT_DEMONSTRATED`, and automation is forbidden from promoting human fluency.
+- `workbench.ps1 LearnStatus` and `LearnM0` now have a Docker-independent,
+  read-only host-Python path. Local execution with Docker stopped is the current
+  candidate result; clean Windows CI qualification is pending.
 - Clean GitHub run 36130223560 passes all nine retained evidence stages and
   rejects a deliberately unearned fluency promotion. E0013 records the exact
   source, log, manifest, container identity and limitation; M0 fluency remains
@@ -94,6 +99,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
+- Local Docker EDA execution is unavailable until Windows permits the preserved
+  stale Secrets Engine socket directory to be quarantined or Docker Desktop is
+  updated with administrator approval. No factory reset or data deletion is an
+  acceptable substitute.
 - The official composite action's internally tagged dependencies remain a
   recorded trust boundary. The upstream canary reports change but never upgrades
   the qualified environment automatically.
@@ -102,8 +111,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable action
 
-Complete the M0 fluency teach-back using the retained source, commands, and
-evidence. Then record the checkpoint before advancing to M1 semantics.
+Qualify the Docker-independent M0 lesson on clean Windows CI, then complete the
+owner teach-back using the retained source, commands, and evidence. Record the
+checkpoint before advancing to M1 semantics.
 
 ## Handoff boundaries
 

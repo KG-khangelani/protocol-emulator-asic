@@ -7,6 +7,27 @@ concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
+  learning-windows:
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Run read-only lessons without Docker
+        shell: pwsh
+        run: |
+          $status = .\tools\workbench.ps1 LearnStatus | Out-String
+          if ($status -notmatch 'HOST LEARNING MODE' -or $status -notmatch 'technical=PASS') {
+            throw 'LearnStatus did not use the host-Python path or report the M0 technical gate.'
+          }
+          $rtl = .\tools\workbench.ps1 LearnM0 RTL | Out-String
+          if ($rtl -notmatch 'HOST LEARNING MODE' -or $rtl -notmatch 'rst_n reset-not') {
+            throw 'LearnM0 RTL did not use the host-Python path or teach the reset signal.'
+          }
+          $status
+          $rtl
+
   test:
     runs-on: ubuntu-24.04
     timeout-minutes: 45

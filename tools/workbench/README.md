@@ -25,6 +25,11 @@ mutation suite, and generic synthesis. Individual commands are `Check`, `Lint`,
 The read-only `LearnM0` tour connects archived source lines to E0007/E0010
 evidence and explicitly stops at a teach-back prompt. Use, for example,
 `.\tools\workbench.ps1 LearnM0 Physical` to focus on the physical-flow claim.
+On Windows, `LearnM0` and `LearnStatus` prefer host Python because they use only
+the standard library and never execute EDA tools. This keeps the learning path
+available when Docker is stopped; a missing host Python automatically falls
+back to the container. Start with `.\tools\workbench.ps1 LearnM0 RTL` for the
+short signal-name and hold-row lesson.
 `LearnWaveform` reruns the real M0 simulation as text VCD, checks every rising
 edge, and prints a small table intended for first-time waveform reading.
 

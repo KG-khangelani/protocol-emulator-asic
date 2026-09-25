@@ -28,6 +28,11 @@ only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
 an independently implemented simulator; both reject missing, empty, skipped or
 failed JUnit results. `LearnStatus` validates and prints the separate technical
 and human milestone gates; it cannot auto-assess human understanding.
+`LearnStatus` and `LearnM0` are read-only, standard-library Python lessons, so
+the PowerShell wrapper prefers a working host Python and does not require Docker
+for them. A clean Windows CI job exercises that route. If host Python is absent,
+the same scripts fall back to the locked container. This exception is only for
+reading committed evidence; every EDA operation remains container-locked.
 `LearnWaveform` reruns Icarus in readable VCD mode, checks
 all rising-edge transitions, deliberately corrupts one edge to verify rejection,
 and prints selected events for a first-time waveform reader. `Formal` proves the M0 state/output contract, creates a

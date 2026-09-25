@@ -5,8 +5,17 @@ The prediction is important: it turns command execution into model building.
 
 ## Guided M0 tour — start here
 
-First ask the repository what is technically complete and what still needs a
-human demonstration:
+Start with the smallest signal lesson. It uses only the Python standard library,
+so the PowerShell wrapper runs it directly on Windows when Python is available;
+Docker and the EDA tools are not needed:
+
+```powershell
+.\tools\workbench.ps1 LearnM0 RTL
+```
+
+It translates `clk`, `rst_n`, `ena`, and hexadecimal `00`, then works through
+one hold row before asking for a prediction. Next ask the repository what is
+technically complete and what still needs a human demonstration:
 
 ```powershell
 .\tools\workbench.ps1 LearnStatus
@@ -14,7 +23,7 @@ human demonstration:
 
 This command will never convert green CI into a human fluency pass. It shows the
 current criteria and the next small teach-back. If the individual tools are
-still unfamiliar, continue with the read-only tour:
+still unfamiliar, continue with the complete read-only tour:
 
 ```powershell
 .\tools\workbench.ps1 LearnM0
@@ -29,9 +38,10 @@ generic-synthesis-versus-physical-fit distinction, run:
 .\tools\workbench.ps1 LearnM0 Physical
 ```
 
-The command validates that its inputs agree, but it cannot validate human
-understanding. The final restatement remains a conversation and is never
-auto-marked as a pass.
+`LearnStatus` and `LearnM0` prefer host Python and fall back to the locked
+container only when host Python is unavailable. They validate that their inputs
+agree, but they cannot validate human understanding. The final restatement
+remains a conversation and is never auto-marked as a pass.
 
 `Evidence` also reruns the waveform lab and retains its VCD and JUnit result, so
 the teaching command is checked in CI. That still validates software behaviour,
