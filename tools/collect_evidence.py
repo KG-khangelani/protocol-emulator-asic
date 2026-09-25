@@ -25,6 +25,7 @@ manifest = {
     "python": platform.python_version(),
     "platform": platform.platform(),
     "source_sha256": {}, "tools": {}, "stages": [],
+    "formal_status": "NOT_EVALUATED: M0 property harness is not implemented yet",
     "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
 }
 names = git("ls-files", "--cached", "--others", "--exclude-standard").splitlines()
@@ -32,13 +33,26 @@ for name in sorted(set(names)):
     p = ROOT / name
     if p.is_file() and not name.startswith(("evidence/", "build/")):
         manifest["source_sha256"][name] = hashlib.sha256(p.read_bytes()).hexdigest()
-for binary, flag in (("iverilog", "-V"), ("vvp", "-V"), ("yosys", "-V"), ("git", "--version")):
-    path = shutil.which(binary)
+tool_commands = {
+    "git": ["git", "--version"],
+    "g++": ["g++", "--version"],
+    "iverilog": ["iverilog", "-V"],
+    "vvp": ["vvp", "-V"],
+    "verilator": ["verilator", "--version"],
+    "verible": ["verible-verilog-lint", "--version"],
+    "yosys": ["yosys", "-V"],
+    "sby": ["sby", "--version"],
+    "z3": ["z3", "--version"],
+    "boolector": ["boolector", "--version"],
+}
+for name, command in tool_commands.items():
+    path = shutil.which(command[0])
     if path:
-        r = subprocess.run([path, flag], capture_output=True, text=True, timeout=30)
-        manifest["tools"][binary] = (r.stdout + r.stderr).splitlines()[0]
+        r = subprocess.run(command, capture_output=True, text=True, timeout=30)
+        output = next((line for line in (r.stdout + r.stderr).splitlines() if line.strip()), "")
+        manifest["tools"][name] = output
     else:
-        manifest["tools"][binary] = "MISSING"
+        manifest["tools"][name] = "MISSING"
 for package in ("cocotb", "PyYAML"):
     try:
         manifest["tools"][package] = importlib.metadata.version(package)
@@ -46,8 +60,11 @@ for package in ("cocotb", "PyYAML"):
         manifest["tools"][package] = "MISSING"
 
 stages = [
+    ("doctor", [sys.executable, "tools/doctor.py"], []),
     ("static", [sys.executable, "tools/check_project.py"], []),
-    ("rtl", ["make", "test"], ["iverilog", "vvp", "cocotb-config"]),
+    ("lint", ["make", "lint"], ["verible-verilog-lint"]),
+    ("rtl_icarus", ["make", "test"], ["iverilog", "vvp", "cocotb-config"]),
+    ("rtl_verilator", ["make", "test-verilator"], ["verilator", "g++", "cocotb-config"]),
     ("generic_synthesis", ["make", "synth"], ["yosys"]),
 ]
 for name, command, required in stages:
@@ -67,10 +84,16 @@ for name, command, required in stages:
     (out / (name + ".log")).write_text(log)
     manifest["stages"].append(stage)
     print(name + ": " + stage["status"])
-for source in ("test/results.xml", "test/tb.fst", "build/synthesis.log", "build/synth.json"):
+artifact_sources = {
+    "test/results.xml": "rtl_icarus",
+    "test/results-verilator.xml": "rtl_verilator",
+    "test/tb.fst": "rtl_icarus",
+    "build/synthesis.log": "generic_synthesis",
+    "build/synth.json": "generic_synthesis",
+}
+for source, stage_name in artifact_sources.items():
     p = ROOT / source
     # Never copy stale artifacts from a stage that did not pass in this run.
-    stage_name = "rtl" if source.startswith("test/") else "generic_synthesis"
     if p.exists() and next(s for s in manifest["stages"] if s["name"] == stage_name)["status"] == "PASS":
         shutil.copy2(p, out / p.name)
 manifest["artifact_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}

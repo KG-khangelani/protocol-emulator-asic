@@ -6,11 +6,11 @@ physical timing and real hardware observations as separate evidence categories.
 | Layer | Current implementation | Next evidence |
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
-| RTL | `test/test.py`, seed 20260922 | Wrap, reset priority, hold/resume, input noise, defined pin direction |
+| RTL | Same `test/test.py` oracle through Icarus and Verilator, seed 20260922 | Wrap, reset priority, hold/resume, input noise, defined pin direction, simulator agreement |
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
 | Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |
-| Formal | Not implemented | M1 reset, PC bounds, exact waits and bounded progress |
+| Formal | Not implemented | M0 reset/count/wrap/hold/constant-output/input-independence properties, then M1 semantics |
 | Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
 

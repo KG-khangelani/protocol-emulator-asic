@@ -9,6 +9,7 @@ when a new term first becomes necessary.
 | Clock edge | The instant when synchronous state is allowed to change. | `always @(posedge clk)` in `src/project.v`. |
 | RTL | Source code that describes registers and the logic between them. | `src/project.v`. |
 | Test oracle | An independent rule for what the design should output. | The Python-side expected counter in `test/test.py`. |
+| Simulator diversity | Running the same oracle through independently implemented simulators to expose tool-specific behavior. | Icarus `results.xml` and Verilator `results-verilator.xml`. |
 | Waveform | A time plot of digital signal values. | `test/tb.fst` after simulation. |
 | Formal verification | Exhaustively searches the mathematical model for a counterexample to stated properties. | Introduced for M0 after the fast toolchain is available. |
 | Synthesis | Converts RTL into a network of logic cells. | Generic Yosys output and the CMOS5L synthesis report. |

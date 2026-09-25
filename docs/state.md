@@ -22,37 +22,35 @@ efficiently express useful digital communication protocols under hard temporal c
   Dependabot security updates and private vulnerability reporting.
 - Docker Desktop is available locally. The project Python environment passes
   static checks; native Windows `make`, Icarus and Yosys remain absent.
-- A locked Linux/amd64 Docker workbench now provides exact-version checks,
-  Verible lint, Icarus/cocotb simulation and generic Yosys synthesis from
-  Windows. Its exact-commit local checks pass; see `evidence/E0005-locked-workbench/`.
+- A locked Linux/amd64 Docker workbench provides exact-version checks, Verible
+  lint, simulation and generic Yosys synthesis from Windows. E0005 records its
+  initial Icarus validation; the current candidate also passes the same two
+  tests locally with Verilator.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.
 - The missing gate-level UDP model was added to `test/Makefile`; the exact E0003
-  netlist now passes locally. In corrected official run 36111852179, both the
-  GDS and gate-level jobs pass; precheck remains in progress at the last
-  observation.
+  netlist now passes locally. Corrected official run 36111852179 passes GDS,
+  gate-level regression and every precheck.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 
 ## Blocked or unverified
 
-- Corrected official run 36111852179 has not yet completed precheck, so it is
-  not a fully passing acceptance run yet.
 - The physical workflow still names a mutable upstream branch even though
   E0003 records the resolved action, flow and PDK revisions. Pin successful
   inputs after the passing rerun.
-- Fast GitHub CI does not yet consume the same tool lock. The second Verilator
-  simulation and M0 formal properties are not wired in.
+- The candidate fast GitHub workflow now builds the same lock and runs both
+  Icarus and Verilator, but its first remote result is pending. M0 formal
+  properties are not wired in.
 - No clean pinned physical rerun, FPGA run or devcontainer validation exists
   yet. Positive slack at the 20 ns target is not a measured maximum frequency.
 
 ## Next executable action
 
-Commit and evidence the locked developer workbench while corrected official run
-36111852179 finishes. Archive its results if every required job passes, then pin
-the physical workflow inputs and require a second clean run before declaring M0
-complete. In parallel, move fast CI to the lock and add the M0 formal harness.
+Validate the locked fast workflow on GitHub and add the M0 formal harness.
+Archive corrected physical run 36111852179, pin its resolved workflow inputs,
+and require a second clean run before declaring M0 complete.
 
 ## Handoff boundaries
 

@@ -25,6 +25,7 @@
     "debian_packages": {
       "ca-certificates": "20250419~deb12u1",
       "curl": "7.88.1-10+deb12u15",
+      "g++": "4:12.2.0-3",
       "git": "1:2.39.5-0+deb12u3",
       "make": "4.3-4.1"
     },
@@ -38,6 +39,11 @@
         "command": ["make", "--version"],
         "expected_output": "GNU Make 4.3",
         "purpose": "gives the project one consistent command interface"
+      },
+      "g++": {
+        "command": ["g++", "--version"],
+        "expected_output": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+        "purpose": "compiles Verilator's generated C++ hardware model"
       },
       "iverilog": {
         "command": ["iverilog", "-V"],
@@ -84,6 +90,15 @@
         "expected_output": "2.0.1",
         "purpose": "lets Python drive and inspect the simulated hardware"
       }
+    }
+  },
+  "fast_ci": {
+    "runner": "ubuntu-24.04",
+    "actions": {
+      "actions/checkout": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "docker/setup-buildx-action": "8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+      "docker/build-push-action": "10e90e3645eae34f1e60eeb005ba3a3d33f178e8",
+      "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
     }
   },
   "official_cmos5l_qualification": {

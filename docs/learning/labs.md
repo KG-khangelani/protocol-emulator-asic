@@ -42,6 +42,28 @@ rising edges should produce `01`, `02`, `03`.
 **Restate:** Explain why changing an input halfway between rising edges cannot
 immediately change the counter state.
 
+## Lab 1B — Ask a second simulator
+
+**Idea:** Icarus and Verilator are independent implementations. Agreement makes
+a simulator-specific mistake less likely, while both still share the same test
+oracle and can therefore share the same blind spot.
+
+**Predict:** Both commands should report the same two passing cases and the same
+simulated end time of 31,220 ns.
+
+**Run:**
+
+```powershell
+.\tools\workbench.ps1 Test
+.\tools\workbench.ps1 TestVerilator
+```
+
+**Inspect:** Compare `test/results.xml` with `test/results-verilator.xml`. Note
+that Verilator first translates the hardware into C++ and invokes `g++`.
+
+**Restate:** Explain why two agreeing simulators increase confidence without
+turning the finite test scenarios into a proof of every input sequence.
+
 ## Lab 1A — Check the ingredient batch
 
 **Idea:** A result is reproducible only when we can identify the tools that

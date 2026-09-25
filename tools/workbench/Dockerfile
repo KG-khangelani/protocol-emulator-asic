@@ -8,7 +8,6 @@ ARG OSS_CAD_SUITE_SHA256=89ea1152ea84bc600f18cc685f721d534d1f018e09831662787865a
 ARG VERIBLE_VERSION=v0.0-4296-g0f262651
 ARG VERIBLE_ARCHIVE=verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz
 ARG VERIBLE_SHA256=8569defb891d2316067613ea00442af28a7a09d405d95b54c0c91f9942d26635
-ARG REQUIREMENTS_SHA256=32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a
 
 LABEL org.opencontainers.image.title="Protocol Emulator ASIC verification workbench" \
       org.opencontainers.image.source="https://github.com/KG-khangelani/protocol-emulator-asic" \
@@ -25,6 +24,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates=20250419~deb12u1 \
         curl=7.88.1-10+deb12u15 \
+        g++=4:12.2.0-3 \
         git=1:2.39.5-0+deb12u3 \
         make=4.3-4.1 \
     && rm -rf /var/lib/apt/lists/*
@@ -59,6 +59,7 @@ COPY iverilog-suite /usr/local/bin/iverilog
 COPY vvp-system-python /usr/local/bin/vvp
 RUN chmod 0755 /usr/local/bin/iverilog /usr/local/bin/vvp
 
+ARG REQUIREMENTS_SHA256=32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a
 COPY requirements.lock /tmp/workbench-requirements.lock
 RUN echo "${REQUIREMENTS_SHA256}  /tmp/workbench-requirements.lock" | sha256sum --check --strict \
     && python -m pip install --no-cache-dir --require-hashes -r /tmp/workbench-requirements.lock \

@@ -1,15 +1,19 @@
 <!-- Modified from the template test instructions, 2026-09-22. -->
 # GPIO regression
 
-Run `make setup` and `make test` from the repository root. Icarus Verilog must
-be installed separately. Tests use pin observations, never internal DUT state.
+Run `./tools/workbench.ps1 Test` from the repository root for Icarus, or
+`./tools/workbench.ps1 TestVerilator` for the independent Verilator path. The
+locked workbench supplies both simulators. Tests use pin observations, never
+internal DUT state.
 
 - `reset_wrap_hold_and_resume`: reset priority, two wraps, pause and resume.
 - `seeded_control_and_input_noise`: 1,024 cycles, seed 20260922, sampled control
   variations and between-edge input/control perturbations.
 
-The specification is `../docs/specs/m0-gpio.md`. Results are `results.xml` and
-`tb.fst`; open the waveform using GTKWave or Surfer. The official CMOS5L
+The specification is `../docs/specs/m0-gpio.md`. Icarus writes `results.xml`
+and `tb.fst`; Verilator writes `results-verilator.xml`. Open the waveform using
+GTKWave or Surfer. Verilator is explicitly given `--timing` so it implements
+the testbench's delays instead of guessing. The official CMOS5L
 `gl_test` action supplies the gate-level netlist and PDK environment and runs
 the same harness using `make GATES=yes`.
 

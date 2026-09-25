@@ -34,5 +34,11 @@ for folder in ("tools", "test"):
         ast.parse(file.read_text(), filename=str(file.relative_to(ROOT)))
 for workflow in (ROOT / ".github/workflows").glob("*.yaml"):
     require(isinstance(yaml.safe_load(workflow.read_text()), dict), f"invalid workflow: {workflow.name}")
-print("PASS: metadata, pinout, source list, top module, clock target, Python syntax and workflow YAML")
+lock = json.loads((ROOT / "tools/workbench/toolchain.lock.json").read_text())
+fast_ci = lock["fast_ci"]
+test_workflow = (ROOT / ".github/workflows/test.yaml").read_text()
+require(f"runs-on: {fast_ci['runner']}" in test_workflow, "fast CI runner differs from toolchain lock")
+for action, commit in fast_ci["actions"].items():
+    require(f"uses: {action}@{commit}" in test_workflow, f"fast CI action differs from lock: {action}")
+print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, workflow YAML and fast-CI action pins")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")

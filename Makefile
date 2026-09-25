@@ -3,9 +3,9 @@ ifneq ($(wildcard .venv/bin/python),)
 PYTHON := $(CURDIR)/.venv/bin/python
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
-.PHONY: help setup doctor check lint test formal synth evidence clean
+.PHONY: help setup doctor check lint test test-verilator formal synth evidence clean
 help:
-	@echo "setup doctor check lint test formal synth evidence clean"
+	@echo "setup doctor check lint test test-verilator formal synth evidence clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
@@ -18,6 +18,9 @@ lint:
 test:
 	$(MAKE) -C test
 	$(PYTHON) tools/check_junit.py test/results.xml
+test-verilator:
+	$(MAKE) -C test SIM=verilator COCOTB_RESULTS_FILE=results-verilator.xml
+	$(PYTHON) tools/check_junit.py test/results-verilator.xml
 formal:
 	@echo "NOT_EVALUATED: the M0 formal harness is the next verified slice" >&2
 	@exit 2
@@ -27,4 +30,4 @@ synth:
 evidence:
 	$(PYTHON) tools/collect_evidence.py
 clean:
-	rm -rf build test/sim_build test/results.xml test/tb.fst
+	rm -rf build test/sim_build test/results.xml test/results-verilator.xml test/tb.fst

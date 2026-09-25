@@ -50,8 +50,9 @@ run inside the pinned Linux workbench:
 
 `Setup` builds the sealed tool environment, `Doctor` explains every tool and
 rejects version drift, and `All` currently runs consistency checks, Verible
-lint, Icarus/cocotb simulation and generic Yosys synthesis. Individual commands
-include `Check`, `Lint`, `Test`, `Formal`, `Synth`, `Evidence`, and `Shell`.
+lint, the same cocotb regression through Icarus and Verilator, and generic
+Yosys synthesis. Individual commands include `Check`, `Lint`, `Test`,
+`TestVerilator`, `Formal`, `Synth`, `Evidence`, and `Shell`.
 `Formal` intentionally reports `NOT_EVALUATED` until the M0 property harness is
 added in the next verified slice.
 

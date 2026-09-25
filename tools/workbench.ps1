@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'Formal', 'Synth', 'Evidence', 'All', 'Shell')]
+    [ValidateSet('Setup', 'Build', 'Doctor', 'Check', 'Lint', 'Test', 'TestVerilator', 'Formal', 'Synth', 'Evidence', 'All', 'Shell')]
     [string]$Command = 'All'
 )
 
@@ -38,10 +38,11 @@ $inside = switch ($Command) {
     'Check'    { @('make', 'check') }
     'Lint'     { @('make', 'lint') }
     'Test'     { @('make', 'test') }
+    'TestVerilator' { @('make', 'test-verilator') }
     'Formal'   { @('make', 'formal') }
     'Synth'    { @('make', 'synth') }
     'Evidence' { @('make', 'evidence') }
-    'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'synth') }
+    'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'test-verilator', 'synth') }
     'Shell'    { @('bash') }
 }
 

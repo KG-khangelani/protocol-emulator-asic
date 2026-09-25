@@ -9,16 +9,21 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(CURDIR)/../src
 PROJECT_SOURCES = project.v
 
+# Verilator requires an explicit decision about testbench delays.
+ifeq ($(SIM),verilator)
+COMPILE_ARGS += --timing
+endif
+
 ifneq ($(GATES),yes)
 
 # RTL simulation:
-SIM_BUILD				= sim_build/rtl
+SIM_BUILD				= sim_build/$(SIM)-rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
 
 else
 
 # Gate level simulation:
-SIM_BUILD				= sim_build/gl
+SIM_BUILD				= sim_build/$(SIM)-gl
 COMPILE_ARGS    += -DGL_TEST
 COMPILE_ARGS    += -DFUNCTIONAL
 COMPILE_ARGS    += -DSIM

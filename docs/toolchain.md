@@ -24,8 +24,9 @@ The supported local path is `tools/workbench.ps1` on Windows or
 `Doctor` checks installed outputs against `tools/workbench/toolchain.lock.json`
 and fails on a missing or different version. `Check` performs static consistency
 only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
-`Test` invokes cocotb/Icarus and rejects missing, empty, skipped or failed JUnit
-results. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
+`Test` invokes cocotb/Icarus, while `TestVerilator` runs the same oracle through
+an independently implemented simulator; both reject missing, empty, skipped or
+failed JUnit results. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
 `build/synth.json`. `Evidence` records source hashes, exact commands, versions
 and stage status. `Formal` is explicitly `NOT_EVALUATED` until the M0 property
 harness lands; a missing proof must not appear as a pass.
