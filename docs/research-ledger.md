@@ -15,6 +15,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F6 | The locked Linux/amd64 workbench passes exact-version checks, Verible lint, two M0 RTL tests and generic synthesis on Windows Docker Desktop | E0005 |
 | F7 | The corrected official run passes GDS generation, both generated-netlist tests, and all nine Tiny Tapeout prechecks | E0006 |
 | F8 | E0003 and E0006 have byte-identical GDS non-timestamp records; their full hashes differ only because 256 bytes in library/structure timestamp records changed | E0006 |
+| F9 | The M0 public-pin transition/output assertions pass k-induction, the reset-to-wrap covers are reachable, and the same assertions reject an increment-by-two mutant | `../formal/README.md`; remote evidence pending |
 
 ## Working hypotheses
 

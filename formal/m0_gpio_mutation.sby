@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 3
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal m0_increment_by_two.v m0_gpio_formal.sv
+prep -top m0_gpio_formal
+
+[files]
+formal/mutants/m0_increment_by_two.v
+formal/m0_gpio_formal.sv

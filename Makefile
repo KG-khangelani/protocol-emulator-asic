@@ -14,7 +14,7 @@ doctor:
 check:
 	$(PYTHON) tools/check_project.py
 lint:
-	verible-verilog-lint --rules_config_search src/project.v
+	verible-verilog-lint --rules_config_search src/project.v formal/m0_gpio_formal.sv formal/mutants/m0_increment_by_two.v
 test:
 	$(MAKE) -C test
 	$(PYTHON) tools/check_junit.py test/results.xml
@@ -22,8 +22,11 @@ test-verilator:
 	$(MAKE) -C test SIM=verilator COCOTB_RESULTS_FILE=results-verilator.xml
 	$(PYTHON) tools/check_junit.py test/results-verilator.xml
 formal:
-	@echo "NOT_EVALUATED: the M0 formal harness is the next verified slice" >&2
-	@exit 2
+	rm -rf build/formal
+	mkdir -p build/formal
+	sby -f -d build/formal/prove formal/m0_gpio.sby prove
+	sby -f -d build/formal/cover formal/m0_gpio.sby cover
+	sby -f -d build/formal/mutant formal/m0_gpio_mutation.sby
 synth:
 	mkdir -p build
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'

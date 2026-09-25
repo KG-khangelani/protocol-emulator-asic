@@ -26,6 +26,9 @@ efficiently express useful digital communication protocols under hard temporal c
   lint, simulation and generic Yosys synthesis from Windows. E0005 records its
   initial Icarus validation; the current candidate also passes the same two
   tests locally with Verilator.
+- The M0 formal suite locally proves the public-pin reset, count, wrap, hold,
+  fixed-output, and ignored-input properties, reaches the wrap in a cover
+  witness, and rejects an increment-by-two mutant.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.
@@ -44,20 +47,19 @@ efficiently express useful digital communication protocols under hard temporal c
   LibreLane, and PDK candidate identities are now locked. A clean run of that
   repository-pinned workflow is still required; the official composite action's
   internally tagged dependencies remain its recorded trust boundary.
-- The candidate fast GitHub workflow now builds the same lock and runs both
-  Icarus and Verilator, but its first remote result is pending. M0 formal
-  properties are not wired in.
+- The candidate fast GitHub workflow now builds the same lock and is wired for
+  Icarus, Verilator, formal checks, and synthesis. A corrected full remote pass
+  and archived artifact are still pending.
 - No clean pinned physical rerun, FPGA run or devcontainer validation exists
   yet. Positive slack at the 20 ns target is not a measured maximum frequency.
 
 ## Next executable action
 
-Validate the locked fast workflow on GitHub and add the M0 formal harness.
-Run the newly pinned physical workflow from a clean revision and archive its
-result before declaring M0 complete.
+Validate and archive the locked fast workflow, including the M0 formal suite.
+Archive the clean pinned physical workflow result before declaring M0 complete.
 
 ## Handoff boundaries
 
-M0 is **in progress**, not completed. No VM, protocol firmware, compiler, formal
-proof or physical-fit claim exists yet. The original OpenKnowledge records
+M0 is **in progress**, not completed. No VM, protocol firmware, compiler, or
+fabricated-silicon claim exists yet. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

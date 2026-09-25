@@ -26,10 +26,11 @@ and fails on a missing or different version. `Check` performs static consistency
 only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
 `Test` invokes cocotb/Icarus, while `TestVerilator` runs the same oracle through
 an independently implemented simulator; both reject missing, empty, skipped or
-failed JUnit results. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
-`build/synth.json`. `Evidence` records source hashes, exact commands, versions
-and stage status. `Formal` is explicitly `NOT_EVALUATED` until the M0 property
-harness lands; a missing proof must not appear as a pass.
+failed JUnit results. `Formal` proves the M0 state/output contract, creates a
+reset-to-wrap witness, and confirms the assertions reject an increment-by-two
+mutant. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
+`build/synth.json`. `Evidence` records source hashes, exact commands, versions,
+and stage status. See `formal/README.md` for the proof assumptions and limits.
 
 ## Physical gate
 
@@ -53,25 +54,24 @@ the PDK and tooling from the **CMOS5L action branch** used by this repo. The
 general guide still shows another IHP PDK and is not a drop-in process lock.
 Do not blindly replace `ihp-sg13cmos5l` with `ihp-sg13g2`.
 
-### First observed physical environment
+### Qualified physical-flow candidate
 
-E0003 resolved the CMOS5L action branch to action commit
+E0003 first resolved the CMOS5L action branch to action commit
 `3412659307918422f3f0727917cf9b499aaca588`, Tiny Tapeout support tools
 `d66cf179e7bc4d296362ab7e2e3b344dc3c4f665`, LibreLane `3.1.0.dev3`, and
 IHP Open PDK `2bbec755dc67ca3db0261c3d6163e15735d66710`. The GDS and precheck jobs
 passed. The gate-level runner used Python 3.11.16 and Icarus 13.0, but failed
 at elaboration because `test/Makefile` omitted `sg13cmos5l_udp.v`. That source
-list is corrected, and the exact archived netlist now passes locally with the
-recorded PDK model; official rerun acceptance is still pending.
-
-These identities describe what actually ran; they are not yet the repository's
-locked environment. Pinning is deferred until the corrected flow passes, so a
-bad integration is not frozen merely because its layout stage succeeded.
+list is corrected, and E0006 passes GDS, gate-level regression, and all nine
+prechecks with the same candidate identities. Direct workflow actions and the
+support-tools/LibreLane inputs are now pinned; a clean pinned run is in flight.
+The official composite action remains a recorded transitive trust boundary.
 
 ## Setup limitations
 
 Docker Desktop now works on the Windows host. Native Windows `make`, Icarus and
 Yosys remain absent by design; the verified container workbench provides the
-supported local lane. GitHub CI has not yet been moved onto that same lock, the
-second Verilator simulation and M0 formal harness are not yet wired in, and the
-official physical workflow still requires passing and clean pinned reruns.
+supported local lane. The fast GitHub workflow now uses that same image recipe,
+two simulators, formal verification, and synthesis, but its corrected remote run
+still needs to pass. The official physical workflow still requires its clean
+pinned result to be archived.

@@ -42,3 +42,11 @@ The cocotb oracle counts accepted edges independently and observes public pins,
 so the same harness can exercise the generated gate-level netlist. It samples
 1 ns after rising edges in zero-delay functional simulation. This is not a
 post-layout SDF or analog glitch/metastability assessment.
+
+The formal harness in `formal/m0_gpio_formal.sv` states reset, increment, hold,
+wrap, fixed bidirectional output, and ignored-input independence as assertions.
+Its safety proof makes no input assumptions and preserves unspecified power-up
+state. A cover-only assumption requests one reset followed by continuous enable
+to produce a readable wrap trace; an increment-by-two mutant must be rejected
+to demonstrate that the assertions are not vacuous. Formal proof covers only
+the written digital properties, not analog or physical behavior.

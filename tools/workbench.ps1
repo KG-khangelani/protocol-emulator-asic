@@ -42,7 +42,7 @@ $inside = switch ($Command) {
     'Formal'   { @('make', 'formal') }
     'Synth'    { @('make', 'synth') }
     'Evidence' { @('make', 'evidence') }
-    'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'test-verilator', 'synth') }
+    'All'      { @('make', 'doctor', 'check', 'lint', 'test', 'test-verilator', 'formal', 'synth') }
     'Shell'    { @('bash') }
 }
 

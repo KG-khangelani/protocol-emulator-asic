@@ -10,7 +10,7 @@ physical timing and real hardware observations as separate evidence categories.
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
 | Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |
-| Formal | Not implemented | M0 reset/count/wrap/hold/constant-output/input-independence properties, then M1 semantics |
+| Formal | M0 SBY/Z3 proof, wrap covers, self-composition, and expected-failing mutant | Preserve remote evidence; extend to M1 execution semantics |
 | Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
 

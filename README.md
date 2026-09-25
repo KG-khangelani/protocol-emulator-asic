@@ -50,11 +50,10 @@ run inside the pinned Linux workbench:
 
 `Setup` builds the sealed tool environment, `Doctor` explains every tool and
 rejects version drift, and `All` currently runs consistency checks, Verible
-lint, the same cocotb regression through Icarus and Verilator, and generic
-Yosys synthesis. Individual commands include `Check`, `Lint`, `Test`,
-`TestVerilator`, `Formal`, `Synth`, `Evidence`, and `Shell`.
-`Formal` intentionally reports `NOT_EVALUATED` until the M0 property harness is
-added in the next verified slice.
+lint, the same cocotb regression through Icarus and Verilator, the M0 formal
+proof/witness/falsification suite, and generic Yosys synthesis. Individual
+commands include `Check`, `Lint`, `Test`, `TestVerilator`, `Formal`, `Synth`,
+`Evidence`, and `Shell`.
 
 `make evidence` writes logs and a machine-readable manifest under
 `build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero

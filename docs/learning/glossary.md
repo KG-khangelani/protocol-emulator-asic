@@ -11,7 +11,11 @@ when a new term first becomes necessary.
 | Test oracle | An independent rule for what the design should output. | The Python-side expected counter in `test/test.py`. |
 | Simulator diversity | Running the same oracle through independently implemented simulators to expose tool-specific behavior. | Icarus `results.xml` and Verilator `results-verilator.xml`. |
 | Waveform | A time plot of digital signal values. | `test/tb.fst` after simulation. |
-| Formal verification | Exhaustively searches the mathematical model for a counterexample to stated properties. | Introduced for M0 after the fast toolchain is available. |
+| Formal verification | Exhaustively searches the mathematical model for a counterexample to stated properties. | `formal/m0_gpio_formal.sv` and `build/formal/`. |
+| Assertion | A rule the implementation must satisfy for every allowed formal state. | Reset/count/hold/output rules in the M0 formal harness. |
+| Assumption | A restriction on the environment; an incorrect one can hide real failures. | Used only in the M0 cover task to request a readable wrap witness. |
+| Cover property | A request for one reachable trace demonstrating a state or event. | M0 traces reaching `FF` and wrapping to `00`. |
+| Counterexample | A solver-generated input/state trace that violates an assertion. | The expected failure trace for the increment-by-two mutant. |
 | Synthesis | Converts RTL into a network of logic cells. | Generic Yosys output and the CMOS5L synthesis report. |
 | Standard cell | A pre-designed logic building block supplied by the process library. | `sg13cmos5l_*` cells in the physical synthesis report. |
 | PDK | The process design kit: manufacturing rules, cell data and tool files for a fabrication process. | IHP `ihp-sg13cmos5l`. |

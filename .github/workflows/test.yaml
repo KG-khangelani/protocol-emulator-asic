@@ -49,6 +49,7 @@ jobs:
             build/ci/workbench-image.json
             test/results*.xml
             test/tb.fst
+            build/formal/
             build/synthesis.log
             build/synth.json
           if-no-files-found: error

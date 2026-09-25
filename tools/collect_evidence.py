@@ -25,7 +25,7 @@ manifest = {
     "python": platform.python_version(),
     "platform": platform.platform(),
     "source_sha256": {}, "tools": {}, "stages": [],
-    "formal_status": "NOT_EVALUATED: M0 property harness is not implemented yet",
+    "formal_status": "PENDING",
     "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
 }
 names = git("ls-files", "--cached", "--others", "--exclude-standard").splitlines()
@@ -65,6 +65,7 @@ stages = [
     ("lint", ["make", "lint"], ["verible-verilog-lint"]),
     ("rtl_icarus", ["make", "test"], ["iverilog", "vvp", "cocotb-config"]),
     ("rtl_verilator", ["make", "test-verilator"], ["verilator", "g++", "cocotb-config"]),
+    ("formal", ["make", "formal"], ["sby", "z3"]),
     ("generic_synthesis", ["make", "synth"], ["yosys"]),
 ]
 for name, command, required in stages:
@@ -84,18 +85,26 @@ for name, command, required in stages:
     (out / (name + ".log")).write_text(log)
     manifest["stages"].append(stage)
     print(name + ": " + stage["status"])
+formal_stage = next(stage for stage in manifest["stages"] if stage["name"] == "formal")
+if formal_stage["status"] == "PASS":
+    manifest["formal_status"] = "PASS: safety proof and wrap covers passed; increment-by-two mutant was rejected"
+else:
+    manifest["formal_status"] = formal_stage["status"]
 artifact_sources = {
-    "test/results.xml": "rtl_icarus",
-    "test/results-verilator.xml": "rtl_verilator",
-    "test/tb.fst": "rtl_icarus",
-    "build/synthesis.log": "generic_synthesis",
-    "build/synth.json": "generic_synthesis",
+    "test/results.xml": ("rtl_icarus", "results.xml"),
+    "test/results-verilator.xml": ("rtl_verilator", "results-verilator.xml"),
+    "test/tb.fst": ("rtl_icarus", "tb.fst"),
+    "build/formal/prove/status": ("formal", "formal-prove.status"),
+    "build/formal/cover/status": ("formal", "formal-cover.status"),
+    "build/formal/mutant/status": ("formal", "formal-mutant.status"),
+    "build/synthesis.log": ("generic_synthesis", "synthesis.log"),
+    "build/synth.json": ("generic_synthesis", "synth.json"),
 }
-for source, stage_name in artifact_sources.items():
+for source, (stage_name, destination) in artifact_sources.items():
     p = ROOT / source
     # Never copy stale artifacts from a stage that did not pass in this run.
     if p.exists() and next(s for s in manifest["stages"] if s["name"] == stage_name)["status"] == "PASS":
-        shutil.copy2(p, out / p.name)
+        shutil.copy2(p, out / destination)
 manifest["artifact_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}
 (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 print(out.relative_to(ROOT))

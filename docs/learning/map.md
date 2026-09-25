@@ -35,6 +35,7 @@ confusing toolchain failures with architectural complexity.
 | RTL | `src/project.v` | Read the source | Counter state transition |
 | Specification | `docs/specs/m0-gpio.md` | Compare source with table | Expected pin value per edge |
 | Simulation | `test/test.py` | `make test` in the tool container | JUnit result and FST waveform |
+| Formal | `formal/m0_gpio_formal.sv` | `make formal` | Proof status, wrap witness, and rejected mutant trace |
 | Generic synthesis | `src/project.v` | `make synth` | Yosys log and structural JSON |
 | Physical flow | `src/config.json` plus RTL | GitHub `gds` workflow | Reports, netlist, GDS and render |
 | Gate-level test | Mapped netlist plus the same test | `make GATES=yes` in the official action | JUnit result and waveform |

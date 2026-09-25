@@ -20,7 +20,9 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Pass generic synthesis sanity check (E0002).
 - [x] Complete official CMOS5L RTL-to-GDS build and precheck (E0003).
 - [x] Pass and archive the corrected official GDS, gate-level, and precheck run (E0006).
-- [ ] Run fast CI from the same lock, including Verilator and M0 formal checks.
+- [x] Add Verilator as a second simulator in the locked workbench.
+- [x] Prove the M0 reset/count/wrap/hold/output/input-independence contract locally.
+- [ ] Pass and archive remote fast CI with Icarus, Verilator, formal, and synthesis.
 - [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
 - [x] Record resolved action/tool/PDK versions and environment (E0003).
 - [x] Pin direct workflow actions and the qualified physical-flow inputs.

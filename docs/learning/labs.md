@@ -85,6 +85,31 @@ hash. Then open `tools/workbench/toolchain.lock.json` and match one value.
 **Restate:** Explain why “I used Yosys” is weaker evidence than naming its exact
 version, input commit and command.
 
+## Lab 1C — Try every allowed digital control sequence
+
+**Idea:** Simulation samples chosen scenarios. Formal verification translates
+the RTL and its assertions into equations, then asks a solver whether any
+allowed state or input sequence can break a rule.
+
+**Predict:** The real M0 design should prove reset/count/hold/output properties,
+the cover task should reach `FF` and then `00`, and the intentionally wrong
+increment-by-two design should produce a counterexample rather than pass.
+
+**Run:**
+
+```powershell
+.\tools\workbench.ps1 Formal
+```
+
+**Inspect:** Find `DONE (PASS)` for `prove` and `cover`. Then find the mutant's
+expected assertion failure at step 2 and its counterexample trace under
+`build/formal/mutant/`. Open `formal/m0_gpio_formal.sv` and map one assertion
+back to a row of the M0 state-transition table.
+
+**Restate:** Explain why the real proof plus a rejected mutant is stronger than
+either result alone, and why neither establishes physical timing or analog
+behavior.
+
 ## Lab 2 — Distinguish source logic from physical evidence
 
 **Idea:** Yosys can translate the design into generic logic quickly. LibreLane

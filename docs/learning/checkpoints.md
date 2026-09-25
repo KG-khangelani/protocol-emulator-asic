@@ -22,3 +22,5 @@ experiment before relying on the concept in a design decision.
   timing corner and physical netlist.
 - Explain why a GDS file can exist even when gate-level simulation fails.
 - Identify the exact source commit and tool versions behind a physical result.
+- Distinguish an assertion, an assumption, a cover witness, and a
+  counterexample using the M0 formal files.

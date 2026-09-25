@@ -31,7 +31,7 @@ case "${command,,}" in
     formal) inside=(make formal) ;;
     synth) inside=(make synth) ;;
     evidence) inside=(make evidence) ;;
-    all) inside=(make doctor check lint test test-verilator synth) ;;
+    all) inside=(make doctor check lint test test-verilator formal synth) ;;
     shell) inside=(bash) ;;
     *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|All|Shell}" >&2; exit 2 ;;
 esac

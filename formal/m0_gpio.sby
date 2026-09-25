@@ -1,0 +1,25 @@
+[tasks]
+prove
+cover
+
+[options]
+prove:
+mode prove
+depth 10
+--
+cover:
+mode cover
+depth 270
+--
+
+[engines]
+smtbmc z3
+
+[script]
+cover: read -define M0_COVER
+read -formal project.v m0_gpio_formal.sv
+prep -top m0_gpio_formal
+
+[files]
+src/project.v
+formal/m0_gpio_formal.sv

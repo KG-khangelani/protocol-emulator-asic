@@ -62,5 +62,8 @@ for expected in (
 workbench_sh = (ROOT / "tools/workbench.sh").read_text()
 require('--user "$(id -u):$(id -g)"' in workbench_sh, "Linux workbench must preserve host workspace ownership")
 require("--env HOME=/tmp" in workbench_sh, "Linux workbench user needs a writable temporary home")
+require(re.search(r"all\) inside=\(make .*test-verilator formal synth\)", workbench_sh), "Linux All command must include formal verification")
+workbench_ps1 = (ROOT / "tools/workbench.ps1").read_text()
+require(re.search(r"'All'.*'test-verilator', 'formal', 'synth'", workbench_ps1), "PowerShell All command must include formal verification")
 print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs and Linux workspace ownership")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")
