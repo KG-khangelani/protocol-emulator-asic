@@ -23,6 +23,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [ ] Run fast CI from the same lock, including Verilator and M0 formal checks.
 - [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
 - [x] Record resolved action/tool/PDK versions and environment (E0003).
+- [x] Pin direct workflow actions and the qualified physical-flow inputs.
 - [ ] Clean rerun reproduces the functional result and physical acceptance.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.

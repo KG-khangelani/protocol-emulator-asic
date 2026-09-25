@@ -40,9 +40,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Blocked or unverified
 
-- The physical workflow still names a mutable upstream branch even though
-  E0006 records a complete passing run and the resolved action, flow, and PDK
-  revisions. Pin those successful inputs before the required clean rerun.
+- Direct repository workflow actions and the physical action, support-tools,
+  LibreLane, and PDK candidate identities are now locked. A clean run of that
+  repository-pinned workflow is still required; the official composite action's
+  internally tagged dependencies remain its recorded trust boundary.
 - The candidate fast GitHub workflow now builds the same lock and runs both
   Icarus and Verilator, but its first remote result is pending. M0 formal
   properties are not wired in.
@@ -52,8 +53,8 @@ efficiently express useful digital communication protocols under hard temporal c
 ## Next executable action
 
 Validate the locked fast workflow on GitHub and add the M0 formal harness.
-Archive corrected physical run 36111852179, pin its resolved workflow inputs,
-and require a second clean run before declaring M0 complete.
+Run the newly pinned physical workflow from a clean revision and archive its
+result before declaring M0 complete.
 
 ## Handoff boundaries
 

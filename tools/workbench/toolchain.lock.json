@@ -102,12 +102,22 @@
     }
   },
   "official_cmos5l_qualification": {
-    "outer_action_commit_observed": "3412659307918422f3f0727917cf9b499aaca588",
-    "support_tools_commit_observed": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "runner": "ubuntu-24.04",
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "outer_action_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "support_tools_repository": "TinyTapeout/tt-support-tools",
+    "support_tools_commit": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
     "librelane": "3.1.0.dev3",
     "pdk": "ihp-sg13cmos5l",
     "pdk_source": "IHP-Open-PDK",
     "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
-    "state": "observed-not-yet-qualified-or-pinned-in-workflow"
+    "e0006_transitive_actions_observed": {
+      "actions/setup-python": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/download-artifact": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+      "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "test-summary/action": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+      "TinyTapeout/ciel-action": "11703802099012722109e39b7e353eae0fea88bb"
+    },
+    "state": "e0006-qualified-candidate-pinned-in-repository-awaiting-clean-run"
   }
 }

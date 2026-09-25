@@ -32,6 +32,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D1 | Preserve official template; use an isolated GPIO M0 baseline | `decisions/0001-bootstrap.md` |
 | D2 | Use 50 MHz as the initial test/flow target, not a supported-performance claim | Inherited 20 ns template constraint; reassess after hardening |
 | D3 | Use a locked Docker workbench for the fast verification lane | `decisions/0003-locked-workbench.md` |
+| D4 | Keep M0 physical acceptance on the official flow with direct actions and successful candidate inputs pinned immutably | `decisions/0004-pinned-physical-flow.md`, E0006 |
 
 ## Experimental results
 

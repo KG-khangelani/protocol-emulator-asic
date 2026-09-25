@@ -40,8 +40,27 @@ test_workflow = (ROOT / ".github/workflows/test.yaml").read_text()
 require(f"runs-on: {fast_ci['runner']}" in test_workflow, "fast CI runner differs from toolchain lock")
 for action, commit in fast_ci["actions"].items():
     require(f"uses: {action}@{commit}" in test_workflow, f"fast CI action differs from lock: {action}")
+for workflow in (ROOT / ".github/workflows").glob("*.yaml"):
+    workflow_text = workflow.read_text()
+    for action_ref in re.findall(r"^\s*uses:\s*([^\s#]+)", workflow_text, re.M):
+        if not action_ref.startswith("./"):
+            require(re.search(r"@[0-9a-f]{40}$", action_ref), f"mutable action ref in {workflow.name}: {action_ref}")
+physical = lock["official_cmos5l_qualification"]
+gds_workflow = (ROOT / ".github/workflows/gds.yaml").read_text()
+require(f"runs-on: {physical['runner']}" in gds_workflow, "physical runner differs from toolchain lock")
+require(f"uses: actions/checkout@{physical['checkout_action_commit']}" in gds_workflow, "physical checkout action differs from lock")
+for action_path in ("", "/precheck", "/gl_test", "/viewer"):
+    expected = f"uses: TinyTapeout/tt-gds-action{action_path}@{physical['outer_action_commit']}"
+    require(expected in gds_workflow, f"physical action differs from lock: {action_path or '/'}")
+for expected in (
+    f"tools-repo: {physical['support_tools_repository']}",
+    f"tools-ref: {physical['support_tools_commit']}",
+    f"librelane-version: {physical['librelane']}",
+    f"pdk: {physical['pdk']}",
+):
+    require(expected in gds_workflow, f"physical workflow input differs from lock: {expected}")
 workbench_sh = (ROOT / "tools/workbench.sh").read_text()
 require('--user "$(id -u):$(id -g)"' in workbench_sh, "Linux workbench must preserve host workspace ownership")
 require("--env HOME=/tmp" in workbench_sh, "Linux workbench user needs a writable temporary home")
-print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, workflow YAML, fast-CI action pins and Linux workspace ownership")
+print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs and Linux workspace ownership")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")

@@ -1,41 +1,50 @@
-# Modified 2026-09-22: manual physical gate; viewer disabled until Pages setup.
+# Modified 2026-09-25: qualified inputs pinned; viewer disabled until Pages setup.
 name: gds
 
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   gds:
     runs-on: ubuntu-24.04
     steps:
       - name: checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           submodules: recursive
 
       - name: Build GDS
-        uses: TinyTapeout/tt-gds-action@ihp-cmos5l
+        uses: TinyTapeout/tt-gds-action@3412659307918422f3f0727917cf9b499aaca588
         with:
           pdk: ihp-sg13cmos5l
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: d66cf179e7bc4d296362ab7e2e3b344dc3c4f665
+          librelane-version: 3.1.0.dev3
 
   precheck:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
       - name: Run Tiny Tapeout Precheck
-        uses: TinyTapeout/tt-gds-action/precheck@ihp-cmos5l
+        uses: TinyTapeout/tt-gds-action/precheck@3412659307918422f3f0727917cf9b499aaca588
+        with:
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: d66cf179e7bc4d296362ab7e2e3b344dc3c4f665
 
   gl_test:
     needs: gds
     runs-on: ubuntu-24.04
     steps:
       - name: checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           submodules: recursive
 
       - name: GL test
-        uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l
+        uses: TinyTapeout/tt-gds-action/gl_test@3412659307918422f3f0727917cf9b499aaca588
 
   viewer:
     if: ${{ false }} # Enable explicitly after GitHub Pages is configured.
@@ -45,4 +54,4 @@ jobs:
       pages: write # to deploy to Pages
       id-token: write # to verify the deployment originates from an appropriate source
     steps:
-      - uses: TinyTapeout/tt-gds-action/viewer@ihp-cmos5l
+      - uses: TinyTapeout/tt-gds-action/viewer@3412659307918422f3f0727917cf9b499aaca588
