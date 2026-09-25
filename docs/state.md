@@ -74,8 +74,10 @@ efficiently express useful digital communication protocols under hard temporal c
   record: technical and fluency gates are separate, every criterion starts as
   `NOT_DEMONSTRATED`, and automation is forbidden from promoting human fluency.
 - `workbench.ps1 LearnStatus` and `LearnM0` now have a Docker-independent,
-  read-only host-Python path. Local execution with Docker stopped is the current
-  candidate result; clean Windows CI qualification is pending.
+  read-only host-Python path. Clean Windows job 108202843341 runs both lessons
+  without invoking Docker; the companion locked Linux job retains all nine
+  passing evidence stages. E0014 records the source, output, runner, jobs,
+  artifact, annotations and claim boundary.
 - Clean GitHub run 36130223560 passes all nine retained evidence stages and
   rejects a deliberately unearned fluency promotion. E0013 records the exact
   source, log, manifest, container identity and limitation; M0 fluency remains
@@ -111,9 +113,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable action
 
-Qualify the Docker-independent M0 lesson on clean Windows CI, then complete the
-owner teach-back using the retained source, commands, and evidence. Record the
-checkpoint before advancing to M1 semantics.
+Complete the owner teach-back using the Docker-independent M0 lesson and retained
+evidence. Record the checkpoint before advancing to M1 semantics.
 
 ## Handoff boundaries
 

@@ -1,0 +1,83 @@
+{
+  "schema": "protocol-emulator-docker-independent-learning-remote-v1",
+  "checked_utc": "2026-09-25",
+  "source_commit": "010fb2eb9e4ec2a436cf5932f368b128f3e1e487",
+  "test_run": {
+    "id": 36174849025,
+    "event": "push",
+    "status": "success",
+    "created_utc": "2026-09-25T18:39:49Z",
+    "completed_utc": "2026-09-25T18:41:38Z",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36174849025"
+  },
+  "windows_job": {
+    "id": 108202843341,
+    "status": "success",
+    "started_utc": "2026-09-25T18:39:52Z",
+    "completed_utc": "2026-09-25T18:40:10Z",
+    "declared_runner": "windows-2025",
+    "resolved_image": "windows-2025-vs2026",
+    "resolved_image_version": "20260922.246.2",
+    "runner_version": "2.337.0",
+    "operating_system": "Microsoft Windows Server 2025 10.0.26100 Datacenter",
+    "commands": [
+      ".\\tools\\workbench.ps1 LearnStatus",
+      ".\\tools\\workbench.ps1 LearnM0 RTL"
+    ],
+    "observed_markers": [
+      "HOST LEARNING MODE",
+      "technical=PASS        fluency=PENDING",
+      "rst_n reset-not: 0 means reset now; 1 means normal operation",
+      "Worked row: rst_n=1, ena=0, before=00, after=00."
+    ],
+    "docker_invoked_by_job": false,
+    "eda_invoked_by_job": false,
+    "annotation_count": 0
+  },
+  "locked_linux_job": {
+    "id": 108202843589,
+    "status": "success",
+    "started_utc": "2026-09-25T18:39:52Z",
+    "completed_utc": "2026-09-25T18:41:37Z",
+    "stages": {
+      "doctor": "PASS",
+      "static": "PASS",
+      "learning_status": "PASS",
+      "lint": "PASS",
+      "rtl_icarus": "PASS",
+      "learning_waveform": "PASS",
+      "rtl_verilator": "PASS",
+      "formal": "PASS",
+      "generic_synthesis": "PASS"
+    },
+    "git_status": "clean",
+    "workbench_image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "annotation_count": 0
+  },
+  "verification_artifact": {
+    "id": 10882650180,
+    "name": "verification-010fb2eb9e4ec2a436cf5932f368b128f3e1e487",
+    "size_in_bytes": 187151,
+    "digest": "sha256:74fccf6c959f81fa4fb637c05949065ce3db4b80ced14c26d5f12b0d50ad6787",
+    "created_utc": "2026-09-25T18:41:32Z",
+    "expires_utc": "2026-12-24T18:39:49Z",
+    "downloaded_manifest_sha256": "77e5dc17f24e14c51ae1e6faced6b9f9b7b9741f585c7c666ecc7f409340493f",
+    "downloaded_workbench_image_record_sha256": "7fd15d079d1a54be87189135e5b6854384ee6e111f69c773ded6f3895b975ce2"
+  },
+  "docs_run": {
+    "id": 36174849038,
+    "job_id": 108202842906,
+    "status": "success",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36174849038",
+    "annotation_count": 0
+  },
+  "source_sha256": {
+    ".github/workflows/test.yaml": "b199b2fb77adb8718d60039331c50a309de304441c322eb95a71f7f9625a0201",
+    "docs/decisions/0007-docker-independent-learning.md": "13f6bd2df2add64598fc2b4fe38c3d4dda6ab640bd52fcd23988f754d5c9e5e9",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "tools/check_project.py": "dc685e11128dfaa3a4fadfbc4b00e7b537cfa1695fd234578c39f7064c6c6b73",
+    "tools/learning_status.py": "a5d354915e44c19098aa876d827500be83f60615cbce4afaa6ebe964adf6b126",
+    "tools/m0_walkthrough.py": "be10d7614524dc703ae68a4a223dda9934aed080c26bc5426fc493d6bc3108e4",
+    "tools/workbench.ps1": "bb56c9ac67e7e98d8c0016cba94b3fa7f80e128295fe16d2121888271951fb02"
+  }
+}

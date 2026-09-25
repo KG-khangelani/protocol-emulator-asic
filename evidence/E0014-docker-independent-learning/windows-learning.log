@@ -1,0 +1,48 @@
+GitHub run: 36174849025
+Job: learning-windows (108202843341)
+Source: 010fb2eb9e4ec2a436cf5932f368b128f3e1e487
+Declared runner: windows-2025
+Resolved image: windows-2025-vs2026 20260922.246.2
+Operating system: Microsoft Windows Server 2025 10.0.26100 Datacenter
+
+COMMAND: .\tools\workbench.ps1 LearnStatus
+HOST LEARNING MODE: read-only evidence lesson; Docker and EDA tools are not required.
+PROJECT LEARNING STATUS - technical proof and human understanding stay separate
+==============================================================================
+M0 Toolchain and evidence    technical=PASS        fluency=PENDING
+M1 Sequencer                 technical=NOT_STARTED fluency=NOT_STARTED
+M2 UART                      technical=NOT_STARTED fluency=NOT_STARTED
+M3 SPI and I2C               technical=NOT_STARTED fluency=NOT_STARTED
+M4 Compiler                  technical=NOT_STARTED fluency=NOT_STARTED
+M5 Release                   technical=NOT_STARTED fluency=NOT_STARTED
+
+ACTIVE CHECKPOINT: M0 - Toolchain and evidence
+Required this milestone: Demonstrated With Support
+Demonstrated at that level: 0/5
+AUTOMATION BOUNDARY
+The repository can verify commands, artifacts, and this record's consistency.
+It cannot infer understanding from green CI or promote the fluency gate automatically.
+
+COMMAND: .\tools\workbench.ps1 LearnM0 RTL
+HOST LEARNING MODE: read-only evidence lesson; Docker and EDA tools are not required.
+M0 GUIDED WALKTHROUGH - from Verilog to GDS
+=================================================
+Purpose: inspect one real, qualified result and learn what each stage establishes.
+This command is read-only. Running it does NOT mark the fluency checkpoint complete.
+Physical snapshot: E0010, source 9ec2200410610cb107372cf7f6ec4d493448049f
+Archived RTL Git blob: b7ec2316d58b385de55b9fefe732a9c8b45f1faa
+
+Translate the short signal names:
+  clk   clock: the repeating timing pulse; M0 acts only on its rising edge
+  rst_n reset-not: 0 means reset now; 1 means normal operation
+  ena   enable: 1 means count; 0 means pause and remember
+  00    hexadecimal zero: the eight output bits are all zero
+
+Worked row: rst_n=1, ena=0, before=00, after=00.
+Why: reset is not active, and enable says pause, so the register remembers 00.
+Practice: restate that 'why' sentence in your own words; terminology is optional.
+Next prediction: count=0x2A and ena=0 at a rising edge -> count remains 0x2A.
+
+RESULT: PASS
+GitHub step started: 2026-09-25T18:40:04Z
+GitHub step completed: 2026-09-25T18:40:06Z

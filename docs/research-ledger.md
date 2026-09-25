@@ -22,6 +22,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F13 | Immutable Node 24 Docker action releases preserve the complete locked fast-CI result and remove the prior Node 20 deprecation annotation | E0011 |
 | F14 | A clean remote checkout runs the readable M0 waveform lab, checks all 1,561 rising edges against the declared transition table, and rejects an intentionally corrupted count edge | E0012 |
 | F15 | Clean CI retains separate technical/fluency gate validation and rejects a deliberately unearned active-milestone fluency PASS | E0013 |
+| F16 | A clean Windows checkout runs the read-only M0 status and RTL lessons through host Python without invoking Docker, while the complete locked Linux verification ladder remains green | E0014 |
 
 ## Verified upstream observations (not project measurements)
 
@@ -52,6 +53,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D4 | Keep M0 physical acceptance on the official flow with direct actions and successful candidate inputs pinned immutably | `decisions/0004-pinned-physical-flow.md`, E0006, E0010 |
 | D5 | Pin Node 24-native Docker CI orchestration releases and qualify them without changing the EDA image | `decisions/0005-node24-ci-actions.md`, E0011 |
 | D6 | Compare CHIP_COMPLETE candidates with shared workloads, two-axis result labels and predeclared falsification/selection rules | `decisions/0006-architecture-evaluation-contract.md`, `research/evaluation-contract.md` |
+| D7 | Keep evidence-reading lessons available through host Python while retaining Docker as the execution boundary for every EDA command | `decisions/0007-docker-independent-learning.md`, E0014 |
 
 ## Experimental results
 
@@ -69,6 +71,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0011 | Node 24 fast-CI action qualification | All 7 stages and artifact upload PASS; 0 annotations; locked image identity unchanged | CI orchestration only; no new physical or silicon claim; `../evidence/E0011-node24-fast-ci/` |
 | E0012 | Readable M0 waveform qualification | Clean CI passes 2 tests, checks all 1,561 rising edges, and rejects an intentional corruption | Same finite Icarus simulation, not a new independent chip-behavior proof or owner-fluency result; `../evidence/E0012-readable-waveform-ci/` |
 | E0013 | Conservative fluency-status qualification | Clean CI passes all 9 stages and rejects an unearned active-milestone fluency promotion | Validator integrity is not human understanding or ASIC evidence; `../evidence/E0013-fluency-status-ci/` |
+| E0014 | Docker-independent M0 lesson qualification | Clean Windows host lessons, all 9 locked Linux stages, artifact upload and docs PASS with zero annotations | Reading retained evidence is not EDA execution, Docker repair, or owner-fluency evidence; `../evidence/E0014-docker-independent-learning/` |
 
 ## Open questions
 

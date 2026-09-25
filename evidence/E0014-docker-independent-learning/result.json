@@ -1,0 +1,71 @@
+{
+  "schema": "protocol-emulator-docker-independent-learning-evidence-v1",
+  "id": "E0014",
+  "checked_utc": "2026-09-25",
+  "question": "Can a clean Windows checkout run the evidence-reading M0 lessons without invoking Docker, while the locked EDA regression remains green?",
+  "source_commit": "010fb2eb9e4ec2a436cf5932f368b128f3e1e487",
+  "status": "PASS",
+  "test_run": {
+    "id": 36174849025,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36174849025",
+    "event": "push",
+    "status": "success",
+    "created_utc": "2026-09-25T18:39:49Z",
+    "completed_utc": "2026-09-25T18:41:38Z",
+    "annotation_count": 0
+  },
+  "windows_lesson_job": {
+    "id": 108202843341,
+    "status": "success",
+    "declared_runner": "windows-2025",
+    "resolved_image": "windows-2025-vs2026",
+    "resolved_image_version": "20260922.246.2",
+    "learn_status_host_mode": "PASS",
+    "learn_m0_rtl_host_mode": "PASS",
+    "docker_invoked_by_job": false,
+    "eda_invoked_by_job": false
+  },
+  "locked_linux_job": {
+    "id": 108202843589,
+    "status": "success",
+    "stages_passed": 9,
+    "stages_total": 9,
+    "workbench_image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b"
+  },
+  "docs_run": {
+    "id": 36174849038,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36174849038",
+    "status": "success",
+    "job_id": 108202842906,
+    "annotation_count": 0
+  },
+  "verification_artifact": {
+    "id": 10882650180,
+    "name": "verification-010fb2eb9e4ec2a436cf5932f368b128f3e1e487",
+    "size_in_bytes": 187151,
+    "digest": "sha256:74fccf6c959f81fa4fb637c05949065ce3db4b80ced14c26d5f12b0d50ad6787",
+    "created_utc": "2026-09-25T18:41:32Z",
+    "expires_utc": "2026-12-24T18:39:49Z"
+  },
+  "learning_boundary": {
+    "active_milestone": "M0",
+    "technical_gate": "PASS",
+    "fluency_gate": "PENDING",
+    "skills_at_required_level": 0,
+    "skills_total": 5,
+    "automatic_human_promotion_allowed": false
+  },
+  "curated_sha256": {
+    "check-annotations.json": "49bb9b6d4be0c1e016f9de3a821081f05cc75d66acb33dd0a646e0a095a482fe",
+    "README.md": "e0e67a49d0c87b63ecd9d98637ef7e2f7de87eaa42561febe34f588f8151a8a2",
+    "remote-manifest.json": "ba4e41cb33d406a4def10582c73397e864c261b5a3ad2a7fee495c28b0f6c29d",
+    "windows-learning.log": "93d7985df4270297d639f1e7d947f170a40f5f7fff87894d7d8fa0fa0be2d10d"
+  },
+  "limits": [
+    "Read-only host Python is not an EDA execution environment",
+    "The Windows job proves these two commands on one resolved runner image, not every Windows installation",
+    "The fallback does not repair or qualify the current host Docker Desktop runtime",
+    "Automation cannot demonstrate owner understanding or promote the M0 fluency gate",
+    "This qualification changes no RTL and adds no protocol, physical, analog, FPGA or silicon evidence"
+  ]
+}
