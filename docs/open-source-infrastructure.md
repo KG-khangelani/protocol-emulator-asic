@@ -68,6 +68,10 @@ SHA-256 matches the lock, Python dependencies require package hashes, and
 makes the environment inspectable; it does not make a test result automatically
 correct.
 
+Repository text is checked out with LF line endings on every platform. This
+keeps byte-level source hashes stable between Windows and Linux while editors
+remain free to display the files normally.
+
 ## Read-only upstream canary
 
 The scheduled upstream-canary workflow compares the live Tiny Tapeout
