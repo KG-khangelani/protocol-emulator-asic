@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-09-25. Phase: **M0 — fluency closure**.
+Updated: 2026-09-26. Phase: **M0 — fluency closure**.
 Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -20,10 +20,12 @@ efficiently express useful digital communication protocols under hard temporal c
   GitHub-reported SHA-256.
 - Publication controls are enabled: GitHub secret scanning, push protection,
   Dependabot security updates and private vulnerability reporting.
-- Docker Desktop was qualified locally for E0005/E0009. The current host has a
-  Docker Desktop 4.90 stale-AF_UNIX-socket startup failure; the Docker data disk
-  remains preserved and remote CI is unaffected. The project Python environment
-  passes static checks; native Windows `make`, Icarus and Yosys remain absent.
+- Docker Desktop has recovered locally: signed version 4.92.0 runs Engine 29.8.0
+  on Linux/amd64, and E0015 passes all nine locked local evidence stages at a
+  clean source revision. The prior 4.90 stale-AF_UNIX-socket failure remains
+  recorded; the exact interactive recovery action is `NOT_EVALUATED`. The
+  existing Docker data VHDX remains present, but its contents were not audited.
+  Native Windows `make`, Icarus and Yosys remain absent by design.
 - A locked Linux/amd64 Docker workbench provides exact-version checks, Verible
   lint, simulation and generic Yosys synthesis from Windows. E0005 records its
   initial Icarus validation; the current candidate also passes the same two
@@ -78,6 +80,10 @@ efficiently express useful digital communication protocols under hard temporal c
   without invoking Docker; the companion locked Linux job retains all nine
   passing evidence stages. E0014 records the source, output, runner, jobs,
   artifact, annotations and claim boundary.
+- After the host recovery, local run E0015 independently passes doctor, static,
+  learning-status validation, lint, both simulators, the readable waveform,
+  formal proof/cover/mutation, and generic synthesis. It does not rerun or
+  replace the qualified E0006/E0010 physical results.
 - Clean GitHub run 36130223560 passes all nine retained evidence stages and
   rejects a deliberately unearned fluency promotion. E0013 records the exact
   source, log, manifest, container identity and limitation; M0 fluency remains
@@ -101,10 +107,6 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
-- Local Docker EDA execution is unavailable until Windows permits the preserved
-  stale Secrets Engine socket directory to be quarantined or Docker Desktop is
-  updated with administrator approval. No factory reset or data deletion is an
-  acceptable substitute.
 - The official composite action's internally tagged dependencies remain a
   recorded trust boundary. The upstream canary reports change but never upgrades
   the qualified environment automatically.

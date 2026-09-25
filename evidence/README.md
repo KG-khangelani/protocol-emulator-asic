@@ -16,6 +16,7 @@
 | E0012 | Can a clean GitHub checkout run the beginner-readable M0 waveform lab, check every rising edge, and reject a corrupted transition? | 2 tests and all 1,561 edges PASS; intentional corruption rejected; docs PASS | `E0012-readable-waveform-ci/README.md` |
 | E0013 | Can clean CI retain an auditable learning-gate record while rejecting an unearned human-fluency PASS? | 9 stages PASS; invalid promotion rejected; M0 fluency remains PENDING | `E0013-fluency-status-ci/README.md` |
 | E0014 | Can clean Windows run the evidence-reading M0 lessons without Docker while locked EDA CI remains green? | Host lessons PASS; 9 locked stages and docs PASS; M0 fluency remains PENDING | `E0014-docker-independent-learning/README.md` |
+| E0015 | Can the recovered Windows Docker host run the locked local M0 ladder end to end? | Signed Docker Desktop 4.92.0 and Linux engine healthy; all 9 local stages PASS; physical flow NOT RUN | `E0015-local-docker-recovery/README.md` |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

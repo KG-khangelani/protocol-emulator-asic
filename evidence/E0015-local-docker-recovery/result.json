@@ -1,0 +1,94 @@
+{
+  "schema": "protocol-emulator-local-docker-recovery-evidence-v1",
+  "id": "E0015",
+  "question": "After the Windows Docker failure, can this host again run the project's locked open-EDA workbench and pass the complete local M0 ladder?",
+  "observed_utc": "2026-09-25T22:09:25.183132Z",
+  "observed_local": "2026-09-26T00:09:25.183132+02:00",
+  "source_commit": "4de28fa55aa624c04f36d6a42c5d789795dc2f97",
+  "source_git_status": "",
+  "status": "PASS",
+  "recovery_attribution": {
+    "status": "NOT_EVALUATED",
+    "observation": "The owner reported Docker running; inspection then found a signed 4.92.0 installation and healthy engine. The exact interactive recovery action was not captured."
+  },
+  "host_runtime": {
+    "desktop_status": "running",
+    "docker_desktop": "4.92.0 (240144)",
+    "registry_display_version": "4.92.0",
+    "desktop_executable_version": "4.92.0.240144",
+    "desktop_executable_sha256": "9fbffc07e7a884bf64dca8080158dd3c94deeb87a909006570cb39439bae768f",
+    "authenticode_status": "Valid",
+    "authenticode_signer": "Docker Inc",
+    "authenticode_thumbprint": "B6BD29272B07AD4D0F1322A739499D67CA3BAC3F",
+    "client": "29.8.0 windows/amd64",
+    "engine": "29.8.0 linux/amd64",
+    "containerd": "v2.3.5",
+    "runc": "1.5.1",
+    "docker_data_vhdx": {
+      "path": "H:\\dockerStuff\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+      "present": true,
+      "logical_length_bytes": 124933636096,
+      "content_integrity": "NOT_EVALUATED"
+    }
+  },
+  "workbench": {
+    "tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "image_id": "sha256:b0798eacd16296895e70a6fd32112222bb3cc55ae65f752b567cc0e3f977c1b7",
+    "repo_digest": "protocol-emulator-asic-workbench@sha256:b0798eacd16296895e70a6fd32112222bb3cc55ae65f752b567cc0e3f977c1b7",
+    "platform": "linux/amd64",
+    "python": "3.11.16",
+    "doctor": "PASS"
+  },
+  "stages": [
+    {"name": "doctor", "status": "PASS"},
+    {"name": "static", "status": "PASS"},
+    {"name": "learning_status", "status": "PASS"},
+    {"name": "lint", "status": "PASS"},
+    {"name": "rtl_icarus", "status": "PASS"},
+    {"name": "learning_waveform", "status": "PASS"},
+    {"name": "rtl_verilator", "status": "PASS"},
+    {"name": "formal", "status": "PASS"},
+    {"name": "generic_synthesis", "status": "PASS"}
+  ],
+  "stage_count": {"passed": 9, "total": 9},
+  "behavioral_observations": {
+    "icarus_tests": 2,
+    "verilator_tests": 2,
+    "waveform_rising_edges_checked": 1561,
+    "intentional_waveform_corruption_rejected": true,
+    "formal_safety": "PASS",
+    "formal_wrap_covers": "PASS",
+    "increment_by_two_mutant": "REJECTED_AS_EXPECTED"
+  },
+  "physical_status": "NOT_RUN: use the official CMOS5L workflow; generic synthesis is not physical-fit evidence",
+  "selected_source_sha256": {
+    "src/project.v": "acc87557d9abcc07b915eec50916d7f2479c10df6289842de787c12fdc4242db",
+    "test/test.py": "23f3c6d7073b5358803aa547207f1d94afbe66e3e6bef6c0a8e080772fa06b89",
+    "formal/m0_gpio_formal.sv": "efb0ea59fec120d83218ab4c06ef44a1429ad818f4789b7ad200b8c5c9f34402",
+    "tools/collect_evidence.py": "5d7dda01620cf1a563fefad63a8276f44f11f87c87f7032cd008517a34f73442",
+    "tools/workbench/Dockerfile": "9f478acb7a5a49a44ac4a96e5c38ccb48ff1276590880418c119fecd8c170d2e",
+    "tools/workbench/toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81"
+  },
+  "generated_evidence_sha256": {
+    "manifest.json": "0eede2052b695e71b450d4425368d2c2384c72fd19c5401770f6790b28083701",
+    "doctor.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+    "learning_waveform.log": "eaad5a2ac45a606db6433bf324f3e2e7af88f1d1e9db43167ab4d0b276daaa1f",
+    "m0-learning.vcd": "c24cb9481fcbcb0e2a2bc62d3a439865a49bc0c87c0111357299d3fc62d316d9",
+    "results.xml": "df9d8fc6c0eec95aee06fdc32e30dfab1c5be9c2ba49dc30b90f43f750aed3a8",
+    "results-verilator.xml": "9cf5ed672455f53ebe463065c333ce6428c1686e85d95a13746ee92726f3e318",
+    "results-learning.xml": "764f8bd8cd92d2663f4d223d289fdd1e86270d96352f6b91bd3e96e00cfe3546",
+    "formal-prove.status": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "formal-cover.status": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+    "formal-mutant.status": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+    "synthesis.log": "bba2e78ff8eea14a4b6b346009af4cb31ee8861e6b248b0580f5ed90bb14db24",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743"
+  },
+  "limits": [
+    "The exact interactive action that completed Docker recovery was not captured",
+    "Presence of the existing Docker data VHDX does not prove the integrity of every image, container or volume",
+    "The local evidence ladder does not run the official CMOS5L physical flow",
+    "Generic synthesis does not prove physical fit or post-route timing",
+    "A green automated run does not demonstrate owner fluency",
+    "No protocol, FPGA, analog or fabricated-silicon claim is added"
+  ]
+}

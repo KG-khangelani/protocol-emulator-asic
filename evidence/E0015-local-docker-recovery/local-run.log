@@ -1,0 +1,55 @@
+E0015 LOCAL DOCKER RECOVERY - CURATED CONSOLE RECORD
+====================================================
+Observed UTC: 2026-09-25T22:09:25.183132Z
+Observed local: 2026-09-26T00:09:25.183132+02:00
+Source: 4de28fa55aa624c04f36d6a42c5d789795dc2f97
+Source Git status before collection: clean
+
+DOCKER HOST
+Status: running
+Docker Desktop: 4.92.0 (240144)
+Docker client: 29.8.0, windows/amd64
+Docker engine: 29.8.0, linux/amd64
+containerd: v2.3.5
+runc: 1.5.1
+Docker Desktop executable signature: Valid, Docker Inc
+Docker Desktop executable SHA-256:
+9fbffc07e7a884bf64dca8080158dd3c94deeb87a909006570cb39439bae768f
+
+LOCKED WORKBENCH
+Tag: protocol-emulator-asic-workbench:2026-07-29
+Image: sha256:b0798eacd16296895e70a6fd32112222bb3cc55ae65f752b567cc0e3f977c1b7
+Platform: linux/amd64
+Doctor result: PASS - every required tool matches its recorded version.
+Doctor limitation: tool identity does not establish RTL correctness or physical acceptance.
+
+COMMAND
+.\tools\workbench.ps1 Evidence
+
+RESULT
+doctor: PASS
+static: PASS
+learning_status: PASS
+lint: PASS
+rtl_icarus: PASS
+learning_waveform: PASS
+rtl_verilator: PASS
+formal: PASS
+generic_synthesis: PASS
+build/evidence/20260925T220925183132Z
+exit code: 0
+
+READABLE WAVEFORM CHECK
+Tests: 2 PASS, 0 FAIL
+Rising edges checked: 1561
+Intentional corrupted transition: rejected (PASS)
+hold row: rst_n=1, ena=0, before=00, after=00
+reset-wins row: rst_n=0, ena=1, before=01, after=00
+
+FORMAL CHECK
+Safety assertions: PASS
+Wrap cover witnesses: PASS, reached at steps 257 and 258
+Increment-by-two mutant: rejected by assertions at step 2 (expected)
+
+PHYSICAL STATUS
+NOT_RUN: this local fast lane does not replace the official CMOS5L workflow.
