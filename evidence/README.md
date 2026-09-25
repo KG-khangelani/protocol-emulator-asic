@@ -8,6 +8,7 @@
 | E0004 | Is the repository ready to cross the private-to-public boundary? | History and directory secret scans PASS; license, history, object-size and CI checks PASS | `E0004-publication-audit/README.md` |
 | E0005 | Can Windows run the fast checks in one version-verified open EDA environment? | Doctor, static, lint, RTL and generic synthesis PASS; formal and physical are explicitly NOT_EVALUATED | `E0005-locked-workbench/README.md` |
 | E0006 | Does the UDP-corrected official CMOS5L run pass every required job? | GDS, 2 gate-level tests, and all 9 prechecks PASS; pinned clean rerun remains required | `E0006-cmos5l-corrected-run/README.md` |
+| E0007 | Does clean remote CI reproduce the locked fast ladder and M0 formal proof? | Icarus, Verilator, formal proof/cover/mutation, lint, static, and generic synthesis PASS | `E0007-locked-fast-ci/README.md` |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

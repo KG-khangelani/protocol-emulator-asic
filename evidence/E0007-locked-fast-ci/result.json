@@ -1,0 +1,88 @@
+{
+  "id": "E0007",
+  "checked_utc": "2026-09-25",
+  "source_commit": "c662a906a0328e2130ba6e70a26180200f1b1eaf",
+  "run_id": 36119276357,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36119276357",
+  "status": "success",
+  "job": {
+    "id": 108020641199,
+    "name": "test",
+    "started_utc": "2026-09-25T09:35:18Z",
+    "completed_utc": "2026-09-25T09:37:03Z",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 10856910264,
+    "name": "verification-c662a906a0328e2130ba6e70a26180200f1b1eaf",
+    "size_in_bytes": 158457,
+    "digest": "sha256:7d406e05fcae5e3dc355ed14919faaa31dc79e7ea29eaaffe6fc8a7e0238727e",
+    "expires_utc": "2026-12-24T09:35:16Z"
+  },
+  "workbench": {
+    "image_tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "platform": "linux/amd64",
+    "python": "3.11.16",
+    "iverilog": "14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "verilator": "5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+    "verible": "v0.0-4296-g0f262651",
+    "yosys": "0.67+111 (4821ed17b-dirty)",
+    "sby": "v0.67-4-gfea6e46",
+    "z3": "4.15.5"
+  },
+  "stages": {
+    "doctor": "PASS",
+    "static": "PASS",
+    "lint": "PASS",
+    "rtl_icarus": "PASS",
+    "rtl_verilator": "PASS",
+    "formal": "PASS",
+    "generic_synthesis": "PASS"
+  },
+  "rtl": {
+    "icarus_tests_passed": 2,
+    "icarus_random_seed": 1790329013,
+    "verilator_tests_passed": 2,
+    "verilator_random_seed": 1790329015,
+    "simulated_time_per_engine_ns": 31220,
+    "tests": [
+      "reset_wrap_hold_and_resume",
+      "seeded_control_and_input_noise"
+    ]
+  },
+  "formal": {
+    "engine": "smtbmc z3",
+    "proof": "PASS by k-induction",
+    "proof_depth": 10,
+    "safety_input_assumptions": 0,
+    "cover": "PASS",
+    "cover_ff_step": 257,
+    "cover_wrap_step": 258,
+    "mutant": "EXPECTED_FAIL",
+    "mutant_defect": "counter increments by two",
+    "mutant_detected_step": 2
+  },
+  "generic_synthesis": {
+    "status": "PASS",
+    "top": "tt_um_khangelani_protocol_emulator",
+    "cells": 22,
+    "physical_fit_evaluated": false
+  },
+  "curated_sha256": {
+    "formal-cover.log": "23125c471a7fd03b12056628cfb256286e0c520faae0aeac9456624f113722f5",
+    "formal-mutant.log": "ff42ca22dee17c01b06ac0c21170cfa36ba03a852d2437bd5d3baedde766226b",
+    "formal-prove.log": "e772843f54e90519a956b8ce7c9526b725b4d8c0b36de2483c4684a9b68d1df3",
+    "manifest.json": "55e141d2180a8138980269099df5983b5a58d00c4f2b4de87af074af2748b7c3",
+    "results-icarus.xml": "85fe6adda40d83662129fe969eeaf41c5bc6f35e0c01bff40e60e446ead13d98",
+    "results-verilator.xml": "b0a02c14d88967b1782e93dcec716bf8ddde0493b2151dca6719baca4f03e6cf",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743"
+  },
+  "limits": [
+    "Formal proof covers the written properties, not property completeness",
+    "Cover-task assumptions are not safety-proof assumptions",
+    "One intentional mutant is evidence of sensitivity, not a complete mutation campaign",
+    "Generic synthesis is not IHP area, timing, routing, DRC, LVS, or fabricated-silicon evidence",
+    "The separate repository-pinned CMOS5L run is still pending"
+  ]
+}

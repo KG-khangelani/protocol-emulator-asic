@@ -1,0 +1,35 @@
+SBY  9:36:57 [build/formal/mutant] Removing directory '/workspace/build/formal/mutant'.
+SBY  9:36:57 [build/formal/mutant] Copy '/workspace/formal/mutants/m0_increment_by_two.v' to '/workspace/build/formal/mutant/src/m0_increment_by_two.v'.
+SBY  9:36:57 [build/formal/mutant] Copy '/workspace/formal/m0_gpio_formal.sv' to '/workspace/build/formal/mutant/src/m0_gpio_formal.sv'.
+SBY  9:36:57 [build/formal/mutant] engine_0: smtbmc z3
+SBY  9:36:57 [build/formal/mutant] base: starting process "cd build/formal/mutant/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  9:36:57 [build/formal/mutant] base: finished (returncode=0)
+SBY  9:36:57 [build/formal/mutant] prep: starting process "cd build/formal/mutant/model; yosys -ql design_prep.log design_prep.ys"
+SBY  9:36:57 [build/formal/mutant] prep: finished (returncode=0)
+SBY  9:36:57 [build/formal/mutant] smt2: starting process "cd build/formal/mutant/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  9:36:57 [build/formal/mutant] smt2: finished (returncode=0)
+SBY  9:36:57 [build/formal/mutant] engine_0: starting process "cd build/formal/mutant; yosys-smtbmc -s z3 --presat --noprogress -t 3  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Solver: z3
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  BMC failed!
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Assert failed in m0_gpio_formal: m0_gpio_formal.sv:80.17-80.61 (_witness_.check_assert_m0_gpio_formal_sv_80_40)
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Assert failed in m0_gpio_formal: m0_gpio_formal.sv:81.17-81.61 (_witness_.check_assert_m0_gpio_formal_sv_81_43)
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  9:36:57 [build/formal/mutant] engine_0: ##   0:00:00  Status: failed
+SBY  9:36:57 [build/formal/mutant] engine_0: finished (returncode=1)
+SBY  9:36:57 [build/formal/mutant] engine_0: Status returned by engine: FAIL
+SBY  9:36:57 [build/formal/mutant] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  9:36:57 [build/formal/mutant] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  9:36:57 [build/formal/mutant] summary: engine_0 (smtbmc z3) returned FAIL
+SBY  9:36:57 [build/formal/mutant] summary: counterexample trace: build/formal/mutant/engine_0/trace.vcd
+SBY  9:36:57 [build/formal/mutant] summary:   failed assertion m0_gpio_formal._witness_.check_assert_m0_gpio_formal_sv_80_40 at m0_gpio_formal.sv:80.17-80.61 step 2
+SBY  9:36:57 [build/formal/mutant] summary:   failed assertion m0_gpio_formal._witness_.check_assert_m0_gpio_formal_sv_81_43 at m0_gpio_formal.sv:81.17-81.61 step 2
+SBY  9:36:57 [build/formal/mutant] DONE (FAIL, rc=0)

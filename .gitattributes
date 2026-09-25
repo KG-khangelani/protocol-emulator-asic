@@ -4,3 +4,7 @@ Dockerfile text eol=lf
 tools/workbench/requirements.lock text eol=lf
 *.sby text eol=lf
 *.sv text eol=lf
+evidence/**/*.csv text eol=lf
+evidence/**/*.json text eol=lf
+evidence/**/*.log text eol=lf
+evidence/**/*.xml text eol=lf

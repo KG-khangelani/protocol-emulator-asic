@@ -29,6 +29,10 @@ efficiently express useful digital communication protocols under hard temporal c
 - The M0 formal suite locally proves the public-pin reset, count, wrap, hold,
   fixed-output, and ignored-input properties, reaches the wrap in a cover
   witness, and rejects an increment-by-two mutant.
+- Locked fast GitHub run 36119276357 independently reproduces the full seven-stage
+  ladder on a clean checkout: doctor, static, lint, Icarus, Verilator, formal,
+  and generic synthesis all pass. E0007 durably retains the manifest, both JUnit
+  results, formal logs, synthesis netlist, tool identities, and limitations.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.
@@ -47,16 +51,13 @@ efficiently express useful digital communication protocols under hard temporal c
   LibreLane, and PDK candidate identities are now locked. A clean run of that
   repository-pinned workflow is still required; the official composite action's
   internally tagged dependencies remain its recorded trust boundary.
-- The candidate fast GitHub workflow now builds the same lock and is wired for
-  Icarus, Verilator, formal checks, and synthesis. A corrected full remote pass
-  and archived artifact are still pending.
 - No clean pinned physical rerun, FPGA run or devcontainer validation exists
   yet. Positive slack at the 20 ns target is not a measured maximum frequency.
 
 ## Next executable action
 
-Validate and archive the locked fast workflow, including the M0 formal suite.
 Archive the clean pinned physical workflow result before declaring M0 complete.
+Then run the M0 fluency checkpoint before advancing to M1 semantics.
 
 ## Handoff boundaries
 
