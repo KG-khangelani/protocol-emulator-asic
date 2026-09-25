@@ -36,6 +36,20 @@ IHP CMOS5L Tiny Tapeout flow.
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.
 Do not substitute a static syntax check or generic synthesis for physical fit.
 
+## R0-T01 — Pre-M1 architecture research (active supporting work)
+
+Outcome: compare credible programmable substrates with one evidence contract,
+without choosing an ISA by reputation or importing unverified external claims.
+
+- [x] Map fixed RTL, PIO-style, temporal-sequencer and tiny-CPU families.
+- [x] Lock exact established and contemporary source identities.
+- [x] Separate upstream self-reports from project measurements.
+- [ ] Define shared workloads, accounting boundaries, metrics and statuses.
+- [ ] Define falsification gates and the decision process for M1 experiments.
+
+Reference: `research/architecture-landscape.md`. This research does not open M1;
+the M0 owner-fluency checkpoint remains the milestone gate.
+
 ## Follow-on tasks
 
 | ID | Work | Exit gate | State |

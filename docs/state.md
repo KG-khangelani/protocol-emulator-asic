@@ -66,6 +66,10 @@ efficiently express useful digital communication protocols under hard temporal c
   annotations after the Node 20 warning was removed.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
+- The pre-M1 architecture landscape now compares fixed RTL, PIO-style engines,
+  the temporal-sequencer hypothesis and tiny CPUs against exact locked upstream
+  sources. It makes no architecture selection and treats external result claims
+  as `NOT_EVALUATED` until reproduced.
 
 ## Blocked or unverified
 

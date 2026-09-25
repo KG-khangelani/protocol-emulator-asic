@@ -1,0 +1,150 @@
+{
+  "schema": "protocol-emulator-research-sources-v1",
+  "observed_at_utc": "2026-09-25T10:49:31Z",
+  "method": "GitHub REST API metadata and immutable content identities",
+  "claim_boundary": "The lock proves which upstream text and source files were inspected. It does not reproduce any upstream area, timing, protocol, or verification claim.",
+  "established_references": [
+    {
+      "id": "S9",
+      "name": "Raspberry Pi Pico SDK PIO interface",
+      "repository": "raspberrypi/pico-sdk",
+      "url": "https://github.com/raspberrypi/pico-sdk",
+      "default_branch": "master",
+      "commit": "079c6f39023649b154152db30f1d781e884879bc",
+      "commit_time_utc": "2026-09-04T22:35:16Z",
+      "license_spdx": "BSD-3-Clause",
+      "archived_at_observation": false,
+      "documents": [
+        {
+          "path": "src/rp2_common/hardware_pio/include/hardware/pio.h",
+          "git_blob_sha": "25a5f80b4367f374ec5f5347368d602209b6759e",
+          "size_bytes": 97408,
+          "url": "https://github.com/raspberrypi/pico-sdk/blob/079c6f39023649b154152db30f1d781e884879bc/src/rp2_common/hardware_pio/include/hardware/pio.h"
+        },
+        {
+          "path": "src/rp2_common/hardware_pio/include/hardware/pio_instructions.h",
+          "git_blob_sha": "348daa59ae7a66282a6f50a3c6ed66207c8a4ca7",
+          "size_bytes": 21587,
+          "url": "https://github.com/raspberrypi/pico-sdk/blob/079c6f39023649b154152db30f1d781e884879bc/src/rp2_common/hardware_pio/include/hardware/pio_instructions.h"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "name": "SERV bit-serial RISC-V core",
+      "repository": "olofk/serv",
+      "url": "https://github.com/olofk/serv",
+      "default_branch": "main",
+      "commit": "f200eb2ed7b69ac1c6b8eddd47654522aeee5ce8",
+      "commit_time_utc": "2026-08-25T12:38:54Z",
+      "license_spdx": "ISC",
+      "archived_at_observation": false,
+      "documents": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "05b54be39c956e2510f6808faa9f5f2407749095",
+          "size_bytes": 11644,
+          "url": "https://github.com/olofk/serv/blob/f200eb2ed7b69ac1c6b8eddd47654522aeee5ce8/README.md"
+        },
+        {
+          "path": "rtl/serv_top.v",
+          "git_blob_sha": "95e7b1cbc3f1e3eefca1eeb588ea9746cd0d8086",
+          "size_bytes": 18387,
+          "url": "https://github.com/olofk/serv/blob/f200eb2ed7b69ac1c6b8eddd47654522aeee5ce8/rtl/serv_top.v"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "name": "PicoRV32 size-optimized RISC-V core",
+      "repository": "YosysHQ/picorv32",
+      "url": "https://github.com/YosysHQ/picorv32",
+      "default_branch": "main",
+      "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+      "commit_time_utc": "2026-09-07T08:01:21Z",
+      "license_spdx": "ISC",
+      "archived_at_observation": true,
+      "documents": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "e0adc3a1561244c35d81c3ed45751aef7753fbe2",
+          "size_bytes": 30622,
+          "url": "https://github.com/YosysHQ/picorv32/blob/ef203c2b0a3fb793280f5114941416c425c5b461/README.md"
+        },
+        {
+          "path": "picorv32.v",
+          "git_blob_sha": "cc45fa998f1857b06a856ea59b931f6c37e06b34",
+          "size_bytes": 94657,
+          "url": "https://github.com/YosysHQ/picorv32/blob/ef203c2b0a3fb793280f5114941416c425c5b461/picorv32.v"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "name": "OpenTitan production-oriented protocol IP documentation",
+      "repository": "lowRISC/opentitan",
+      "url": "https://github.com/lowRISC/opentitan",
+      "default_branch": "master",
+      "commit": "0863fb90a54fb6bf53dd26f379337e2f1e7d5916",
+      "commit_time_utc": "2026-09-25T08:42:19Z",
+      "license_spdx": "Apache-2.0",
+      "archived_at_observation": false,
+      "documents": [
+        {
+          "path": "hw/ip/README.md",
+          "git_blob_sha": "448dc1b6edd57ab933813bf748916cbd089df58d",
+          "size_bytes": 6615,
+          "url": "https://github.com/lowRISC/opentitan/blob/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip/README.md"
+        },
+        {
+          "path": "hw/ip/i2c/doc/theory_of_operation.md",
+          "git_blob_sha": "ab97581e16dcee13e3f192e9e0e151fa12ac9480",
+          "size_bytes": 47826,
+          "url": "https://github.com/lowRISC/opentitan/blob/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip/i2c/doc/theory_of_operation.md"
+        },
+        {
+          "path": "hw/ip/spi_host/doc/theory_of_operation.md",
+          "git_blob_sha": "261d37695d332caa972a560f97588d525e3cd60f",
+          "size_bytes": 98095,
+          "url": "https://github.com/lowRISC/opentitan/blob/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip/spi_host/doc/theory_of_operation.md"
+        },
+        {
+          "path": "hw/ip/uart/README.md",
+          "git_blob_sha": "ac2934253ce553fc63a5ee560f99e6a0fdd0f426",
+          "size_bytes": 2187,
+          "url": "https://github.com/lowRISC/opentitan/blob/0863fb90a54fb6bf53dd26f379337e2f1e7d5916/hw/ip/uart/README.md"
+        }
+      ]
+    }
+  ],
+  "contemporary_competition_scan": [
+    {
+      "id": "C1",
+      "repository": "Abagel-coder/protocol-emulator",
+      "commit": "3546bcf6836ecc5256602812337cb92b11f0723f",
+      "commit_time_utc": "2026-09-17T06:53:18Z",
+      "license_spdx": "Apache-2.0",
+      "readme_git_blob_sha": "2945476d3fc21b97ef72a960efc502b1cf2d759c",
+      "url": "https://github.com/Abagel-coder/protocol-emulator/tree/3546bcf6836ecc5256602812337cb92b11f0723f"
+    },
+    {
+      "id": "C2",
+      "repository": "satyaammu93/jane-street-asic-2026",
+      "commit": "65e0a742c1f91ac730c137afea5e154287267d67",
+      "commit_time_utc": "2026-09-19T12:21:04Z",
+      "license_spdx": "Apache-2.0",
+      "readme_path": "protocol_emulator/README.md",
+      "readme_git_blob_sha": "4184b7ee39353025188e526c2d03a5e897969ecc",
+      "url": "https://github.com/satyaammu93/jane-street-asic-2026/tree/65e0a742c1f91ac730c137afea5e154287267d67/protocol_emulator"
+    },
+    {
+      "id": "C3",
+      "repository": "sjrai007/gp_pae",
+      "commit": "621f4326131681d3d76320b83e9d14375961ce3a",
+      "commit_time_utc": "2026-09-15T19:24:51Z",
+      "license_spdx": "Apache-2.0",
+      "readme_git_blob_sha": "aa9410c0540982fb837186f898f796ae61a937ae",
+      "url": "https://github.com/sjrai007/gp_pae/tree/621f4326131681d3d76320b83e9d14375961ce3a"
+    }
+  ]
+}

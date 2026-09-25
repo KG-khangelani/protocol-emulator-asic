@@ -21,6 +21,16 @@ express useful digital communication protocols under hard temporal constraints?*
 | F12 | The clean repository-pinned physical flow passes GDS, both gate-level tests and all nine prechecks; it reproduces E0006's metrics and every non-timestamp GDS record | E0010 |
 | F13 | Immutable Node 24 Docker action releases preserve the complete locked fast-CI result and remove the prior Node 20 deprecation annotation | E0011 |
 
+## Verified upstream observations (not project measurements)
+
+| ID | Observation | Evidence and boundary |
+|---|---|---|
+| O1 | The pinned Raspberry Pi SDK describes an RP2040 PIO block as four independently programmable state machines with shift/scratch registers, a clock divider and FIFO access; its instruction header defines nine major operations | S9, `research/source-lock.json`; no IHP area or timing inference |
+| O2 | SERV's pinned README describes a bit-serial RISC-V core and reports 2.1 kGE for a typical CMOS configuration | S10; upstream figure not reproduced and not technology-comparable here |
+| O3 | PicoRV32's pinned README describes configurable RV32E/RV32I variants and approximately four CPI under stated memory assumptions | S11; upstream performance and FPGA figures not reproduced here |
+| O4 | OpenTitan's pinned protocol-IP documentation covers fixed UART, SPI-host and I2C blocks, including I2C open-drain, synchronization, clock-stretching and timeout concerns | S12; feature reference, not a small-area baseline |
+| O5 | Three pinned public competition READMEs independently describe deterministic programmable cores or sequencers | C1-C3; repository self-reports only, all implementation/result claims `NOT_EVALUATED` |
+
 ## Working hypotheses
 
 | ID | Claim | Falsification gate | State |

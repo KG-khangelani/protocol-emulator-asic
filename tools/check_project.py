@@ -78,5 +78,27 @@ workbench_ps1 = (ROOT / "tools/workbench.ps1").read_text()
 require(re.search(r"'All'.*'test-verilator', 'formal', 'synth'", workbench_ps1), "PowerShell All command must include formal verification")
 require("'LearnM0'" in workbench_ps1 and "tools/m0_walkthrough.py" in workbench_ps1, "PowerShell wrapper must expose the M0 walkthrough")
 require("learnm0|learn-m0" in workbench_sh and "tools/m0_walkthrough.py" in workbench_sh, "Linux wrapper must expose the M0 walkthrough")
-print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, learning entrypoint and Linux workspace ownership")
+research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())
+require(
+    research_sources["schema"] == "protocol-emulator-research-sources-v1",
+    "unexpected research source-lock schema",
+)
+require(
+    re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", research_sources["observed_at_utc"]),
+    "invalid research source observation timestamp",
+)
+established = research_sources["established_references"]
+competition = research_sources["contemporary_competition_scan"]
+require({source["id"] for source in established} == {"S9", "S10", "S11", "S12"}, "unexpected established research source set")
+require({source["id"] for source in competition} == {"C1", "C2", "C3"}, "unexpected competition research source set")
+for source in established:
+    require(re.fullmatch(r"[0-9a-f]{40}", source["commit"]), f"invalid source commit: {source['id']}")
+    require(bool(source["license_spdx"]), f"missing source license: {source['id']}")
+    require(bool(source["documents"]), f"missing inspected documents: {source['id']}")
+    for document in source["documents"]:
+        require(re.fullmatch(r"[0-9a-f]{40}", document["git_blob_sha"]), f"invalid document blob: {source['id']}")
+for source in competition:
+    require(re.fullmatch(r"[0-9a-f]{40}", source["commit"]), f"invalid competition commit: {source['id']}")
+    require(re.fullmatch(r"[0-9a-f]{40}", source["readme_git_blob_sha"]), f"invalid competition README blob: {source['id']}")
+print("PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, research source identities, learning entrypoint and Linux workspace ownership")
 print("LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check")
