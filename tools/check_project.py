@@ -50,7 +50,7 @@ gds_workflow = (ROOT / ".github/workflows/gds.yaml").read_text()
 require(f"runs-on: {physical['runner']}" in gds_workflow, "physical runner differs from toolchain lock")
 require(f"uses: actions/checkout@{physical['checkout_action_commit']}" in gds_workflow, "physical checkout action differs from lock")
 for action_path in ("", "/precheck", "/gl_test", "/viewer"):
-    expected = f"uses: TinyTapeout/tt-gds-action{action_path}@{physical['outer_action_commit']}"
+    expected = f"uses: {physical['outer_action_repository']}{action_path}@{physical['outer_action_commit']}"
     require(expected in gds_workflow, f"physical action differs from lock: {action_path or '/'}")
 for expected in (
     f"tools-repo: {physical['support_tools_repository']}",
@@ -59,6 +59,17 @@ for expected in (
     f"pdk: {physical['pdk']}",
 ):
     require(expected in gds_workflow, f"physical workflow input differs from lock: {expected}")
+canary_workflow = (ROOT / ".github/workflows/upstream-canary.yaml").read_text()
+require(f"runs-on: {physical['runner']}" in canary_workflow, "canary runner differs from physical lock")
+require(
+    f"uses: actions/checkout@{physical['checkout_action_commit']}" in canary_workflow,
+    "canary checkout action differs from lock",
+)
+require(
+    f"uses: actions/upload-artifact@{fast_ci['actions']['actions/upload-artifact']}" in canary_workflow,
+    "canary upload action differs from lock",
+)
+require("tools/check_upstream_drift.py" in canary_workflow, "canary does not run the drift checker")
 workbench_sh = (ROOT / "tools/workbench.sh").read_text()
 require('--user "$(id -u):$(id -g)"' in workbench_sh, "Linux workbench must preserve host workspace ownership")
 require("--env HOME=/tmp" in workbench_sh, "Linux workbench user needs a writable temporary home")

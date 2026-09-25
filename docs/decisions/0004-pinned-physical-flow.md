@@ -23,8 +23,8 @@ Consequences:
   invokes some transitive actions by version tag internally; their resolutions
   observed in E0006 are recorded in the lock, but this repository cannot change
   those references without vendoring or forking the official action.
-- A later non-gating canary should follow the upstream branch and report drift
-  without changing the acceptance environment.
+- The non-gating upstream canary follows the branch formerly used by the
+  acceptance workflow and reports drift without changing that environment.
 
 Rejected: continuing to run acceptance from mutable branch names, or replacing
 the official Tiny Tapeout physical flow with generic local synthesis.

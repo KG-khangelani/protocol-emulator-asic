@@ -68,6 +68,20 @@ SHA-256 matches the lock, Python dependencies require package hashes, and
 makes the environment inspectable; it does not make a test result automatically
 correct.
 
+## Read-only upstream canary
+
+The scheduled upstream-canary workflow compares the live Tiny Tapeout
+ihp-cmos5l branch with the action commit qualified in the lock. It runs every
+Monday and can also be started manually. CURRENT means the branch still points
+to the qualified commit; DRIFT means upstream has something new to review.
+
+The canary never edits the lock, workflow pins or acceptance environment. Drift
+therefore creates a warning and a JSON observation, not an automatic upgrade.
+An observation failure is reported as ERROR rather than being mistaken for
+CURRENT. The same comparison can be run locally with:
+
+    .\.venv\Scripts\python.exe tools\check_upstream_drift.py
+
 ## Authoritative starting sources
 
 - [Jane Street competition brief](https://blog.janestreet.com/protocol-emulator-asic-competition/)

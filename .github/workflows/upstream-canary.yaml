@@ -1,0 +1,32 @@
+# Read-only monitor: drift is reported but never changes the qualified flow.
+name: upstream-canary
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare-qualified-ref:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out the monitor
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Compare the live upstream ref with the qualified commit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/check_upstream_drift.py --output build/upstream-canary/result.json
+
+      - name: Upload the observation
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: upstream-canary-${{ github.run_id }}
+          path: build/upstream-canary/result.json
+          if-no-files-found: error
+          retention-days: 30
