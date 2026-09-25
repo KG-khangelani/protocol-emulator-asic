@@ -14,12 +14,12 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Create GitHub remote.
 - [x] Populate remote and pass CI (E0002).
 - [x] Pass cycle-level simulation; FST/JUnit uploaded to CI artifact (E0002).
-- [ ] Archive CI artifact durably before 21 December 2026.
+- [x] Archive CI artifact durably before 21 December 2026 (E0002).
 - [x] Pass generic synthesis sanity check (E0002).
-- [ ] Complete official CMOS5L RTL-to-GDS build and precheck.
+- [x] Complete official CMOS5L RTL-to-GDS build and precheck (E0003).
 - [ ] Pass gate-level regression.
-- [ ] Record mapped area, post-route timing/slack, violations, utilization and GDS hash.
-- [ ] Record resolved action/tool/PDK versions and environment.
+- [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
+- [x] Record resolved action/tool/PDK versions and environment (E0003).
 - [ ] Clean rerun reproduces the functional result and physical acceptance.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.

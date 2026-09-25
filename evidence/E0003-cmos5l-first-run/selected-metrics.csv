@@ -1,0 +1,16 @@
+metric,value,unit,interpretation
+synthesis_mapped_cell_count,58,cells,Logic cells after technology mapping
+synthesis_mapped_cell_area,803.7792,um^2,Technology-mapped synthesis area
+final_standard_cell_count,80,cells,Placed standard cells including inserted buffers
+final_standard_cell_area,1166.66,um^2,Placed standard-cell area
+instance_utilization,0.129282,percent,Standard-cell area divided by core area
+worst_setup_slack,13.585833287351596,ns,Minimum recorded setup margin at the 20 ns target
+worst_hold_slack,0.17207752376737762,ns,Minimum recorded hold margin
+setup_violation_count,0,paths,Across recorded corners
+hold_violation_count,0,paths,Across recorded corners
+route_drc_error_count,0,violations,Final detailed route
+magic_drc_error_count,0,violations,Magic signoff check
+lvs_error_count,0,violations,Layout-versus-schematic comparison
+antenna_violation_count,0,violations,Final recorded antenna result
+gds_size,4189814,bytes,Final streamed GDS
+gds_sha256,8195be3450979ec0f279c7529d5165b13d4bde143a07b2789051ed39027dcd71,sha256,Final GDS content identity

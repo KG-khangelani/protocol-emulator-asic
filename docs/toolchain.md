@@ -19,8 +19,9 @@ generic Yosys and leaves `build/synthesis.log` and `build/synth.json`.
 `make evidence` records source hashes, exact commands, versions and stage status.
 
 The Python dependency versions in `test/requirements.txt` are inherited from
-the pinned template. Native compiler, OS and transitive dependency versions are
-not fully locked yet; the evidence manifest records observed versions.
+the pinned template except for the security update to pytest 9.0.3. Native
+compiler, OS and transitive dependency versions are not fully locked yet; the
+evidence manifest records observed versions.
 
 ## Physical gate
 
@@ -44,11 +45,23 @@ the PDK and tooling from the **CMOS5L action branch** used by this repo. The
 general guide still shows another IHP PDK and is not a drop-in process lock.
 Do not blindly replace `ihp-sg13cmos5l` with `ihp-sg13g2`.
 
+### First observed physical environment
+
+E0003 resolved the CMOS5L action branch to action commit
+`3412659307918422f3f0727917cf9b499aaca588`, Tiny Tapeout support tools
+`d66cf179e7bc4d296362ab7e2e3b344dc3c4f665`, LibreLane `3.1.0.dev3`, and
+IHP Open PDK `2bbec755dc67ca3db0261c3d6163e15735d66710`. The GDS and precheck jobs
+passed. The gate-level runner used Python 3.11.16 and Icarus 13.0, but failed
+at elaboration because `test/Makefile` omitted `sg13cmos5l_udp.v`.
+
+These identities describe what actually ran; they are not yet the repository's
+locked environment. Pinning is deferred until the corrected flow passes, so a
+bad integration is not frozen merely because its layout stage succeeded.
+
 ## Setup limitations
 
-The setup runner lacks Icarus, cocotb, Yosys and Docker. Native installation
-could not complete because the environment could not perform package-manager
-privilege transitions; a Python package lookup also yielded no usable HDL tool.
-These are environment observations, not a verdict on design correctness.
-The later GitHub CI run passed RTL and generic synthesis (E0002). No physical-flow
-output or timing margin has been produced.
+Docker Desktop now works on the Windows host. Native Windows `make`, Icarus and
+Yosys are still absent, so the locked container workbench remains necessary.
+The project `.venv` provides Python checks and cocotb. GitHub CI passed RTL and
+generic synthesis (E0002), while the first physical run passed GDS and precheck
+but exposed the separate gate-level source-list defect (E0003).

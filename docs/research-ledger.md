@@ -10,6 +10,8 @@ express useful digital communication protocols under hard temporal constraints?*
 | F1 | Competition requires an open-source reprogrammable protocol emulator, deadline 18 Jan 2027 | S1, `sources.md` |
 | F2 | Current allocation is 6x4; 8x4 is only a possibility in the brief | S1 |
 | F3 | CMOS5L source snapshot was imported with matching blob identities | `upstream-template.json`, initial Git commit |
+| F4 | M0 can be placed and routed in the 6x4 CMOS5L allocation with positive reported slack at the 20 ns flow target and clean recorded physical checks | E0003 |
+| F5 | The first official gate-level job cannot elaborate because its source list omits the PDK file defining `ihp_dff_r` | E0003 |
 
 ## Working hypotheses
 
@@ -33,6 +35,7 @@ express useful digital communication protocols under hard temporal constraints?*
 |---|---|---|---|
 | E0001 | Bootstrap consistency and tool availability | Static pass; HDL stages blocked | No behavioral or physical evidence; `../evidence/E0001-bootstrap/` |
 | E0002 | GitHub CI baseline | Static, RTL and generic synthesis PASS; docs PASS | No physical/GL proof; `../evidence/E0002-ci/` |
+| E0003 | First official CMOS5L run | GDS and all prechecks PASS; gate-level compile FAIL | Not a complete M0 result; no functional GL run or clean rerun; `../evidence/E0003-cmos5l-first-run/` |
 
 ## Open questions
 
@@ -41,7 +44,8 @@ express useful digital communication protocols under hard temporal constraints?*
 - Q3: How are programs and payloads loaded/read back after fabrication?
 - Q4: What electrical assumptions and synchronization delays govern each pin?
 - Q5: Which stretch protocol demonstrates the most reusable capability per cost?
-- Q6: Which immutable flow/PDK revisions produce a reproducible CMOS5L baseline?
+- Q6: Does the recorded action/LibreLane/PDK combination reproduce after the
+  UDP model fix, and which immutable workflow inputs should then be pinned?
 
 ## Rejected approaches
 

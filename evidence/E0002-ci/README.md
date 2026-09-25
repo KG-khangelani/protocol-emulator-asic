@@ -9,10 +9,13 @@ in `result.json`; the successful checks step reported all three stages PASS.
 The uploaded verification artifact contains the runner's manifest, logs,
 JUnit result, FST waveform and generic synthesis output. Its SHA-256 is
 `6b551bb7668acb29c62d2e60f2820cfc719586bd1d07926e80d1b25ac7e73439`.
-The Actions artifact expires on **21 December 2026**, before submission.
-Download and archive it durably before then. The browser download attempted
-during setup timed out, so this repository retains metadata, not the binary.
+An exact 18,746-byte copy is archived as
+`verification-9119567.zip`. Its SHA-256 was recomputed after download and
+matches the digest reported by GitHub. The original Actions artifact expires
+on **21 December 2026**, but this committed copy does not depend on that
+temporary retention period.
 
 This supersedes E0001's environment blockage for CI execution; it does not
-invalidate E0001's observation about the local setup runner. No IHP physical
-fit, gate-level, formal, FPGA or clean-rerun evidence has been produced.
+invalidate E0001's observation about the original local setup runner. E0003
+adds the first IHP physical result. No passing gate-level, formal, FPGA or
+clean-rerun evidence has yet been produced.

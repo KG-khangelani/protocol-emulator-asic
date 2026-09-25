@@ -28,14 +28,18 @@
       "head_repository_id": 1382425950,
       "head_branch": "main",
       "head_sha": "91195673d7a37b4257b01c5bf6c4f5cf6a817582"
-    }
+    },
+    "archived_path": "evidence/E0002-ci/verification-9119567.zip",
+    "archived_size_in_bytes": 18746,
+    "archived_sha256": "6b551bb7668acb29c62d2e60f2820cfc719586bd1d07926e80d1b25ac7e73439",
+    "archive_verified_utc": "2026-09-25"
   },
   "docs_run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/35792901686",
   "docs_status": "success",
   "limits": [
     "No IHP mapped area or timing evidence",
-    "No GDS, precheck or gate-level run",
-    "No clean rerun yet",
-    "Artifact remains on GitHub Actions; browser download did not complete; archive before expiration"
+    "No IHP physical evidence in this experiment; see E0003",
+    "No passing gate-level run",
+    "No clean rerun yet"
   ]
 }

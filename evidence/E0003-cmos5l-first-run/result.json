@@ -1,0 +1,89 @@
+{
+  "id": "E0003",
+  "checked_utc": "2026-09-25",
+  "source_commit": "0248b2f682f9cc31025f9b36d0cee27235ffafbb",
+  "run_id": 35990661423,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/35990661423",
+  "status": "failure",
+  "jobs": {
+    "gds": "PASS",
+    "precheck": "PASS",
+    "gate_level": "FAIL_COMPILE",
+    "viewer": "SKIPPED_BY_POLICY"
+  },
+  "resolved_environment": {
+    "tt_gds_action_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "tt_support_tools_commit": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "flow": "LibreLane",
+    "flow_version": "3.1.0.dev3",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
+    "gate_level_python": "3.11.16",
+    "gate_level_iverilog": "13.0"
+  },
+  "artifacts": [
+    {
+      "id": 10805895374,
+      "name": "GDS_logs",
+      "size_in_bytes": 27600756,
+      "digest": "sha256:f3f989f4cb4d3d143ee83cc4b380d6e1c9c530880f72ba9f11c53612ebad712f"
+    },
+    {
+      "id": 10805881982,
+      "name": "precheck_reports",
+      "size_in_bytes": 6882,
+      "digest": "sha256:bc6fc56e3a5419b8572464beb7e3b78480e2730651fec2f5394f9e8ddf00b4b9"
+    },
+    {
+      "id": 10805626681,
+      "name": "tt_submission",
+      "size_in_bytes": 935362,
+      "digest": "sha256:d7c4f04bc068e1c60fbefa2ee43af1a016f3ece4449c2e17309a75a731a62d39"
+    },
+    {
+      "id": 10804948412,
+      "name": "gds_render",
+      "size_in_bytes": 2513216,
+      "digest": "sha256:013ca9aa36be4c97880581e88f3d086f6143024e97396589c790275a34d01ce1"
+    }
+  ],
+  "artifacts_expire_utc": "2026-12-23T11:02:06Z",
+  "physical_result": {
+    "clock_target_ns": 20,
+    "synthesis_mapped_cells": 58,
+    "synthesis_mapped_area_um2": 803.7792,
+    "final_standard_cells": 80,
+    "final_standard_cell_area_um2": 1166.66,
+    "instance_utilization_percent": 0.129282,
+    "worst_setup_slack_ns": 13.585833287351596,
+    "worst_hold_slack_ns": 0.17207752376737762,
+    "setup_violations": 0,
+    "hold_violations": 0,
+    "route_drc_errors": 0,
+    "magic_drc_errors": 0,
+    "lvs_errors": 0,
+    "antenna_violations": 0,
+    "gds_size_in_bytes": 4189814,
+    "gds_sha256": "8195be3450979ec0f279c7529d5165b13d4bde143a07b2789051ed39027dcd71"
+  },
+  "precheck": {
+    "status": "PASS",
+    "checks_passed": 9
+  },
+  "gate_level_failure": {
+    "phase": "iverilog_elaboration",
+    "missing_module": "ihp_dff_r",
+    "references": 8,
+    "missing_source": "sg13cmos5l_udp.v",
+    "junit_produced": false,
+    "waveform_produced": false
+  },
+  "limits": [
+    "Gate-level behavior did not run",
+    "No clean physical rerun",
+    "Positive target slack is not an Fmax measurement",
+    "Workflow refs remain branch-based pending a passing integration",
+    "LibreLane used a generic fallback SDC"
+  ]
+}
