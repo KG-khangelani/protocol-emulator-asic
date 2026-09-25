@@ -31,10 +31,11 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Clean repository-pinned rerun reproduces the functional and physical result (E0010).
 - [x] Provide a runnable, source-backed M0 evidence walkthrough.
 - [x] Provide and remotely qualify a beginner-readable M0 waveform walkthrough (E0012).
+- [x] Expose conservative machine-readable fluency status without automatic promotion.
 - [x] Qualify Node 24 Docker CI actions and remove the Node 20 runtime warning (E0011).
 - [ ] Complete and record the M0 owner fluency teach-back.
 
-Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.
+Reference: `docs/specs/m0-gpio.md`; evidence index: `evidence/README.md`.
 Do not substitute a static syntax check or generic synthesis for physical fit.
 
 ## R0-T01 — Pre-M1 architecture research (active supporting work)

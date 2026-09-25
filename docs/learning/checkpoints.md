@@ -3,6 +3,21 @@
 These are learning gates, not exams. A gap means we need another explanation or
 experiment before relying on the concept in a design decision.
 
+Run `.\tools\workbench.ps1 LearnStatus` for the current technical and fluency
+gates, the individual criteria, and the next small exercise. The underlying
+[`progress.json`](progress.json) uses three deliberately conservative levels:
+
+- `NOT_DEMONSTRATED`: the repository contains no owner demonstration yet;
+- `DEMONSTRATED_WITH_SUPPORT`: the owner explained the idea in their own words
+  with prompts or follow-up questions; and
+- `INDEPENDENT`: the owner can reconstruct, operate and defend it without the
+  answer being supplied.
+
+Green automation never changes these levels. A milestone fluency `PASS` needs
+every listed criterion at its required level and a reviewed human checkpoint.
+Because this is a public repository, the record keeps only criterion outcomes
+and evidence references—not conversation transcripts or personal details.
+
 | Milestone | Technical gate | Fluency gate | State |
 |---|---|---|---|
 | M0 — Toolchain | GPIO baseline passes the qualified physical flow twice | Trace RTL to GDS; distinguish simulation, synthesis, timing, precheck and gate-level evidence | Technical PASS; teach-back pending |

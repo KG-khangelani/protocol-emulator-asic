@@ -12,7 +12,7 @@ The baseline is not yet a programmable protocol emulator.
 
 Hold `rst_n` low through a rising edge, then deassert it before a later edge.
 With `ena` high, observe outputs 1, 2, 3, ... 255, 0. With `ena` low, outputs
-hold their previous value. See `specs/m0-gpio.md` for exact cycle semantics and
+hold their previous value. See `docs/specs/m0-gpio.md` for exact cycle semantics and
 run `make test` from the repository root for the pin-level regression.
 
 ## External hardware

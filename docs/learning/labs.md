@@ -5,7 +5,16 @@ The prediction is important: it turns command execution into model building.
 
 ## Guided M0 tour — start here
 
-If the individual tools are still unfamiliar, first run the read-only tour:
+First ask the repository what is technically complete and what still needs a
+human demonstration:
+
+```powershell
+.\tools\workbench.ps1 LearnStatus
+```
+
+This command will never convert green CI into a human fluency pass. It shows the
+current criteria and the next small teach-back. If the individual tools are
+still unfamiliar, continue with the read-only tour:
 
 ```powershell
 .\tools\workbench.ps1 LearnM0

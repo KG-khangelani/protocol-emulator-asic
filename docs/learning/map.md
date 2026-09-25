@@ -42,6 +42,7 @@ confusing toolchain failures with architectural complexity.
 | Gate-level test | Mapped netlist plus the same test | `make GATES=yes` in the official action | JUnit result and waveform |
 | Evidence | `evidence/` | Evidence collector and review | Claim, limitations and hashes |
 | Guided inspection | Archived M0 source plus E0007/E0010 | `workbench.ps1 LearnM0` | Source anchors, measured results, limits and teach-back prompt |
+| Fluency status | `docs/learning/progress.json` | `workbench.ps1 LearnStatus` | Technical and human gates shown separately; no automatic human pass |
 
 ## What the stages do not prove
 

@@ -10,7 +10,7 @@ and 10 Mbit Ethernet are stretch goals. The temporal VM is a hypothesis.
 ## Start every session
 
 1. Read `docs/state.md`, then the active task in `docs/backlog.md`.
-2. Read the relevant specification before changing RTL.
+2. Read the relevant specification under `docs/specs/` before changing RTL.
 3. Inspect `git status`; preserve unrelated work.
 4. Run `make doctor` and the checks needed for the change.
 

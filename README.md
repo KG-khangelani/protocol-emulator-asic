@@ -46,6 +46,7 @@ run inside the pinned Linux workbench:
 ```powershell
 .\tools\workbench.ps1 Setup
 .\tools\workbench.ps1 Doctor
+.\tools\workbench.ps1 LearnStatus
 .\tools\workbench.ps1 LearnM0
 .\tools\workbench.ps1 LearnWaveform
 .\tools\workbench.ps1 All
@@ -56,7 +57,9 @@ rejects version drift, and `All` currently runs consistency checks, Verible
 lint, the same cocotb regression through Icarus and Verilator, the M0 formal
 proof/witness/falsification suite, and generic Yosys synthesis. Individual
 commands include `Check`, `Lint`, `Test`, `TestVerilator`, `Formal`, `Synth`,
-`Evidence`, `LearnM0`, `LearnWaveform`, and `Shell`. `LearnM0` is a read-only,
+`Evidence`, `LearnStatus`, `LearnM0`, `LearnWaveform`, and `Shell`. `LearnStatus`
+shows technical and human gates separately and never promotes understanding from
+CI alone. `LearnM0` is a read-only,
 evidence-backed tour; add `Physical` as its second argument to focus on
 synthesis-to-GDS. `LearnWaveform` reruns the M0 Icarus test in readable VCD mode
 and prints the reset, count, wrap, hold, resume and reset-priority edges.
@@ -78,7 +81,7 @@ for physical fit and timing; a local generic synthesis pass cannot replace it.
 | `AGENTS.md` | Codex working rules and verification boundaries |
 | `docs/goal.md` | Equal technical and fluency outcomes |
 | `docs/state.md`, `docs/backlog.md` | Persistent state and next executable tasks |
-| `docs/learning/` | Practical map, glossary, labs and fluency checkpoints |
+| `docs/learning/` | Practical map, glossary, labs, checkpoints and conservative fluency status |
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |
 | `src/` | Synthesizable Verilog and preserved physical configuration |
 | `test/` | cocotb RTL and gate-level harness |

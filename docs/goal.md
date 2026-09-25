@@ -36,6 +36,9 @@ flowchart LR
 - Treat missing evidence as `NOT_EVALUATED`, never as an implied pass.
 - Preserve failed experiments when they affect the next decision.
 - End each milestone with both a technical gate and a learning gate.
+- Keep learning progress conservative: automation can validate the record and
+  resources, but only an owner explanation and follow-up reasoning can satisfy
+  a fluency criterion.
 
 The aim is not command memorisation. Fluency means being able to reconstruct
 the workflow, interrogate its evidence, make a bounded change, and explain why

@@ -26,7 +26,9 @@ and fails on a missing or different version. `Check` performs static consistency
 only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
 `Test` invokes cocotb/Icarus, while `TestVerilator` runs the same oracle through
 an independently implemented simulator; both reject missing, empty, skipped or
-failed JUnit results. `LearnWaveform` reruns Icarus in readable VCD mode, checks
+failed JUnit results. `LearnStatus` validates and prints the separate technical
+and human milestone gates; it cannot auto-assess human understanding.
+`LearnWaveform` reruns Icarus in readable VCD mode, checks
 all rising-edge transitions, deliberately corrupts one edge to verify rejection,
 and prints selected events for a first-time waveform reader. `Formal` proves the M0 state/output contract, creates a
 reset-to-wrap witness, and confirms the assertions reject an increment-by-two

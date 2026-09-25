@@ -68,6 +68,9 @@ efficiently express useful digital communication protocols under hard temporal c
   all 1,561 rising edges match the declared M0 rule, and the intentional
   corruption is rejected. E0012 retains the exact waveform, log, JUnit report,
   manifest, hashes, and proof boundary; it does not satisfy owner teach-back.
+- `workbench.ps1 LearnStatus` now exposes one conservative M0-M5 learning
+  record: technical and fluency gates are separate, every criterion starts as
+  `NOT_DEMONSTRATED`, and automation is forbidden from promoting human fluency.
 - Fast CI now pins Node 24-native setup-buildx v4.4.1 and build-push v7.4.0
   release commits. E0011 records a clean seven-stage pass, unchanged locked
   workbench image identity, successful artifact upload, and zero check
