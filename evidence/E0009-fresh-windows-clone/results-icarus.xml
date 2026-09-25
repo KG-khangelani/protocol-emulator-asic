@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790330021" />
+    <testcase name="reset_wrap_hold_and_resume" classname="test" file="/workspace/test/test.py" lineno="39" time="0.06545591354370117" sim_time_ns="10720.0" ratio_time="163774.3546706879" />
+    <testcase name="seeded_control_and_input_noise" classname="test" file="/workspace/test/test.py" lineno="55" time="0.15221047401428223" sim_time_ns="20500.0" ratio_time="134681.92732962937" />
+  </testsuite>
+</testsuites>

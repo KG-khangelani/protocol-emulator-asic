@@ -17,6 +17,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F8 | E0003 and E0006 have byte-identical GDS non-timestamp records; their full hashes differ only because 256 bytes in library/structure timestamp records changed | E0006 |
 | F9 | The M0 public-pin transition/output assertions pass k-induction, the reset-to-wrap covers are reachable, and the same assertions reject an increment-by-two mutant locally and in clean remote CI | E0007, `../formal/README.md` |
 | F10 | The read-only upstream canary remotely observes the live Tiny Tapeout CMOS5L action ref without altering qualified pins; its baseline state was CURRENT | E0008 |
+| F11 | A fresh Windows clone passes the full locked fast ladder without native EDA commands on PATH, and its compared physical-input byte hashes equal Linux CI | E0009 |
 
 ## Working hypotheses
 
@@ -47,6 +48,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0006 | Corrected official CMOS5L run | GDS, 2 gate-level tests, and all 9 prechecks PASS | Mutable workflow ref at dispatch; no clean repository-pinned rerun; `../evidence/E0006-cmos5l-corrected-run/` |
 | E0007 | Locked fast CI and M0 formal proof | Static, lint, 2 Icarus tests, 2 Verilator tests, formal proof/covers/mutant, and generic synthesis PASS | Written-property coverage only; no physical or silicon proof; `../evidence/E0007-locked-fast-ci/` |
 | E0008 | Upstream drift canary baseline | Remote monitor PASS; live and qualified Tiny Tapeout action commits match | Timestamped observation only; no automatic upgrade or physical proof; `../evidence/E0008-upstream-canary/` |
+| E0009 | Fresh Windows clone verification | Doctor, static, lint, both simulators, formal, and generic synthesis PASS; cross-platform input hashes match | Reused qualified local image; no physical proof; `../evidence/E0009-fresh-windows-clone/` |
 
 ## Open questions
 

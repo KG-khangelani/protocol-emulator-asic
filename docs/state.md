@@ -45,6 +45,10 @@ efficiently express useful digital communication protocols under hard temporal c
 - A scheduled read-only upstream canary reports when Tiny Tapeout's live CMOS5L
   action branch moves without changing the qualified pins. Its first remote run
   reports CURRENT and retains the observation in E0008.
+- A fresh public-repository clone on Windows 11 passes the seven-stage locked
+  ladder through the PowerShell wrapper with no native EDA commands on PATH.
+  E0009 also confirms the physical-input byte hashes match Linux CI after LF
+  checkout canonicalization.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 

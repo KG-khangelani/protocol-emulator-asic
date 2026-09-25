@@ -12,6 +12,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Prepare Codex instructions, CI and evidence collection.
 - [x] Pass the audited public-release gate and enable repository security controls.
 - [x] Build and validate the locked local doctor/lint/test/synthesis workbench.
+- [x] Pass the full locked ladder from a fresh Windows clone without native EDA (E0009).
 - [x] Run static repository checks.
 - [x] Create GitHub remote.
 - [x] Populate remote and pass CI (E0002).

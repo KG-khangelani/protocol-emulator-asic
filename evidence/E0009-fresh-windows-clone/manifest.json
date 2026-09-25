@@ -1,0 +1,178 @@
+{
+  "created_utc": "20260925T095337054937Z",
+  "git_head": "5becc62e4334809a9f75c0d4d87fe3a176c72ebc",
+  "git_status": "",
+  "python": "3.11.16",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "source_sha256": {
+    ".devcontainer/Dockerfile": "17931634d2321aa99db588c5657cd4659eaaa1770c12991c852a2b6a722f3276",
+    ".devcontainer/copy_tt_support_tools.sh": "1955f567349cca921a961947ac0bee27942077b4cdbd0d72f99a49a4c0ec3435",
+    ".devcontainer/devcontainer.json": "893f821c045fc7e465fac185e9ea591882ebaaad68fe05fc53036c92e3b5d69b",
+    ".editorconfig": "36c67edabe554a90074f0e80a2b2453715175271464d524c17775068b30b3251",
+    ".gitattributes": "40d7d25c17b2d54051360d4eb9a1570aa8cdae4ed0b994b897f7ab647628797a",
+    ".github/pull_request_template.md": "2e02ed812deb4a3e6bcc86eb91c533f77bed46e648f677c1b634084574e5be21",
+    ".github/workflows/docs.yaml": "9caf321523787472b02ee9a7701bb7881549f36a5c1b6da9461c630ecffc13d4",
+    ".github/workflows/fpga.yaml": "330430e4aa0c5d1a3e6e8be5d3509b4a80650689e64ba24005c8399aaf2df381",
+    ".github/workflows/gds.yaml": "f4a1ad7615c82e594cff18b5f7ea6b1338407a7ec841811701944b7fccd942b7",
+    ".github/workflows/test.yaml": "846eb13000d2a3cc13af9cfb52bc78a4c94a46af4c95239339e23b7f2e6fc0a4",
+    ".github/workflows/upstream-canary.yaml": "177d8d4b9dbdd703c892610be945ec7079edffb5582b235b0141b2a0ef0c2b73",
+    ".gitignore": "9c820d6bc33393083e7bd7b948cb6c585667a980c0dbb687ccdbcf1f04af55a0",
+    ".rules.verible_lint": "db91c80ed8e15ce85b562fc429a42956bf650a378e7d950ae654695d20f78325",
+    ".vscode/extensions.json": "660e9bafc4970b9d5333abc7920c16f7ffd037c92eae3a98a2502eee309faf52",
+    ".vscode/settings.json": "7e8716faf75d190bd27b428aec68d5ce3e5390b6029f92625fb988688063e48a",
+    "AGENTS.md": "e2289fe6ded77110c94b69770fe58b413479d7087f27fb5f98b49b2e6a4455a1",
+    "CITATION.cff": "628a8b7722b4d52fb8e769c57c070afe8499ae37b477eb6234f9d6f657f568ef",
+    "CONTRIBUTING.md": "3bc09c923be513152e1a569c3f57c83211c3e5c3ecb1797f41c50c3ccf29df97",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "Makefile": "a0afb720a6f2decc5d45add610059ac4108eb1363650aa1bf63aa99f0c34e2b6",
+    "README.md": "adbd4bcdac49380092df68aff5b560811ec2ca7aaedcdad01fbad535ace50be0",
+    "SECURITY.md": "6a3589298f7df0e245516c9b93cb3236e43074b1d4a33af0704729f3c6936524",
+    "THIRD_PARTY_NOTICES.md": "61fca9ee157620402bb511cbfde10e89f2250b27f9bc669cc72f8c307ae7a5b5",
+    "docs/backlog.md": "31fb3f67758ae0b5d1b42e4c5eaff3bf6df11c2d0db59512dfd5850f3e9f6dbf",
+    "docs/decisions/0001-bootstrap.md": "693b8394c9a590f0f73f32ec1b9a852196d3d9a4aa5165f6de42c835ddef86a3",
+    "docs/decisions/0003-locked-workbench.md": "747662c3d633846eb12b3a8dba514680a80a23d29b8c2ba996eef34c7f9c47a6",
+    "docs/decisions/0004-pinned-physical-flow.md": "bf1c3ac56b7df28a23f7ce8f24cf478acca5af526e04f37256487eed4dce2c4b",
+    "docs/goal.md": "caf1243f22a15500636488501961fc941302b9f10d13404b4a6a1653a6ffa2ca",
+    "docs/info.md": "d335bdd52ca5671c955799265a6624d09d15dbf09a367e1f18456c51a92321ea",
+    "docs/learning/checkpoints.md": "e752e8f7b2c4c84fc861c575f3c5cbb875440991337bb153b5e462132fe4e80f",
+    "docs/learning/glossary.md": "65bb0e73f748a12ecbe8a8737117795b4ee005d7ed086cca0fb732d58bd07e02",
+    "docs/learning/labs.md": "4f869b3a7d23320d803a3ce0dd5571be9662face7229b652ab141f86ab73d8b3",
+    "docs/learning/map.md": "1bd0240b3858186ef001c7054ff64435bf8d3bcc5282ebbf916e5cc39bd69152",
+    "docs/milestones.md": "4ca5ca7cf33172bb5c1ac5f18dda12f4d14379f0b466ffb5694bdd0b95d81c78",
+    "docs/open-source-infrastructure.md": "21e211f4e771133581ae5ff1b77d6488f160b1a32d35adf4dc2807df5d2095a0",
+    "docs/research-ledger.md": "cc70aea7b8f6c3abceb64ca3f3ab16889bd9bb344f2fb9b5096f4e717a3d6880",
+    "docs/source-pack.md": "abbd03b4ea9dba8e23355b323ec41f2f4bddf35bcfe01a1c8b4cca4d2844e40a",
+    "docs/sources.md": "9de07573fc23c7e082c8ae1b026db09af7b88e966b31566d727529669b35e977",
+    "docs/specs/m0-gpio.md": "d2c256bd207654c2deb32e138ff3d4181464f44ef9ada25ff9337f5dce205993",
+    "docs/state.md": "f667c1c4ddf44994a9acd282f025772511bc5d265bcee229aed6c6661a6254c9",
+    "docs/toolchain.md": "8e5e3b82fd830594f28ca0a281a6794d3ec719504069194387b9860c2f8ffa9a",
+    "docs/upstream-template.json": "5cc16d7d3c846fab539872d6d4f6dd3d313e1b248670fcf13ebdc7ee0f5a4b65",
+    "docs/verification.md": "c8dfbee9006815b0f8077682e64d6bc58dafac54876db0788998410b83f703da",
+    "formal/README.md": "cb5f790107a5ae67d749f7420c82ef574c8f222f638a50e7331ce2e96b6aefca",
+    "formal/m0_gpio.sby": "b39e5a5ab019ef317cf5c9ee0d15f61ad2aa1c034504d1c0a683d7c02d0e0467",
+    "formal/m0_gpio_formal.sv": "efb0ea59fec120d83218ab4c06ef44a1429ad818f4789b7ad200b8c5c9f34402",
+    "formal/m0_gpio_mutation.sby": "0a818b4680384ce89fd559e3e536521f18d7caa165d0f774788d010094a5ff02",
+    "formal/mutants/m0_increment_by_two.v": "06666861509565064827d115a70f02e9db28dd226f1c1bc00514810e6609c81d",
+    "info.yaml": "291e7e0c183d62568a8cf88ab8a0f5355ba9c47a647ba2511eeee2e5c98d04b7",
+    "requirements-dev.txt": "b9ee955c652d18eb036dc539d0c98a2fad4ca4dde259a575d65faad63b6f6f23",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "src/project.v": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c",
+    "test/Makefile": "45368edb835f688ac6cafe52180d45ad006fa7221cc57adefd6e4a165e29cc74",
+    "test/README.md": "74e94f2b1032820001a49250b33520c1927c8efb951e71cfe156c2b9680ebe80",
+    "test/requirements.txt": "6decd14b46d0d71dcd667708bc90a675ccc6cd7ae3c5997775ec4d86ef13ec98",
+    "test/tb.gtkw": "aad62770ad1b98dc6151569c325fdb6101e5fd74e3412e2a0ccb7fbab08c4ba6",
+    "test/tb.v": "62da6cacff4b134258932027cc59610a709a5d54e61ce9f36cf85574e29ccee3",
+    "test/test.py": "08716e19e9aeafedb120dcefd6106c120bc823dabff41d1bfebb560ba8eba9e5",
+    "tools/check_junit.py": "ceab8260fdb5ee3538fa6f7b32582d019b8b7f0e64a0a4737b931958174277e6",
+    "tools/check_project.py": "ebb87437707de60fd0e1b9c209ec4de6885a2812ab782c54bdf2cacd92436fb2",
+    "tools/check_upstream_drift.py": "b6c8ce651d0c1f64c781954f16d625de9116c108dbfab71604adbda500b3161b",
+    "tools/collect_evidence.py": "31dfa9e48acf5b16a5f2acb66c0b2b8bd4d1f13868a47ef05bc8c0e2eb3d5f88",
+    "tools/doctor.py": "1dfe72d1039ac157fb9a32a60a1b01afeccc879d03cef2e35a505edd9486bf13",
+    "tools/workbench.ps1": "0c58118d1faa5cbed2d6ec8fb2bf5fd0c5d6098aa8c6c3a2b55d78a7682459d9",
+    "tools/workbench.sh": "b0c650e7cdb7e251aa7fe1d33db1599a5b9b2c606fe9bcb680c22db759c5ddc2",
+    "tools/workbench/Dockerfile": "9f478acb7a5a49a44ac4a96e5c38ccb48ff1276590880418c119fecd8c170d2e",
+    "tools/workbench/README.md": "d113941bb4256ffa4bb3fa9455a15e88835f9e2dfd24435f004b73593abd58a3",
+    "tools/workbench/iverilog-suite": "6767e6069a9395dc3839381f334200ab44f2f535651a24213d34c579e5bce097",
+    "tools/workbench/requirements.lock": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a",
+    "tools/workbench/toolchain.lock.json": "0f46993edf4c7a34c357bc02820cb38be6ff40db71d485a3810cfac7ec94c01f",
+    "tools/workbench/vvp-system-python": "c3ccaf68f95a20d850b698a424f2ea0c353f845a7c1140e3a9aedc8b57171cf8"
+  },
+  "tools": {
+    "git": "git version 2.39.5",
+    "g++": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "verilator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+    "verible": "Version\tv0.0-4296-g0f262651",
+    "yosys": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+    "sby": "SBY v0.67-4-gfea6e46",
+    "z3": "Z3 version 4.15.5 - 64 bit",
+    "boolector": "3.2.4",
+    "cocotb": "2.0.1",
+    "PyYAML": "6.0.2"
+  },
+  "stages": [
+    {
+      "name": "doctor",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/doctor.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "static",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/check_project.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_icarus",
+      "command": [
+        "make",
+        "test"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_verilator",
+      "command": [
+        "make",
+        "test-verilator"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "formal",
+      "command": [
+        "make",
+        "formal"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "generic_synthesis",
+      "command": [
+        "make",
+        "synth"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "formal_status": "PASS: safety proof and wrap covers passed; increment-by-two mutant was rejected",
+  "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
+  "artifact_sha256": {
+    "doctor.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+    "formal-cover.status": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+    "formal-mutant.status": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+    "formal-prove.status": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "formal.log": "5dc57c0452a6d8ccdf61c358a145d3ca613f80d1774627c85aafc5a7f03f92d6",
+    "generic_synthesis.log": "66210e9fcc505fc700687b67c4f1e6ba5b9dd0910f8f0f351f6caf9bf7b9811a",
+    "lint.log": "e3f082dec54f433aab9183c7d0ff5a707ff586bf31bd31e6065a0932d9cc471c",
+    "results-verilator.xml": "6c598b034ef01e85c85c3a3d208444616b54794491828e7142f59ec342980949",
+    "results.xml": "cae605ad63af0fa57df28e1f79fb74028215927f20c5a1776c14ca666378d6b7",
+    "rtl_icarus.log": "8a78a909d01141b6ee86ac051f2b04725327238f9a65eea9e7f097f2f37c4567",
+    "rtl_verilator.log": "c2ad6cbc9873478c00046762a70e4d7d3612ccf8f19c976f179d6f33a4ceda94",
+    "static.log": "61772f99cf2abcd28afe5db3477474d17b0504e1f4cf606b183b2cf52c59587c",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743",
+    "synthesis.log": "2db372749bc47b6767390c6efc811dcf49106a39f5a8ff5ec8a4eb65945e7469",
+    "tb.fst": "19d57d650e1bfe87b23235eba70b0baf791490047f1c6d110839c6636a36c4d1"
+  }
+}

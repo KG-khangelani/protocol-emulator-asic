@@ -1,0 +1,76 @@
+{
+  "id": "E0009",
+  "checked_utc": "2026-09-25T09:53:37.054937Z",
+  "source_commit": "5becc62e4334809a9f75c0d4d87fe3a176c72ebc",
+  "clone_source": "https://github.com/KG-khangelani/protocol-emulator-asic.git",
+  "git_status": "",
+  "command": ".\\tools\\workbench.ps1 Evidence",
+  "status": "success",
+  "host": {
+    "os": "Microsoft Windows 11 Pro",
+    "version": "10.0.26200",
+    "architecture": "64-bit",
+    "powershell": "7.6.5",
+    "docker_server": "29.7.2",
+    "native_eda_commands_on_path": {
+      "make": false,
+      "iverilog": false,
+      "vvp": false,
+      "verilator": false,
+      "verible-verilog-lint": false,
+      "yosys": false,
+      "sby": false,
+      "z3": false,
+      "boolector": false
+    }
+  },
+  "workbench": {
+    "image_tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "local_image_id": "sha256:b0798eacd16296895e70a6fd32112222bb3cc55ae65f752b567cc0e3f977c1b7",
+    "platform": "linux/amd64",
+    "container_kernel": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "image_reused_from_local_cache": true
+  },
+  "stages": {
+    "doctor": "PASS",
+    "static": "PASS",
+    "lint": "PASS",
+    "rtl_icarus": "PASS",
+    "rtl_verilator": "PASS",
+    "formal": "PASS",
+    "generic_synthesis": "PASS"
+  },
+  "cross_platform_source_identity": {
+    "reference": "E0007 Linux CI manifest",
+    "all_compared_hashes_equal": true,
+    "sha256": {
+      "src/project.v": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c",
+      "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+      "info.yaml": "291e7e0c183d62568a8cf88ab8a0f5355ba9c47a647ba2511eeee2e5c98d04b7",
+      "test/Makefile": "45368edb835f688ac6cafe52180d45ad006fa7221cc57adefd6e4a165e29cc74",
+      "test/test.py": "08716e19e9aeafedb120dcefd6106c120bc823dabff41d1bfebb560ba8eba9e5",
+      "test/tb.v": "62da6cacff4b134258932027cc59610a709a5d54e61ce9f36cf85574e29ccee3",
+      ".github/workflows/gds.yaml": "f4a1ad7615c82e594cff18b5f7ea6b1338407a7ec841811701944b7fccd942b7"
+    }
+  },
+  "pre_acceptance_observation": {
+    "source_commit": "b80ffc1ac218d7e4b48857f2e88546664c948763",
+    "functional_stages": "PASS",
+    "finding": "Windows CRLF checkout made byte hashes differ from Linux CI",
+    "resolution": "Repository-wide LF checkout policy added in 5becc62"
+  },
+  "curated_sha256": {
+    "formal-cover.status": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+    "formal-mutant.status": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+    "formal-prove.status": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "manifest.json": "e49ac73299e75e201a8cec49cbf68826b13ad8f4c6a1b93b0ef85b1ea80c6d6f",
+    "results-icarus.xml": "cae605ad63af0fa57df28e1f79fb74028215927f20c5a1776c14ca666378d6b7",
+    "results-verilator.xml": "6c598b034ef01e85c85c3a3d208444616b54794491828e7142f59ec342980949",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743"
+  },
+  "limits": [
+    "Native tool checks establish command absence on PATH, not absence from every host directory",
+    "The local Docker image was reused; E0007 separately validates a clean CI image build",
+    "Fast verification does not evaluate CMOS5L physical fit or silicon"
+  ]
+}
