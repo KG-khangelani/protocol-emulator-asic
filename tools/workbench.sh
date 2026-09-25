@@ -37,6 +37,8 @@ case "${command,,}" in
 esac
 
 exec docker run --rm --init \
+    --user "$(id -u):$(id -g)" \
+    --env HOME=/tmp \
     --mount "type=bind,source=${repo_root},target=/workspace" \
     --workdir /workspace \
     "${image}" "${inside[@]}"
