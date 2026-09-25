@@ -20,6 +20,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F11 | A fresh Windows clone passes the full locked fast ladder without native EDA commands on PATH, and its compared physical-input byte hashes equal Linux CI | E0009 |
 | F12 | The clean repository-pinned physical flow passes GDS, both gate-level tests and all nine prechecks; it reproduces E0006's metrics and every non-timestamp GDS record | E0010 |
 | F13 | Immutable Node 24 Docker action releases preserve the complete locked fast-CI result and remove the prior Node 20 deprecation annotation | E0011 |
+| F14 | A clean remote checkout runs the readable M0 waveform lab, checks all 1,561 rising edges against the declared transition table, and rejects an intentionally corrupted count edge | E0012 |
 
 ## Verified upstream observations (not project measurements)
 
@@ -65,6 +66,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0009 | Fresh Windows clone verification | Doctor, static, lint, both simulators, formal, and generic synthesis PASS; cross-platform input hashes match | Reused qualified local image; no physical proof; `../evidence/E0009-fresh-windows-clone/` |
 | E0010 | Repository-pinned CMOS5L qualification | GDS, 2 gate-level tests, and all 9 prechecks PASS; E0006 metrics and non-timestamp GDS records reproduced | Target timing is not Fmax; functional gate simulation is not silicon evidence; `../evidence/E0010-pinned-cmos5l-run/` |
 | E0011 | Node 24 fast-CI action qualification | All 7 stages and artifact upload PASS; 0 annotations; locked image identity unchanged | CI orchestration only; no new physical or silicon claim; `../evidence/E0011-node24-fast-ci/` |
+| E0012 | Readable M0 waveform qualification | Clean CI passes 2 tests, checks all 1,561 rising edges, and rejects an intentional corruption | Same finite Icarus simulation, not a new independent chip-behavior proof or owner-fluency result; `../evidence/E0012-readable-waveform-ci/` |
 
 ## Open questions
 

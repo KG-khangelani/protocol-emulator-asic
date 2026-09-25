@@ -64,6 +64,10 @@ efficiently express useful digital communication protocols under hard temporal c
   VCD, checks every rising edge against the transition table, rejects an
   intentionally corrupted edge, and prints the key reset/count/wrap/hold/resume
   rows without requiring a GUI waveform viewer.
+- Clean GitHub run 36128227539 qualifies that learning command: both tests pass,
+  all 1,561 rising edges match the declared M0 rule, and the intentional
+  corruption is rejected. E0012 retains the exact waveform, log, JUnit report,
+  manifest, hashes, and proof boundary; it does not satisfy owner teach-back.
 - Fast CI now pins Node 24-native setup-buildx v4.4.1 and build-push v7.4.0
   release commits. E0011 records a clean seven-stage pass, unchanged locked
   workbench image identity, successful artifact upload, and zero check

@@ -1,0 +1,72 @@
+{
+  "schema": "protocol-emulator-learning-evidence-v1",
+  "id": "E0012",
+  "checked_utc": "2026-09-25",
+  "question": "Can a clean GitHub checkout run the beginner-readable M0 waveform lab, check every rising edge, and reject a corrupted transition?",
+  "source_commit": "34c07c20b10dae838bfbc1e560fd5527303c3611",
+  "test_run": {
+    "id": 36128227539,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36128227539",
+    "event": "push",
+    "status": "success",
+    "created_utc": "2026-09-25T11:13:35Z",
+    "completed_utc": "2026-09-25T11:15:54Z",
+    "job_id": 108049197623,
+    "job_status": "success",
+    "annotation_count": 0
+  },
+  "docs_run": {
+    "id": 36128227538,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36128227538",
+    "status": "success",
+    "job_id": 108049197434
+  },
+  "learning_waveform": {
+    "status": "PASS",
+    "simulator": "Icarus Verilog 14.0 (devel)",
+    "cocotb": "2.0.1",
+    "tests_passed": 2,
+    "tests_failed": 0,
+    "random_seed": 1790334942,
+    "simulated_time_ns": 31220,
+    "rising_edges_checked": 1561,
+    "intentional_corruption_rejected": true,
+    "selected_events": [
+      {"event": "reset", "time_ns": 10, "rst_n": 0, "ena": 0, "before": null, "after": "00"},
+      {"event": "count 1", "time_ns": 30, "rst_n": 1, "ena": 1, "before": "00", "after": "01"},
+      {"event": "count 2", "time_ns": 50, "rst_n": 1, "ena": 1, "before": "01", "after": "02"},
+      {"event": "count 3", "time_ns": 70, "rst_n": 1, "ena": 1, "before": "02", "after": "03"},
+      {"event": "wrap", "time_ns": 5130, "rst_n": 1, "ena": 1, "before": "FF", "after": "00"},
+      {"event": "hold", "time_ns": 10270, "rst_n": 1, "ena": 0, "before": "00", "after": "00"},
+      {"event": "resume", "time_ns": 10610, "rst_n": 1, "ena": 1, "before": "00", "after": "01"},
+      {"event": "reset wins", "time_ns": 10690, "rst_n": 0, "ena": 1, "before": "01", "after": "00"}
+    ]
+  },
+  "verification_artifact": {
+    "id": 10860816205,
+    "name": "verification-34c07c20b10dae838bfbc1e560fd5527303c3611",
+    "size_in_bytes": 186650,
+    "digest": "sha256:5ca2d1505ef0667d5fe1e0b6d9cc6385f8155e3b992a324adc05755cb1403db1",
+    "created_utc": "2026-09-25T11:15:47Z",
+    "expires_utc": "2026-12-24T11:13:36Z"
+  },
+  "workbench": {
+    "image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "image_record_sha256": "636ddcfb989768da0bdf19650e1c502509e387e039f90507185e2964cf98edce"
+  },
+  "curated_sha256": {
+    "check-annotations.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "learning-waveform.log": "8488cd390136403d125ed9312f2819e0ad70ab92f8bfa2d7cb1fe43cb658924c",
+    "remote-manifest.json": "f956c8bf99cd5052cdebd1347c2e83191baf98a8ea9feab927ed75e3111363e2",
+    "results-learning.xml": "04756e0392411bc3a09ce85fbd1656b7bc590c4a4c6f47c44294eb7de08ae491",
+    "m0-learning.vcd.zip": "9984d9dd054f445f28394ecbc2a495821ff51e0eac9644a7449fbac9dfaaf6b4",
+    "expanded_m0-learning.vcd": "3830ccf44b23226e19e2924d29260167a5f44066e62160e03559499f52fb685c"
+  },
+  "limits": [
+    "The readable table and tests use the same finite Icarus simulation, so this is not a new independent chip-behavior proof",
+    "The parser checks the declared M0 transition model; it does not establish that the model is the right future protocol architecture",
+    "This run is not formal, physical, analog, FPGA, or fabricated-silicon evidence",
+    "The VCD whole-file hash includes generated metadata and is not expected to be stable across reruns",
+    "Automated qualification cannot establish owner fluency; the teach-back remains pending"
+  ]
+}
