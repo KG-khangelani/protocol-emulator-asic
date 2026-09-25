@@ -10,6 +10,8 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Specify waveform, reset, enable and unused-pin behavior.
 - [x] Implement baseline RTL and independent pin-level regression.
 - [x] Prepare Codex instructions, CI and evidence collection.
+- [x] Pass the audited public-release gate and enable repository security controls.
+- [x] Build and validate the locked local doctor/lint/test/synthesis workbench.
 - [x] Run static repository checks.
 - [x] Create GitHub remote.
 - [x] Populate remote and pass CI (E0002).
@@ -17,7 +19,8 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Archive CI artifact durably before 21 December 2026 (E0002).
 - [x] Pass generic synthesis sanity check (E0002).
 - [x] Complete official CMOS5L RTL-to-GDS build and precheck (E0003).
-- [ ] Pass gate-level regression.
+- [x] Pass corrected official gate-level regression (run 36111852179).
+- [ ] Run fast CI from the same lock, including Verilator and M0 formal checks.
 - [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
 - [x] Record resolved action/tool/PDK versions and environment (E0003).
 - [ ] Clean rerun reproduces the functional result and physical acceptance.

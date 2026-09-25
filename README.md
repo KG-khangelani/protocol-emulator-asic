@@ -14,11 +14,13 @@ the [project goal](docs/goal.md) and the visual
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Current state: M0 scaffold.** The repo contains a deterministic GPIO baseline,
-pin-level tests, and the official Tiny Tapeout CMOS5L physical-flow workflow.
-GitHub CI passed static checks, the GPIO RTL regression, generic synthesis and
-the docs build; see [E0002](evidence/E0002-ci/README.md). The CMOS5L physical
-build has not run; **M0 is not complete**. No UART, SPI, I2C or VM
+**Current state: M0 physical-flow closure.** The repo contains a deterministic
+GPIO baseline, pin-level tests, a locked Docker verification workbench, and the
+official Tiny Tapeout CMOS5L physical workflow. The first physical run produced
+a cleanly checked GDS with positive timing slack, while its separate gate-level
+job exposed a missing PDK model in the test source list. That defect is fixed;
+the corrected official GDS and gate-level jobs pass, while downstream acceptance
+and a clean pinned rerun remain. **M0 is not complete.** No UART, SPI, I2C or VM
 is implemented yet.
 
 ## Start with Codex
@@ -37,27 +39,30 @@ No API key or agent-specific model setting is needed in the repository.
 
 ## Run locally
 
-Prerequisites: Python 3.11+, Git, GNU Make, Icarus Verilog (`iverilog`, `vvp`),
-and Yosys for generic synthesis. The included devcontainer is adapted from the
-official template; its container build has not been exercised in this setup.
+The supported Windows path needs Docker Desktop, PowerShell and Git; chip tools
+run inside the pinned Linux workbench:
 
-```sh
-make setup
-make doctor
-make check
-make test
-make synth
-make evidence
+```powershell
+.\tools\workbench.ps1 Setup
+.\tools\workbench.ps1 Doctor
+.\tools\workbench.ps1 All
 ```
+
+`Setup` builds the sealed tool environment, `Doctor` explains every tool and
+rejects version drift, and `All` currently runs consistency checks, Verible
+lint, Icarus/cocotb simulation and generic Yosys synthesis. Individual commands
+include `Check`, `Lint`, `Test`, `Formal`, `Synth`, `Evidence`, and `Shell`.
+`Formal` intentionally reports `NOT_EVALUATED` until the M0 property harness is
+added in the next verified slice.
 
 `make evidence` writes logs and a machine-readable manifest under
 `build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero
 exit code. A generic Yosys result does not establish IHP area or timing.
 
-For a Debian/Ubuntu development machine, install the native prerequisites with
-`sudo apt-get install git make python3-venv iverilog yosys` after updating its
-package index. For macOS, use the devcontainer or provide equivalent native
-tools. Docker is needed for the local physical flow, not for the RTL tests.
+Linux/WSL users can run equivalent commands with `./tools/workbench.sh`. Native
+tools remain useful for exploration, but the locked workbench is the reproducible
+local acceptance path. The official GitHub CMOS5L workflow remains the authority
+for physical fit and timing; a local generic synthesis pass cannot replace it.
 
 ## Project map
 
@@ -79,11 +84,11 @@ tools. Docker is needed for the local physical flow, not for the RTL tests.
 
 ## Remote and physical flow
 
-Repository: https://github.com/KG-khangelani/protocol-emulator-asic
+Public repository: https://github.com/KG-khangelani/protocol-emulator-asic
 
-Created private during bootstrap. The competition submission must be open source;
-public release remains a later project step. Clone this repository, open its root
-in Codex, and follow the startup task above.
+The repository crossed the public boundary only after the E0004 history,
+secret, license, object-size and CI audit. Secret scanning, push protection,
+Dependabot security updates and private vulnerability reporting are enabled.
 
 The `test` workflow runs on pushes and pull requests. Run `gds` manually once
 verification passes; it retains the official CMOS5L build, precheck and

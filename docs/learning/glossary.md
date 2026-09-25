@@ -22,7 +22,7 @@ when a new term first becomes necessary.
 | LVS | Layout-versus-schematic: compares layout connectivity with the intended netlist. | LibreLane physical reports. |
 | Gate-level netlist | Verilog containing mapped cells and connections rather than the original behavioural RTL. | Produced by the GDS workflow for `gl_test`. |
 | GDS | The binary geometry database delivered by the layout flow. | `tt_submission` artifact from the GDS workflow. |
-| Reproducibility | Ability to identify and rerun the same source, tools and configuration. | Evidence manifests and the forthcoming toolchain lock. |
+| Reproducibility | Ability to identify and rerun the same source, tools and configuration. | Evidence manifests and `tools/workbench/toolchain.lock.json`. |
 | SHA-256 | A content fingerprint used to detect a changed artifact. | Artifact hashes in `evidence/`. |
 | `PASS` | The stage ran and met its stated acceptance condition. | Evidence stage status. |
 | `FAIL` | The stage ran and contradicted its acceptance condition. | Evidence stage status. |

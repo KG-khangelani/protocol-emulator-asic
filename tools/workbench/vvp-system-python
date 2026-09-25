@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+suite=/opt/oss-cad-suite
+export PATH="${suite}/bin:${PATH}"
+export PYTHONEXECUTABLE=/usr/local/bin/python
+export PYTHONHOME=/usr/local
+export PYTHONPATH=/usr/local/lib/python3.11/site-packages
+export PYTHONNOUSERSITE=1
+
+exec "${suite}/lib/ld-linux-x86-64.so.2" \
+    --inhibit-cache \
+    --inhibit-rpath "" \
+    --library-path "${suite}/lib" \
+    "${suite}/libexec/vvp" "$@"

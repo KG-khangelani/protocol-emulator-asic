@@ -1,0 +1,98 @@
+{
+  "schema": "protocol-emulator-toolchain-lock-v1",
+  "developer_workbench": {
+    "image_tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "platform": "linux/amd64",
+    "base_image": "python@sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b",
+    "python": "3.11.16",
+    "oss_cad_suite": {
+      "version": "2026-07-29",
+      "version_marker": "20260729",
+      "asset": "oss-cad-suite-linux-x64-20260729.tgz",
+      "size_in_bytes": 737344018,
+      "sha256": "89ea1152ea84bc600f18cc685f721d534d1f018e09831662787865a3d79ce4aa"
+    },
+    "verible": {
+      "version": "v0.0-4296-g0f262651",
+      "asset": "verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz",
+      "size_in_bytes": 17584945,
+      "sha256": "8569defb891d2316067613ea00442af28a7a09d405d95b54c0c91f9942d26635"
+    },
+    "python_requirements": {
+      "path": "tools/workbench/requirements.lock",
+      "sha256": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a"
+    },
+    "debian_packages": {
+      "ca-certificates": "20250419~deb12u1",
+      "curl": "7.88.1-10+deb12u15",
+      "git": "1:2.39.5-0+deb12u3",
+      "make": "4.3-4.1"
+    },
+    "tools": {
+      "git": {
+        "command": ["git", "--version"],
+        "expected_output": "git version 2.39.5",
+        "purpose": "records and retrieves the exact project history"
+      },
+      "make": {
+        "command": ["make", "--version"],
+        "expected_output": "GNU Make 4.3",
+        "purpose": "gives the project one consistent command interface"
+      },
+      "iverilog": {
+        "command": ["iverilog", "-V"],
+        "expected_output": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+        "purpose": "compiles RTL for fast cycle-by-cycle simulation"
+      },
+      "vvp": {
+        "command": ["vvp", "-V"],
+        "expected_output": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+        "purpose": "runs the simulation program produced by Icarus"
+      },
+      "verilator": {
+        "command": ["verilator", "--version"],
+        "expected_output": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+        "purpose": "provides a second, independent RTL compiler and simulator"
+      },
+      "verible": {
+        "command": ["verible-verilog-lint", "--version"],
+        "expected_output": "Version\tv0.0-4296-g0f262651",
+        "purpose": "checks Verilog style and suspicious source patterns"
+      },
+      "yosys": {
+        "command": ["yosys", "-V"],
+        "expected_output": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+        "purpose": "translates RTL into generic logic cells for synthesis checks"
+      },
+      "sby": {
+        "command": ["sby", "--version"],
+        "expected_output": "SBY v0.67-4-gfea6e46",
+        "purpose": "coordinates exhaustive formal-property checks"
+      },
+      "z3": {
+        "command": ["z3", "--version"],
+        "expected_output": "Z3 version 4.15.5 - 64 bit",
+        "purpose": "solves mathematical constraints for formal verification"
+      },
+      "boolector": {
+        "command": ["boolector", "--version"],
+        "expected_output": "3.2.4",
+        "purpose": "provides a second bit-vector formal solver"
+      },
+      "cocotb": {
+        "command": ["cocotb-config", "--version"],
+        "expected_output": "2.0.1",
+        "purpose": "lets Python drive and inspect the simulated hardware"
+      }
+    }
+  },
+  "official_cmos5l_qualification": {
+    "outer_action_commit_observed": "3412659307918422f3f0727917cf9b499aaca588",
+    "support_tools_commit_observed": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "librelane": "3.1.0.dev3",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
+    "state": "observed-not-yet-qualified-or-pinned-in-workflow"
+  }
+}

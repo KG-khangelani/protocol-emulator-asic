@@ -10,10 +10,10 @@ the chip. It catches mismatched metadata, but cannot test Verilog behaviour.
 
 **Predict:** The command should report a pass followed by a limitation.
 
-**Run on the current Windows host:**
+**Run in the locked workbench:**
 
 ```powershell
-& .\.venv\Scripts\python.exe tools\check_project.py
+.\tools\workbench.ps1 Check
 ```
 
 **Inspect:** Read both output lines. Identify one fact it checked and one thing
@@ -30,7 +30,7 @@ enable, and disabling the counter preserves its value.
 **Predict:** Starting at `00`, with reset released and enable asserted, three
 rising edges should produce `01`, `02`, `03`.
 
-**Run:** After the container workbench lands, use:
+**Run:**
 
 ```powershell
 .\tools\workbench.ps1 test
@@ -41,6 +41,27 @@ rising edges should produce `01`, `02`, `03`.
 
 **Restate:** Explain why changing an input halfway between rising edges cannot
 immediately change the counter state.
+
+## Lab 1A — Check the ingredient batch
+
+**Idea:** A result is reproducible only when we can identify the tools that
+produced it. `Doctor` compares installed version outputs and dependency hashes
+with the machine-readable lock.
+
+**Predict:** Every required tool should say `PASS`, followed by a limitation
+that tool identity alone does not prove the RTL correct.
+
+**Run:**
+
+```powershell
+.\tools\workbench.ps1 Doctor
+```
+
+**Inspect:** Find Icarus, Verible, Yosys, SBY, one solver and the Python lock
+hash. Then open `tools/workbench/toolchain.lock.json` and match one value.
+
+**Restate:** Explain why “I used Yosys” is weaker evidence than naming its exact
+version, input commit and command.
 
 ## Lab 2 — Distinguish source logic from physical evidence
 

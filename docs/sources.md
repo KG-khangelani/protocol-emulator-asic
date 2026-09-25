@@ -1,6 +1,6 @@
 # Sources and provenance
 
-Checked: 2026-09-22. Recheck changeable rules before a release/submission.
+Checked: 2026-09-25. Recheck changeable rules before a release/submission.
 
 | ID | Source | Use |
 |---|---|---|
@@ -10,6 +10,8 @@ Checked: 2026-09-22. Recheck changeable rules before a release/submission.
 | S4 | https://github.com/TinyTapeout/ttihp-verilog-template/commit/b86a2a781484bcab7ba522dc5de540086695a430 | Imported immutable revision |
 | S5 | https://www.tinytapeout.com/guides/local-hardening/ | General hardening guide; does not itself lock CMOS5L inputs |
 | S6 | https://developers.openai.com/codex/guides/agents-md | Repository instructions for Codex |
+| S7 | https://github.com/YosysHQ/oss-cad-suite-build/releases/tag/2026-07-29 | Pinned open EDA developer bundle |
+| S8 | https://github.com/chipsalliance/verible/releases/tag/v0.0-4296-g0f262651 | Pinned Verible lint binary |
 | U1 | `source-pack.md` | User-provided project direction and historical OpenKnowledge references |
 
 Rule snapshot: open-source and programmable after fabrication; begin with UART,

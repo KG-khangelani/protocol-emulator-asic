@@ -12,16 +12,23 @@ the latter. That edit still requires a container/physical build to validate.
 
 ## Fast local loop
 
-`make setup` creates the Python environment. `make doctor` reports prerequisites.
-`make check` performs static consistency only. `make test` invokes cocotb/Icarus
-and rejects missing, empty, skipped or failed JUnit results. `make synth` runs
-generic Yosys and leaves `build/synthesis.log` and `build/synth.json`.
-`make evidence` records source hashes, exact commands, versions and stage status.
+The supported local path is `tools/workbench.ps1` on Windows or
+`tools/workbench.sh` on Linux/WSL. It builds a Linux/amd64 Docker image from:
 
-The Python dependency versions in `test/requirements.txt` are inherited from
-the pinned template except for the security update to pytest 9.0.3. Native
-compiler, OS and transitive dependency versions are not fully locked yet; the
-evidence manifest records observed versions.
+- Python 3.11.16 base image pinned by OCI digest;
+- OSS CAD Suite `2026-07-29` archive pinned by SHA-256;
+- Verible `v0.0-4296-g0f262651` archive pinned by SHA-256;
+- exact Debian package versions; and
+- direct and transitive Python packages pinned with hashes.
+
+`Doctor` checks installed outputs against `tools/workbench/toolchain.lock.json`
+and fails on a missing or different version. `Check` performs static consistency
+only. `Lint` runs Verible with one documented Tiny Tapeout filename waiver.
+`Test` invokes cocotb/Icarus and rejects missing, empty, skipped or failed JUnit
+results. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
+`build/synth.json`. `Evidence` records source hashes, exact commands, versions
+and stage status. `Formal` is explicitly `NOT_EVALUATED` until the M0 property
+harness lands; a missing proof must not appear as a pass.
 
 ## Physical gate
 
@@ -52,7 +59,9 @@ E0003 resolved the CMOS5L action branch to action commit
 `d66cf179e7bc4d296362ab7e2e3b344dc3c4f665`, LibreLane `3.1.0.dev3`, and
 IHP Open PDK `2bbec755dc67ca3db0261c3d6163e15735d66710`. The GDS and precheck jobs
 passed. The gate-level runner used Python 3.11.16 and Icarus 13.0, but failed
-at elaboration because `test/Makefile` omitted `sg13cmos5l_udp.v`.
+at elaboration because `test/Makefile` omitted `sg13cmos5l_udp.v`. That source
+list is corrected, and the exact archived netlist now passes locally with the
+recorded PDK model; official rerun acceptance is still pending.
 
 These identities describe what actually ran; they are not yet the repository's
 locked environment. Pinning is deferred until the corrected flow passes, so a
@@ -61,7 +70,7 @@ bad integration is not frozen merely because its layout stage succeeded.
 ## Setup limitations
 
 Docker Desktop now works on the Windows host. Native Windows `make`, Icarus and
-Yosys are still absent, so the locked container workbench remains necessary.
-The project `.venv` provides Python checks and cocotb. GitHub CI passed RTL and
-generic synthesis (E0002), while the first physical run passed GDS and precheck
-but exposed the separate gate-level source-list defect (E0003).
+Yosys remain absent by design; the verified container workbench provides the
+supported local lane. GitHub CI has not yet been moved onto that same lock, the
+second Verilator simulation and M0 formal harness are not yet wired in, and the
+official physical workflow still requires passing and clean pinned reruns.

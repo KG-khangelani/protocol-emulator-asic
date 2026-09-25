@@ -1,0 +1,3 @@
+# Tiny Tapeout fixes the source filename as project.v while requiring a unique
+# tt_um_* top-module name. Keep that official contract and waive only this rule.
+-module-filename

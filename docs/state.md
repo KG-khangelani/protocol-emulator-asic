@@ -22,28 +22,37 @@ efficiently express useful digital communication protocols under hard temporal c
   Dependabot security updates and private vulnerability reporting.
 - Docker Desktop is available locally. The project Python environment passes
   static checks; native Windows `make`, Icarus and Yosys remain absent.
+- A locked Linux/amd64 Docker workbench now provides exact-version checks,
+  Verible lint, Icarus/cocotb simulation and generic Yosys synthesis from
+  Windows. Its complete local `All` run passes.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.
+- The missing gate-level UDP model was added to `test/Makefile`; the exact E0003
+  netlist now passes locally. In corrected official run 36111852179, both the
+  GDS and gate-level jobs pass; precheck remains in progress at the last
+  observation.
+- GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
+  refresh recognized pytest 9.0.3; it was not manually dismissed.
 
 ## Blocked or unverified
 
-- The first gate-level job failed before simulation: `ihp_dff_r` is defined in
-  `sg13cmos5l_udp.v`, but `test/Makefile` did not compile that PDK model. The
-  missing model must be added and the official job rerun.
+- Corrected official run 36111852179 has not yet completed precheck, so it is
+  not a fully passing acceptance run yet.
 - The physical workflow still names a mutable upstream branch even though
   E0003 records the resolved action, flow and PDK revisions. Pin successful
   inputs after the passing rerun.
-- No clean physical rerun, formal proof, FPGA run or devcontainer validation
-  exists yet. Positive slack at the 20 ns target is not a measured maximum
-  clock frequency.
+- Fast GitHub CI does not yet consume the same tool lock. The second Verilator
+  simulation and M0 formal properties are not wired in.
+- No clean pinned physical rerun, FPGA run or devcontainer validation exists
+  yet. Positive slack at the 20 ns target is not a measured maximum frequency.
 
 ## Next executable action
 
-Add the missing CMOS5L UDP primitive model to the gate-level source list,
-validate the exact E0003 netlist locally in a container, then rerun the official
-`gds` workflow. Archive the passing gate-level and clean-rerun evidence before
-declaring M0 complete.
+Commit and evidence the locked developer workbench while corrected official run
+36111852179 finishes. Archive its results if every required job passes, then pin
+the physical workflow inputs and require a second clean run before declaring M0
+complete. In parallel, move fast CI to the lock and add the M0 formal harness.
 
 ## Handoff boundaries
 

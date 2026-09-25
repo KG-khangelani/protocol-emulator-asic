@@ -42,7 +42,7 @@ would make results harder to compare and explain.
 | IHP Open PDK CMOS5L | Cell libraries and process/tool data | Open checks are not a foundry guarantee |
 | Tiny Tapeout actions | Competition integration, precheck and artifacts | This is the project acceptance path for M0 |
 
-## First qualified physical snapshot
+## First observed physical snapshot
 
 The first observed physical run resolved these identities. They are recorded as
 evidence before any pinning decision:
@@ -58,6 +58,15 @@ evidence before any pinning decision:
 Think of these as ingredient batch numbers. “LibreLane was used” is too vague
 to reproduce an experiment; the exact version and PDK revision make the claim
 inspectable.
+
+## Locked developer workbench
+
+The fast lane is defined by `tools/workbench/Dockerfile` and the machine-readable
+`tools/workbench/toolchain.lock.json`. Downloads are accepted only after their
+SHA-256 matches the lock, Python dependencies require package hashes, and
+`make doctor` compares the installed version output of each required tool. This
+makes the environment inspectable; it does not make a test result automatically
+correct.
 
 ## Authoritative starting sources
 
