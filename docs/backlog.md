@@ -30,6 +30,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Add and remotely validate the non-gating upstream drift canary (E0008).
 - [x] Clean repository-pinned rerun reproduces the functional and physical result (E0010).
 - [x] Provide a runnable, source-backed M0 evidence walkthrough.
+- [x] Qualify Node 24 Docker CI actions and remove the Node 20 runtime warning (E0011).
 - [ ] Complete and record the M0 owner fluency teach-back.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.

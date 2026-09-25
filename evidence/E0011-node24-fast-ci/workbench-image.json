@@ -1,0 +1,85 @@
+[
+    {
+        "Id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+        "RepoTags": [
+            "protocol-emulator-asic-workbench:2026-07-29"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-09-25T09:32:16.238128591Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/verible/bin:/opt/oss-cad-suite/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+                "PYTHON_VERSION=3.11.16",
+                "PYTHON_SHA256=91bcdebfdde239a003ae93738a7fce0f9230fee5c4bc2b86f6e6e8c6f98aabe8",
+                "DEBIAN_FRONTEND=noninteractive",
+                "PIP_DISABLE_PIP_VERSION_CHECK=1",
+                "PYTHONNOUSERSITE=1",
+                "PROTOCOL_EMULATOR_LOCKED_WORKBENCH=1"
+            ],
+            "Cmd": [
+                "make",
+                "doctor"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/workspace",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "io.protocol-emulator-asic.oss-cad-suite": "2026-07-29",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+                "org.opencontainers.image.title": "Protocol Emulator ASIC verification workbench"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 3056222337,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/0b5043fdbaec217e379616e99e46125c65b09aacaba17f1be4223b063b6ab676/diff:/var/lib/docker/overlay2/ebe15313c8638be27dd44ba2e1f085f94fd54e5bf690e0b231d3d2c7f8db14da/diff:/var/lib/docker/overlay2/56c2e9bb57606bf8df36e9bf8b11a068dd4c25ff71e718a9bfa553ffb23e6f6a/diff:/var/lib/docker/overlay2/c1c7c799a4ee728b54657a40b070e9d8f6e3ba6bc55d216eaedc59a24a96db58/diff:/var/lib/docker/overlay2/4007331840df5dc3566f6522d834323c74c4d66c3b070a3d3ce061c2dec2ea99/diff:/var/lib/docker/overlay2/372f290ba98098775b7adf8d83460bdf99696c640667695533c0f61967a5bdcf/diff:/var/lib/docker/overlay2/4e94175085cab774f088fd7cc4eba7c873958116693e09fa988f16b81b553a6d/diff:/var/lib/docker/overlay2/6d2025fd25be037c0cae55ea02ff61cec50f04819379627cee84cc16c75599f3/diff:/var/lib/docker/overlay2/db8ada3205040a531511cae17fc64dd0966041d6626b06878ca724a2be360635/diff:/var/lib/docker/overlay2/82af55b0e9e747aac02bad01c723d2bea6812e3f6d850adb9427047d8bc3bab5/diff:/var/lib/docker/overlay2/136bd8cc3141aad27e4f1d827e2c96566deb0acc680186debf09e459a9ca55f6/diff:/var/lib/docker/overlay2/a7691e0728de73e9e83b444999e67f8a40190702c9920427e6078fbc39f8ad8b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/13dfb90fdf0e42b6105167c47246a6b28c576d13281ea97223e3152395d3048b/merged",
+                "UpperDir": "/var/lib/docker/overlay2/13dfb90fdf0e42b6105167c47246a6b28c576d13281ea97223e3152395d3048b/diff",
+                "WorkDir": "/var/lib/docker/overlay2/13dfb90fdf0e42b6105167c47246a6b28c576d13281ea97223e3152395d3048b/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:34467cc93912af891dfee8a3902adf9b4f355a9bca4eaa46f658d1181a21de0d",
+                "sha256:b3445de4503d21b3ebc42db2f284bc6c8ad96184ea91ce55fb57f5e87910e1f2",
+                "sha256:546c86e4df2dc808fcf1953c346bfeef32f4c953933634d57c1d38730b750e9c",
+                "sha256:6b6ff8eb9da6c277f4b33452c77d59f8b5ff04e0bcca1a3054570b9db343da79",
+                "sha256:d8c5a9a09dacd894d7afbbbcf095141e0ab928f8cd613b17e6dd9d4622a11208",
+                "sha256:482d794b2b368869f2493c016ba61bc55df93d54b6ad841aa251fc07c0ef12d7",
+                "sha256:4d067d4dc0f837406b7e4fc18b7f29c4bd7747a1cbdc3d70e8a64dd96b1e271f",
+                "sha256:b5e80eac6a56c3b4c2ac2ff45a4278ac6fbfc1130d9cab7d532442ded8121343",
+                "sha256:c743910a048584c9fedaee7871500be54ee12ccd4c786b4368ade4beba2ca4f3",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:c71c0e98be51918211d64df1b1694a6c9dff9f41b344c6710aa0fed7571ba664",
+                "sha256:1bf7281121c7e400a2abef4401f2a28bf89419ff3bc2951982ee6f8d486eefae",
+                "sha256:e47f67312f4f3c589f55dff9d76978f86d08e498122350d993c86201ea0b5cf5"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

@@ -60,6 +60,10 @@ efficiently express useful digital communication protocols under hard temporal c
   RTL, fast verification, physical evidence, claim boundaries, and teach-back
   prompt. Its verification mode is part of the static check; it cannot mark
   owner fluency automatically.
+- Fast CI now pins Node 24-native setup-buildx v4.4.1 and build-push v7.4.0
+  release commits. E0011 records a clean seven-stage pass, unchanged locked
+  workbench image identity, successful artifact upload, and zero check
+  annotations after the Node 20 warning was removed.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 

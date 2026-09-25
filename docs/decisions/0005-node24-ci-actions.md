@@ -1,6 +1,6 @@
 # D5 — Move Docker CI orchestration to Node 24 actions
 
-Date: 2026-09-25. Status: candidate; clean CI qualification pending.
+Date: 2026-09-25. Status: adopted and qualified by E0011.
 
 Need: GitHub run 36124428730 passed, but GitHub annotated both Docker actions
 because their pinned versions declared the retired Node 20 action runtime.
@@ -34,6 +34,10 @@ Consequences:
 - Qualification is scoped to the fast CI lane; it does not alter or rerun the
   already qualified CMOS5L physical snapshot.
 - Future action upgrades remain explicit lock changes followed by clean CI.
+
+Qualification: clean GitHub run 36124783158 built the unchanged locked image,
+passed all seven fast stages, collected and uploaded evidence, and returned no
+check annotations. E0011 retains the run and action-manifest identities.
 
 Rejected: leaving the warning indefinitely, following mutable v4/v7 tags, or
 changing the workbench tool versions at the same time as the runner upgrade.

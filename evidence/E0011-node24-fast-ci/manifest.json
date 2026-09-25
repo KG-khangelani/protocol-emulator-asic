@@ -1,0 +1,181 @@
+{
+  "created_utc": "20260925T103641399207Z",
+  "git_head": "4e00a0c6da1f8e80b0b1a372af4bd457234379c4",
+  "git_status": "",
+  "python": "3.11.16",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.36",
+  "source_sha256": {
+    ".devcontainer/Dockerfile": "17931634d2321aa99db588c5657cd4659eaaa1770c12991c852a2b6a722f3276",
+    ".devcontainer/copy_tt_support_tools.sh": "1955f567349cca921a961947ac0bee27942077b4cdbd0d72f99a49a4c0ec3435",
+    ".devcontainer/devcontainer.json": "893f821c045fc7e465fac185e9ea591882ebaaad68fe05fc53036c92e3b5d69b",
+    ".editorconfig": "36c67edabe554a90074f0e80a2b2453715175271464d524c17775068b30b3251",
+    ".gitattributes": "40d7d25c17b2d54051360d4eb9a1570aa8cdae4ed0b994b897f7ab647628797a",
+    ".github/pull_request_template.md": "2e02ed812deb4a3e6bcc86eb91c533f77bed46e648f677c1b634084574e5be21",
+    ".github/workflows/docs.yaml": "9caf321523787472b02ee9a7701bb7881549f36a5c1b6da9461c630ecffc13d4",
+    ".github/workflows/fpga.yaml": "330430e4aa0c5d1a3e6e8be5d3509b4a80650689e64ba24005c8399aaf2df381",
+    ".github/workflows/gds.yaml": "f4a1ad7615c82e594cff18b5f7ea6b1338407a7ec841811701944b7fccd942b7",
+    ".github/workflows/test.yaml": "f91c717971f12dac05730b2ed66a7244d77beee5894f6e3ffbebe0308bb3caf6",
+    ".github/workflows/upstream-canary.yaml": "177d8d4b9dbdd703c892610be945ec7079edffb5582b235b0141b2a0ef0c2b73",
+    ".gitignore": "9c820d6bc33393083e7bd7b948cb6c585667a980c0dbb687ccdbcf1f04af55a0",
+    ".rules.verible_lint": "db91c80ed8e15ce85b562fc429a42956bf650a378e7d950ae654695d20f78325",
+    ".vscode/extensions.json": "660e9bafc4970b9d5333abc7920c16f7ffd037c92eae3a98a2502eee309faf52",
+    ".vscode/settings.json": "7e8716faf75d190bd27b428aec68d5ce3e5390b6029f92625fb988688063e48a",
+    "AGENTS.md": "e2289fe6ded77110c94b69770fe58b413479d7087f27fb5f98b49b2e6a4455a1",
+    "CITATION.cff": "628a8b7722b4d52fb8e769c57c070afe8499ae37b477eb6234f9d6f657f568ef",
+    "CONTRIBUTING.md": "3bc09c923be513152e1a569c3f57c83211c3e5c3ecb1797f41c50c3ccf29df97",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "Makefile": "28bc7ece12263e51ee748f5e24111d7ca6932d637dcf82fc93159a903b54007f",
+    "README.md": "7bb91475df9acebb69e4039021bfe16294a48af87678b91146003b6285007720",
+    "SECURITY.md": "6a3589298f7df0e245516c9b93cb3236e43074b1d4a33af0704729f3c6936524",
+    "THIRD_PARTY_NOTICES.md": "61fca9ee157620402bb511cbfde10e89f2250b27f9bc669cc72f8c307ae7a5b5",
+    "docs/backlog.md": "627226e96804917c96a1667df7ce9c9c6bf4475c3ced2c437e8c0f57e2a0a03a",
+    "docs/decisions/0001-bootstrap.md": "693b8394c9a590f0f73f32ec1b9a852196d3d9a4aa5165f6de42c835ddef86a3",
+    "docs/decisions/0003-locked-workbench.md": "747662c3d633846eb12b3a8dba514680a80a23d29b8c2ba996eef34c7f9c47a6",
+    "docs/decisions/0004-pinned-physical-flow.md": "adcf7a755d55143dc6c19549af4cc80d30aef66a4c192b62a6f4f1d9b26e1927",
+    "docs/decisions/0005-node24-ci-actions.md": "35a3871013fc3ea2669365283f5b6908e13d0389aa4eedbe4298e17cf668e895",
+    "docs/goal.md": "caf1243f22a15500636488501961fc941302b9f10d13404b4a6a1653a6ffa2ca",
+    "docs/info.md": "d335bdd52ca5671c955799265a6624d09d15dbf09a367e1f18456c51a92321ea",
+    "docs/learning/checkpoints.md": "177d58e518f5b69d9cd9efd5ee6b51dbe2932d1447d39927ea1bc061e2b8183e",
+    "docs/learning/glossary.md": "65bb0e73f748a12ecbe8a8737117795b4ee005d7ed086cca0fb732d58bd07e02",
+    "docs/learning/labs.md": "9b2d926c64262c371ad6b513570fab4b5fb6fe35d3fb5e03ae266c129b808990",
+    "docs/learning/map.md": "7c7d64a2ec331ece3fd0b4bbeee5503d5156229de54520da47b2e34ea96ed6d3",
+    "docs/milestones.md": "4ca5ca7cf33172bb5c1ac5f18dda12f4d14379f0b466ffb5694bdd0b95d81c78",
+    "docs/open-source-infrastructure.md": "d785d132f9fa6897a3ec1aff1ee09b1b4a8c19a200d973549737ef98ace9c7e8",
+    "docs/research-ledger.md": "9cbfe791c37d1b8592acdbd97f8bcd91d3ca278eef055223cf5d83d53cd469fb",
+    "docs/source-pack.md": "abbd03b4ea9dba8e23355b323ec41f2f4bddf35bcfe01a1c8b4cca4d2844e40a",
+    "docs/sources.md": "9de07573fc23c7e082c8ae1b026db09af7b88e966b31566d727529669b35e977",
+    "docs/specs/m0-gpio.md": "d2c256bd207654c2deb32e138ff3d4181464f44ef9ada25ff9337f5dce205993",
+    "docs/state.md": "cf3e54c277953b64643feb73732f2f27d27fa94a8c6196efe2503a720e7ca2d3",
+    "docs/toolchain.md": "63888894c9e8a9079735bc5e6127249de1dd5450b91365b5e4341552f09b222b",
+    "docs/upstream-template.json": "5cc16d7d3c846fab539872d6d4f6dd3d313e1b248670fcf13ebdc7ee0f5a4b65",
+    "docs/verification.md": "7e19f29e7fc9d1f78777268e1183b4930ca5a9d7486fa9436ee00bd0db5a17ae",
+    "formal/README.md": "cb5f790107a5ae67d749f7420c82ef574c8f222f638a50e7331ce2e96b6aefca",
+    "formal/m0_gpio.sby": "b39e5a5ab019ef317cf5c9ee0d15f61ad2aa1c034504d1c0a683d7c02d0e0467",
+    "formal/m0_gpio_formal.sv": "efb0ea59fec120d83218ab4c06ef44a1429ad818f4789b7ad200b8c5c9f34402",
+    "formal/m0_gpio_mutation.sby": "0a818b4680384ce89fd559e3e536521f18d7caa165d0f774788d010094a5ff02",
+    "formal/mutants/m0_increment_by_two.v": "06666861509565064827d115a70f02e9db28dd226f1c1bc00514810e6609c81d",
+    "info.yaml": "291e7e0c183d62568a8cf88ab8a0f5355ba9c47a647ba2511eeee2e5c98d04b7",
+    "requirements-dev.txt": "b9ee955c652d18eb036dc539d0c98a2fad4ca4dde259a575d65faad63b6f6f23",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "src/project.v": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c",
+    "test/Makefile": "45368edb835f688ac6cafe52180d45ad006fa7221cc57adefd6e4a165e29cc74",
+    "test/README.md": "74e94f2b1032820001a49250b33520c1927c8efb951e71cfe156c2b9680ebe80",
+    "test/requirements.txt": "6decd14b46d0d71dcd667708bc90a675ccc6cd7ae3c5997775ec4d86ef13ec98",
+    "test/tb.gtkw": "aad62770ad1b98dc6151569c325fdb6101e5fd74e3412e2a0ccb7fbab08c4ba6",
+    "test/tb.v": "62da6cacff4b134258932027cc59610a709a5d54e61ce9f36cf85574e29ccee3",
+    "test/test.py": "08716e19e9aeafedb120dcefd6106c120bc823dabff41d1bfebb560ba8eba9e5",
+    "tools/check_junit.py": "ceab8260fdb5ee3538fa6f7b32582d019b8b7f0e64a0a4737b931958174277e6",
+    "tools/check_project.py": "03bc7da57eaf8bff1e8a23fd491aafebe47d352ecbd8bbe5d6b657dcdad892e8",
+    "tools/check_upstream_drift.py": "b6c8ce651d0c1f64c781954f16d625de9116c108dbfab71604adbda500b3161b",
+    "tools/collect_evidence.py": "31dfa9e48acf5b16a5f2acb66c0b2b8bd4d1f13868a47ef05bc8c0e2eb3d5f88",
+    "tools/compare_gds_records.py": "ffe8827ab3d503cc7987e0265a9a0df55b348feac217db099db9346d7f8de1bf",
+    "tools/doctor.py": "1dfe72d1039ac157fb9a32a60a1b01afeccc879d03cef2e35a505edd9486bf13",
+    "tools/m0_walkthrough.py": "012eee2add8cd971f4b0e0cad0750ac6e4225095a680fb46256bc3d57af9a021",
+    "tools/workbench.ps1": "0f927f28491f200106fce0c255533049663514c7f51f078ef849f72f9c0076ea",
+    "tools/workbench.sh": "ad95d64f25b4b92c570fd13d5d2d639d979f6f08843fd73438f65279c0fc4259",
+    "tools/workbench/Dockerfile": "9f478acb7a5a49a44ac4a96e5c38ccb48ff1276590880418c119fecd8c170d2e",
+    "tools/workbench/README.md": "e291b24841de187546116e2acb899235962c55c05650e1ef53dbb16aeb6c0947",
+    "tools/workbench/iverilog-suite": "6767e6069a9395dc3839381f334200ab44f2f535651a24213d34c579e5bce097",
+    "tools/workbench/requirements.lock": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a",
+    "tools/workbench/toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81",
+    "tools/workbench/vvp-system-python": "c3ccaf68f95a20d850b698a424f2ea0c353f845a7c1140e3a9aedc8b57171cf8"
+  },
+  "tools": {
+    "git": "git version 2.39.5",
+    "g++": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "verilator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+    "verible": "Version\tv0.0-4296-g0f262651",
+    "yosys": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+    "sby": "SBY v0.67-4-gfea6e46",
+    "z3": "Z3 version 4.15.5 - 64 bit",
+    "boolector": "3.2.4",
+    "cocotb": "2.0.1",
+    "PyYAML": "6.0.2"
+  },
+  "stages": [
+    {
+      "name": "doctor",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/doctor.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "static",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/check_project.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_icarus",
+      "command": [
+        "make",
+        "test"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_verilator",
+      "command": [
+        "make",
+        "test-verilator"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "formal",
+      "command": [
+        "make",
+        "formal"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "generic_synthesis",
+      "command": [
+        "make",
+        "synth"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "formal_status": "PASS: safety proof and wrap covers passed; increment-by-two mutant was rejected",
+  "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
+  "artifact_sha256": {
+    "generic_synthesis.log": "5a36d4a9cd43137572b812b32f376709686ae396ca3180896afa12741ef5b138",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743",
+    "results-verilator.xml": "8c76b941d1b1dc3474c14b98781c1109015bdfbc99e012d318aa8564f35286dc",
+    "formal.log": "cd7763e43c4268ec3560190b95ee3ec00915cf1e46a93d1622679364bf15fa88",
+    "lint.log": "e3f082dec54f433aab9183c7d0ff5a707ff586bf31bd31e6065a0932d9cc471c",
+    "formal-mutant.status": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+    "results.xml": "54791e7d3ec85a6ab9c2a53aa5ee25efcc8cd8233b8529f22eff34c376c3b0ab",
+    "doctor.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+    "synthesis.log": "9df79b3b740b4c54c37d8ca433bf9a26854d327a096c895f6da98b7ed5c7b446",
+    "formal-prove.status": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "formal-cover.status": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+    "tb.fst": "b497b1630b168f6d310821139c59611150ca4736f809d4c5c82cf18c13dd65b7",
+    "rtl_icarus.log": "83090b344fc72718ba21f92f8ae0998877d7e4b5348f4edd6baf2b9c7c6c8dc7",
+    "static.log": "102b70170bc34dae02d0f716de18c0b724782f6891458cbd190a12337d4539ff",
+    "rtl_verilator.log": "1f2e2a558f52e00ee7acb7e1957bc854fec733213baf7b7fe641c4924ebae895"
+  }
+}

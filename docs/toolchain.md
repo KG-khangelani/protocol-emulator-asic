@@ -32,6 +32,12 @@ mutant. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
 `build/synth.json`. `Evidence` records source hashes, exact commands, versions,
 and stage status. See `formal/README.md` for the proof assumptions and limits.
 
+GitHub's Docker setup and build actions are also pinned by commit. E0011
+qualifies Node 24-native setup-buildx v4.4.1 and build-push v7.4.0: the locked
+image identity is unchanged, all seven stages pass, the artifact uploads, and
+the prior Node 20 deprecation annotation is absent. These actions orchestrate
+the container; they do not replace or redefine the EDA tools inside it.
+
 ## Physical gate
 
 1. Push the intended source revision to the project repository.

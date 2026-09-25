@@ -19,6 +19,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F10 | The read-only upstream canary remotely observes the live Tiny Tapeout CMOS5L action ref without altering qualified pins; its baseline state was CURRENT | E0008 |
 | F11 | A fresh Windows clone passes the full locked fast ladder without native EDA commands on PATH, and its compared physical-input byte hashes equal Linux CI | E0009 |
 | F12 | The clean repository-pinned physical flow passes GDS, both gate-level tests and all nine prechecks; it reproduces E0006's metrics and every non-timestamp GDS record | E0010 |
+| F13 | Immutable Node 24 Docker action releases preserve the complete locked fast-CI result and remove the prior Node 20 deprecation annotation | E0011 |
 
 ## Working hypotheses
 
@@ -37,6 +38,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D2 | Use 50 MHz as the initial test/flow target, not a supported-performance claim | Inherited 20 ns template constraint; reassess after hardening |
 | D3 | Use a locked Docker workbench for the fast verification lane | `decisions/0003-locked-workbench.md` |
 | D4 | Keep M0 physical acceptance on the official flow with direct actions and successful candidate inputs pinned immutably | `decisions/0004-pinned-physical-flow.md`, E0006, E0010 |
+| D5 | Pin Node 24-native Docker CI orchestration releases and qualify them without changing the EDA image | `decisions/0005-node24-ci-actions.md`, E0011 |
 
 ## Experimental results
 
@@ -51,6 +53,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0008 | Upstream drift canary baseline | Remote monitor PASS; live and qualified Tiny Tapeout action commits match | Timestamped observation only; no automatic upgrade or physical proof; `../evidence/E0008-upstream-canary/` |
 | E0009 | Fresh Windows clone verification | Doctor, static, lint, both simulators, formal, and generic synthesis PASS; cross-platform input hashes match | Reused qualified local image; no physical proof; `../evidence/E0009-fresh-windows-clone/` |
 | E0010 | Repository-pinned CMOS5L qualification | GDS, 2 gate-level tests, and all 9 prechecks PASS; E0006 metrics and non-timestamp GDS records reproduced | Target timing is not Fmax; functional gate simulation is not silicon evidence; `../evidence/E0010-pinned-cmos5l-run/` |
+| E0011 | Node 24 fast-CI action qualification | All 7 stages and artifact upload PASS; 0 annotations; locked image identity unchanged | CI orchestration only; no new physical or silicon claim; `../evidence/E0011-node24-fast-ci/` |
 
 ## Open questions
 

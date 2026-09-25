@@ -1,0 +1,89 @@
+{
+  "schema": "protocol-emulator-ci-upgrade-evidence-v1",
+  "id": "E0011",
+  "checked_utc": "2026-09-25",
+  "source_commit": "4e00a0c6da1f8e80b0b1a372af4bd457234379c4",
+  "run_id": 36124783158,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36124783158",
+  "event": "push",
+  "status": "success",
+  "created_utc": "2026-09-25T10:35:13Z",
+  "completed_utc": "2026-09-25T10:36:51Z",
+  "job": {
+    "id": 108038267882,
+    "name": "test",
+    "status": "success",
+    "started_utc": "2026-09-25T10:35:16Z",
+    "completed_utc": "2026-09-25T10:36:51Z",
+    "annotation_count": 0
+  },
+  "action_upgrade": {
+    "setup_buildx": {
+      "release": "v4.4.1",
+      "commit": "f87e5991a6d7451dcb8d9637bfbc97413f497069",
+      "declared_runtime": "node24"
+    },
+    "build_push": {
+      "release": "v7.4.0",
+      "commit": "c3c9e263c25d99ce0380d002d59b67737d91b0dc",
+      "declared_runtime": "node24"
+    },
+    "previous_warning_run_id": 36124428730,
+    "node20_deprecation_annotation_removed": true
+  },
+  "steps": {
+    "configure_docker_buildx": "PASS",
+    "build_locked_workbench": "PASS",
+    "run_locked_fast_ladder": "PASS",
+    "record_image_identity": "PASS",
+    "collect_evidence": "PASS",
+    "upload_artifact": "PASS"
+  },
+  "stages": {
+    "doctor": "PASS",
+    "static": "PASS",
+    "lint": "PASS",
+    "rtl_icarus": "PASS",
+    "rtl_verilator": "PASS",
+    "formal": "PASS",
+    "generic_synthesis": "PASS"
+  },
+  "rtl": {
+    "icarus_tests_passed": 2,
+    "verilator_tests_passed": 2
+  },
+  "workbench": {
+    "tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "same_image_id_as_e0007": true,
+    "platform": "linux/amd64"
+  },
+  "verification_artifact": {
+    "id": 10859046626,
+    "name": "verification-4e00a0c6da1f8e80b0b1a372af4bd457234379c4",
+    "size_in_bytes": 158727,
+    "digest": "sha256:5e085eb808bc1db0c0cead52af8ff18e91a837cb5830237c8e0046ce499f5b50",
+    "expires_utc": "2026-12-24T10:35:13Z"
+  },
+  "docker_build_record_artifact": {
+    "id": 10859936349,
+    "name": "KG-khangelani~protocol-emulator-asic~K0F2FE.dockerbuild",
+    "size_in_bytes": 39866,
+    "digest": "sha256:1a586bbda7c1449cfe1ac4616d013e56b6144db687861340c3926abfcad5a066",
+    "expires_utc": "2026-12-24T10:35:13Z"
+  },
+  "curated_sha256": {
+    "action-manifests.json": "63b789259ac7ea1ca3e9771320e5156f71479392ab3f272b3dceae318d184c0d",
+    "annotations.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "manifest.json": "c91b251492bb68fcc32a25befb23592f8fe996fdef7050701b5761d33c0c3dc1",
+    "results-icarus.xml": "54791e7d3ec85a6ab9c2a53aa5ee25efcc8cd8233b8529f22eff34c376c3b0ab",
+    "results-verilator.xml": "8c76b941d1b1dc3474c14b98781c1109015bdfbc99e012d318aa8564f35286dc",
+    "workbench-image.json": "643971fe5cd1856480fd5c57dd153dbd7ed3577cb51e6b54ab75cbb7e892ddfe"
+  },
+  "limits": [
+    "Qualification covers the GitHub-hosted fast CI lane, not older self-hosted Actions runners",
+    "Docker orchestration action qualification is not EDA or physical-flow qualification",
+    "Generic synthesis is not CMOS5L physical-fit evidence",
+    "No protocol virtual machine or fabricated-silicon claim follows from this run"
+  ]
+}
