@@ -13,6 +13,12 @@ The specification is `../docs/specs/m0-gpio.md`. Results are `results.xml` and
 `gl_test` action supplies the gate-level netlist and PDK environment and runs
 the same harness using `make GATES=yes`.
 
+The gate-level source order is intentional: the I/O model is followed by
+`sg13cmos5l_udp.v`, then `sg13cmos5l_stdcell.v`, and finally the generated
+netlist. The UDP file defines low-level sequential truth tables such as
+`ihp_dff_r` that are instantiated by the standard-cell model. Omitting it makes
+Icarus stop during elaboration before any cocotb test can run.
+
 If running gate-level tests locally, use the current unpowered IHP netlist
 path documented by the official hardening guide and provide `PDK_ROOT`.
 See `../docs/toolchain.md`. Zero-delay gate-level tests do not validate SDF timing.
