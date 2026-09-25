@@ -30,25 +30,21 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN --mount=type=cache,id=protocol-emulator-oss-cad-2026-07-29,target=/var/cache/oss-cad \
-    test -f "/var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}" \
-    || curl --fail --location --show-error \
-        "https://github.com/YosysHQ/oss-cad-suite-build/releases/download/${OSS_CAD_SUITE_VERSION}/${OSS_CAD_SUITE_ARCHIVE}" \
-        --output "/var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}"
-
-RUN --mount=type=cache,id=protocol-emulator-oss-cad-2026-07-29,target=/var/cache/oss-cad \
-    echo "${OSS_CAD_SUITE_SHA256}  /var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}" | sha256sum --check --strict \
+    (test -f "/var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}" \
+        || curl --fail --location --show-error \
+            "https://github.com/YosysHQ/oss-cad-suite-build/releases/download/${OSS_CAD_SUITE_VERSION}/${OSS_CAD_SUITE_ARCHIVE}" \
+            --output "/var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}") \
+    && echo "${OSS_CAD_SUITE_SHA256}  /var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}" | sha256sum --check --strict \
     && tar -xzf "/var/cache/oss-cad/${OSS_CAD_SUITE_ARCHIVE}" -C /opt \
     && test -x /opt/oss-cad-suite/bin/yosys \
     && test -x /opt/oss-cad-suite/bin/sby
 
 RUN --mount=type=cache,id=protocol-emulator-verible-v0.0-4296,target=/var/cache/verible \
-    test -f "/var/cache/verible/${VERIBLE_ARCHIVE}" \
-    || curl --fail --location --show-error \
-        "https://github.com/chipsalliance/verible/releases/download/${VERIBLE_VERSION}/${VERIBLE_ARCHIVE}" \
-        --output "/var/cache/verible/${VERIBLE_ARCHIVE}"
-
-RUN --mount=type=cache,id=protocol-emulator-verible-v0.0-4296,target=/var/cache/verible \
-    echo "${VERIBLE_SHA256}  /var/cache/verible/${VERIBLE_ARCHIVE}" | sha256sum --check --strict \
+    (test -f "/var/cache/verible/${VERIBLE_ARCHIVE}" \
+        || curl --fail --location --show-error \
+            "https://github.com/chipsalliance/verible/releases/download/${VERIBLE_VERSION}/${VERIBLE_ARCHIVE}" \
+            --output "/var/cache/verible/${VERIBLE_ARCHIVE}") \
+    && echo "${VERIBLE_SHA256}  /var/cache/verible/${VERIBLE_ARCHIVE}" | sha256sum --check --strict \
     && mkdir -p /opt/verible \
     && tar -xzf "/var/cache/verible/${VERIBLE_ARCHIVE}" --strip-components=1 -C /opt/verible \
     && chmod -R a+rX /opt/verible \
