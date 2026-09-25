@@ -1,0 +1,36 @@
+{
+  "id": "E0008",
+  "checked_utc": "2026-09-25T09:46:13.993723Z",
+  "source_commit": "fcbfafb6e4577b00da57a67807aa5ba58ffc8302",
+  "run_id": 36120280373,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36120280373",
+  "status": "success",
+  "job": {
+    "id": 108023888893,
+    "name": "compare-qualified-ref",
+    "started_utc": "2026-09-25T09:46:11Z",
+    "completed_utc": "2026-09-25T09:46:17Z",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 10857091172,
+    "name": "upstream-canary-36120280373",
+    "size_in_bytes": 419,
+    "digest": "sha256:55f5b183f8ad7f67a1d29871a6023f79491518248e326e579a687dc0359e1ddb",
+    "expires_utc": "2026-10-25T09:46:14Z"
+  },
+  "observation": {
+    "repository": "TinyTapeout/tt-gds-action",
+    "upstream_ref": "heads/ihp-cmos5l",
+    "qualified_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "observed_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "state": "CURRENT",
+    "acceptance_environment_changed": false,
+    "sha256": "dd61c798a2aa918d301c3b076fa65c696b2e431c42d1ad3d014d5a7c21e061b8"
+  },
+  "limits": [
+    "CURRENT is a timestamped observation, not a promise about future upstream state",
+    "DRIFT would require review and would not automatically update the qualified flow",
+    "The canary does not execute physical implementation"
+  ]
+}

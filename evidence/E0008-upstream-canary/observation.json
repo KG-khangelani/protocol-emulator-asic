@@ -1,0 +1,11 @@
+{
+  "acceptance_environment_changed": false,
+  "checked_utc": "2026-09-25T09:46:13.993723Z",
+  "observed_commit": "3412659307918422f3f0727917cf9b499aaca588",
+  "qualified_commit": "3412659307918422f3f0727917cf9b499aaca588",
+  "repository": "TinyTapeout/tt-gds-action",
+  "schema": "protocol-emulator-upstream-canary-v1",
+  "source_url": "https://api.github.com/repos/TinyTapeout/tt-gds-action/git/ref/heads/ihp-cmos5l",
+  "state": "CURRENT",
+  "upstream_ref": "heads/ihp-cmos5l"
+}

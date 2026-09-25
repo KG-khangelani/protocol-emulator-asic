@@ -26,6 +26,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
 - [x] Record resolved action/tool/PDK versions and environment (E0003).
 - [x] Pin direct workflow actions and the qualified physical-flow inputs.
+- [x] Add and remotely validate the non-gating upstream drift canary (E0008).
 - [ ] Clean rerun reproduces the functional result and physical acceptance.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.

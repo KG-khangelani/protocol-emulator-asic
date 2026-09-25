@@ -42,6 +42,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - E0003 and E0006 have identical physical metrics and GDS geometry records.
   Their whole-file hashes differ because GDS timestamp records changed; this
   distinction is documented rather than reported as byte-for-byte reproduction.
+- A scheduled read-only upstream canary reports when Tiny Tapeout's live CMOS5L
+  action branch moves without changing the qualified pins. Its first remote run
+  reports CURRENT and retains the observation in E0008.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 
