@@ -10,7 +10,7 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - Official CMOS5L template retrieved; all 22 imported file blobs verified.
 - Local Git `main` initialized with template import history.
-- Private GitHub repository created and under publication audit: https://github.com/KG-khangelani/protocol-emulator-asic
+- Public GitHub repository released after E0004 audit: https://github.com/KG-khangelani/protocol-emulator-asic
 - Codex instructions, specifications, ledger, backlog and reproducibility commands created.
 - M0 GPIO counter, cocotb tests and CI prepared.
 - Local static checks pass; see `evidence/E0001-bootstrap/`.
@@ -18,6 +18,8 @@ efficiently express useful digital communication protocols under hard temporal c
   see `evidence/E0002-ci/` for the tested source revision and result links.
 - The E0002 CI ZIP is durably archived in the repository with a matching
   GitHub-reported SHA-256.
+- Publication controls are enabled: GitHub secret scanning, push protection,
+  Dependabot security updates and private vulnerability reporting.
 - Docker Desktop is available locally. The project Python environment passes
   static checks; native Windows `make`, Icarus and Yosys remain absent.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,

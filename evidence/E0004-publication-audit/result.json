@@ -2,7 +2,7 @@
   "id": "E0004",
   "checked_utc": "2026-09-25",
   "source_commit": "b281e1537b69d777fd6e06545e7b594d6479cc0c",
-  "decision": "READY_TO_PUBLISH",
+  "decision": "PUBLISHED_AFTER_AUDIT",
   "secret_scanner": {
     "name": "gitleaks",
     "version": "8.30.1",
@@ -50,7 +50,28 @@
     "affected_constraint": "<9.0.3",
     "repository_version": "9.0.3",
     "source_fix_commit": "5457cf42a32c26fdcd48095bdbbba6acd532d058",
+    "github_sbom_version": "9.0.3",
+    "github_alert_state": "OPEN_PENDING_GRAPH_REFRESH",
     "github_graph_state": "REFRESH_QUEUED"
+  },
+  "post_record_history_scan": {
+    "commit": "ff160fdfca63d11fc828d923e3b5d5f1ab0d046f",
+    "commits_scanned": 8,
+    "bytes_scanned": 132049,
+    "findings": 0,
+    "status": "PASS"
+  },
+  "publication": {
+    "date_utc": "2026-09-25",
+    "visibility": "PUBLIC",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic",
+    "anonymous_http_status": 200,
+    "secret_scanning": "ENABLED",
+    "push_protection": "ENABLED",
+    "dependabot_security_updates": "ENABLED",
+    "private_vulnerability_reporting": "ENABLED",
+    "non_provider_pattern_scanning": "DISABLED_BY_PLATFORM_RESPONSE",
+    "validity_checks": "DISABLED_BY_PLATFORM_RESPONSE"
   },
   "limits": [
     "Pattern-based scanning is not proof that no sensitive information exists",

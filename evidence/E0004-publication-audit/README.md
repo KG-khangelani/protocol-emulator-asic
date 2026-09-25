@@ -21,6 +21,13 @@ The scanner image was addressed by immutable digest:
 The empty JSON reports remain in ignored `build/publication-audit/`; their
 interpreted results and exact scope are recorded in `result.json`.
 
+After this record was committed, a second history scan covered all 8 commits
+and again found no leaks. The repository was then made public. An anonymous
+HTTP request returned 200, and GitHub reported secret scanning, push protection,
+Dependabot security updates and private vulnerability reporting as enabled.
+The dependency SBOM reported pytest 9.0.3; the previous alert remained open
+only while the dependency-graph workflow was queued.
+
 ## What this does and does not establish
 
 This is evidence that automated secret patterns and a manual repository review

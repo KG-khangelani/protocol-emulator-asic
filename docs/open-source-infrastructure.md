@@ -69,3 +69,11 @@ inspectable.
 - [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build)
 
 Recheck changeable upstream guidance before qualification and release.
+
+## Public repository controls
+
+The repository became public on 25 September 2026 only after E0004's history,
+working-directory, license, object-size and CI audit. GitHub secret scanning,
+push protection, Dependabot security updates and private vulnerability
+reporting are enabled. These controls reduce publication and contribution risk;
+they do not replace review or justify placing credentials in test data.
