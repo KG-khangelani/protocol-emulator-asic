@@ -8,6 +8,12 @@ A research and build project for the Jane Street Protocol Emulator ASIC
 Competition. **Deadline: 18 January 2027.** The intended design is a compact,
 reprogrammable temporal machine. Its architecture is still a hypothesis.
 
+The project has an equal learning goal: by completion, its owner should be able
+to operate, question and defend the complete RTL-to-GDS workflow. Start with
+the [project goal](docs/goal.md) and the visual
+[Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
+the project [glossary](docs/learning/glossary.md).
+
 **Current state: M0 scaffold.** The repo contains a deterministic GPIO baseline,
 pin-level tests, and the official Tiny Tapeout CMOS5L physical-flow workflow.
 GitHub CI passed static checks, the GPIO RTL regression, generic synthesis and
@@ -58,7 +64,9 @@ tools. Docker is needed for the local physical flow, not for the RTL tests.
 | Location | Purpose |
 |---|---|
 | `AGENTS.md` | Codex working rules and verification boundaries |
+| `docs/goal.md` | Equal technical and fluency outcomes |
 | `docs/state.md`, `docs/backlog.md` | Persistent state and next executable tasks |
+| `docs/learning/` | Practical map, glossary, labs and fluency checkpoints |
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |
 | `src/` | Synthesizable Verilog and preserved physical configuration |
 | `test/` | cocotb RTL and gate-level harness |
@@ -67,6 +75,7 @@ tools. Docker is needed for the local physical flow, not for the RTL tests.
 | `docs/decisions/` | Architectural and workflow decisions |
 | `evidence/` | Small curated experiment records |
 | `.github/workflows/` | Verification, GDS, docs and optional FPGA jobs |
+| `CONTRIBUTING.md` | Change, verification and evidence discipline |
 
 ## Remote and physical flow
 

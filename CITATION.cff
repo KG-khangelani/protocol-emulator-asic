@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this research project, please cite this repository and the exact source revision."
+type: software
+title: "Protocol Emulator ASIC"
+authors:
+  - family-names: "Mgoqi"
+    given-names: "Khangelani"
+repository-code: "https://github.com/KG-khangelani/protocol-emulator-asic"
+license: Apache-2.0
+abstract: >-
+  An open-source research project investigating the smallest computational
+  substrate that can express useful digital communication protocols under hard
+  temporal constraints.
