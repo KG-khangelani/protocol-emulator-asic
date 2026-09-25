@@ -1,0 +1,212 @@
+{
+  "created_utc": "20260925T113804372157Z",
+  "git_head": "7fbb99572b4e38dfce5f4a65a070e781d4bbf0fa",
+  "git_status": "",
+  "python": "3.11.16",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.36",
+  "source_sha256": {
+    ".devcontainer/Dockerfile": "17931634d2321aa99db588c5657cd4659eaaa1770c12991c852a2b6a722f3276",
+    ".devcontainer/copy_tt_support_tools.sh": "1955f567349cca921a961947ac0bee27942077b4cdbd0d72f99a49a4c0ec3435",
+    ".devcontainer/devcontainer.json": "893f821c045fc7e465fac185e9ea591882ebaaad68fe05fc53036c92e3b5d69b",
+    ".editorconfig": "36c67edabe554a90074f0e80a2b2453715175271464d524c17775068b30b3251",
+    ".gitattributes": "40d7d25c17b2d54051360d4eb9a1570aa8cdae4ed0b994b897f7ab647628797a",
+    ".github/pull_request_template.md": "2e02ed812deb4a3e6bcc86eb91c533f77bed46e648f677c1b634084574e5be21",
+    ".github/workflows/docs.yaml": "9caf321523787472b02ee9a7701bb7881549f36a5c1b6da9461c630ecffc13d4",
+    ".github/workflows/fpga.yaml": "330430e4aa0c5d1a3e6e8be5d3509b4a80650689e64ba24005c8399aaf2df381",
+    ".github/workflows/gds.yaml": "f4a1ad7615c82e594cff18b5f7ea6b1338407a7ec841811701944b7fccd942b7",
+    ".github/workflows/test.yaml": "f91c717971f12dac05730b2ed66a7244d77beee5894f6e3ffbebe0308bb3caf6",
+    ".github/workflows/upstream-canary.yaml": "177d8d4b9dbdd703c892610be945ec7079edffb5582b235b0141b2a0ef0c2b73",
+    ".gitignore": "ef402c0c206d934c1358b3354bd6eb92a1d57d96c0bdc26c2ae67304a873f671",
+    ".rules.verible_lint": "db91c80ed8e15ce85b562fc429a42956bf650a378e7d950ae654695d20f78325",
+    ".vscode/extensions.json": "660e9bafc4970b9d5333abc7920c16f7ffd037c92eae3a98a2502eee309faf52",
+    ".vscode/settings.json": "7e8716faf75d190bd27b428aec68d5ce3e5390b6029f92625fb988688063e48a",
+    "AGENTS.md": "0d02ed28c4117748408f57dfc26ef89fe33a231cc1506b51f837288b944a19d8",
+    "CITATION.cff": "628a8b7722b4d52fb8e769c57c070afe8499ae37b477eb6234f9d6f657f568ef",
+    "CONTRIBUTING.md": "24897733dbbc710fe6e3905169bfb362267873a899f1e4deda6ffbe6362ffea7",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "Makefile": "6d5aee443e444b563ab2ed9a416d78f89ee73b736d2f02c09b8d04c8b2cb8f3b",
+    "README.md": "73c20446d150cd4de35e53776fb625adca5d0bb9abe78cd93698d805f7bcb065",
+    "SECURITY.md": "6a3589298f7df0e245516c9b93cb3236e43074b1d4a33af0704729f3c6936524",
+    "THIRD_PARTY_NOTICES.md": "61fca9ee157620402bb511cbfde10e89f2250b27f9bc669cc72f8c307ae7a5b5",
+    "docs/backlog.md": "8acc1338b21b1d6706dda708185012297ad341b88c096698a061dd7d079beee4",
+    "docs/decisions/0001-bootstrap.md": "693b8394c9a590f0f73f32ec1b9a852196d3d9a4aa5165f6de42c835ddef86a3",
+    "docs/decisions/0003-locked-workbench.md": "747662c3d633846eb12b3a8dba514680a80a23d29b8c2ba996eef34c7f9c47a6",
+    "docs/decisions/0004-pinned-physical-flow.md": "adcf7a755d55143dc6c19549af4cc80d30aef66a4c192b62a6f4f1d9b26e1927",
+    "docs/decisions/0005-node24-ci-actions.md": "cd018ac9b4a9d415a2cf408ac3a1d978f9eb6ad1cee45d381f06590cbff2e571",
+    "docs/decisions/0006-architecture-evaluation-contract.md": "bb640b16e3793c0c9d7c5a8c7b8dd4cb37dc495db1b097f2b2f7a19f6c603e30",
+    "docs/goal.md": "a76635c93c34d7a4cb807eaed351ef62d8b4e98995654ac9e9181fc07877058a",
+    "docs/info.md": "33ed39f46df2d167186690bf02ca11edc86ce8323df658876c85556f95f5affa",
+    "docs/learning/checkpoints.md": "0e37752f49f371453a1fe43d5f25e938d0695c29c817f532c3d84f3b407bc19d",
+    "docs/learning/glossary.md": "34fb2ed01e18ad415a73f9a6fcf81951074379c6588f9f709016c0cda25759d0",
+    "docs/learning/labs.md": "08e8e4bf3b8f628de41c473ae33ff5ed71b0ae07d0c991511d75e3c37218456a",
+    "docs/learning/map.md": "aa3a130469a560c94dd0e7d80ac8bf8a57ae110e2606843eacdeb92186888a39",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "docs/milestones.md": "4ca5ca7cf33172bb5c1ac5f18dda12f4d14379f0b466ffb5694bdd0b95d81c78",
+    "docs/open-source-infrastructure.md": "d785d132f9fa6897a3ec1aff1ee09b1b4a8c19a200d973549737ef98ace9c7e8",
+    "docs/research-ledger.md": "dbff9233bac9fd57bcdafc6da6e5966a2fed018bf3a1b3ac9f6742bd80a0142b",
+    "docs/research/architecture-landscape.md": "87f982bc44313f34862bc1e63890558734f312e5b30b79c739812454e6d986cb",
+    "docs/research/evaluation-contract.json": "f7969b389ee3cac56f44ee7491dd67b43bf437e1e4a34f48c188cac93d9413e8",
+    "docs/research/evaluation-contract.md": "268e962a6f79ec546c5270210de360539f689fc142ea4289c8a453318bf05f00",
+    "docs/research/source-lock.json": "d9cb03ca931c9b53d4b7640cd8bf3e4961f83965015b8fa624745f38e96e4571",
+    "docs/source-pack.md": "abbd03b4ea9dba8e23355b323ec41f2f4bddf35bcfe01a1c8b4cca4d2844e40a",
+    "docs/sources.md": "b4d0dfbd2561714b4e6a4dbfdc1c1c1a44120e99467aa7be27b6cfd58e2dcd20",
+    "docs/specs/m0-gpio.md": "d2c256bd207654c2deb32e138ff3d4181464f44ef9ada25ff9337f5dce205993",
+    "docs/state.md": "195e8ed99885e1bf4604b346102e8c63bb6c9bd884ae1c04166aea4b4c72b8cc",
+    "docs/toolchain.md": "e15053e2b1e6b218998c7e0b062d1248eeef6901f0efef23c09f98e56de0a0f2",
+    "docs/upstream-template.json": "5cc16d7d3c846fab539872d6d4f6dd3d313e1b248670fcf13ebdc7ee0f5a4b65",
+    "docs/verification.md": "41733b1eb3a671fd443ea3ef67ac7a9ecfa6ad73ed1df43b477f3f7876b0a42f",
+    "formal/README.md": "cb5f790107a5ae67d749f7420c82ef574c8f222f638a50e7331ce2e96b6aefca",
+    "formal/m0_gpio.sby": "b39e5a5ab019ef317cf5c9ee0d15f61ad2aa1c034504d1c0a683d7c02d0e0467",
+    "formal/m0_gpio_formal.sv": "efb0ea59fec120d83218ab4c06ef44a1429ad818f4789b7ad200b8c5c9f34402",
+    "formal/m0_gpio_mutation.sby": "0a818b4680384ce89fd559e3e536521f18d7caa165d0f774788d010094a5ff02",
+    "formal/mutants/m0_increment_by_two.v": "06666861509565064827d115a70f02e9db28dd226f1c1bc00514810e6609c81d",
+    "info.yaml": "291e7e0c183d62568a8cf88ab8a0f5355ba9c47a647ba2511eeee2e5c98d04b7",
+    "requirements-dev.txt": "b9ee955c652d18eb036dc539d0c98a2fad4ca4dde259a575d65faad63b6f6f23",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "src/project.v": "07d55dee333a7c593499112e289ad23c76934253146e1cd2e6a761de39c94d9c",
+    "test/Makefile": "95fb5a024785ea5b135ba9682ed132877bcd3bd09a65f7b1f75d84bf521d2df8",
+    "test/README.md": "121aca9ab7ab0cf7c73efb8624c96d3e1961a931a8da8a01df0e8e21342cca0c",
+    "test/requirements.txt": "6decd14b46d0d71dcd667708bc90a675ccc6cd7ae3c5997775ec4d86ef13ec98",
+    "test/tb.gtkw": "aad62770ad1b98dc6151569c325fdb6101e5fd74e3412e2a0ccb7fbab08c4ba6",
+    "test/tb.v": "5edea2d064d3851a91e73aac555fe6f0e0c36c83a010b377abf4b0ff69610a91",
+    "test/test.py": "08716e19e9aeafedb120dcefd6106c120bc823dabff41d1bfebb560ba8eba9e5",
+    "tools/check_junit.py": "ceab8260fdb5ee3538fa6f7b32582d019b8b7f0e64a0a4737b931958174277e6",
+    "tools/check_project.py": "0561b7abdf0ced6896f1e54747d75132eb5dde8a87f16a6719b0aa649a927b69",
+    "tools/check_upstream_drift.py": "b6c8ce651d0c1f64c781954f16d625de9116c108dbfab71604adbda500b3161b",
+    "tools/collect_evidence.py": "9e550f504e770ea0883d5e6eb7d565ef8cc86fdd097ad1d9dc7b54bd8c255f79",
+    "tools/compare_gds_records.py": "ffe8827ab3d503cc7987e0265a9a0df55b348feac217db099db9346d7f8de1bf",
+    "tools/doctor.py": "1dfe72d1039ac157fb9a32a60a1b01afeccc879d03cef2e35a505edd9486bf13",
+    "tools/learning_status.py": "a5d354915e44c19098aa876d827500be83f60615cbce4afaa6ebe964adf6b126",
+    "tools/m0_walkthrough.py": "012eee2add8cd971f4b0e0cad0750ac6e4225095a680fb46256bc3d57af9a021",
+    "tools/m0_waveform_walkthrough.py": "f065c58818c1031fb1851278360ca457cf2edbcb6e9a5f200f9b5b062723fd29",
+    "tools/workbench.ps1": "dc9499bdf6c054acf3ba61d773d2914b13a6a97f55d6eb477d35e802217a1a59",
+    "tools/workbench.sh": "1d30384ab1a46e86c93ac7a7b5d9f447356f4e9f6e3ff5fd7de3e57a16f19022",
+    "tools/workbench/Dockerfile": "9f478acb7a5a49a44ac4a96e5c38ccb48ff1276590880418c119fecd8c170d2e",
+    "tools/workbench/README.md": "9ada2d0cfe7be768b7645fcdaeb3688ee7ee6494fe8af4c8ca88a64da6d20b41",
+    "tools/workbench/iverilog-suite": "6767e6069a9395dc3839381f334200ab44f2f535651a24213d34c579e5bce097",
+    "tools/workbench/requirements.lock": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a",
+    "tools/workbench/toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81",
+    "tools/workbench/vvp-system-python": "c3ccaf68f95a20d850b698a424f2ea0c353f845a7c1140e3a9aedc8b57171cf8"
+  },
+  "tools": {
+    "git": "git version 2.39.5",
+    "g++": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "verilator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+    "verible": "Version\tv0.0-4296-g0f262651",
+    "yosys": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+    "sby": "SBY v0.67-4-gfea6e46",
+    "z3": "Z3 version 4.15.5 - 64 bit",
+    "boolector": "3.2.4",
+    "cocotb": "2.0.1",
+    "PyYAML": "6.0.2"
+  },
+  "stages": [
+    {
+      "name": "doctor",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/doctor.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "static",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/check_project.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "learning_status",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/learning_status.py",
+        "--verify"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_icarus",
+      "command": [
+        "make",
+        "test"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "learning_waveform",
+      "command": [
+        "make",
+        "learn-waveform"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_verilator",
+      "command": [
+        "make",
+        "test-verilator"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "formal",
+      "command": [
+        "make",
+        "formal"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "generic_synthesis",
+      "command": [
+        "make",
+        "synth"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "formal_status": "PASS: safety proof and wrap covers passed; increment-by-two mutant was rejected",
+  "physical_status": "NOT_RUN: use official CMOS5L GDS workflow; generic synthesis is not physical fit",
+  "artifact_sha256": {
+    "generic_synthesis.log": "de888ac76285d7430b7ce4bf26eeb67f06bf39cf01c7a87ccb4e88292267400d",
+    "learning_waveform.log": "5699459b08b291362e5ec2632e910d2e0baeba5845b558cc04b4419fa8b14345",
+    "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743",
+    "learning_status.log": "595d87ef9727be373794af3e7da6faa1ef1ec05f1e8a1c01d878de2835e3d749",
+    "results-verilator.xml": "5c7f0d6f5eeb8408683bc012ccfac907412862bf8dea63dcb251890adf23de7c",
+    "formal.log": "51e6579f2d33b56760ef8dbae02eaa2869ca2980217d959cd386996b731acd05",
+    "m0-learning.vcd": "ccdaed9587bd30abaf13c2660a16e5d8f1959a71a23a15d98e6064ef98fc4872",
+    "lint.log": "e3f082dec54f433aab9183c7d0ff5a707ff586bf31bd31e6065a0932d9cc471c",
+    "formal-mutant.status": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+    "results.xml": "cda9d86e7041de70c491dac3736ead46e51c8b7c36e94f9e8d1e6b083385ee9c",
+    "doctor.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+    "synthesis.log": "9781dfb3a6f950aba77b1dd0a68bd679b277cdb1aad868b56f9c73c2725e7b6e",
+    "formal-prove.status": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+    "formal-cover.status": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+    "tb.fst": "0a12f73513c03dbfbc72282b967c7c22fa124e11df47f4df73ad671cbb75e229",
+    "rtl_icarus.log": "8877bde0e0d5d8571b5eabd5fa2c6aaf1307fb0d43f9a1b3da25da3233fd1733",
+    "results-learning.xml": "925bb5d20c3a23a7fe49f2e0b372f5ea3e2bc3a7e0bd078f219399c51b896c92",
+    "static.log": "efdfcc51ef549eaf11da79b4b84b34e9062208a0cbe46956acbfb86b65a35d04",
+    "rtl_verilator.log": "af5b3d22c630380989f2d0e79406f2bf814eccf12283eab1286d738b417b4eca"
+  }
+}

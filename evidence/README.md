@@ -14,6 +14,7 @@
 | E0010 | Does a clean run of the repository-pinned CMOS5L flow reproduce the complete physical result? | GDS, 2 gate-level tests, and all 9 prechecks PASS; E0006 metrics and non-timestamp GDS records reproduced | `E0010-pinned-cmos5l-run/README.md` |
 | E0011 | Do immutable Node 24 Docker actions preserve the locked fast-CI result and remove the Node 20 warning? | All 7 stages and artifact upload PASS; 0 check annotations; locked image identity unchanged | `E0011-node24-fast-ci/README.md` |
 | E0012 | Can a clean GitHub checkout run the beginner-readable M0 waveform lab, check every rising edge, and reject a corrupted transition? | 2 tests and all 1,561 edges PASS; intentional corruption rejected; docs PASS | `E0012-readable-waveform-ci/README.md` |
+| E0013 | Can clean CI retain an auditable learning-gate record while rejecting an unearned human-fluency PASS? | 9 stages PASS; invalid promotion rejected; M0 fluency remains PENDING | `E0013-fluency-status-ci/README.md` |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

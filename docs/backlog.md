@@ -31,7 +31,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Clean repository-pinned rerun reproduces the functional and physical result (E0010).
 - [x] Provide a runnable, source-backed M0 evidence walkthrough.
 - [x] Provide and remotely qualify a beginner-readable M0 waveform walkthrough (E0012).
-- [x] Expose conservative machine-readable fluency status without automatic promotion.
+- [x] Expose and remotely qualify conservative fluency status without automatic promotion (E0013).
 - [x] Qualify Node 24 Docker CI actions and remove the Node 20 runtime warning (E0011).
 - [ ] Complete and record the M0 owner fluency teach-back.
 

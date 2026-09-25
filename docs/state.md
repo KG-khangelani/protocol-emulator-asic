@@ -71,6 +71,10 @@ efficiently express useful digital communication protocols under hard temporal c
 - `workbench.ps1 LearnStatus` now exposes one conservative M0-M5 learning
   record: technical and fluency gates are separate, every criterion starts as
   `NOT_DEMONSTRATED`, and automation is forbidden from promoting human fluency.
+- Clean GitHub run 36130223560 passes all nine retained evidence stages and
+  rejects a deliberately unearned fluency promotion. E0013 records the exact
+  source, log, manifest, container identity and limitation; M0 fluency remains
+  pending because validator integrity is not human understanding.
 - Fast CI now pins Node 24-native setup-buildx v4.4.1 and build-push v7.4.0
   release commits. E0011 records a clean seven-stage pass, unchanged locked
   workbench image identity, successful artifact upload, and zero check

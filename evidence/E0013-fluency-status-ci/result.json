@@ -1,0 +1,75 @@
+{
+  "schema": "protocol-emulator-learning-status-evidence-v1",
+  "id": "E0013",
+  "checked_utc": "2026-09-25",
+  "question": "Can a clean CI checkout preserve an auditable learning-gate record while rejecting an unearned human-fluency PASS?",
+  "source_commit": "7fbb99572b4e38dfce5f4a65a070e781d4bbf0fa",
+  "test_run": {
+    "id": 36130223560,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36130223560",
+    "event": "push",
+    "status": "success",
+    "created_utc": "2026-09-25T11:35:32Z",
+    "completed_utc": "2026-09-25T11:38:19Z",
+    "job_id": 108055530006,
+    "job_status": "success",
+    "annotation_count": 0
+  },
+  "docs_run": {
+    "id": 36130223559,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36130223559",
+    "status": "success",
+    "job_id": 108055529912
+  },
+  "learning_snapshot": {
+    "active_milestone": "M0",
+    "technical_gate": "PASS",
+    "fluency_gate": "PENDING",
+    "required_level": "DEMONSTRATED_WITH_SUPPORT",
+    "skills_at_required_level": 0,
+    "skills_total": 5,
+    "unearned_active_fluency_pass_rejected": true,
+    "automatic_human_promotion_allowed": false
+  },
+  "stages": {
+    "doctor": "PASS",
+    "static": "PASS",
+    "learning_status": "PASS",
+    "lint": "PASS",
+    "rtl_icarus": "PASS",
+    "learning_waveform": "PASS",
+    "rtl_verilator": "PASS",
+    "formal": "PASS",
+    "generic_synthesis": "PASS"
+  },
+  "source_hash_scope": "SHA-256 of canonical LF bytes in the clean Linux checkout; values match committed Git content",
+  "source_sha256": {
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "tools/learning_status.py": "a5d354915e44c19098aa876d827500be83f60615cbce4afaa6ebe964adf6b126",
+    "tools/collect_evidence.py": "9e550f504e770ea0883d5e6eb7d565ef8cc86fdd097ad1d9dc7b54bd8c255f79",
+    "tools/check_project.py": "0561b7abdf0ced6896f1e54747d75132eb5dde8a87f16a6719b0aa649a927b69"
+  },
+  "verification_artifact": {
+    "id": 10861322709,
+    "name": "verification-7fbb99572b4e38dfce5f4a65a070e781d4bbf0fa",
+    "size_in_bytes": 187198,
+    "digest": "sha256:bd1610cf4e6fb7ce7fb7002ef262990a2558173b2dbdc161e5390a562745393a",
+    "created_utc": "2026-09-25T11:38:13Z",
+    "expires_utc": "2026-12-24T11:35:32Z"
+  },
+  "workbench": {
+    "image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b"
+  },
+  "curated_sha256": {
+    "check-annotations.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "learning-status.log": "595d87ef9727be373794af3e7da6faa1ef1ec05f1e8a1c01d878de2835e3d749",
+    "remote-manifest.json": "43483c45351e625813b747a83064e569534fa14266ca79d2fad2387e4b9462fb",
+    "workbench-image.json": "656fe875393c63b2354a5fe12d4eefbd9b4f6ac7c7828b502485ee28bf204a9c"
+  },
+  "limits": [
+    "Structural consistency and a rejected invalid promotion cannot demonstrate a person's understanding",
+    "The self-test covers one relevant invalid state and is not proof against every validator defect",
+    "The rubric may be revised as real teaching experience reveals missing or poorly scoped criteria",
+    "This qualification changes no RTL and adds no protocol, physical, analog, FPGA, or silicon evidence"
+  ]
+}
