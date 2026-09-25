@@ -1,0 +1,197 @@
+{
+  "schema": "protocol-emulator-learning-progress-v1",
+  "updated_utc": "2026-09-25",
+  "active_milestone": "M0",
+  "privacy_boundary": "This public record stores criterion states and evidence references, never private conversation transcripts or personal details.",
+  "level_order": [
+    "NOT_DEMONSTRATED",
+    "DEMONSTRATED_WITH_SUPPORT",
+    "INDEPENDENT"
+  ],
+  "gate_statuses": [
+    "NOT_STARTED",
+    "PENDING",
+    "PASS"
+  ],
+  "milestones": [
+    {
+      "id": "M0",
+      "name": "Toolchain and evidence",
+      "technical_gate": {
+        "status": "PASS",
+        "evidence": [
+          "E0006",
+          "E0010"
+        ]
+      },
+      "fluency_gate": {
+        "status": "PENDING",
+        "required_level": "DEMONSTRATED_WITH_SUPPORT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m0-trace-pipeline",
+          "description": "Trace the M0 design from RTL through verification, physical layout, and GDS.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/learning/map.md",
+            "tools/m0_walkthrough.py"
+          ]
+        },
+        {
+          "id": "m0-read-transition",
+          "description": "Read a clock-edge row and explain reset, enable, count, hold, and priority.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/specs/m0-gpio.md",
+            "tools/m0_waveform_walkthrough.py"
+          ]
+        },
+        {
+          "id": "m0-distinguish-evidence",
+          "description": "Distinguish simulation, formal, synthesis, timing, physical checks, and gate-level evidence.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/learning/glossary.md",
+            "docs/verification.md"
+          ]
+        },
+        {
+          "id": "m0-bound-claims",
+          "description": "Explain why generic synthesis is not physical-fit proof and name the evidence E0010 adds.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "evidence/E0010-pinned-cmos5l-run/README.md",
+            "evidence/E0010-pinned-cmos5l-run/result.json"
+          ]
+        },
+        {
+          "id": "m0-identify-provenance",
+          "description": "Locate the exact source revision, tool batch, result, and stated limitation behind a claim.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "tools/workbench/toolchain.lock.json",
+            "evidence/E0012-readable-waveform-ci/result.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M1",
+      "name": "Sequencer",
+      "technical_gate": {
+        "status": "NOT_STARTED",
+        "evidence": []
+      },
+      "fluency_gate": {
+        "status": "NOT_STARTED",
+        "required_level": "DEMONSTRATED_WITH_SUPPORT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m1-predict-sequencer",
+          "description": "Predict state-machine timing and interpret a formal counterexample.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/backlog.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "name": "UART",
+      "technical_gate": {
+        "status": "NOT_STARTED",
+        "evidence": []
+      },
+      "fluency_gate": {
+        "status": "NOT_STARTED",
+        "required_level": "DEMONSTRATED_WITH_SUPPORT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m2-explain-uart",
+          "description": "Explain baud timing, asynchronous sampling, and phase error from a waveform.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/backlog.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "name": "SPI and I2C",
+      "technical_gate": {
+        "status": "NOT_STARTED",
+        "evidence": []
+      },
+      "fluency_gate": {
+        "status": "NOT_STARTED",
+        "required_level": "DEMONSTRATED_WITH_SUPPORT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m3-explain-serial-io",
+          "description": "Explain SPI clock modes, I2C open-drain behavior, stretching, contention, and synchronizer latency.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/backlog.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "name": "Compiler",
+      "technical_gate": {
+        "status": "NOT_STARTED",
+        "evidence": []
+      },
+      "fluency_gate": {
+        "status": "NOT_STARTED",
+        "required_level": "DEMONSTRATED_WITH_SUPPORT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m4-explain-contract",
+          "description": "Explain the compiler-to-hardware timing contract and its diagnostics.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/backlog.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "name": "Release",
+      "technical_gate": {
+        "status": "NOT_STARTED",
+        "evidence": []
+      },
+      "fluency_gate": {
+        "status": "NOT_STARTED",
+        "required_level": "INDEPENDENT",
+        "record": null
+      },
+      "skills": [
+        {
+          "id": "m5-defend-release",
+          "description": "Independently run, inspect, question, and defend the release evidence bundle.",
+          "status": "NOT_DEMONSTRATED",
+          "resources": [
+            "docs/goal.md",
+            "docs/backlog.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

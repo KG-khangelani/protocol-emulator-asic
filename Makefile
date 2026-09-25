@@ -4,9 +4,9 @@ ifneq ($(wildcard .venv/bin/python),)
 PYTHON := $(CURDIR)/.venv/bin/python
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
-.PHONY: help setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify learn-waveform clean
+.PHONY: help setup doctor check lint test test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean
 help:
-	@echo "setup doctor check lint test test-verilator formal synth evidence learn-m0 learn-m0-verify learn-waveform clean"
+	@echo "setup doctor check lint test test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
@@ -14,6 +14,7 @@ doctor:
 	$(PYTHON) tools/doctor.py
 check:
 	$(PYTHON) tools/check_project.py
+	$(PYTHON) tools/learning_status.py --verify
 	$(PYTHON) tools/m0_walkthrough.py --verify
 lint:
 	verible-verilog-lint --rules_config_search src/project.v formal/m0_gpio_formal.sv formal/mutants/m0_increment_by_two.v
@@ -34,6 +35,8 @@ synth:
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'
 evidence:
 	$(PYTHON) tools/collect_evidence.py
+learn-status:
+	$(PYTHON) tools/learning_status.py
 learn-m0:
 	$(PYTHON) tools/m0_walkthrough.py --section $(LEARN_SECTION)
 learn-m0-verify:

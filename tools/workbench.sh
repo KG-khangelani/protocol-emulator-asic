@@ -32,11 +32,12 @@ case "${command,,}" in
     formal) inside=(make formal) ;;
     synth) inside=(make synth) ;;
     evidence) inside=(make evidence) ;;
+    learnstatus|learn-status) inside=(make learn-status) ;;
     learnm0|learn-m0) inside=(python3 tools/m0_walkthrough.py --section "${section,,}") ;;
     learnwaveform|learn-waveform) inside=(make learn-waveform) ;;
     all) inside=(make doctor check lint test test-verilator formal synth) ;;
     shell) inside=(bash) ;;
-    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|LearnM0|LearnWaveform|All|Shell} [section]" >&2; exit 2 ;;
+    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|LearnStatus|LearnM0|LearnWaveform|All|Shell} [section]" >&2; exit 2 ;;
 esac
 
 exec docker run --rm --init \
