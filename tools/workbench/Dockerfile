@@ -51,6 +51,7 @@ RUN --mount=type=cache,id=protocol-emulator-verible-v0.0-4296,target=/var/cache/
     echo "${VERIBLE_SHA256}  /var/cache/verible/${VERIBLE_ARCHIVE}" | sha256sum --check --strict \
     && mkdir -p /opt/verible \
     && tar -xzf "/var/cache/verible/${VERIBLE_ARCHIVE}" --strip-components=1 -C /opt/verible \
+    && chmod -R a+rX /opt/verible \
     && test -x /opt/verible/bin/verible-verilog-lint
 
 # Keep Icarus and vvp in one directory for cocotb's supported auto-detection.
