@@ -1,0 +1,165 @@
+{
+  "schema": "protocol-emulator-physical-evidence-v1",
+  "id": "E0010",
+  "checked_utc": "2026-09-25",
+  "source_commit": "9ec2200410610cb107372cf7f6ec4d493448049f",
+  "run_id": 36118046477,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36118046477",
+  "event": "workflow_dispatch",
+  "status": "success",
+  "started_utc": "2026-09-25T09:22:16Z",
+  "completed_utc": "2026-09-25T10:10:31Z",
+  "jobs": {
+    "gds": {
+      "id": 108016683485,
+      "status": "PASS",
+      "started_utc": "2026-09-25T09:22:22Z",
+      "completed_utc": "2026-09-25T09:58:43Z"
+    },
+    "precheck": {
+      "id": 108027602641,
+      "status": "PASS",
+      "started_utc": "2026-09-25T09:58:46Z",
+      "completed_utc": "2026-09-25T10:10:30Z"
+    },
+    "gate_level": {
+      "id": 108027602801,
+      "status": "PASS",
+      "started_utc": "2026-09-25T09:58:46Z",
+      "completed_utc": "2026-09-25T09:59:33Z"
+    },
+    "viewer": {
+      "id": 108027603810,
+      "status": "SKIPPED_BY_POLICY"
+    }
+  },
+  "resolved_environment": {
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "tt_gds_action_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "tt_support_tools_commit": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "flow": "LibreLane",
+    "flow_version": "3.1.0.dev3",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
+    "physical_yosys": "0.66 (86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51)",
+    "gate_level_python_installation": "3.11.16",
+    "gate_level_python_interpreter": "3.11.9",
+    "gate_level_iverilog": "13.0 stable",
+    "gate_level_cocotb": "2.0.1"
+  },
+  "artifacts": [
+    {
+      "id": 10858031062,
+      "name": "GDS_logs",
+      "size_in_bytes": 27600651,
+      "digest": "sha256:2cfa2feccf38ed25718f87007f9ca1d0b43ec213d4b00f619a764329671fb14b"
+    },
+    {
+      "id": 10858201290,
+      "name": "gatelevel_test_results",
+      "size_in_bytes": 257486,
+      "digest": "sha256:ed0e5c310e408a7e5074f7bda9fe635ff8fd54eb393b1c8ea965835042e9d117"
+    },
+    {
+      "id": 10858323027,
+      "name": "precheck_reports",
+      "size_in_bytes": 6878,
+      "digest": "sha256:77b580f32ef24786be1bbeda06d0ed91cec014d327ca0c7c197f411e650e6364"
+    },
+    {
+      "id": 10858340996,
+      "name": "tt_submission",
+      "size_in_bytes": 949472,
+      "digest": "sha256:94b07c30dd8258461ad0d2424a8e5a4b2c26186909b36e30be74398d67c3c218"
+    },
+    {
+      "id": 10858570974,
+      "name": "gds_render",
+      "size_in_bytes": 2513216,
+      "digest": "sha256:6d44523801509bc4f81d523786fa3a6d631f2cdc857b621333e0c1bebaa07cb0"
+    }
+  ],
+  "artifacts_expire_utc": "2026-12-24T09:22:17Z",
+  "physical_result": {
+    "clock_target_ns": 20,
+    "clock_target_mhz": 50,
+    "synthesis_mapped_cells": 58,
+    "synthesis_mapped_area_um2": 803.7792,
+    "final_standard_cells": 80,
+    "final_standard_cell_area_um2": 1166.66,
+    "instance_utilization_percent": 0.129282,
+    "worst_setup_slack_ns": 13.585833287351596,
+    "worst_hold_slack_ns": 0.17207752376737762,
+    "setup_violations": 0,
+    "hold_violations": 0,
+    "route_drc_errors": 0,
+    "magic_drc_errors": 0,
+    "lvs_errors": 0,
+    "antenna_violations": 0,
+    "gds_record_count": 393577,
+    "gds_size_in_bytes": 4189814,
+    "gds_sha256": "6bd4ed2020b5f77e574514df10fb6ff355d52bc595d3b1a6a6dbed82037f619a",
+    "gds_timestamp_normalized_sha256": "88ff4f42424eaf1656a84c10901d1f0d4ed241b22b5be90c976d85fdf9c3a234",
+    "metrics_json_sha256": "d4162d11503e59bbb65c23515af7e64125eae611172d86f8bc45ed5d9b7c7e8b",
+    "metrics_csv_sha256": "654be3e8a1e02c1bc9ed40055129b14eb5f2dbf7210f97ef69dbb1c9717bc5ec",
+    "synthesis_stats_sha256": "0dc1d564ca940ae6ab2509cb91c23f376f69bd88af088e048ba58e98f732167f",
+    "render_png_sha256": "ed2e47e2299633f71ca7827fdfb80a6bdafe3501c83d7bb5d401c4573e0505f8"
+  },
+  "gate_level": {
+    "status": "PASS",
+    "tests_passed": 2,
+    "simulated_time_ns": 31220,
+    "random_seed": 1790330370,
+    "results_xml_sha256": "706bd90ad920d112f653295c5e3f699aa5f352c446b025e9d8a841cb716ef2bb",
+    "waveform_fst_sha256": "fd9806dbd41a7c8cf6512b8e5583466860d0afcb3f221bdc40d925c2e22b622b"
+  },
+  "precheck": {
+    "status": "PASS",
+    "checks_passed": 9,
+    "results_markdown_sha256": "110b9623329adb5831d80d501e191948194d39a4b640f24f43d3dd70857efedf",
+    "results_xml_sha256": "5240c97e622bcfdeb305a5abf210c78b0a4e1f4e2b49a6e2e62d0bd121dd1fb8"
+  },
+  "comparison_to_e0006": {
+    "metrics_json_byte_identical": true,
+    "metrics_csv_byte_identical": true,
+    "gds_size_identical": true,
+    "gds_record_structure_identical": true,
+    "e0006_gds_sha256": "4240c54e41c82bf6f983b538c16e594d6ae1b91d08ac62f43d7c3ee437c1e7c1",
+    "e0010_gds_sha256": "6bd4ed2020b5f77e574514df10fb6ff355d52bc595d3b1a6a6dbed82037f619a",
+    "both_timestamp_normalized_sha256": "88ff4f42424eaf1656a84c10901d1f0d4ed241b22b5be90c976d85fdf9c3a234",
+    "differing_bytes": 192,
+    "changed_bgnlib_records": 1,
+    "changed_bgnstr_records": 31,
+    "non_timestamp_record_differences": 0,
+    "equivalent_except_timestamps": true,
+    "comparison_json_sha256": "fb723e110040f935dd297da118c485fad72526d183aa0fbd94019c2a409787be"
+  },
+  "physical_input_equivalence": {
+    "repository_head_checked": "40466485f879e0c1efe6183b98764540d84e9afc",
+    "all_blob_ids_match_source_commit": true,
+    "blob_ids": {
+      ".github/workflows/gds.yaml": "c2c0ca535474abb5ce17ef67b15c871b0e015195",
+      "info.yaml": "90cc5a6fb55572d53db83e6e0fa96278fcee2665",
+      "src/config.json": "e19276da46a9ede15577db4e7641dfefa853e0cb",
+      "src/project.v": "b7ec2316d58b385de55b9fefe732a9c8b45f1faa",
+      "test/Makefile": "458b2cf67380d7a6c2c54dd76f7b23c980d40d0c",
+      "test/tb.v": "01ac2b1e7ac7f65e74f33dd762dd40cf3bf5a65a",
+      "test/test.py": "ee4f1fc5b74c084a87feaabd5269af9ea9d9fccf"
+    }
+  },
+  "m0_physical_gate": {
+    "complete_official_runs": ["E0006", "E0010"],
+    "clean_repository_pinned_reproduction": "E0010",
+    "technical_gate_satisfied": true,
+    "remaining_m0_gate": "Owner fluency teach-back"
+  },
+  "limits": [
+    "E0006 entered the same resolved action commit through a mutable branch reference; E0010 is the repository-pinned reproduction",
+    "Positive target slack is not an Fmax measurement",
+    "Functional zero-delay gate-level simulation is not delay-annotated or fabricated-silicon evidence",
+    "Open physical checks are not foundry signoff",
+    "LibreLane reported use of a generic fallback SDC",
+    "M0 implements a GPIO counter, not a protocol virtual machine"
+  ]
+}

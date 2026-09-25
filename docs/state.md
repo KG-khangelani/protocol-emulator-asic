@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-09-25. Phase: **M0 — physical-flow closure**.
+Updated: 2026-09-25. Phase: **M0 — fluency closure**.
 Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -49,25 +49,34 @@ efficiently express useful digital communication protocols under hard temporal c
   ladder through the PowerShell wrapper with no native EDA commands on PATH.
   E0009 also confirms the physical-input byte hashes match Linux CI after LF
   checkout canonicalization.
+- Clean repository-pinned physical run 36118046477 passes GDS generation, both
+  gate-level tests, and all nine prechecks. E0010 records the exact source,
+  action, support-tools, LibreLane, PDK, job, artifact, and report identities.
+- E0006 and E0010 are two complete official physical-flow passes under the same
+  resolved environment. Their metrics and 393,577-record GDS structures match;
+  their exact GDS hashes differ only in 32 timestamp records. The technical M0
+  physical gate is satisfied.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 
 ## Blocked or unverified
 
-- Direct repository workflow actions and the physical action, support-tools,
-  LibreLane, and PDK candidate identities are now locked. A clean run of that
-  repository-pinned workflow is still required; the official composite action's
-  internally tagged dependencies remain its recorded trust boundary.
-- No clean pinned physical rerun, FPGA run or devcontainer validation exists
-  yet. Positive slack at the 20 ns target is not a measured maximum frequency.
+- The M0 owner fluency checkpoint has not yet been completed; technical closure
+  alone does not satisfy the project's equal learning goal.
+- The official composite action's internally tagged dependencies remain a
+  recorded trust boundary. The upstream canary reports change but never upgrades
+  the qualified environment automatically.
+- No FPGA run or devcontainer validation exists yet. These are not M0 acceptance
+  gates. Positive slack at the 20 ns target is not a measured maximum frequency.
 
 ## Next executable action
 
-Archive the clean pinned physical workflow result before declaring M0 complete.
-Then run the M0 fluency checkpoint before advancing to M1 semantics.
+Complete the M0 fluency teach-back using the retained source, commands, and
+evidence. Then record the checkpoint before advancing to M1 semantics.
 
 ## Handoff boundaries
 
-M0 is **in progress**, not completed. No VM, protocol firmware, compiler, or
-fabricated-silicon claim exists yet. The original OpenKnowledge records
-named in `source-pack.md` were not modified or synchronized by this setup.
+M0's **technical gate has passed**, but M0 remains in progress until its fluency
+gate passes. No VM, protocol firmware, compiler, or fabricated-silicon claim
+exists yet. The original OpenKnowledge records named in `source-pack.md` were
+not modified or synchronized by this setup.

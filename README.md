@@ -14,14 +14,15 @@ the [project goal](docs/goal.md) and the visual
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Current state: M0 physical-flow closure.** The repo contains a deterministic
+**Current state: M0 fluency closure.** The repo contains a deterministic
 GPIO baseline, pin-level tests, a locked Docker verification workbench, and the
 official Tiny Tapeout CMOS5L physical workflow. The first physical run produced
 a cleanly checked GDS with positive timing slack, while its separate gate-level
 job exposed a missing PDK model in the test source list. That defect is fixed;
-the corrected official GDS and gate-level jobs pass, while downstream acceptance
-and a clean pinned rerun remain. **M0 is not complete.** No UART, SPI, I2C or VM
-is implemented yet.
+the corrected official run and its clean repository-pinned reproduction both
+pass GDS generation, gate-level regression, and all nine prechecks. The technical
+M0 gate has passed; its owner teach-back is still pending. **M0 is not complete.**
+No UART, SPI, I2C or VM is implemented yet.
 
 ## Start with Codex
 
@@ -32,8 +33,8 @@ current task and blockers. Use this first task:
 > Read AGENTS.md, docs/state.md and docs/backlog.md. Continue M0-T01. Run the
 > GPIO regression and generic synthesis, then the official CMOS5L GDS workflow.
 > Record real versions, logs, waveform, physical reports and artifact hashes.
-> Keep M0 open until its evidence gates and a clean rerun pass. Do not expand
-> the VM instruction set yet.
+> Complete the M0 teach-back from the retained evidence before defining M1
+> execution semantics. Do not expand the VM instruction set yet.
 
 No API key or agent-specific model setting is needed in the repository.
 

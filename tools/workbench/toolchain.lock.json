@@ -120,6 +120,6 @@
       "test-summary/action": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
       "TinyTapeout/ciel-action": "11703802099012722109e39b7e353eae0fea88bb"
     },
-    "state": "e0006-qualified-candidate-pinned-in-repository-awaiting-clean-run"
+    "state": "m0-qualified-pinned-flow-passed-e0010"
   }
 }

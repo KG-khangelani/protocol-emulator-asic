@@ -54,7 +54,7 @@ the PDK and tooling from the **CMOS5L action branch** used by this repo. The
 general guide still shows another IHP PDK and is not a drop-in process lock.
 Do not blindly replace `ihp-sg13cmos5l` with `ihp-sg13g2`.
 
-### Qualified physical-flow candidate
+### Qualified physical-flow snapshot
 
 E0003 first resolved the CMOS5L action branch to action commit
 `3412659307918422f3f0727917cf9b499aaca588`, Tiny Tapeout support tools
@@ -64,14 +64,16 @@ passed. The gate-level runner used Python 3.11.16 and Icarus 13.0, but failed
 at elaboration because `test/Makefile` omitted `sg13cmos5l_udp.v`. That source
 list is corrected, and E0006 passes GDS, gate-level regression, and all nine
 prechecks with the same candidate identities. Direct workflow actions and the
-support-tools/LibreLane inputs are now pinned; a clean pinned run is in flight.
-The official composite action remains a recorded transitive trust boundary.
+support-tools/LibreLane inputs are now pinned. Clean run E0010 passes the same
+three gates, reproduces E0006's metrics, and has identical non-timestamp GDS
+records. This snapshot is qualified for M0. The official composite action
+remains a recorded transitive trust boundary.
 
 ## Setup limitations
 
 Docker Desktop now works on the Windows host. Native Windows `make`, Icarus and
 Yosys remain absent by design; the verified container workbench provides the
-supported local lane. The fast GitHub workflow now uses that same image recipe,
-two simulators, formal verification, and synthesis, but its corrected remote run
-still needs to pass. The official physical workflow still requires its clean
-pinned result to be archived.
+supported local lane. E0007 proves the same image recipe, two simulators, formal
+verification, and synthesis in clean GitHub CI. E0009 proves the complete fast
+ladder from a fresh Windows clone. E0010 archives the clean repository-pinned
+physical result. The optional FPGA and devcontainer lanes remain unverified.

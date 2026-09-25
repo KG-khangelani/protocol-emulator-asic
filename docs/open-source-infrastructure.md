@@ -86,6 +86,18 @@ CURRENT. The same comparison can be run locally with:
 
     .\.venv\Scripts\python.exe tools\check_upstream_drift.py
 
+## M0 qualification status
+
+E0006 and E0010 are two complete official CMOS5L passes under the same resolved
+toolchain. E0010 is the clean reproduction after every action referenced directly
+by the repository and the accepted physical-flow inputs were pinned. Its GDS,
+gate-level, and precheck jobs all pass, and its physical metrics and non-timestamp
+GDS records reproduce E0006.
+
+This qualifies the infrastructure for M0. It does not permanently certify every
+future source or tool change: later milestones must rerun the relevant fast and
+physical gates and record any environment upgrade as a new experiment.
+
 ## Authoritative starting sources
 
 - [Jane Street competition brief](https://blog.janestreet.com/protocol-emulator-asic-competition/)

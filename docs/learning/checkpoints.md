@@ -5,7 +5,7 @@ experiment before relying on the concept in a design decision.
 
 | Milestone | Technical gate | Fluency gate | State |
 |---|---|---|---|
-| M0 — Toolchain | GPIO baseline passes the qualified physical flow twice | Trace RTL to GDS; distinguish simulation, synthesis, timing, precheck and gate-level evidence | In progress |
+| M0 — Toolchain | GPIO baseline passes the qualified physical flow twice | Trace RTL to GDS; distinguish simulation, synthesis, timing, precheck and gate-level evidence | Technical PASS; teach-back pending |
 | M1 — Sequencer | SET/WAIT/HALT semantics, tests and formal properties pass | Predict state-machine timing and interpret a counterexample | Not started |
 | M2 — UART | Independent TX/RX waveform tests pass | Explain baud timing, asynchronous sampling and phase error | Not started |
 | M3 — SPI/I2C | Shared core passes direction, stretching and contention cases | Explain clock modes, open-drain signalling and synchronizer latency | Not started |

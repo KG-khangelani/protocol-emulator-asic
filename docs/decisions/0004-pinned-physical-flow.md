@@ -1,6 +1,6 @@
 # D4 — Qualify an immutable physical-flow snapshot
 
-Date: 2026-09-25. Status: adopted for the M0 acceptance candidate.
+Date: 2026-09-25. Status: adopted and qualified for M0.
 
 Need: a branch name such as `ihp-cmos5l` can point to different code tomorrow.
 That makes a passing run difficult to reproduce and lets an upstream change
@@ -17,8 +17,9 @@ Consequences:
 
 - A physical run changes ingredients only through an inspectable repository
   change, rather than silently following an upstream branch or tag.
-- The next run is the first repository-pinned qualification run; E0006 remains
-  the evidence that selected the candidate revisions, not that clean rerun.
+- E0010 is the first repository-pinned qualification run. E0006 selected the
+  candidate revisions; E0010 reproduces that complete result after the pins
+  became part of the repository.
 - The pinned upstream composite action remains a reviewed trust boundary. It
   invokes some transitive actions by version tag internally; their resolutions
   observed in E0006 are recorded in the lock, but this repository cannot change

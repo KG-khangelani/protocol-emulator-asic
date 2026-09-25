@@ -1,0 +1,21 @@
+metric,value,unit,interpretation
+synthesis_mapped_cell_count,58,cells,Logic cells after CMOS5L technology mapping
+synthesis_mapped_cell_area,803.7792,um^2,Technology-mapped synthesis area
+final_standard_cell_count,80,cells,Placed standard cells including inserted buffers
+final_standard_cell_area,1166.66,um^2,Placed standard-cell area
+instance_utilization,0.129282,percent,Standard-cell area divided by core area
+worst_setup_slack,13.585833287351596,ns,Minimum recorded setup margin at the 20 ns target
+worst_hold_slack,0.17207752376737762,ns,Minimum recorded hold margin
+setup_violation_count,0,paths,Across recorded corners
+hold_violation_count,0,paths,Across recorded corners
+route_drc_error_count,0,violations,Final detailed route
+magic_drc_error_count,0,violations,Magic physical check
+lvs_error_count,0,violations,Layout-versus-schematic comparison
+antenna_violation_count,0,violations,Final recorded antenna result
+gate_level_tests_passed,2,tests,Generated cell-netlist regression
+gate_level_simulated_time,31220,ns,Sum of retained JUnit simulation times
+prechecks_passed,9,checks,Tiny Tapeout submission prechecks
+gds_record_count,393577,records,Parsed records in the final GDS
+gds_size,4189814,bytes,Final streamed GDS
+gds_sha256,6bd4ed2020b5f77e574514df10fb6ff355d52bc595d3b1a6a6dbed82037f619a,sha256,Exact final GDS identity including timestamps
+gds_timestamp_normalized_sha256,88ff4f42424eaf1656a84c10901d1f0d4ed241b22b5be90c976d85fdf9c3a234,sha256,Identity after zeroing only BGNLIB and BGNSTR timestamps

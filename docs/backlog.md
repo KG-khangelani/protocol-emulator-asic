@@ -28,7 +28,8 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Record resolved action/tool/PDK versions and environment (E0003).
 - [x] Pin direct workflow actions and the qualified physical-flow inputs.
 - [x] Add and remotely validate the non-gating upstream drift canary (E0008).
-- [ ] Clean rerun reproduces the functional result and physical acceptance.
+- [x] Clean repository-pinned rerun reproduces the functional and physical result (E0010).
+- [ ] Complete and record the M0 owner fluency teach-back.
 
 Reference: `specs/m0-gpio.md`; evidence index: `../evidence/README.md`.
 Do not substitute a static syntax check or generic synthesis for physical fit.

@@ -1,0 +1,26 @@
+{
+  "different_bytes": 192,
+  "different_records": 32,
+  "equivalent_except_timestamps": true,
+  "left": {
+    "path": "build\\artifacts\\E0006-corrected-run-36111852179\\GDS_logs\\runs\\wokwi\\final\\gds\\tt_um_khangelani_protocol_emulator.gds",
+    "record_count": 393577,
+    "sha256": "4240c54e41c82bf6f983b538c16e594d6ae1b91d08ac62f43d7c3ee437c1e7c1",
+    "size_in_bytes": 4189814,
+    "timestamp_normalized_sha256": "88ff4f42424eaf1656a84c10901d1f0d4ed241b22b5be90c976d85fdf9c3a234"
+  },
+  "non_timestamp_record_differences": {},
+  "record_structure_equal": true,
+  "right": {
+    "path": "build\\artifacts\\E0010-pinned-cmos5l-36118046477\\GDS_logs\\runs\\wokwi\\final\\gds\\tt_um_khangelani_protocol_emulator.gds",
+    "record_count": 393577,
+    "sha256": "6bd4ed2020b5f77e574514df10fb6ff355d52bc595d3b1a6a6dbed82037f619a",
+    "size_in_bytes": 4189814,
+    "timestamp_normalized_sha256": "88ff4f42424eaf1656a84c10901d1f0d4ed241b22b5be90c976d85fdf9c3a234"
+  },
+  "schema": "gds-record-comparison-v1",
+  "timestamp_record_differences": {
+    "BGNLIB": 1,
+    "BGNSTR": 31
+  }
+}
