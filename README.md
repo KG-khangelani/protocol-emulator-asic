@@ -64,8 +64,9 @@ evidence-backed tour; add `Physical` as its second argument to focus on
 synthesis-to-GDS. `LearnWaveform` reruns the M0 Icarus test in readable VCD mode
 and prints the reset, count, wrap, hold, resume and reset-priority edges.
 
-`make evidence` reruns the verification stages, including the readable waveform
-walkthrough, and writes logs plus a machine-readable manifest under
+`make evidence` reruns the verification stages, including conservative learning-
+status validation and the readable waveform walkthrough, and writes logs plus a
+machine-readable manifest under
 `build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero
 exit code. A generic Yosys result does not establish IHP area or timing.
 

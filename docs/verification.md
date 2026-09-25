@@ -6,6 +6,7 @@ physical timing and real hardware observations as separate evidence categories.
 | Layer | Current implementation | Next evidence |
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
+| Learning-status integrity | `tools/learning_status.py --verify` plus an invalid-promotion self-test | Milestone references agree and an unearned human fluency PASS is rejected |
 | RTL | Same `test/test.py` oracle through Icarus and Verilator, seed 20260922 | Wrap, reset priority, hold/resume, input noise, defined pin direction, simulator agreement |
 | Readable waveform | `LearnWaveform` VCD parser plus intentionally corrupted edge | Every M0 rising edge matches the transition table; learner can explain a selected edge |
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |

@@ -89,6 +89,7 @@ require("learn-waveform:" in project_makefile and "tools/m0_waveform_walkthrough
 require("learn-status:" in project_makefile and "tools/learning_status.py" in project_makefile, "Makefile must define learning status")
 require("LEARNING_VCD" in testbench and "m0-learning.vcd" in testbench, "testbench must expose the readable learning waveform")
 require('("learning_waveform", ["make", "learn-waveform"]' in evidence_collector, "evidence collector must exercise the waveform walkthrough")
+require('("learning_status", [sys.executable, "tools/learning_status.py", "--verify"]' in evidence_collector, "evidence collector must retain learning-status validation")
 for learning_file in ("map.md", "glossary.md", "labs.md", "checkpoints.md", "progress.json"):
     require((ROOT / "docs/learning" / learning_file).is_file(), f"missing learning-system file: {learning_file}")
 research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())

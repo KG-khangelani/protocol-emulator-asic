@@ -34,7 +34,8 @@ and prints selected events for a first-time waveform reader. `Formal` proves the
 reset-to-wrap witness, and confirms the assertions reject an increment-by-two
 mutant. `Synth` runs generic Yosys and leaves `build/synthesis.log` and
 `build/synth.json`. `Evidence` records source hashes, exact commands, versions,
-stage status, and the learning waveform/JUnit artifacts. See `formal/README.md`
+stage status, the rejected unearned-fluency self-test, and the learning
+waveform/JUnit artifacts. See `formal/README.md`
 for the proof assumptions and limits.
 
 GitHub's Docker setup and build actions are also pinned by commit. E0011
@@ -43,8 +44,8 @@ image identity is unchanged, all seven stages pass, the artifact uploads, and
 the prior Node 20 deprecation annotation is absent. These actions orchestrate
 the container; they do not replace or redefine the EDA tools inside it. That
 seven-stage statement describes E0011's historical source. Current evidence
-adds `learning_waveform` as an eighth checked stage without changing the RTL or
-physical acceptance flow.
+adds `learning_status` and `learning_waveform` as eighth and ninth checked stages
+without changing the RTL or physical acceptance flow.
 
 ## Physical gate
 

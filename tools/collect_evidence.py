@@ -62,6 +62,7 @@ for package in ("cocotb", "PyYAML"):
 stages = [
     ("doctor", [sys.executable, "tools/doctor.py"], []),
     ("static", [sys.executable, "tools/check_project.py"], []),
+    ("learning_status", [sys.executable, "tools/learning_status.py", "--verify"], []),
     ("lint", ["make", "lint"], ["verible-verilog-lint"]),
     ("rtl_icarus", ["make", "test"], ["iverilog", "vvp", "cocotb-config"]),
     ("learning_waveform", ["make", "learn-waveform"], ["iverilog", "vvp", "cocotb-config"]),
