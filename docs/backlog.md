@@ -19,7 +19,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Archive CI artifact durably before 21 December 2026 (E0002).
 - [x] Pass generic synthesis sanity check (E0002).
 - [x] Complete official CMOS5L RTL-to-GDS build and precheck (E0003).
-- [x] Pass corrected official gate-level regression (run 36111852179).
+- [x] Pass and archive the corrected official GDS, gate-level, and precheck run (E0006).
 - [ ] Run fast CI from the same lock, including Verilator and M0 formal checks.
 - [x] Record mapped area, post-route timing/slack, violations, utilization and GDS hash (E0003).
 - [x] Record resolved action/tool/PDK versions and environment (E0003).

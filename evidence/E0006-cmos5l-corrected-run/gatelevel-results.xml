@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790326229" />
+    <testcase name="reset_wrap_hold_and_resume" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="39" time="0.14070534706115723" sim_time_ns="10720.0" ratio_time="76187.58081269349" />
+    <testcase name="seeded_control_and_input_noise" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="55" time="0.15782618522644043" sim_time_ns="20500.0" ratio_time="129889.72628710321" />
+  </testsuite>
+</testsuites>

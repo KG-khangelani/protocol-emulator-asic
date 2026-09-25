@@ -29,17 +29,20 @@ efficiently express useful digital communication protocols under hard temporal c
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.
-- The missing gate-level UDP model was added to `test/Makefile`; the exact E0003
-  netlist now passes locally. Corrected official run 36111852179 passes GDS,
-  gate-level regression and every precheck.
+- The missing gate-level UDP model was added to `test/Makefile`; corrected
+  official run 36111852179 passes GDS, both gate-level tests, and all nine
+  prechecks. E0006 retains its metrics, hashes, raw summaries, and limitations.
+- E0003 and E0006 have identical physical metrics and GDS geometry records.
+  Their whole-file hashes differ because GDS timestamp records changed; this
+  distinction is documented rather than reported as byte-for-byte reproduction.
 - GitHub now reports the pytest Dependabot alert as fixed after dependency-graph
   refresh recognized pytest 9.0.3; it was not manually dismissed.
 
 ## Blocked or unverified
 
 - The physical workflow still names a mutable upstream branch even though
-  E0003 records the resolved action, flow and PDK revisions. Pin successful
-  inputs after the passing rerun.
+  E0006 records a complete passing run and the resolved action, flow, and PDK
+  revisions. Pin those successful inputs before the required clean rerun.
 - The candidate fast GitHub workflow now builds the same lock and runs both
   Icarus and Verilator, but its first remote result is pending. M0 formal
   properties are not wired in.

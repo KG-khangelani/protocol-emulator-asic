@@ -13,6 +13,8 @@ express useful digital communication protocols under hard temporal constraints?*
 | F4 | M0 can be placed and routed in the 6x4 CMOS5L allocation with positive reported slack at the 20 ns flow target and clean recorded physical checks | E0003 |
 | F5 | The first official gate-level job cannot elaborate because its source list omits the PDK file defining `ihp_dff_r` | E0003 |
 | F6 | The locked Linux/amd64 workbench passes exact-version checks, Verible lint, two M0 RTL tests and generic synthesis on Windows Docker Desktop | E0005 |
+| F7 | The corrected official run passes GDS generation, both generated-netlist tests, and all nine Tiny Tapeout prechecks | E0006 |
+| F8 | E0003 and E0006 have byte-identical GDS non-timestamp records; their full hashes differ only because 256 bytes in library/structure timestamp records changed | E0006 |
 
 ## Working hypotheses
 
@@ -39,6 +41,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0002 | GitHub CI baseline | Static, RTL and generic synthesis PASS; docs PASS | No physical/GL proof; `../evidence/E0002-ci/` |
 | E0003 | First official CMOS5L run | GDS and all prechecks PASS; gate-level compile FAIL | Not a complete M0 result; no functional GL run or clean rerun; `../evidence/E0003-cmos5l-first-run/` |
 | E0005 | Locked local open EDA workbench | Doctor, static, lint, 2 RTL tests and generic synthesis PASS | Formal and physical fit NOT_EVALUATED; `../evidence/E0005-locked-workbench/` |
+| E0006 | Corrected official CMOS5L run | GDS, 2 gate-level tests, and all 9 prechecks PASS | Mutable workflow ref at dispatch; no clean repository-pinned rerun; `../evidence/E0006-cmos5l-corrected-run/` |
 
 ## Open questions
 
@@ -47,8 +50,8 @@ express useful digital communication protocols under hard temporal constraints?*
 - Q3: How are programs and payloads loaded/read back after fabrication?
 - Q4: What electrical assumptions and synchronization delays govern each pin?
 - Q5: Which stretch protocol demonstrates the most reusable capability per cost?
-- Q6: Does the recorded action/LibreLane/PDK combination reproduce after the
-  UDP model fix, and which immutable workflow inputs should then be pinned?
+- Q6: Does the now-recorded passing action/LibreLane/PDK combination reproduce
+  from a clean checkout after every workflow input is pinned immutably?
 
 ## Rejected approaches
 

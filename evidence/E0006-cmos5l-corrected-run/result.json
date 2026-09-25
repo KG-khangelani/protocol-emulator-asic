@@ -1,0 +1,110 @@
+{
+  "id": "E0006",
+  "checked_utc": "2026-09-25",
+  "source_commit": "1bcb92ad038a0105cb61158fa104c55aeeb3cb35",
+  "run_id": 36111852179,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36111852179",
+  "status": "success",
+  "jobs": {
+    "gds": "PASS",
+    "precheck": "PASS",
+    "gate_level": "PASS",
+    "viewer": "SKIPPED_BY_POLICY"
+  },
+  "resolved_environment": {
+    "tt_gds_action_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "tt_support_tools_commit": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "flow": "LibreLane",
+    "flow_version": "3.1.0.dev3",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
+    "physical_yosys": "0.66 (86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51)",
+    "gate_level_python": "3.11.16",
+    "gate_level_iverilog": "13.0"
+  },
+  "artifacts": [
+    {
+      "id": 10855267334,
+      "name": "precheck_reports",
+      "size_in_bytes": 6880,
+      "digest": "sha256:610e6606ff9f211b029b9beb7313f63be1e61426f53fe8aa2331e4f6e0f8b7f2"
+    },
+    {
+      "id": 10855065978,
+      "name": "tt_submission",
+      "size_in_bytes": 945130,
+      "digest": "sha256:a343316556cf17273220cb17b2ae2e37b8d99f518e2f8d5792605017077ed0c6"
+    },
+    {
+      "id": 10854676267,
+      "name": "GDS_logs",
+      "size_in_bytes": 27600619,
+      "digest": "sha256:17040a9646b087e6f26589a2659d1703a4c50d70c2c65a887987d851d8655d89"
+    },
+    {
+      "id": 10854481714,
+      "name": "gatelevel_test_results",
+      "size_in_bytes": 257486,
+      "digest": "sha256:29eaa70546e2f8dc33b4af696a91acf370f24437b22f0924b6def4ff24e5bc10"
+    },
+    {
+      "id": 10854342015,
+      "name": "gds_render",
+      "size_in_bytes": 2513216,
+      "digest": "sha256:244b4a52ed3b74016c64b0ccfec8fbd6d9a12366fc8d9b859d93a727851f166d"
+    }
+  ],
+  "artifacts_expire_utc": "2026-12-24T08:14:34Z",
+  "physical_result": {
+    "clock_target_ns": 20,
+    "synthesis_mapped_cells": 58,
+    "synthesis_mapped_area_um2": 803.7792,
+    "final_standard_cells": 80,
+    "final_standard_cell_area_um2": 1166.66,
+    "instance_utilization_percent": 0.129282,
+    "worst_setup_slack_ns": 13.585833287351596,
+    "worst_hold_slack_ns": 0.17207752376737762,
+    "setup_violations": 0,
+    "hold_violations": 0,
+    "route_drc_errors": 0,
+    "magic_drc_errors": 0,
+    "lvs_errors": 0,
+    "antenna_violations": 0,
+    "gds_size_in_bytes": 4189814,
+    "gds_sha256": "4240c54e41c82bf6f983b538c16e594d6ae1b91d08ac62f43d7c3ee437c1e7c1",
+    "metrics_json_sha256": "d4162d11503e59bbb65c23515af7e64125eae611172d86f8bc45ed5d9b7c7e8b"
+  },
+  "gate_level": {
+    "status": "PASS",
+    "tests_passed": 2,
+    "simulated_time_ns": 31220,
+    "random_seed": 1790326229,
+    "results_xml_sha256": "aaf48e30fc7359fee8af6784c98881556555abe60ab371d535c017937cd3a675",
+    "waveform_fst_sha256": "853439fe369c80ce945489d8ef1617470332826aedcf088e91a57f3cf31cc381"
+  },
+  "precheck": {
+    "status": "PASS",
+    "checks_passed": 9,
+    "results_markdown_sha256": "110b9623329adb5831d80d501e191948194d39a4b640f24f43d3dd70857efedf",
+    "results_xml_sha256": "d02ffeacc1432652ddd5345129b8a506fbf4be9cb9ba4b72bf75901dc2a01a13"
+  },
+  "comparison_to_e0003": {
+    "metrics_identical": true,
+    "gds_size_identical": true,
+    "e0003_gds_sha256": "8195be3450979ec0f279c7529d5165b13d4bde143a07b2789051ed39027dcd71",
+    "e0006_gds_sha256": "4240c54e41c82bf6f983b538c16e594d6ae1b91d08ac62f43d7c3ee437c1e7c1",
+    "differing_bytes": 256,
+    "changed_bgnlib_records": 1,
+    "changed_bgnstr_records": 31,
+    "changed_other_record_types": 0,
+    "non_timestamp_records_byte_identical": true
+  },
+  "limits": [
+    "Workflow action references were mutable at dispatch time",
+    "No clean run of the repository-pinned physical workflow yet",
+    "Positive target slack is not an Fmax measurement",
+    "Passing gate-level simulation is not fabricated-silicon evidence",
+    "LibreLane used a generic fallback SDC"
+  ]
+}
