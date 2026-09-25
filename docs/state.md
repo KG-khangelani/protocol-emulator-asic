@@ -24,7 +24,7 @@ efficiently express useful digital communication protocols under hard temporal c
   static checks; native Windows `make`, Icarus and Yosys remain absent.
 - A locked Linux/amd64 Docker workbench now provides exact-version checks,
   Verible lint, Icarus/cocotb simulation and generic Yosys synthesis from
-  Windows. Its complete local `All` run passes.
+  Windows. Its exact-commit local checks pass; see `evidence/E0005-locked-workbench/`.
 - The first official CMOS5L run produced a GDS, positive setup/hold slack,
   zero reported route/Magic DRC and LVS errors, and passed every Tiny Tapeout
   precheck. See `evidence/E0003-cmos5l-first-run/`.

@@ -1,0 +1,81 @@
+{
+  "schema": "protocol-emulator-evidence-v1",
+  "id": "E0005",
+  "created_utc": "2026-09-25T08:56:26.892305Z",
+  "source": {
+    "commit": "44f77d399437e7d9d5a31a305b9ccdb7bf87276a",
+    "git_status": "clean",
+    "project_v_sha256": "acc87557d9abcc07b915eec50916d7f2479c10df6289842de787c12fdc4242db"
+  },
+  "image": {
+    "tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "observed_digest": "sha256:73613a54eb186b6af58c0e9158faca611595c76435e6da0828a90076d9f77f5d",
+    "platform": "linux/amd64",
+    "size_in_bytes": 851384237,
+    "created_utc": "2026-09-25T08:53:58.799915004Z"
+  },
+  "source_locks": {
+    "dockerfile_sha256": "c2c73036ea3d5a180b057a85885183e653ce5f7f98395ba862ee37906ef83979",
+    "requirements_lock_sha256": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a",
+    "toolchain_lock_sha256": "1f6298b41c04713e9cf1962c4263c5e8a02da24ec3a56f9065fdf631e93fcb35"
+  },
+  "tools": {
+    "python": "3.11.16",
+    "iverilog": "14.0 (devel) s20260301-328-geda9fdcd1-dirty",
+    "verilator": "5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+    "verible": "v0.0-4296-g0f262651",
+    "yosys": "0.67+111 git 4821ed17b-dirty",
+    "sby": "v0.67-4-gfea6e46",
+    "z3": "4.15.5",
+    "boolector": "3.2.4",
+    "cocotb": "2.0.1"
+  },
+  "stages": [
+    {
+      "name": "doctor",
+      "command": ".\\tools\\workbench.ps1 Doctor",
+      "status": "PASS"
+    },
+    {
+      "name": "static",
+      "command": "make check",
+      "status": "PASS",
+      "log_sha256": "b97a50bf02e1e19aa0c25b63f5cba897c257cb8c278b9ede58d01b660442fc64"
+    },
+    {
+      "name": "lint",
+      "command": "make lint",
+      "status": "PASS"
+    },
+    {
+      "name": "rtl",
+      "command": "make test",
+      "status": "PASS",
+      "tests": 2,
+      "failures": 0,
+      "seed": 20260922,
+      "junit_sha256": "b521948873ce1686600a3f39bd694758c3f2818156a919ffb7ae9dd5e0e4c682",
+      "waveform_sha256": "c395b39d0cdaf3454caebad96f8585236c81387bc1a8b8490f9677d9a1bc1b2a"
+    },
+    {
+      "name": "generic_synthesis",
+      "command": "make synth",
+      "status": "PASS",
+      "cells": 22,
+      "check_problems": 0,
+      "netlist_json_sha256": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743"
+    },
+    {
+      "name": "formal",
+      "command": "make formal",
+      "status": "NOT_EVALUATED",
+      "returncode": 2,
+      "reason": "M0 property harness not yet present"
+    },
+    {
+      "name": "cmos5l_physical",
+      "status": "NOT_EVALUATED",
+      "reason": "official GitHub GDS workflow is a separate acceptance lane"
+    }
+  ]
+}
