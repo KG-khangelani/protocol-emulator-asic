@@ -34,7 +34,7 @@ IHP CMOS5L Tiny Tapeout flow.
 - [x] Expose and remotely qualify conservative fluency status without automatic promotion (E0013).
 - [x] Qualify Node 24 Docker CI actions and remove the Node 20 runtime warning (E0011).
 - [x] Qualify Docker-independent `LearnStatus` and `LearnM0 RTL` on clean Windows CI (E0014).
-- [x] Requalify the complete locked local ladder after Docker Desktop recovery (E0015).
+- [x] Qualify the complete locked local ladder with Docker Desktop opened (E0015).
 - [ ] Complete and record the M0 owner fluency teach-back.
 
 Reference: `docs/specs/m0-gpio.md`; evidence index: `evidence/README.md`.

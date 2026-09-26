@@ -23,7 +23,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | F14 | A clean remote checkout runs the readable M0 waveform lab, checks all 1,561 rising edges against the declared transition table, and rejects an intentionally corrupted count edge | E0012 |
 | F15 | Clean CI retains separate technical/fluency gate validation and rejects a deliberately unearned active-milestone fluency PASS | E0013 |
 | F16 | A clean Windows checkout runs the read-only M0 status and RTL lessons through host Python without invoking Docker, while the complete locked Linux verification ladder remains green | E0014 |
-| F17 | The recovered Windows host runs signed Docker Desktop 4.92.0 with a healthy Linux/amd64 engine and passes all nine locked local M0 evidence stages at a clean source revision | E0015 |
+| F17 | With Docker Desktop opened, the Windows host runs signed version 4.92.0 with a healthy Linux/amd64 engine and passes all nine locked local M0 evidence stages at a clean source revision | E0015 |
 
 ## Verified upstream observations (not project measurements)
 
@@ -73,7 +73,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0012 | Readable M0 waveform qualification | Clean CI passes 2 tests, checks all 1,561 rising edges, and rejects an intentional corruption | Same finite Icarus simulation, not a new independent chip-behavior proof or owner-fluency result; `../evidence/E0012-readable-waveform-ci/` |
 | E0013 | Conservative fluency-status qualification | Clean CI passes all 9 stages and rejects an unearned active-milestone fluency promotion | Validator integrity is not human understanding or ASIC evidence; `../evidence/E0013-fluency-status-ci/` |
 | E0014 | Docker-independent M0 lesson qualification | Clean Windows host lessons, all 9 locked Linux stages, artifact upload and docs PASS with zero annotations | Reading retained evidence is not EDA execution, Docker repair, or owner-fluency evidence; `../evidence/E0014-docker-independent-learning/` |
-| E0015 | Local Docker recovery qualification | Signed Docker Desktop 4.92.0 and Engine 29.8.0 run the locked workbench; all 9 local stages PASS | Exact interactive recovery action and Docker-data integrity are not evaluated; no physical or fluency claim; `../evidence/E0015-local-docker-recovery/` |
+| E0015 | Local Docker qualification | With Docker Desktop opened, signed version 4.92.0 and Engine 29.8.0 run the locked workbench; all 9 local stages PASS | A closed application is not a failure; no Docker-data, physical or fluency claim; `../evidence/E0015-local-docker-qualification/` |
 
 ## Open questions
 

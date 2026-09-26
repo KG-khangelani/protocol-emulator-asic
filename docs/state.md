@@ -20,12 +20,11 @@ efficiently express useful digital communication protocols under hard temporal c
   GitHub-reported SHA-256.
 - Publication controls are enabled: GitHub secret scanning, push protection,
   Dependabot security updates and private vulnerability reporting.
-- Docker Desktop has recovered locally: signed version 4.92.0 runs Engine 29.8.0
-  on Linux/amd64, and E0015 passes all nine locked local evidence stages at a
-  clean source revision. The prior 4.90 stale-AF_UNIX-socket failure remains
-  recorded; the exact interactive recovery action is `NOT_EVALUATED`. The
-  existing Docker data VHDX remains present, but its contents were not audited.
-  Native Windows `make`, Icarus and Yosys remain absent by design.
+- Docker Desktop is available locally: when opened, observed signed version
+  4.92.0 runs Engine 29.8.0 on Linux/amd64, and E0015 passes all nine locked
+  local evidence stages at a clean source revision. The owner clarified that
+  Docker had simply been closed; no repair or runtime failure is claimed. Native
+  Windows `make`, Icarus and Yosys remain absent by design.
 - A locked Linux/amd64 Docker workbench provides exact-version checks, Verible
   lint, simulation and generic Yosys synthesis from Windows. E0005 records its
   initial Icarus validation; the current candidate also passes the same two
@@ -80,10 +79,10 @@ efficiently express useful digital communication protocols under hard temporal c
   without invoking Docker; the companion locked Linux job retains all nine
   passing evidence stages. E0014 records the source, output, runner, jobs,
   artifact, annotations and claim boundary.
-- After the host recovery, local run E0015 independently passes doctor, static,
-  learning-status validation, lint, both simulators, the readable waveform,
-  formal proof/cover/mutation, and generic synthesis. It does not rerun or
-  replace the qualified E0006/E0010 physical results.
+- With Docker Desktop opened, local run E0015 independently passes doctor,
+  static, learning-status validation, lint, both simulators, the readable
+  waveform, formal proof/cover/mutation, and generic synthesis. It does not
+  rerun or replace the qualified E0006/E0010 physical results.
 - Clean GitHub run 36130223560 passes all nine retained evidence stages and
   rejects a deliberately unearned fluency promotion. E0013 records the exact
   source, log, manifest, container identity and limitation; M0 fluency remains

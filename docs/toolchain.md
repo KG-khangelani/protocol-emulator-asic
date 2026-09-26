@@ -91,12 +91,11 @@ remains a recorded transitive trust boundary.
 
 ## Setup limitations
 
-Signed Docker Desktop 4.92.0 now works on the Windows host after a recorded 4.90
-stale-socket outage. E0015 requalifies all nine local evidence stages while
-leaving the precise interactive recovery action `NOT_EVALUATED`. Native Windows
-`make`, Icarus and Yosys remain absent by design; the verified container
-workbench provides the supported local lane. E0007 proves the image recipe, two
-simulators, formal verification, and synthesis in clean GitHub CI. E0009 proves
-the complete fast ladder from a fresh Windows clone. E0010 archives the clean
-repository-pinned physical result. The optional FPGA and devcontainer lanes
-remain unverified.
+When opened, signed Docker Desktop 4.92.0 works on the Windows host. The owner
+clarified that it had simply been closed; no repair is claimed. E0015 qualifies
+all nine local evidence stages. Native Windows `make`, Icarus and Yosys remain
+absent by design; the verified container workbench provides the supported local
+lane. E0007 proves the image recipe, two simulators, formal verification, and
+synthesis in clean GitHub CI. E0009 proves the complete fast ladder from a fresh
+Windows clone. E0010 archives the clean repository-pinned physical result. The
+optional FPGA and devcontainer lanes remain unverified.

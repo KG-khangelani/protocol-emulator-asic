@@ -1,15 +1,16 @@
 {
-  "schema": "protocol-emulator-local-docker-recovery-evidence-v1",
+  "schema": "protocol-emulator-local-docker-qualification-evidence-v1",
   "id": "E0015",
-  "question": "After the Windows Docker failure, can this host again run the project's locked open-EDA workbench and pass the complete local M0 ladder?",
+  "question": "With Docker Desktop opened on Windows, can this host run the project's locked open-EDA workbench and pass the complete local M0 ladder?",
   "observed_utc": "2026-09-25T22:09:25.183132Z",
   "observed_local": "2026-09-26T00:09:25.183132+02:00",
   "source_commit": "4de28fa55aa624c04f36d6a42c5d789795dc2f97",
   "source_git_status": "",
   "status": "PASS",
-  "recovery_attribution": {
-    "status": "NOT_EVALUATED",
-    "observation": "The owner reported Docker running; inspection then found a signed 4.92.0 installation and healthy engine. The exact interactive recovery action was not captured."
+  "host_state_context": {
+    "classification": "ORDINARY_STARTUP",
+    "owner_clarification": "Docker Desktop had been closed before the run; no Docker problem or repair occurred.",
+    "claim": "This evidence begins after Docker Desktop was opened and qualifies the resulting operational state."
   },
   "host_runtime": {
     "desktop_status": "running",
@@ -84,7 +85,8 @@
     "synth.json": "529b6e89a8d4f4ca4b05d1b4ab7993b96b1d8785179f9e4faf9bfd781e18f743"
   },
   "limits": [
-    "The exact interactive action that completed Docker recovery was not captured",
+    "Docker Desktop must be opened before the local EDA commands can use its engine",
+    "A closed Docker Desktop application is not evidence of a toolchain failure",
     "Presence of the existing Docker data VHDX does not prove the integrity of every image, container or volume",
     "The local evidence ladder does not run the official CMOS5L physical flow",
     "Generic synthesis does not prove physical fit or post-route timing",
