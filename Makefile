@@ -16,6 +16,7 @@ check:
 	$(PYTHON) tools/check_project.py
 	$(PYTHON) tools/learning_status.py --verify
 	$(PYTHON) tools/m0_walkthrough.py --verify
+	$(PYTHON) -m unittest discover -s test -p 'test_m1_contract_model.py'
 lint:
 	verible-verilog-lint --rules_config_search src/project.v formal/m0_gpio_formal.sv formal/mutants/m0_increment_by_two.v
 test:

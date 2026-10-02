@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-09-26. Phase: **M0 — fluency closure**.
+Updated: 2026-10-02. Phase: **M0 — fluency closure**.
 Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -101,6 +101,10 @@ efficiently express useful digital communication protocols under hard temporal c
   shared microkernel/protocol workloads, two-axis result labels, falsification
   gates and a non-weighted selection rule before candidate measurements exist.
   This completes R0 research without opening M1 or selecting an ISA.
+- A proposed SET/WAIT/HALT execution contract now provides reviewable cycle
+  tables, reset/enable priority, PC/GPIO/terminal-state behavior, and explicit
+  verification obligations. Its executable Python examples are specification
+  checks only; M1 remains queued and no VM RTL or physical claim exists.
 
 ## Blocked or unverified
 
