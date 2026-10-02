@@ -3,6 +3,9 @@
 from dataclasses import dataclass
 from enum import Enum, auto
 
+MAX_WAIT = 0xFFFF
+MAX_PROGRAM_WORDS = 16
+
 
 class State(Enum):
     RUN = auto()
@@ -29,6 +32,8 @@ class Machine:
     gpio_oe: int = 0
 
     def edge(self, program, *, rst_n=True, ena=True):
+        if len(program) > MAX_PROGRAM_WORDS:
+            raise ValueError("provisional M1 program exceeds 16 words")
         if not rst_n:
             self.pc = self.wait_left = self.gpio_value = self.gpio_oe = 0
             self.state = State.RUN
@@ -73,8 +78,7 @@ class Machine:
         if instruction.opcode == "SET":
             return all(0 <= field <= 0xFF for field in (instruction.mask, instruction.value, instruction.oe))
         if instruction.opcode == "WAIT":
-            return instruction.count >= 0
+            return 0 <= instruction.count <= MAX_WAIT
         return instruction.opcode == "HALT" and not any(
             (instruction.mask, instruction.value, instruction.oe, instruction.count)
         )
-

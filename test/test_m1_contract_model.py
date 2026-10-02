@@ -53,7 +53,14 @@ class ContractModelTest(unittest.TestCase):
         machine.edge([Instruction("RESERVED")])
         self.assertEqual((machine.state, machine.pc, machine.gpio_value, machine.gpio_oe), (State.FAULT, 0, 0xC3, 0x5A))
 
+    def test_wait_maximum_is_bounded_and_larger_value_faults(self):
+        maximum = Machine()
+        maximum.edge([Instruction("WAIT", count=0xFFFF)])
+        self.assertEqual((maximum.state, maximum.wait_left), (State.WAIT, 0xFFFF))
+        invalid = Machine()
+        invalid.edge([Instruction("WAIT", count=0x10000)])
+        self.assertEqual((invalid.state, invalid.pc), (State.FAULT, 0))
+
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,4 +1,4 @@
-// Modified 2026-09-22: instantiate the M0 top module.
+// Modified 2026-10-02: instantiate the M1 top and a directly driven engine.
 `default_nettype none
 `timescale 1ns / 1ps
 
@@ -29,6 +29,18 @@ module tb ();
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 
+`ifndef GL_TEST
+`ifndef M0_LEARNING
+  reg [31:0] engine_instruction;
+  reg engine_instruction_valid;
+  wire [4:0] engine_pc;
+  wire [1:0] engine_state;
+  wire [15:0] engine_wait_left;
+  wire [7:0] engine_gpio_value;
+  wire [7:0] engine_gpio_oe;
+`endif
+`endif
+
   // Replace tt_um_khangelani_protocol_emulator with your module name:
   tt_um_khangelani_protocol_emulator user_project (
       .ui_in  (ui_in),    // Dedicated inputs
@@ -40,5 +52,22 @@ module tb ();
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
+
+`ifndef GL_TEST
+`ifndef M0_LEARNING
+  m1_engine directly_driven_engine (
+      .clk(clk),
+      .rst_n(rst_n),
+      .ena(ena),
+      .instruction(engine_instruction),
+      .instruction_valid(engine_instruction_valid),
+      .pc(engine_pc),
+      .state(engine_state),
+      .wait_left(engine_wait_left),
+      .gpio_value(engine_gpio_value),
+      .gpio_oe(engine_gpio_oe)
+  );
+`endif
+`endif
 
 endmodule

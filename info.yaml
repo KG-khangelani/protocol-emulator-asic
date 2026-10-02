@@ -1,9 +1,9 @@
 # Modified 2026-09-22: M0 metadata and competition allocation
 project:
-  title:        "Protocol Emulator ASIC - M0"      # Project title
+  title:        "Protocol Emulator ASIC - M1 candidate"      # Project title
   author:       "Khangelani Mgoqi"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Deterministic GPIO baseline for a programmable protocol emulator"      # One line description of what your project does
+  description:  "Simulation candidate for a deterministic programmable protocol engine"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -18,6 +18,7 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "project.v"
+    - "m1_engine.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -33,24 +34,24 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: "count[0]"
-  uo[1]: "count[1]"
-  uo[2]: "count[2]"
-  uo[3]: "count[3]"
-  uo[4]: "count[4]"
-  uo[5]: "count[5]"
-  uo[6]: "count[6]"
-  uo[7]: "count[7]"
+  uo[0]: "pc[0]"
+  uo[1]: "pc[1]"
+  uo[2]: "pc[2]"
+  uo[3]: "pc[3]"
+  uo[4]: "pc[4]"
+  uo[5]: ""
+  uo[6]: "state[0]"
+  uo[7]: "state[1]"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "gpio[0]"
+  uio[1]: "gpio[1]"
+  uio[2]: "gpio[2]"
+  uio[3]: "gpio[3]"
+  uio[4]: "gpio[4]"
+  uio[5]: "gpio[5]"
+  uio[6]: "gpio[6]"
+  uio[7]: "gpio[7]"
 
 # Do not change!
 yaml_version: 6

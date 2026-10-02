@@ -1,21 +1,23 @@
-<!-- Modified 2026-09-22: M0 project datasheet. -->
+<!-- Modified 2026-10-02: M1 simulation-candidate datasheet. -->
 ## How it works
 
-This is the M0 toolchain baseline for Protocol Emulator ASIC. An 8-bit counter
-increments on each rising clock edge when `ena` is high. Active-low synchronous
-reset clears it; reset wins over enable. The counter wraps from 255 to 0.
-Dedicated output `uo[i]` shows counter bit `i`. All bidirectional pins remain
-inputs, and their output paths are tied low. Dedicated inputs are unused.
-The baseline is not yet a programmable protocol emulator.
+This is an M1 simulation candidate for the Protocol Emulator ASIC. A bounded
+SET/WAIT/HALT engine executes a four-word internal preload. Active-low
+synchronous reset clears PC, state, wait count, GPIO value and GPIO direction;
+reset wins over enable. `uio_out/uio_oe` expose the logical GPIO bank and
+`uo_out` exposes execution state and PC. Dedicated inputs are unused.
+
+The preload is an experiment, not post-fabrication programmability. Public-pin
+loading/readback, input synchronization and protocol firmware remain future work.
 
 ## How to test
 
 Hold `rst_n` low through a rising edge, then deassert it before a later edge.
-With `ena` high, observe outputs 1, 2, 3, ... 255, 0. With `ena` low, outputs
-hold their previous value. See `docs/specs/m0-gpio.md` for exact cycle semantics and
-run `make test` from the repository root for the pin-level regression.
+With `ena` high, the preload drives `A5`, waits two accepted edges, changes the
+low GPIO nibble, and halts. With `ena` low, all architectural state holds. See
+`docs/specs/m1-execution-contract.md` and run `make test`.
 
 ## External hardware
 
-A clock/reset source and logic analyzer can observe the waveform. The initial
-flow target is 50 MHz; no fabricated device or timing closure is claimed yet.
+No external hardware result is claimed. The 50 MHz flow value remains a target;
+this candidate has no new CMOS5L timing, fit, gate-level or silicon evidence.

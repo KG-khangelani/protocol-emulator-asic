@@ -1,10 +1,10 @@
 # Proposed M1 SET/WAIT/HALT execution contract
 
-Status: **proposal for review; not implemented and not an M1 gate result**.
-M0 remains active until its owner-fluency checkpoint passes. This document is
-the separately permitted semantics draft for M1-T01. It defines observable
-cycle behavior without selecting an instruction encoding, program-memory size,
-loader, or storage technology.
+Status: **implemented simulation candidate; not a complete M1 gate result**.
+Engineering is now allowed to progress independently while M0 owner fluency
+remains pending. This document defines observable cycle behavior; the concrete
+encoding and preload below are provisional experiments, not a final ISA or
+post-fabrication loader.
 
 ## Scope and terminology
 
@@ -30,6 +30,16 @@ The only valid decoded instructions are:
 
 Reserved opcodes, reserved operand bits, malformed instructions, and a fetch
 outside the declared program are invalid. There is no implicit PC wrap.
+
+### Provisional implementation parameters
+
+The current candidate implements the D9 encoding: 32-bit words, 16-bit WAIT
+counts (`0..65535`), a five-bit PC, and at most 16 declared valid program words.
+The extra PC bit represents the first out-of-range address without aliasing a
+valid word. The top-level experiment preloads four combinational words and maps
+logical GPIO to `uio_out/uio_oe`; `uo_out = {state[1:0], 1'b0, pc[4:0]}`.
+This preload is allowed only as early semantic evidence. It does not satisfy
+`P-RELOAD`, and the final storage/loader/encoding decision remains open.
 
 ## Edge priority and state transition
 
@@ -169,4 +179,3 @@ candidate. CHIP_COMPLETE accounting remains the primary boundary, and program
 storage, loader/readback, synchronization, pin mapping, and queues remain
 `NOT_EVALUATED`. The 50 MHz clock remains an experimental target, not a proven
 maximum or a promise of protocol bitrate.
-

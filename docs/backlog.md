@@ -52,15 +52,15 @@ without choosing an ISA by reputation or importing unverified external claims.
 - [x] Define falsification gates and the decision process for M1 experiments.
 
 References: `research/architecture-landscape.md` and
-`research/evaluation-contract.md`. This research is complete but does not open
-M1; the M0 owner-fluency checkpoint remains the milestone gate.
+`research/evaluation-contract.md`. This research is complete. D8 now allows
+engineering to proceed independently while M0 owner fluency remains pending.
 
 ## Follow-on tasks
 
 | ID | Work | Exit gate | State |
 |---|---|---|---|
-| M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Queued; proposal drafted in `specs/m1-execution-contract.md`, pending gate/review |
-| M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Queued |
+| M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Implemented candidate in `specs/m1-execution-contract.md`; encoding remains provisional |
+| M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Active; local simulation/formal/generic synthesis pass, exact-head CI pending |
 | M1-T03 | Add GET, BRANCH and bounded LOOP only as needed | Bounded behavior; cost delta recorded | Queued |
 | M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | Queued |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |

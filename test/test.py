@@ -1,16 +1,29 @@
-# SPDX-FileCopyrightText: © 2024 Tiny Tapeout
 # SPDX-License-Identifier: Apache-2.0
-# Modified 2026-09-22: independent M0 pin-level cycle oracle.
+"""Independent cycle checks for the M1 preloaded top and directly driven core."""
+
 import random
+from pathlib import Path
+import sys
+
 import cocotb
 from cocotb.triggers import Timer
 
-SEED = 20260922
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.m1_contract_model import Instruction, Machine, State
 
-def observe(dut, expected):
-    assert int(dut.uo_out.value) == expected, f"expected {expected:#04x}, got {dut.uo_out.value}"
-    assert int(dut.uio_oe.value) == 0, "bidirectional pins must remain inputs"
-    assert int(dut.uio_out.value) == 0, "unused output path must be defined"
+SEED = 20261002
+STATE_BITS = {State.RUN: 0, State.WAIT: 1, State.HALT: 2, State.FAULT: 3}
+
+
+def encode(instruction):
+    if instruction.opcode == "SET":
+        return (instruction.mask << 16) | (instruction.oe << 8) | instruction.value
+    if instruction.opcode == "WAIT":
+        return (1 << 30) | instruction.count
+    if instruction.opcode == "HALT":
+        return 2 << 30
+    return 3 << 30
+
 
 def initialise(dut):
     dut.clk.value = 0
@@ -18,53 +31,91 @@ def initialise(dut):
     dut.ena.value = 0
     dut.ui_in.value = 0
     dut.uio_in.value = 0
+    dut.engine_instruction.value = 0
+    dut.engine_instruction_valid.value = 0
 
-async def cycle(dut, expected, reset_n=1, enable=1, noise=None):
-    # Inputs change while clock is low; observe one ns after the active edge.
-    dut.rst_n.value = reset_n
-    dut.ena.value = enable
+
+async def edge(dut, *, rst_n=1, ena=1):
+    dut.rst_n.value = rst_n
+    dut.ena.value = ena
     await Timer(10, unit="ns")
     dut.clk.value = 1
     await Timer(1, unit="ns")
-    observe(dut, expected)
-    if noise:
-        dut.ui_in.value = noise.randrange(256)
-        dut.uio_in.value = noise.randrange(256)
-        dut.ena.value = 1 - enable
-        dut.rst_n.value = 1 - reset_n
     await Timer(9, unit="ns")
-    observe(dut, expected)  # no state transition between active edges
     dut.clk.value = 0
 
-@cocotb.test()
-async def reset_wrap_hold_and_resume(dut):
-    initialise(dut)
-    await cycle(dut, 0, reset_n=0, enable=0)
-    for n in range(1, 513):
-        await cycle(dut, n % 256)
-    for _ in range(17):
-        await cycle(dut, 0, enable=0)
-    await cycle(dut, 1)
-    await cycle(dut, 2)
-    # Reset must win even when disabled and when state is nonzero.
-    await cycle(dut, 0, reset_n=0, enable=0)
-    await cycle(dut, 1)
-    await cycle(dut, 0, reset_n=0, enable=1)
-    await cycle(dut, 1)
+
+def observe_engine(dut, expected):
+    actual = (
+        int(dut.engine_pc.value), int(dut.engine_state.value),
+        int(dut.engine_wait_left.value), int(dut.engine_gpio_value.value),
+        int(dut.engine_gpio_oe.value),
+    )
+    wanted = (
+        expected.pc, STATE_BITS[expected.state], expected.wait_left,
+        expected.gpio_value, expected.gpio_oe,
+    )
+    assert actual == wanted, f"RTL {actual} != semantic model {wanted}"
+
 
 @cocotb.test()
-async def seeded_control_and_input_noise(dut):
+async def preloaded_program_exact_pin_trace(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    expected = [
+        (0x01, 0xA5, 0xFF), (0x41, 0xA5, 0xFF),
+        (0x41, 0xA5, 0xFF), (0x02, 0xA5, 0xFF),
+        (0x03, 0xA3, 0xF5), (0x83, 0xA3, 0xF5),
+    ]
+    for status, value, oe in expected:
+        await edge(dut)
+        assert int(dut.uo_out.value) == status
+        assert int(dut.uio_out.value) == value
+        assert int(dut.uio_oe.value) == oe
+    await edge(dut, ena=0)
+    assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == expected[-1]
+
+
+@cocotb.test()
+async def randomized_trace_matches_reviewed_model(dut):
     initialise(dut)
     rng = random.Random(SEED)
-    dut._log.info("seed=%d", SEED)
-    await cycle(dut, 0, reset_n=0, enable=0)
-    # Oracle counts accepted edges since the latest sampled reset.
-    accepted_edges = 0
-    for _ in range(1024):
-        reset_n = int(rng.randrange(13) != 0)
-        enable = rng.randrange(2)
-        if not reset_n:
-            accepted_edges = 0
-        elif enable:
-            accepted_edges += 1
-        await cycle(dut, accepted_edges % 256, reset_n, enable, rng)
+    program = [
+        Instruction("SET", mask=0xF3, value=0xA1, oe=0xB2),
+        Instruction("WAIT", count=0), Instruction("WAIT", count=1),
+        Instruction("SET", mask=0x0F, value=0x05, oe=0x09),
+        Instruction("WAIT", count=2), Instruction("HALT"),
+    ]
+    model = Machine()
+    await edge(dut, rst_n=0, ena=0)
+    model.edge(program, rst_n=False, ena=False)
+    observe_engine(dut, model)
+    for _ in range(40):
+        if model.state is State.RUN and model.pc < len(program):
+            dut.engine_instruction.value = encode(program[model.pc])
+            dut.engine_instruction_valid.value = 1
+        else:
+            dut.engine_instruction.value = 3 << 30
+            dut.engine_instruction_valid.value = int(model.pc < len(program))
+        ena = rng.randrange(2)
+        await edge(dut, ena=ena)
+        model.edge(program, ena=bool(ena))
+        observe_engine(dut, model)
+    await edge(dut, rst_n=0, ena=0)
+    model.edge(program, rst_n=False, ena=False)
+    observe_engine(dut, model)
+
+
+@cocotb.test()
+async def invalid_encoding_and_out_of_range_fail_closed(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction.value = 0x01000000
+    dut.engine_instruction_valid.value = 1
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 0)
+    assert (int(dut.engine_gpio_value.value), int(dut.engine_gpio_oe.value)) == (0, 0)
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction_valid.value = 0
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 0)

@@ -1,4 +1,4 @@
-# Progress report: proposed M1 execution contract
+# Progress report: M1 execution contract and implementation
 
 Date: 2026-10-02. Scope: simulation-only specification work.
 
@@ -9,23 +9,21 @@ Date: 2026-10-02. Scope: simulation-only specification work.
 - Reconciled the subset with the adopted evaluation contract: unsupported
   microkernels, reload, protocol workloads, complete-chip cost, and physical
   results remain `NOT_EVALUATED`.
-- Added a deliberately isolated Python semantic model and unit checks. They are
-  specification-level executable examples, not production VM RTL or hardware
-  evidence.
+- Added a reusable synthesizable engine, provisional preload, independent Python
+  semantic model, pin-level Icarus/Verilator comparison, formal properties and
+  a falsification check. These are pre-physical engineering results.
 - Rechecked the official competition page on 2026-10-02: January 18, 2027
   submission deadline, IHP 130 nm CMOS5L, 6x4 maximum allocation, and a
   reprogrammable general-purpose protocol emulator remain the pertinent bounds.
 
 ## Learning gate and decisions reserved
 
-M0 technical evidence remains closed, but the owner-fluency checkpoint remains
-`PENDING`. This work does not change the active milestone, advance learning
-status, implement a VM, select an encoding or memory capacity, rerun physical
-closure, purchase hardware, or submit to the competition.
+M0 technical evidence remains closed, and the owner-fluency checkpoint remains
+`PENDING`. By explicit owner approval, engineering now progresses independently;
+no learning status was promoted. The provisional encoding and preload implement
+the reviewed subset but do not provide post-fabrication loading.
 
-Before production RTL, review is required for the abstract GPIO-to-public-pin
-mapping, instruction encoding, representable WAIT maximum, program storage and
-fetch latency, and loader/readback contract. The next project gate remains the
-owner M0 teach-back; after that, this proposal can be accepted or revised as the
-input to M1 implementation.
-
+Remaining engineering work includes public-pin loader/readback, program storage
+selection, input synchronization, bounded event waits, protocol workloads and
+new CMOS5L qualification. Owner teach-back remains a separate next learning
+action when capacity permits.

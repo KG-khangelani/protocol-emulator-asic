@@ -1,4 +1,18 @@
-# M0 formal verification
+# Formal verification
+
+The active `make formal` target checks the M1 engine. Historical M0 proof files
+and retained E0007 evidence remain available and are not rewritten.
+
+## M1 active suite
+
+`m1_engine_formal.sv` proves sampled reset priority, enable and terminal-state
+stability, exact WAIT decrement/completion, SET masking, opcode validity, PC
+behavior, and safe HALT/FAULT outcomes. Covers reach WAIT(2), HALT and FAULT.
+The mutation job deliberately demands an incorrect decrement-by-two result and
+must find a counterexample. These properties cover the reusable executor input;
+they do not prove a loader, memory macro, public-pin reload or physical timing.
+
+## Archived M0 suite
 
 Formal verification turns the transition table in
 `docs/specs/m0-gpio.md` into mathematical statements. Instead of choosing a

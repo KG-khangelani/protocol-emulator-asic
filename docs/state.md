@@ -1,7 +1,9 @@
 # Current state
 
-Updated: 2026-10-02. Phase: **M0 — fluency closure**.
-Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
+Updated: 2026-10-02. Engineering phase: **M1 - sequencer implementation**.
+Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
+Active engineering task: **M1-T02**. Active learning task: **M0-T01**,
+[GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -103,8 +105,13 @@ efficiently express useful digital communication protocols under hard temporal c
   This completes R0 research without opening M1 or selecting an ISA.
 - A proposed SET/WAIT/HALT execution contract now provides reviewable cycle
   tables, reset/enable priority, PC/GPIO/terminal-state behavior, and explicit
-  verification obligations. Its executable Python examples are specification
-  checks only; M1 remains queued and no VM RTL or physical claim exists.
+  verification obligations. Its Python model now serves as the independent
+  oracle for the implemented M1 candidate; no M1 physical claim exists.
+- By explicit owner decision, engineering now progresses independently from
+  learning checkpoints; M0 fluency remains `PENDING` and unpromoted.
+- The M1 candidate implements bounded SET/WAIT/HALT execution, safe FAULT,
+  enable/reset priority, a provisional four-word preload, and independently
+  checked pin traces. Local Icarus, Verilator, formal and generic synthesis pass.
 
 ## Blocked or unverified
 
@@ -116,14 +123,18 @@ efficiently express useful digital communication protocols under hard temporal c
 - No FPGA run or devcontainer validation exists yet. These are not M0 acceptance
   gates. Positive slack at the 20 ns target is not a measured maximum frequency.
 
-## Next executable action
+## Next executable actions
 
-Complete the owner teach-back using the Docker-independent M0 lesson and retained
-evidence. Record the checkpoint before advancing to M1 semantics.
+- Engineering: qualify the candidate at an exact clean CI head, then specify
+  public-pin loading, input synchronization, and bounded external waits before
+  adding input-dependent instructions.
+- Learning: complete the owner M0 teach-back when capacity permits; do not infer
+  fluency from engineering progress.
 
 ## Handoff boundaries
 
-M0's **technical gate has passed**, but M0 remains in progress until its fluency
-gate passes. No VM, protocol firmware, compiler, or fabricated-silicon claim
-exists yet. The original OpenKnowledge records named in `source-pack.md` were
+M0's technical gate has passed and its fluency gate remains pending. The M1
+candidate is an early preloaded engine, not a complete reloadable VM. No
+protocol firmware, compiler, new physical closure, Fmax, or fabricated-silicon
+claim exists. The original OpenKnowledge records named in `source-pack.md` were
 not modified or synchronized by this setup.
