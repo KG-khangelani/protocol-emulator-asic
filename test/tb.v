@@ -1,4 +1,4 @@
-// Modified 2026-09-22: instantiate the M0 top module.
+// Modified 2026-10-02: instantiate the M1 top and a directly driven engine.
 `default_nettype none
 `timescale 1ns / 1ps
 
@@ -29,6 +29,27 @@ module tb ();
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 
+`ifndef GL_TEST
+`ifndef M0_LEARNING
+  reg [31:0] engine_instruction;
+  reg engine_instruction_valid;
+  reg [7:0] engine_sampled_inputs;
+  wire [4:0] engine_pc;
+  wire [1:0] engine_state;
+  wire [15:0] engine_wait_left;
+  wire [7:0] engine_gpio_value;
+  wire [7:0] engine_gpio_oe;
+  wire engine_wait_is_input_status;
+  wire [2:0] engine_wait_pin_status;
+  wire engine_wait_level_status;
+  wire engine_wait_timeout_skip_status;
+  wire engine_loop_active_status;
+  wire [7:0] engine_loop_remaining_status;
+  wire [4:0] engine_loop_start_status;
+  wire [4:0] engine_loop_end_status;
+`endif
+`endif
+
   // Replace tt_um_khangelani_protocol_emulator with your module name:
   tt_um_khangelani_protocol_emulator user_project (
       .ui_in  (ui_in),    // Dedicated inputs
@@ -40,5 +61,31 @@ module tb ();
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
+
+`ifndef GL_TEST
+`ifndef M0_LEARNING
+  m1_engine directly_driven_engine (
+      .clk(clk),
+      .rst_n(rst_n),
+      .ena(ena),
+      .instruction(engine_instruction),
+      .instruction_valid(engine_instruction_valid),
+      .sampled_inputs(engine_sampled_inputs),
+      .pc(engine_pc),
+      .state(engine_state),
+      .wait_left(engine_wait_left),
+    .gpio_value(engine_gpio_value),
+    .gpio_oe(engine_gpio_oe),
+    .wait_is_input_status(engine_wait_is_input_status),
+    .wait_pin_status(engine_wait_pin_status),
+    .wait_level_status(engine_wait_level_status),
+    .wait_timeout_skip_status(engine_wait_timeout_skip_status),
+    .loop_active_status(engine_loop_active_status),
+    .loop_remaining_status(engine_loop_remaining_status),
+    .loop_start_status(engine_loop_start_status),
+    .loop_end_status(engine_loop_end_status)
+  );
+`endif
+`endif
 
 endmodule

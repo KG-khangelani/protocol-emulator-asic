@@ -1,21 +1,31 @@
-<!-- Modified 2026-09-22: M0 project datasheet. -->
+<!-- Modified 2026-10-02: M1 simulation-candidate datasheet. -->
 ## How it works
 
-This is the M0 toolchain baseline for Protocol Emulator ASIC. An 8-bit counter
-increments on each rising clock edge when `ena` is high. Active-low synchronous
-reset clears it; reset wins over enable. The counter wraps from 255 to 0.
-Dedicated output `uo[i]` shows counter bit `i`. All bidirectional pins remain
-inputs, and their output paths are tied low. Dedicated inputs are unused.
-The baseline is not yet a programmable protocol emulator.
+This is an M1 simulation candidate for the Protocol Emulator ASIC. A bounded
+SET/WAIT/HALT/WAIT_PIN engine executes up to eight public-pin-loaded words. Active-low
+synchronous reset clears PC, state, wait count, GPIO value and GPIO direction;
+reset wins over enable. `uio_out/uio_oe` expose the logical GPIO bank and
+`uo_out` exposes execution state and PC. Dedicated inputs are unused.
+
+The synchronous loader supports byte writes, length commit, and readback.
+Each `uio_in` bit has a two-stage clocked synchronizer. `WAIT_PIN` observes the
+second stage and either faults or conditionally skips after its explicit
+accepted-edge timeout. A three-word programmed kernel demonstrates bounded
+event and timeout paths to HALT. This is an RTL latency contract, not analog
+metastability evidence. Protocol firmware remains future work.
+
+A non-nested counted-block instruction repeats an immediately following body
+0..255 times. The current four-word loop kernel demonstrates exact high/low
+traces through count 255; it is not yet a payload shifter or protocol program.
 
 ## How to test
 
 Hold `rst_n` low through a rising edge, then deassert it before a later edge.
-With `ena` high, observe outputs 1, 2, 3, ... 255, 0. With `ena` low, outputs
-hold their previous value. See `docs/specs/m0-gpio.md` for exact cycle semantics and
-run `make test` from the repository root for the pin-level regression.
+Use `ui_in[7:5]` for loader mode/write/length selection, `ui_in[4:0]`
+for byte address, and `uio_in/out` for data. Commit length last, release loader
+mode, and execution begins at word zero. See `docs/specs/m1-program-loader.md`.
 
 ## External hardware
 
-A clock/reset source and logic analyzer can observe the waveform. The initial
-flow target is 50 MHz; no fabricated device or timing closure is claimed yet.
+No external hardware result is claimed. The 50 MHz flow value remains a target;
+this candidate has no new CMOS5L timing, fit, gate-level or silicon evidence.

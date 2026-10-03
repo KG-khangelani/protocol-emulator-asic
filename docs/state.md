@@ -1,7 +1,9 @@
 # Current state
 
-Updated: 2026-09-26. Phase: **M0 — fluency closure**.
-Hard deadline: **2027-01-18**. Active task: **M0-T01**, [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
+Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
+Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
+Active engineering task: **M1-T07**. Active learning task: **M0-T01**,
+[GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -101,6 +103,48 @@ efficiently express useful digital communication protocols under hard temporal c
   shared microkernel/protocol workloads, two-axis result labels, falsification
   gates and a non-weighted selection rule before candidate measurements exist.
   This completes R0 research without opening M1 or selecting an ISA.
+- A proposed SET/WAIT/HALT execution contract now provides reviewable cycle
+  tables, reset/enable priority, PC/GPIO/terminal-state behavior, and explicit
+  verification obligations. Its Python model now serves as the independent
+  oracle for the implemented M1 candidate; no M1 physical claim exists.
+- By explicit owner decision, engineering now progresses independently from
+  learning checkpoints; M0 fluency remains `PENDING` and unpromoted.
+- The M1 candidate implements bounded SET/WAIT/HALT execution, safe FAULT,
+  enable/reset priority, a provisional four-word preload, and independently
+  checked pin traces. Local Icarus, Verilator, formal and generic synthesis pass.
+- The constant preload is replaced by an eight-word public-pin store with byte
+  writes, length commit, readback and bounded fetch. Local Icarus and Verilator
+  each pass `P-RELOAD` for distinct programs A and B; store formal checks pass.
+- Generic synthesis reports 1,879 abstract cells including 300 state elements,
+  up from 225 cells for the preload candidate. This is a storage-cost screening
+  result, not CMOS5L area or fit.
+- The next M1 candidate adds a two-stage `uio_in` synchronizer and bounded
+  `WAIT_PIN`. Both simulators pass five tests; engine/store/synchronizer formal
+  proofs and covers pass; the wrong-WAIT mutant is rejected. Generic synthesis
+  reports 1,985 abstract cells and 321 state elements. The shared loader/input
+  pins require two disabled sampling edges before input-dependent execution.
+  These are local pre-physical results, not `K-INPUT-WAIT` completion.
+- Exact-head CI passes the synchronized input-wait milestone at `14a93b4`.
+- A three-word, 96-used-bit public-pin-loaded `K-INPUT-WAIT` kernel now takes
+  both event and timeout paths and reaches HALT at PC2 within six accepted
+  execution edges. Reset erases it, the same image is reloaded/read back, and
+  an independent public-pin trace distinguishes the paths. Both simulators and
+  the full locked ladder pass locally. Generic synthesis reports 1,971 abstract
+  cells and 322 state elements; this is screening, not physical evidence.
+- Exact-head CI passes K-INPUT-WAIT at `f383744`.
+- K-BOUNDED-LOOP was selected before K-SHIFT-8 because repetition is shared by
+  every target protocol while shifting still lacks payload/readback contracts.
+  A four-word public program passes counts 0, 1, 2 and 255 on both simulators;
+  count 255 produces 510 body edges and HALTs on accepted edge 512. Formal
+  checks cover loop setup, rewind, final exit, reset/freeze and invalid nesting.
+  Generic synthesis after review fixes reports 2,175 abstract cells and 341 state elements: +204
+  cells and +19 state bits over K-INPUT-WAIT, exactly matching the declared
+  loop active/start/end/count state at the state-bit level.
+- Independent review found and the candidate now fixes two release blockers:
+  six-bit LOOP target arithmetic faults before a target above PC31 can alias by
+  wrap, and cocotb initialization no longer requires direct-engine handles in
+  `GL_TEST`. A lightweight GL-shaped RTL smoke verifies the harness boundary;
+  it is not gate-netlist or physical-flow evidence.
 
 ## Blocked or unverified
 
@@ -112,14 +156,19 @@ efficiently express useful digital communication protocols under hard temporal c
 - No FPGA run or devcontainer validation exists yet. These are not M0 acceptance
   gates. Positive slack at the 20 ns target is not a measured maximum frequency.
 
-## Next executable action
+## Next executable actions
 
-Complete the owner teach-back using the Docker-independent M0 lesson and retained
-evidence. Record the checkpoint before advancing to M1 semantics.
+- Engineering: qualify the M1-T07 review fixes at an exact clean CI head. Then specify the
+  payload loading, receive readback and edge schedule required to make
+  K-SHIFT-8 falsifiable before adding shift state. Keep storage density as a
+  measured comparison rather than redesigning it speculatively.
+- Learning: complete the owner M0 teach-back when capacity permits; do not infer
+  fluency from engineering progress.
 
 ## Handoff boundaries
 
-M0's **technical gate has passed**, but M0 remains in progress until its fluency
-gate passes. No VM, protocol firmware, compiler, or fabricated-silicon claim
-exists yet. The original OpenKnowledge records named in `source-pack.md` were
-not modified or synchronized by this setup.
+M0's technical gate has passed and its fluency gate remains pending. The M1
+candidate is reloadable through clock-synchronous public pins but is not a
+complete protocol VM. No protocol firmware, compiler, new physical closure,
+Fmax, or fabricated-silicon claim exists. The original OpenKnowledge records
+named in `source-pack.md` were not modified or synchronized by this setup.

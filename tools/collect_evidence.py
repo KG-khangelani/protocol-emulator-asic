@@ -89,18 +89,23 @@ for name, command, required in stages:
     print(name + ": " + stage["status"])
 formal_stage = next(stage for stage in manifest["stages"] if stage["name"] == "formal")
 if formal_stage["status"] == "PASS":
-    manifest["formal_status"] = "PASS: safety proof and wrap covers passed; increment-by-two mutant was rejected"
+    manifest["formal_status"] = "PASS: M1 engine/store/input-sync proofs and covers passed; wrong WAIT-decrement property was rejected"
 else:
     manifest["formal_status"] = formal_stage["status"]
 artifact_sources = {
     "test/results.xml": ("rtl_icarus", "results.xml"),
     "test/results-verilator.xml": ("rtl_verilator", "results-verilator.xml"),
+    "test/results-gl-harness.xml": ("rtl_icarus", "results-gl-harness.xml"),
     "test/tb.fst": ("rtl_icarus", "tb.fst"),
     "test/results-learning.xml": ("learning_waveform", "results-learning.xml"),
     "build/m0-learning.vcd": ("learning_waveform", "m0-learning.vcd"),
     "build/formal/prove/status": ("formal", "formal-prove.status"),
     "build/formal/cover/status": ("formal", "formal-cover.status"),
     "build/formal/mutant/status": ("formal", "formal-mutant.status"),
+    "build/formal/store-prove/status": ("formal", "formal-store-prove.status"),
+    "build/formal/store-cover/status": ("formal", "formal-store-cover.status"),
+    "build/formal/input-sync-prove/status": ("formal", "formal-input-sync-prove.status"),
+    "build/formal/input-sync-cover/status": ("formal", "formal-input-sync-cover.status"),
     "build/synthesis.log": ("generic_synthesis", "synthesis.log"),
     "build/synth.json": ("generic_synthesis", "synth.json"),
 }

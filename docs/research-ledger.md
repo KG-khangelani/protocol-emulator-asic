@@ -55,6 +55,12 @@ express useful digital communication protocols under hard temporal constraints?*
 | D5 | Pin Node 24-native Docker CI orchestration releases and qualify them without changing the EDA image | `decisions/0005-node24-ci-actions.md`, E0011 |
 | D6 | Compare CHIP_COMPLETE candidates with shared workloads, two-axis result labels and predeclared falsification/selection rules | `decisions/0006-architecture-evaluation-contract.md`, `research/evaluation-contract.md` |
 | D7 | Keep evidence-reading lessons available through host Python while retaining Docker as the execution boundary for every EDA command | `decisions/0007-docker-independent-learning.md`, E0014 |
+| D8 | Allow engineering progress independently while preserving conservative owner-fluency gates | `decisions/0008-decouple-engineering-learning.md` |
+| D9 | Use a provisional 32-bit SET/WAIT/HALT encoding and simulation preload without claiming public-pin reload | `decisions/0009-m1-provisional-encoding.md` |
+| D10 | Replace the constant preload with an eight-word clock-synchronous public-pin store and readback path | `decisions/0010-public-pin-program-store.md` |
+| D11 | Synchronize public inputs and make every input wait terminate within an explicit accepted-edge bound | `decisions/0011-synchronized-bounded-input-wait.md` |
+| D12 | Add one-bit WAIT_PIN timeout skip as the minimum conditional needed by K-INPUT-WAIT | `decisions/0012-k-input-wait-timeout-skip.md` |
+| D13 | Evaluate an 8-bit non-nested bounded block before introducing shift-specific data state | `decisions/0013-bounded-block-before-shifter.md` |
 
 ## Experimental results
 
@@ -74,6 +80,11 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0013 | Conservative fluency-status qualification | Clean CI passes all 9 stages and rejects an unearned active-milestone fluency promotion | Validator integrity is not human understanding or ASIC evidence; `../evidence/E0013-fluency-status-ci/` |
 | E0014 | Docker-independent M0 lesson qualification | Clean Windows host lessons, all 9 locked Linux stages, artifact upload and docs PASS with zero annotations | Reading retained evidence is not EDA execution, Docker repair, or owner-fluency evidence; `../evidence/E0014-docker-independent-learning/` |
 | E0015 | Local Docker qualification | With Docker Desktop opened, signed version 4.92.0 and Engine 29.8.0 run the locked workbench; all 9 local stages PASS | A closed application is not a failure; no Docker-data, physical or fluency claim; `../evidence/E0015-local-docker-qualification/` |
+| M1-local | M1 implementation candidate | Python semantic checks, Icarus/Verilator trace comparison, formal proof/covers/mutation and generic synthesis PASS locally | Working-tree result pending exact-head CI; preload is not reload and no CMOS5L result exists |
+| M1-reload-local | Public-pin reload candidate | Icarus and Verilator load/read/run programs A and B after reset; store proof/covers PASS; generic synthesis reports 1,879 abstract cells | Exact-head CI passed at `d502227`; synchronous input assumption, no CMOS5L area/timing or silicon evidence |
+| M1-input-wait-local | Synchronized bounded-input-wait candidate | Nine model checks and five tests on both simulators PASS; engine/store/synchronizer proofs and covers PASS; mutant rejected; generic synthesis reports 1,985 abstract cells and 321 state elements | Exact-head CI passed at `14a93b4`; primitive only at that revision; metastability and physical results remain NOT_EVALUATED |
+| K-INPUT-WAIT-local | Three-word public-pin-loaded kernel | Same 96-bit image is loaded/read twice; independent event and timeout traces HALT at PC2 within six accepted edges on Icarus and Verilator; formal/lint/checks PASS; generic synthesis reports 1,971 abstract cells and 322 state elements | PASS/MEASURED at RTL rung and exact-head CI `f383744`; analog, CMOS5L, gate-level and silicon evidence NOT_EVALUATED |
+| K-BOUNDED-LOOP-local | Four-word public-pin-loaded counted SET block | Counts 0, 1, 2 and 255 plus overflow target rejection match independent traces on both simulators; maximum produces 510 body edges and HALTs on edge 512; formal/lint/GL-shaped harness checks PASS | PASS/MEASURED locally at RTL rung; 2,175 abstract cells/341 state elements after review fixes; exact-head CI pending; physical evidence NOT_EVALUATED |
 
 ## Open questions
 

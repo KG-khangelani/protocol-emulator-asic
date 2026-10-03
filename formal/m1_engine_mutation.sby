@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 8
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -D M1_MUTANT m1_engine.v m1_engine_formal.sv
+prep -top m1_engine_formal
+
+[files]
+src/m1_engine.v
+formal/m1_engine_formal.sv

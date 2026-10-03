@@ -52,15 +52,19 @@ without choosing an ISA by reputation or importing unverified external claims.
 - [x] Define falsification gates and the decision process for M1 experiments.
 
 References: `research/architecture-landscape.md` and
-`research/evaluation-contract.md`. This research is complete but does not open
-M1; the M0 owner-fluency checkpoint remains the milestone gate.
+`research/evaluation-contract.md`. This research is complete. D8 now allows
+engineering to proceed independently while M0 owner fluency remains pending.
 
 ## Follow-on tasks
 
 | ID | Work | Exit gate | State |
 |---|---|---|---|
-| M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Queued |
-| M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Queued |
+| M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Implemented candidate in `specs/m1-execution-contract.md`; encoding remains provisional |
+| M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Implemented candidate; local dual-simulator/formal/generic synthesis pass |
+| M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Qualified at `d502227`: exact-head CI passes P-RELOAD simulation and store proof |
+| M1-T05 | Synchronize inputs and add bounded event wait | Two-stage latency, final-edge event priority, timeout and enable freeze checked | Qualified at `14a93b4`: exact-head dual-simulator/formal/generic synthesis CI pass |
+| M1-T06 | Execute K-INPUT-WAIT as a public-pin-loaded kernel | Same image takes event/timeout paths and HALTs within declared bounds against independent traces | Qualified at `f383744`: exact-head CI passes complete locked ladder |
+| M1-T07 | Execute K-BOUNDED-LOOP as a public-pin-loaded kernel | Counts 0, 1, 2 and 255 produce exact bounded traces and HALT | Review blockers fixed locally: wide target fail-closed and GL_TEST-safe harness; exact-head CI pending |
 | M1-T03 | Add GET, BRANCH and bounded LOOP only as needed | Bounded behavior; cost delta recorded | Queued |
 | M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | Queued |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |

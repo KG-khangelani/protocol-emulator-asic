@@ -7,7 +7,8 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(CURDIR)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v m1_input_sync.v
+COCOTB_TEST_MODULES = test
 
 # Verilator requires an explicit decision about testbench delays.
 ifeq ($(SIM),verilator)
@@ -18,6 +19,13 @@ endif
 # Python walkthrough can inspect the same simulated edges without a GUI viewer.
 ifeq ($(LEARNING_VCD),yes)
 COMPILE_ARGS += -DLEARNING_VCD
+endif
+
+ifeq ($(M0_LEARNING),yes)
+COMPILE_ARGS += -DM0_LEARNING
+PROJECT_SOURCES = source-project.v
+SRC_DIR = $(CURDIR)/../evidence/E0010-pinned-cmos5l-run
+COCOTB_TEST_MODULES = test_m0_archived
 endif
 
 ifneq ($(GATES),yes)
@@ -48,9 +56,6 @@ COMPILE_ARGS 		+= -I$(SRC_DIR)
 # Include the testbench sources:
 VERILOG_SOURCES += $(CURDIR)/tb.v
 TOPLEVEL = tb
-
-# List test modules to run, separated by commas and without the .py suffix:
-COCOTB_TEST_MODULES = test
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim
