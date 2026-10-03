@@ -48,7 +48,7 @@ accepted-edge timeout accounting, final-edge event priority, reset behavior and
 sticky timeout FAULT. Nine model checks and five tests under both Icarus and
 Verilator pass. Engine, store and synchronizer formal proofs/covers pass, the
 wrong-WAIT mutant is rejected, and generic synthesis reports 1,985 abstract
-cells and 321 state elements. Exact-head CI remains pending.
+cells and 321 state elements. Exact-head CI passed at `14a93b4`.
 
 This is autonomous engineering under D8. The owner M0 teach-back remains
 `PENDING`; no learning status changed. The primitive is not a protocol kernel,
@@ -74,5 +74,20 @@ general branch or protocol-specific RTL was added. Ten model checks, six tests
 on each simulator, lint, formal proof/cover/mutation, and generic synthesis pass
 in the locked local workbench. The complete candidate maps to 1,971 abstract
 cells and 322 state elements. `K-INPUT-WAIT` is therefore PASS/MEASURED only at
-the RTL rung; exact-head CI is pending, and all physical/silicon claims remain
+the RTL rung; exact-head CI passed at `f383744`, and all physical/silicon claims remain
 NOT_EVALUATED.
+
+## 2026-10-03 K-BOUNDED-LOOP milestone
+
+D13 selects bounded repetition before K-SHIFT-8: all target protocols reuse
+timed repetition, while a shifter still needs payload loading, received-data
+readback, bit order and sampling-phase decisions. Acceptance was frozen before
+implementation in `specs/k-bounded-loop.md`.
+
+The public-pin-loaded four-word kernel produces exact independent GPIO traces
+for counts 0, 1, 2 and 255, freezes under disable, rejects nesting and HALTs at
+the declared `2*N+2` edge bound. Both simulators, 12 model checks, formal
+proof/covers/mutation, lint and generic synthesis pass locally. The complete
+candidate reports 2,198 abstract cells and 341 state elements, a delta of +227
+cells and +19 state bits from K-INPUT-WAIT. This is generic structural evidence,
+not CMOS5L area, timing or fit. Exact-head CI remains pending.

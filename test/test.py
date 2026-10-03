@@ -20,6 +20,8 @@ def encode(instruction):
         return (instruction.mask << 16) | (instruction.oe << 8) | instruction.value
     if instruction.opcode == "WAIT":
         return (1 << 30) | instruction.count
+    if instruction.opcode == "LOOP":
+        return (1 << 30) | (1 << 29) | (instruction.length << 24) | instruction.count
     if instruction.opcode == "HALT":
         return 2 << 30
     if instruction.opcode == "WAIT_PIN":
@@ -220,6 +222,45 @@ async def k_input_wait_public_program_event_timeout_and_reload(dut):
         await edge(dut)
         assert int(dut.uo_out.value) == expected_status
         assert (int(dut.uio_out.value), int(dut.uio_oe.value)) == (0, 0)
+
+
+@cocotb.test()
+async def k_bounded_loop_public_program_counts(dut):
+    """Independent public trace for counts 0, 1, 2 and maximum 255."""
+    for count in (0, 1, 2, 255):
+        program = [
+            encode(Instruction("LOOP", length=2, count=count)),
+            encode(Instruction("SET", mask=1, value=1, oe=1)),
+            encode(Instruction("SET", mask=1, value=0, oe=1)),
+            encode(Instruction("HALT")),
+        ]
+        initialise(dut)
+        await edge(dut, rst_n=0, ena=0)
+        await load_program(dut, program)
+        await check_readback(dut, program)
+        dut.ui_in.value = 0
+        dut.uio_in.value = 0
+
+        await edge(dut)  # LOOP: skip or enter body
+        assert int(dut.uo_out.value) == (0x23 if count == 0 else 0x21)
+        if count == 2:
+            held = (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value))
+            await edge(dut, ena=0)
+            assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == held
+
+        for iteration in range(count):
+            await edge(dut)
+            assert int(dut.uio_out.value) == 1
+            assert int(dut.uio_oe.value) == 1
+            assert int(dut.uo_out.value) == 0x22
+            await edge(dut)
+            assert int(dut.uio_out.value) == 0
+            assert int(dut.uio_oe.value) == 1
+            assert int(dut.uo_out.value) == (0x23 if iteration + 1 == count else 0x21)
+
+        await edge(dut)
+        assert int(dut.uo_out.value) == 0xA3
+        assert (int(dut.uio_out.value), int(dut.uio_oe.value)) == (0, 0 if count == 0 else 1)
 
 
 @cocotb.test()

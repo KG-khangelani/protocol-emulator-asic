@@ -43,6 +43,10 @@ module tb ();
   wire [2:0] engine_wait_pin_status;
   wire engine_wait_level_status;
   wire engine_wait_timeout_skip_status;
+  wire engine_loop_active_status;
+  wire [7:0] engine_loop_remaining_status;
+  wire [4:0] engine_loop_start_status;
+  wire [4:0] engine_loop_end_status;
 `endif
 `endif
 
@@ -75,7 +79,11 @@ module tb ();
     .wait_is_input_status(engine_wait_is_input_status),
     .wait_pin_status(engine_wait_pin_status),
     .wait_level_status(engine_wait_level_status),
-    .wait_timeout_skip_status(engine_wait_timeout_skip_status)
+    .wait_timeout_skip_status(engine_wait_timeout_skip_status),
+    .loop_active_status(engine_loop_active_status),
+    .loop_remaining_status(engine_loop_remaining_status),
+    .loop_start_status(engine_loop_start_status),
+    .loop_end_status(engine_loop_end_status)
   );
 `endif
 `endif

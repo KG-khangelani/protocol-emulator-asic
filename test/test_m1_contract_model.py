@@ -112,6 +112,35 @@ class ContractModelTest(unittest.TestCase):
         timeout.edge(program, sampled_inputs=0)
         self.assertEqual((timeout.state, timeout.pc, timeout.gpio_value), (State.HALT, 2, 0))
 
+    def test_bounded_loop_counts_and_enable_freeze(self):
+        for count in (0, 1, 2, 255):
+            program = [
+                Instruction("LOOP", length=2, count=count),
+                Instruction("SET", mask=1, value=1, oe=1),
+                Instruction("SET", mask=1, value=0, oe=1),
+                Instruction("HALT"),
+            ]
+            machine = Machine()
+            machine.edge(program)
+            before = Machine(**machine.__dict__)
+            machine.edge(program, ena=False)
+            self.assertEqual(machine, before)
+            highs = 0
+            edges = 1
+            while machine.state is not State.HALT:
+                machine.edge(program)
+                edges += 1
+                highs += machine.gpio_value & 1
+            self.assertEqual((machine.pc, machine.gpio_value, edges), (3, 0, 2 * count + 2))
+            self.assertEqual(highs, count)
+
+    def test_nested_loop_faults(self):
+        machine = Machine()
+        program = [Instruction("LOOP", length=1, count=1), Instruction("LOOP", length=1, count=1)]
+        machine.edge(program)
+        machine.edge(program)
+        self.assertEqual(machine.state, State.FAULT)
+
 
 if __name__ == "__main__":
     unittest.main()

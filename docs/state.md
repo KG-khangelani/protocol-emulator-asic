@@ -2,7 +2,7 @@
 
 Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T06**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T07**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -131,6 +131,15 @@ efficiently express useful digital communication protocols under hard temporal c
   an independent public-pin trace distinguishes the paths. Both simulators and
   the full locked ladder pass locally. Generic synthesis reports 1,971 abstract
   cells and 322 state elements; this is screening, not physical evidence.
+- Exact-head CI passes K-INPUT-WAIT at `f383744`.
+- K-BOUNDED-LOOP was selected before K-SHIFT-8 because repetition is shared by
+  every target protocol while shifting still lacks payload/readback contracts.
+  A four-word public program passes counts 0, 1, 2 and 255 on both simulators;
+  count 255 produces 510 body edges and HALTs on accepted edge 512. Formal
+  checks cover loop setup, rewind, final exit, reset/freeze and invalid nesting.
+  Generic synthesis reports 2,198 abstract cells and 341 state elements: +227
+  cells and +19 state bits over K-INPUT-WAIT, exactly matching the declared
+  loop active/start/end/count state at the state-bit level.
 
 ## Blocked or unverified
 
@@ -144,9 +153,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify M1-T06 at an exact clean CI head. Then freeze acceptance
-  for the next microkernel before deciding whether shift state or bounded-loop
-  control is the smaller justified extension. Keep storage density as a
+- Engineering: qualify M1-T07 at an exact clean CI head. Then specify the
+  payload loading, receive readback and edge schedule required to make
+  K-SHIFT-8 falsifiable before adding shift state. Keep storage density as a
   measured comparison rather than redesigning it speculatively.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.

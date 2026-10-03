@@ -14,7 +14,7 @@ Encoding:
 | Opcode `[31:30]` | Instruction | Remaining fields |
 |---|---|---|
 | `00` | SET | `[29:24]=0`, mask `[23:16]`, OE `[15:8]`, value `[7:0]` |
-| `01` | WAIT | `[29:16]=0`, unsigned count `[15:0]` |
+| `01` | WAIT or LOOP (D13) | WAIT: `[29:16]=0`, count `[15:0]`; LOOP: `[29]=1`, length `[28:24]`, `[23:8]=0`, count `[7:0]` |
 | `10` | HALT | `[29:0]=0` |
 | `11` | WAIT_PIN (D11/D12) | pin `[29:27]`, level `[26]`, timeout-skip `[25]`, `[24:16]=0`, timeout `[15:0]` |
 

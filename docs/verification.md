@@ -7,7 +7,7 @@ physical timing and real hardware observations as separate evidence categories.
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
 | Learning-status integrity | `tools/learning_status.py --verify` plus an invalid-promotion self-test | Milestone references agree and an unearned human fluency PASS is rejected |
-| RTL | M1 `test/test.py` through Icarus and Verilator, seed 20261002 | Public-pin reload/readback, Python-model agreement, reset/enable, WAIT, synchronized input event/timeout, K-INPUT-WAIT independent trace and safe invalid behavior |
+| RTL | M1 `test/test.py` through Icarus and Verilator, seed 20261002 | Public-pin reload/readback, Python-model agreement, reset/enable, WAIT, K-INPUT-WAIT, K-BOUNDED-LOOP counts 0/1/2/255 and safe invalid behavior |
 | Readable waveform | `LearnWaveform` VCD parser plus intentionally corrupted edge | Every M0 rising edge matches the transition table; learner can explain a selected edge |
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |

@@ -14,6 +14,10 @@ accepted-edge timeout. A three-word programmed kernel demonstrates bounded
 event and timeout paths to HALT. This is an RTL latency contract, not analog
 metastability evidence. Protocol firmware remains future work.
 
+A non-nested counted-block instruction repeats an immediately following body
+0..255 times. The current four-word loop kernel demonstrates exact high/low
+traces through count 255; it is not yet a payload shifter or protocol program.
+
 ## How to test
 
 Hold `rst_n` low through a rising edge, then deassert it before a later edge.
