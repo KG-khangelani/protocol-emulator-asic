@@ -134,14 +134,15 @@ class Machine:
                 self.wait_level = instruction.level
                 self.wait_timeout_skip = bool(instruction.timeout_skip)
         elif instruction.opcode == "LOOP":
-            if self.loop_active:
+            target = self.pc + instruction.length + 1
+            if self.loop_active or target > 31:
                 self.state = State.FAULT
             elif instruction.count == 0:
-                self.pc += instruction.length + 1
+                self.pc = target
             else:
                 self.loop_active = True
                 self.loop_start = self.pc + 1
-                self.loop_end = self.pc + instruction.length + 1
+                self.loop_end = target
                 self.loop_remaining = instruction.count
                 self.pc += 1
         else:

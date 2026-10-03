@@ -26,6 +26,8 @@ iteration count `[7:0]` (0..255). The body is the immediately following
 - Reset aborts and clears loop state. Disabled edges freeze all engine state.
 - HALT, another LOOP, or timeout-skip control flow inside an active body faults.
   SET, WAIT and the event path of WAIT_PIN use normal counted-body completion.
+- The six-bit `PC + 1 + length` target is range-checked before narrowing. A
+  target above 31 faults at the LOOP PC; it must never alias through PC wrap.
 
 ## Falsifiable kernel
 
@@ -49,4 +51,3 @@ halt on accepted edge 512.
 Any mismatch, overrun, wrap, non-HALT terminal state, nested-loop acceptance,
 failure to erase/reload, simulator disagreement, or protocol-specific RTL delta
 is FAIL. Passing simulation is RTL evidence only, not CMOS5L fit or timing.
-

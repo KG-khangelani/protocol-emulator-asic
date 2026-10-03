@@ -137,9 +137,14 @@ efficiently express useful digital communication protocols under hard temporal c
   A four-word public program passes counts 0, 1, 2 and 255 on both simulators;
   count 255 produces 510 body edges and HALTs on accepted edge 512. Formal
   checks cover loop setup, rewind, final exit, reset/freeze and invalid nesting.
-  Generic synthesis reports 2,198 abstract cells and 341 state elements: +227
+  Generic synthesis after review fixes reports 2,175 abstract cells and 341 state elements: +204
   cells and +19 state bits over K-INPUT-WAIT, exactly matching the declared
   loop active/start/end/count state at the state-bit level.
+- Independent review found and the candidate now fixes two release blockers:
+  six-bit LOOP target arithmetic faults before a target above PC31 can alias by
+  wrap, and cocotb initialization no longer requires direct-engine handles in
+  `GL_TEST`. A lightweight GL-shaped RTL smoke verifies the harness boundary;
+  it is not gate-netlist or physical-flow evidence.
 
 ## Blocked or unverified
 
@@ -153,7 +158,7 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify M1-T07 at an exact clean CI head. Then specify the
+- Engineering: qualify the M1-T07 review fixes at an exact clean CI head. Then specify the
   payload loading, receive readback and edge schedule required to make
   K-SHIFT-8 falsifiable before adding shift state. Keep storage density as a
   measured comparison rather than redesigning it speculatively.

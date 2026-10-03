@@ -28,6 +28,9 @@ module m1_engine (
     wire wait_valid = (instruction[29:16] == 14'b0);
     wire loop_valid = instruction[29] && (instruction[28:24] != 5'd0) &&
                       (instruction[23:8] == 16'd0);
+    wire [5:0] loop_target_wide = {1'b0, pc} + 6'd1 +
+                                  {1'b0, instruction[28:24]};
+    wire loop_target_valid = !loop_target_wide[5];
     wire halt_valid = (instruction[29:0] == 30'b0);
     wire wait_pin_valid = (instruction[24:16] == 9'b0);
     wire selected_input = sampled_inputs[instruction[29:27]];
@@ -104,15 +107,15 @@ module m1_engine (
                             OpWait: begin
                                 wait_is_input <= 1'b0;
                                 if (instruction[29]) begin
-                                    if (!loop_valid || loop_active) begin
+                                    if (!loop_valid || !loop_target_valid || loop_active) begin
                                         state <= Faulted; wait_left <= 16'd0;
                                     end else if (instruction[7:0] == 8'd0) begin
-                                        pc <= pc + 5'd1 + {instruction[28:24]};
+                                        pc <= loop_target_wide[4:0];
                                         wait_left <= 16'd0;
                                     end else begin
                                         loop_active <= 1'b1;
                                         loop_start <= pc + 5'd1;
-                                        loop_end <= pc + 5'd1 + {instruction[28:24]};
+                                        loop_end <= loop_target_wide[4:0];
                                         loop_remaining <= instruction[7:0];
                                         pc <= pc + 5'd1;
                                         wait_left <= 16'd0;

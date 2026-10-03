@@ -20,6 +20,8 @@ module m1_engine_formal (
     wire [4:0] loop_start_status;
     wire [4:0] loop_end_status;
     wire instruction_input = sampled_inputs[instruction[29:27]];
+    wire [5:0] instruction_loop_target_wide = {1'b0, pc} + 6'd1 +
+                                              {1'b0, instruction[28:24]};
     reg past_valid = 1'b0;
     reg reset_seen = 1'b0;
     wire latched_input = sampled_inputs[wait_pin_status];
@@ -124,19 +126,20 @@ module m1_engine_formal (
                              $past(instruction[28:24]) != 5'd0 &&
                              $past(instruction[23:8]) == 16'd0) begin
                     assert (gpio_value == $past(gpio_value) && gpio_oe == $past(gpio_oe));
-                    if ($past(loop_active_status)) begin
+                    if ($past(instruction_loop_target_wide[5])) begin
+                        assert (state == 2'b11 && pc == $past(pc));
+                    end else if ($past(loop_active_status)) begin
                         assert (state == 2'b11 && pc == $past(pc));
                     end else if ($past(instruction[7:0]) == 8'd0) begin
                         assert (state == 2'b00 &&
-                                pc == $past(pc) + 5'd1 + $past(instruction[28:24]));
+                                pc == $past(instruction_loop_target_wide[4:0]));
                         assert (!loop_active_status);
                     end else begin
                         assert (state == 2'b00 && pc == $past(pc) + 5'd1);
                         assert (loop_active_status);
                         assert (loop_remaining_status == $past(instruction[7:0]));
                         assert (loop_start_status == $past(pc) + 5'd1);
-                        assert (loop_end_status == $past(pc) + 5'd1 +
-                                                           $past(instruction[28:24]));
+                        assert (loop_end_status == $past(instruction_loop_target_wide[4:0]));
                     end
                 end else if ($past(instruction) == 32'h80000000) begin
                     assert (state == ($past(loop_active_status) ? 2'b11 : 2'b10));

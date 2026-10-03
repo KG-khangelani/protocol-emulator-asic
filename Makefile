@@ -22,6 +22,8 @@ lint:
 test:
 	$(MAKE) -C test
 	$(PYTHON) tools/check_junit.py test/results.xml
+	$(MAKE) -C test COMPILE_ARGS=-DGL_TEST COCOTB_TEST_MODULES=test_gate_harness_smoke SIM_BUILD=sim_build/icarus-gl-harness COCOTB_RESULTS_FILE=results-gl-harness.xml
+	$(PYTHON) tools/check_junit.py test/results-gl-harness.xml
 test-verilator:
 	$(MAKE) -C test SIM=verilator COCOTB_RESULTS_FILE=results-verilator.xml
 	$(PYTHON) tools/check_junit.py test/results-verilator.xml

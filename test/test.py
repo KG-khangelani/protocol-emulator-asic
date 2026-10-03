@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Independent cycle checks for the M1 preloaded top and directly driven core."""
 
+import os
 import random
 from pathlib import Path
 import sys
@@ -36,9 +37,10 @@ def initialise(dut):
     dut.ena.value = 0
     dut.ui_in.value = 0
     dut.uio_in.value = 0
-    dut.engine_instruction.value = 0
-    dut.engine_instruction_valid.value = 0
-    dut.engine_sampled_inputs.value = 0
+    if hasattr(dut, "engine_instruction"):
+        dut.engine_instruction.value = 0
+        dut.engine_instruction_valid.value = 0
+        dut.engine_sampled_inputs.value = 0
 
 
 async def edge(dut, *, rst_n=1, ena=1):
@@ -264,6 +266,20 @@ async def k_bounded_loop_public_program_counts(dut):
 
 
 @cocotb.test()
+async def loop_target_overflow_faults_without_alias(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    program = [encode(Instruction("LOOP", length=31, count=0))]
+    assert program == [0x7F000000]
+    await load_program(dut, program)
+    await check_readback(dut, program)
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0xE0  # FAULT at PC0, never wrapped RUN
+
+
+@cocotb.test(skip=os.getenv("GATES") == "yes")
 async def randomized_trace_matches_reviewed_model(dut):
     initialise(dut)
     rng = random.Random(SEED)
@@ -293,7 +309,7 @@ async def randomized_trace_matches_reviewed_model(dut):
     observe_engine(dut, model)
 
 
-@cocotb.test()
+@cocotb.test(skip=os.getenv("GATES") == "yes")
 async def invalid_encoding_and_out_of_range_fail_closed(dut):
     initialise(dut)
     await edge(dut, rst_n=0, ena=0)

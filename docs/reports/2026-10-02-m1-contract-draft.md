@@ -88,6 +88,17 @@ The public-pin-loaded four-word kernel produces exact independent GPIO traces
 for counts 0, 1, 2 and 255, freezes under disable, rejects nesting and HALTs at
 the declared `2*N+2` edge bound. Both simulators, 12 model checks, formal
 proof/covers/mutation, lint and generic synthesis pass locally. The complete
-candidate reports 2,198 abstract cells and 341 state elements, a delta of +227
+candidate initially reported 2,198 abstract cells and 341 state elements, a delta of +227
 cells and +19 state bits from K-INPUT-WAIT. This is generic structural evidence,
 not CMOS5L area, timing or fit. Exact-head CI remains pending.
+
+Independent review then reproduced two blockers. `LOOP(length=31,count=0)` at
+PC0 previously narrowed target 32 to five bits and aliased PC0; target addition
+is now six bits and out-of-range targets fault at the source PC in RTL, model,
+simulation and an independent formal property. The shared cocotb initializer
+also referenced direct-engine handles omitted by `GL_TEST`; initialization is
+now handle-safe and engine-only tests are skipped in real gate mode. A small
+RTL compile/run with the `GL_TEST` harness shape proves public reset works with
+those handles absent. It does not claim a generated-netlist or physical run.
+After these fixes, generic synthesis reports 2,175 abstract cells and 341 state
+elements, or +204 cells and +19 state elements versus K-INPUT-WAIT.

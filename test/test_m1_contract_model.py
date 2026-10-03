@@ -141,6 +141,11 @@ class ContractModelTest(unittest.TestCase):
         machine.edge(program)
         self.assertEqual(machine.state, State.FAULT)
 
+    def test_loop_target_cannot_alias_through_pc_wrap(self):
+        machine = Machine()
+        machine.edge([Instruction("LOOP", length=31, count=0)])
+        self.assertEqual((machine.state, machine.pc), (State.FAULT, 0))
+
 
 if __name__ == "__main__":
     unittest.main()

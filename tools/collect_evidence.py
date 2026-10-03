@@ -95,6 +95,7 @@ else:
 artifact_sources = {
     "test/results.xml": ("rtl_icarus", "results.xml"),
     "test/results-verilator.xml": ("rtl_verilator", "results-verilator.xml"),
+    "test/results-gl-harness.xml": ("rtl_icarus", "results-gl-harness.xml"),
     "test/tb.fst": ("rtl_icarus", "tb.fst"),
     "test/results-learning.xml": ("learning_waveform", "results-learning.xml"),
     "build/m0-learning.vcd": ("learning_waveform", "m0-learning.vcd"),

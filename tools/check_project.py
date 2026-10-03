@@ -96,6 +96,7 @@ require("learn-status:" in project_makefile and "tools/learning_status.py" in pr
 require("formal/m1_engine.sby" in project_makefile, "active formal target must check the M1 engine")
 require("formal/m1_program_store.sby" in project_makefile, "active formal target must check the program store")
 require("formal/m1_input_sync.sby" in project_makefile, "active formal target must check the input synchronizer")
+require("test_gate_harness_smoke" in project_makefile, "active test target must check the GL_TEST-shaped harness")
 require("LEARNING_VCD" in testbench and "m0-learning.vcd" in testbench, "testbench must expose the readable learning waveform")
 test_makefile = (ROOT / "test/Makefile").read_text()
 require(
