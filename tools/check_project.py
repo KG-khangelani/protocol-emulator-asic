@@ -97,7 +97,14 @@ require("formal/m1_engine.sby" in project_makefile, "active formal target must c
 require("formal/m1_program_store.sby" in project_makefile, "active formal target must check the program store")
 require("formal/m1_input_sync.sby" in project_makefile, "active formal target must check the input synchronizer")
 require("test_gate_harness_smoke" in project_makefile, "active test target must check the GL_TEST-shaped harness")
+require("test-rtl-icarus:" in project_makefile, "full Icarus regression must have a distinct evidence target")
+require("test-gl-harness:" in project_makefile, "GL-shaped smoke must have a distinct evidence target")
+require("test-waveform-provenance:" in project_makefile, "waveform labels and checksums must be verified")
 require("LEARNING_VCD" in testbench and "m0-learning.vcd" in testbench, "testbench must expose the readable learning waveform")
+require(
+    "GL_HARNESS_SMOKE" in testbench and "tb-gl-harness.fst" in testbench,
+    "GL-shaped smoke must not overwrite the full RTL waveform",
+)
 test_makefile = (ROOT / "test/Makefile").read_text()
 require(
     "M0_LEARNING" in test_makefile and "E0010-pinned-cmos5l-run" in test_makefile,
@@ -105,6 +112,9 @@ require(
 )
 require('("learning_waveform", ["make", "learn-waveform"]' in evidence_collector, "evidence collector must exercise the waveform walkthrough")
 require('("learning_status", [sys.executable, "tools/learning_status.py", "--verify"]' in evidence_collector, "evidence collector must retain learning-status validation")
+require('("gl_harness_smoke", ["make", "test-gl-harness"]' in evidence_collector, "evidence collector must label the GL-shaped smoke separately")
+require('"test/tb-gl-harness.fst": ("gl_harness_smoke"' in evidence_collector, "GL-shaped waveform must retain its producing-stage label")
+require('"test/tb.fst": ("rtl_icarus"' in evidence_collector, "full RTL waveform must retain its producing-stage label")
 for learning_file in ("map.md", "glossary.md", "labs.md", "checkpoints.md", "progress.json"):
     require((ROOT / "docs/learning" / learning_file).is_file(), f"missing learning-system file: {learning_file}")
 for decision_file in (

@@ -64,7 +64,8 @@ engineering to proceed independently while M0 owner fluency remains pending.
 | M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Qualified at `d502227`: exact-head CI passes P-RELOAD simulation and store proof |
 | M1-T05 | Synchronize inputs and add bounded event wait | Two-stage latency, final-edge event priority, timeout and enable freeze checked | Qualified at `14a93b4`: exact-head dual-simulator/formal/generic synthesis CI pass |
 | M1-T06 | Execute K-INPUT-WAIT as a public-pin-loaded kernel | Same image takes event/timeout paths and HALTs within declared bounds against independent traces | Qualified at `f383744`: exact-head CI passes complete locked ladder |
-| M1-T07 | Execute K-BOUNDED-LOOP as a public-pin-loaded kernel | Counts 0, 1, 2 and 255 produce exact bounded traces and HALT | Review blockers fixed locally: wide target fail-closed and GL_TEST-safe harness; exact-head CI pending |
+| M1-T07 | Execute K-BOUNDED-LOOP as a public-pin-loaded kernel | Counts 0, 1, 2 and 255 produce exact bounded traces and HALT | Qualified by exact-head CI and independent review; PR 2 merged at `b3b73e6` |
+| M1-T08 | Preserve simulation waveform provenance | Full RTL and GL-shaped smoke FST/JUnit pairs retain distinct paths, stage labels and verified checksums | Complete local evidence collector passes; exact-head CI and independent review pending |
 | M1-T03 | Add GET, BRANCH and bounded LOOP only as needed | Bounded behavior; cost delta recorded | Queued |
 | M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | Queued |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |

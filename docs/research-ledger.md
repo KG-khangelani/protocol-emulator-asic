@@ -61,6 +61,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D11 | Synchronize public inputs and make every input wait terminate within an explicit accepted-edge bound | `decisions/0011-synchronized-bounded-input-wait.md` |
 | D12 | Add one-bit WAIT_PIN timeout skip as the minimum conditional needed by K-INPUT-WAIT | `decisions/0012-k-input-wait-timeout-skip.md` |
 | D13 | Evaluate an 8-bit non-nested bounded block before introducing shift-specific data state | `decisions/0013-bounded-block-before-shifter.md` |
+| D14 | Preserve separate full-RTL and GL-shaped-smoke waveform identities and verify their stage labels and checksums | `decisions/0014-distinct-waveform-provenance.md` |
 
 ## Experimental results
 
@@ -85,6 +86,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | M1-input-wait-local | Synchronized bounded-input-wait candidate | Nine model checks and five tests on both simulators PASS; engine/store/synchronizer proofs and covers PASS; mutant rejected; generic synthesis reports 1,985 abstract cells and 321 state elements | Exact-head CI passed at `14a93b4`; primitive only at that revision; metastability and physical results remain NOT_EVALUATED |
 | K-INPUT-WAIT-local | Three-word public-pin-loaded kernel | Same 96-bit image is loaded/read twice; independent event and timeout traces HALT at PC2 within six accepted edges on Icarus and Verilator; formal/lint/checks PASS; generic synthesis reports 1,971 abstract cells and 322 state elements | PASS/MEASURED at RTL rung and exact-head CI `f383744`; analog, CMOS5L, gate-level and silicon evidence NOT_EVALUATED |
 | K-BOUNDED-LOOP-local | Four-word public-pin-loaded counted SET block | Counts 0, 1, 2 and 255 plus overflow target rejection match independent traces on both simulators; maximum produces 510 body edges and HALTs on edge 512; formal/lint/GL-shaped harness checks PASS | PASS/MEASURED locally at RTL rung; 2,175 abstract cells/341 state elements after review fixes; exact-head CI pending; physical evidence NOT_EVALUATED |
+| M1-waveform-provenance-local | Separate and checksum-bind retained Icarus traces | Full eight-test 15,465 ns trace remains intact after the separate 11 ns GL-shaped smoke; deliberate overwrite and label-swap tests are rejected; all 11 evidence-collector stages pass | Evidence-integrity result only; exact-head CI pending and no gate-netlist, physical, silicon, or protocol claim |
 
 ## Open questions
 

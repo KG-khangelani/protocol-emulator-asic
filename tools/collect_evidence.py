@@ -10,6 +10,8 @@ import shutil
 import subprocess
 import sys
 
+from check_waveform_provenance import validate_saved_manifest
+
 ROOT = Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
 stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
@@ -64,7 +66,9 @@ stages = [
     ("static", [sys.executable, "tools/check_project.py"], []),
     ("learning_status", [sys.executable, "tools/learning_status.py", "--verify"], []),
     ("lint", ["make", "lint"], ["verible-verilog-lint"]),
-    ("rtl_icarus", ["make", "test"], ["iverilog", "vvp", "cocotb-config"]),
+    ("rtl_icarus", ["make", "test-rtl-icarus"], ["iverilog", "vvp", "cocotb-config"]),
+    ("gl_harness_smoke", ["make", "test-gl-harness"], ["iverilog", "vvp", "cocotb-config"]),
+    ("waveform_provenance", ["make", "test-waveform-provenance"], []),
     ("learning_waveform", ["make", "learn-waveform"], ["iverilog", "vvp", "cocotb-config"]),
     ("rtl_verilator", ["make", "test-verilator"], ["verilator", "g++", "cocotb-config"]),
     ("formal", ["make", "formal"], ["sby", "z3"]),
@@ -95,8 +99,10 @@ else:
 artifact_sources = {
     "test/results.xml": ("rtl_icarus", "results.xml"),
     "test/results-verilator.xml": ("rtl_verilator", "results-verilator.xml"),
-    "test/results-gl-harness.xml": ("rtl_icarus", "results-gl-harness.xml"),
+    "test/results-gl-harness.xml": ("gl_harness_smoke", "results-gl-harness.xml"),
     "test/tb.fst": ("rtl_icarus", "tb.fst"),
+    "test/tb-gl-harness.fst": ("gl_harness_smoke", "tb-gl-harness.fst"),
+    "build/waveform-provenance.json": ("waveform_provenance", "waveform-provenance.json"),
     "test/results-learning.xml": ("learning_waveform", "results-learning.xml"),
     "build/m0-learning.vcd": ("learning_waveform", "m0-learning.vcd"),
     "build/formal/prove/status": ("formal", "formal-prove.status"),
@@ -109,6 +115,9 @@ artifact_sources = {
     "build/synthesis.log": ("generic_synthesis", "synthesis.log"),
     "build/synth.json": ("generic_synthesis", "synth.json"),
 }
+provenance_stage = next(stage for stage in manifest["stages"] if stage["name"] == "waveform_provenance")
+if provenance_stage["status"] == "PASS":
+    manifest["waveform_provenance"] = validate_saved_manifest()
 for source, (stage_name, destination) in artifact_sources.items():
     p = ROOT / source
     # Never copy stale artifacts from a stage that did not pass in this run.

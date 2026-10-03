@@ -2,7 +2,7 @@
 
 Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T07**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T08**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -145,6 +145,15 @@ efficiently express useful digital communication protocols under hard temporal c
   wrap, and cocotb initialization no longer requires direct-engine handles in
   `GL_TEST`. A lightweight GL-shaped RTL smoke verifies the harness boundary;
   it is not gate-netlist or physical-flow evidence.
+- Exact-head CI and independent review passed the M1-T07 fixes; PR 2 was merged
+  to `main` at `b3b73e6fc63b2b22c9f9bd2314fd9e7a97b6266a`.
+- A post-merge evidence audit found that the 11 ns GL-shaped smoke overwrote
+  `test/tb.fst`, which the collector then labelled as the full `rtl_icarus`
+  waveform. The M1-T08 candidate gives the smoke a distinct FST, checkpoints
+  the full regression before the smoke, rejects checksum or label drift, and
+  archives each artifact under its actual producing stage. The complete local
+  11-stage evidence collector passes; exact-head CI and independent review
+  remain pending.
 
 ## Blocked or unverified
 
@@ -158,10 +167,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the M1-T07 review fixes at an exact clean CI head. Then specify the
-  payload loading, receive readback and edge schedule required to make
-  K-SHIFT-8 falsifiable before adding shift state. Keep storage density as a
-  measured comparison rather than redesigning it speculatively.
+- Engineering: qualify the M1-T08 evidence-integrity fix at an exact clean CI
+  head and independent review. K-SHIFT-8 work remains paused; do not add shift
+  state as part of this corrective PR.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
