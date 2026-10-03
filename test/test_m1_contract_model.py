@@ -61,6 +61,36 @@ class ContractModelTest(unittest.TestCase):
         invalid.edge([Instruction("WAIT", count=0x10000)])
         self.assertEqual((invalid.state, invalid.pc), (State.FAULT, 0))
 
+    def test_wait_pin_event_wins_on_final_eligible_edge(self):
+        program = [Instruction("WAIT_PIN", pin=2, level=1, count=2), Instruction("HALT")]
+        machine = Machine()
+        machine.edge(program, sampled_inputs=0)
+        self.assertEqual((machine.state, machine.pc, machine.wait_left), (State.WAIT, 0, 2))
+        machine.edge(program, sampled_inputs=0)
+        self.assertEqual(machine.wait_left, 1)
+        machine.edge(program, sampled_inputs=0x04)
+        self.assertEqual((machine.state, machine.pc, machine.wait_left), (State.RUN, 1, 0))
+
+    def test_wait_pin_timeout_and_disabled_edge(self):
+        program = [Instruction("WAIT_PIN", pin=3, level=1, count=2)]
+        machine = Machine()
+        machine.edge(program, sampled_inputs=0)
+        machine.edge(program, ena=False, sampled_inputs=0x08)
+        self.assertEqual((machine.state, machine.wait_left), (State.WAIT, 2))
+        machine.edge(program, sampled_inputs=0)
+        machine.edge(program, sampled_inputs=0)
+        self.assertEqual((machine.state, machine.pc, machine.wait_left), (State.FAULT, 0, 0))
+
+    def test_wait_pin_zero_timeout_and_invalid_fields_fault(self):
+        for instruction in (
+            Instruction("WAIT_PIN", pin=0, level=1, count=0),
+            Instruction("WAIT_PIN", pin=8, level=1, count=1),
+            Instruction("WAIT_PIN", pin=0, level=2, count=1),
+        ):
+            machine = Machine()
+            machine.edge([instruction], sampled_inputs=0)
+            self.assertEqual((machine.state, machine.pc), (State.FAULT, 0))
+
 
 if __name__ == "__main__":
     unittest.main()

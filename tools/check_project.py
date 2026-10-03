@@ -95,6 +95,7 @@ require("learn-waveform:" in project_makefile and "tools/m0_waveform_walkthrough
 require("learn-status:" in project_makefile and "tools/learning_status.py" in project_makefile, "Makefile must define learning status")
 require("formal/m1_engine.sby" in project_makefile, "active formal target must check the M1 engine")
 require("formal/m1_program_store.sby" in project_makefile, "active formal target must check the program store")
+require("formal/m1_input_sync.sby" in project_makefile, "active formal target must check the input synchronizer")
 require("LEARNING_VCD" in testbench and "m0-learning.vcd" in testbench, "testbench must expose the readable learning waveform")
 test_makefile = (ROOT / "test/Makefile").read_text()
 require(
@@ -109,6 +110,7 @@ for decision_file in (
     "0008-decouple-engineering-learning.md",
     "0009-m1-provisional-encoding.md",
     "0010-public-pin-program-store.md",
+    "0011-synchronized-bounded-input-wait.md",
 ):
     require((ROOT / "docs/decisions" / decision_file).is_file(), f"missing M1 decision: {decision_file}")
 research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())

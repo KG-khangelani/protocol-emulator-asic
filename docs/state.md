@@ -2,7 +2,7 @@
 
 Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T04**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T05**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -118,6 +118,12 @@ efficiently express useful digital communication protocols under hard temporal c
 - Generic synthesis reports 1,879 abstract cells including 300 state elements,
   up from 225 cells for the preload candidate. This is a storage-cost screening
   result, not CMOS5L area or fit.
+- The next M1 candidate adds a two-stage `uio_in` synchronizer and bounded
+  `WAIT_PIN`. Both simulators pass five tests; engine/store/synchronizer formal
+  proofs and covers pass; the wrong-WAIT mutant is rejected. Generic synthesis
+  reports 1,985 abstract cells and 321 state elements. The shared loader/input
+  pins require two disabled sampling edges before input-dependent execution.
+  These are local pre-physical results, not `K-INPUT-WAIT` completion.
 
 ## Blocked or unverified
 
@@ -131,9 +137,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the loader at an exact clean CI head, then specify input
-  synchronization and bounded external waits before adding input-dependent
-  instructions. Evaluate denser program storage before physical qualification.
+- Engineering: qualify M1-T05 at an exact clean CI head, then define the first
+  minimal protocol kernel needed to evaluate `K-INPUT-WAIT`. Evaluate denser
+  program storage before physical qualification.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 

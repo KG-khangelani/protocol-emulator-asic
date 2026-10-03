@@ -22,6 +22,8 @@ def encode(instruction):
         return (1 << 30) | instruction.count
     if instruction.opcode == "HALT":
         return 2 << 30
+    if instruction.opcode == "WAIT_PIN":
+        return (3 << 30) | (instruction.pin << 27) | (instruction.level << 26) | instruction.count
     return 3 << 30
 
 
@@ -33,6 +35,7 @@ def initialise(dut):
     dut.uio_in.value = 0
     dut.engine_instruction.value = 0
     dut.engine_instruction_valid.value = 0
+    dut.engine_sampled_inputs.value = 0
 
 
 async def edge(dut, *, rst_n=1, ena=1):
@@ -129,6 +132,49 @@ async def invalid_length_never_releases_engine(dut):
         await edge(dut)
         assert int(dut.uo_out.value) == 0
         assert int(dut.uio_oe.value) == 0
+
+
+@cocotb.test()
+async def synchronized_input_wait_event_and_timeout(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    event_program = [
+        encode(Instruction("WAIT_PIN", pin=2, level=1, count=4)),
+        encode(Instruction("SET", mask=1, value=1, oe=1)),
+        encode(Instruction("HALT")),
+    ]
+    await load_program(dut, event_program)
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    await edge(dut, ena=0)
+    await edge(dut, ena=0)  # flush loader traffic from the two-stage sampler
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x60  # waiting at pc0, ready
+    dut.uio_in.value = 0x04
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x60
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x60
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x21  # synchronized match advances
+    await edge(dut)
+    assert (int(dut.uio_out.value), int(dut.uio_oe.value)) == (1, 1)
+
+    await edge(dut, rst_n=0, ena=0)
+    timeout_program = [encode(Instruction("WAIT_PIN", pin=3, level=1, count=2))]
+    await load_program(dut, timeout_program)
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    await edge(dut, ena=0)
+    await edge(dut, ena=0)
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x60
+    await edge(dut, ena=0)
+    assert int(dut.uo_out.value) == 0x60  # disabled edge does not consume timeout
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0x60
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0xE0  # timeout enters FAULT at pc0
 
 
 @cocotb.test()

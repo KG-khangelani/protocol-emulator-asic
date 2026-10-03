@@ -18,7 +18,7 @@ check:
 	$(PYTHON) tools/m0_walkthrough.py --verify
 	$(PYTHON) -m unittest discover -s test -p 'test_m1_contract_model.py'
 lint:
-	verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v
+	verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v src/m1_input_sync.v
 test:
 	$(MAKE) -C test
 	$(PYTHON) tools/check_junit.py test/results.xml
@@ -33,9 +33,11 @@ formal:
 	sby -f -d build/formal/mutant formal/m1_engine_mutation.sby
 	sby -f -d build/formal/store-prove formal/m1_program_store.sby prove
 	sby -f -d build/formal/store-cover formal/m1_program_store.sby cover
+	sby -f -d build/formal/input-sync-prove formal/m1_input_sync.sby prove
+	sby -f -d build/formal/input-sync-cover formal/m1_input_sync.sby cover
 synth:
 	mkdir -p build
-	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v src/m1_engine.v src/m1_program_store.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'
+	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v src/m1_engine.v src/m1_program_store.v src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'
 evidence:
 	$(PYTHON) tools/collect_evidence.py
 learn-status:

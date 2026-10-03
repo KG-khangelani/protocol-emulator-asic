@@ -35,6 +35,11 @@ executes word zero. Re-entering load mode resets the engine without erasing the
 store. A sampled chip reset erases the store, so the demonstrated flow is:
 reset, load A through public pins, run A, reset, load B, read B back, run B.
 
+For a program whose first action depends on `uio_in`, loader data must first be
+flushed from the shared input synchronizer: leave load mode, drive the intended
+idle inputs, and hold `ena=0` for two rising edges before accepting word zero.
+See `m1-input-wait.md`.
+
 ## Safety and evidence boundary
 
 Fetching is valid only when `program_ready=1`, `pc < program_length`, and
@@ -46,4 +51,3 @@ Passing `P-RELOAD` simulation demonstrates observable post-reset program change
 without RTL changes. It does not establish nonvolatile retention, asynchronous
 input safety, memory-macro area, physical timing, gate-level behavior, or
 fabricated-silicon operation.
-

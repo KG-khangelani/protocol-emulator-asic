@@ -61,7 +61,8 @@ engineering to proceed independently while M0 owner fluency remains pending.
 |---|---|---|---|
 | M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Implemented candidate in `specs/m1-execution-contract.md`; encoding remains provisional |
 | M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Implemented candidate; local dual-simulator/formal/generic synthesis pass |
-| M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Implemented candidate; local P-RELOAD simulation and store proof pass, exact-head CI pending |
+| M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Qualified at `d502227`: exact-head CI passes P-RELOAD simulation and store proof |
+| M1-T05 | Synchronize inputs and add bounded event wait | Two-stage latency, final-edge event priority, timeout and enable freeze checked | Implemented candidate; local dual-simulator/formal/generic synthesis pass, exact-head CI pending |
 | M1-T03 | Add GET, BRANCH and bounded LOOP only as needed | Bounded behavior; cost delta recorded | Queued |
 | M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | Queued |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |

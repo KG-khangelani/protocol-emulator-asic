@@ -20,6 +20,10 @@ module tt_um_khangelani_protocol_emulator (
     wire program_ready;
     wire [31:0] instruction;
     wire instruction_valid;
+    wire [7:0] sampled_inputs;
+    wire wait_is_input_status;
+    wire [2:0] wait_pin_status;
+    wire wait_level_status;
     wire engine_rst_n = rst_n && program_ready && !load_mode;
 
     m1_program_store store (
@@ -31,17 +35,25 @@ module tt_um_khangelani_protocol_emulator (
         .instruction_valid(instruction_valid)
     );
 
+    m1_input_sync input_sync (
+        .clk(clk), .rst_n(rst_n), .async_in(uio_in), .sampled_in(sampled_inputs)
+    );
+
     m1_engine engine (
         .clk(clk), .rst_n(engine_rst_n), .ena(ena),
         .instruction(instruction), .instruction_valid(instruction_valid),
+        .sampled_inputs(sampled_inputs),
         .pc(pc), .state(state), .wait_left(wait_left),
-        .gpio_value(gpio_value), .gpio_oe(gpio_oe)
+        .gpio_value(gpio_value), .gpio_oe(gpio_oe),
+        .wait_is_input_status(wait_is_input_status),
+        .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status)
     );
 
     assign uio_out = load_mode ? loader_data_out : gpio_value;
     assign uio_oe = load_mode ? (load_write ? 8'h00 : 8'hff) : gpio_oe;
     assign uo_out = {state, program_ready, pc};
-    wire _unused = &{wait_left, program_length, 1'b0};
+    wire _unused = &{wait_left, program_length, wait_is_input_status,
+                     wait_pin_status, wait_level_status, 1'b0};
 endmodule
 
 `default_nettype wire

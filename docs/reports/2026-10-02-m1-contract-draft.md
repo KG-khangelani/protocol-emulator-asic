@@ -38,3 +38,25 @@ Generic synthesis reports 1,879 abstract cells and 300 state elements versus
 225 cells for the preload candidate. This quantifies the flip-flop store cost;
 it is not CMOS5L area, fit, timing, or Fmax evidence. Exact-head CI is the next
 qualification step.
+
+## 2026-10-03 bounded input-wait milestone
+
+The exact-head CI qualification for the reload milestone passed at `d502227`.
+The next candidate adds a two-stage `uio_in` synchronizer and a bounded
+`WAIT_PIN` primitive. The specification fixes its three-edge earliest response,
+accepted-edge timeout accounting, final-edge event priority, reset behavior and
+sticky timeout FAULT. Nine model checks and five tests under both Icarus and
+Verilator pass. Engine, store and synchronizer formal proofs/covers pass, the
+wrong-WAIT mutant is rejected, and generic synthesis reports 1,985 abstract
+cells and 321 state elements. Exact-head CI remains pending.
+
+This is autonomous engineering under D8. The owner M0 teach-back remains
+`PENDING`; no learning status changed. The primitive is not a protocol kernel,
+does not complete `K-INPUT-WAIT`, and has no new physical or silicon evidence.
+
+The existing evidence collector is the right base for later versioned
+simulation/RTL release bundles: it already records exact commit, tool versions,
+source hashes, JUnit, waveform, formal status and synthesis output. A later
+reviewed-milestone workflow should package that manifest and selected portable
+artifacts under a signed/versioned tag, clearly distinct from a
+physical-fabrication-ready release. No tag or release is created here.

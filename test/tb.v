@@ -33,11 +33,15 @@ module tb ();
 `ifndef M0_LEARNING
   reg [31:0] engine_instruction;
   reg engine_instruction_valid;
+  reg [7:0] engine_sampled_inputs;
   wire [4:0] engine_pc;
   wire [1:0] engine_state;
   wire [15:0] engine_wait_left;
   wire [7:0] engine_gpio_value;
   wire [7:0] engine_gpio_oe;
+  wire engine_wait_is_input_status;
+  wire [2:0] engine_wait_pin_status;
+  wire engine_wait_level_status;
 `endif
 `endif
 
@@ -61,11 +65,15 @@ module tb ();
       .ena(ena),
       .instruction(engine_instruction),
       .instruction_valid(engine_instruction_valid),
+      .sampled_inputs(engine_sampled_inputs),
       .pc(engine_pc),
       .state(engine_state),
       .wait_left(engine_wait_left),
-      .gpio_value(engine_gpio_value),
-      .gpio_oe(engine_gpio_oe)
+    .gpio_value(engine_gpio_value),
+    .gpio_oe(engine_gpio_oe),
+    .wait_is_input_status(engine_wait_is_input_status),
+    .wait_pin_status(engine_wait_pin_status),
+    .wait_level_status(engine_wait_level_status)
   );
 `endif
 `endif
