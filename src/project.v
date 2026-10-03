@@ -24,6 +24,7 @@ module tt_um_khangelani_protocol_emulator (
     wire wait_is_input_status;
     wire [2:0] wait_pin_status;
     wire wait_level_status;
+    wire wait_timeout_skip_status;
     wire engine_rst_n = rst_n && program_ready && !load_mode;
 
     m1_program_store store (
@@ -46,14 +47,16 @@ module tt_um_khangelani_protocol_emulator (
         .pc(pc), .state(state), .wait_left(wait_left),
         .gpio_value(gpio_value), .gpio_oe(gpio_oe),
         .wait_is_input_status(wait_is_input_status),
-        .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status)
+        .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status),
+        .wait_timeout_skip_status(wait_timeout_skip_status)
     );
 
     assign uio_out = load_mode ? loader_data_out : gpio_value;
     assign uio_oe = load_mode ? (load_write ? 8'h00 : 8'hff) : gpio_oe;
     assign uo_out = {state, program_ready, pc};
     wire _unused = &{wait_left, program_length, wait_is_input_status,
-                     wait_pin_status, wait_level_status, 1'b0};
+                     wait_pin_status, wait_level_status,
+                     wait_timeout_skip_status, 1'b0};
 endmodule
 
 `default_nettype wire

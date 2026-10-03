@@ -59,6 +59,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D9 | Use a provisional 32-bit SET/WAIT/HALT encoding and simulation preload without claiming public-pin reload | `decisions/0009-m1-provisional-encoding.md` |
 | D10 | Replace the constant preload with an eight-word clock-synchronous public-pin store and readback path | `decisions/0010-public-pin-program-store.md` |
 | D11 | Synchronize public inputs and make every input wait terminate within an explicit accepted-edge bound | `decisions/0011-synchronized-bounded-input-wait.md` |
+| D12 | Add one-bit WAIT_PIN timeout skip as the minimum conditional needed by K-INPUT-WAIT | `decisions/0012-k-input-wait-timeout-skip.md` |
 
 ## Experimental results
 
@@ -80,7 +81,8 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0015 | Local Docker qualification | With Docker Desktop opened, signed version 4.92.0 and Engine 29.8.0 run the locked workbench; all 9 local stages PASS | A closed application is not a failure; no Docker-data, physical or fluency claim; `../evidence/E0015-local-docker-qualification/` |
 | M1-local | M1 implementation candidate | Python semantic checks, Icarus/Verilator trace comparison, formal proof/covers/mutation and generic synthesis PASS locally | Working-tree result pending exact-head CI; preload is not reload and no CMOS5L result exists |
 | M1-reload-local | Public-pin reload candidate | Icarus and Verilator load/read/run programs A and B after reset; store proof/covers PASS; generic synthesis reports 1,879 abstract cells | Exact-head CI passed at `d502227`; synchronous input assumption, no CMOS5L area/timing or silicon evidence |
-| M1-input-wait-local | Synchronized bounded-input-wait candidate | Nine model checks and five tests on both simulators PASS; engine/store/synchronizer proofs and covers PASS; mutant rejected; generic synthesis reports 1,985 abstract cells and 321 state elements | Exact-head CI pending; primitive only; `K-INPUT-WAIT`, metastability, protocol behavior and physical results remain NOT_EVALUATED |
+| M1-input-wait-local | Synchronized bounded-input-wait candidate | Nine model checks and five tests on both simulators PASS; engine/store/synchronizer proofs and covers PASS; mutant rejected; generic synthesis reports 1,985 abstract cells and 321 state elements | Exact-head CI passed at `14a93b4`; primitive only at that revision; metastability and physical results remain NOT_EVALUATED |
+| K-INPUT-WAIT-local | Three-word public-pin-loaded kernel | Same 96-bit image is loaded/read twice; independent event and timeout traces HALT at PC2 within six accepted edges on Icarus and Verilator; formal/lint/checks PASS; generic synthesis reports 1,971 abstract cells and 322 state elements | PASS/MEASURED at RTL rung; exact-head CI pending; analog, CMOS5L, gate-level and silicon evidence NOT_EVALUATED |
 
 ## Open questions
 

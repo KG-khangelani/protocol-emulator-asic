@@ -8,13 +8,16 @@ stage two changes after edge 2, and the engine can act on it at edge 3. This is
 a deterministic digital latency model, not an analog metastability proof.
 
 `WAIT_PIN(pin, level, timeout)` uses opcode `11`, pin `[29:27]`, expected level
-`[26]`, reserved bits `[25:16]=0`, and unsigned timeout `[15:0]`.
+`[26]`, timeout action `[25]`, reserved bits `[24:16]=0`, and unsigned timeout
+`[15:0]`. Timeout action zero enters FAULT; one advances PC by two so a program
+can distinguish timeout from the normal event advance by one.
 
 - If the synchronized pin already matches on the execution edge, advance PC.
 - If it does not match and timeout is zero, enter sticky FAULT at that PC.
 - Otherwise latch pin/level, enter WAIT, and set `wait_left=timeout`.
 - On later accepted edges, a matching synchronized input wins and advances PC.
-- Without a match, `wait_left>1` decrements; `wait_left=1` enters sticky FAULT.
+- Without a match, `wait_left>1` decrements. At `wait_left=1`, timeout action
+  zero enters sticky FAULT and action one clears the wait and advances PC by two.
 - Disabled edges do not consume timeout. Reset aborts the wait and clears both
 synchronizer stages, engine state, and latched wait controls.
 

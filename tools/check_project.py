@@ -111,6 +111,7 @@ for decision_file in (
     "0009-m1-provisional-encoding.md",
     "0010-public-pin-program-store.md",
     "0011-synchronized-bounded-input-wait.md",
+    "0012-k-input-wait-timeout-skip.md",
 ):
     require((ROOT / "docs/decisions" / decision_file).is_file(), f"missing M1 decision: {decision_file}")
 research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())

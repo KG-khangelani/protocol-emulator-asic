@@ -42,6 +42,7 @@ module tb ();
   wire engine_wait_is_input_status;
   wire [2:0] engine_wait_pin_status;
   wire engine_wait_level_status;
+  wire engine_wait_timeout_skip_status;
 `endif
 `endif
 
@@ -73,7 +74,8 @@ module tb ();
     .gpio_oe(engine_gpio_oe),
     .wait_is_input_status(engine_wait_is_input_status),
     .wait_pin_status(engine_wait_pin_status),
-    .wait_level_status(engine_wait_level_status)
+    .wait_level_status(engine_wait_level_status),
+    .wait_timeout_skip_status(engine_wait_timeout_skip_status)
   );
 `endif
 `endif

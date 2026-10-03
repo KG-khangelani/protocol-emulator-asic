@@ -23,6 +23,7 @@ class Instruction:
     count: int = 0
     pin: int = 0
     level: int = 0
+    timeout_skip: int = 0
 
 
 @dataclass
@@ -35,6 +36,7 @@ class Machine:
     wait_is_input: bool = False
     wait_pin: int = 0
     wait_level: int = 0
+    wait_timeout_skip: bool = False
 
     def edge(self, program, *, rst_n=True, ena=True, sampled_inputs=0):
         if len(program) > MAX_PROGRAM_WORDS:
@@ -44,6 +46,7 @@ class Machine:
             self.state = State.RUN
             self.wait_is_input = False
             self.wait_pin = self.wait_level = 0
+            self.wait_timeout_skip = False
             return
         if not ena or self.state in (State.HALT, State.FAULT):
             return
@@ -56,7 +59,12 @@ class Machine:
                 return
             if self.wait_is_input and self.wait_left == 1:
                 self.wait_left = 0
-                self.state = State.FAULT
+                self.wait_is_input = False
+                if self.wait_timeout_skip:
+                    self.pc += 2
+                    self.state = State.RUN
+                else:
+                    self.state = State.FAULT
                 return
             if self.wait_left > 1:
                 self.wait_left -= 1
@@ -89,13 +97,17 @@ class Machine:
             if selected == instruction.level:
                 self.pc += 1
             elif instruction.count == 0:
-                self.state = State.FAULT
+                if instruction.timeout_skip:
+                    self.pc += 2
+                else:
+                    self.state = State.FAULT
             else:
                 self.state = State.WAIT
                 self.wait_left = instruction.count
                 self.wait_is_input = True
                 self.wait_pin = instruction.pin
                 self.wait_level = instruction.level
+                self.wait_timeout_skip = bool(instruction.timeout_skip)
         else:
             self.state = State.HALT
             self.wait_left = 0
@@ -109,8 +121,10 @@ class Machine:
         if instruction.opcode == "WAIT":
             return 0 <= instruction.count <= MAX_WAIT
         if instruction.opcode == "WAIT_PIN":
-            return 0 <= instruction.pin <= 7 and instruction.level in (0, 1) and 0 <= instruction.count <= MAX_WAIT
+            return (0 <= instruction.pin <= 7 and instruction.level in (0, 1)
+                    and instruction.timeout_skip in (0, 1)
+                    and 0 <= instruction.count <= MAX_WAIT)
         return instruction.opcode == "HALT" and not any(
             (instruction.mask, instruction.value, instruction.oe, instruction.count,
-             instruction.pin, instruction.level)
+             instruction.pin, instruction.level, instruction.timeout_skip)
         )

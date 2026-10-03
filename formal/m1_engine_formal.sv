@@ -14,6 +14,7 @@ module m1_engine_formal (
     wire wait_is_input_status;
     wire [2:0] wait_pin_status;
     wire wait_level_status;
+    wire wait_timeout_skip_status;
     wire instruction_input = sampled_inputs[instruction[29:27]];
     reg past_valid = 1'b0;
     reg reset_seen = 1'b0;
@@ -26,7 +27,8 @@ module m1_engine_formal (
         .pc(pc), .state(state), .wait_left(wait_left),
         .gpio_value(gpio_value), .gpio_oe(gpio_oe),
         .wait_is_input_status(wait_is_input_status),
-        .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status)
+        .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status),
+        .wait_timeout_skip_status(wait_timeout_skip_status)
     );
 
     always @(posedge clk) begin
@@ -49,8 +51,12 @@ module m1_engine_formal (
                         assert (wait_left == 16'd0 && pc == $past(pc) + 5'd1);
                         assert (state == 2'b00);
                     end else if ($past(wait_is_input_status) && $past(wait_left) == 16'd1) begin
-                        assert (wait_left == 16'd0 && pc == $past(pc));
-                        assert (state == 2'b11);
+                        assert (wait_left == 16'd0);
+                        if ($past(wait_timeout_skip_status)) begin
+                            assert (pc == $past(pc) + 5'd2 && state == 2'b00);
+                        end else begin
+                            assert (pc == $past(pc) && state == 2'b11);
+                        end
                     end else if ($past(wait_left) > 16'd1) begin
 `ifdef M1_MUTANT
                         assert (wait_left == $past(wait_left) - 16'd2);
@@ -83,17 +89,22 @@ module m1_engine_formal (
                 end else if ($past(instruction) == 32'h80000000) begin
                     assert (state == 2'b10 && pc == $past(pc) && wait_left == 16'd0);
                 end else if ($past(instruction[31:30]) == 2'b11 &&
-                             $past(instruction[25:16]) == 10'd0) begin
+                             $past(instruction[24:16]) == 9'd0) begin
                     assert (gpio_value == $past(gpio_value) && gpio_oe == $past(gpio_oe));
                     if ($past(instruction_input) == $past(instruction[26])) begin
                         assert (state == 2'b00 && pc == $past(pc) + 5'd1 && wait_left == 16'd0);
                     end else if ($past(instruction[15:0]) == 16'd0) begin
-                        assert (state == 2'b11 && pc == $past(pc) && wait_left == 16'd0);
+                        assert (wait_left == 16'd0);
+                        if ($past(instruction[25]))
+                            assert (state == 2'b00 && pc == $past(pc) + 5'd2);
+                        else
+                            assert (state == 2'b11 && pc == $past(pc));
                     end else begin
                         assert (state == 2'b01 && pc == $past(pc));
                         assert (wait_left == $past(instruction[15:0]) && wait_is_input_status);
                         assert (wait_pin_status == $past(instruction[29:27]));
                         assert (wait_level_status == $past(instruction[26]));
+                        assert (wait_timeout_skip_status == $past(instruction[25]));
                     end
                 end else begin
                     assert (state == 2'b11 && pc == $past(pc) && wait_left == 16'd0);

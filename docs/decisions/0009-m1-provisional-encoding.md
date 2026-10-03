@@ -16,7 +16,7 @@ Encoding:
 | `00` | SET | `[29:24]=0`, mask `[23:16]`, OE `[15:8]`, value `[7:0]` |
 | `01` | WAIT | `[29:16]=0`, unsigned count `[15:0]` |
 | `10` | HALT | `[29:0]=0` |
-| `11` | WAIT_PIN (extended by D11) | pin `[29:27]`, level `[26]`, `[25:16]=0`, timeout `[15:0]` |
+| `11` | WAIT_PIN (D11/D12) | pin `[29:27]`, level `[26]`, timeout-skip `[25]`, `[24:16]=0`, timeout `[15:0]` |
 
 Reserved-bit violations enter FAULT. Logical GPIO maps to `uio_out/uio_oe`;
 `uo_out` exposes state and PC for this experiment. Inputs are not yet consumed.

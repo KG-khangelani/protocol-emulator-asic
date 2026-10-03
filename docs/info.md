@@ -9,9 +9,10 @@ reset wins over enable. `uio_out/uio_oe` expose the logical GPIO bank and
 
 The synchronous loader supports byte writes, length commit, and readback.
 Each `uio_in` bit has a two-stage clocked synchronizer. `WAIT_PIN` observes the
-second stage and faults after its explicit accepted-edge timeout. This is an RTL
-latency contract, not analog metastability evidence. Protocol firmware remains
-future work.
+second stage and either faults or conditionally skips after its explicit
+accepted-edge timeout. A three-word programmed kernel demonstrates bounded
+event and timeout paths to HALT. This is an RTL latency contract, not analog
+metastability evidence. Protocol firmware remains future work.
 
 ## How to test
 

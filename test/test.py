@@ -23,7 +23,8 @@ def encode(instruction):
     if instruction.opcode == "HALT":
         return 2 << 30
     if instruction.opcode == "WAIT_PIN":
-        return (3 << 30) | (instruction.pin << 27) | (instruction.level << 26) | instruction.count
+        return ((3 << 30) | (instruction.pin << 27) | (instruction.level << 26) |
+                (instruction.timeout_skip << 25) | instruction.count)
     return 3 << 30
 
 
@@ -175,6 +176,50 @@ async def synchronized_input_wait_event_and_timeout(dut):
     assert int(dut.uo_out.value) == 0x60
     await edge(dut)
     assert int(dut.uo_out.value) == 0xE0  # timeout enters FAULT at pc0
+
+
+@cocotb.test()
+async def k_input_wait_public_program_event_timeout_and_reload(dut):
+    """Independent public-pin trace for the adopted K-INPUT-WAIT kernel."""
+    program = [
+        encode(Instruction("WAIT_PIN", pin=2, level=1, count=4, timeout_skip=1)),
+        encode(Instruction("SET", mask=1, value=1, oe=1)),
+        encode(Instruction("HALT")),
+    ]
+
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    await load_program(dut, program)
+    await check_readback(dut, program)
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    await edge(dut, ena=0)
+    await edge(dut, ena=0)
+
+    await edge(dut)  # execute WAIT_PIN
+    assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == (0x60, 0, 0)
+    dut.uio_in.value = 0x04
+    event_status = [0x60, 0x60, 0x21, 0x22, 0xA2]
+    event_gpio = [(0, 0), (0, 0), (0, 0), (1, 1), (1, 1)]
+    for expected_status, expected_gpio in zip(event_status, event_gpio):
+        await edge(dut)
+        assert int(dut.uo_out.value) == expected_status
+        assert (int(dut.uio_out.value), int(dut.uio_oe.value)) == expected_gpio
+
+    await edge(dut, rst_n=0, ena=0)
+    assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == (0, 0, 0)
+    await load_program(dut, program)
+    await check_readback(dut, program)
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    await edge(dut, ena=0)
+    await edge(dut, ena=0)
+
+    timeout_status = [0x60, 0x60, 0x60, 0x60, 0x22, 0xA2]
+    for expected_status in timeout_status:
+        await edge(dut)
+        assert int(dut.uo_out.value) == expected_status
+        assert (int(dut.uio_out.value), int(dut.uio_oe.value)) == (0, 0)
 
 
 @cocotb.test()

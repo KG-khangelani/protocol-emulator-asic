@@ -2,7 +2,7 @@
 
 Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T05**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T06**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -124,6 +124,13 @@ efficiently express useful digital communication protocols under hard temporal c
   reports 1,985 abstract cells and 321 state elements. The shared loader/input
   pins require two disabled sampling edges before input-dependent execution.
   These are local pre-physical results, not `K-INPUT-WAIT` completion.
+- Exact-head CI passes the synchronized input-wait milestone at `14a93b4`.
+- A three-word, 96-used-bit public-pin-loaded `K-INPUT-WAIT` kernel now takes
+  both event and timeout paths and reaches HALT at PC2 within six accepted
+  execution edges. Reset erases it, the same image is reloaded/read back, and
+  an independent public-pin trace distinguishes the paths. Both simulators and
+  the full locked ladder pass locally. Generic synthesis reports 1,971 abstract
+  cells and 322 state elements; this is screening, not physical evidence.
 
 ## Blocked or unverified
 
@@ -137,9 +144,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify M1-T05 at an exact clean CI head, then define the first
-  minimal protocol kernel needed to evaluate `K-INPUT-WAIT`. Evaluate denser
-  program storage before physical qualification.
+- Engineering: qualify M1-T06 at an exact clean CI head. Then freeze acceptance
+  for the next microkernel before deciding whether shift state or bounded-loop
+  control is the smaller justified extension. Keep storage density as a
+  measured comparison rather than redesigning it speculatively.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 

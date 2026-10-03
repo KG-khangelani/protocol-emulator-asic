@@ -91,6 +91,27 @@ class ContractModelTest(unittest.TestCase):
             machine.edge([instruction], sampled_inputs=0)
             self.assertEqual((machine.state, machine.pc), (State.FAULT, 0))
 
+    def test_wait_pin_timeout_skip_distinguishes_paths(self):
+        program = [
+            Instruction("WAIT_PIN", pin=2, level=1, count=2, timeout_skip=1),
+            Instruction("SET", mask=1, value=1, oe=1),
+            Instruction("HALT"),
+        ]
+        event = Machine()
+        event.edge(program, sampled_inputs=0)
+        event.edge(program, sampled_inputs=0)
+        event.edge(program, sampled_inputs=4)
+        event.edge(program, sampled_inputs=4)
+        event.edge(program, sampled_inputs=4)
+        self.assertEqual((event.state, event.pc, event.gpio_value), (State.HALT, 2, 1))
+
+        timeout = Machine()
+        timeout.edge(program, sampled_inputs=0)
+        timeout.edge(program, sampled_inputs=0)
+        timeout.edge(program, sampled_inputs=0)
+        timeout.edge(program, sampled_inputs=0)
+        self.assertEqual((timeout.state, timeout.pc, timeout.gpio_value), (State.HALT, 2, 0))
+
 
 if __name__ == "__main__":
     unittest.main()

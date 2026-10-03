@@ -60,3 +60,19 @@ source hashes, JUnit, waveform, formal status and synthesis output. A later
 reviewed-milestone workflow should package that manifest and selected portable
 artifacts under a signed/versioned tag, clearly distinct from a
 physical-fabrication-ready release. No tag or release is created here.
+
+## 2026-10-03 K-INPUT-WAIT milestone
+
+Acceptance was frozen before implementation in `specs/k-input-wait.md`. One
+three-word image is loaded and read back through public pins, exercises an
+event path, is erased by reset, is loaded/read again, and exercises timeout.
+Independent expected pin/status sequences require both paths to HALT at PC2
+within six accepted edges and distinguish them with GPIO0.
+
+The minimum semantic delta is D12's one-bit timeout skip on `WAIT_PIN`; no
+general branch or protocol-specific RTL was added. Ten model checks, six tests
+on each simulator, lint, formal proof/cover/mutation, and generic synthesis pass
+in the locked local workbench. The complete candidate maps to 1,971 abstract
+cells and 322 state elements. `K-INPUT-WAIT` is therefore PASS/MEASURED only at
+the RTL rung; exact-head CI is pending, and all physical/silicon claims remain
+NOT_EVALUATED.
