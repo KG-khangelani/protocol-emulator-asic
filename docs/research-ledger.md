@@ -57,6 +57,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D7 | Keep evidence-reading lessons available through host Python while retaining Docker as the execution boundary for every EDA command | `decisions/0007-docker-independent-learning.md`, E0014 |
 | D8 | Allow engineering progress independently while preserving conservative owner-fluency gates | `decisions/0008-decouple-engineering-learning.md` |
 | D9 | Use a provisional 32-bit SET/WAIT/HALT encoding and simulation preload without claiming public-pin reload | `decisions/0009-m1-provisional-encoding.md` |
+| D10 | Replace the constant preload with an eight-word clock-synchronous public-pin store and readback path | `decisions/0010-public-pin-program-store.md` |
 
 ## Experimental results
 
@@ -77,6 +78,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | E0014 | Docker-independent M0 lesson qualification | Clean Windows host lessons, all 9 locked Linux stages, artifact upload and docs PASS with zero annotations | Reading retained evidence is not EDA execution, Docker repair, or owner-fluency evidence; `../evidence/E0014-docker-independent-learning/` |
 | E0015 | Local Docker qualification | With Docker Desktop opened, signed version 4.92.0 and Engine 29.8.0 run the locked workbench; all 9 local stages PASS | A closed application is not a failure; no Docker-data, physical or fluency claim; `../evidence/E0015-local-docker-qualification/` |
 | M1-local | M1 implementation candidate | Python semantic checks, Icarus/Verilator trace comparison, formal proof/covers/mutation and generic synthesis PASS locally | Working-tree result pending exact-head CI; preload is not reload and no CMOS5L result exists |
+| M1-reload-local | Public-pin reload candidate | Icarus and Verilator load/read/run programs A and B after reset; store proof/covers PASS; generic synthesis reports 1,879 abstract cells | Exact-head CI pending; synchronous input assumption, no CMOS5L area/timing or silicon evidence |
 
 ## Open questions
 

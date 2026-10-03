@@ -1,6 +1,6 @@
 # D9 - Use a provisional bounded M1 encoding and preload
 
-Date: 2026-10-02. Status: experimental; revisit before loader design.
+Date: 2026-10-02. Status: encoding retained; constant preload superseded by D10.
 
 Decision: the first SET/WAIT/HALT implementation uses 32-bit words, a 16-bit
 WAIT count, a five-bit PC supporting a declared maximum of 16 program words,
@@ -29,4 +29,3 @@ visible.
 Limit: word width, WAIT range, PC width, preload contents, and debug mapping are
 provisional. `P-RELOAD`, program-memory area, input waits, protocol workloads,
 CMOS5L fit/timing, and silicon behavior remain `NOT_EVALUATED`.
-

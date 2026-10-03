@@ -10,7 +10,13 @@ stability, exact WAIT decrement/completion, SET masking, opcode validity, PC
 behavior, and safe HALT/FAULT outcomes. Covers reach WAIT(2), HALT and FAULT.
 The mutation job deliberately demands an incorrect decrement-by-two result and
 must find a counterexample. These properties cover the reusable executor input;
-they do not prove a loader, memory macro, public-pin reload or physical timing.
+they do not prove physical timing.
+
+`m1_program_store_formal.sv` separately proves reset clearing, valid and invalid
+length commits, write invalidation, selected-byte readback, and fetch validity
+bounds. Covers reach a ready eight-word image and an unready empty image. The
+end-to-end public-pin reload sequence remains a simulation property because the
+engine and store proofs are compositional, not one combined liveness proof.
 
 ## Archived M0 suite
 

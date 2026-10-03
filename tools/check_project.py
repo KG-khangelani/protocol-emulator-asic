@@ -94,6 +94,7 @@ evidence_collector = (ROOT / "tools/collect_evidence.py").read_text()
 require("learn-waveform:" in project_makefile and "tools/m0_waveform_walkthrough.py" in project_makefile, "Makefile must define the waveform walkthrough")
 require("learn-status:" in project_makefile and "tools/learning_status.py" in project_makefile, "Makefile must define learning status")
 require("formal/m1_engine.sby" in project_makefile, "active formal target must check the M1 engine")
+require("formal/m1_program_store.sby" in project_makefile, "active formal target must check the program store")
 require("LEARNING_VCD" in testbench and "m0-learning.vcd" in testbench, "testbench must expose the readable learning waveform")
 test_makefile = (ROOT / "test/Makefile").read_text()
 require(
@@ -104,7 +105,11 @@ require('("learning_waveform", ["make", "learn-waveform"]' in evidence_collector
 require('("learning_status", [sys.executable, "tools/learning_status.py", "--verify"]' in evidence_collector, "evidence collector must retain learning-status validation")
 for learning_file in ("map.md", "glossary.md", "labs.md", "checkpoints.md", "progress.json"):
     require((ROOT / "docs/learning" / learning_file).is_file(), f"missing learning-system file: {learning_file}")
-for decision_file in ("0008-decouple-engineering-learning.md", "0009-m1-provisional-encoding.md"):
+for decision_file in (
+    "0008-decouple-engineering-learning.md",
+    "0009-m1-provisional-encoding.md",
+    "0010-public-pin-program-store.md",
+):
     require((ROOT / "docs/decisions" / decision_file).is_file(), f"missing M1 decision: {decision_file}")
 research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())
 require(

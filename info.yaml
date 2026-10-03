@@ -19,19 +19,20 @@ project:
   source_files:
     - "project.v"
     - "m1_engine.v"
+    - "m1_program_store.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "loader_address[0]"
+  ui[1]: "loader_address[1]"
+  ui[2]: "loader_address[2]"
+  ui[3]: "loader_address[3]"
+  ui[4]: "loader_address[4]"
+  ui[5]: "loader_length_select"
+  ui[6]: "loader_write"
+  ui[7]: "loader_mode"
 
   # Outputs
   uo[0]: "pc[0]"

@@ -3,8 +3,8 @@
 Status: **implemented simulation candidate; not a complete M1 gate result**.
 Engineering is now allowed to progress independently while M0 owner fluency
 remains pending. This document defines observable cycle behavior; the concrete
-encoding and preload below are provisional experiments, not a final ISA or
-post-fabrication loader.
+encoding and program store below are provisional experiments, not a final ISA
+or qualified physical implementation.
 
 ## Scope and terminology
 
@@ -34,12 +34,12 @@ outside the declared program are invalid. There is no implicit PC wrap.
 ### Provisional implementation parameters
 
 The current candidate implements the D9 encoding: 32-bit words, 16-bit WAIT
-counts (`0..65535`), a five-bit PC, and at most 16 declared valid program words.
+counts (`0..65535`), a five-bit PC, and eight implemented program words.
 The extra PC bit represents the first out-of-range address without aliasing a
-valid word. The top-level experiment preloads four combinational words and maps
-logical GPIO to `uio_out/uio_oe`; `uo_out = {state[1:0], 1'b0, pc[4:0]}`.
-This preload is allowed only as early semantic evidence. It does not satisfy
-`P-RELOAD`, and the final storage/loader/encoding decision remains open.
+valid word. D10 replaces the preload with the public-pin store specified in
+`m1-program-loader.md`. Logical GPIO maps to `uio_out/uio_oe` outside load mode;
+`uo_out = {state[1:0], program_ready, pc[4:0]}`. Storage depth, implementation,
+loader protocol, and encoding remain provisional.
 
 ## Edge priority and state transition
 
@@ -172,10 +172,10 @@ The proposal is acceptable for production only when independent checks cover:
 
 ## Evaluation-contract reconciliation
 
-This subset can exercise SET pin traces and deterministic delays, but it cannot
-yet satisfy `K-INPUT-WAIT`, `K-SHIFT-8`, `K-BOUNDED-LOOP`, `P-RELOAD`, or any
-mandatory protocol workload. It therefore must not be presented as a complete
-candidate. CHIP_COMPLETE accounting remains the primary boundary, and program
-storage, loader/readback, synchronization, pin mapping, and queues remain
-`NOT_EVALUATED`. The 50 MHz clock remains an experimental target, not a proven
-maximum or a promise of protocol bitrate.
+This subset exercises SET pin traces and deterministic delays. `P-RELOAD` is
+`PASS`/`MEASURED` at RTL simulation: programs A and B are loaded after separate
+resets, read back, and produce different public-pin traces without RTL changes.
+`K-INPUT-WAIT`, `K-SHIFT-8`, `K-BOUNDED-LOOP`, and every protocol workload
+remain `NOT_EVALUATED`. This is not a complete candidate: CHIP_COMPLETE physical
+area/timing, asynchronous synchronization, queues, and silicon remain
+`NOT_EVALUATED`. The 50 MHz clock remains an experimental target.

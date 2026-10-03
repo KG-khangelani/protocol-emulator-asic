@@ -7,7 +7,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(CURDIR)/../src
-PROJECT_SOURCES = project.v m1_engine.v
+PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v
 COCOTB_TEST_MODULES = test
 
 # Verilator requires an explicit decision about testbench delays.

@@ -1,8 +1,8 @@
 # Current state
 
-Updated: 2026-10-02. Engineering phase: **M1 - sequencer implementation**.
+Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T02**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T04**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -112,6 +112,12 @@ efficiently express useful digital communication protocols under hard temporal c
 - The M1 candidate implements bounded SET/WAIT/HALT execution, safe FAULT,
   enable/reset priority, a provisional four-word preload, and independently
   checked pin traces. Local Icarus, Verilator, formal and generic synthesis pass.
+- The constant preload is replaced by an eight-word public-pin store with byte
+  writes, length commit, readback and bounded fetch. Local Icarus and Verilator
+  each pass `P-RELOAD` for distinct programs A and B; store formal checks pass.
+- Generic synthesis reports 1,879 abstract cells including 300 state elements,
+  up from 225 cells for the preload candidate. This is a storage-cost screening
+  result, not CMOS5L area or fit.
 
 ## Blocked or unverified
 
@@ -125,16 +131,16 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the candidate at an exact clean CI head, then specify
-  public-pin loading, input synchronization, and bounded external waits before
-  adding input-dependent instructions.
+- Engineering: qualify the loader at an exact clean CI head, then specify input
+  synchronization and bounded external waits before adding input-dependent
+  instructions. Evaluate denser program storage before physical qualification.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
 ## Handoff boundaries
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
-candidate is an early preloaded engine, not a complete reloadable VM. No
-protocol firmware, compiler, new physical closure, Fmax, or fabricated-silicon
-claim exists. The original OpenKnowledge records named in `source-pack.md` were
-not modified or synchronized by this setup.
+candidate is reloadable through clock-synchronous public pins but is not a
+complete protocol VM. No protocol firmware, compiler, new physical closure,
+Fmax, or fabricated-silicon claim exists. The original OpenKnowledge records
+named in `source-pack.md` were not modified or synchronized by this setup.

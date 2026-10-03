@@ -20,10 +20,21 @@ Date: 2026-10-02. Scope: simulation-only specification work.
 
 M0 technical evidence remains closed, and the owner-fluency checkpoint remains
 `PENDING`. By explicit owner approval, engineering now progresses independently;
-no learning status was promoted. The provisional encoding and preload implement
-the reviewed subset but do not provide post-fabrication loading.
+no learning status was promoted. The provisional encoding remains experimental.
 
-Remaining engineering work includes public-pin loader/readback, program storage
-selection, input synchronization, bounded event waits, protocol workloads and
-new CMOS5L qualification. Owner teach-back remains a separate next learning
-action when capacity permits.
+Remaining engineering work includes storage optimization, input synchronization,
+bounded event waits, protocol workloads and new CMOS5L qualification. Owner
+teach-back remains a separate optional action.
+
+## 2026-10-03 reload milestone
+
+The D9 constant preload is superseded by an eight-word public-pin program store.
+Icarus and Verilator each pass four tests, including `P-RELOAD`: load/read/run
+program A, reset, then load/read/run observably different program B without RTL
+changes. Invalid length remains fail-closed. Engine and store formal proofs and
+covers pass, and the wrong-WAIT falsification still produces a counterexample.
+
+Generic synthesis reports 1,879 abstract cells and 300 state elements versus
+225 cells for the preload candidate. This quantifies the flip-flop store cost;
+it is not CMOS5L area, fit, timing, or Fmax evidence. Exact-head CI is the next
+qualification step.

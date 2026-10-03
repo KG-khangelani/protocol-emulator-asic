@@ -45,6 +45,31 @@ async def edge(dut, *, rst_n=1, ena=1):
     dut.clk.value = 0
 
 
+async def load_program(dut, words):
+    for word_index, word in enumerate(words):
+        for lane in range(4):
+            dut.ui_in.value = 0xC0 | (word_index * 4 + lane)
+            dut.uio_in.value = (word >> (8 * lane)) & 0xFF
+            await edge(dut)
+            assert int(dut.uio_oe.value) == 0
+    dut.ui_in.value = 0xE0
+    dut.uio_in.value = len(words)
+    await edge(dut)
+    assert int(dut.uo_out.value) & 0x20
+
+
+async def check_readback(dut, words):
+    for word_index, word in enumerate(words):
+        for lane in range(4):
+            dut.ui_in.value = 0x80 | (word_index * 4 + lane)
+            await Timer(1, unit="ns")
+            assert int(dut.uio_oe.value) == 0xFF
+            assert int(dut.uio_out.value) == ((word >> (8 * lane)) & 0xFF)
+    dut.ui_in.value = 0xA0
+    await Timer(1, unit="ns")
+    assert int(dut.uio_out.value) == len(words)
+
+
 def observe_engine(dut, expected):
     actual = (
         int(dut.engine_pc.value), int(dut.engine_state.value),
@@ -59,21 +84,51 @@ def observe_engine(dut, expected):
 
 
 @cocotb.test()
-async def preloaded_program_exact_pin_trace(dut):
+async def public_pin_reload_changes_observable_program(dut):
     initialise(dut)
     await edge(dut, rst_n=0, ena=0)
+    program_a = [encode(Instruction("SET", mask=0xFF, value=0xA5, oe=0xFF)), encode(Instruction("HALT"))]
+    await load_program(dut, program_a)
+    await check_readback(dut, program_a)
+    dut.ui_in.value = 0
+    await edge(dut)
+    assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == (0x21, 0xA5, 0xFF)
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0xA1
+
+    await edge(dut, rst_n=0, ena=0)
+    assert int(dut.uo_out.value) == 0
+    program_b = [
+        encode(Instruction("SET", mask=0xFF, value=0x3C, oe=0xFF)),
+        encode(Instruction("WAIT", count=1)),
+        encode(Instruction("SET", mask=0x0F, value=0x05, oe=0x09)),
+        encode(Instruction("HALT")),
+    ]
+    await load_program(dut, program_b)
+    await check_readback(dut, program_b)
+    dut.ui_in.value = 0
     expected = [
-        (0x01, 0xA5, 0xFF), (0x41, 0xA5, 0xFF),
-        (0x41, 0xA5, 0xFF), (0x02, 0xA5, 0xFF),
-        (0x03, 0xA3, 0xF5), (0x83, 0xA3, 0xF5),
+        (0x21, 0x3C, 0xFF), (0x61, 0x3C, 0xFF),
+        (0x22, 0x3C, 0xFF), (0x23, 0x35, 0xF9), (0xA3, 0x35, 0xF9),
     ]
     for status, value, oe in expected:
         await edge(dut)
-        assert int(dut.uo_out.value) == status
-        assert int(dut.uio_out.value) == value
-        assert int(dut.uio_oe.value) == oe
-    await edge(dut, ena=0)
-    assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == expected[-1]
+        assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == (status, value, oe)
+
+
+@cocotb.test()
+async def invalid_length_never_releases_engine(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    dut.ui_in.value = 0xE0
+    dut.uio_in.value = 9
+    await edge(dut)
+    assert int(dut.uo_out.value) == 0
+    dut.ui_in.value = 0
+    for _ in range(3):
+        await edge(dut)
+        assert int(dut.uo_out.value) == 0
+        assert int(dut.uio_oe.value) == 0
 
 
 @cocotb.test()

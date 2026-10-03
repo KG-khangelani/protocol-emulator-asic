@@ -1,7 +1,4 @@
-/*
- * SPDX-License-Identifier: Apache-2.0
- * M1 simulation candidate: preloaded SET/WAIT/HALT engine integration.
- */
+/* SPDX-License-Identifier: Apache-2.0 */
 `default_nettype none
 
 module tt_um_khangelani_protocol_emulator (
@@ -9,39 +6,42 @@ module tt_um_khangelani_protocol_emulator (
     input wire [7:0] uio_in, output wire [7:0] uio_out,
     output wire [7:0] uio_oe, input wire ena, input wire clk, input wire rst_n
 );
+    wire load_mode = ui_in[7];
+    wire load_write = ui_in[6];
+    wire load_length = ui_in[5];
+    wire [4:0] byte_address = ui_in[4:0];
     wire [4:0] pc;
     wire [1:0] state;
     wire [15:0] wait_left;
     wire [7:0] gpio_value;
     wire [7:0] gpio_oe;
-    reg [31:0] instruction;
-    reg instruction_valid;
+    wire [7:0] loader_data_out;
+    wire [3:0] program_length;
+    wire program_ready;
+    wire [31:0] instruction;
+    wire instruction_valid;
+    wire engine_rst_n = rst_n && program_ready && !load_mode;
 
-    // Provisional simulation-only preload. A public-pin loader is not present.
-    // verilog_lint: waive always-comb
-    always @(*) begin
-        instruction = 32'hc0000000;
-        instruction_valid = 1'b1;
-        case (pc)
-            5'd0: instruction = 32'h00ffffa5; // SET all: drive A5
-            5'd1: instruction = 32'h40000002; // WAIT 2
-            5'd2: instruction = 32'h000f0503; // SET low nibble: value 3, OE 5
-            5'd3: instruction = 32'h80000000; // HALT
-            default: begin instruction = 32'hc0000000; instruction_valid = 1'b0; end
-        endcase
-    end
+    m1_program_store store (
+        .clk(clk), .rst_n(rst_n), .ena(ena),
+        .load_mode(load_mode), .load_write(load_write), .load_length(load_length),
+        .byte_address(byte_address), .data_in(uio_in), .pc(pc),
+        .data_out(loader_data_out), .program_length(program_length),
+        .program_ready(program_ready), .instruction(instruction),
+        .instruction_valid(instruction_valid)
+    );
 
     m1_engine engine (
-        .clk(clk), .rst_n(rst_n), .ena(ena),
+        .clk(clk), .rst_n(engine_rst_n), .ena(ena),
         .instruction(instruction), .instruction_valid(instruction_valid),
         .pc(pc), .state(state), .wait_left(wait_left),
         .gpio_value(gpio_value), .gpio_oe(gpio_oe)
     );
 
-    assign uio_out = gpio_value;
-    assign uio_oe = gpio_oe;
-    assign uo_out = {state, 1'b0, pc};
-    wire _unused = &{ui_in, uio_in, wait_left, 1'b0};
+    assign uio_out = load_mode ? loader_data_out : gpio_value;
+    assign uio_oe = load_mode ? (load_write ? 8'h00 : 8'hff) : gpio_oe;
+    assign uo_out = {state, program_ready, pc};
+    wire _unused = &{wait_left, program_length, 1'b0};
 endmodule
 
 `default_nettype wire
