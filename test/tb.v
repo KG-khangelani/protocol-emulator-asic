@@ -12,6 +12,8 @@ module tb ();
   initial begin
 `ifdef LEARNING_VCD
     $dumpfile("../build/m0-learning.vcd");
+`elsif GL_HARNESS_SMOKE
+    $dumpfile("tb-gl-harness.fst");
 `else
     $dumpfile("tb.fst");
 `endif

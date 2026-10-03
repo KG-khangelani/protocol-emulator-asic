@@ -70,6 +70,7 @@ jobs:
             build/ci/workbench-image.json
             test/results*.xml
             test/tb.fst
+            test/tb-gl-harness.fst
             build/formal/
             build/synthesis.log
             build/synth.json

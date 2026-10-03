@@ -16,13 +16,22 @@ third simulator or a physical result.
 - `seeded_control_and_input_noise`: 1,024 cycles, seed 20260922, sampled control
   variations and between-edge input/control perturbations.
 
-The specification is `../docs/specs/m0-gpio.md`. Icarus writes `results.xml`
-and `tb.fst`; Verilator writes `results-verilator.xml`; the learning command
+The specification is `../docs/specs/m0-gpio.md`. The full Icarus regression
+writes `results.xml` and `tb.fst`; the GL-shaped harness smoke writes
+`results-gl-harness.xml` and `tb-gl-harness.fst`; Verilator writes
+`results-verilator.xml`; the learning command
 writes `../build/m0-learning.vcd` and `results-learning.xml`. Full waveforms can
 be opened using GTKWave or Surfer. Verilator is explicitly given `--timing` so
 it implements the testbench's delays instead of guessing. The official CMOS5L
 `gl_test` action supplies the gate-level netlist and PDK environment and runs
 the same harness using `make GATES=yes`.
+
+`make test` checkpoints the full Icarus waveform and JUnit checksums before it
+runs the 11 ns GL-shaped smoke, then fails if either full-regression artifact was
+overwritten or if a retained label points to the wrong test module. The
+resulting `../build/waveform-provenance.json` records both distinct paths and
+checksums. This protects evidence identity; it does not turn the GL-shaped RTL
+smoke into generated-netlist or physical evidence.
 
 The gate-level source order is intentional: the I/O model is followed by
 `sg13cmos5l_udp.v`, then `sg13cmos5l_stdcell.v`, and finally the generated
