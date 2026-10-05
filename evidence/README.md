@@ -19,7 +19,7 @@
 | E0015 | With Docker Desktop open, can this Windows host run the locked local M0 ladder end to end? | Signed Docker Desktop 4.92.0 and Linux engine healthy; all 9 local stages PASS; physical flow NOT RUN | `E0015-local-docker-qualification/README.md` |
 | E0016 | Can reusable timed shifting emit two distinct exact UART 8N1 frames without a UART-specific state machine? | All 11 local and clean-CI stages PASS at `b0555df`; 14 tests per simulator, 18 model tests; independent review clean; generic screen 2,783 cells/410 bits | `E0016-uart-tx-8n1/README.md` |
 | E0017 | Can existing instructions schedule and check UART-RX without new protocol RTL, and where does delivery fail? | Exact semantic timing/payload and bounded error checks PASS; raw capture before validation and overwritten first result remain limitations; RX RTL NOT_EVALUATED | `E0017-uart-rx-semantic/README.md` |
-| E0018 | Can bounded last-byte RX be verified at public pins without loader contention or additional retained state? | Corrected full local collector/re-review PASS; initial lint/provenance failures preserved; exact-head CI pending; generic +10 cells/+0 state | `E0018-uart-rx-public/README.md` |
+| E0018 | Can bounded last-byte RX be verified at public pins without loader contention or additional retained state? | Local and clean implementation CI/re-review PASS at `181cfa1`; initial failures preserved; PR7 tracks final-record exact-head CI/integration; generic +10 cells/+0 state | `E0018-uart-rx-public/README.md` |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

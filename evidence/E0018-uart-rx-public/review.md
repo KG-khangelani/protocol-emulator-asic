@@ -38,3 +38,22 @@ Reviewed implementation anchors (SHA-256):
 Conclusion: no remaining review blocker. The frozen-tree aggregate and exact
 committed-head CI must still pass before integration. This review does not
 promote owner fluency or physical/complete-UART claims.
+
+## Clean implementation CI and qualification-record re-review
+
+Reviewer independently checks clean head
+`181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03`, all eleven passing collector stages,
+all 31 extracted artifact hashes and all 130 source hashes against Git blobs at
+that commit. Curated CI manifest/JUnit files are byte-identical to originals;
+manifest SHA-256 is
+`cb84133515ca08c5f9e0fdf53a496edf33fa329f6440d88e5abb744c7f54fb1f`.
+Both simulator reports contain the original and RX modules, with no failures,
+errors or skips. Independent CI netlist recount is 2,793 cells/410 state bits.
+
+Only docs/evidence change after the implementation commit. Review confirms
+accurate GitHub-reported/unverified ZIP-digest attribution, final-only batch
+delivery and host-abort limits, loader/runtime pin ownership, and the derived
+9P=3,906-clock/78.12-us window NOT being a delivery proof. Final-record CI and
+normal integration are explicitly tracked separately at PR7. No remaining
+blocker before the record commit and its own exact-head CI; no merge, physical
+or human-fluency pass is inferred.

@@ -1,6 +1,7 @@
 # D18 - Bounded last-byte RX delivery with nonintrusive readout
 
-Date: 2026-10-05. Status: locally verified RTL experiment, E0018; exact-head CI pending.
+Date: 2026-10-05. Status: RTL/formal and clean-CI qualified implementation,
+E0018 at `181cfa1`; PR7 tracks final-record exact-head CI/integration.
 
 Choose an explicit two-frame batch: validate both starts/stops and deliver only
 the final byte after normal HALT. The first byte is intentionally discarded;

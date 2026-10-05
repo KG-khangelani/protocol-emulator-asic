@@ -1,6 +1,7 @@
 # M1 nonintrusive public register readback
 
-Status: locally verified simulation candidate, D18/E0018. Official top-level ports and loader
+Status: RTL/formal and clean-CI verified candidate, D18/E0018 at `181cfa1`.
+Official top-level ports and loader
 transactions remain unchanged. This read path is protocol-independent.
 
 ## Selection and ownership

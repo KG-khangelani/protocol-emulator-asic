@@ -207,7 +207,9 @@ efficiently express useful digital communication protocols under hard temporal c
   The initial aggregate run passes functional/formal/generic screens but fails
   lint syntax and the stale single-module provenance validator; E0018 preserves
   these failures. The corrected frozen-tree aggregate and independent re-review
-  pass; exact-head CI remains the publication gate. Generic screening is
+  pass. Clean implementation head `181cfa1` passes push/PR CI and docs; E0018
+  retains the clean manifest and qualification record. [PR7](https://github.com/KG-khangelani/protocol-emulator-asic/pull/7)
+  tracks final-record exact-head CI and normal integration. Generic screening is
   2,793 abstract cells/410 state bits (+10 cells, no new state versus TX).
   Complete retained-two-byte/continuous receive and physical closure remain open.
 
@@ -223,9 +225,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the bounded last-byte RX/public readout candidate after
-  integration fixes, independent re-review and exact-head CI. Then specify a
-  bounded host-service/delivery contract for preserving both received frames
+- Engineering: specify a bounded host-service/delivery contract for preserving
+  both received frames after PR7's exact-green integration
   before adding storage. Keep focused risk-based checks during iteration and
   aggregate gates at review/merge milestones; no new physical claim is implied.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer

@@ -1,7 +1,7 @@
 # P-UART-RX-8N1 contract and semantic feasibility experiment
 
-Status: locally verified bounded last-byte public-pin RTL experiment (E0018);
-exact-head CI pending. D18 fixed delivery before the implementation measurement.
+Status: RTL/formal and clean-CI verified bounded last-byte experiment (E0018,
+implementation `181cfa1`). D18 fixed delivery before implementation measurement.
 
 ## Workload and prerequisites
 
@@ -11,7 +11,9 @@ For the reference generator only, even P in 4..32766 is legal: the bounded
 start timeout 2P must fit the existing unsigned 16-bit field. Reduced P=4 is a
 semantic corner, not another qualified baud rate or a physical frequency claim.
 
-RX is `uio_in[1]`, always released (`uio_oe[1]=0`). Before execution, load/read
+During execution/runtime readback RX is `uio_in[1]`, always released
+(`uio_oe[1]=0`). Quiesce/disconnect the external UART source during loader
+transactions (including reload), when the loader owns `uio`. Before execution, load/read
 the eight words and write both TX payload registers (1 and 4) to `ff`. Leave
 loader mode, drive RX idle high, and take two rising edges with `ena=0` to flush
 loader residue from the input synchronizer. Arm PC1 before the first start;
