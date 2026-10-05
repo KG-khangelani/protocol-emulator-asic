@@ -20,6 +20,7 @@ project:
     - "project.v"
     - "m1_engine.v"
     - "m1_program_store.v"
+    - "m1_data_store.v"
     - "m1_input_sync.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
@@ -31,7 +32,7 @@ pinout:
   ui[2]: "loader_address[2]"
   ui[3]: "loader_address[3]"
   ui[4]: "loader_address[4]"
-  ui[5]: "loader_length_select"
+  ui[5]: "loader_register_select"
   ui[6]: "loader_write"
   ui[7]: "loader_mode"
 

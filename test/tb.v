@@ -36,6 +36,7 @@ module tb ();
   reg [31:0] engine_instruction;
   reg engine_instruction_valid;
   reg [7:0] engine_sampled_inputs;
+  reg [7:0] engine_tx_payload;
   wire [4:0] engine_pc;
   wire [1:0] engine_state;
   wire [15:0] engine_wait_left;
@@ -49,6 +50,15 @@ module tb ();
   wire [7:0] engine_loop_remaining_status;
   wire [4:0] engine_loop_start_status;
   wire [4:0] engine_loop_end_status;
+  wire engine_shift_active_status;
+  wire [2:0] engine_shift_bits_done_status;
+  wire engine_shift_msb_first_status;
+  wire [2:0] engine_shift_tx_pin_status;
+  wire [2:0] engine_shift_rx_pin_status;
+  wire [7:0] engine_shift_tx_data_status;
+  wire [7:0] engine_shift_rx_data_status;
+  wire engine_shift_result_write;
+  wire [7:0] engine_shift_result_data;
 `endif
 `endif
 
@@ -73,6 +83,7 @@ module tb ();
       .instruction(engine_instruction),
       .instruction_valid(engine_instruction_valid),
       .sampled_inputs(engine_sampled_inputs),
+      .tx_payload(engine_tx_payload),
       .pc(engine_pc),
       .state(engine_state),
       .wait_left(engine_wait_left),
@@ -85,7 +96,16 @@ module tb ();
     .loop_active_status(engine_loop_active_status),
     .loop_remaining_status(engine_loop_remaining_status),
     .loop_start_status(engine_loop_start_status),
-    .loop_end_status(engine_loop_end_status)
+    .loop_end_status(engine_loop_end_status),
+    .shift_active_status(engine_shift_active_status),
+    .shift_bits_done_status(engine_shift_bits_done_status),
+    .shift_msb_first_status(engine_shift_msb_first_status),
+    .shift_tx_pin_status(engine_shift_tx_pin_status),
+    .shift_rx_pin_status(engine_shift_rx_pin_status),
+    .shift_tx_data_status(engine_shift_tx_data_status),
+    .shift_rx_data_status(engine_shift_rx_data_status),
+    .shift_result_write(engine_shift_result_write),
+    .shift_result_data(engine_shift_result_data)
   );
 `endif
 `endif

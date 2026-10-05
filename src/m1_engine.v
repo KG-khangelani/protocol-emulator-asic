@@ -4,14 +4,19 @@
 module m1_engine (
     input wire clk, input wire rst_n, input wire ena,
     input wire [31:0] instruction, input wire instruction_valid,
-    input wire [7:0] sampled_inputs,
+    input wire [7:0] sampled_inputs, input wire [7:0] tx_payload,
     output reg [4:0] pc, output reg [1:0] state,
     output reg [15:0] wait_left,
     output reg [7:0] gpio_value, output reg [7:0] gpio_oe,
     output wire wait_is_input_status, output wire [2:0] wait_pin_status,
     output wire wait_level_status, output wire wait_timeout_skip_status,
     output wire loop_active_status, output wire [7:0] loop_remaining_status,
-    output wire [4:0] loop_start_status, output wire [4:0] loop_end_status
+    output wire [4:0] loop_start_status, output wire [4:0] loop_end_status,
+    output wire shift_active_status, output wire [2:0] shift_bits_done_status,
+    output wire shift_msb_first_status, output wire [2:0] shift_tx_pin_status,
+    output wire [2:0] shift_rx_pin_status, output wire [7:0] shift_tx_data_status,
+    output wire [7:0] shift_rx_data_status,
+    output wire shift_result_write, output wire [7:0] shift_result_data
 );
     localparam reg [1:0] Run=2'b00, Waiting=2'b01, Halted=2'b10, Faulted=2'b11;
     localparam reg [1:0] OpSet=2'b00, OpWait=2'b01, OpHalt=2'b10, OpWaitPin=2'b11;
@@ -23,6 +28,13 @@ module m1_engine (
     reg [4:0] loop_start;
     reg [4:0] loop_end;
     reg [7:0] loop_remaining;
+    reg shift_active;
+    reg [2:0] shift_bits_done;
+    reg shift_msb_first;
+    reg [2:0] shift_tx_pin;
+    reg [2:0] shift_rx_pin;
+    reg [7:0] shift_tx_data;
+    reg [7:0] shift_rx_data;
     wire [1:0] opcode = instruction[31:30];
     wire set_valid = (instruction[29:24] == 6'b0);
     wire wait_valid = (instruction[29:16] == 14'b0);
@@ -32,6 +44,24 @@ module m1_engine (
                                   {1'b0, instruction[28:24]};
     wire loop_target_valid = !loop_target_wide[5];
     wire halt_valid = (instruction[29:0] == 30'b0);
+    wire shift_valid = instruction[29] && (instruction[21:0] == 22'd0) &&
+                       (instruction[27:25] != instruction[24:22]);
+    wire shift_config_matches = (instruction[28] == shift_msb_first) &&
+                                (instruction[27:25] == shift_tx_pin) &&
+                                (instruction[24:22] == shift_rx_pin);
+    wire selected_shift_order = shift_active ? shift_msb_first : instruction[28];
+    wire [2:0] selected_shift_tx_pin = shift_active ? shift_tx_pin : instruction[27:25];
+    wire [2:0] selected_shift_rx_pin = shift_active ? shift_rx_pin : instruction[24:22];
+    wire selected_shift_tx_bit = shift_active ?
+                                 (shift_msb_first ? shift_tx_data[7] : shift_tx_data[0]) :
+                                 (instruction[28] ? tx_payload[7] : tx_payload[0]);
+    wire selected_shift_rx_bit = sampled_inputs[selected_shift_rx_pin];
+    wire [7:0] shift_tx_mask = 8'b00000001 << selected_shift_tx_pin;
+    wire [7:0] shift_rx_mask = 8'b00000001 << selected_shift_rx_pin;
+    wire [7:0] shift_rx_base = shift_active ? shift_rx_data : 8'd0;
+    wire [7:0] shift_rx_next = selected_shift_order ?
+                               {shift_rx_base[6:0], selected_shift_rx_bit} :
+                               {selected_shift_rx_bit, shift_rx_base[7:1]};
     wire wait_pin_valid = (instruction[24:16] == 9'b0);
     wire selected_input = sampled_inputs[instruction[29:27]];
     wire latched_input = sampled_inputs[wait_pin];
@@ -43,6 +73,18 @@ module m1_engine (
     assign loop_remaining_status = loop_remaining;
     assign loop_start_status = loop_start;
     assign loop_end_status = loop_end;
+    assign shift_active_status = shift_active;
+    assign shift_bits_done_status = shift_bits_done;
+    assign shift_msb_first_status = shift_msb_first;
+    assign shift_tx_pin_status = shift_tx_pin;
+    assign shift_rx_pin_status = shift_rx_pin;
+    assign shift_tx_data_status = shift_tx_data;
+    assign shift_rx_data_status = shift_rx_data;
+    assign shift_result_write = rst_n && ena && (state == Run) &&
+                                instruction_valid && (opcode == OpHalt) &&
+                                shift_valid && shift_active &&
+                                shift_config_matches && (shift_bits_done == 3'd7);
+    assign shift_result_data = rst_n ? shift_rx_next : 8'd0;
 
     task automatic advance_pc;
         begin
@@ -68,8 +110,12 @@ module m1_engine (
             wait_timeout_skip <= 1'b0;
             loop_active <= 1'b0; loop_start <= 5'd0; loop_end <= 5'd0;
             loop_remaining <= 8'd0;
-        end else if (ena) begin
-            case (state)
+            shift_active <= 1'b0; shift_bits_done <= 3'd0;
+            shift_msb_first <= 1'b0; shift_tx_pin <= 3'd0; shift_rx_pin <= 3'd0;
+            shift_tx_data <= 8'd0; shift_rx_data <= 8'd0;
+        end else begin
+            if (ena) begin
+                case (state)
                 Halted: begin end
                 Faulted: begin end
                 Waiting: begin
@@ -130,8 +176,40 @@ module m1_engine (
                             end
                             OpHalt: begin
                                 wait_is_input <= 1'b0;
-                                state <= (halt_valid && !loop_active) ? Halted : Faulted;
                                 wait_left <= 16'd0;
+                                if (!instruction[29]) begin
+                                    state <= (halt_valid && !loop_active && !shift_active) ?
+                                             Halted : Faulted;
+                                end else if (!shift_valid ||
+                                             (shift_active && !shift_config_matches)) begin
+                                    state <= Faulted;
+                                end else begin
+                                    gpio_value <= (gpio_value & ~shift_tx_mask) |
+                                                  (selected_shift_tx_bit ? shift_tx_mask : 8'd0);
+                                    gpio_oe <= (gpio_oe | shift_tx_mask) & ~shift_rx_mask;
+                                    shift_rx_data <= shift_rx_next;
+                                    if (!shift_active) begin
+                                        shift_active <= 1'b1;
+                                        shift_bits_done <= 3'd1;
+                                        shift_msb_first <= instruction[28];
+                                        shift_tx_pin <= instruction[27:25];
+                                        shift_rx_pin <= instruction[24:22];
+                                        shift_tx_data <= instruction[28] ?
+                                                         {tx_payload[6:0], 1'b0} :
+                                                         {1'b0, tx_payload[7:1]};
+                                    end else begin
+                                        shift_tx_data <= shift_msb_first ?
+                                                         {shift_tx_data[6:0], 1'b0} :
+                                                         {1'b0, shift_tx_data[7:1]};
+                                        if (shift_bits_done == 3'd7) begin
+                                            shift_active <= 1'b0;
+                                            shift_bits_done <= 3'd0;
+                                        end else begin
+                                            shift_bits_done <= shift_bits_done + 3'd1;
+                                        end
+                                    end
+                                    advance_pc();
+                                end
                             end
                             OpWaitPin: begin
                                 if (!wait_pin_valid) begin
@@ -159,7 +237,8 @@ module m1_engine (
                         endcase
                     end
                 end
-            endcase
+                endcase
+            end
         end
     end
 endmodule

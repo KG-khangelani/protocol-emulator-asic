@@ -1,8 +1,8 @@
 # Current state
 
-Updated: 2026-10-03. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T08**. Active learning task: **M0-T01**,
+Active engineering task: **M1-T09**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -149,11 +149,23 @@ efficiently express useful digital communication protocols under hard temporal c
   to `main` at `b3b73e6fc63b2b22c9f9bd2314fd9e7a97b6266a`.
 - A post-merge evidence audit found that the 11 ns GL-shaped smoke overwrote
   `test/tb.fst`, which the collector then labelled as the full `rtl_icarus`
-  waveform. The M1-T08 candidate gives the smoke a distinct FST, checkpoints
+  waveform. M1-T08 gives the smoke a distinct FST, checkpoints
   the full regression before the smoke, rejects checksum or label drift, and
-  archives each artifact under its actual producing stage. The complete local
-  11-stage evidence collector passes; exact-head CI and independent review
-  remain pending.
+  archives each artifact under its actual producing stage. Exact-head CI and
+  independent review passed; PR 3 was merged to `main` at
+  `2326022cc9d8ff0135448341ca5d942a5bcfbe91`.
+- K-SHIFT-8 acceptance is frozen before implementation in
+  `specs/k-shift-8.md`. D15 composes an eight-bit transfer from one-bit
+  SHIFT_STEP operations inside the existing bounded LOOP. A three-word public
+  program sends and receives bytes in either bit order in ten accepted edges;
+  TX payload and RX result/valid use public loader registers.
+- The complete 11-stage locked evidence collector passes locally for the
+  K-SHIFT-8 working-tree candidate: eleven tests on each simulator, 16 independent
+  model checks, waveform provenance, lint, formal proof/cover/mutation and
+  generic synthesis. Generic synthesis reports 2,534 abstract cells and
+  385 state elements: +359 cells and +44 state bits over K-BOUNDED-LOOP. The 44
+  state bits exactly decompose into 17 data-store bits and 27 in-progress shift
+  bits. These are simulation/formal/structural screens, not physical evidence.
 
 ## Blocked or unverified
 
@@ -167,16 +179,17 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the M1-T08 evidence-integrity fix at an exact clean CI
-  head and independent review. K-SHIFT-8 work remains paused; do not add shift
-  state as part of this corrective PR.
+- Engineering: qualify M1-T09 K-SHIFT-8 at an exact clean CI head and independent
+  review. Do not claim a protocol or rerun physical closure from this simulation
+  candidate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
 ## Handoff boundaries
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
-candidate is reloadable through clock-synchronous public pins but is not a
-complete protocol VM. No protocol firmware, compiler, new physical closure,
-Fmax, or fabricated-silicon claim exists. The original OpenKnowledge records
+candidate is reloadable through clock-synchronous public pins and has a local
+shift-microkernel candidate, but it is not a complete protocol VM. No protocol
+firmware, compiler, new physical closure, Fmax, or fabricated-silicon claim
+exists. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

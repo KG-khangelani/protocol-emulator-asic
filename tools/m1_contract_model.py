@@ -25,6 +25,9 @@ class Instruction:
     level: int = 0
     timeout_skip: int = 0
     length: int = 0
+    msb_first: int = 0
+    tx_pin: int = 0
+    rx_pin: int = 0
 
 
 @dataclass
@@ -42,6 +45,15 @@ class Machine:
     loop_start: int = 0
     loop_end: int = 0
     loop_remaining: int = 0
+    shift_active: bool = False
+    shift_bits_done: int = 0
+    shift_msb_first: bool = False
+    shift_tx_pin: int = 0
+    shift_rx_pin: int = 0
+    shift_tx_data: int = 0
+    shift_rx_data: int = 0
+    shift_result_write: bool = False
+    shift_result_data: int = 0
 
     def _advance(self):
         if self.loop_active and self.pc + 1 == self.loop_end:
@@ -55,7 +67,7 @@ class Machine:
         else:
             self.pc += 1
 
-    def edge(self, program, *, rst_n=True, ena=True, sampled_inputs=0):
+    def edge(self, program, *, rst_n=True, ena=True, sampled_inputs=0, tx_payload=0):
         if len(program) > MAX_PROGRAM_WORDS:
             raise ValueError("provisional M1 program exceeds 16 words")
         if not rst_n:
@@ -66,7 +78,15 @@ class Machine:
             self.wait_timeout_skip = False
             self.loop_active = False
             self.loop_start = self.loop_end = self.loop_remaining = 0
+            self.shift_active = False
+            self.shift_bits_done = 0
+            self.shift_msb_first = False
+            self.shift_tx_pin = self.shift_rx_pin = 0
+            self.shift_tx_data = self.shift_rx_data = 0
+            self.shift_result_write = False
+            self.shift_result_data = 0
             return
+        self.shift_result_write = False
         if not ena or self.state in (State.HALT, State.FAULT):
             return
         if self.state is State.WAIT:
@@ -145,8 +165,50 @@ class Machine:
                 self.loop_end = target
                 self.loop_remaining = instruction.count
                 self.pc += 1
+        elif instruction.opcode == "SHIFT_STEP":
+            if self.shift_active and (
+                bool(instruction.msb_first) != self.shift_msb_first
+                or instruction.tx_pin != self.shift_tx_pin
+                or instruction.rx_pin != self.shift_rx_pin
+            ):
+                self.state = State.FAULT
+                self.wait_left = 0
+                return
+            order = self.shift_msb_first if self.shift_active else bool(instruction.msb_first)
+            tx_pin = self.shift_tx_pin if self.shift_active else instruction.tx_pin
+            rx_pin = self.shift_rx_pin if self.shift_active else instruction.rx_pin
+            tx_data = self.shift_tx_data if self.shift_active else tx_payload
+            rx_data = self.shift_rx_data if self.shift_active else 0
+            tx_bit = (tx_data >> (7 if order else 0)) & 1
+            rx_bit = (sampled_inputs >> rx_pin) & 1
+            tx_mask = 1 << tx_pin
+            rx_mask = 1 << rx_pin
+            self.gpio_value = (self.gpio_value & ~tx_mask) | (tx_bit << tx_pin)
+            self.gpio_oe = (self.gpio_oe | tx_mask) & ~rx_mask
+            if order:
+                next_tx = (tx_data << 1) & 0xFF
+                next_rx = ((rx_data << 1) | rx_bit) & 0xFF
+            else:
+                next_tx = tx_data >> 1
+                next_rx = ((rx_bit << 7) | (rx_data >> 1)) & 0xFF
+            self.shift_tx_data = next_tx
+            self.shift_rx_data = next_rx
+            if not self.shift_active:
+                self.shift_active = True
+                self.shift_bits_done = 1
+                self.shift_msb_first = order
+                self.shift_tx_pin = tx_pin
+                self.shift_rx_pin = rx_pin
+            elif self.shift_bits_done == 7:
+                self.shift_active = False
+                self.shift_bits_done = 0
+                self.shift_result_write = True
+                self.shift_result_data = next_rx
+            else:
+                self.shift_bits_done += 1
+            self._advance()
         else:
-            self.state = State.FAULT if self.loop_active else State.HALT
+            self.state = State.FAULT if (self.loop_active or self.shift_active) else State.HALT
             self.wait_left = 0
 
     @staticmethod
@@ -163,8 +225,14 @@ class Machine:
             return (0 <= instruction.pin <= 7 and instruction.level in (0, 1)
                     and instruction.timeout_skip in (0, 1)
                     and 0 <= instruction.count <= MAX_WAIT)
+        if instruction.opcode == "SHIFT_STEP":
+            return (instruction.msb_first in (0, 1)
+                    and 0 <= instruction.tx_pin <= 7
+                    and 0 <= instruction.rx_pin <= 7
+                    and instruction.tx_pin != instruction.rx_pin)
         return instruction.opcode == "HALT" and not any(
             (instruction.mask, instruction.value, instruction.oe, instruction.count,
              instruction.pin, instruction.level, instruction.timeout_skip,
-             instruction.length)
+             instruction.length, instruction.msb_first, instruction.tx_pin,
+             instruction.rx_pin)
         )

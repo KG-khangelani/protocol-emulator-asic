@@ -146,6 +146,92 @@ class ContractModelTest(unittest.TestCase):
         machine.edge([Instruction("LOOP", length=31, count=0)])
         self.assertEqual((machine.state, machine.pc), (State.FAULT, 0))
 
+    def test_shift_step_both_orders_and_byte_extremes(self):
+        cases = (
+            (0, 0x96, 0x3A),
+            (1, 0x69, 0xC5),
+            (0, 0x00, 0xFF),
+            (1, 0xFF, 0x00),
+        )
+        for msb_first, payload, received in cases:
+            program = [
+                Instruction("LOOP", length=1, count=8),
+                Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0, rx_pin=1),
+                Instruction("HALT"),
+            ]
+            machine = Machine()
+            machine.edge(program, tx_payload=payload)
+            indices = range(7, -1, -1) if msb_first else range(8)
+            transmitted = []
+            for index in indices:
+                machine.edge(
+                    program,
+                    sampled_inputs=((received >> index) & 1) << 1,
+                    tx_payload=payload,
+                )
+                transmitted.append(machine.gpio_value & 1)
+            expected_tx = [(payload >> index) & 1 for index in indices]
+            self.assertEqual(transmitted, expected_tx)
+            self.assertEqual(
+                (machine.pc, machine.shift_active, machine.shift_bits_done,
+                 machine.shift_result_write, machine.shift_result_data),
+                (2, False, 0, True, received),
+            )
+            machine.edge(program, tx_payload=payload)
+            self.assertEqual((machine.state, machine.pc, machine.shift_result_write),
+                             (State.HALT, 2, False))
+
+    def test_shift_freeze_and_interleaved_set_wait(self):
+        program = [
+            Instruction("LOOP", length=3, count=8),
+            Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1),
+            Instruction("SET", mask=4, value=4, oe=4),
+            Instruction("WAIT", count=0),
+            Instruction("HALT"),
+        ]
+        machine = Machine()
+        machine.edge(program, tx_payload=0xA5)
+        machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+        frozen = Machine(**machine.__dict__)
+        machine.edge(program, ena=False, sampled_inputs=0, tx_payload=0xA5)
+        self.assertEqual(machine, frozen)
+        for _ in range(7):
+            machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+            machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+            machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+        machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+        machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+        machine.edge(program, sampled_inputs=2, tx_payload=0xA5)
+        self.assertEqual((machine.state, machine.shift_result_data, machine.gpio_oe),
+                         (State.HALT, 0xFF, 0x05))
+
+    def test_shift_invalid_and_partial_terminal_fail_closed(self):
+        invalid = Machine(gpio_value=0xAA, gpio_oe=0x55)
+        invalid.edge([Instruction("SHIFT_STEP", tx_pin=2, rx_pin=2)])
+        self.assertEqual(
+            (invalid.state, invalid.pc, invalid.gpio_value, invalid.gpio_oe),
+            (State.FAULT, 0, 0xAA, 0x55),
+        )
+
+        changed = Machine()
+        program = [
+            Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1),
+            Instruction("SHIFT_STEP", msb_first=1, tx_pin=0, rx_pin=1),
+        ]
+        changed.edge(program, tx_payload=0x55)
+        changed.edge(program, tx_payload=0x55)
+        self.assertEqual((changed.state, changed.pc), (State.FAULT, 1))
+
+        partial = Machine()
+        partial.edge([Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1),
+                      Instruction("HALT")], tx_payload=0x55)
+        partial.edge([Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1),
+                      Instruction("HALT")], tx_payload=0x55)
+        self.assertEqual((partial.state, partial.pc, partial.shift_result_write),
+                         (State.FAULT, 1, False))
+        partial.edge([], rst_n=False, ena=False)
+        self.assertEqual(partial, Machine())
+
 
 if __name__ == "__main__":
     unittest.main()

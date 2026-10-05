@@ -25,6 +25,9 @@ def encode(instruction):
         return (1 << 30) | (1 << 29) | (instruction.length << 24) | instruction.count
     if instruction.opcode == "HALT":
         return 2 << 30
+    if instruction.opcode == "SHIFT_STEP":
+        return ((2 << 30) | (1 << 29) | (instruction.msb_first << 28) |
+                (instruction.tx_pin << 25) | (instruction.rx_pin << 22))
     if instruction.opcode == "WAIT_PIN":
         return ((3 << 30) | (instruction.pin << 27) | (instruction.level << 26) |
                 (instruction.timeout_skip << 25) | instruction.count)
@@ -41,6 +44,7 @@ def initialise(dut):
         dut.engine_instruction.value = 0
         dut.engine_instruction_valid.value = 0
         dut.engine_sampled_inputs.value = 0
+        dut.engine_tx_payload.value = 0
 
 
 async def edge(dut, *, rst_n=1, ena=1):
@@ -78,17 +82,62 @@ async def check_readback(dut, words):
     assert int(dut.uio_out.value) == len(words)
 
 
+async def write_data_register(dut, address, value):
+    dut.ui_in.value = 0xE0 | address
+    dut.uio_in.value = value
+    await edge(dut)
+    assert int(dut.uio_oe.value) == 0
+
+
+async def read_data_register(dut, address):
+    dut.ui_in.value = 0xA0 | address
+    await Timer(1, unit="ns")
+    assert int(dut.uio_oe.value) == 0xFF
+    return int(dut.uio_out.value)
+
+
 def observe_engine(dut, expected):
     actual = (
         int(dut.engine_pc.value), int(dut.engine_state.value),
         int(dut.engine_wait_left.value), int(dut.engine_gpio_value.value),
-        int(dut.engine_gpio_oe.value),
+        int(dut.engine_gpio_oe.value), int(dut.engine_shift_active_status.value),
+        int(dut.engine_shift_bits_done_status.value),
+        int(dut.engine_shift_result_write.value),
+        int(dut.engine_shift_result_data.value),
     )
     wanted = (
         expected.pc, STATE_BITS[expected.state], expected.wait_left,
-        expected.gpio_value, expected.gpio_oe,
+        expected.gpio_value, expected.gpio_oe, int(expected.shift_active),
+        expected.shift_bits_done, int(expected.shift_result_write),
+        expected.shift_result_data,
     )
     assert actual == wanted, f"RTL {actual} != semantic model {wanted}"
+
+
+def observe_shift_engine(dut, expected):
+    actual = (
+        int(dut.engine_pc.value), int(dut.engine_state.value),
+        int(dut.engine_wait_left.value), int(dut.engine_gpio_value.value),
+        int(dut.engine_gpio_oe.value), int(dut.engine_loop_active_status.value),
+        int(dut.engine_loop_remaining_status.value),
+        int(dut.engine_loop_start_status.value), int(dut.engine_loop_end_status.value),
+        int(dut.engine_shift_active_status.value),
+        int(dut.engine_shift_bits_done_status.value),
+        int(dut.engine_shift_msb_first_status.value),
+        int(dut.engine_shift_tx_pin_status.value),
+        int(dut.engine_shift_rx_pin_status.value),
+        int(dut.engine_shift_tx_data_status.value),
+        int(dut.engine_shift_rx_data_status.value),
+    )
+    wanted = (
+        expected.pc, STATE_BITS[expected.state], expected.wait_left,
+        expected.gpio_value, expected.gpio_oe, int(expected.loop_active),
+        expected.loop_remaining, expected.loop_start, expected.loop_end,
+        int(expected.shift_active), expected.shift_bits_done,
+        int(expected.shift_msb_first), expected.shift_tx_pin,
+        expected.shift_rx_pin, expected.shift_tx_data, expected.shift_rx_data,
+    )
+    assert actual == wanted, f"shift RTL {actual} != semantic model {wanted}"
 
 
 @cocotb.test()
@@ -277,6 +326,163 @@ async def loop_target_overflow_faults_without_alias(dut):
     dut.uio_in.value = 0
     await edge(dut)
     assert int(dut.uo_out.value) == 0xE0  # FAULT at PC0, never wrapped RUN
+
+
+@cocotb.test()
+async def k_shift_8_public_payload_both_orders(dut):
+    """Independent public-pin K-SHIFT-8 traces with synchronized RX data."""
+    cases = ((0, 0x96, 0x3A), (1, 0x69, 0xC5))
+    for msb_first, payload, received in cases:
+        program = [
+            encode(Instruction("LOOP", length=1, count=8)),
+            encode(Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0, rx_pin=1)),
+            encode(Instruction("HALT")),
+        ]
+        initialise(dut)
+        await edge(dut, rst_n=0, ena=0)
+        await load_program(dut, program)
+        await check_readback(dut, program)
+        await write_data_register(dut, 1, payload)
+        assert await read_data_register(dut, 1) == payload
+        assert await read_data_register(dut, 3) == 0
+
+        indices = list(range(7, -1, -1) if msb_first else range(8))
+        rx_bits = [(received >> index) & 1 for index in indices]
+        tx_bits = [(payload >> index) & 1 for index in indices]
+        dut.ui_in.value = 0
+        dut.uio_in.value = rx_bits[0] << 1
+        await edge(dut, ena=0)
+        await edge(dut, ena=0)
+        held = (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value))
+        await edge(dut, ena=0)
+        assert (int(dut.uo_out.value), int(dut.uio_out.value), int(dut.uio_oe.value)) == held
+
+        dut.uio_in.value = rx_bits[1] << 1
+        await edge(dut)  # LOOP enters the one-word body.
+        assert int(dut.uo_out.value) == 0x21
+        for bit_index, expected_tx in enumerate(tx_bits):
+            if bit_index + 2 < 8:
+                dut.uio_in.value = rx_bits[bit_index + 2] << 1
+            await edge(dut)
+            assert (int(dut.uio_out.value) & 1) == expected_tx
+            assert (int(dut.uio_oe.value) & 0x03) == 0x01
+            assert int(dut.uo_out.value) == (0x22 if bit_index == 7 else 0x21)
+
+        await edge(dut)  # HALT follows the same-edge eighth-step result capture.
+        assert int(dut.uo_out.value) == 0xA2
+        assert await read_data_register(dut, 2) == received
+        assert await read_data_register(dut, 3) == 1
+        await write_data_register(dut, 4, 0x5A)
+        assert await read_data_register(dut, 4) == 0
+        assert await read_data_register(dut, 1) == payload
+        assert await read_data_register(dut, 2) == received
+        assert await read_data_register(dut, 3) == 1
+        await write_data_register(dut, 2, received ^ 0xFF)
+        assert await read_data_register(dut, 2) == received
+        assert await read_data_register(dut, 3) == 1
+        await write_data_register(dut, 1, payload ^ 0xFF)
+        assert await read_data_register(dut, 1) == (payload ^ 0xFF)
+        assert await read_data_register(dut, 2) == received
+        assert await read_data_register(dut, 3) == 0
+
+
+@cocotb.test(skip=os.getenv("GATES") == "yes")
+async def shift_trace_matches_semantic_model(dut):
+    for msb_first, payload, received in ((0, 0x96, 0x3A), (1, 0x69, 0xC5)):
+        program = [
+            Instruction("LOOP", length=1, count=8),
+            Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0, rx_pin=1),
+            Instruction("HALT"),
+        ]
+        initialise(dut)
+        model = Machine()
+        await edge(dut, rst_n=0, ena=0)
+        model.edge(program, rst_n=False, ena=False)
+        observe_shift_engine(dut, model)
+
+        for _ in range(10):
+            instruction = program[model.pc]
+            sampled_inputs = 0
+            if instruction.opcode == "SHIFT_STEP":
+                index = 7 - model.shift_bits_done if msb_first else model.shift_bits_done
+                sampled_inputs = ((received >> index) & 1) << instruction.rx_pin
+            dut.engine_instruction.value = encode(instruction)
+            dut.engine_instruction_valid.value = 1
+            dut.engine_sampled_inputs.value = sampled_inputs
+            dut.engine_tx_payload.value = payload
+            if model.shift_active and model.shift_bits_done == 7:
+                await Timer(1, unit="ns")
+                assert int(dut.engine_shift_result_write.value) == 1
+                assert int(dut.engine_shift_result_data.value) == received
+            await edge(dut)
+            model.edge(program, sampled_inputs=sampled_inputs, tx_payload=payload)
+            observe_shift_engine(dut, model)
+
+        assert (model.state, model.pc, model.shift_result_write) == (
+            State.HALT, 2, False
+        )
+
+
+@cocotb.test(skip=os.getenv("GATES") == "yes")
+async def shift_invalid_partial_and_reset_fail_closed(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_tx_payload.value = 0xA5
+    dut.engine_instruction_valid.value = 1
+
+    dut.engine_instruction.value = encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1))
+    await edge(dut)
+    assert (int(dut.engine_shift_active_status.value),
+            int(dut.engine_shift_bits_done_status.value)) == (1, 1)
+    held = (int(dut.engine_pc.value), int(dut.engine_gpio_value.value),
+            int(dut.engine_gpio_oe.value), int(dut.engine_shift_bits_done_status.value))
+    await edge(dut, ena=0)
+    assert (int(dut.engine_pc.value), int(dut.engine_gpio_value.value),
+            int(dut.engine_gpio_oe.value),
+            int(dut.engine_shift_bits_done_status.value)) == held
+    for _ in range(6):
+        await edge(dut)
+    assert (int(dut.engine_shift_active_status.value),
+            int(dut.engine_shift_bits_done_status.value),
+            int(dut.engine_shift_result_write.value)) == (1, 7, 1)
+    dut.engine_instruction.value = encode(Instruction("HALT"))
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 7)
+
+    for invalid_word in (
+        encode(Instruction("SHIFT_STEP", tx_pin=2, rx_pin=2)),
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1)) | 1,
+    ):
+        await edge(dut, rst_n=0, ena=0)
+        dut.engine_instruction.value = invalid_word
+        dut.engine_instruction_valid.value = 1
+        await edge(dut)
+        assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 0)
+        assert (int(dut.engine_gpio_value.value), int(dut.engine_gpio_oe.value)) == (0, 0)
+
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction.value = encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1))
+    dut.engine_instruction_valid.value = 1
+    await edge(dut)
+    assert int(dut.engine_shift_active_status.value) == 1
+    await edge(dut, rst_n=0, ena=0)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_shift_active_status.value),
+            int(dut.engine_shift_result_write.value)) == (0, 0, 0, 0)
+
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction.value = encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1))
+    dut.engine_instruction_valid.value = 1
+    await edge(dut)
+    dut.engine_instruction.value = encode(
+        Instruction("SHIFT_STEP", msb_first=1, tx_pin=0, rx_pin=1)
+    )
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 1)
+    await edge(dut, rst_n=0, ena=0)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_shift_active_status.value),
+            int(dut.engine_shift_result_write.value)) == (0, 0, 0, 0)
 
 
 @cocotb.test(skip=os.getenv("GATES") == "yes")

@@ -22,11 +22,16 @@ outside this proposal and must be specified before production RTL. A concrete
 implementation may pipeline or encode differently only if its public pins and
 architectural state match this edge contract exactly.
 
-The only valid decoded instructions are:
+The initial valid decoded instructions are:
 
 - `SET(mask, value, oe)`, with three eight-bit operands.
 - `WAIT(count)`, where `count` is an unsigned representable value.
 - `HALT`, with no operands.
+
+Subsequent frozen extensions add bounded `WAIT_PIN`, non-nested `LOOP`, and the
+one-bit `SHIFT_STEP` used by K-SHIFT-8. Their exact edge behavior is specified in
+`m1-input-wait.md`, `k-bounded-loop.md`, and `k-shift-8.md`; they retain this
+contract's reset, enable, terminal-state, invalid-program, and no-PC-wrap rules.
 
 Reserved opcodes, reserved operand bits, malformed instructions, and a fetch
 outside the declared program are invalid. There is no implicit PC wrap.
@@ -43,12 +48,13 @@ loader protocol, and encoding remain provisional.
 
 ## Edge priority and state transition
 
-At every rising edge, exactly the first applicable row is taken:
+At every rising edge, exactly the first applicable row is taken. In-progress
+shift state is part of architectural state for reset/freeze purposes:
 
 | Priority | Sampled condition | State immediately after the edge |
 |---:|---|---|
-| 1 | `rst_n = 0` | `pc = 0`, `state = RUN`, `wait_left = 0`, `gpio_value = 0`, `gpio_oe = 0` |
-| 2 | `rst_n = 1`, `ena = 0` | Hold every architectural register and GPIO control bit |
+| 1 | `rst_n = 0` | `pc = 0`, `state = RUN`, waits/loop/shift state clear, `gpio_value = 0`, `gpio_oe = 0` |
+| 2 | `rst_n = 1`, `ena = 0` | Hold every engine architectural register and GPIO control bit |
 | 3 | `state = HALT` | Hold every architectural register and GPIO control bit |
 | 4 | `state = FAULT` | Hold every architectural register and GPIO control bit |
 | 5 | `state = WAIT` | Apply the WAIT completion rule below |
@@ -172,10 +178,11 @@ The proposal is acceptable for production only when independent checks cover:
 
 ## Evaluation-contract reconciliation
 
-This subset exercises SET pin traces and deterministic delays. `P-RELOAD` is
-`PASS`/`MEASURED` at RTL simulation: programs A and B are loaded after separate
-resets, read back, and produce different public-pin traces without RTL changes.
-`K-INPUT-WAIT`, `K-SHIFT-8`, `K-BOUNDED-LOOP`, and every protocol workload
-remain `NOT_EVALUATED`. This is not a complete candidate: CHIP_COMPLETE physical
-area/timing, asynchronous synchronization, queues, and silicon remain
-`NOT_EVALUATED`. The 50 MHz clock remains an experimental target.
+This subset began with SET pin traces and deterministic delays. `P-RELOAD`,
+`K-INPUT-WAIT`, and `K-BOUNDED-LOOP` are qualified `PASS`/`MEASURED` at their
+declared RTL rungs. `K-SHIFT-8` is `PASS`/`MEASURED` only for the local
+simulation/formal candidate pending exact-head CI and review; see its dedicated
+acceptance specification and the research ledger. Every complete protocol
+workload remains `NOT_EVALUATED`. This is not a complete candidate:
+CHIP_COMPLETE physical area/timing, asynchronous synchronization, queues, and
+silicon remain `NOT_EVALUATED`. The 50 MHz clock remains an experimental target.
