@@ -17,6 +17,7 @@ check:
 	$(PYTHON) tools/learning_status.py --verify
 	$(PYTHON) tools/m0_walkthrough.py --verify
 	$(PYTHON) -m unittest discover -s test -p 'test_m1_contract_model.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_oracle.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'
 lint:
 	verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v

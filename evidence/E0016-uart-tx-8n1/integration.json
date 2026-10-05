@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-05",
+  "pr": 5,
+  "final_reviewed_head": "229c97cdff8b04aae41e6d7a2d7ea297183852e8",
+  "final_head_checks": {
+    "push_test": {"id": 37274433142, "conclusion": "success"},
+    "pull_request_test": {"id": 37274438166, "conclusion": "success"},
+    "docs": {"id": 37274433190, "conclusion": "success"}
+  },
+  "merge": "80975edabdc82ca8511ad09e2bacf79ebdf3b27f",
+  "merged_at_utc": "2026-10-05T07:01:35Z",
+  "merge_method": "normal merge; head matched; no check bypass",
+  "post_merge_checks": {
+    "test": {"id": 37275447667, "conclusion": "success"},
+    "docs": {"id": 37275447549, "conclusion": "success"}
+  },
+  "superseded_head": "116976bcbd80739d90fcf283e14998d1f9406236",
+  "superseded_test_runs": "37274215586 and 37274219748 cancelled; not counted as passes",
+  "physical_flow": "NOT_RUN",
+  "m0_owner_fluency": "PENDING"
+}

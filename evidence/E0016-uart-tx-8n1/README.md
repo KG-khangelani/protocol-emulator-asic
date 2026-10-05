@@ -111,6 +111,16 @@ FPGA and silicon remain NOT_EVALUATED. The 50 MHz point is a target, not Fmax.
 The Tiny Tapeout interface, 6x4 allocation and physical config are unchanged.
 M0 human fluency remains PENDING; no learning record is promoted.
 
-Next executable action: verify CI on the documentation-only qualification head
-and hand off qualified draft PR 5 for integration. No merge, hardware purchase
-or competition submission is performed by this evidence record.
+## Authorized integration
+
+Later explicit delegation authorized ready/merge after review and required CI.
+Final reviewed head `229c97c` passes all checks; PR5 was marked ready and merged
+normally at `80975edabdc82ca8511ad09e2bacf79ebdf3b27f`. Post-merge
+[verification](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37275447667)
+and [docs](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37275447549)
+pass. `integration.json` records those identities and the superseded cancelled
+runs; `qualification.json` remains the earlier pre-integration observation.
+
+Next executable action: review the UART-RX contract/oracle experiment (E0017),
+then test public-pin sampling and explicit result-delivery semantics. No new
+physical flow, hardware purchase or competition submission occurred.

@@ -1,8 +1,9 @@
 # P-UART-TX-8N1 acceptance contract
 
 Status: qualified digital RTL/formal workload, 2026-10-05; implementation head
-`b0555df` passes independent review and exact-head push/PR CI. Evidence: E0016;
-draft PR 5 remains unmerged.
+`b0555df` passes independent review and exact-head push/PR CI. Final reviewed
+head `229c97c` passes CI; PR5 merged at `80975ed` with post-merge CI PASS.
+Evidence: E0016. No physical or complete-UART claim is implied.
 
 ## Question and evidence boundary
 

@@ -68,7 +68,7 @@ engineering to proceed independently while M0 owner fluency remains pending.
 | M1-T08 | Preserve simulation waveform provenance | Full RTL and GL-shaped smoke FST/JUnit pairs retain distinct paths, stage labels and verified checksums | Qualified by exact-head CI and independent review; PR 3 merged at `2326022` |
 | M1-T09 | Execute K-SHIFT-8 as a public-pin-loaded kernel | Both bit orders, exact ten-edge bound, RX readback, data-register and partial/error behavior match independent expectations | Qualified at `d1ddc8a`; exact-head CI/re-review passed and PR 4 merged at `081a8b1` |
 | M1-T03 | Add GET and BRANCH only as needed; bounded LOOP was evaluated by M1-T07 | Bounded behavior; cost delta recorded | Queued |
-| M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | TX qualified at `b0555df`: local and exact-head push/PR CI plus independent review pass (E0016); draft PR 5 unmerged, RX contract/implementation remains queued |
+| M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | TX PR5 merged at `80975ed`, post-merge CI passes (E0016); RX contract/independent oracle and model witness pass locally (E0017); RX RTL/delivery qualification remains open |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |
 | M3-T02 | Compare architecture and instruction ablations | Program bytes, cycles, mapped area and verification cost | Queued |
 | M4-T01 | Temporal IR and compiler | Deterministic output, diagnostics and timing checks | Queued |
