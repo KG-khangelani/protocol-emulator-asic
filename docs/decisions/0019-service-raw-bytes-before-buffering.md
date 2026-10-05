@@ -1,6 +1,6 @@
 # D19 - Quarantine raw byte one under a bounded host deadline
 
-Date: 2026-10-05. Status: proposed experiment; no hardware change.
+Date: 2026-10-05. Status: adopted bounded digital experiment; no hardware change.
 
 Use the existing nonintrusive read path to preserve two bytes in an external
 host cache, but accept them only after both stop checks and normal HALT. The
@@ -18,3 +18,7 @@ minimal buffer implementation and cost measurement. M0 learning remains pending.
 
 See `specs/p-uart-rx-host-service.md`. This is an alternative to, not a rewrite
 of E0018's historical final-byte-only delivery qualification.
+
+E0019's local/clean CI at `9379d68` and independent review support this exact
+host contract. The overwritten-first-byte counterexample remains a limit;
+no queue is implemented and no asynchronous/physical service claim follows.

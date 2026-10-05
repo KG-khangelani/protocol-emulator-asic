@@ -28,3 +28,18 @@ Reviewed `test/test_uart_rx_public.py` SHA-256:
 
 Coherent frozen-source local/clean CI remains a distinct release gate, not
 inferred from review or focused tests. This is not physical/owner-fluency evidence.
+
+Evidence audit at implementation `9379d686fb37f912a4beb874c0f506b2f5d2541f`:
+all 31 ORIGINAL local artifacts verify; curated manifest has the same hash.
+132/136 original local source hashes match the implementation commit; four
+post-run documentation differences are explicitly covered by exact-head CI.
+The P434 table is correct and production RTL is unchanged. Refine stale
+local-pending prose, expected mutant FAIL interpretation and JUnit terminal-LF
+normalization in the final record; no implementation blocker was found.
+The record now includes those refinements and original/curated JUnit hashes.
+
+Final record re-review: CLEAN. Independently verified the clean implementation
+head, all 31 original CI artifact hashes, all 136 committed-source hashes,
+explicitly normalized JUnit copies, required formal outcomes and unchanged
+generic cost. Only docs/evidence changed; ZIP attribution, final-record CI/
+integration still pending, physical limits and M0 fluency are distinguished.

@@ -1,8 +1,9 @@
 # Bounded two-byte UART-RX host service
 
-Status: proposed digital contract, D19. Existing chip/firmware unchanged.
+Status: qualified bounded digital contract at `9379d68`, D19/E0019.
+Existing chip/firmware unchanged; final-record CI/integration tracked at PR8.
 This extends E0018's last-byte policy only for an explicitly serviced batch.
-Qualification records belong in E0019; a proof of integer service arithmetic
+Qualification records are in E0019; a proof of integer service arithmetic
 is not a proof of physical host timing.
 
 ## Workload and ownership
@@ -10,7 +11,9 @@ is not a proof of physical host timing.
 Use the exact eight-word image, two back-to-back 8N1 frames, P434 mandatory
 point and even reference periods P4..32766 from `p-uart-rx-8n1.md`. The external
 source and chip clocks have the declared exact ratio; analog baud mismatch,
-metastability and physical read access time remain NOT_EVALUATED. Load/read
+metastability and physical read access time remain NOT_EVALUATED.
+Public RTL qualification covers P434/P4; maximum legal P32766 is checked
+algebraically, not claimed as enumerated RTL protocol coverage. Load/read
 the image and write both TX slots ff with the UART source quiesced. Exit loader,
 flush idle high on two disabled edges, confirm raw-valid zero, then arm.
 
@@ -95,8 +98,8 @@ An SMT arithmetic lemma checks the integer bound and produces a counterexample
 for the one-edge-weakened bound. It is NOT an integrated RTL liveness or pad
 timing proof. Existing RTL/synchronizer/readout formal obligations remain.
 
-No chip storage or interface changes: E0018's 2,793 generic cells/410 state bits
-is prior structural evidence until CI re-screens it. The external host retains
+No chip storage or interface changes: E0018's generic result (2,793 cells/410
+state bits) is reproduced by local/clean CI, not physical evidence. The host retains
 two bytes and service/control state; this cost is explicitly outside CHIP_COMPLETE
 and does not substitute for an autonomous on-chip queue. No general asynchronous
 service, unserviced two-byte retention, full-duplex, or continuous RX claim.
