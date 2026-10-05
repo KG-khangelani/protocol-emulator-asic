@@ -2,7 +2,7 @@
 
 Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
+Active engineering task: **M2-T01 bounded UART receive/host-service qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -212,6 +212,16 @@ efficiently express useful digital communication protocols under hard temporal c
   tracks final-record exact-head CI and normal integration. Generic screening is
   2,793 abstract cells/410 state bits (+10 cells, no new state versus TX).
   Complete retained-two-byte/continuous receive and physical closure remain open.
+- D19 freezes an explicitly host-serviced two-frame batch, not continuous RX.
+  Cache raw byte one tentatively, accept the pair only after known-image HALT
+  and terminal readback, and discard the cache on FAULT/control interruption.
+  A settled synchronous polling/read schedule with H+L<=10P preserves byte one
+  before overwrite; one-edge weakening has an indistinguishable late-reader
+  counterexample. Local and clean CI pass all eleven stages at `9379d68`
+  (E0019), with independent review clean and 20 groups per simulator.
+  [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) tracks final-record
+  exact-head CI and integration. No production RTL/state/interface
+  change occurs, and external two-byte host storage is outside CHIP_COMPLETE.
 
 ## Blocked or unverified
 
@@ -225,10 +235,11 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: specify a bounded host-service/delivery contract for preserving
-  both received frames after PR7's exact-green integration
-  before adding storage. Keep focused risk-based checks during iteration and
-  aggregate gates at review/merge milestones; no new physical claim is implied.
+- Engineering: after PR8's exact-green integration, freeze an SPI mode-0
+  seed of the four-mode comparison workload: pin direction, sample/CS timing
+  and an independent oracle before considering new RTL. UART
+  buffering is not justified by the declared serviced batch; an actual host
+  must independently establish its physical H/L bound before using that claim.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
@@ -236,7 +247,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
-UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
+UART-transmit firmware candidate, a bounded last-byte RX experiment and a
+qualified bounded host-serviced pair. Continuous/autonomous
 UART receive delivery, SPI and I2C remain unevaluated;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records

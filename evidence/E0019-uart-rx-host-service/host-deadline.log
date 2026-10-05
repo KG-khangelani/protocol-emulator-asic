@@ -1,0 +1,8 @@
+unsat
+sat
+((p 4)
+ (h 1)
+ (l 40)
+ (d 0))
+PASS: bounded integer-host deadline lemma; weakened-bound counterexample exists
+LIMIT: no RTL liveness, asynchronous service or physical access proof
