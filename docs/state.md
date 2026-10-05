@@ -166,6 +166,12 @@ efficiently express useful digital communication protocols under hard temporal c
   385 state elements: +359 cells and +44 state bits over K-BOUNDED-LOOP. The 44
   state bits exactly decompose into 17 data-store bits and 27 in-progress shift
   bits. These are simulation/formal/structural screens, not physical evidence.
+- Independent review found no apparent RTL defect but blocked release on two
+  verification gaps: integrated same-edge RX visibility was only observed after
+  HALT, and RTL/formal did not cover SET/WAIT preservation or byte extremes.
+  The candidate now reads RX before another edge, compares interleaved and
+  extreme traces against the model on both simulators, and formally holds shift
+  state across every non-shift transition. Exact-head re-review remains pending.
 
 ## Blocked or unverified
 

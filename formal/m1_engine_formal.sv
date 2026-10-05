@@ -124,6 +124,20 @@ module m1_engine_formal (
                 assert (!shift_active_status && shift_bits_done_status == 3'd0);
                 assert (!shift_result_write);
             end else if ($past(reset_seen)) begin
+                if (!($past(ena) && ($past(state) == 2'b00) &&
+                      $past(instruction_valid) &&
+                      ($past(instruction[31:30]) == 2'b10) &&
+                      $past(instruction_shift_valid) &&
+                      (!$past(shift_active_status) ||
+                       $past(shift_config_matches)))) begin
+                    assert (shift_active_status == $past(shift_active_status));
+                    assert (shift_bits_done_status == $past(shift_bits_done_status));
+                    assert (shift_msb_first_status == $past(shift_msb_first_status));
+                    assert (shift_tx_pin_status == $past(shift_tx_pin_status));
+                    assert (shift_rx_pin_status == $past(shift_rx_pin_status));
+                    assert (shift_tx_data_status == $past(shift_tx_data_status));
+                    assert (shift_rx_data_status == $past(shift_rx_data_status));
+                end
                 if (!$past(ena) || $past(state) == 2'b10 || $past(state) == 2'b11) begin
                     assert (pc == $past(pc) && state == $past(state));
                     assert (wait_left == $past(wait_left));

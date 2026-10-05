@@ -48,8 +48,10 @@ bounded input wait, K-INPUT-WAIT, K-BOUNDED-LOOP and K-SHIFT-8. The shift test
 loads the same three-word LOOP/SHIFT_STEP/HALT kernel for both bit orders,
 accounts for the two-stage synchronized RX path, checks all eight TX bits and
 directions, reads back the completed RX byte, and checks reserved/read-only/data
-register behavior. Direct-engine traces match the semantic model in both orders;
-adversarial cases cover HALT after seven bits, disable freeze, equal pins,
-reserved bits, configuration changes and active-transfer reset.
+register behavior, including immediate RX visibility before a HALT edge.
+Direct-engine traces match the semantic model in both orders and with SET/WAIT
+interleaved between shift steps; adversarial cases cover HALT after seven bits,
+disable freeze, equal pins, reserved bits, configuration changes and
+active-transfer reset.
 This is finite RTL simulation; the GL-shaped smoke is still not a generated
 gate-netlist result.

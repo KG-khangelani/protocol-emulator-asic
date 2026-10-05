@@ -368,6 +368,11 @@ async def k_shift_8_public_payload_both_orders(dut):
             assert (int(dut.uio_oe.value) & 0x03) == 0x01
             assert int(dut.uo_out.value) == (0x22 if bit_index == 7 else 0x21)
 
+        # Observe result/valid combinationally before another rising edge. This
+        # rejects an implementation that defers integrated store capture to HALT.
+        assert await read_data_register(dut, 2) == received
+        assert await read_data_register(dut, 3) == 1
+        dut.ui_in.value = 0
         await edge(dut)  # HALT follows the same-edge eighth-step result capture.
         assert int(dut.uo_out.value) == 0xA2
         assert await read_data_register(dut, 2) == received
@@ -388,19 +393,28 @@ async def k_shift_8_public_payload_both_orders(dut):
 
 @cocotb.test(skip=os.getenv("GATES") == "yes")
 async def shift_trace_matches_semantic_model(dut):
-    for msb_first, payload, received in ((0, 0x96, 0x3A), (1, 0x69, 0xC5)):
-        program = [
-            Instruction("LOOP", length=1, count=8),
-            Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0, rx_pin=1),
-            Instruction("HALT"),
-        ]
+    cases = (
+        (0, 0x96, 0x3A, False),
+        (1, 0x69, 0xC5, False),
+        (0, 0x00, 0xFF, False),
+        (1, 0xFF, 0x00, False),
+        (0, 0xA5, 0xFF, True),
+    )
+    for msb_first, payload, received, interleaved in cases:
+        body = [Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0, rx_pin=1)]
+        if interleaved:
+            body.extend((Instruction("SET", mask=4, value=4, oe=4),
+                         Instruction("WAIT", count=0)))
+        program = [Instruction("LOOP", length=len(body), count=8), *body,
+                   Instruction("HALT")]
         initialise(dut)
         model = Machine()
         await edge(dut, rst_n=0, ena=0)
         model.edge(program, rst_n=False, ena=False)
         observe_shift_engine(dut, model)
 
-        for _ in range(10):
+        edge_bound = 2 + 8 * len(body)
+        for _ in range(edge_bound):
             instruction = program[model.pc]
             sampled_inputs = 0
             if instruction.opcode == "SHIFT_STEP":
@@ -412,15 +426,19 @@ async def shift_trace_matches_semantic_model(dut):
             dut.engine_tx_payload.value = payload
             if model.shift_active and model.shift_bits_done == 7:
                 await Timer(1, unit="ns")
-                assert int(dut.engine_shift_result_write.value) == 1
-                assert int(dut.engine_shift_result_data.value) == received
+                expected_write = int(instruction.opcode == "SHIFT_STEP")
+                assert int(dut.engine_shift_result_write.value) == expected_write
+                if expected_write:
+                    assert int(dut.engine_shift_result_data.value) == received
             await edge(dut)
             model.edge(program, sampled_inputs=sampled_inputs, tx_payload=payload)
             observe_shift_engine(dut, model)
 
         assert (model.state, model.pc, model.shift_result_write) == (
-            State.HALT, 2, False
+            State.HALT, len(program) - 1, False
         )
+        if interleaved:
+            assert (model.gpio_value & 4, model.gpio_oe & 4) == (4, 4)
 
 
 @cocotb.test(skip=os.getenv("GATES") == "yes")
