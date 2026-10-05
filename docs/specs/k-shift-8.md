@@ -1,7 +1,7 @@
 # K-SHIFT-8 programmed-kernel acceptance
 
-Status: acceptance frozen before implementation on 2026-10-05; implemented
-simulation candidate pending exact-head CI and independent review.
+Status: acceptance frozen before implementation on 2026-10-05; implementation
+head `d1ddc8a` passes exact-head CI and independent re-review in draft PR 4.
 
 ## Question and scope
 

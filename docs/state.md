@@ -171,7 +171,9 @@ efficiently express useful digital communication protocols under hard temporal c
   HALT, and RTL/formal did not cover SET/WAIT preservation or byte extremes.
   The candidate now reads RX before another edge, compares interleaved and
   extreme traces against the model on both simulators, and formally holds shift
-  state across every non-shift transition. Exact-head re-review remains pending.
+  state across every non-shift transition. Independent re-review is clean at
+  implementation head `d1ddc8a`; both push- and PR-triggered exact-head CI runs
+  pass. Draft PR 4 remains unmerged under the delegated no-merge boundary.
 
 ## Blocked or unverified
 
@@ -185,9 +187,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify M1-T09 K-SHIFT-8 at an exact clean CI head and independent
-  review. Do not claim a protocol or rerun physical closure from this simulation
-  candidate.
+- Engineering: await integration authority for fully qualified draft PR 4,
+  then freeze the first UART workload/oracle before adding protocol firmware.
+  Do not claim a protocol or rerun physical closure from this simulation candidate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
