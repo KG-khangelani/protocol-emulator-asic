@@ -1,0 +1,11 @@
+Command: python -m unittest discover -s test -p test_uart_rx_oracle.py -v
+Host: Python 3.14.6, Windows
+test_bad_stop_in_either_frame_is_not_validated_capture ... ok
+test_exact_frames_payloads_phase_and_capture_schedule ... ok
+test_missing_start_and_high_at_start_center_fail_bounded ... ok
+Ran 3 tests in 1.928s
+OK
+
+Coherent review: locked workbench Doctor and Check PASS, Python 3.11.16.
+The RX reference group in Check: Ran 3 tests in 4.081s, OK.
+This concise transcript is curated from tool output, not a raw whole-run log.

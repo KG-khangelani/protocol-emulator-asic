@@ -185,7 +185,9 @@ declared RTL rungs. `K-SHIFT-8` is `PASS`/`MEASURED` at its declared
 simulation/formal rung after exact-head CI and independent review; see its
 dedicated acceptance specification and the research ledger. P-UART-TX-8N1 is
 qualified at the digital RTL/formal rung by independent review and exact-head
-CI at `b0555df`; see its specification, report and E0016.
+CI at `b0555df` and final reviewed head `229c97c`; PR5 merged at `80975ed`
+with post-merge CI PASS. See its specification, report and E0016.
+The UART-RX contract/model witness (E0017) is reference evidence only;
 UART receive, SPI and I2C remain `NOT_EVALUATED`. This is not a complete candidate:
 CHIP_COMPLETE physical area/timing, asynchronous synchronization, queues, and
 silicon remain `NOT_EVALUATED`. The 50 MHz clock remains an experimental target.

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-05",
+  "baseline_merge": "80975edabdc82ca8511ad09e2bacf79ebdf3b27f",
+  "command": "python -m unittest discover -s test -p test_uart_rx_oracle.py -v",
+  "python": "3.14.6",
+  "environment": "Windows host; not locked HDL workbench",
+  "status": "PASS",
+  "evidence_rung": "semantic reference only",
+  "wall_seconds_reported_by_unittest": 1.928,
+  "coherent_review_checks": {
+    "doctor_command": ".\\tools\\workbench.ps1 Doctor",
+    "doctor_status": "PASS: exact locked tool versions",
+    "aggregate_command": ".\\tools\\workbench.ps1 Check",
+    "aggregate_status": "PASS: metadata, learning integrity and reference checks",
+    "locked_python": "3.11.16",
+    "rx_check_wall_seconds_reported_by_unittest": 4.081,
+    "local_hdl_formal_rerun": "NOT_RUN: unchanged hardware, prior qualification retained"
+  },
+  "source_sha256": {
+    "tools/uart_rx_oracle.py": "21ea39c3ee3a275012cc1038732263199e1c5affb0e6abea8bf35a891c2d7720",
+    "test/test_uart_rx_oracle.py": "fd24c973777b3c1445565ed9ccae41337b08ca40fddc3a84e45d180363345e59",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa"
+  },
+  "covered": [
+    "all complementary byte pairs at exact period 434",
+    "retained sub-clock phase corners and period 4",
+    "missing-start timeout and high-at-start-center rejection",
+    "bad stop in either frame despite prior raw capture",
+    "2P timeout operand overflow rejected"
+  ],
+  "production_rtl_delta": "none",
+  "independent_review": "PASS: no meaningful correctness/evidence blocker; see review.md",
+  "uart_rx_rtl_status": "NOT_EVALUATED",
+  "lossless_two_byte_delivery": "NOT_IMPLEMENTED",
+  "new_physical_flow": "NOT_RUN",
+  "m0_owner_fluency": "PENDING"
+}

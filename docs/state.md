@@ -2,7 +2,7 @@
 
 Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M2-T01 UART transmit**. Active learning task: **M0-T01**,
+Active engineering task: **M2-T01 UART receive contract/oracle**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -188,7 +188,16 @@ efficiently express useful digital communication protocols under hard temporal c
   Independent review is clean; implementation head `b0555df` passes push and
   PR CI plus docs. E0016 retains local and clean-source CI evidence. Only the
   frozen digital UART-TX workload is qualified; no physical or complete-UART
-  claim is made. Draft PR 5 remains unmerged.
+  claim is made. Final reviewed head `229c97c` passes push/PR CI and docs;
+  PR 5 was then merged normally at `80975edabdc82ca8511ad09e2bacf79ebdf3b27f`.
+  Post-merge test and docs workflows pass; E0016 retains the integration record.
+- The next bounded milestone freezes the proposed UART-RX schedule in
+  `specs/p-uart-rx-8n1.md`. An eight-word existing-instruction witness samples
+  two frames at their centers and faults on absent start, high at start center,
+  or bad stop. The independent mathematical waveform/schedule and existing
+  model agree locally (E0017); no production RTL changes occur. Raw RX-valid
+  precedes stop validation, and the single result register overwrites frame
+  one. UART-RX RTL qualification and lossless delivery remain NOT_EVALUATED.
 
 ## Blocked or unverified
 
@@ -202,11 +211,11 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: verify CI on the documentation-only qualification head, then
-  hand off qualified draft PR 5 for integration. The next implementation task
-  requires a frozen UART-RX sampling, synchronization and bounded framing/error
-  contract. Do not claim UART receive/compliance or rerun physical closure from
-  this simulation candidate.
+- Engineering: qualify the independently reviewed RX contract/oracle branch,
+  then execute its public-pin RTL experiment with an explicit raw-versus-frame
+  validity and two-byte delivery policy. Iterate with focused meaningful
+  checks; reserve aggregate CI for coherent review/merge milestones. Do not
+  claim UART receive/compliance or rerun physical closure from this candidate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
