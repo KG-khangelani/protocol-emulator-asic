@@ -27,24 +27,24 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "loader_address[0]"
-  ui[1]: "loader_address[1]"
-  ui[2]: "loader_address[2]"
-  ui[3]: "loader_address[3]"
-  ui[4]: "loader_address[4]"
-  ui[5]: "loader_register_select"
-  ui[6]: "loader_write"
+  ui[0]: "loader/runtime_address[0]"
+  ui[1]: "loader/runtime_address[1]"
+  ui[2]: "loader/runtime_address[2]"
+  ui[3]: "loader/runtime_address[3]"
+  ui[4]: "loader/runtime_address[4]"
+  ui[5]: "loader_register/runtime_select"
+  ui[6]: "loader_write/runtime_select"
   ui[7]: "loader_mode"
 
   # Outputs
-  uo[0]: "pc[0]"
-  uo[1]: "pc[1]"
-  uo[2]: "pc[2]"
-  uo[3]: "pc[3]"
-  uo[4]: "pc[4]"
-  uo[5]: ""
-  uo[6]: "state[0]"
-  uo[7]: "state[1]"
+  uo[0]: "pc[0]/runtime_data[0]"
+  uo[1]: "pc[1]/runtime_data[1]"
+  uo[2]: "pc[2]/runtime_data[2]"
+  uo[3]: "pc[3]/runtime_data[3]"
+  uo[4]: "pc[4]/runtime_data[4]"
+  uo[5]: "program_ready/runtime_data[5]"
+  uo[6]: "state[0]/runtime_data[6]"
+  uo[7]: "state[1]/runtime_data[7]"
 
   # Bidirectional pins
   uio[0]: "gpio[0]"

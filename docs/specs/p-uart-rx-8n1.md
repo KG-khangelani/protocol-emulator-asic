@@ -1,7 +1,7 @@
 # P-UART-RX-8N1 contract and semantic feasibility experiment
 
-Status: proposed RTL acceptance; reference schedule checked on 2026-10-05.
-This is not UART-RX RTL qualification. No production RTL changes are made.
+Status: locally verified bounded last-byte public-pin RTL experiment (E0018);
+exact-head CI pending. D18 fixed delivery before the implementation measurement.
 
 ## Workload and prerequisites
 
@@ -67,7 +67,7 @@ Raw sample time is two edges earlier than the corresponding engine edge.
 Its offset from the ideal bit center is `ceil(raw_start)-raw_start`, between
 zero and less than one clock. This is a derivation, not pad timing evidence.
 
-## Capture is not acceptance; delivery remains open
+## Capture is not acceptance; bounded last-byte delivery
 
 SHIFT_BURST writes the generic raw RX result/valid on the eighth data bit,
 before the stop check. A bad stop therefore faults at PC6 but may leave
@@ -75,12 +75,32 @@ RX-valid true with the malformed frame's byte. That flag means raw capture,
 not validated UART frame acceptance. Do not hide this mismatch by relabelling
 the existing register or by checking only the returned byte.
 
-The existing single result register is overwritten by frame two. Capturing
-both bytes in a model trace does not provide lossless end-of-program delivery.
-This experiment makes no FIFO, overrun, per-frame-valid, independent host
-service-rate or full-duplex claim. Public-pin intermediate readback/service or
-a justified protocol-independent delivery extension must be specified and
-tested before qualifying the complete mandatory RX workload.
+The single result register is overwritten by frame two. D18 deliberately
+delivers ONLY frame two, after BOTH frames validate and the known image HALTs
+at PC7. Frame one is discarded, not queued. A host accepts the final byte only
+if it loaded/read back this image, performed the idle handoff, held enable high
+through reception, and then observes HALT/ready/PC7 (`uo_out=a7` in status mode)
+and raw-valid one. This is batch acceptance; frame one's earlier good stop is
+not an independently delivered result. ANY FAULT rejects the entire batch,
+even with raw-valid one and even after frame one's good stop. A stopped/disabled
+or reset batch is also rejected by the host; the chip has no interruption flag.
+`ui_in[7]` must also stay zero throughout reception. Any loader entry or
+program/data mutation aborts the host batch, even if that loader transaction
+does not drive RX. After any abort reset/reload before accepting another batch.
+
+Use `m1-runtime-readback.md`: `ui_in=62` reads the raw byte on dedicated
+`uo_out`, `63` reads raw-valid, and `00` restores status, without loader entry
+or another clock. Both raw captures are inspectable on their exact eighth-bit
+edge, before stop validation, but that diagnostic observation is NOT acceptance.
+At HALT the second result/status is retained indefinitely, including with
+`ena=0`, until reset or the existing loader data writes invalidate it. The
+host reads terminal status, result and raw-valid without accepting another
+execution edge. Do not re-enter the loader to read while RX is externally
+driven: loader reads drive all `uio` pins and sampled entry resets execution.
+
+No FIFO, overrun, per-frame-valid, independent service-rate or full-duplex claim
+exists. The complete mandatory lossless two-byte RX delivery remains open;
+this explicitly narrower batch policy must not be relabelled as that pass.
 
 The [TI UART register reference](https://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/tirtos/2_14_01_20/exports/tirtos_full_2_14_01_20/products/cc13xxware_2_00_03_15980/doc/register_descriptions/CPU_MMAP/UART0.html)
 describes framing failure on an invalid stop and associates error information
@@ -96,7 +116,7 @@ checks, terminal edge and released RX direction.
 
 Required meaningful scenarios:
 
-- all 256 complementary byte pairs at exact P434, with phase corners on retained
+- all 256 complementary byte pairs in the reference at exact P434, with phase corners on retained
   `00/ff` and `55/aa` patterns; no unnecessary full Cartesian phase/payload sweep;
 - P4 as the smallest firmware period and rejection of a timeout-overflow period;
 - absent start: FAULT at PC1 on edge 2+2P (870 at P434), no raw capture;
@@ -105,9 +125,16 @@ Required meaningful scenarios:
 - bad stop in either frame: FAULT at PC6 on that stop-center edge, despite the
   earlier raw capture; second-frame corruption must not erase that distinction.
 
-The next implementation gate is public-pin loaded dual-simulator RX traces,
+The implementation gate is public-pin loaded dual-simulator RX traces,
 including synchronizer phases, raw-result visibility, bad-start/stop status,
 timeout, reset/disable and the explicit delivery policy. Independent frame
 expectations must judge the RTL, not the engine model. Formal additions are
-needed only for meaningful new RTL behavior; no new hardware proof is claimed
-by this reference-only experiment. CMOS5L, gate-level and silicon remain absent.
+needed only for meaningful new RTL behavior. Exercise all byte values in RTL
+at P4 and retain exact P434 `00/ff`, `ff/00`, `55/aa`, `aa/55` phase cases, as
+in the TX split between alphabet coverage and mandatory-period corners. Verify
+both raw commits before another edge, no premature acceptance, terminal final
+delivery, first/second bad stops, missing first/second start, high start center,
+reset/disable abort and read selection held across active edges. The RTL phase
+driver orders coincident raw transitions 1 ps before the corresponding clock
+edge to avoid a simulator race; this digital ordering is not pad setup evidence.
+CMOS5L, gate-level and silicon remain absent.

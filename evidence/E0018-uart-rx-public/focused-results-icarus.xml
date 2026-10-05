@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791187358" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="106" time="13.634026288986206" sim_time_ns="1324403.724" ratio_time="97139.59001750461" />
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="130" time="3.934500217437744" sim_time_ns="377865.078" ratio_time="96038.90128796999" />
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="154" time="1.2776670455932617" sim_time_ns="120706.04600000009" ratio_time="94473.78831309875" />
+  </testsuite>
+</testsuites>

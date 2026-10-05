@@ -47,6 +47,10 @@ flushed from the shared input synchronizer: leave load mode, drive the intended
 idle inputs, and hold `ena=0` for two rising edges before accepting word zero.
 See `m1-input-wait.md`.
 
+For nonintrusive data-register reads during execution, use the dedicated-output
+selector in `m1-runtime-readback.md`. Loader reads retain their original GPIO
+ownership/reset semantics and are unsafe while an external RX source drives.
+
 ## Safety and evidence boundary
 
 Fetching is valid only when `program_ready=1`, `pc < program_length`, and

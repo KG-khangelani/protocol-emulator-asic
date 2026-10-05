@@ -1,0 +1,62 @@
+{
+  "schema": "protocol-emulator-waveform-provenance-v1",
+  "simulations": {
+    "gl_harness_smoke": {
+      "junit": {
+        "bytes": 393,
+        "modules": [
+          "test_gate_harness_smoke"
+        ],
+        "path": "test/results-gl-harness.xml",
+        "sha256": "9cf94a1c9c00bf73395380aa176618e98be3090875377caf52e8c8f75e9ef881",
+        "tests": [
+          "public_handles_reset_without_direct_engine"
+        ],
+        "total_sim_time_ns": 11.0
+      },
+      "label": "gl_harness_smoke",
+      "waveform": {
+        "bytes": 2059,
+        "path": "test/tb-gl-harness.fst",
+        "sha256": "6cecfae2933f345b3d682fc930d5aa99cf849bb6bf5d249c98ec8178ffa2b111"
+      }
+    },
+    "rtl_icarus": {
+      "junit": {
+        "bytes": 3789,
+        "modules": [
+          "test",
+          "test_uart_rx_public"
+        ],
+        "path": "test/results.xml",
+        "sha256": "bd1bf80f2048d9cfc80b2e6d54956d89d0b53ec57f143749ba22e731b1d408d7",
+        "tests": [
+          "public_pin_reload_changes_observable_program",
+          "invalid_length_never_releases_engine",
+          "synchronized_input_wait_event_and_timeout",
+          "k_input_wait_public_program_event_timeout_and_reload",
+          "k_bounded_loop_public_program_counts",
+          "loop_target_overflow_faults_without_alias",
+          "k_shift_8_public_payload_both_orders",
+          "uart_tx_8n1_public_pin_oracle",
+          "timed_shift_burst_invalid_freeze_and_reset",
+          "timed_shift_burst_trace_matches_semantic_model",
+          "shift_trace_matches_semantic_model",
+          "shift_invalid_partial_and_reset_fail_closed",
+          "randomized_trace_matches_reviewed_model",
+          "invalid_encoding_and_out_of_range_fail_closed",
+          "uart_rx_public_bounded_last_byte_delivery",
+          "uart_rx_public_framing_and_bounded_timeouts",
+          "uart_rx_public_disable_reset_abort_then_reload"
+        ],
+        "total_sim_time_ns": 2962539.8479999998
+      },
+      "label": "rtl_icarus",
+      "waveform": {
+        "bytes": 154578,
+        "path": "test/tb.fst",
+        "sha256": "b49c1186b0bf86c66a7d2185c5c23457b55db5a48aed1d0b8485bbe4334bce32"
+      }
+    }
+  }
+}

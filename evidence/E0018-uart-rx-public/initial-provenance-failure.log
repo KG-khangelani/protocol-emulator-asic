@@ -1,0 +1,5 @@
+make[1]: Entering directory '/workspace'
+python3 tools/check_waveform_provenance.py verify
+make[1]: Leaving directory '/workspace'
+FAIL: rtl_icarus label does not point to the full test module
+make[1]: *** [Makefile:38: test-waveform-provenance] Error 1
