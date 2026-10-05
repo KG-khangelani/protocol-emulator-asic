@@ -8,9 +8,11 @@ from tools.check_waveform_provenance import ProvenanceError, build_manifest, cre
 
 
 def write_junit(path, module, test_name, sim_time_ns):
+    modules = module if isinstance(module, (list, tuple)) else [module]
     path.write_text(
-        '<testsuites><testsuite name="all">'
-        f'<testcase classname="{module}" name="{test_name}" sim_time_ns="{sim_time_ns}" />'
+        '<testsuites><testsuite name="all">' + "".join(
+            f'<testcase classname="{name}" name="{test_name}" sim_time_ns="{sim_time_ns}" />'
+            for name in modules) +
         "</testsuite></testsuites>"
     )
 
@@ -25,7 +27,7 @@ class WaveformProvenanceTest(unittest.TestCase):
         self.gl_junit = root / "gl.xml"
         self.rtl_waveform.write_bytes(b"full-rtl-waveform")
         self.gl_waveform.write_bytes(b"short-gl-smoke-waveform")
-        write_junit(self.rtl_junit, "test", "full_regression", 100.0)
+        write_junit(self.rtl_junit, ["test", "test_uart_rx_public"], "full_regression", 100.0)
         write_junit(
             self.gl_junit,
             "test_gate_harness_smoke",
@@ -60,6 +62,15 @@ class WaveformProvenanceTest(unittest.TestCase):
         self.rtl_waveform.write_bytes(b"overwritten-by-smoke")
         with self.assertRaisesRegex(ProvenanceError, "changed after their checkpoint"):
             self.build(checkpoint)
+
+    def test_incomplete_or_unknown_full_modules_are_rejected(self):
+        for modules in (["test"], ["test_uart_rx_public"],
+                        ["test", "test_uart_rx_public", "unknown"]):
+            with self.subTest(modules=modules):
+                write_junit(self.rtl_junit, modules, "filtered_regression", 100.0)
+                checkpoint = create_checkpoint(self.rtl_waveform, self.rtl_junit)
+                with self.assertRaisesRegex(ProvenanceError, "full test modules"):
+                    self.build(checkpoint)
 
     def test_swapped_junit_label_is_rejected(self):
         checkpoint = create_checkpoint(self.rtl_waveform, self.rtl_junit)

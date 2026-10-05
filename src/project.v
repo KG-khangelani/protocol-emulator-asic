@@ -51,6 +51,8 @@ module tt_um_khangelani_protocol_emulator (
     wire engine_rst_n = rst_n && program_ready && !load_mode;
     wire program_store_selected = load_mode &&
                                   (!load_register || (byte_address == 5'd0));
+    wire data_store_selected = load_mode && load_register;
+    wire runtime_read = !load_mode && load_write && load_register;
 
     m1_program_store store (
         .clk(clk), .rst_n(rst_n), .ena(ena),
@@ -64,7 +66,7 @@ module tt_um_khangelani_protocol_emulator (
 
     m1_data_store data_store (
         .clk(clk), .rst_n(rst_n), .ena(ena),
-        .register_select(load_mode && load_register),
+        .register_select(data_store_selected),
         .register_write(load_write), .register_address(byte_address),
         .data_in(uio_in), .shift_result_write(shift_result_write),
         .shift_result_data(shift_result_data), .data_out(register_data_out),
@@ -108,7 +110,33 @@ module tt_um_khangelani_protocol_emulator (
                              register_data_out : program_loader_data_out;
     assign uio_out = load_mode ? loader_data_out : gpio_value;
     assign uio_oe = load_mode ? (load_write ? 8'h00 : 8'hff) : gpio_oe;
-    assign uo_out = {state, program_ready, pc};
+    assign uo_out = runtime_read ? register_data_out : {state, program_ready, pc};
+`ifdef FORMAL
+    // Check public decode/ownership against pins, not the runtime_read alias.
+    always_comb begin
+        if (ui_in[7:5] == 3'b011) begin
+            case (ui_in[4:0])
+                5'd1: assert (uo_out == tx_payload);
+                5'd2: assert (uo_out == rx_result);
+                5'd3: assert (uo_out == {7'b0, rx_valid});
+                5'd4: assert (uo_out == tx_payload_alt);
+                default: assert (uo_out == 8'b0);
+            endcase
+        end else begin
+            assert (uo_out == {state, program_ready, pc});
+        end
+        if (!ui_in[7]) begin
+            assert (uio_out == gpio_value);
+            assert (uio_oe == gpio_oe);
+            assert (!program_store_selected && !data_store_selected);
+            assert (engine_rst_n == (rst_n && program_ready));
+        end else begin
+            assert (uio_out == loader_data_out);
+            assert (uio_oe == (ui_in[6] ? 8'h00 : 8'hff));
+            assert (!engine_rst_n);
+        end
+    end
+`endif
     wire _unused = &{wait_left, program_length, wait_is_input_status,
                      wait_pin_status, wait_level_status,
                      wait_timeout_skip_status, loop_active_status,

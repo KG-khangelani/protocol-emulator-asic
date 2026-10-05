@@ -2,7 +2,7 @@
 
 Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M2-T01 UART receive contract/oracle**. Active learning task: **M0-T01**,
+Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -198,6 +198,20 @@ efficiently express useful digital communication protocols under hard temporal c
   model agree locally (E0017); no production RTL changes occur. Raw RX-valid
   precedes stop validation, and the single result register overwrites frame
   one. UART-RX RTL qualification and lossless delivery remain NOT_EVALUATED.
+- D18 fixes a two-frame all-or-nothing batch that delivers only the last byte.
+  A generic runtime selector exposes existing data registers on dedicated
+  `uo_out` without resetting execution or driving RX. Public-pin checks match
+  the independent frame/schedule oracle on Icarus and Verilator: both raw
+  capture edges, final delivery, bad first/second stop, missing first/second
+  start, high start center and disable/reset/reload. Raw-valid is not acceptance.
+  The initial aggregate run passes functional/formal/generic screens but fails
+  lint syntax and the stale single-module provenance validator; E0018 preserves
+  these failures. The corrected frozen-tree aggregate and independent re-review
+  pass. Clean implementation head `181cfa1` passes push/PR CI and docs; E0018
+  retains the clean manifest and qualification record. [PR7](https://github.com/KG-khangelani/protocol-emulator-asic/pull/7)
+  tracks final-record exact-head CI and normal integration. Generic screening is
+  2,793 abstract cells/410 state bits (+10 cells, no new state versus TX).
+  Complete retained-two-byte/continuous receive and physical closure remain open.
 
 ## Blocked or unverified
 
@@ -211,11 +225,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the independently reviewed RX contract/oracle branch,
-  then execute its public-pin RTL experiment with an explicit raw-versus-frame
-  validity and two-byte delivery policy. Iterate with focused meaningful
-  checks; reserve aggregate CI for coherent review/merge milestones. Do not
-  claim UART receive/compliance or rerun physical closure from this candidate.
+- Engineering: specify a bounded host-service/delivery contract for preserving
+  both received frames after PR7's exact-green integration
+  before adding storage. Keep focused risk-based checks during iteration and
+  aggregate gates at review/merge milestones; no new physical claim is implied.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
@@ -223,7 +236,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
-UART-transmit firmware candidate. UART receive, SPI and I2C remain unevaluated;
+UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
+UART receive delivery, SPI and I2C remain unevaluated;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

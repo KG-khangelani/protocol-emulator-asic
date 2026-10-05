@@ -93,7 +93,7 @@ for name, command, required in stages:
     print(name + ": " + stage["status"])
 formal_stage = next(stage for stage in manifest["stages"] if stage["name"] == "formal")
 if formal_stage["status"] == "PASS":
-    manifest["formal_status"] = "PASS: M1 engine/program-store/data-store/input-sync proofs and covers passed; wrong WAIT-decrement property was rejected"
+    manifest["formal_status"] = "PASS: M1 engine/program-store/data-store/input-sync proofs and covers, and public-readout decode/ownership proof passed; wrong WAIT-decrement property was rejected"
 else:
     manifest["formal_status"] = formal_stage["status"]
 artifact_sources = {
@@ -114,6 +114,7 @@ artifact_sources = {
     "build/formal/data-store-cover/status": ("formal", "formal-data-store-cover.status"),
     "build/formal/input-sync-prove/status": ("formal", "formal-input-sync-prove.status"),
     "build/formal/input-sync-cover/status": ("formal", "formal-input-sync-cover.status"),
+    "build/formal/public-readout-prove/status": ("formal", "formal-public-readout-prove.status"),
     "build/synthesis.log": ("generic_synthesis", "synthesis.log"),
     "build/synth.json": ("generic_synthesis", "synth.json"),
 }

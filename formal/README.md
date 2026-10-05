@@ -28,6 +28,11 @@ implemented and reserved addresses. Its result-capture input is constrained by
 the engine only in top-level simulation; the proof checks the store for every
 possible input value and timing.
 
+`m1_public_readout.sby` proves combinational public status/register decode,
+GPIO/loader ownership and load/reset selection against arbitrary top-level
+inputs and state. It does not prove integrated receive liveness; public-pin
+simulation supplies that check. No extra retained state is added by readout.
+
 ## Archived M0 suite
 
 Formal verification turns the transition table in

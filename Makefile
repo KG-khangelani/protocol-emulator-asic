@@ -51,6 +51,7 @@ formal:
 	sby -f -d build/formal/data-store-cover formal/m1_data_store.sby cover
 	sby -f -d build/formal/input-sync-prove formal/m1_input_sync.sby prove
 	sby -f -d build/formal/input-sync-cover formal/m1_input_sync.sby cover
+	sby -f -d build/formal/public-readout-prove formal/m1_public_readout.sby
 synth:
 	mkdir -p build
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'

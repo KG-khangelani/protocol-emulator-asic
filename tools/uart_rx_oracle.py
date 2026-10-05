@@ -6,7 +6,10 @@ and expected schedule are mathematical frame definitions, not Machine.edge.
 
 from dataclasses import dataclass
 
-from m1_contract_model import Instruction
+if __package__:
+    from .m1_contract_model import Instruction
+else:
+    from m1_contract_model import Instruction
 
 
 @dataclass(frozen=True)

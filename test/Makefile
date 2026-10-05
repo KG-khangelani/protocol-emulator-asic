@@ -8,7 +8,7 @@ FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(CURDIR)/../src
 PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v
-COCOTB_TEST_MODULES = test
+COCOTB_TEST_MODULES = test,test_uart_rx_public
 
 # Verilator requires an explicit decision about testbench delays.
 ifeq ($(SIM),verilator)

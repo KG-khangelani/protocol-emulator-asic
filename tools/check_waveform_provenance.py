@@ -15,6 +15,7 @@ RTL_JUNIT = ROOT / "test/results.xml"
 GL_WAVEFORM = ROOT / "test/tb-gl-harness.fst"
 GL_JUNIT = ROOT / "test/results-gl-harness.xml"
 SCHEMA = "protocol-emulator-waveform-provenance-v1"
+FULL_RTL_MODULES = ["test", "test_uart_rx_public"]
 
 
 class ProvenanceError(RuntimeError):
@@ -93,8 +94,8 @@ def build_manifest(
     if checkpoint.get("simulation") != rtl:
         raise ProvenanceError("rtl_icarus artifacts changed after their checkpoint")
     gl = _fingerprint("gl_harness_smoke", gl_waveform, gl_junit)
-    if rtl["junit"]["modules"] != ["test"]:
-        raise ProvenanceError("rtl_icarus label does not point to the full test module")
+    if rtl["junit"]["modules"] != FULL_RTL_MODULES:
+        raise ProvenanceError("rtl_icarus label does not point to the full test modules")
     if gl["junit"]["modules"] != ["test_gate_harness_smoke"]:
         raise ProvenanceError("gl_harness_smoke label does not point to its smoke module")
     if gl["junit"]["tests"] != ["public_handles_reset_without_direct_engine"]:

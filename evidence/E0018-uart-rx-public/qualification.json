@@ -1,0 +1,40 @@
+{
+  "date_utc": "2026-10-05",
+  "implementation_head": "181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03",
+  "baseline_head": "3797c5a18771e413ecbe43e69541fece33b7bbd6",
+  "pr": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/7",
+  "implementation_ci": "PASS",
+  "runs": {
+    "push_test": {"id": 37283077006, "conclusion": "success"},
+    "pull_request_test": {"id": 37283087343, "conclusion": "success"},
+    "push_docs": {"id": 37283077101, "conclusion": "success"}
+  },
+  "push_artifact": {
+    "id": 11333975501,
+    "name": "verification-181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03",
+    "size_bytes": 1494178,
+    "github_reported_zip_digest": "sha256:c6f1b3b72b22ea6f5697aebf047c1c247df470496155e641a7740250604d7bbb",
+    "zip_digest_independently_checked": false,
+    "expires_at": "2027-01-03T08:21:02Z"
+  },
+  "clean_collector": {
+    "run": "20261005T082447572530Z",
+    "manifest_sha256": "cb84133515ca08c5f9e0fdf53a496edf33fa329f6440d88e5abb744c7f54fb1f",
+    "git_status": "",
+    "stages_passed": 11,
+    "collected_artifact_hashes_verified": 31,
+    "source_hashes_matched_committed_local_files": 130,
+    "workbench_image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "icarus_tests": 17,
+    "verilator_tests": 17,
+    "simulator_failures": 0,
+    "generic_cells": 2793,
+    "state_bits": 410
+  },
+  "independent_review": "PASS: no remaining RTL, policy or integration blocker",
+  "delivery_policy": "Both frames validate; only final byte delivered after HALT; host rejects interrupted or FAULT batch",
+  "retained_two_byte_or_continuous_rx": "NOT_EVALUATED",
+  "physical_flow": "NOT_RUN",
+  "m0_owner_fluency": "PENDING",
+  "qualification_record_head_ci_and_integration": "Check separately at PR7 before a normal exact-green merge"
+}

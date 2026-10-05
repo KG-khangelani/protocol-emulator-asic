@@ -1,0 +1,5 @@
+make[1]: Entering directory '/workspace'
+verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v
+make[1]: Leaving directory '/workspace'
+src/project.v:116:5-10: Use 'always_comb' instead of 'always @*'. [Style: combinational-logic] [always-comb]
+make[1]: *** [Makefile:23: lint] Error 1
