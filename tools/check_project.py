@@ -95,6 +95,7 @@ require("learn-waveform:" in project_makefile and "tools/m0_waveform_walkthrough
 require("learn-status:" in project_makefile and "tools/learning_status.py" in project_makefile, "Makefile must define learning status")
 require("formal/m1_engine.sby" in project_makefile, "active formal target must check the M1 engine")
 require("formal/m1_program_store.sby" in project_makefile, "active formal target must check the program store")
+require("formal/m1_data_store.sby" in project_makefile, "active formal target must check the data store")
 require("formal/m1_input_sync.sby" in project_makefile, "active formal target must check the input synchronizer")
 require("test_gate_harness_smoke" in project_makefile, "active test target must check the GL_TEST-shaped harness")
 require("test-rtl-icarus:" in project_makefile, "full Icarus regression must have a distinct evidence target")
@@ -124,6 +125,8 @@ for decision_file in (
     "0011-synchronized-bounded-input-wait.md",
     "0012-k-input-wait-timeout-skip.md",
     "0013-bounded-block-before-shifter.md",
+    "0014-distinct-waveform-provenance.md",
+    "0015-composable-shift-step.md",
 ):
     require((ROOT / "docs/decisions" / decision_file).is_file(), f"missing M1 decision: {decision_file}")
 research_sources = json.loads((ROOT / "docs/research/source-lock.json").read_text())

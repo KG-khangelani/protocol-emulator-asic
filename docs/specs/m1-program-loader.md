@@ -13,8 +13,8 @@ held in synchronous reset and GPIO ownership moves to the loader:
 | Pin | Meaning in load mode |
 |---|---|
 | `ui_in[6]` | 1 = write on an accepted edge; 0 = combinational readback |
-| `ui_in[5]` | 1 = program-length register; 0 = program byte |
-| `ui_in[4:0]` | byte address 0..31 when selecting program data |
+| `ui_in[5]` | 1 = data/control register; 0 = program byte |
+| `ui_in[4:0]` | byte address 0..31 or data/control register address |
 | `uio_in[7:0]` | write data |
 | `uio_out[7:0]` | selected readback data |
 | `uio_oe[7:0]` | `00` during writes, `FF` during reads |
@@ -23,6 +23,11 @@ The store contains eight provisional 32-bit words. Byte address `4*n + lane`
 selects word `n`, bits `8*lane +: 8`; lane zero is the least-significant byte.
 Program length is encoded in the low nibble and is valid from 1 through 8;
 upper-nibble bits must be zero.
+
+Data/control address zero is the backward-compatible program-length register.
+K-SHIFT-8 adds address 1 for TX payload, address 2 for read-only RX result, and
+address 3 for read-only RX-valid status. Reserved addresses read zero and ignore
+writes. See `k-shift-8.md` for their exact lifetime and reset contract.
 
 Reset clears all program bytes, length, and `program_ready`. Every program-byte
 write clears `program_ready`, so length must be committed after all bytes. A

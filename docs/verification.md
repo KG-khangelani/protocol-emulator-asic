@@ -7,13 +7,13 @@ physical timing and real hardware observations as separate evidence categories.
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
 | Learning-status integrity | `tools/learning_status.py --verify` plus an invalid-promotion self-test | Milestone references agree and an unearned human fluency PASS is rejected |
-| RTL | M1 `test/test.py` through Icarus and Verilator, seed 20261002 | Public-pin reload/readback, Python-model agreement, reset/enable, WAIT, K-INPUT-WAIT, K-BOUNDED-LOOP counts 0/1/2/255 and safe invalid behavior |
+| RTL | M1 `test/test.py` through Icarus and Verilator, seed 20261002 | Public-pin reload/readback, Python-model agreement, reset/enable, WAIT, K-INPUT-WAIT, K-BOUNDED-LOOP counts 0/1/2/255, K-SHIFT-8 in both bit orders, data-register behavior and safe invalid behavior |
 | Readable waveform | `LearnWaveform` VCD parser plus intentionally corrupted edge | Every M0 rising edge matches the transition table; learner can explain a selected edge |
 | Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
 | CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
 | Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |
 | GL-shaped harness | RTL compiled with `GL_TEST`, direct-engine handles absent, separate FST/JUnit provenance | Public reset smoke catches harness/API drift without overwriting or being labelled as the full RTL waveform; no gate-netlist claim |
-| Formal | M1 engine, store and input-synchronizer SBY/Z3 proofs/covers plus expected-failing wrong-decrement property; archived M0 evidence retained separately | Preserve event-on-final-edge priority and timeout/freeze properties as the instruction set evolves |
+| Formal | M1 engine, program store, data store and input-synchronizer SBY/Z3 proofs/covers plus expected-failing wrong-decrement property; archived M0 evidence retained separately | Preserve event-on-final-edge priority, shift completion/capture, result-valid, timeout and freeze properties as the instruction set evolves |
 | GDS reproducibility | `tools/compare_gds_records.py` | Separate BGNLIB/BGNSTR timestamp drift from geometry-record differences |
 | Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |

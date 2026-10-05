@@ -62,6 +62,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D12 | Add one-bit WAIT_PIN timeout skip as the minimum conditional needed by K-INPUT-WAIT | `decisions/0012-k-input-wait-timeout-skip.md` |
 | D13 | Evaluate an 8-bit non-nested bounded block before introducing shift-specific data state | `decisions/0013-bounded-block-before-shifter.md` |
 | D14 | Preserve separate full-RTL and GL-shaped-smoke waveform identities and verify their stage labels and checksums | `decisions/0014-distinct-waveform-provenance.md` |
+| D15 | Compose eight-bit transfers from one-bit SHIFT_STEP operations and existing bounded LOOP, with public TX/RX data registers | `decisions/0015-composable-shift-step.md` |
 
 ## Experimental results
 
@@ -85,8 +86,9 @@ express useful digital communication protocols under hard temporal constraints?*
 | M1-reload-local | Public-pin reload candidate | Icarus and Verilator load/read/run programs A and B after reset; store proof/covers PASS; generic synthesis reports 1,879 abstract cells | Exact-head CI passed at `d502227`; synchronous input assumption, no CMOS5L area/timing or silicon evidence |
 | M1-input-wait-local | Synchronized bounded-input-wait candidate | Nine model checks and five tests on both simulators PASS; engine/store/synchronizer proofs and covers PASS; mutant rejected; generic synthesis reports 1,985 abstract cells and 321 state elements | Exact-head CI passed at `14a93b4`; primitive only at that revision; metastability and physical results remain NOT_EVALUATED |
 | K-INPUT-WAIT-local | Three-word public-pin-loaded kernel | Same 96-bit image is loaded/read twice; independent event and timeout traces HALT at PC2 within six accepted edges on Icarus and Verilator; formal/lint/checks PASS; generic synthesis reports 1,971 abstract cells and 322 state elements | PASS/MEASURED at RTL rung and exact-head CI `f383744`; analog, CMOS5L, gate-level and silicon evidence NOT_EVALUATED |
-| K-BOUNDED-LOOP-local | Four-word public-pin-loaded counted SET block | Counts 0, 1, 2 and 255 plus overflow target rejection match independent traces on both simulators; maximum produces 510 body edges and HALTs on edge 512; formal/lint/GL-shaped harness checks PASS | PASS/MEASURED locally at RTL rung; 2,175 abstract cells/341 state elements after review fixes; exact-head CI pending; physical evidence NOT_EVALUATED |
-| M1-waveform-provenance-local | Separate and checksum-bind retained Icarus traces | Full eight-test 15,465 ns trace remains intact after the separate 11 ns GL-shaped smoke; deliberate overwrite and label-swap tests are rejected; all 11 evidence-collector stages pass | Evidence-integrity result only; exact-head CI pending and no gate-netlist, physical, silicon, or protocol claim |
+| K-BOUNDED-LOOP-local | Four-word public-pin-loaded counted SET block | Counts 0, 1, 2 and 255 plus overflow target rejection match independent traces on both simulators; maximum produces 510 body edges and HALTs on edge 512; formal/lint/GL-shaped harness checks PASS | PASS/MEASURED at the RTL rung; 2,175 abstract cells/341 state elements after review fixes; exact-head CI/review and merge `b3b73e6` complete; physical evidence NOT_EVALUATED |
+| M1-waveform-provenance-local | Separate and checksum-bind retained Icarus traces | Full eight-test 15,465 ns trace remains intact after the separate 11 ns GL-shaped smoke; deliberate overwrite and label-swap tests are rejected; all 11 evidence-collector stages pass | Evidence-integrity result only; exact-head CI/review and merge `2326022` complete; no gate-netlist, physical, silicon, or protocol claim |
+| K-SHIFT-8-local | Three-word public-pin-loaded LOOP/SHIFT_STEP kernel plus public TX/RX registers | Both bit orders send eight bits and reconstruct RX in ten accepted edges; the full 11-stage collector passes 11 cases on both simulators, 16 model checks, waveform provenance, proofs/covers/mutant and generic synthesis; result capture occurs on the eighth step | PASS/MEASURED at the RTL/formal rung at implementation head `d1ddc8a`; 2,534 abstract cells/385 state bits, +359/+44 over K-BOUNDED-LOOP; exact-head push/PR CI and independent re-review pass, draft PR 4 unmerged, physical/protocol evidence NOT_EVALUATED |
 
 ## Open questions
 
@@ -98,6 +100,11 @@ express useful digital communication protocols under hard temporal constraints?*
 
 ## Rejected approaches
 
-None rejected by experiment yet. Protocol-specific fixed blocks are a useful
-cost baseline but are not the intended reprogrammable competition solution.
-Do not retrospectively label unexplored alternatives as experimentally rejected.
+A registered engine-to-RX-store completion handoff was screened and rejected:
+it used 394 state bits versus 385 for same-edge combinational completion and
+introduced a hidden commit edge, although its generic screen used 2,512 rather
+than 2,534 abstract cells. This transient working-tree ablation has no retained
+standalone artifact and is not physical evidence. Protocol-specific fixed
+blocks remain a useful cost baseline but are not the intended reprogrammable
+competition solution. Do not retrospectively label unexplored alternatives as
+experimentally rejected.
