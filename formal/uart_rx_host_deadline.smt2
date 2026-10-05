@@ -1,0 +1,22 @@
+; Integer host-service lemma only: NOT RTL/pad/async-host timing.
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const p Int)
+(declare-const h Int)
+(declare-const l Int)
+(declare-const d Int)
+(assert (and (>= p 4) (<= p 32766) (= (mod p 2) 0)))
+(assert (and (>= h 1) (>= l 1) (>= d 0) (< d h)))
+(push)
+(assert (<= (+ h l) (* 10 p)))
+; Negation of safe read strictly before the second capture.
+(assert (>= (+ d l) (* 10 p)))
+(check-sat)
+(pop)
+(push)
+; Weaken by one edge: counterexample must exist.
+(assert (<= (+ h l) (+ (* 10 p) 1)))
+(assert (>= (+ d l) (* 10 p)))
+(check-sat)
+(get-value (p h l d))
+(pop)

@@ -18,6 +18,7 @@ check:
 	$(PYTHON) tools/m0_walkthrough.py --verify
 	$(PYTHON) -m unittest discover -s test -p 'test_m1_contract_model.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_oracle.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_host_service.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'
 lint:
 	verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v
@@ -52,6 +53,7 @@ formal:
 	sby -f -d build/formal/input-sync-prove formal/m1_input_sync.sby prove
 	sby -f -d build/formal/input-sync-cover formal/m1_input_sync.sby cover
 	sby -f -d build/formal/public-readout-prove formal/m1_public_readout.sby
+	$(PYTHON) tools/check_host_deadline.py
 synth:
 	mkdir -p build
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'

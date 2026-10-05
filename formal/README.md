@@ -81,3 +81,13 @@ analog delay, metastability, power-up circuitry, post-layout timing, or
 fabricated silicon. Those questions belong to other stages in the project map.
 Raw proof, witness, and counterexample files are generated under ignored
 `build/formal/`.
+
+## Bounded external host arithmetic (E0019)
+
+`uart_rx_host_deadline.smt2` is a QF_LIA integer lemma, not an RTL harness.
+`tools/check_host_deadline.py` requires UNSAT for the negation of first-copy
+safety under H+L<=10P, followed by SAT for a deliberately one-edge-weakened
+bound. `make formal` runs it after all existing RTL proof/cover/mutation jobs.
+It assumes settled post-edge polling, integer H/L/d and the separately tested
+10P raw-capture spacing. It proves neither integrated RX liveness nor
+asynchronous service, pad access time, analog baud tolerance or physical timing.
