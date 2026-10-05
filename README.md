@@ -33,8 +33,10 @@ Current task and exact claim boundaries are in [docs/state.md](docs/state.md).
 The [Protocol atlas contract](docs/specs/protocol-atlas.md) records neutral,
 compact, source-backed architecture/cycle/evidence views and sparing relationship
 tracing. Its direction is approved, including dark mode, softer surfaces and
-fewer borders. At this documentation checkpoint it is not a running app;
-implementation and browser verification follow as separate increments.
+fewer borders. The first working [browser app](web/) now provides architecture,
+reference cycles, evidence and progress views. It runs locally, not on a chip;
+[UI0001](evidence/UI0001-protocol-atlas/README.md) records scoped browser/model
+checks and limits. Implementation continues as reviewable increments.
 Private concept/reference images are not published.
 
 ## Start with Codex
@@ -54,6 +56,23 @@ current task and blockers. Use this first task:
 No API key or agent-specific model setting is needed in the repository.
 
 ## Run locally
+
+The Protocol atlas is independent of Docker/EDA. With Node 24 (minimum 22.12)
+and Python 3 for the independent model checks:
+
+```powershell
+cd web
+npm ci --ignore-scripts
+npm test
+npm run build
+npm run dev
+```
+
+Open `http://127.0.0.1:5179`. The server binds to loopback only. The checked-in
+dataset is regenerated with `npm run data` and checked against repository source
+by `npm run data:check`. No API key, device connection or telemetry is used.
+Browser verification uses pinned Playwright/Chromium; see [web/README.md](web/README.md).
+The app is not deployed to GitHub Pages and this branch is not merged.
 
 The supported Windows path needs Docker Desktop, PowerShell and Git; chip tools
 run inside the pinned Linux workbench:
@@ -101,6 +120,7 @@ for physical fit and timing; a local generic synthesis pass cannot replace it.
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |
 | `docs/specs/protocol-atlas.md` | Approved UI direction and source/interaction/verification contract; implementation tracked separately |
 | `src/` | Synthesizable Verilog and preserved physical configuration |
+| `web/` | Local source-backed interactive atlas, not device control |
 | `test/` | cocotb RTL and gate-level harness |
 | `tools/` | Consistency checks and evidence capture |
 | `docs/research-ledger.md` | Hypotheses, questions and falsification gates |

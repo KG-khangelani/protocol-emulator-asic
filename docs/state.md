@@ -7,8 +7,12 @@ Active engineering task: **M2-T01 bounded UART receive/public readback**. Active
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
-Implementation/browser verification follow as coherent committed/pushed slices;
-this approval does not authorize PR8 merging.
+The first working app slice provides architecture tracing, reference cycles,
+evidence and progress with neutral light/dark themes. Production build, 12
+source/model checks and nine Chromium browser checks pass locally; see
+[UI0001](../evidence/UI0001-protocol-atlas/README.md). Broader model-oracle and
+URL-restoration checks remain follow-up work. This is UI evidence only and does
+not authorize PR8 merging or promote any chip/learning gate.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?

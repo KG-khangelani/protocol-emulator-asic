@@ -1,7 +1,7 @@
 # Protocol atlas design and implementation contract
 
-Date: 2026-10-05. Status: **direction APPROVED; application NOT IMPLEMENTED at
-this documentation checkpoint**. The owner approved the revised direction with
+Date: 2026-10-05. Status: **direction APPROVED; first working app candidate**.
+The initial documentation checkpoint contained no application. The owner approved the revised direction with
 dark mode, softer surface contrast and substantially fewer borders. Publishing
 this contract is not implementation, protocol qualification, physical evidence
 or an owner-fluency result. PR8 integration remains separately deferred.
@@ -202,8 +202,9 @@ H1-H4 remain UNPROVEN. Do not publish a readiness/completion percentage.
 
 Explicit owner approval on 2026-10-05 opens visualization implementation,
 including dark mode and softer/fewer boundaries. It does not approve PR8 merging.
-This initial documentation checkpoint adds no frontend, extractor or device
-driver. Publish cohesive reviewable documentation/code increments on a project
+The initial documentation checkpoint added no frontend/extractor/device driver;
+the subsequent candidate adds a browser UI and a deterministic source exporter,
+never a device driver. Publish cohesive reviewable documentation/code increments on a project
 branch; do not hold every useful change until an entire milestone is complete.
 Commit/push permission is distinct from merge, hardware-spend and submission
 permission. Private assets, secrets and generated bulk remain out of Git.
@@ -223,6 +224,8 @@ Before claiming the future app implemented, verify:
    hit areas, native scroll and no clipped primary content. Inspect actual
    browser screenshots against the approved concepts, not build success alone.
 
-At this documentation checkpoint all five app obligations are **NOT RUN / NOT
-IMPLEMENTED**. Record subsequent working slices and actual checks separately. Existing
-repository checks do not satisfy them or create new hardware evidence.
+At the initial documentation checkpoint all five app obligations were **NOT
+RUN / NOT IMPLEMENTED**. The first working slice now has scoped local build,
+source/model and real Chromium checks in [UI0001](../../evidence/UI0001-protocol-atlas/README.md).
+That record does not assert complete coverage of every obligation. Existing
+repository checks alone do not satisfy them or create new hardware evidence.

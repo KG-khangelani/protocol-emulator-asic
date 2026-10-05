@@ -1,7 +1,7 @@
 # D20 - Source-backed compact atlas and incremental review
 
-Date: 2026-10-05. Status: direction APPROVED; implementation pending at this
-documentation checkpoint. The owner approved the revised direction with dark
+Date: 2026-10-05. Status: direction APPROVED; first working app candidate follows
+the original documentation checkpoint. The owner approved the revised direction with dark
 mode, then refined surface contrast/border density without revoking approval.
 
 The owner requested a genuinely neutral UI: compact functional regions,
