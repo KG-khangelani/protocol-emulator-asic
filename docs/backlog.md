@@ -57,8 +57,12 @@ engineering to proceed independently while M0 owner fluency remains pending.
 
 ## Follow-on tasks
 
+Supporting documentation may advance independently of app design approval and
+owner learning. Publishing a proposal does not satisfy an implementation gate.
+
 | ID | Work | Exit gate | State |
 |---|---|---|---|
+| UI-T01 | Source-backed compact Protocol atlas and relationship tracing | Functional/source/edge/accessibility/browser verification in light/dark | Second bounded candidate: build, 16 source/model tests and 13 local Chromium cases PASS (UI0001), including independent 8,192-edge oracle, cycle URL restoration, mobile disclosure and all-view light/dark QA. Fresh concept/render inspection done; pinned frontend CI added, exact-head remote status tracked on PR9. PR9 draft/unmerged; no chip gate promotion; PR8 merge separately deferred |
 | M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Implemented candidate in `specs/m1-execution-contract.md`; encoding remains provisional |
 | M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Implemented candidate; local dual-simulator/formal/generic synthesis pass |
 | M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Qualified at `d502227`: exact-head CI passes P-RELOAD simulation and store proof |
@@ -68,7 +72,7 @@ engineering to proceed independently while M0 owner fluency remains pending.
 | M1-T08 | Preserve simulation waveform provenance | Full RTL and GL-shaped smoke FST/JUnit pairs retain distinct paths, stage labels and verified checksums | Qualified by exact-head CI and independent review; PR 3 merged at `2326022` |
 | M1-T09 | Execute K-SHIFT-8 as a public-pin-loaded kernel | Both bit orders, exact ten-edge bound, RX readback, data-register and partial/error behavior match independent expectations | Qualified at `d1ddc8a`; exact-head CI/re-review passed and PR 4 merged at `081a8b1` |
 | M1-T03 | Add GET and BRANCH only as needed; bounded LOOP was evaluated by M1-T07 | Bounded behavior; cost delta recorded | Queued |
-| M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | TX PR5 merged at `80975ed` (E0016); RX semantic PR6 merged at `3797c5a` (E0017); bounded last-byte public RX implementation `181cfa1` passes local/clean CI and re-review (E0018), generic +10 cells/+0 state; PR7 tracks final-record exact-head CI/integration; complete retained-two-byte/continuous delivery open |
+| M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | TX PR5 merged at `80975ed` (E0016); RX semantic PR6 merged at `3797c5a` (E0017); bounded last-byte PR7 merged at `155e130` (E0018); separate host-service PR8 draft/deferred, not imported here; complete retained-two-byte/continuous delivery open |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Queued |
 | M3-T02 | Compare architecture and instruction ablations | Program bytes, cycles, mapped area and verification cost | Queued |
 | M4-T01 | Temporal IR and compiler | Deterministic output, diagnostics and timing checks | Queued |

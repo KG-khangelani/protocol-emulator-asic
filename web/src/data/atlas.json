@@ -1,0 +1,681 @@
+{
+  "schema": "protocol-atlas-source-v1",
+  "repository": "https://github.com/KG-khangelani/protocol-emulator-asic",
+  "source": {
+    "revision": "181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03",
+    "mainSnapshot": "155e130ea402f78a86558fb3c2b094c536be41a4",
+    "allSourceMatches": true,
+    "evidenceIntegrity": true,
+    "fingerprint": "5374903bb7bc8e9a7b895e2693a15e5fab9b56783f90b870c4655d4adc683b80",
+    "qualification": "E0018",
+    "matchCount": 5
+  },
+  "clockTargetHz": 50000000,
+  "tileAllocation": "6x4",
+  "modules": [
+    {
+      "id": "top",
+      "label": "Top-level routing",
+      "name": "tt_um_khangelani_protocol_emulator",
+      "file": "src/project.v",
+      "note": "Public pins, loader ownership and runtime readback",
+      "stateBits": 0,
+      "registers": [],
+      "fields": [],
+      "sourceHash": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+      "evidenceSourceMatches": true,
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/project.v"
+    },
+    {
+      "id": "program",
+      "label": "Program store",
+      "name": "m1_program_store",
+      "file": "src/m1_program_store.v",
+      "note": "Writable through clock-synchronous public pins",
+      "stateBits": 261,
+      "registers": [
+        {
+          "name": "program_length",
+          "bits": 4
+        },
+        {
+          "name": "program_ready",
+          "bits": 1
+        },
+        {
+          "name": "word0",
+          "bits": 32
+        },
+        {
+          "name": "word1",
+          "bits": 32
+        },
+        {
+          "name": "word2",
+          "bits": 32
+        },
+        {
+          "name": "word3",
+          "bits": 32
+        },
+        {
+          "name": "word4",
+          "bits": 32
+        },
+        {
+          "name": "word5",
+          "bits": 32
+        },
+        {
+          "name": "word6",
+          "bits": 32
+        },
+        {
+          "name": "word7",
+          "bits": 32
+        }
+      ],
+      "fields": [
+        {
+          "label": "Program words",
+          "bits": 256,
+          "registers": [
+            "word0",
+            "word1",
+            "word2",
+            "word3",
+            "word4",
+            "word5",
+            "word6",
+            "word7"
+          ]
+        },
+        {
+          "label": "Length",
+          "bits": 4,
+          "registers": [
+            "program_length"
+          ]
+        },
+        {
+          "label": "Ready",
+          "bits": 1,
+          "registers": [
+            "program_ready"
+          ]
+        }
+      ],
+      "sourceHash": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+      "evidenceSourceMatches": true,
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_program_store.v"
+    },
+    {
+      "id": "engine",
+      "label": "Sequencer",
+      "name": "m1_engine",
+      "file": "src/m1_engine.v",
+      "note": "Accepted-edge temporal execution",
+      "stateBits": 108,
+      "registers": [
+        {
+          "name": "gpio_oe",
+          "bits": 8
+        },
+        {
+          "name": "gpio_value",
+          "bits": 8
+        },
+        {
+          "name": "loop_active",
+          "bits": 1
+        },
+        {
+          "name": "loop_end",
+          "bits": 5
+        },
+        {
+          "name": "loop_remaining",
+          "bits": 8
+        },
+        {
+          "name": "loop_start",
+          "bits": 5
+        },
+        {
+          "name": "pc",
+          "bits": 5
+        },
+        {
+          "name": "shift_active",
+          "bits": 1
+        },
+        {
+          "name": "shift_bits_done",
+          "bits": 3
+        },
+        {
+          "name": "shift_msb_first",
+          "bits": 1
+        },
+        {
+          "name": "shift_period",
+          "bits": 16
+        },
+        {
+          "name": "shift_rx_data",
+          "bits": 8
+        },
+        {
+          "name": "shift_rx_pin",
+          "bits": 3
+        },
+        {
+          "name": "shift_tx_data",
+          "bits": 8
+        },
+        {
+          "name": "shift_tx_pin",
+          "bits": 3
+        },
+        {
+          "name": "shift_tx_slot",
+          "bits": 1
+        },
+        {
+          "name": "state",
+          "bits": 2
+        },
+        {
+          "name": "wait_is_input",
+          "bits": 1
+        },
+        {
+          "name": "wait_left",
+          "bits": 16
+        },
+        {
+          "name": "wait_level",
+          "bits": 1
+        },
+        {
+          "name": "wait_pin",
+          "bits": 3
+        },
+        {
+          "name": "wait_timeout_skip",
+          "bits": 1
+        }
+      ],
+      "fields": [
+        {
+          "label": "PC + state",
+          "bits": 7,
+          "registers": [
+            "pc",
+            "state"
+          ]
+        },
+        {
+          "label": "WAIT counter",
+          "bits": 16,
+          "registers": [
+            "wait_left"
+          ]
+        },
+        {
+          "label": "Input-wait configuration",
+          "bits": 6,
+          "registers": [
+            "wait_is_input",
+            "wait_pin",
+            "wait_level",
+            "wait_timeout_skip"
+          ]
+        },
+        {
+          "label": "Bounded LOOP",
+          "bits": 19,
+          "registers": [
+            "loop_active",
+            "loop_start",
+            "loop_end",
+            "loop_remaining"
+          ]
+        },
+        {
+          "label": "SHIFT state",
+          "bits": 44,
+          "registers": [
+            "shift_active",
+            "shift_bits_done",
+            "shift_msb_first",
+            "shift_tx_pin",
+            "shift_rx_pin",
+            "shift_tx_data",
+            "shift_rx_data",
+            "shift_period",
+            "shift_tx_slot"
+          ]
+        },
+        {
+          "label": "GPIO value + direction",
+          "bits": 16,
+          "registers": [
+            "gpio_value",
+            "gpio_oe"
+          ]
+        }
+      ],
+      "sourceHash": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+      "evidenceSourceMatches": true,
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_engine.v"
+    },
+    {
+      "id": "data",
+      "label": "Data registers",
+      "name": "m1_data_store",
+      "file": "src/m1_data_store.v",
+      "note": "Raw capture is not accepted-frame delivery",
+      "stateBits": 25,
+      "registers": [
+        {
+          "name": "rx_result",
+          "bits": 8
+        },
+        {
+          "name": "rx_valid",
+          "bits": 1
+        },
+        {
+          "name": "tx_payload",
+          "bits": 8
+        },
+        {
+          "name": "tx_payload_alt",
+          "bits": 8
+        }
+      ],
+      "fields": [
+        {
+          "label": "TX A",
+          "bits": 8,
+          "registers": [
+            "tx_payload"
+          ]
+        },
+        {
+          "label": "TX B",
+          "bits": 8,
+          "registers": [
+            "tx_payload_alt"
+          ]
+        },
+        {
+          "label": "Raw RX",
+          "bits": 8,
+          "registers": [
+            "rx_result"
+          ]
+        },
+        {
+          "label": "Raw valid",
+          "bits": 1,
+          "registers": [
+            "rx_valid"
+          ]
+        }
+      ],
+      "sourceHash": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "evidenceSourceMatches": true,
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_data_store.v"
+    },
+    {
+      "id": "sync",
+      "label": "Input synchronizer",
+      "name": "m1_input_sync",
+      "file": "src/m1_input_sync.v",
+      "note": "Always clocked; enable freezes only the engine",
+      "stateBits": 16,
+      "registers": [
+        {
+          "name": "metastability_stage",
+          "bits": 8
+        },
+        {
+          "name": "sampled_in",
+          "bits": 8
+        }
+      ],
+      "fields": [
+        {
+          "label": "Stage 1",
+          "bits": 8,
+          "registers": [
+            "metastability_stage"
+          ]
+        },
+        {
+          "label": "Stage 2",
+          "bits": 8,
+          "registers": [
+            "sampled_in"
+          ]
+        }
+      ],
+      "sourceHash": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "evidenceSourceMatches": true,
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_input_sync.v"
+    }
+  ],
+  "relations": [
+    {
+      "id": "raw-sync",
+      "from": "top",
+      "to": "sync",
+      "sourcePort": "uio_in",
+      "targetPort": "async_in",
+      "wire": "uio_in",
+      "label": "Raw public input",
+      "signals": [
+        "uio_in[7:0]"
+      ],
+      "note": "Runtime input directly enters the synchronizer; these pins are shared with the loader."
+    },
+    {
+      "id": "sync-engine",
+      "from": "sync",
+      "to": "engine",
+      "sourcePort": "sampled_in",
+      "targetPort": "sampled_inputs",
+      "wire": "sampled_inputs",
+      "label": "Synchronized input",
+      "signals": [
+        "sampled_inputs[7:0]"
+      ],
+      "note": "Synchronized level used by input waits and receive sampling."
+    },
+    {
+      "id": "program-engine",
+      "from": "program",
+      "to": "engine",
+      "sourcePort": "instruction",
+      "targetPort": "instruction",
+      "wire": "instruction",
+      "label": "Instruction fetch",
+      "signals": [
+        "instruction[31:0]",
+        "instruction_valid"
+      ],
+      "note": "Program data, not a read-only preload."
+    },
+    {
+      "id": "engine-program",
+      "from": "engine",
+      "to": "program",
+      "sourcePort": "pc",
+      "targetPort": "pc",
+      "wire": "pc",
+      "label": "Fetch address",
+      "signals": [
+        "pc[4:0]"
+      ],
+      "note": "No implicit address wrap."
+    },
+    {
+      "id": "data-engine",
+      "from": "data",
+      "to": "engine",
+      "sourcePort": "tx_payload",
+      "targetPort": "tx_payload",
+      "wire": "tx_payload",
+      "label": "Transmit payload",
+      "signals": [
+        "tx_payload[7:0]",
+        "tx_payload_alt[7:0]"
+      ],
+      "note": "Two generic public payload registers."
+    },
+    {
+      "id": "engine-data",
+      "from": "engine",
+      "to": "data",
+      "sourcePort": "shift_result_data",
+      "targetPort": "shift_result_data",
+      "wire": "shift_result_data",
+      "label": "Raw result capture",
+      "signals": [
+        "shift_result_data[7:0]",
+        "shift_result_write"
+      ],
+      "note": "Result and write strobe; capture does not imply frame acceptance."
+    },
+    {
+      "id": "engine-output",
+      "from": "engine",
+      "to": "top",
+      "sourcePort": "gpio_value",
+      "targetPort": "gpio_value",
+      "wire": "gpio_value",
+      "label": "Runtime GPIO",
+      "signals": [
+        "gpio_value[7:0]",
+        "gpio_oe[7:0]"
+      ],
+      "note": "Runtime uio_out/uio_oe; uo_out is status or selected register readback."
+    }
+  ],
+  "totalStateBits": 410,
+  "evidence": [
+    {
+      "id": "E0010",
+      "title": "Archived M0 GPIO baseline",
+      "revision": "9ec2200410610cb107372cf7f6ec4d493448049f",
+      "status": "PASS",
+      "rung": "CMOS5L + gate-level + clean rerun",
+      "scope": "Archived GPIO counter only. This does not qualify current M1 hardware or owner learning.",
+      "evidenceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/155e130ea402f78a86558fb3c2b094c536be41a4/evidence/E0010-pinned-cmos5l-run/README.md",
+      "archived": true,
+      "runUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36118046477",
+      "tools": [
+        {
+          "name": "flow",
+          "version": "LibreLane"
+        },
+        {
+          "name": "flow_version",
+          "version": "3.1.0.dev3"
+        },
+        {
+          "name": "pdk",
+          "version": "ihp-sg13cmos5l"
+        },
+        {
+          "name": "pdk_commit",
+          "version": "2bbec755dc67ca3db0261c3d6163e15735d66710"
+        },
+        {
+          "name": "physical_yosys",
+          "version": "0.66 (86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51)"
+        },
+        {
+          "name": "gate_level_iverilog",
+          "version": "13.0 stable"
+        },
+        {
+          "name": "gate_level_cocotb",
+          "version": "2.0.1"
+        }
+      ]
+    },
+    {
+      "id": "E0016",
+      "title": "UART TX 8N1",
+      "revision": "b0555dfa988e11d5ab0eccce3bfa555d3a1147c6",
+      "status": "PASS",
+      "rung": "Recorded digital RTL / scoped formal",
+      "scope": "Named firmware workload, not complete UART or current M1 physical evidence.",
+      "evidenceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/155e130ea402f78a86558fb3c2b094c536be41a4/evidence/E0016-uart-tx-8n1/README.md",
+      "archived": false,
+      "currentSourceMatches": false,
+      "tools": [
+        {
+          "name": "git",
+          "version": "git version 2.39.5"
+        },
+        {
+          "name": "g++",
+          "version": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+        },
+        {
+          "name": "iverilog",
+          "version": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "vvp",
+          "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "verilator",
+          "version": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)"
+        },
+        {
+          "name": "verible",
+          "version": "Version v0.0-4296-g0f262651"
+        },
+        {
+          "name": "yosys",
+          "version": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)"
+        },
+        {
+          "name": "sby",
+          "version": "SBY v0.67-4-gfea6e46"
+        },
+        {
+          "name": "z3",
+          "version": "Z3 version 4.15.5 - 64 bit"
+        },
+        {
+          "name": "boolector",
+          "version": "3.2.4"
+        },
+        {
+          "name": "cocotb",
+          "version": "2.0.1"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.2"
+        }
+      ]
+    },
+    {
+      "id": "E0018",
+      "title": "Bounded last-byte UART RX",
+      "revision": "181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03",
+      "status": "PASS",
+      "rung": "Digital RTL / scoped formal",
+      "scope": "Both frames validate; only final byte delivered after known-image HALT. Raw valid is capture, not acceptance. No FIFO/continuous receive.",
+      "evidenceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/155e130ea402f78a86558fb3c2b094c536be41a4/evidence/E0018-uart-rx-public/README.md",
+      "archived": false,
+      "currentSourceMatches": true,
+      "manifestIntegrity": true,
+      "tools": [
+        {
+          "name": "git",
+          "version": "git version 2.39.5"
+        },
+        {
+          "name": "g++",
+          "version": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+        },
+        {
+          "name": "iverilog",
+          "version": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "vvp",
+          "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "verilator",
+          "version": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)"
+        },
+        {
+          "name": "verible",
+          "version": "Version v0.0-4296-g0f262651"
+        },
+        {
+          "name": "yosys",
+          "version": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)"
+        },
+        {
+          "name": "sby",
+          "version": "SBY v0.67-4-gfea6e46"
+        },
+        {
+          "name": "z3",
+          "version": "Z3 version 4.15.5 - 64 bit"
+        },
+        {
+          "name": "boolector",
+          "version": "3.2.4"
+        },
+        {
+          "name": "cocotb",
+          "version": "2.0.1"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.2"
+        }
+      ],
+      "runUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37283077006"
+    }
+  ],
+  "genericScreen": {
+    "cells": 2793,
+    "stateBits": 410,
+    "qualification": "E0018",
+    "provenance": "MEASURED",
+    "scope": "Generic synthesis only; not CMOS5L area/fit/timing."
+  },
+  "learning": {
+    "activeMilestone": "M0",
+    "m0Technical": "PASS",
+    "m0Fluency": "PENDING"
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "status": "UNPROVEN"
+    },
+    {
+      "id": "H2",
+      "status": "UNPROVEN"
+    },
+    {
+      "id": "H3",
+      "status": "UNPROVEN"
+    },
+    {
+      "id": "H4",
+      "status": "UNPROVEN"
+    }
+  ],
+  "deferred": {
+    "id": "PR8",
+    "branch": "feat/bounded-uart-rx-host-service",
+    "head": "b19a718e25b2f6e3343a15a1632aaed7da14c05f",
+    "snapshotDate": "2026-10-05",
+    "status": "DRAFT / NOT MERGED",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/8",
+    "scope": "Separate host-service branch. Its cache is external to CHIP_COMPLETE; evidence is not imported in this app snapshot."
+  },
+  "limits": [
+    "Logical geometry is schematic, not physical area.",
+    "Reference playback is not measured RTL or a hardware capture.",
+    "50 MHz is a target, not measured Fmax.",
+    "M1 physical closure and silicon: NOT EVALUATED.",
+    "M0 owner fluency is not promoted by engineering."
+  ]
+}
