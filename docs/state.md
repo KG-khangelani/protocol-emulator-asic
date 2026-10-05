@@ -5,6 +5,11 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
+Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
+on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
+Implementation/browser verification follow as coherent committed/pushed slices;
+this approval does not authorize PR8 merging.
+
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
 
@@ -215,6 +220,17 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Blocked or unverified
 
+- [The Protocol atlas contract](specs/protocol-atlas.md) has approved direction,
+  but is not an implemented app at this documentation checkpoint.
+  Neutral compact regions, instrumental colour and inverse-emphasis tracing
+  are specified; browser/keyboard/touch/reduced-motion implementation tests
+  have not run. Private concept/reference assets are not committed. D20 keeps
+  documentation publication distinct from design acceptance and chip evidence.
+- [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
+  separate draft/unmerged host-service candidate. This documentation branch
+  starts from main `155e130` and imports no PR8 code/evidence; no merge or SPI
+  work is authorized by this increment.
+
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
 - The official composite action's internally tagged dependencies remain a
@@ -225,10 +241,14 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: specify a bounded host-service/delivery contract for preserving
-  both received frames after PR7's exact-green integration
-  before adding storage. Keep focused risk-based checks during iteration and
-  aggregate gates at review/merge milestones; no new physical claim is implied.
+- Supporting UI: implement `specs/protocol-atlas.md` with neutral light/dark,
+  soft compact regions and source-backed inverse emphasis; no new concept
+  approval round is required. Commit and push coherent
+  public-original increments for review without publishing private artifacts.
+- Engineering: keep PR8 draft/deferred until a separate integration decision.
+  Its host-service work is not merged into this branch. Preserve scoped
+  workload/physical limits; no new storage, protocol or physical result is
+  claimed by design documentation.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 

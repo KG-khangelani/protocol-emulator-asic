@@ -66,6 +66,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D16 | Extend the reusable shifter with a timed byte burst and two alternating payload slots; keep UART framing in SET/WAIT firmware | `decisions/0016-timed-shift-burst.md` |
 | D17 | Falsify an eight-word UART-RX sampling/check schedule before changing result delivery; keep raw capture distinct from frame acceptance | `decisions/0017-rx-contract-before-delivery-extension.md` |
 | D18 | Deliver only the last byte of a validated two-frame batch and expose raw data through a generic dedicated-output runtime selector without GPIO contention or new state | `decisions/0018-bounded-rx-delivery-runtime-readout.md` |
+| D20 | Publish source-backed, neutral compact atlas/interaction guardrails as reviewable increments; keep design approval, implementation, chip evidence and owner learning distinct | `decisions/0020-source-backed-compact-atlas.md`, `specs/protocol-atlas.md`; direction approved with soft light/dark and fewer borders, not an implementation/hardware experiment or H1-H4 result |
 
 ## Experimental results
 
