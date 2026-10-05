@@ -16,11 +16,13 @@ Command on Windows, using the repository's isolated Docker configuration:
 
 ```powershell
 .\tools\workbench.ps1 Evidence
+.\tools\workbench.ps1 Check
 ```
 
 | Check | Result |
 |---|---|
-| Exact-version doctor, static/model, learning status, lint | PASS; 18 model tests |
+| Collector: exact-version doctor, static metadata/syntax, learning status, lint | PASS |
+| Separate Check/All execution: model tests | PASS; 18 tests (not run by collector's static stage) |
 | Icarus / Verilator | PASS; 14 cocotb tests each |
 | GL-shaped smoke / waveform provenance / M0 learning waveform | PASS; not gate-netlist evidence |
 | Engine proof and covers | PASS; engine proof 164 seconds wall time |
@@ -30,6 +32,10 @@ Command on Windows, using the repository's isolated Docker configuration:
 | Independent review | No blocking findings in final minimized RTL/contract |
 | Exact-head implementation CI | PASS at `b0555df`; see clean-CI observation below |
 | New physical flow | NOT RUN |
+
+The collector's static stage calls `check_project.py`, not the model unit suite.
+The 18 model tests passed separately in local `Check` and CI's preceding `All`
+ladder. This distinction keeps the 11-stage collector claim inspectable.
 
 The frame-only oracle checks every byte in both payload slots at legal period
 two and four retained complementary pairs at the exact 434-edge period. The

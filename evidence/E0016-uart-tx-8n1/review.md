@@ -19,6 +19,10 @@ confirmed:
   qualification and M0 fluency PENDING are stated accurately.
 
 No blocking documentation issue was found and the reviewer made no file edits.
+Final qualification review at `116976b` verified all 30 extracted CI artifact
+hashes, nine source hashes, clean provenance and both 14-test reports. It caught
+one attribution ambiguity: the 18 model tests belong to separate `Check`/`All`,
+not the collector's static stage. The E0016 table now states that explicitly.
 One nonblocking future test suggestion is burst/completed-manual-byte/burst
 slot reuse. Review is supporting evidence, not a substitute for simulation,
 formal proof, exact-head CI, physical flow or human learning.
