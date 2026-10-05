@@ -5,6 +5,34 @@ import unittest
 from tools.m1_contract_model import Instruction, Machine, State
 
 
+def uart_tx_program(period):
+    return [
+        Instruction("SET", mask=1, value=1, oe=1),
+        Instruction("LOOP", length=5, count=2),
+        Instruction("SET", mask=1, value=0, oe=1),
+        Instruction("WAIT", count=period - 2),
+        Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=period),
+        Instruction("SET", mask=1, value=1, oe=1),
+        Instruction("WAIT", count=period - 2),
+        Instruction("HALT"),
+    ]
+
+
+def uart_tx_level(edge_index, period, first_payload, second_payload):
+    if edge_index < 3:
+        return 1
+    cell = (edge_index - 3) // period
+    if cell >= 20:
+        return 1
+    frame_cell = cell % 10
+    if frame_cell == 0:
+        return 0
+    if frame_cell == 9:
+        return 1
+    payload = first_payload if cell < 10 else second_payload
+    return (payload >> (frame_cell - 1)) & 1
+
+
 class ContractModelTest(unittest.TestCase):
     def test_wait_edge_counts_and_enable_freeze(self):
         program = [Instruction("WAIT", count=2), Instruction("SET", mask=1, value=1, oe=1)]
@@ -231,6 +259,55 @@ class ContractModelTest(unittest.TestCase):
                          (State.FAULT, 1, False))
         partial.edge([], rst_n=False, ena=False)
         self.assertEqual(partial, Machine())
+
+    def test_timed_shift_burst_invalid_freeze_and_reset(self):
+        program = [Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1,
+                               burst=1, period=3)]
+        machine = Machine()
+        machine.edge(program, tx_payload=0xA5, tx_payload_alt=0x5A)
+        self.assertEqual(
+            (machine.state, machine.pc, machine.wait_left,
+             machine.shift_bits_done, machine.gpio_value & 1),
+            (State.WAIT, 0, 3, 1, 1),
+        )
+        frozen = Machine(**machine.__dict__)
+        machine.edge(program, ena=False, tx_payload=0xA5, tx_payload_alt=0x5A)
+        self.assertEqual(machine, frozen)
+        machine.edge([], rst_n=False, ena=False)
+        self.assertEqual(machine, Machine())
+
+        for instruction in (
+            Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=0),
+            Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=1),
+            Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=0, period=2),
+        ):
+            invalid = Machine(gpio_value=0xAA, gpio_oe=0x55)
+            invalid.edge([instruction])
+            self.assertEqual(
+                (invalid.state, invalid.pc, invalid.gpio_value, invalid.gpio_oe),
+                (State.FAULT, 0, 0xAA, 0x55),
+            )
+
+    def test_uart_all_payload_pairs_at_exact_period(self):
+        period = 434
+        program = uart_tx_program(period)
+        halt_edge = 3 + 20 * period
+        for first in range(256):
+            second = 0xFF - first
+            machine = Machine()
+            for edge_index in range(1, halt_edge + 1):
+                machine.edge(program, tx_payload=first,
+                             tx_payload_alt=second)
+                self.assertEqual(
+                    (machine.gpio_value & 1, machine.gpio_oe & 0x03),
+                    (uart_tx_level(edge_index, period, first, second), 0x01),
+                    f"payloads={first:02x}/{second:02x} edge={edge_index}",
+                )
+            self.assertEqual(
+                (machine.state, machine.pc, machine.shift_active,
+                 machine.shift_tx_slot, machine.shift_result_data),
+                (State.HALT, 7, False, 0, 0),
+            )
 
 
 if __name__ == "__main__":

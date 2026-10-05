@@ -1,0 +1,40 @@
+{
+  "date_utc": "2026-10-05",
+  "implementation_head": "b0555dfa988e11d5ab0eccce3bfa555d3a1147c6",
+  "baseline_head": "081a8b14a68ff58d46c3b75d53b7138dbea79433",
+  "draft_pr": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/5",
+  "merged": false,
+  "runs": {
+    "push_test": {"id": 37273010179, "conclusion": "success"},
+    "pull_request_test": {"id": 37273014060, "conclusion": "success"},
+    "push_docs": {"id": 37273010138, "conclusion": "success"}
+  },
+  "push_artifact": {
+    "id": 11328872462,
+    "name": "verification-b0555dfa988e11d5ab0eccce3bfa555d3a1147c6",
+    "size_bytes": 1197912,
+    "github_reported_zip_digest": "sha256:be2a7a6a2c16cedf64a44a636c034d48b0f3c587de460580898415729d274ecc",
+    "zip_digest_independently_checked": false,
+    "expires_at": "2027-01-03T06:33:20Z"
+  },
+  "clean_collector": {
+    "run": "20261005T063807863095Z",
+    "manifest_sha256": "8b8d46289d8b18758073a9f63b797da020a52f9693733f50a81993761d88d07c",
+    "git_status": "",
+    "stages_passed": 11,
+    "collected_artifact_hashes_verified": 30,
+    "implementation_model_formal_test_source_hashes_matched_local": 9,
+    "workbench_image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "icarus_tests": 14,
+    "verilator_tests": 14,
+    "simulator_failures": 0,
+    "engine_proof_wall_seconds": 166,
+    "generic_cells": 2783,
+    "state_bits": 410
+  },
+  "independent_review": "PASS: no blocking implementation or evidence findings",
+  "physical_flow": "NOT_RUN",
+  "uart_rx": "NOT_EVALUATED",
+  "m0_owner_fluency": "PENDING",
+  "qualification_record_head_ci": "Checked separately before final handoff; this record qualifies implementation_head"
+}

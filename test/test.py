@@ -27,11 +27,41 @@ def encode(instruction):
         return 2 << 30
     if instruction.opcode == "SHIFT_STEP":
         return ((2 << 30) | (1 << 29) | (instruction.msb_first << 28) |
-                (instruction.tx_pin << 25) | (instruction.rx_pin << 22))
+                (instruction.tx_pin << 25) | (instruction.rx_pin << 22) |
+                (instruction.burst << 21) | (instruction.period << 5))
     if instruction.opcode == "WAIT_PIN":
         return ((3 << 30) | (instruction.pin << 27) | (instruction.level << 26) |
                 (instruction.timeout_skip << 25) | instruction.count)
     return 3 << 30
+
+
+def uart_tx_program(period):
+    return [
+        Instruction("SET", mask=1, value=1, oe=1),
+        Instruction("LOOP", length=5, count=2),
+        Instruction("SET", mask=1, value=0, oe=1),
+        Instruction("WAIT", count=period - 2),
+        Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=period),
+        Instruction("SET", mask=1, value=1, oe=1),
+        Instruction("WAIT", count=period - 2),
+        Instruction("HALT"),
+    ]
+
+
+def uart_tx_level(edge_index, period, first_payload, second_payload):
+    """Independent frame oracle indexed from the first accepted program edge."""
+    if edge_index < 3:
+        return 1
+    cell = (edge_index - 3) // period
+    if cell >= 20:
+        return 1
+    frame_cell = cell % 10
+    if frame_cell == 0:
+        return 0
+    if frame_cell == 9:
+        return 1
+    payload = first_payload if cell < 10 else second_payload
+    return (payload >> (frame_cell - 1)) & 1
 
 
 def initialise(dut):
@@ -45,6 +75,7 @@ def initialise(dut):
         dut.engine_instruction_valid.value = 0
         dut.engine_sampled_inputs.value = 0
         dut.engine_tx_payload.value = 0
+        dut.engine_tx_payload_alt.value = 0
 
 
 async def edge(dut, *, rst_n=1, ena=1):
@@ -128,6 +159,10 @@ def observe_shift_engine(dut, expected):
         int(dut.engine_shift_rx_pin_status.value),
         int(dut.engine_shift_tx_data_status.value),
         int(dut.engine_shift_rx_data_status.value),
+        int(dut.engine_wait_is_shift_status.value),
+        int(dut.engine_shift_burst_status.value),
+        int(dut.engine_shift_period_status.value),
+        int(dut.engine_shift_tx_slot_status.value),
     )
     wanted = (
         expected.pc, STATE_BITS[expected.state], expected.wait_left,
@@ -136,6 +171,8 @@ def observe_shift_engine(dut, expected):
         int(expected.shift_active), expected.shift_bits_done,
         int(expected.shift_msb_first), expected.shift_tx_pin,
         expected.shift_rx_pin, expected.shift_tx_data, expected.shift_rx_data,
+        int(expected.wait_is_shift), int(expected.shift_burst),
+        expected.shift_period, expected.shift_tx_slot,
     )
     assert actual == wanted, f"shift RTL {actual} != semantic model {wanted}"
 
@@ -378,17 +415,177 @@ async def k_shift_8_public_payload_both_orders(dut):
         assert await read_data_register(dut, 2) == received
         assert await read_data_register(dut, 3) == 1
         await write_data_register(dut, 4, 0x5A)
-        assert await read_data_register(dut, 4) == 0
+        assert await read_data_register(dut, 4) == 0x5A
         assert await read_data_register(dut, 1) == payload
         assert await read_data_register(dut, 2) == received
-        assert await read_data_register(dut, 3) == 1
+        assert await read_data_register(dut, 3) == 0
         await write_data_register(dut, 2, received ^ 0xFF)
         assert await read_data_register(dut, 2) == received
-        assert await read_data_register(dut, 3) == 1
+        assert await read_data_register(dut, 3) == 0
         await write_data_register(dut, 1, payload ^ 0xFF)
         assert await read_data_register(dut, 1) == (payload ^ 0xFF)
         assert await read_data_register(dut, 2) == received
         assert await read_data_register(dut, 3) == 0
+
+
+@cocotb.test()
+async def uart_tx_8n1_public_pin_oracle(dut):
+    """All bytes at a short legal period plus retained exact-434 cases."""
+    cases = [(2, value, 0xFF - value) for value in range(256)]
+    cases.extend((434, first, second) for first, second in (
+        (0x00, 0xFF), (0x55, 0xAA), (0xAA, 0x55), (0xFF, 0x00)
+    ))
+    for period, first, second in cases:
+        program = uart_tx_program(period)
+        words = [encode(instruction) for instruction in program]
+        initialise(dut)
+        await edge(dut, rst_n=0, ena=0)
+        await load_program(dut, words)
+        await check_readback(dut, words)
+        await write_data_register(dut, 1, first)
+        await write_data_register(dut, 4, second)
+        assert await read_data_register(dut, 1) == first
+        assert await read_data_register(dut, 4) == second
+        assert await read_data_register(dut, 3) == 0
+        dut.ui_in.value = 0
+        dut.uio_in.value = 0
+
+        halt_edge = 3 + 20 * period
+        transitions = []
+        previous_level = None
+        for edge_index in range(1, halt_edge + 1):
+            await edge(dut)
+            expected = uart_tx_level(edge_index, period, first, second)
+            actual_level = int(dut.uio_out.value) & 1
+            if actual_level != previous_level:
+                transitions.append((edge_index, actual_level))
+                previous_level = actual_level
+            assert actual_level == expected, (
+                f"period={period} payloads={first:02x}/{second:02x} "
+                f"edge={edge_index} transitions={transitions}"
+            )
+            assert (int(dut.uio_oe.value) & 0x03) == 0x01
+            if edge_index in (3 + 8 * period, 3 + 18 * period):
+                # Read without another edge: integrated capture must occur on
+                # the eighth data bit, before the final hold or HALT.
+                assert await read_data_register(dut, 2) == 0
+                assert await read_data_register(dut, 3) == 1
+                dut.ui_in.value = 0
+        assert int(dut.uo_out.value) == 0xA7
+        assert await read_data_register(dut, 2) == 0
+        assert await read_data_register(dut, 3) == 1
+
+
+@cocotb.test(skip=os.getenv("GATES") == "yes")
+async def timed_shift_burst_invalid_freeze_and_reset(dut):
+    initialise(dut)
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction_valid.value = 1
+    dut.engine_tx_payload.value = 0xA5
+    dut.engine_tx_payload_alt.value = 0x5A
+    dut.engine_instruction.value = encode(
+        Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=3)
+    )
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_wait_left.value),
+            int(dut.engine_shift_bits_done_status.value)) == (1, 0, 3, 1)
+    held = (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_wait_left.value), int(dut.engine_gpio_value.value),
+            int(dut.engine_gpio_oe.value),
+            int(dut.engine_shift_bits_done_status.value))
+    await edge(dut, ena=0)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_wait_left.value), int(dut.engine_gpio_value.value),
+            int(dut.engine_gpio_oe.value),
+            int(dut.engine_shift_bits_done_status.value)) == held
+    await edge(dut, rst_n=0, ena=0)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+            int(dut.engine_wait_left.value),
+            int(dut.engine_shift_active_status.value),
+            int(dut.engine_shift_tx_slot_status.value)) == (0, 0, 0, 0, 0)
+
+    for invalid_word in (
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=0)),
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=1)),
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=2)) | 1,
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, period=2)),
+    ):
+        await edge(dut, rst_n=0, ena=0)
+        dut.engine_instruction.value = invalid_word
+        dut.engine_instruction_valid.value = 1
+        await edge(dut)
+        assert (int(dut.engine_state.value), int(dut.engine_pc.value),
+                int(dut.engine_gpio_value.value),
+                int(dut.engine_gpio_oe.value)) == (3, 0, 0, 0)
+
+    await edge(dut, rst_n=0, ena=0)
+    dut.engine_instruction.value = encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1))
+    await edge(dut)
+    held_gpio = (int(dut.engine_gpio_value.value), int(dut.engine_gpio_oe.value))
+    dut.engine_instruction.value = encode(
+        Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1, burst=1, period=2)
+    )
+    await edge(dut)
+    assert (int(dut.engine_state.value), int(dut.engine_pc.value)) == (3, 1)
+    assert (int(dut.engine_gpio_value.value), int(dut.engine_gpio_oe.value)) == held_gpio
+
+
+@cocotb.test(skip=os.getenv("GATES") == "yes")
+async def timed_shift_burst_trace_matches_semantic_model(dut):
+    """Exercise RX assembly, both orders, slot reuse and disabled resumes."""
+    for msb_first, period in ((0, 2), (1, 3), (0, 7)):
+        program = [
+            Instruction("SET", mask=4, value=4, oe=4),
+            Instruction("LOOP", length=1, count=3),
+            Instruction("SHIFT_STEP", msb_first=msb_first, tx_pin=0,
+                        rx_pin=1, burst=1, period=period),
+            Instruction("HALT"),
+        ]
+        initialise(dut)
+        model = Machine()
+        await edge(dut, rst_n=0, ena=0)
+        received = 0x3A
+        accepted = 0
+        while model.state is not State.HALT:
+            instruction = program[model.pc]
+            if model.state is State.WAIT:
+                # Autonomous burst ignores instruction changes and validity.
+                dut.engine_instruction.value = 0xFFFFFFFF
+                dut.engine_instruction_valid.value = 0
+            else:
+                dut.engine_instruction.value = encode(instruction)
+                dut.engine_instruction_valid.value = 1
+            bit_index = (7 - model.shift_bits_done if msb_first
+                         else model.shift_bits_done)
+            sampled = ((received >> bit_index) & 1) << 1
+            dut.engine_sampled_inputs.value = sampled
+            # Changing the public payload during a burst cannot alter its
+            # already latched byte; subsequent bursts still select 0/1/0.
+            payload = 0x96 if model.state is State.RUN else 0xFF
+            payload_alt = 0x69 if model.state is State.RUN else 0x00
+            dut.engine_tx_payload.value = payload
+            dut.engine_tx_payload_alt.value = payload_alt
+            commit = (model.wait_is_shift and model.wait_left == 1 and
+                      model.shift_active and model.shift_bits_done == 7)
+            await Timer(1, unit="ns")
+            assert int(dut.engine_shift_result_write.value) == int(commit)
+            if commit:
+                assert int(dut.engine_shift_result_data.value) == received
+            if model.wait_is_shift and model.wait_left == 1:
+                frozen = Machine(**model.__dict__)
+                await edge(dut, ena=0)
+                model.edge(program, ena=False)
+                observe_shift_engine(dut, frozen)
+                assert int(dut.engine_shift_result_write.value) == 0
+            await edge(dut)
+            model.edge(program, sampled_inputs=sampled, tx_payload=payload,
+                       tx_payload_alt=payload_alt)
+            accepted += 1
+            observe_shift_engine(dut, model)
+        assert (accepted, model.pc, model.shift_tx_slot) == (
+            3 + 3 * 8 * period, 3, 1
+        )
 
 
 @cocotb.test(skip=os.getenv("GATES") == "yes")

@@ -8,8 +8,10 @@ and retained E0007 evidence remain available and are not rewritten.
 `m1_engine_formal.sv` proves sampled reset priority, enable and terminal-state
 stability, exact WAIT decrement/completion, SET masking, opcode validity, PC
 behavior, LOOP transitions, SHIFT_STEP progression/result assembly, and safe
-HALT/FAULT outcomes. Covers reach WAIT(2), HALT, FAULT, the seventh shift step,
-and same-edge shift completion.
+HALT/FAULT outcomes. It also proves arbitrary legal-period SHIFT_BURST
+countdown, bit transitions, final hold, payload-slot toggling, reset and enable
+freeze. Covers reach WAIT(2), HALT, FAULT, the seventh shift step, same-edge
+shift completion, timed completion and use of both payload slots.
 The mutation job deliberately demands an incorrect decrement-by-two result and
 must find a counterexample. These properties cover the reusable executor input;
 they do not prove physical timing.
@@ -20,7 +22,7 @@ bounds. Covers reach a ready eight-word image and an unready empty image. The
 end-to-end public-pin reload sequence remains a simulation property because the
 engine and store proofs are compositional, not one combined liveness proof.
 
-`m1_data_store_formal.sv` separately proves reset clearing, TX-payload writes,
+`m1_data_store_formal.sv` separately proves reset clearing, both TX-payload writes,
 RX-result capture, RX-valid invalidation, retained state, and exact readback for
 implemented and reserved addresses. Its result-capture input is constrained by
 the engine only in top-level simulation; the proof checks the store for every

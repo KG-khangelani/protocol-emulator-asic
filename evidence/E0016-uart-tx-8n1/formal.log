@@ -1,0 +1,502 @@
+make[1]: Entering directory '/workspace'
+rm -rf build/formal
+mkdir -p build/formal
+sby -f -d build/formal/prove formal/m1_engine.sby prove
+SBY  6:23:19 [build/formal/prove] Removing directory '/workspace/build/formal/prove'.
+SBY  6:23:19 [build/formal/prove] Copy '/workspace/src/m1_engine.v' to '/workspace/build/formal/prove/src/m1_engine.v'.
+SBY  6:23:19 [build/formal/prove] Copy '/workspace/formal/m1_engine_formal.sv' to '/workspace/build/formal/prove/src/m1_engine_formal.sv'.
+SBY  6:23:19 [build/formal/prove] engine_0: smtbmc z3
+SBY  6:23:19 [build/formal/prove] base: starting process "cd build/formal/prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:23:19 [build/formal/prove] base: finished (returncode=0)
+SBY  6:23:19 [build/formal/prove] prep: starting process "cd build/formal/prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:23:19 [build/formal/prove] prep: finished (returncode=0)
+SBY  6:23:19 [build/formal/prove] smt2: starting process "cd build/formal/prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:23:19 [build/formal/prove] smt2: finished (returncode=0)
+SBY  6:23:19 [build/formal/prove] engine_0.basecase: starting process "cd build/formal/prove; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:23:19 [build/formal/prove] engine_0.induction: starting process "cd build/formal/prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:23:19 [build/formal/prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:23:19 [build/formal/prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:23:19 [build/formal/prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY  6:23:19 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:23:19 [build/formal/prove] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY  6:23:19 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  6:23:20 [build/formal/prove] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  6:23:20 [build/formal/prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 4..
+SBY  6:23:22 [build/formal/prove] engine_0.induction: ##   0:00:02  Temporal induction successful.
+SBY  6:23:22 [build/formal/prove] engine_0.induction: ##   0:00:02  Status: passed
+SBY  6:23:22 [build/formal/prove] engine_0.induction: finished (returncode=0)
+SBY  6:23:22 [build/formal/prove] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:23:24 [build/formal/prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 5..
+SBY  6:23:24 [build/formal/prove] engine_0.basecase: ##   0:00:05  Checking assertions in step 5..
+SBY  6:23:30 [build/formal/prove] engine_0.basecase: ##   0:00:10  Checking assumptions in step 6..
+SBY  6:23:30 [build/formal/prove] engine_0.basecase: ##   0:00:10  Checking assertions in step 6..
+SBY  6:23:38 [build/formal/prove] engine_0.basecase: ##   0:00:18  Checking assumptions in step 7..
+SBY  6:23:38 [build/formal/prove] engine_0.basecase: ##   0:00:18  Checking assertions in step 7..
+SBY  6:23:45 [build/formal/prove] engine_0.basecase: ##   0:00:25  Checking assumptions in step 8..
+SBY  6:23:45 [build/formal/prove] engine_0.basecase: ##   0:00:25  Checking assertions in step 8..
+SBY  6:23:55 [build/formal/prove] engine_0.basecase: ##   0:00:35  Checking assumptions in step 9..
+SBY  6:23:55 [build/formal/prove] engine_0.basecase: ##   0:00:35  Checking assertions in step 9..
+SBY  6:24:08 [build/formal/prove] engine_0.basecase: ##   0:00:48  Checking assumptions in step 10..
+SBY  6:24:08 [build/formal/prove] engine_0.basecase: ##   0:00:48  Checking assertions in step 10..
+SBY  6:24:17 [build/formal/prove] engine_0.basecase: ##   0:00:57  Checking assumptions in step 11..
+SBY  6:24:17 [build/formal/prove] engine_0.basecase: ##   0:00:57  Checking assertions in step 11..
+SBY  6:24:24 [build/formal/prove] engine_0.basecase: ##   0:01:04  Checking assumptions in step 12..
+SBY  6:24:24 [build/formal/prove] engine_0.basecase: ##   0:01:04  Checking assertions in step 12..
+SBY  6:24:52 [build/formal/prove] engine_0.basecase: ##   0:01:32  Checking assumptions in step 13..
+SBY  6:24:53 [build/formal/prove] engine_0.basecase: ##   0:01:33  Checking assertions in step 13..
+SBY  6:25:12 [build/formal/prove] engine_0.basecase: ##   0:01:52  Checking assumptions in step 14..
+SBY  6:25:13 [build/formal/prove] engine_0.basecase: ##   0:01:53  Checking assertions in step 14..
+SBY  6:25:20 [build/formal/prove] engine_0.basecase: ##   0:02:00  Checking assumptions in step 15..
+SBY  6:25:22 [build/formal/prove] engine_0.basecase: ##   0:02:02  Checking assertions in step 15..
+SBY  6:25:33 [build/formal/prove] engine_0.basecase: ##   0:02:13  Checking assumptions in step 16..
+SBY  6:25:34 [build/formal/prove] engine_0.basecase: ##   0:02:14  Checking assertions in step 16..
+SBY  6:25:37 [build/formal/prove] engine_0.basecase: ##   0:02:17  Checking assumptions in step 17..
+SBY  6:25:40 [build/formal/prove] engine_0.basecase: ##   0:02:20  Checking assertions in step 17..
+SBY  6:25:43 [build/formal/prove] engine_0.basecase: ##   0:02:23  Checking assumptions in step 18..
+SBY  6:25:45 [build/formal/prove] engine_0.basecase: ##   0:02:25  Checking assertions in step 18..
+SBY  6:25:52 [build/formal/prove] engine_0.basecase: ##   0:02:32  Checking assumptions in step 19..
+SBY  6:25:55 [build/formal/prove] engine_0.basecase: ##   0:02:36  Checking assertions in step 19..
+SBY  6:26:03 [build/formal/prove] engine_0.basecase: ##   0:02:43  Status: passed
+SBY  6:26:03 [build/formal/prove] engine_0.basecase: finished (returncode=0)
+SBY  6:26:03 [build/formal/prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:26:03 [build/formal/prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:02:44 (164)
+SBY  6:26:03 [build/formal/prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:02:47 (167)
+SBY  6:26:03 [build/formal/prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:26:03 [build/formal/prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:26:03 [build/formal/prove] summary: engine_0 did not produce any traces
+SBY  6:26:03 [build/formal/prove] summary: successful proof by k-induction.
+SBY  6:26:03 [build/formal/prove] DONE (PASS, rc=0)
+sby -f -d build/formal/cover formal/m1_engine.sby cover
+SBY  6:26:03 [build/formal/cover] Removing directory '/workspace/build/formal/cover'.
+SBY  6:26:03 [build/formal/cover] Copy '/workspace/src/m1_engine.v' to '/workspace/build/formal/cover/src/m1_engine.v'.
+SBY  6:26:03 [build/formal/cover] Copy '/workspace/formal/m1_engine_formal.sv' to '/workspace/build/formal/cover/src/m1_engine_formal.sv'.
+SBY  6:26:03 [build/formal/cover] engine_0: smtbmc z3
+SBY  6:26:03 [build/formal/cover] base: starting process "cd build/formal/cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:03 [build/formal/cover] base: finished (returncode=0)
+SBY  6:26:03 [build/formal/cover] prep: starting process "cd build/formal/cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:04 [build/formal/cover] prep: finished (returncode=0)
+SBY  6:26:04 [build/formal/cover] smt2: starting process "cd build/formal/cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:04 [build/formal/cover] smt2: finished (returncode=0)
+SBY  6:26:04 [build/formal/cover] engine_0: starting process "cd build/formal/cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 20  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Solver: z3
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:430.9-430.45 (_witness_.check_cover_m1_engine_formal_sv_430_1193)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:429.9-429.67 (_witness_.check_cover_m1_engine_formal_sv_429_1188)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:432.9-432.69 (_witness_.check_cover_m1_engine_formal_sv_432_1199)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:433.9-433.82 (_witness_.check_cover_m1_engine_formal_sv_433_1203)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:431.9-431.45 (_witness_.check_cover_m1_engine_formal_sv_431_1196)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_engine_formal: m1_engine_formal.sv:436.9-436.83 (_witness_.check_cover_m1_engine_formal_sv_436_1213)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace4.vcd
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace4.smtc
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 9 at m1_engine_formal: m1_engine_formal.sv:434.9-434.84 (_witness_.check_cover_m1_engine_formal_sv_434_1207)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Reached cover statement in step 9 at m1_engine_formal: m1_engine_formal.sv:435.9-435.47 (_witness_.check_cover_m1_engine_formal_sv_435_1211)
+SBY  6:26:04 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace5.vcd
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace5.smtc
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:01  Checking cover reachability in step 11..
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:01  Checking cover reachability in step 12..
+SBY  6:26:05 [build/formal/cover] engine_0: ##   0:00:01  Checking cover reachability in step 13..
+SBY  6:26:06 [build/formal/cover] engine_0: ##   0:00:02  Checking cover reachability in step 14..
+SBY  6:26:06 [build/formal/cover] engine_0: ##   0:00:02  Checking cover reachability in step 15..
+SBY  6:26:07 [build/formal/cover] engine_0: ##   0:00:03  Checking cover reachability in step 16..
+SBY  6:26:09 [build/formal/cover] engine_0: ##   0:00:04  Checking cover reachability in step 17..
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Reached cover statement in step 17 at m1_engine_formal: m1_engine_formal.sv:437.9-437.75 (_witness_.check_cover_m1_engine_formal_sv_437_1217)
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Writing trace to VCD file: engine_0/trace6.vcd
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Writing trace to constraints file: engine_0/trace6.smtc
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Writing trace to Yosys witness file: engine_0/trace6.yw
+SBY  6:26:10 [build/formal/cover] engine_0: ##   0:00:06  Checking cover reachability in step 17..
+SBY  6:26:11 [build/formal/cover] engine_0: ##   0:00:07  Checking cover reachability in step 18..
+SBY  6:26:12 [build/formal/cover] engine_0: ##   0:00:08  Checking cover reachability in step 19..
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Reached cover statement in step 19 at m1_engine_formal: m1_engine_formal.sv:438.9-439.47 (_witness_.check_cover_m1_engine_formal_sv_438_1221)
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Writing trace to VCD file: engine_0/trace7.vcd
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Writing trace to constraints file: engine_0/trace7.smtc
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Writing trace to Yosys witness file: engine_0/trace7.yw
+SBY  6:26:14 [build/formal/cover] engine_0: ##   0:00:10  Status: passed
+SBY  6:26:14 [build/formal/cover] engine_0: finished (returncode=0)
+SBY  6:26:14 [build/formal/cover] engine_0: Status returned by engine: pass
+SBY  6:26:14 [build/formal/cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:10 (10)
+SBY  6:26:14 [build/formal/cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:10 (10)
+SBY  6:26:14 [build/formal/cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  6:26:14 [build/formal/cover] summary: cover trace: build/formal/cover/engine_0/trace0.vcd
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_430_1193 at m1_engine_formal.sv:430.9-430.45 step 3
+SBY  6:26:14 [build/formal/cover] summary: cover trace: build/formal/cover/engine_0/trace1.vcd
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_429_1188 at m1_engine_formal.sv:429.9-429.67 step 3
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_432_1199 at m1_engine_formal.sv:432.9-432.69 step 3
+SBY  6:26:14 [build/formal/cover] summary: cover trace: build/formal/cover/engine_0/trace2.vcd
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_433_1203 at m1_engine_formal.sv:433.9-433.82 step 3
+SBY  6:26:14 [build/formal/cover] summary: cover trace: build/formal/cover/engine_0/trace3.vcd
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_431_1196 at m1_engine_formal.sv:431.9-431.45 step 3
+SBY  6:26:14 [build/formal/cover] summary: cover trace: build/formal/cover/engine_0/trace4.vcd
+SBY  6:26:14 [build/formal/cover] summary:   reached cover statement m1_engine_formal._witness_.check_cover_m1_engine_formal_sv_436_1213 at m1_engine_formal.sv:436.9-436.83 step 3
+SBY  6:26:14 [build/formal/cover] summary: and 3 further traces
+SBY  6:26:14 [build/formal/cover] summary: see build/formal/cover/PASS for a complete summary
+SBY  6:26:14 [build/formal/cover] DONE (PASS, rc=0)
+sby -f -d build/formal/mutant formal/m1_engine_mutation.sby
+SBY  6:26:14 [build/formal/mutant] Removing directory '/workspace/build/formal/mutant'.
+SBY  6:26:14 [build/formal/mutant] Copy '/workspace/src/m1_engine.v' to '/workspace/build/formal/mutant/src/m1_engine.v'.
+SBY  6:26:14 [build/formal/mutant] Copy '/workspace/formal/m1_engine_formal.sv' to '/workspace/build/formal/mutant/src/m1_engine_formal.sv'.
+SBY  6:26:14 [build/formal/mutant] engine_0: smtbmc z3
+SBY  6:26:14 [build/formal/mutant] base: starting process "cd build/formal/mutant/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:14 [build/formal/mutant] base: finished (returncode=0)
+SBY  6:26:14 [build/formal/mutant] prep: starting process "cd build/formal/mutant/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:15 [build/formal/mutant] prep: finished (returncode=0)
+SBY  6:26:15 [build/formal/mutant] smt2: starting process "cd build/formal/mutant/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:15 [build/formal/mutant] smt2: finished (returncode=0)
+SBY  6:26:15 [build/formal/mutant] engine_0: starting process "cd build/formal/mutant; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Solver: z3
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:26:15 [build/formal/mutant] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Checking assumptions in step 4..
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Checking assertions in step 4..
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  BMC failed!
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Assert failed in m1_engine_formal: m1_engine_formal.sv:292.29-292.75 (_witness_.check_assert_m1_engine_formal_sv_292_865)
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace.vcd
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace.smtc
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  6:26:16 [build/formal/mutant] engine_0: ##   0:00:01  Status: failed
+SBY  6:26:16 [build/formal/mutant] engine_0: finished (returncode=1)
+SBY  6:26:16 [build/formal/mutant] engine_0: Status returned by engine: FAIL
+SBY  6:26:16 [build/formal/mutant] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  6:26:16 [build/formal/mutant] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  6:26:16 [build/formal/mutant] summary: engine_0 (smtbmc z3) returned FAIL
+SBY  6:26:16 [build/formal/mutant] summary: counterexample trace: build/formal/mutant/engine_0/trace.vcd
+SBY  6:26:16 [build/formal/mutant] summary:   failed assertion m1_engine_formal._witness_.check_assert_m1_engine_formal_sv_292_865 at m1_engine_formal.sv:292.29-292.75 step 4
+SBY  6:26:16 [build/formal/mutant] DONE (FAIL, rc=0)
+sby -f -d build/formal/store-prove formal/m1_program_store.sby prove
+SBY  6:26:17 [build/formal/store-prove] Removing directory '/workspace/build/formal/store-prove'.
+SBY  6:26:17 [build/formal/store-prove] Copy '/workspace/src/m1_program_store.v' to '/workspace/build/formal/store-prove/src/m1_program_store.v'.
+SBY  6:26:17 [build/formal/store-prove] Copy '/workspace/formal/m1_program_store_formal.sv' to '/workspace/build/formal/store-prove/src/m1_program_store_formal.sv'.
+SBY  6:26:17 [build/formal/store-prove] engine_0: smtbmc z3
+SBY  6:26:17 [build/formal/store-prove] base: starting process "cd build/formal/store-prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:17 [build/formal/store-prove] base: finished (returncode=0)
+SBY  6:26:17 [build/formal/store-prove] prep: starting process "cd build/formal/store-prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:17 [build/formal/store-prove] prep: finished (returncode=0)
+SBY  6:26:17 [build/formal/store-prove] smt2: starting process "cd build/formal/store-prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:17 [build/formal/store-prove] smt2: finished (returncode=0)
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: starting process "cd build/formal/store-prove; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:26:17 [build/formal/store-prove] engine_0.induction: starting process "cd build/formal/store-prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:26:17 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:26:17 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  6:26:17 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  6:26:17 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:26:17 [build/formal/store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  6:26:18 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  6:26:18 [build/formal/store-prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY  6:26:18 [build/formal/store-prove] engine_0.induction: finished (returncode=0)
+SBY  6:26:18 [build/formal/store-prove] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:26:18 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 4..
+SBY  6:26:18 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 4..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 5..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 5..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 6..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 6..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 7..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 7..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 8..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 8..
+SBY  6:26:19 [build/formal/store-prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 9..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 9..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 10..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assertions in step 10..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assumptions in step 11..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assertions in step 11..
+SBY  6:26:20 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assumptions in step 12..
+SBY  6:26:21 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assertions in step 12..
+SBY  6:26:21 [build/formal/store-prove] engine_0.basecase: ##   0:00:03  Checking assumptions in step 13..
+SBY  6:26:21 [build/formal/store-prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 13..
+SBY  6:26:21 [build/formal/store-prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 14..
+SBY  6:26:21 [build/formal/store-prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 14..
+SBY  6:26:22 [build/formal/store-prove] engine_0.basecase: ##   0:00:05  Checking assumptions in step 15..
+SBY  6:26:22 [build/formal/store-prove] engine_0.basecase: ##   0:00:05  Checking assertions in step 15..
+SBY  6:26:23 [build/formal/store-prove] engine_0.basecase: ##   0:00:06  Checking assumptions in step 16..
+SBY  6:26:23 [build/formal/store-prove] engine_0.basecase: ##   0:00:06  Checking assertions in step 16..
+SBY  6:26:24 [build/formal/store-prove] engine_0.basecase: ##   0:00:06  Checking assumptions in step 17..
+SBY  6:26:24 [build/formal/store-prove] engine_0.basecase: ##   0:00:07  Checking assertions in step 17..
+SBY  6:26:24 [build/formal/store-prove] engine_0.basecase: ##   0:00:07  Checking assumptions in step 18..
+SBY  6:26:25 [build/formal/store-prove] engine_0.basecase: ##   0:00:07  Checking assertions in step 18..
+SBY  6:26:25 [build/formal/store-prove] engine_0.basecase: ##   0:00:08  Checking assumptions in step 19..
+SBY  6:26:25 [build/formal/store-prove] engine_0.basecase: ##   0:00:08  Checking assertions in step 19..
+SBY  6:26:26 [build/formal/store-prove] engine_0.basecase: ##   0:00:09  Status: passed
+SBY  6:26:26 [build/formal/store-prove] engine_0.basecase: finished (returncode=0)
+SBY  6:26:26 [build/formal/store-prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:26:26 [build/formal/store-prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:09 (9)
+SBY  6:26:26 [build/formal/store-prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:10 (10)
+SBY  6:26:26 [build/formal/store-prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:26:26 [build/formal/store-prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:26:26 [build/formal/store-prove] summary: engine_0 did not produce any traces
+SBY  6:26:26 [build/formal/store-prove] summary: successful proof by k-induction.
+SBY  6:26:26 [build/formal/store-prove] DONE (PASS, rc=0)
+sby -f -d build/formal/store-cover formal/m1_program_store.sby cover
+SBY  6:26:27 [build/formal/store-cover] Removing directory '/workspace/build/formal/store-cover'.
+SBY  6:26:27 [build/formal/store-cover] Copy '/workspace/src/m1_program_store.v' to '/workspace/build/formal/store-cover/src/m1_program_store.v'.
+SBY  6:26:27 [build/formal/store-cover] Copy '/workspace/formal/m1_program_store_formal.sv' to '/workspace/build/formal/store-cover/src/m1_program_store_formal.sv'.
+SBY  6:26:27 [build/formal/store-cover] engine_0: smtbmc z3
+SBY  6:26:27 [build/formal/store-cover] base: starting process "cd build/formal/store-cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:27 [build/formal/store-cover] base: finished (returncode=0)
+SBY  6:26:27 [build/formal/store-cover] prep: starting process "cd build/formal/store-cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:27 [build/formal/store-cover] prep: finished (returncode=0)
+SBY  6:26:27 [build/formal/store-cover] smt2: starting process "cd build/formal/store-cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:27 [build/formal/store-cover] smt2: finished (returncode=0)
+SBY  6:26:27 [build/formal/store-cover] engine_0: starting process "cd build/formal/store-cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 12  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Solver: z3
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Reached cover statement in step 2 at m1_program_store_formal: m1_program_store_formal.sv:63.9-63.71 (_witness_.check_cover_m1_program_store_formal_sv_63_74)
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_program_store_formal: m1_program_store_formal.sv:62.9-62.70 (_witness_.check_cover_m1_program_store_formal_sv_62_70)
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  6:26:27 [build/formal/store-cover] engine_0: ##   0:00:00  Status: passed
+SBY  6:26:27 [build/formal/store-cover] engine_0: finished (returncode=0)
+SBY  6:26:27 [build/formal/store-cover] engine_0: Status returned by engine: pass
+SBY  6:26:27 [build/formal/store-cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:27 [build/formal/store-cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:27 [build/formal/store-cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  6:26:27 [build/formal/store-cover] summary: cover trace: build/formal/store-cover/engine_0/trace0.vcd
+SBY  6:26:27 [build/formal/store-cover] summary:   reached cover statement m1_program_store_formal._witness_.check_cover_m1_program_store_formal_sv_63_74 at m1_program_store_formal.sv:63.9-63.71 step 2
+SBY  6:26:27 [build/formal/store-cover] summary: cover trace: build/formal/store-cover/engine_0/trace1.vcd
+SBY  6:26:27 [build/formal/store-cover] summary:   reached cover statement m1_program_store_formal._witness_.check_cover_m1_program_store_formal_sv_62_70 at m1_program_store_formal.sv:62.9-62.70 step 3
+SBY  6:26:27 [build/formal/store-cover] DONE (PASS, rc=0)
+sby -f -d build/formal/data-store-prove formal/m1_data_store.sby prove
+SBY  6:26:27 [build/formal/data-store-prove] Removing directory '/workspace/build/formal/data-store-prove'.
+SBY  6:26:27 [build/formal/data-store-prove] Copy '/workspace/src/m1_data_store.v' to '/workspace/build/formal/data-store-prove/src/m1_data_store.v'.
+SBY  6:26:27 [build/formal/data-store-prove] Copy '/workspace/formal/m1_data_store_formal.sv' to '/workspace/build/formal/data-store-prove/src/m1_data_store_formal.sv'.
+SBY  6:26:27 [build/formal/data-store-prove] engine_0: smtbmc z3
+SBY  6:26:27 [build/formal/data-store-prove] base: starting process "cd build/formal/data-store-prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:27 [build/formal/data-store-prove] base: finished (returncode=0)
+SBY  6:26:27 [build/formal/data-store-prove] prep: starting process "cd build/formal/data-store-prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:27 [build/formal/data-store-prove] prep: finished (returncode=0)
+SBY  6:26:27 [build/formal/data-store-prove] smt2: starting process "cd build/formal/data-store-prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:27 [build/formal/data-store-prove] smt2: finished (returncode=0)
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: starting process "cd build/formal/data-store-prove; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: starting process "cd build/formal/data-store-prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 8  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: finished (returncode=0)
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: finished (returncode=0)
+SBY  6:26:27 [build/formal/data-store-prove] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:26:27 [build/formal/data-store-prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:27 [build/formal/data-store-prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:27 [build/formal/data-store-prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:26:27 [build/formal/data-store-prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:26:27 [build/formal/data-store-prove] summary: engine_0 did not produce any traces
+SBY  6:26:27 [build/formal/data-store-prove] summary: successful proof by k-induction.
+SBY  6:26:27 [build/formal/data-store-prove] DONE (PASS, rc=0)
+sby -f -d build/formal/data-store-cover formal/m1_data_store.sby cover
+SBY  6:26:28 [build/formal/data-store-cover] Removing directory '/workspace/build/formal/data-store-cover'.
+SBY  6:26:28 [build/formal/data-store-cover] Copy '/workspace/src/m1_data_store.v' to '/workspace/build/formal/data-store-cover/src/m1_data_store.v'.
+SBY  6:26:28 [build/formal/data-store-cover] Copy '/workspace/formal/m1_data_store_formal.sv' to '/workspace/build/formal/data-store-cover/src/m1_data_store_formal.sv'.
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: smtbmc z3
+SBY  6:26:28 [build/formal/data-store-cover] base: starting process "cd build/formal/data-store-cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:28 [build/formal/data-store-cover] base: finished (returncode=0)
+SBY  6:26:28 [build/formal/data-store-cover] prep: starting process "cd build/formal/data-store-cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:28 [build/formal/data-store-cover] prep: finished (returncode=0)
+SBY  6:26:28 [build/formal/data-store-cover] smt2: starting process "cd build/formal/data-store-cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:28 [build/formal/data-store-cover] smt2: finished (returncode=0)
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: starting process "cd build/formal/data-store-cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 8  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Solver: z3
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_data_store_formal: m1_data_store_formal.sv:71.9-71.50 (_witness_.check_cover_m1_data_store_formal_sv_71_80)
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_data_store_formal: m1_data_store_formal.sv:73.9-73.61 (_witness_.check_cover_m1_data_store_formal_sv_73_86)
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_data_store_formal: m1_data_store_formal.sv:72.9-72.54 (_witness_.check_cover_m1_data_store_formal_sv_72_83)
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: ##   0:00:00  Status: passed
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: finished (returncode=0)
+SBY  6:26:28 [build/formal/data-store-cover] engine_0: Status returned by engine: pass
+SBY  6:26:28 [build/formal/data-store-cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:28 [build/formal/data-store-cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:28 [build/formal/data-store-cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  6:26:28 [build/formal/data-store-cover] summary: cover trace: build/formal/data-store-cover/engine_0/trace0.vcd
+SBY  6:26:28 [build/formal/data-store-cover] summary:   reached cover statement m1_data_store_formal._witness_.check_cover_m1_data_store_formal_sv_71_80 at m1_data_store_formal.sv:71.9-71.50 step 3
+SBY  6:26:28 [build/formal/data-store-cover] summary: cover trace: build/formal/data-store-cover/engine_0/trace1.vcd
+SBY  6:26:28 [build/formal/data-store-cover] summary:   reached cover statement m1_data_store_formal._witness_.check_cover_m1_data_store_formal_sv_73_86 at m1_data_store_formal.sv:73.9-73.61 step 3
+SBY  6:26:28 [build/formal/data-store-cover] summary: cover trace: build/formal/data-store-cover/engine_0/trace2.vcd
+SBY  6:26:28 [build/formal/data-store-cover] summary:   reached cover statement m1_data_store_formal._witness_.check_cover_m1_data_store_formal_sv_72_83 at m1_data_store_formal.sv:72.9-72.54 step 3
+SBY  6:26:28 [build/formal/data-store-cover] DONE (PASS, rc=0)
+sby -f -d build/formal/input-sync-prove formal/m1_input_sync.sby prove
+SBY  6:26:28 [build/formal/input-sync-prove] Removing directory '/workspace/build/formal/input-sync-prove'.
+SBY  6:26:28 [build/formal/input-sync-prove] Copy '/workspace/src/m1_input_sync.v' to '/workspace/build/formal/input-sync-prove/src/m1_input_sync.v'.
+SBY  6:26:28 [build/formal/input-sync-prove] Copy '/workspace/formal/m1_input_sync_formal.sv' to '/workspace/build/formal/input-sync-prove/src/m1_input_sync_formal.sv'.
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0: smtbmc z3
+SBY  6:26:28 [build/formal/input-sync-prove] base: starting process "cd build/formal/input-sync-prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:28 [build/formal/input-sync-prove] base: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-prove] prep: starting process "cd build/formal/input-sync-prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:28 [build/formal/input-sync-prove] prep: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-prove] smt2: starting process "cd build/formal/input-sync-prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:28 [build/formal/input-sync-prove] smt2: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: starting process "cd build/formal/input-sync-prove; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: starting process "cd build/formal/input-sync-prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 8  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-prove] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:26:28 [build/formal/input-sync-prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:28 [build/formal/input-sync-prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:28 [build/formal/input-sync-prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:26:28 [build/formal/input-sync-prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:26:28 [build/formal/input-sync-prove] summary: engine_0 did not produce any traces
+SBY  6:26:28 [build/formal/input-sync-prove] summary: successful proof by k-induction.
+SBY  6:26:28 [build/formal/input-sync-prove] DONE (PASS, rc=0)
+sby -f -d build/formal/input-sync-cover formal/m1_input_sync.sby cover
+SBY  6:26:28 [build/formal/input-sync-cover] Removing directory '/workspace/build/formal/input-sync-cover'.
+SBY  6:26:28 [build/formal/input-sync-cover] Copy '/workspace/src/m1_input_sync.v' to '/workspace/build/formal/input-sync-cover/src/m1_input_sync.v'.
+SBY  6:26:28 [build/formal/input-sync-cover] Copy '/workspace/formal/m1_input_sync_formal.sv' to '/workspace/build/formal/input-sync-cover/src/m1_input_sync_formal.sv'.
+SBY  6:26:28 [build/formal/input-sync-cover] engine_0: smtbmc z3
+SBY  6:26:28 [build/formal/input-sync-cover] base: starting process "cd build/formal/input-sync-cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:26:28 [build/formal/input-sync-cover] base: finished (returncode=0)
+SBY  6:26:28 [build/formal/input-sync-cover] prep: starting process "cd build/formal/input-sync-cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:26:29 [build/formal/input-sync-cover] prep: finished (returncode=0)
+SBY  6:26:29 [build/formal/input-sync-cover] smt2: starting process "cd build/formal/input-sync-cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:26:29 [build/formal/input-sync-cover] smt2: finished (returncode=0)
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: starting process "cd build/formal/input-sync-cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 8  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Solver: z3
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at m1_input_sync_formal: m1_input_sync_formal.sv:23.9-23.54 (_witness_.check_cover_m1_input_sync_formal_sv_23_22)
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: ##   0:00:00  Status: passed
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: finished (returncode=0)
+SBY  6:26:29 [build/formal/input-sync-cover] engine_0: Status returned by engine: pass
+SBY  6:26:29 [build/formal/input-sync-cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:29 [build/formal/input-sync-cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:26:29 [build/formal/input-sync-cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  6:26:29 [build/formal/input-sync-cover] summary: cover trace: build/formal/input-sync-cover/engine_0/trace0.vcd
+SBY  6:26:29 [build/formal/input-sync-cover] summary:   reached cover statement m1_input_sync_formal._witness_.check_cover_m1_input_sync_formal_sv_23_22 at m1_input_sync_formal.sv:23.9-23.54 step 3
+SBY  6:26:29 [build/formal/input-sync-cover] DONE (PASS, rc=0)
+make[1]: Leaving directory '/workspace'

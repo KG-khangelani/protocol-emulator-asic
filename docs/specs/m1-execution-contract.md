@@ -29,8 +29,9 @@ The initial valid decoded instructions are:
 - `HALT`, with no operands.
 
 Subsequent frozen extensions add bounded `WAIT_PIN`, non-nested `LOOP`, and the
-one-bit `SHIFT_STEP` used by K-SHIFT-8. Their exact edge behavior is specified in
-`m1-input-wait.md`, `k-bounded-loop.md`, and `k-shift-8.md`; they retain this
+one-bit `SHIFT_STEP` used by K-SHIFT-8 and the timed `SHIFT_BURST` used by
+P-UART-TX-8N1. Their exact edge behavior is specified in `m1-input-wait.md`,
+`k-bounded-loop.md`, `k-shift-8.md`, and `p-uart-tx-8n1.md`; they retain this
 contract's reset, enable, terminal-state, invalid-program, and no-PC-wrap rules.
 
 Reserved opcodes, reserved operand bits, malformed instructions, and a fetch
@@ -182,7 +183,9 @@ This subset began with SET pin traces and deterministic delays. `P-RELOAD`,
 `K-INPUT-WAIT`, and `K-BOUNDED-LOOP` are qualified `PASS`/`MEASURED` at their
 declared RTL rungs. `K-SHIFT-8` is `PASS`/`MEASURED` at its declared
 simulation/formal rung after exact-head CI and independent review; see its
-dedicated acceptance specification and the research ledger. Every complete protocol
-workload remains `NOT_EVALUATED`. This is not a complete candidate:
+dedicated acceptance specification and the research ledger. P-UART-TX-8N1 is
+qualified at the digital RTL/formal rung by independent review and exact-head
+CI at `b0555df`; see its specification, report and E0016.
+UART receive, SPI and I2C remain `NOT_EVALUATED`. This is not a complete candidate:
 CHIP_COMPLETE physical area/timing, asynchronous synchronization, queues, and
 silicon remain `NOT_EVALUATED`. The 50 MHz clock remains an experimental target.

@@ -26,8 +26,10 @@ upper-nibble bits must be zero.
 
 Data/control address zero is the backward-compatible program-length register.
 K-SHIFT-8 adds address 1 for TX payload, address 2 for read-only RX result, and
-address 3 for read-only RX-valid status. Reserved addresses read zero and ignore
-writes. See `k-shift-8.md` for their exact lifetime and reset contract.
+address 3 for read-only RX-valid status. P-UART-TX-8N1 adds address 4 for the
+second alternating TX payload. Addresses 5..31 read zero and ignore writes. See
+`k-shift-8.md` and `p-uart-tx-8n1.md` for their exact lifetime and reset
+contracts.
 
 Reset clears all program bytes, length, and `program_ready`. Every program-byte
 write clears `program_ready`, so length must be committed after all bytes. A

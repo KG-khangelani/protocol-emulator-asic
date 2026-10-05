@@ -1,0 +1,58 @@
+{
+  "schema": "protocol-emulator-waveform-provenance-v1",
+  "simulations": {
+    "gl_harness_smoke": {
+      "junit": {
+        "bytes": 392,
+        "modules": [
+          "test_gate_harness_smoke"
+        ],
+        "path": "test/results-gl-harness.xml",
+        "sha256": "8cddd54209927e1d2d0d302dfb029549de100d2b05cf1615635e8921437b61c9",
+        "tests": [
+          "public_handles_reset_without_direct_engine"
+        ],
+        "total_sim_time_ns": 11.0
+      },
+      "label": "gl_harness_smoke",
+      "waveform": {
+        "bytes": 2044,
+        "path": "test/tb-gl-harness.fst",
+        "sha256": "111a35962892f5ebce07856e0c8ee2ad9a27c984ea47dd02e8a13313d53dd03d"
+      }
+    },
+    "rtl_icarus": {
+      "junit": {
+        "bytes": 3044,
+        "modules": [
+          "test"
+        ],
+        "path": "test/results.xml",
+        "sha256": "90076e74df16c53f8e22c2a4f0d712b8cec35b60677ce5d9ddef1c9a326667f7",
+        "tests": [
+          "public_pin_reload_changes_observable_program",
+          "invalid_length_never_releases_engine",
+          "synchronized_input_wait_event_and_timeout",
+          "k_input_wait_public_program_event_timeout_and_reload",
+          "k_bounded_loop_public_program_counts",
+          "loop_target_overflow_faults_without_alias",
+          "k_shift_8_public_payload_both_orders",
+          "uart_tx_8n1_public_pin_oracle",
+          "timed_shift_burst_invalid_freeze_and_reset",
+          "timed_shift_burst_trace_matches_semantic_model",
+          "shift_trace_matches_semantic_model",
+          "shift_invalid_partial_and_reset_fail_closed",
+          "randomized_trace_matches_reviewed_model",
+          "invalid_encoding_and_out_of_range_fail_closed"
+        ],
+        "total_sim_time_ns": 1139565.0
+      },
+      "label": "rtl_icarus",
+      "waveform": {
+        "bytes": 37486,
+        "path": "test/tb.fst",
+        "sha256": "66fe42fa36e86f40ab2f43dca89d7fd72553d5e66f51a8b2a6dc2192b0dca183"
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ Encoding:
 |---|---|---|
 | `00` | SET | `[29:24]=0`, mask `[23:16]`, OE `[15:8]`, value `[7:0]` |
 | `01` | WAIT or LOOP (D13) | WAIT: `[29:16]=0`, count `[15:0]`; LOOP: `[29]=1`, length `[28:24]`, `[23:8]=0`, count `[7:0]` |
-| `10` | HALT or SHIFT_STEP (D15) | HALT: `[29:0]=0`; SHIFT_STEP: `[29]=1`, order `[28]`, TX pin `[27:25]`, RX pin `[24:22]`, `[21:0]=0` |
+| `10` | HALT or SHIFT_STEP/SHIFT_BURST (D15/D16) | HALT: `[29:0]=0`; SHIFT: `[29]=1`, order `[28]`, TX pin `[27:25]`, RX pin `[24:22]`; manual step has `[21:0]=0`, timed burst has `[21]=1`, period `[20:5]=2..65535`, `[4:0]=0` |
 | `11` | WAIT_PIN (D11/D12) | pin `[29:27]`, level `[26]`, timeout-skip `[25]`, `[24:16]=0`, timeout `[15:0]` |
 
 Reserved-bit violations enter FAULT. Logical GPIO maps to `uio_out/uio_oe`;
@@ -28,6 +28,7 @@ visible.
 
 Limit: word width, WAIT range, PC width, preload contents, and debug mapping are
 provisional. D10 evaluates `P-RELOAD` in simulation and D11 adds a bounded
-input-wait primitive; D13 adds bounded LOOP and D15 adds the K-SHIFT-8
-one-bit shift step. Program-memory/data-store area, protocol workloads, CMOS5L
-fit/timing, and silicon behavior remain `NOT_EVALUATED`.
+input-wait primitive; D13 adds bounded LOOP, D15 adds the K-SHIFT-8 one-bit
+shift step, and D16 adds the timed reusable byte burst used by the UART-TX
+candidate. Program-memory/data-store area, CMOS5L fit/timing, and silicon
+behavior remain `NOT_EVALUATED`.
