@@ -185,8 +185,10 @@ efficiently express useful digital communication protocols under hard temporal c
   mutation, storage/synchronizer proofs and generic synthesis pass locally.
   Generic synthesis screens at 2,783 abstract cells and 410 state bits, a
   +249/+25 delta from K-SHIFT-8 after removing two redundant mode flags.
-  Independent review is clean; E0016 retains local evidence. UART-TX is not yet
-  exact-head CI qualified, and no physical or complete-UART claim is made.
+  Independent review is clean; implementation head `b0555df` passes push and
+  PR CI plus docs. E0016 retains local and clean-source CI evidence. Only the
+  frozen digital UART-TX workload is qualified; no physical or complete-UART
+  claim is made. Draft PR 5 remains unmerged.
 
 ## Blocked or unverified
 
@@ -200,10 +202,11 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: obtain exact-head CI for the independently reviewed UART-TX
-  candidate, resolve any findings, then merge only after those gates pass. Do
-  not claim UART receive/compliance or rerun physical closure from this
-  simulation candidate.
+- Engineering: verify CI on the documentation-only qualification head, then
+  hand off qualified draft PR 5 for integration. The next implementation task
+  requires a frozen UART-RX sampling, synchronization and bounded framing/error
+  contract. Do not claim UART receive/compliance or rerun physical closure from
+  this simulation candidate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 

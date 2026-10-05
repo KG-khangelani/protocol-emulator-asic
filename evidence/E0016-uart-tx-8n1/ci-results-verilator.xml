@@ -1,0 +1,19 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791182297" />
+    <testcase name="public_pin_reload_changes_observable_program" classname="test" file="/workspace/test/test.py" lineno="180" time="0.0026404857635498047" sim_time_ns="726.0" ratio_time="274949.4089390519" />
+    <testcase name="invalid_length_never_releases_engine" classname="test" file="/workspace/test/test.py" lineno="213" time="0.0003178119659423828" sim_time_ns="100.0" ratio_time="314651.4628657164" />
+    <testcase name="synchronized_input_wait_event_and_timeout" classname="test" file="/workspace/test/test.py" lineno="228" time="0.0015609264373779297" sim_time_ns="660.0" ratio_time="422825.8194592943" />
+    <testcase name="k_input_wait_public_program_event_timeout_and_reload" classname="test" file="/workspace/test/test.py" lineno="271" time="0.0024530887603759766" sim_time_ns="906.0000000000002" ratio_time="369330.29682184866" />
+    <testcase name="k_bounded_loop_public_program_counts" classname="test" file="/workspace/test/test.py" lineno="315" time="0.02670741081237793" sim_time_ns="12008.0" ratio_time="449613.03378891083" />
+    <testcase name="loop_target_overflow_faults_without_alias" classname="test" file="/workspace/test/test.py" lineno="354" time="0.0004756450653076172" sim_time_ns="145.0" ratio_time="304849.16290726815" />
+    <testcase name="k_shift_8_public_payload_both_orders" classname="test" file="/workspace/test/test.py" lineno="368" time="0.0037679672241210938" sim_time_ns="1296.0" ratio_time="343952.03644646925" />
+    <testcase name="uart_tx_8n1_public_pin_oracle" classname="test" file="/workspace/test/test.py" lineno="431" time="2.4120240211486816" sim_time_ns="1112920.0" ratio_time="461405.0234333871" />
+    <testcase name="timed_shift_burst_invalid_freeze_and_reset" classname="test" file="/workspace/test/test.py" lineno="479" time="0.0009515285491943359" sim_time_ns="300.0" ratio_time="315282.1849160611" />
+    <testcase name="timed_shift_burst_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="534" time="0.040491580963134766" sim_time_ns="7737.0" ratio_time="191076.75758682008" />
+    <testcase name="shift_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="591" time="0.007495880126953125" sim_time_ns="1427.0" ratio_time="190371.2407124682" />
+    <testcase name="shift_invalid_partial_and_reset_fail_closed" classname="test" file="/workspace/test/test.py" lineno="641" time="0.0009603500366210938" sim_time_ns="420.0" ratio_time="437340.53624627605" />
+    <testcase name="randomized_trace_matches_reviewed_model" classname="test" file="/workspace/test/test.py" lineno="703" time="0.0028831958770751953" sim_time_ns="840.0" ratio_time="291343.368891094" />
+    <testcase name="invalid_encoding_and_out_of_range_fail_closed" classname="test" file="/workspace/test/test.py" lineno="733" time="0.00023221969604492188" sim_time_ns="80.0" ratio_time="344501.3552361396" />
+  </testsuite>
+</testsuites>

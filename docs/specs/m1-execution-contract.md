@@ -183,8 +183,9 @@ This subset began with SET pin traces and deterministic delays. `P-RELOAD`,
 `K-INPUT-WAIT`, and `K-BOUNDED-LOOP` are qualified `PASS`/`MEASURED` at their
 declared RTL rungs. `K-SHIFT-8` is `PASS`/`MEASURED` at its declared
 simulation/formal rung after exact-head CI and independent review; see its
-dedicated acceptance specification and the research ledger. P-UART-TX-8N1 has
-local digital-waveform results in its dedicated specification and report;
+dedicated acceptance specification and the research ledger. P-UART-TX-8N1 is
+qualified at the digital RTL/formal rung by independent review and exact-head
+CI at `b0555df`; see its specification, report and E0016.
 UART receive, SPI and I2C remain `NOT_EVALUATED`. This is not a complete candidate:
 CHIP_COMPLETE physical area/timing, asynchronous synchronization, queues, and
 silicon remain `NOT_EVALUATED`. The 50 MHz clock remains an experimental target.

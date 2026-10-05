@@ -28,7 +28,7 @@ Command on Windows, using the repository's isolated Docker configuration:
 | Program store, data store, input synchronizer proofs and covers | PASS |
 | Generic synthesis | PASS; zero structural problems |
 | Independent review | No blocking findings in final minimized RTL/contract |
-| Exact-head CI | Pending publication |
+| Exact-head implementation CI | PASS at `b0555df`; see clean-CI observation below |
 | New physical flow | NOT RUN |
 
 The frame-only oracle checks every byte in both payload slots at legal period
@@ -59,6 +59,29 @@ screen had 412 bits; replacing its two retained mode flags with `period != 0`
 saves two state bits while leaving the total generic cell count unchanged.
 This is a measured ablation, not a proof of minimum substrate size.
 
+## Clean-CI observation
+
+Implementation head `b0555dfa988e11d5ab0eccce3bfa555d3a1147c6` passes
+[push verification](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37273010179),
+[PR verification](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37273014060)
+and [docs](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37273010138).
+The push collector `20261005T063807863095Z` records that exact HEAD, clean
+`git_status`, all 11 stages PASS and physical flow NOT RUN. Its engine proof
+passes in 166 seconds wall time. The generic JSON independently totals 2783
+cells and 410 bits; both JUnit reports contain 14 tests and zero failures.
+
+`ci-manifest.json` and `ci-results-*.xml` are copied without modification from
+the downloaded push artifact. All 30 collector artifact hashes match the
+downloaded files; all nine checked RTL/model/formal/test source hashes match
+the local run. `qualification.json` records the source/run/artifact identities
+and verification boundary; `review.md` records independent review.
+Bulk traces/netlists remain in ignored `build/ci-uart-b0555df/`.
+
+The GitHub artifact expires before the competition deadline. These curated
+records are durable in Git, but are not an archive of the entire ZIP. The ZIP
+digest in `qualification.json` is GitHub-reported, not independently checked
+against a downloaded ZIP; extracted collector files were individually hashed.
+
 ## Review and failed attempt
 
 Independent review checked reset/enable, manual compatibility, invalid fields,
@@ -82,6 +105,6 @@ FPGA and silicon remain NOT_EVALUATED. The 50 MHz point is a target, not Fmax.
 The Tiny Tapeout interface, 6x4 allocation and physical config are unchanged.
 M0 human fluency remains PENDING; no learning record is promoted.
 
-Next executable action: publish the committed branch as a draft PR and qualify
-its exact head in CI. No merge, hardware purchase or competition submission is
-performed by this evidence record.
+Next executable action: verify CI on the documentation-only qualification head
+and hand off qualified draft PR 5 for integration. No merge, hardware purchase
+or competition submission is performed by this evidence record.

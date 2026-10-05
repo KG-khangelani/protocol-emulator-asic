@@ -1,7 +1,8 @@
 # P-UART-TX-8N1 acceptance contract
 
-Status: implemented local RTL/formal candidate, 2026-10-05; independent review
-passed, exact-head CI pending. Evidence: E0016.
+Status: qualified digital RTL/formal workload, 2026-10-05; implementation head
+`b0555df` passes independent review and exact-head push/PR CI. Evidence: E0016;
+draft PR 5 remains unmerged.
 
 ## Question and evidence boundary
 
