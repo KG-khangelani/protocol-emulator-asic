@@ -62,7 +62,7 @@ owner learning. Publishing a proposal does not satisfy an implementation gate.
 
 | ID | Work | Exit gate | State |
 |---|---|---|---|
-| UI-T01 | Source-backed compact Protocol atlas and relationship tracing | Functional/source/edge/accessibility/browser verification in light/dark | First working candidate in `../web/`; build, 12 source/model tests and 9 local Chromium checks pass (UI0001). Soft neutral light/dark, fewer borders; independent oracle / broader URL QA next. Private assets excluded; no chip gate promotion; PR8 merge separately deferred |
+| UI-T01 | Source-backed compact Protocol atlas and relationship tracing | Functional/source/edge/accessibility/browser verification in light/dark | Second bounded candidate: build, 16 source/model tests and 13 local Chromium cases PASS (UI0001), including independent 8,192-edge oracle, cycle URL restoration, mobile disclosure and all-view light/dark QA. Fresh concept/render inspection done; pinned frontend CI added, exact-head remote status tracked on PR9. PR9 draft/unmerged; no chip gate promotion; PR8 merge separately deferred |
 | M1-T01 | Define execution, PC, reset, I/O, WAIT and HALT semantics | Reviewable cycle tables and invalid-program behavior | Implemented candidate in `specs/m1-execution-contract.md`; encoding remains provisional |
 | M1-T02 | Implement SET/WAIT/HALT and independent reference model | Exact timing regression plus reset/PC/wait properties | Implemented candidate; local dual-simulator/formal/generic synthesis pass |
 | M1-T04 | Public-pin program load and readback | Program A/reset/program B public-pin trace; invalid image fail-closed | Qualified at `d502227`: exact-head CI passes P-RELOAD simulation and store proof |

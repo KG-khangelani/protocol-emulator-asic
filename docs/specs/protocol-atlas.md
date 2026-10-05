@@ -227,5 +227,11 @@ Before claiming the future app implemented, verify:
 At the initial documentation checkpoint all five app obligations were **NOT
 RUN / NOT IMPLEMENTED**. The first working slice now has scoped local build,
 source/model and real Chromium checks in [UI0001](../../evidence/UI0001-protocol-atlas/README.md).
+The second bounded increment records 16 source/reference tests, 13 Chromium
+cases, an independent JS/Python oracle, bounded cycle URL restoration, mobile
+disclosures and fresh concept/render inspection. It uses `.\tools\atlas.ps1`
+for a loopback-only Windows launch and adds a pinned frontend CI workflow.
+The 256-row UI history bound is not an engine timeout. Browser checks do not
+assert a full screen-reader audit or Safari/Firefox/iOS qualification.
 That record does not assert complete coverage of every obligation. Existing
 repository checks alone do not satisfy them or create new hardware evidence.

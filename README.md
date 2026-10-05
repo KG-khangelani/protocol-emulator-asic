@@ -57,7 +57,7 @@ No API key or agent-specific model setting is needed in the repository.
 
 ## Run locally
 
-The Protocol atlas is independent of Docker/EDA. With Node 24 (minimum 22.12)
+The Protocol atlas is independent of Docker/EDA. With Node 24
 and Python 3 for the independent model checks:
 
 ```powershell
@@ -68,8 +68,11 @@ npm run build
 npm run dev
 ```
 
-Open `http://127.0.0.1:5179`. The server binds to loopback only. The checked-in
-dataset is regenerated with `npm run data` and checked against repository source
+Open `http://127.0.0.1:5179`. The server binds to loopback only.
+On KhanCreate, the repo-root shortcut is `.\tools\atlas.ps1 Start`: it builds
+the checked snapshot and serves it locally. Stop with Ctrl+C; no Docker,
+execution-policy change, global install or port-killing is involved.
+The checked-in dataset is regenerated with `npm run data` and checked against repository source
 by `npm run data:check`. No API key, device connection or telemetry is used.
 Browser verification uses pinned Playwright/Chromium; see [web/README.md](web/README.md).
 The app is not deployed to GitHub Pages and this branch is not merged.

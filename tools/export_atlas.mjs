@@ -92,9 +92,16 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
   const qualification = json(qualificationText);
   const manifestText = read('evidence/E0018-uart-rx-public/ci-manifest.json', false);
   const manifest = json(manifestText);
-  const evidenceIntegrity = Boolean(qualification && manifest &&
-    sha(manifestText) === qualification.clean_collector?.manifest_sha256 &&
-    manifest.stages?.every((stage) => stage.status === 'PASS' && stage.returncode === 0));
+  const requiredStages = ['doctor', 'static', 'learning_status', 'lint', 'rtl_icarus', 'gl_harness_smoke', 'waveform_provenance', 'learning_waveform', 'rtl_verilator', 'formal', 'generic_synthesis'];
+  const recordedCI = (qualified) => qualified?.implementation_ci === 'PASS' ||
+    (qualified?.implementation_ci === undefined && ['push_test', 'pull_request_test', 'push_docs'].every((name) => qualified?.runs?.[name]?.conclusion === 'success'));
+  const qualifies = (qualified, collected, text) => Boolean(qualified && collected &&
+    sha(text) === qualified.clean_collector?.manifest_sha256 &&
+    recordedCI(qualified) && qualified.clean_collector?.simulator_failures === 0 &&
+    qualified.clean_collector?.stages_passed === requiredStages.length && collected.git_head === qualified.implementation_head &&
+    Array.isArray(collected.stages) && collected.stages.length === requiredStages.length &&
+    requiredStages.every((name) => collected.stages.some((stage) => stage.name === name && stage.status === 'PASS' && stage.returncode === 0)));
+  const evidenceIntegrity = qualifies(qualification, manifest, manifestText);
   const modules = definitions.map(([id, label, name, file, note, groups]) => {
     const registers = sequentialRegisters(sourceText[id]);
     const sourceHash = sha(sourceText[id]);
@@ -130,21 +137,31 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
   if (!/uio_out\s*=\s*load_mode\s*\?\s*loader_data_out\s*:\s*gpio_value/.test(sourceText.top)) throw new Error('Unrecognized runtime GPIO ownership');
   const learning = json(read('docs/learning/progress.json'));
   const ownerM0 = learning?.milestones?.find((item) => item.id === 'M0');
+  const ledger = read('docs/research-ledger.md');
+  const hypotheses = ['H1', 'H2', 'H3', 'H4'].map((id) => {
+    const row = ledger.split('\n').find((line) => line.startsWith(`| ${id} |`));
+    const status = row?.split('|').at(-2)?.trim().toUpperCase();
+    return { id, status: status || 'NOT_VERIFIED' };
+  });
   const physical = json(read('evidence/E0010-pinned-cmos5l-run/result.json', false));
   const physicalPass = ['gds', 'precheck', 'gate_level'].every((job) => physical?.jobs?.[job]?.status === 'PASS');
   const tx = json(read('evidence/E0016-uart-tx-8n1/qualification.json', false));
-  const txPass = tx?.clean_collector?.simulator_failures === 0 && tx.clean_collector.stages_passed === 11;
+  const txManifestText = read('evidence/E0016-uart-tx-8n1/ci-manifest.json', false);
+  const txManifest = json(txManifestText);
+  const txPass = qualifies(tx, txManifest, txManifestText);
+  const tools = (manifest) => Object.entries(manifest?.tools ?? {}).map(([name, version]) => ({ name, version: String(version).replace(/\s+/g, ' ') }));
+  const physicalTools = ['flow', 'flow_version', 'pdk', 'pdk_commit', 'physical_yosys', 'gate_level_iverilog', 'gate_level_cocotb'].map((name) => ({ name, version: physical?.resolved_environment?.[name] ?? 'Unavailable' }));
   const record = (id, title, revision, status, rung, scope, path, extra = {}) => ({
     id, title, revision, status, rung, scope, evidenceUrl: `${repository}/blob/${mainSnapshot}/${path}`, ...extra,
   });
   const evidence = [
     record('E0010', 'Archived M0 GPIO baseline', physical?.source_commit ?? '', physicalPass ? 'PASS' : 'NOT_VERIFIED', 'CMOS5L + gate-level + clean rerun',
-      'Archived GPIO counter only. This does not qualify current M1 hardware or owner learning.', 'evidence/E0010-pinned-cmos5l-run/README.md', { archived: true, runUrl: physical?.run_url ?? '' }),
+      'Archived GPIO counter only. This does not qualify current M1 hardware or owner learning.', 'evidence/E0010-pinned-cmos5l-run/README.md', { archived: true, runUrl: physical?.run_url ?? '', tools: physicalTools }),
     record('E0016', 'UART TX 8N1', tx?.implementation_head ?? '', txPass ? 'PASS' : 'NOT_VERIFIED', 'Recorded digital RTL / scoped formal',
-      'Named firmware workload, not complete UART or current M1 physical evidence.', 'evidence/E0016-uart-tx-8n1/README.md', { archived: false, currentSourceMatches: false }),
+      'Named firmware workload, not complete UART or current M1 physical evidence.', 'evidence/E0016-uart-tx-8n1/README.md', { archived: false, currentSourceMatches: false, tools: tools(txManifest) }),
     record('E0018', 'Bounded last-byte UART RX', qualification?.implementation_head ?? '', evidenceIntegrity ? 'PASS' : 'NOT_VERIFIED', 'Digital RTL / scoped formal',
       'Both frames validate; only final byte delivered after known-image HALT. Raw valid is capture, not acceptance. No FIFO/continuous receive.', 'evidence/E0018-uart-rx-public/README.md',
-      { archived: false, currentSourceMatches: allSourceMatches, manifestIntegrity: evidenceIntegrity, runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
+      { archived: false, currentSourceMatches: allSourceMatches, manifestIntegrity: evidenceIntegrity, tools: tools(manifest), runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
   ];
   const metadata = read('info.yaml');
   return {
@@ -157,7 +174,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     evidence,
     genericScreen: { cells: qualification?.clean_collector?.generic_cells ?? null, stateBits: qualification?.clean_collector?.state_bits ?? null, qualification: 'E0018', provenance: 'MEASURED', scope: 'Generic synthesis only; not CMOS5L area/fit/timing.' },
     learning: { activeMilestone: learning?.active_milestone ?? 'Unknown', m0Technical: ownerM0?.technical_gate?.status ?? 'Unknown', m0Fluency: ownerM0?.fluency_gate?.status ?? 'Unknown' },
-    hypotheses: ['H1', 'H2', 'H3', 'H4'].map((id) => ({ id, status: 'UNPROVEN' })),
+    hypotheses,
     deferred: { id: 'PR8', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-10-05', status: 'DRAFT / NOT MERGED', url: `${repository}/pull/8`, scope: 'Separate host-service branch. Its cache is external to CHIP_COMPLETE; evidence is not imported in this app snapshot.' },
     limits: ['Logical geometry is schematic, not physical area.', 'Reference playback is not measured RTL or a hardware capture.', '50 MHz is a target, not measured Fmax.', 'M1 physical closure and silicon: NOT EVALUATED.', 'M0 owner fluency is not promoted by engineering.'],
   };

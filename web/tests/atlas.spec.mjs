@@ -5,7 +5,10 @@ import { mkdir } from 'node:fs/promises';
 test('architecture is real source-backed UI; search, layers, zoom and source links work', async ({ page }) => {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
   await page.goto('/');
+  await expect(page).toHaveTitle('Protocol atlas');
+  await expect(page.locator('vite-error-overlay')).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Chip architecture' })).toBeVisible();
   await expect(page.getByText('5/5 source hashes match E0018')).toBeVisible();
   await page.getByRole('searchbox').fill('synchronizer');
@@ -30,6 +33,7 @@ test('dwell, keyboard, pin, exit and Escape tracing preserve labels and actual d
   const relation = page.locator('.outline [data-relation="sync-engine"]');
   await relation.hover();
   await expect(page.locator('[data-edge="sync-engine"]')).toHaveClass(/traced/);
+  expect(await page.locator('.travel-cue').evaluate((item) => getComputedStyle(item).animationIterationCount)).toBe('1');
   await expect(page.locator('.wire.deemphasized')).toHaveCount(6);
   await expect(page.locator('.trace-summary')).toContainText('Input synchronizer → Sequencer');
   expect(await page.locator('[data-edge="raw-sync"] .signal-label').evaluate((item) => getComputedStyle(item).opacity)).toBe('1');
@@ -149,6 +153,9 @@ test('evidence and progress do not promote physical, fluency or deferred branch 
   await page.goto('/#view=evidence&evidence=E0018');
   await expect(page.getByText('5/5 chip source hashes match E0018')).toBeVisible();
   await expect(page.locator('.evidence-facts')).toContainText('No FIFO/continuous receive');
+  await expect(page.locator('.tool-list')).toContainText('Icarus Verilog version 14.0');
+  await page.locator('.outline').getByRole('button', { name: 'E0016 UART TX 8N1' }).click();
+  await expect(page.getByText('Recorded PASS', { exact: false })).toBeVisible();
   await page.locator('.outline').getByRole('button', { name: 'E0010 Archived M0 GPIO baseline' }).click();
   await expect(page.locator('.evidence-facts')).toContainText('Historical GPIO source, not current M1');
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
@@ -168,6 +175,18 @@ test('mobile focus/tap alternatives and both themes fit portrait and landscape',
     await relation.click();
     await expect(page.locator('.trace-summary')).toContainText('Pinned relationship');
     expect(await relation.evaluate((item) => item.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
+    await expect(page.locator('.mobile-module .signal-code')).not.toHaveCount(0);
+    await page.getByRole('checkbox', { name: 'Signal labels' }).uncheck();
+    await expect(page.locator('.mobile-module .signal-code')).toHaveCount(0);
+    await page.getByRole('checkbox', { name: 'Signal labels' }).check();
+    await expect(page.locator('.outline-disclosure')).not.toHaveAttribute('open');
+    await expect(page.locator('.inspector-disclosure')).not.toHaveAttribute('open');
+    await page.locator('.outline-disclosure > summary').click();
+    await expect(page.getByRole('searchbox')).toBeVisible();
+    await page.locator('.outline-disclosure > summary').click();
+    await page.locator('.inspector-disclosure > summary').click();
+    await expect(page.locator('.inspector').getByRole('heading', { name: 'Synchronized input' })).toBeVisible();
+    await page.locator('.inspector-disclosure > summary').click();
     for (const theme of ['light', 'dark']) {
       await page.getByLabel('Theme', { exact: true }).selectOption(theme);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -176,8 +195,87 @@ test('mobile focus/tap alternatives and both themes fit portrait and landscape',
   }
 });
 
+test('all four views in both themes keep mobile content in native scroll regions', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+  await mkdir('../build/atlas-qa/screenshots', { recursive: true });
+  for (const [orientation, viewport] of [['portrait', { width: 390, height: 844 }], ['landscape', { width: 740, height: 390 }]]) {
+    await page.setViewportSize(viewport);
+    for (const view of ['architecture', 'cycles', 'evidence', 'progress']) {
+      await page.goto(`/#view=${view}`);
+      await expect(page).toHaveTitle('Protocol atlas');
+      await expect(page.locator('vite-error-overlay')).toHaveCount(0);
+      for (const theme of ['light', 'dark']) {
+        await page.getByLabel('Theme', { exact: true }).selectOption(theme);
+        await expect(page.locator('main h1')).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        await page.screenshot({ path: `../build/atlas-qa/screenshots/mobile-${orientation}-${view}-${theme}.png`, fullPage: true });
+      }
+    }
+  }
+  expect(errors).toEqual([]);
+});
+
+test('laptop fit and returning from mobile keep accessible outlines and readable graph', async ({ page }) => {
+  await page.setViewportSize({ width: 1120, height: 800 });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Zoom in', exact: true }).click();
+  await page.getByRole('button', { name: 'Fit', exact: true }).click();
+  expect(await page.locator('.graph-scroll').evaluate((item) => item.scrollWidth <= item.clientWidth)).toBe(true);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole('searchbox')).toBeHidden();
+  await page.setViewportSize({ width: 1120, height: 800 });
+  await expect(page.getByRole('searchbox')).toBeVisible();
+  await expect(page.locator('.inspector')).toBeVisible();
+});
+
+test('cycle URL replays sampled reset/enable conditions and selected row without auto-play', async ({ page }) => {
+  await page.goto('/#view=cycles&count=2');
+  const step = page.getByRole('button', { name: 'Step clock edge' });
+  await step.click(); await step.click();
+  await page.getByRole('checkbox', { name: 'ena', exact: true }).uncheck();
+  await step.click();
+  await page.getByRole('checkbox', { name: 'Assert reset' }).check();
+  await step.click();
+  await page.getByRole('button', { name: 'Edge 2', exact: true }).click();
+  const rows = await page.locator('.cycle-table tbody').textContent();
+  const url = page.url();
+  await page.reload();
+  expect(await page.locator('.cycle-table tbody').textContent()).toBe(rows);
+  await expect(page.getByRole('button', { name: 'Edge 2', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: 'Play model', exact: true })).toBeVisible();
+  await expect(page.getByRole('checkbox', { name: 'ena', exact: true })).not.toBeChecked();
+  await expect(page.getByRole('checkbox', { name: 'Assert reset' })).toBeChecked();
+  expect(page.url()).toBe(url);
+  await page.getByRole('button', { name: 'Edge 1', exact: true }).click();
+  await page.goBack();
+  await expect(page.getByRole('button', { name: 'Edge 2', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.goto('/#view=cycles&scenario=bogus&stimulus=<script>&count=-1&edge=9000');
+  await expect(page.locator('.cycle-table tbody tr')).toHaveCount(1);
+  await expect(page.getByRole('spinbutton', { name: 'WAIT count' })).toHaveValue('0');
+});
+
+test('skip link retains view, keyboard Space pins and Clear trace does not restart cycles', async ({ page }) => {
+  await page.goto('/#view=architecture');
+  const relation = page.locator('.outline [data-relation="sync-engine"]');
+  await relation.focus(); await relation.press('Space');
+  await expect(page.locator('.trace-summary')).toContainText('Pinned relationship');
+  await page.getByRole('button', { name: 'Clear trace', exact: true }).click();
+  await expect(page.locator('.traced')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Cycles', exact: true }).click();
+  await page.keyboard.press('Control+Home');
+  const skip = page.getByRole('link', { name: 'Skip to main content' });
+  await skip.focus(); await skip.press('Enter');
+  await expect(page.getByRole('heading', { name: 'Reference cycles' })).toBeVisible();
+  await expect(page.locator('main')).toBeFocused();
+  await expect(page.locator('.cycle-table tbody tr')).toHaveCount(1);
+});
+
 test('desktop review captures: soft neutral regions in both themes, cycles and progress', async ({ page }) => {
   await mkdir('../build/atlas-qa/screenshots', { recursive: true });
+  await page.setViewportSize({ width: 1536, height: 1024 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   for (const theme of ['light', 'dark']) {
     await page.getByLabel('Theme', { exact: true }).selectOption(theme);
@@ -189,4 +287,6 @@ test('desktop review captures: soft neutral regions in both themes, cycles and p
   await page.screenshot({ path: '../build/atlas-qa/screenshots/desktop-cycles-dark.png', fullPage: true });
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
   await page.screenshot({ path: '../build/atlas-qa/screenshots/desktop-progress-dark.png', fullPage: true });
+  await page.getByRole('button', { name: 'Evidence', exact: true }).click();
+  await page.screenshot({ path: '../build/atlas-qa/screenshots/desktop-evidence-dark.png', fullPage: true });
 });

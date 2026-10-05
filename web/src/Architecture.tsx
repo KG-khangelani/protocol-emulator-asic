@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { atlas, moduleById, relationById, short } from './data';
 import type { Module, Relation } from './data';
 import type { Location } from './navigation';
+import { Disclosure } from './Disclosure';
 
 type Props = { location: Location; navigate: (patch: Partial<Location>) => void };
 const regions: Record<string, { x: number; y: number; w: number; h: number }> = {
@@ -52,22 +53,22 @@ export function Architecture({ location, navigate }: Props) {
   const select = (id: string) => { clearTimers(); setPointer(''); setKeyboard(''); navigate({ module: id, relation: '' }); };
   const pin = (item: Relation) => { clearTimers(); navigate({ relation: item.id, module: item.to }); };
   const focus = (id: string) => { clearTimers(); setPointer(''); setKeyboard(id); };
-  const fit = () => { navigate({ zoom: 1 }); graph.current?.scrollTo({ top: 0, left: 0 }); };
-  const relationButton = (item: Relation) => <button key={item.id} type="button" className={`outline-item relation-item ${trace === item.id ? 'selected' : ''}`} data-relation={item.id}
+  const fit = () => { navigate({ zoom: Math.max(.8, Math.min(1, Math.floor((graph.current?.clientWidth ?? 820) / 820 * 100) / 100)) }); graph.current?.scrollTo({ top: 0, left: 0 }); };
+  const relationButton = (item: Relation, showSignals = false) => <button key={item.id} type="button" className={`outline-item relation-item ${trace === item.id ? 'selected' : ''}`} data-relation={item.id}
     aria-pressed={pinned === item.id} onMouseEnter={() => dwell(item.id)} onMouseLeave={leave} onFocus={() => focus(item.id)} onBlur={() => setKeyboard('')} onClick={() => pin(item)}>
-    <span>{item.label}</span><small>{moduleById(item.from).label} → {moduleById(item.to).label}</small>
+    <span>{item.label}</span><small>{moduleById(item.from).label} → {moduleById(item.to).label}</small>{showSignals && location.signals && <small className="signal-code"><code>{item.signals.join(' · ')}</code></small>}
   </button>;
 
   return <section className="workspace architecture" aria-label="Architecture" onKeyDown={(event) => { if (event.key === 'Escape') clear(); }}>
-    <aside className="outline" aria-label="Architecture outline">
+    <Disclosure kind="outline" label={`Outline · ${selected.label}`}><aside className="outline" aria-label="Architecture outline">
       <label className="eyebrow" htmlFor="find">Outline</label>
       <input id="find" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Find module or signal" />
       <h2>Modules <span>{atlas.modules.length}</span></h2>
       {filteredModules.map((item) => <button key={item.id} className={`outline-item ${selected.id === item.id ? 'selected' : ''}`} aria-pressed={selected.id === item.id} onClick={() => select(item.id)}><span>{item.label}</span><small>{item.stateBits} declared state bits</small></button>)}
       <h2>Relationships <span>{atlas.relations.length}</span></h2>
-      {filteredRelations.map(relationButton)}
+      {filteredRelations.map((item) => relationButton(item))}
       {filteredModules.length + filteredRelations.length === 0 && <p role="status">No matching source item.</p>}
-    </aside>
+    </aside></Disclosure>
 
     <div className="canvas-region">
       <div className="region-heading"><div><h1>Chip architecture</h1><p>CHIP_COMPLETE · logical wiring, not a floorplan</p></div><span className="metric">{atlas.totalStateBits} <small>state bits · DERIVED</small></span></div>
@@ -105,13 +106,13 @@ export function Architecture({ location, navigate }: Props) {
           })}
         </svg>
       </div>
-      <div className="mobile-module"><span className="eyebrow">Focused module</span><h2>{selected.label}</h2><p>{selected.note}</p><ModuleFields module={selected} /><h3>Connected relationships</h3>{atlas.relations.filter((item) => item.from === selected.id || item.to === selected.id).map(relationButton)}</div>
+      <div className="mobile-module"><span className="eyebrow">Focused module</span><h2>{selected.label}</h2><p>{selected.note}</p><ModuleFields module={selected} /><h3>Connected relationships</h3>{atlas.relations.filter((item) => item.from === selected.id || item.to === selected.id).map((item) => relationButton(item, true))}</div>
       <div className="trace-summary" role="status" aria-live="polite" aria-atomic="true"><span className="eyebrow">{pinned ? 'Pinned relationship' : active ? 'Relationship trace' : 'Inspect a connection'}</span>{active ? <><strong>{moduleById(active.from).label} → {moduleById(active.to).label}</strong><code>{active.signals.join(' · ')}</code><p>{active.note} <span className="muted">Navigation only; no simulated activity.</span></p></> : <p>Hover deliberately, focus or tap a relationship. Enter pins; Escape clears. Labels keep full contrast.</p>}</div>
     </div>
 
-    <aside className="inspector" aria-label="Source inspector"><span className="eyebrow">{active ? 'Relationship' : 'Selected module'}</span><h2>{active?.label ?? selected.label}</h2>
+    <Disclosure kind="inspector" label={`Source details · ${active?.label ?? selected.label}`}><aside className="inspector" aria-label="Source inspector"><span className="eyebrow">{active ? 'Relationship' : 'Selected module'}</span><h2>{active?.label ?? selected.label}</h2>
       {active ? <><p>{moduleById(active.from).name}<br /><span className="muted">→</span> {moduleById(active.to).name}</p><dl className="field-list"><div><dt>From port</dt><dd><code>{active.sourcePort}</code></dd></div><div><dt>To port</dt><dd><code>{active.targetPort}</code></dd></div><div><dt>Top-level wire</dt><dd><code>{active.wire}</code></dd></div></dl><p>{active.note}</p><a href={moduleById('top').sourceUrl} target="_blank" rel="noreferrer">Inspect named connections ↗</a></> : <><p>{selected.note}</p><ModuleFields module={selected} /><code className="source-file">{selected.file}</code><a href={selected.sourceUrl} target="_blank" rel="noreferrer">Open qualified source ↗</a><h3>Declared sequential state</h3>{selected.registers.length ? <ul className="register-list">{selected.registers.map((item) => <li key={item.name}><code>{item.name}</code><span>{item.bits}</span></li>)}</ul> : <p>Combinational routing; no declared clocked state.</p>}<h3>Source fingerprint</h3><code className="hash">{hex(selected.sourceHash)}</code></>}
       <div className="inspector-note"><h3>Claim boundary</h3><p>{selected.evidenceSourceMatches ? `Source SHA-256 matches retained E0018 (${short(atlas.source.revision)}).` : 'Source does not match qualified evidence. No current-source PASS.'}</p><p>State attribution is DERIVED. Geometry is schematic, not area. Loader writes and raw capture do not imply protocol acceptance.</p><button onClick={() => navigate({ view: 'evidence', evidence: 'E0018' })}>Inspect qualification →</button></div>
-    </aside>
+    </aside></Disclosure>
   </section>;
 }

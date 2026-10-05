@@ -7,12 +7,16 @@ Active engineering task: **M2-T01 bounded UART receive/public readback**. Active
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
-The first working app slice provides architecture tracing, reference cycles,
-evidence and progress with neutral light/dark themes. Production build, 12
-source/model checks and nine Chromium browser checks pass locally; see
-[UI0001](../evidence/UI0001-protocol-atlas/README.md). Broader model-oracle and
-URL-restoration checks remain follow-up work. This is UI evidence only and does
-not authorize PR8 merging or promote any chip/learning gate.
+The second bounded app increment provides architecture tracing, reference cycles,
+evidence and progress with neutral light/dark themes, mobile disclosures and
+restorable sampled-edge URLs. Production build, 16 source/model tests (including
+8,192-edge independent JS/Python agreement) and 13 Chromium browser cases pass
+locally; fresh approved-concept/render inspection is recorded in
+[UI0001](../evidence/UI0001-protocol-atlas/README.md). Pinned frontend CI is added;
+exact-head remote status is tracked on PR9, never inferred from local passes. Launch on KhanCreate with
+`.\tools\atlas.ps1 Start`. [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9)
+stays draft/unmerged. This is UI evidence only and does not authorize PR8 merging
+or promote any chip/learning gate.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?

@@ -1,0 +1,74 @@
+name: atlas
+on:
+  push:
+    paths:
+      - 'web/**'
+      - 'tools/export_atlas.mjs'
+      - 'tools/atlas_model_oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'test/test_atlas*.mjs'
+      - 'src/**'
+      - 'info.yaml'
+      - 'docs/learning/progress.json'
+      - 'docs/research-ledger.md'
+      - 'evidence/E0010-pinned-cmos5l-run/result.json'
+      - 'evidence/E0016-uart-tx-8n1/qualification.json'
+      - 'evidence/E0016-uart-tx-8n1/ci-manifest.json'
+      - 'evidence/E0018-uart-rx-public/*.json'
+      - '.github/workflows/atlas.yaml'
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'tools/export_atlas.mjs'
+      - 'tools/atlas_model_oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'test/test_atlas*.mjs'
+      - 'src/**'
+      - 'info.yaml'
+      - 'docs/learning/progress.json'
+      - 'docs/research-ledger.md'
+      - 'evidence/E0010-pinned-cmos5l-run/result.json'
+      - 'evidence/E0016-uart-tx-8n1/qualification.json'
+      - 'evidence/E0016-uart-tx-8n1/ci-manifest.json'
+      - 'evidence/E0018-uart-rx-public/*.json'
+      - '.github/workflows/atlas.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: atlas-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/build/atlas-browsers
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: '24.18.0'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked application dependencies
+        run: npm ci --ignore-scripts --no-fund --no-audit
+      - name: Build checked source snapshot
+        run: npm run build
+      - name: Source and independent JS/Python reference checks
+        run: npm test
+      - name: Install project-local Chromium on disposable runner
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Browser interaction, theme and layout checks
+        run: npm run test:browser
+      - name: Retain browser results, screenshots and failing traces
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: atlas-${{ github.sha }}
+          path: build/atlas-qa/
+          if-no-files-found: warn
+          retention-days: 30

@@ -3,7 +3,8 @@
 Local React/TypeScript inspection app. No chip/device control, API key, backend,
 telemetry or deployment. Source geometry is schematic, not a physical floorplan.
 
-Node 24 is the tested version; minimum 22.12. Exact dependency versions and
+Node 24 is required (native TypeScript stripping for model tests); 24.18.0 is
+the tested version. Python 3 runs the independent reference oracle. Exact dependency versions and
 lockfile are committed. Run from this directory:
 
 ```powershell
@@ -16,6 +17,10 @@ npm run dev
 
 Open `http://127.0.0.1:5179`. Stop with Ctrl+C. `npm run preview` serves the
 production build on the same loopback port, never concurrently with `dev`.
+From the repository root on KhanCreate, `.\tools\atlas.ps1 Start` builds and
+serves the checked production app. `Check` runs source/reference checks and
+builds; `Build` builds only. The shortcut does not install dependencies, change
+execution policy, start Docker or kill any existing server.
 
 `npm run data` deterministically exports only public source/evidence. Review
 changes before committing. State counts are derived from declared nonblocking
@@ -49,6 +54,13 @@ synchronous and wins over disable; WAIT counts only accepted edges. Tables show
 full stored value/OE, not analog waveforms. This subset does not model the
 loader, synchronization, LOOP/SHIFT or live measured RTL. Evidence and Progress
 retain separate revision, workload, physical and learning boundaries.
+
+Cycle links preserve the bounded program, up to 256 sampled edge conditions,
+enable/reset controls and selected row. Reload never starts autoplay. This UI
+trace bound is not a chip timeout; the full WAIT(65535) boundary is independently
+tested. The retained seed `0xa71a5206` checks 128 separately decoded programs
+against the Python oracle on 8,192 edges. `ATLAS_PYTHON` can select the Python
+executable; absence is a failed check, never a skipped pass.
 
 This is a versioned snapshot, not live CI or branch polling. PR8 remains a
 separate unmerged draft. M1 physical results and owner fluency are not promoted.

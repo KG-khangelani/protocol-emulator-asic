@@ -475,7 +475,37 @@
       "scope": "Archived GPIO counter only. This does not qualify current M1 hardware or owner learning.",
       "evidenceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/155e130ea402f78a86558fb3c2b094c536be41a4/evidence/E0010-pinned-cmos5l-run/README.md",
       "archived": true,
-      "runUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36118046477"
+      "runUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/36118046477",
+      "tools": [
+        {
+          "name": "flow",
+          "version": "LibreLane"
+        },
+        {
+          "name": "flow_version",
+          "version": "3.1.0.dev3"
+        },
+        {
+          "name": "pdk",
+          "version": "ihp-sg13cmos5l"
+        },
+        {
+          "name": "pdk_commit",
+          "version": "2bbec755dc67ca3db0261c3d6163e15735d66710"
+        },
+        {
+          "name": "physical_yosys",
+          "version": "0.66 (86f2ddebce7e98ce7cacc27e8a5c14cb53b51b51)"
+        },
+        {
+          "name": "gate_level_iverilog",
+          "version": "13.0 stable"
+        },
+        {
+          "name": "gate_level_cocotb",
+          "version": "2.0.1"
+        }
+      ]
     },
     {
       "id": "E0016",
@@ -486,7 +516,57 @@
       "scope": "Named firmware workload, not complete UART or current M1 physical evidence.",
       "evidenceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/155e130ea402f78a86558fb3c2b094c536be41a4/evidence/E0016-uart-tx-8n1/README.md",
       "archived": false,
-      "currentSourceMatches": false
+      "currentSourceMatches": false,
+      "tools": [
+        {
+          "name": "git",
+          "version": "git version 2.39.5"
+        },
+        {
+          "name": "g++",
+          "version": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+        },
+        {
+          "name": "iverilog",
+          "version": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "vvp",
+          "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "verilator",
+          "version": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)"
+        },
+        {
+          "name": "verible",
+          "version": "Version v0.0-4296-g0f262651"
+        },
+        {
+          "name": "yosys",
+          "version": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)"
+        },
+        {
+          "name": "sby",
+          "version": "SBY v0.67-4-gfea6e46"
+        },
+        {
+          "name": "z3",
+          "version": "Z3 version 4.15.5 - 64 bit"
+        },
+        {
+          "name": "boolector",
+          "version": "3.2.4"
+        },
+        {
+          "name": "cocotb",
+          "version": "2.0.1"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.2"
+        }
+      ]
     },
     {
       "id": "E0018",
@@ -499,6 +579,56 @@
       "archived": false,
       "currentSourceMatches": true,
       "manifestIntegrity": true,
+      "tools": [
+        {
+          "name": "git",
+          "version": "git version 2.39.5"
+        },
+        {
+          "name": "g++",
+          "version": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+        },
+        {
+          "name": "iverilog",
+          "version": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "vvp",
+          "version": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+        },
+        {
+          "name": "verilator",
+          "version": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)"
+        },
+        {
+          "name": "verible",
+          "version": "Version v0.0-4296-g0f262651"
+        },
+        {
+          "name": "yosys",
+          "version": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)"
+        },
+        {
+          "name": "sby",
+          "version": "SBY v0.67-4-gfea6e46"
+        },
+        {
+          "name": "z3",
+          "version": "Z3 version 4.15.5 - 64 bit"
+        },
+        {
+          "name": "boolector",
+          "version": "3.2.4"
+        },
+        {
+          "name": "cocotb",
+          "version": "2.0.1"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.2"
+        }
+      ],
       "runUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37283077006"
     }
   ],

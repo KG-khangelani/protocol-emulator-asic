@@ -13,6 +13,7 @@ test('actual nonblocking state totals and grouping match the qualified source', 
   assert.equal(data.source.matchCount, 5);
   assert.equal(data.clockTargetHz, 50_000_000);
   assert.equal(data.tileAllocation, '6x4');
+  assert.equal(data.evidence.find((item) => item.id === 'E0016').status, 'PASS');
 });
 test('synchronization, fetch, TX/RX and GPIO dependencies are actual named connections', () => {
   const data = buildAtlas();
@@ -47,4 +48,23 @@ test('archived physical evidence, owner learning and deferred branch remain dist
   assert.equal(data.deferred.status, 'DRAFT / NOT MERGED');
   assert.ok(data.hypotheses.every((item) => item.status === 'UNPROVEN'));
   assert.equal(JSON.stringify(data).includes('libfile_'), false);
+});
+test('hypothesis status comes from the ledger, not a hardcoded UI promotion', () => {
+  const path = 'docs/research-ledger.md';
+  const source = readFileSync(resolve(repoRoot, path), 'utf8');
+  const replacement = source.replace(/^\| H1 \|.*$/m, '| H1 | altered fixture | unqualified | Not evaluated |');
+  assert.equal(buildAtlas(repoRoot, { [path]: replacement }).hypotheses[0].status, 'NOT EVALUATED');
+});
+test('missing TX manifest cannot retain recorded TX PASS or invent tool identities', () => {
+  const data = buildAtlas(repoRoot, { 'evidence/E0016-uart-tx-8n1/ci-manifest.json': null });
+  const tx = data.evidence.find((item) => item.id === 'E0016');
+  assert.equal(tx.status, 'NOT_VERIFIED');
+  assert.deepEqual(tx.tools, []);
+});
+test('legacy TX qualification requires its actual retained run outcomes and cannot override explicit failure', () => {
+  const path = 'evidence/E0016-uart-tx-8n1/qualification.json';
+  const source = JSON.parse(readFileSync(resolve(repoRoot, path), 'utf8'));
+  for (const replacement of [{ ...source, implementation_ci: 'FAIL' }, { ...source, runs: {} }]) {
+    assert.equal(buildAtlas(repoRoot, { [path]: JSON.stringify(replacement) }).evidence.find((item) => item.id === 'E0016').status, 'NOT_VERIFIED');
+  }
 });
