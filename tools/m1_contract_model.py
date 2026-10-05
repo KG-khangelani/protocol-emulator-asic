@@ -28,6 +28,8 @@ class Instruction:
     msb_first: int = 0
     tx_pin: int = 0
     rx_pin: int = 0
+    burst: int = 0
+    period: int = 0
 
 
 @dataclass
@@ -52,8 +54,18 @@ class Machine:
     shift_rx_pin: int = 0
     shift_tx_data: int = 0
     shift_rx_data: int = 0
+    shift_period: int = 0
+    shift_tx_slot: int = 0
     shift_result_write: bool = False
     shift_result_data: int = 0
+
+    @property
+    def wait_is_shift(self):
+        return self.shift_period != 0
+
+    @property
+    def shift_burst(self):
+        return self.shift_period != 0
 
     def _advance(self):
         if self.loop_active and self.pc + 1 == self.loop_end:
@@ -67,7 +79,8 @@ class Machine:
         else:
             self.pc += 1
 
-    def edge(self, program, *, rst_n=True, ena=True, sampled_inputs=0, tx_payload=0):
+    def edge(self, program, *, rst_n=True, ena=True, sampled_inputs=0,
+             tx_payload=0, tx_payload_alt=0):
         if len(program) > MAX_PROGRAM_WORDS:
             raise ValueError("provisional M1 program exceeds 16 words")
         if not rst_n:
@@ -83,6 +96,8 @@ class Machine:
             self.shift_msb_first = False
             self.shift_tx_pin = self.shift_rx_pin = 0
             self.shift_tx_data = self.shift_rx_data = 0
+            self.shift_period = 0
+            self.shift_tx_slot = 0
             self.shift_result_write = False
             self.shift_result_data = 0
             return
@@ -90,6 +105,43 @@ class Machine:
         if not ena or self.state in (State.HALT, State.FAULT):
             return
         if self.state is State.WAIT:
+            if self.wait_is_shift:
+                if self.wait_left > 1:
+                    self.wait_left -= 1
+                    return
+                if self.shift_active:
+                    tx_bit = (self.shift_tx_data >>
+                              (7 if self.shift_msb_first else 0)) & 1
+                    rx_bit = (sampled_inputs >> self.shift_rx_pin) & 1
+                    tx_mask = 1 << self.shift_tx_pin
+                    rx_mask = 1 << self.shift_rx_pin
+                    self.gpio_value = ((self.gpio_value & ~tx_mask) |
+                                       (tx_bit << self.shift_tx_pin))
+                    self.gpio_oe = (self.gpio_oe | tx_mask) & ~rx_mask
+                    if self.shift_msb_first:
+                        next_tx = (self.shift_tx_data << 1) & 0xFF
+                        next_rx = ((self.shift_rx_data << 1) | rx_bit) & 0xFF
+                    else:
+                        next_tx = self.shift_tx_data >> 1
+                        next_rx = ((rx_bit << 7) | (self.shift_rx_data >> 1)) & 0xFF
+                    self.shift_tx_data = next_tx
+                    self.shift_rx_data = next_rx
+                    if self.shift_bits_done == 7:
+                        self.shift_active = False
+                        self.shift_bits_done = 0
+                        self.shift_result_write = True
+                        self.shift_result_data = next_rx
+                        self.shift_tx_slot ^= 1
+                        self.wait_left = self.shift_period - 1
+                    else:
+                        self.shift_bits_done += 1
+                        self.wait_left = self.shift_period
+                    return
+                self.wait_left = 0
+                self.shift_period = 0
+                self._advance()
+                self.state = State.RUN
+                return
             if self.wait_is_input and ((sampled_inputs >> self.wait_pin) & 1) == self.wait_level:
                 self.wait_left = 0
                 self._advance()
@@ -170,6 +222,7 @@ class Machine:
                 bool(instruction.msb_first) != self.shift_msb_first
                 or instruction.tx_pin != self.shift_tx_pin
                 or instruction.rx_pin != self.shift_rx_pin
+                or instruction.burst
             ):
                 self.state = State.FAULT
                 self.wait_left = 0
@@ -177,7 +230,8 @@ class Machine:
             order = self.shift_msb_first if self.shift_active else bool(instruction.msb_first)
             tx_pin = self.shift_tx_pin if self.shift_active else instruction.tx_pin
             rx_pin = self.shift_rx_pin if self.shift_active else instruction.rx_pin
-            tx_data = self.shift_tx_data if self.shift_active else tx_payload
+            payload = tx_payload_alt if (instruction.burst and self.shift_tx_slot) else tx_payload
+            tx_data = self.shift_tx_data if self.shift_active else payload
             rx_data = self.shift_rx_data if self.shift_active else 0
             tx_bit = (tx_data >> (7 if order else 0)) & 1
             rx_bit = (sampled_inputs >> rx_pin) & 1
@@ -199,6 +253,7 @@ class Machine:
                 self.shift_msb_first = order
                 self.shift_tx_pin = tx_pin
                 self.shift_rx_pin = rx_pin
+                self.shift_period = instruction.period if instruction.burst else 0
             elif self.shift_bits_done == 7:
                 self.shift_active = False
                 self.shift_bits_done = 0
@@ -206,7 +261,11 @@ class Machine:
                 self.shift_result_data = next_rx
             else:
                 self.shift_bits_done += 1
-            self._advance()
+            if instruction.burst:
+                self.state = State.WAIT
+                self.wait_left = instruction.period
+            else:
+                self._advance()
         else:
             self.state = State.FAULT if (self.loop_active or self.shift_active) else State.HALT
             self.wait_left = 0
@@ -229,10 +288,13 @@ class Machine:
             return (instruction.msb_first in (0, 1)
                     and 0 <= instruction.tx_pin <= 7
                     and 0 <= instruction.rx_pin <= 7
-                    and instruction.tx_pin != instruction.rx_pin)
+                    and instruction.tx_pin != instruction.rx_pin
+                    and instruction.burst in (0, 1)
+                    and ((not instruction.burst and instruction.period == 0)
+                         or (instruction.burst and 2 <= instruction.period <= MAX_WAIT)))
         return instruction.opcode == "HALT" and not any(
             (instruction.mask, instruction.value, instruction.oe, instruction.count,
              instruction.pin, instruction.level, instruction.timeout_skip,
              instruction.length, instruction.msb_first, instruction.tx_pin,
-             instruction.rx_pin)
+             instruction.rx_pin, instruction.burst, instruction.period)
         )

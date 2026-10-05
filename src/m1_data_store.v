@@ -7,11 +7,13 @@ module m1_data_store (
     input wire [4:0] register_address, input wire [7:0] data_in,
     input wire shift_result_write, input wire [7:0] shift_result_data,
     output reg [7:0] data_out, output reg [7:0] tx_payload,
+    output reg [7:0] tx_payload_alt,
     output reg [7:0] rx_result, output reg rx_valid
 );
     always @(posedge clk) begin
         if (!rst_n) begin
             tx_payload <= 8'd0;
+            tx_payload_alt <= 8'd0;
             rx_result <= 8'd0;
             rx_valid <= 1'b0;
         end else begin
@@ -24,6 +26,11 @@ module m1_data_store (
                 tx_payload <= data_in;
                 rx_valid <= 1'b0;
             end
+            if (ena && register_select && register_write &&
+                (register_address == 5'd4)) begin
+                tx_payload_alt <= data_in;
+                rx_valid <= 1'b0;
+            end
         end
     end
 
@@ -33,6 +40,7 @@ module m1_data_store (
             5'd1: data_out = tx_payload;
             5'd2: data_out = rx_result;
             5'd3: data_out = {7'd0, rx_valid};
+            5'd4: data_out = tx_payload_alt;
             default: data_out = 8'd0;
         endcase
     end

@@ -2,7 +2,7 @@
 
 Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M1-T09**. Active learning task: **M0-T01**,
+Active engineering task: **M2-T01 UART transmit**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Research question: What is the smallest computational substrate that can
@@ -173,7 +173,20 @@ efficiently express useful digital communication protocols under hard temporal c
   extreme traces against the model on both simulators, and formally holds shift
   state across every non-shift transition. Independent re-review is clean at
   implementation head `d1ddc8a`; both push- and PR-triggered exact-head CI runs
-  pass. Draft PR 4 remains unmerged under the delegated no-merge boundary.
+  pass. PR 4 was subsequently merged normally at
+  `081a8b14a68ff58d46c3b75d53b7138dbea79433`; its post-merge test and docs
+  workflows pass.
+- P-UART-TX-8N1 acceptance is frozen in `specs/p-uart-tx-8n1.md`. The candidate
+  uses an eight-word SET/WAIT/LOOP/SHIFT_BURST program and two public payload
+  slots to emit distinct back-to-back frames. The model enumerates all 256
+  complementary pairs at exact period 434; Icarus and Verilator check every
+  byte in both slots at period two plus four retained exact-period pairs.
+  Fourteen tests on each simulator, 18 model checks, lint, formal proof/covers/
+  mutation, storage/synchronizer proofs and generic synthesis pass locally.
+  Generic synthesis screens at 2,783 abstract cells and 410 state bits, a
+  +249/+25 delta from K-SHIFT-8 after removing two redundant mode flags.
+  Independent review is clean; E0016 retains local evidence. UART-TX is not yet
+  exact-head CI qualified, and no physical or complete-UART claim is made.
 
 ## Blocked or unverified
 
@@ -187,9 +200,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: await integration authority for fully qualified draft PR 4,
-  then freeze the first UART workload/oracle before adding protocol firmware.
-  Do not claim a protocol or rerun physical closure from this simulation candidate.
+- Engineering: obtain exact-head CI for the independently reviewed UART-TX
+  candidate, resolve any findings, then merge only after those gates pass. Do
+  not claim UART receive/compliance or rerun physical closure from this
+  simulation candidate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
@@ -197,7 +211,7 @@ efficiently express useful digital communication protocols under hard temporal c
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
-shift-microkernel candidate, but it is not a complete protocol VM. No protocol
-firmware, compiler, new physical closure, Fmax, or fabricated-silicon claim
-exists. The original OpenKnowledge records
+UART-transmit firmware candidate. UART receive, SPI and I2C remain unevaluated;
+compiler, new physical closure, Fmax and fabricated-silicon claims remain
+absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

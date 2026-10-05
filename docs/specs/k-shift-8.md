@@ -1,7 +1,7 @@
 # K-SHIFT-8 programmed-kernel acceptance
 
-Status: acceptance frozen before implementation on 2026-10-05; implementation
-head `d1ddc8a` passes exact-head CI and independent re-review in draft PR 4.
+Status: qualified RTL/formal kernel; implementation head `d1ddc8a` passed
+exact-head CI and independent re-review, and PR 4 merged at `081a8b1`.
 
 ## Question and scope
 
@@ -21,7 +21,8 @@ While `ui_in[7]=1`, `ui_in[5]=1` selects an eight-bit data/control register and
 | 1 | TX payload | stores the next transmit byte and clears RX-valid | payload | zero |
 | 2 | RX result | ignored | most recently completed receive byte | zero |
 | 3 | RX status | ignored | bit 0 is RX-valid; bits 7:1 are zero | zero |
-| 4..31 | reserved | ignored | zero | zero |
+| 4 | alternate TX payload (D16) | stores the second timed-burst byte and clears RX-valid | payload | zero |
+| 5..31 | reserved | ignored | zero | zero |
 
 The existing program-byte space remains selected by `ui_in[5]=0`; address zero
 length transactions remain backward compatible with P-RELOAD. Readback is
@@ -37,11 +38,15 @@ Opcode `10` is divided by bit 29:
 | Field | Meaning |
 |---|---|
 | `[31:30]=10`, `[29]=0`, `[28:0]=0` | HALT, unchanged |
-| `[31:30]=10`, `[29]=1` | SHIFT_STEP |
+| `[31:30]=10`, `[29]=1`, `[21]=0` | manual SHIFT_STEP |
 | `[28]` | 0 = least-significant bit first; 1 = most-significant bit first |
 | `[27:25]` | transmit GPIO pin |
 | `[24:22]` | receive GPIO pin |
-| `[21:0]` | reserved, must be zero |
+| `[20:0]` | reserved for manual steps, must be zero |
+
+D16 assigns bit 21 one to timed SHIFT_BURST. Its period fields and autonomous
+execution are specified separately in `p-uart-tx-8n1.md`; this kernel always
+uses the original manual encoding and payload slot zero.
 
 Transmit and receive pins must differ. A reserved-bit violation, equal pins, or
 a bit-order/pin change during an incomplete byte enters sticky FAULT at the

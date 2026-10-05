@@ -53,5 +53,11 @@ Direct-engine traces match the semantic model in both orders and with SET/WAIT
 interleaved between shift steps; adversarial cases cover HALT after seven bits,
 disable freeze, equal pins, reserved bits, configuration changes and
 active-transfer reset.
+The UART-TX candidate loads an eight-word SET/WAIT/LOOP/SHIFT_BURST program,
+reads back both payload slots and every program byte, and compares pin 0 against
+a frame-only oracle. Both simulators cover every byte in each slot at legal
+period two and retained pairs `00/ff`, `55/aa`, `aa/55`, and `ff/00` at the
+exact 434-edge period. Malformed periods/reserved bits, disable mid-burst and
+reset mid-burst are separate adversarial cases.
 This is finite RTL simulation; the GL-shaped smoke is still not a generated
 gate-netlist result.
