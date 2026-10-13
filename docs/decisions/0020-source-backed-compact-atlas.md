@@ -33,3 +33,24 @@ identifier collision without importing that branch into this documentation
 increment. This decision changes no RTL, official ports/config, tile allocation,
 ISA, physical inputs or human-learning record. App/browser/accessibility tests
 remain pending until implementation; approval is not a test pass.
+
+## Delivery addendum - 2026-10-13
+
+The pending implementation/test statement above describes the original
+documentation checkpoint. The bounded app was subsequently delivered on
+2026-10-05 at `2160aebeb02819d8a82cd62c2f1576724dc4e5b9`; its scoped local
+build/source/reference/Chromium results are recorded in
+[UI0001](../../evidence/UI0001-protocol-atlas/README.md).
+[PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9) was
+re-observed draft/unmerged on 2026-10-13, with the same delivered head and five
+successful existing CI runs. The
+[qualification record](../../evidence/UI0001-protocol-atlas/qualification.json)
+binds that head, the synthetic PR merge checkout and retained artifact metadata.
+
+This addendum reconciles the handoff and does not repeat implementation or
+convert design approval into proof. Existing passes were executed on
+2026-10-05; metadata observations and documentation consistency checks are
+separate from a fresh browser, RTL or physical run. Broader browser/screen-reader
+coverage and user-device access remain unqualified. The documentation change
+stays in a local commit: no push, merge, deployment, dependency/server change or
+semantic compiler work. PR8 remains deferred; chip/learning gates are unchanged.

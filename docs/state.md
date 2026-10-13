@@ -1,22 +1,28 @@
 # Current state
 
-Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-10-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
-The second bounded app increment provides architecture tracing, reference cycles,
-evidence and progress with neutral light/dark themes, mobile disclosures and
-restorable sampled-edge URLs. Production build, 16 source/model tests (including
-8,192-edge independent JS/Python agreement) and 13 Chromium browser cases pass
-locally; fresh approved-concept/render inspection is recorded in
-[UI0001](../evidence/UI0001-protocol-atlas/README.md). Pinned frontend CI is added;
-exact-head remote status is tracked on PR9, never inferred from local passes. Launch on KhanCreate with
-`.\tools\atlas.ps1 Start`. [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9)
-stays draft/unmerged. This is UI evidence only and does not authorize PR8 merging
-or promote any chip/learning gate.
+The bounded app candidate was delivered at `2160aeb` on 2026-10-05: architecture
+tracing, reference cycles, evidence and progress, neutral light/dark themes,
+mobile disclosures and restorable sampled-edge URLs. That delivery passed its
+production build, 16 source/model tests (including 8,192-edge independent
+JS/Python agreement) and 13 local Chromium cases. All five existing exact-head
+CI runs remain successful when re-observed on 2026-10-13; see
+[UI0001](../evidence/UI0001-protocol-atlas/README.md) and its
+[qualification record](../evidence/UI0001-protocol-atlas/qualification.json).
+This resumption reconciles documentation; it does not rebuild the app or rerun
+its browser/RTL/physical qualification. [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9)
+was observed draft/unmerged and awaits asynchronous review. A fresh local launch
+is available through `.\tools\atlas.ps1 Start`; historical delivery does not
+assert that a preview is running or that the user's device can access it.
+This is UI evidence only and does not authorize PR8 merging or promote any
+chip/learning gate. The new local documentation commit is not pushed or remotely
+CI-qualified by this reconciliation.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -228,12 +234,14 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Blocked or unverified
 
-- [The Protocol atlas contract](specs/protocol-atlas.md) has approved direction,
-  but is not an implemented app at this documentation checkpoint.
-  Neutral compact regions, instrumental colour and inverse-emphasis tracing
-  are specified; browser/keyboard/touch/reduced-motion implementation tests
-  have not run. Private concept/reference assets are not committed. D20 keeps
-  documentation publication distinct from design acceptance and chip evidence.
+- [The Protocol atlas contract](specs/protocol-atlas.md) has a delivered bounded
+  app candidate, with scoped source/reference and Chromium qualification in
+  UI0001. Broader screen-reader, Safari/Firefox/iOS and deployed-hosting coverage
+  remain NOT EVALUATED. At the original pre-implementation documentation
+  checkpoint on 2026-10-05, the app and browser checks did not yet exist; that
+  historical status is preserved in D20 and superseded by its delivery addendum.
+  Private concept/reference assets remain excluded, and UI delivery does not
+  establish chip evidence or access from an unverified user device.
 - [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
   separate draft/unmerged host-service candidate. This documentation branch
   starts from main `155e130` and imports no PR8 code/evidence; no merge or SPI
@@ -249,10 +257,10 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Supporting UI: implement `specs/protocol-atlas.md` with neutral light/dark,
-  soft compact regions and source-backed inverse emphasis; no new concept
-  approval round is required. Commit and push coherent
-  public-original increments for review without publishing private artifacts.
+- Supporting UI: review the already delivered PR9 candidate and UI0001's retained
+  exact-head evidence. No implementation restart is needed. This documentation
+  reconciliation remains local; no push or merge is performed. Additional browser
+  coverage remains a separate scoped task, not a completion claim.
 - Engineering: keep PR8 draft/deferred until a separate integration decision.
   Its host-service work is not merged into this branch. Preserve scoped
   workload/physical limits; no new storage, protocol or physical result is

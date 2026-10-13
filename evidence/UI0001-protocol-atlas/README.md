@@ -122,3 +122,50 @@ E0018 matches chip source but qualifies only bounded last-byte RX, never complet
 UART, FIFO/continuous receive or M1 physical closure. PR8 is not merged and its
 external host cache is not CHIP_COMPLETE state. M0 fluency stays PENDING;
 H1-H4 stay UNPROVEN. 50 MHz is a TARGET, not Fmax.
+
+## Delivery qualification / documentation resumption - 2026-10-13
+
+The delivered app head is `2160aebeb02819d8a82cd62c2f1576724dc4e5b9`.
+The five runs below executed on **2026-10-05** and were re-observed completed
+with `success` on **2026-10-13**. They are existing passes, not newly run tests.
+[PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9) was still
+open, draft and unmerged at that observation. The new local documentation
+commit is not pushed and is not qualified by those older runs.
+
+| Existing workflow | Trigger | Retained run |
+|---|---|---|
+| atlas | pull request | [37327455365](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327455365) |
+| atlas | push | [37327449164](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449164) |
+| test | pull request | [37327455357](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327455357) |
+| test | push | [37327449008](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449008) |
+| docs | push | [37327449102](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449102) |
+
+The PR artifact names synthetic tested merge revision
+`ea4143b55835b4e20a8dfd2ce5ff7d4bea829a1e`; run metadata records the delivered
+branch head above. This is not a merge into main. Browser artifact `11353080379`
+was observed present/unexpired, size 3,141,180 bytes, expiring
+2026-11-04T14:47:25Z. Its SHA-256 is GitHub-reported ZIP metadata, not an
+independently recomputed digest in this session. Inspection of the retained
+2026-10-05 `results.json` reports 13 passed, zero skipped/unexpected/flaky;
+no browser test was re-executed.
+
+[qualification.json](qualification.json) records these identities, the observed
+availability and explicit scope limits. Newly executed on 2026-10-13:
+
+| Documentation check | Result / scope |
+|---|---|
+| Doctor | PASS; locked tool identities only |
+| `workbench.ps1 Check` / `make check` | PASS; metadata, learning/evidence consistency and 25 existing Python cases (18 contract, 3 RX oracle, 4 provenance) |
+| Handoff / links | PASS; observed identities/canonical run links, local links, retained result counts, verbatim historical prefixes and unchanged non-UI roadmap/five-file scope |
+| `git diff --check` | PASS |
+
+No frontend build, frontend oracle, browser, RTL, HDL formal, synthesis or
+physical qualification is repeated.
+Earlier local results, failures and their chronology above remain unchanged.
+
+The supporting UI candidate is delivered and awaits asynchronous review; the
+old instruction to implement it again has been removed from current state.
+PR8 merging remains deferred and the semantic compiler remains untouched.
+Additional platform/screen-reader qualification and user-device access remain
+separate, unevaluated work. This documentation closeout establishes no ASIC,
+protocol-completeness or human-fluency result.
