@@ -1,9 +1,29 @@
 # Current state
 
-Updated: 2026-10-05. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-10-14. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
+
+Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
+on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
+The bounded app candidate was delivered at `2160aeb` on 2026-10-05. Its original
+build, 16 source/model and 13 Chromium results remain historical in
+[UI0001](../evidence/UI0001-protocol-atlas/README.md) and its
+[qualification record](../evidence/UI0001-protocol-atlas/qualification.json).
+On 2026-10-14, synthetic failure fixtures exposed a PASS summary overriding
+failed required CI outcomes and unverified records retaining positive workload
+claims/metrics. Scoped exporter/view guards now reject those claims. Local
+source fixtures pass 11/11; the production build, six focused Chromium cases
+(two rerun after final mobile changes) and a production preview smoke across
+four views at desktop/mobile sizes pass. Initial failures are retained; see the
+[dated smoke record](../evidence/UI0001-protocol-atlas/smoke-20261014.json).
+The owner authorized publication of the pending documentation and guard fixes
+into existing draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+The published head and fresh remote CI outcomes are tracked there; local passes
+do not qualify a remote head. A local production preview was checked on
+KhanCreate; access from the user's own device remains unverified. This is UI
+evidence only and promotes no chip/learning gate. PR8 remains draft/deferred.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -215,6 +235,19 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Blocked or unverified
 
+- [The Protocol atlas contract](specs/protocol-atlas.md) has a delivered bounded
+  app candidate, with scoped source/reference and Chromium qualification in
+  UI0001. Broader screen-reader, Safari/Firefox/iOS and deployed-hosting coverage
+  remain NOT EVALUATED. At the original pre-implementation documentation
+  checkpoint on 2026-10-05, the app and browser checks did not yet exist; that
+  historical status is preserved in D20 and superseded by its delivery addendum.
+  Private concept/reference assets remain excluded, and UI delivery does not
+  establish chip evidence or access from an unverified user device.
+- [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
+  separate draft/unmerged host-service candidate. This documentation branch
+  starts from main `155e130` and imports no PR8 code/evidence; no merge or SPI
+  work is authorized by this increment.
+
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
 - The official composite action's internally tagged dependencies remain a
@@ -225,10 +258,13 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: specify a bounded host-service/delivery contract for preserving
-  both received frames after PR7's exact-green integration
-  before adding storage. Keep focused risk-based checks during iteration and
-  aggregate gates at review/merge milestones; no new physical claim is implied.
+- Supporting UI: review existing draft PR9, its exact published head and fresh
+  CI outcomes tracked there. Retain the dated local smoke record and earlier
+  failure history; merge/deployment and broader browser coverage remain separate.
+- Engineering: keep PR8 draft/deferred until a separate integration decision.
+  Its host-service work is not merged into this branch. Preserve scoped
+  workload/physical limits; no new storage, protocol or physical result is
+  claimed by design documentation.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
