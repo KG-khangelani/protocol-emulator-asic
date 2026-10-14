@@ -1,28 +1,29 @@
 # Current state
 
-Updated: 2026-10-13. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-10-14. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
-The bounded app candidate was delivered at `2160aeb` on 2026-10-05: architecture
-tracing, reference cycles, evidence and progress, neutral light/dark themes,
-mobile disclosures and restorable sampled-edge URLs. That delivery passed its
-production build, 16 source/model tests (including 8,192-edge independent
-JS/Python agreement) and 13 local Chromium cases. All five existing exact-head
-CI runs remain successful when re-observed on 2026-10-13; see
+The bounded app candidate was delivered at `2160aeb` on 2026-10-05. Its original
+build, 16 source/model and 13 Chromium results remain historical in
 [UI0001](../evidence/UI0001-protocol-atlas/README.md) and its
 [qualification record](../evidence/UI0001-protocol-atlas/qualification.json).
-This resumption reconciles documentation; it does not rebuild the app or rerun
-its browser/RTL/physical qualification. [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9)
-was observed draft/unmerged and awaits asynchronous review. A fresh local launch
-is available through `.\tools\atlas.ps1 Start`; historical delivery does not
-assert that a preview is running or that the user's device can access it.
-This is UI evidence only and does not authorize PR8 merging or promote any
-chip/learning gate. The new local documentation commit is not pushed or remotely
-CI-qualified by this reconciliation.
+On 2026-10-14, synthetic failure fixtures exposed a PASS summary overriding
+failed required CI outcomes and unverified records retaining positive workload
+claims/metrics. Scoped exporter/view guards now reject those claims. Local
+source fixtures pass 11/11; the production build, six focused Chromium cases
+(two rerun after final mobile changes) and a production preview smoke across
+four views at desktop/mobile sizes pass. Initial failures are retained; see the
+[dated smoke record](../evidence/UI0001-protocol-atlas/smoke-20261014.json).
+The owner authorized publication of the pending documentation and guard fixes
+into existing draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+The published head and fresh remote CI outcomes are tracked there; local passes
+do not qualify a remote head. A local production preview was checked on
+KhanCreate; access from the user's own device remains unverified. This is UI
+evidence only and promotes no chip/learning gate. PR8 remains draft/deferred.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
@@ -257,10 +258,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Supporting UI: review the already delivered PR9 candidate and UI0001's retained
-  exact-head evidence. No implementation restart is needed. This documentation
-  reconciliation remains local; no push or merge is performed. Additional browser
-  coverage remains a separate scoped task, not a completion claim.
+- Supporting UI: review existing draft PR9, its exact published head and fresh
+  CI outcomes tracked there. Retain the dated local smoke record and earlier
+  failure history; merge/deployment and broader browser coverage remain separate.
 - Engineering: keep PR8 draft/deferred until a separate integration decision.
   Its host-service work is not merged into this branch. Preserve scoped
   workload/physical limits; no new storage, protocol or physical result is

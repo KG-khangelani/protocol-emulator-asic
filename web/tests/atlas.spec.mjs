@@ -1,6 +1,17 @@
 // SPDX-License-Identifier: Apache-2.0
 import { test, expect } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { buildAtlas, repoRoot } from '../../tools/export_atlas.mjs';
+
+async function syntheticDataset(page, overrides) {
+  const fixture = buildAtlas(repoRoot, overrides);
+  // Vite's JSON module is replaced only in this isolated test page, never on disk.
+  await page.route('**/src/data/atlas.json*', (route) => route.fulfill({
+    contentType: 'text/javascript', body: `export default ${JSON.stringify(fixture)};`,
+  }));
+}
 
 test('architecture is real source-backed UI; search, layers, zoom and source links work', async ({ page }) => {
   const errors = [];
@@ -289,4 +300,46 @@ test('desktop review captures: soft neutral regions in both themes, cycles and p
   await page.screenshot({ path: '../build/atlas-qa/screenshots/desktop-progress-dark.png', fullPage: true });
   await page.getByRole('button', { name: 'Evidence', exact: true }).click();
   await page.screenshot({ path: '../build/atlas-qa/screenshots/desktop-evidence-dark.png', fullPage: true });
+});
+
+test('synthetic failed CI blocks PASS claims and measured metrics in the rendered app', async ({ page }, testInfo) => {
+  const path = 'evidence/E0018-uart-rx-public/qualification.json';
+  const qualification = JSON.parse(readFileSync(resolve(repoRoot, path), 'utf8'));
+  qualification.runs.push_test.conclusion = 'failure';
+  await syntheticDataset(page, { [path]: JSON.stringify(qualification) });
+  await page.goto('/#view=evidence&evidence=E0018');
+  await page.screenshot({ path: testInfo.outputPath('failed-ci-evidence.png'), fullPage: true });
+  await expect(page.locator('.result')).toContainText('Recorded NOT_VERIFIED');
+  await expect(page.getByRole('heading', { name: 'Unverified record', exact: true })).toBeVisible();
+  await expect(page.locator('.source-context')).toContainText('unverified record');
+  await expect(page.locator('.inspector .field-list')).toContainText('Unavailable · NOT_VERIFIED');
+  await expect(page.locator('.inspector .field-list')).not.toContainText('MEASURED');
+  await page.getByRole('button', { name: 'Progress', exact: true }).click();
+  await expect(page.getByRole('row', { name: /Bounded last-byte RX/ })).toContainText('NOT VERIFIED');
+  await expect(page.getByRole('heading', { name: 'M0 owner fluency: PENDING' })).toBeVisible();
+  await page.getByRole('button', { name: 'Architecture', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'Open source record' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Open qualified source' })).toHaveCount(0);
+});
+
+test('synthetic missing records do not assert completed or passed workloads', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await syntheticDataset(page, {
+    'evidence/E0010-pinned-cmos5l-run/result.json': null,
+    'evidence/E0016-uart-tx-8n1/ci-manifest.json': null,
+    'evidence/E0018-uart-rx-public/ci-manifest.json': null,
+  });
+  await page.goto('/#view=evidence&evidence=E0010');
+  await page.screenshot({ path: testInfo.outputPath('missing-evidence.png'), fullPage: true });
+  for (const label of ['E0010 Archived M0 GPIO baseline', 'E0016 UART TX 8N1', 'E0018 Bounded last-byte UART RX']) {
+    await page.locator('.outline').getByRole('button', { name: label }).click();
+    await expect(page.locator('.result')).toContainText('Recorded NOT_VERIFIED');
+    await expect(page.getByRole('heading', { name: 'Unverified record', exact: true })).toBeVisible();
+    await expect(page.locator('.canvas-region')).toContainText('does not establish a passed verification result');
+    await expect(page.locator('.canvas-region')).not.toContainText('completed official GDS');
+    await expect(page.locator('.canvas-region')).not.toContainText('passed its declared digital verification ladder');
+    await expect(page.locator('.canvas-region')).not.toContainText('retained bounded two-frame RX workload checks both frames');
+  }
+  await expect(page.locator('.inspector .field-list')).toContainText('Unavailable · NOT_VERIFIED');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

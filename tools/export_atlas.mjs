@@ -93,8 +93,8 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
   const manifestText = read('evidence/E0018-uart-rx-public/ci-manifest.json', false);
   const manifest = json(manifestText);
   const requiredStages = ['doctor', 'static', 'learning_status', 'lint', 'rtl_icarus', 'gl_harness_smoke', 'waveform_provenance', 'learning_waveform', 'rtl_verilator', 'formal', 'generic_synthesis'];
-  const recordedCI = (qualified) => qualified?.implementation_ci === 'PASS' ||
-    (qualified?.implementation_ci === undefined && ['push_test', 'pull_request_test', 'push_docs'].every((name) => qualified?.runs?.[name]?.conclusion === 'success'));
+  const recordedCI = (qualified) => (qualified?.implementation_ci === undefined || qualified.implementation_ci === 'PASS') &&
+    ['push_test', 'pull_request_test', 'push_docs'].every((name) => qualified?.runs?.[name]?.conclusion === 'success');
   const qualifies = (qualified, collected, text) => Boolean(qualified && collected &&
     sha(text) === qualified.clean_collector?.manifest_sha256 &&
     recordedCI(qualified) && qualified.clean_collector?.simulator_failures === 0 &&
@@ -172,7 +172,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     tileAllocation: metadata.match(/tiles:\s*["']?([0-9]+x[0-9]+)/)?.[1] ?? 'Unknown',
     modules, relations, totalStateBits: modules.reduce((sum, module) => sum + module.stateBits, 0),
     evidence,
-    genericScreen: { cells: qualification?.clean_collector?.generic_cells ?? null, stateBits: qualification?.clean_collector?.state_bits ?? null, qualification: 'E0018', provenance: 'MEASURED', scope: 'Generic synthesis only; not CMOS5L area/fit/timing.' },
+    genericScreen: { cells: evidenceIntegrity ? qualification.clean_collector.generic_cells ?? null : null, stateBits: evidenceIntegrity ? qualification.clean_collector.state_bits ?? null : null, qualification: 'E0018', provenance: evidenceIntegrity ? 'MEASURED' : 'NOT_VERIFIED', scope: 'Generic synthesis only; not CMOS5L area/fit/timing.' },
     learning: { activeMilestone: learning?.active_milestone ?? 'Unknown', m0Technical: ownerM0?.technical_gate?.status ?? 'Unknown', m0Fluency: ownerM0?.fluency_gate?.status ?? 'Unknown' },
     hypotheses,
     deferred: { id: 'PR8', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-10-05', status: 'DRAFT / NOT MERGED', url: `${repository}/pull/8`, scope: 'Separate host-service branch. Its cache is external to CHIP_COMPLETE; evidence is not imported in this app snapshot.' },

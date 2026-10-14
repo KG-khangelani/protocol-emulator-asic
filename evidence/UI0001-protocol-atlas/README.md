@@ -169,3 +169,59 @@ PR8 merging remains deferred and the semantic compiler remains untouched.
 Additional platform/screen-reader qualification and user-device access remain
 separate, unevaluated work. This documentation closeout establishes no ASIC,
 protocol-completeness or human-fluency result.
+
+## Evidence guards / production smoke - 2026-10-14
+
+The preserved documentation parent is `b9bcc71d46bb62a074b059b276ad710bb5c2fb2c`.
+The owner subsequently authorized the pending publication and scoped UI fixes
+into existing draft PR9, without merge/deployment. This checkpoint is separate
+from the 2026-10-05 tests and 2026-10-13 metadata observations above.
+
+Independent review and synthetic fixtures exposed two claim defects: a PASS
+summary could override failed required CI outcomes, and unverified records
+still asserted successful workloads and measured generic metrics. The initial
+source run reports 9 passed / 2 failed; the initial two browser fixture cases
+both fail. Their captures/results/traces are retained under ignored
+`build/atlas-readiness-20261014/initial-failure/`, not rewritten as passes.
+
+The exporter now requires all three retained outcomes to succeed even when a
+PASS summary exists. Failed/missing records show NOT_VERIFIED, conservative
+support copy and neutral source links; unverified E0018 qualification withholds
+its generic metrics. Legacy E0016 with
+no summary remains accepted only with its actual successful required outcomes.
+Synthetic data is injected into isolated pages; source/evidence JSON on disk is
+not edited, and the checked normal atlas dataset is unchanged.
+
+| Fresh local check | Result / boundary |
+|---|---|
+| Locked workbench Doctor | PASS; tool identities only |
+| `workbench.ps1 Check` / `make check` | PASS after an initial sandbox Docker named-pipe denial; approved retry exited 0. Metadata/learning/evidence consistency and existing 18 M1 contract +3 RX oracle +4 provenance Python cases; no HDL run |
+| `node --test test/test_atlas_data.mjs` | 11/11 PASS, including failed/cancelled/missing required-outcome variants and missing/corrupt metric evidence |
+| `npm run build` | PASS: data check, TypeScript and production bundle; no dependency installation/upgrade |
+| Focused Chromium subset | 6/6 PASS: architecture/links, URL/history, reference/reset/disable/invalid program, evidence/progress and both synthetic cases; 7.2 seconds |
+| Final synthetic subset | 2/2 PASS rerun after adding mobile 390x844/overflow coverage; 5.7 seconds; not additional unique cases |
+| Production preview smoke | PASS: actual built HTML/JS/CSS, all four views at 1536x1024 and 390x844, both theme captures, no horizontal overflow, no app console/page/request errors |
+| Render inspection | Fresh desktop light/mobile dark and before/after invalid-evidence captures viewed; no material clipping/overlap found in those captures |
+
+Native Node 24.18.0/npm 11.8.0 and the existing Playwright 1.63.0 Chromium
+153.0.8010.12 installation were used. The Browser plugin was not callable, so
+existing regular Playwright provided isolated test contexts; no user browser
+profile/cache/security settings were modified. This does not verify a user's
+visible tab or their device. The production preview was checked on KhanCreate
+at `http://127.0.0.1:5179/`; the maintained launch command remains
+`.\tools\atlas.ps1 Start`.
+
+The initial restricted browser run could not finish its owned Vite subprocess
+teardown. PowerShell `Stop-Process` also failed; native `taskkill /PID ... /T /F`
+then stopped only the positively identified task-owned listener. The two
+assertion failures remained failures. Subsequent approved browser runs exited
+normally. No unrelated process or server was stopped.
+
+[smoke-20261014.json](smoke-20261014.json) records tested file hashes, result
+counts, local output paths and scope. Exact final remote head, new CI runs and
+artifacts are tracked on [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9);
+local results do not imply remote success. The historical qualification JSON
+continues to identify the older delivered head. No fresh local full frontend model-suite,
+RTL/formal/synthesis or physical run was performed in this UI smoke. PR8,
+compiler, chip/learning gates and broader platform/screen-reader limits remain
+unchanged.

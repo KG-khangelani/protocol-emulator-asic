@@ -54,3 +54,25 @@ separate from a fresh browser, RTL or physical run. Broader browser/screen-reade
 coverage and user-device access remain unqualified. The documentation change
 stays in a local commit: no push, merge, deployment, dependency/server change or
 semantic compiler work. PR8 remains deferred; chip/learning gates are unchanged.
+
+## Evidence guard correction / publication authorization - 2026-10-14
+
+The owner authorized UI implementation decisions and publication of the pending
+documentation into existing draft PR9. The 2026-10-13 local-only boundary above
+records that earlier session; publication is now authorized, without merge or
+deployment. The documentation commit `b9bcc71` is preserved as the parent of
+this scoped correction.
+
+Synthetic fixtures reproduced a positive CI summary overriding failed required
+run outcomes and unverified evidence retaining successful-workload claims and
+measured generic metrics. Required outcomes now all must succeed; unverified
+records display conservative copy and neutral source links; unverified E0018
+qualification withholds its generic metrics.
+The normal checked dataset remains unchanged. Tests replace a JSON module only
+inside isolated browser pages, without modifying source evidence on disk.
+
+The dated [UI0001 smoke record](../../evidence/UI0001-protocol-atlas/smoke-20261014.json)
+separates reproduced failures, corrected local checks and production-preview
+observations. Fresh remote results belong to the exact published head on PR9;
+historical passes cannot qualify it. No dependency, compiler, PR8, RTL, physical,
+security or human-learning change is part of this correction.

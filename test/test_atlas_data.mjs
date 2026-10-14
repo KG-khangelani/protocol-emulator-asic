@@ -68,3 +68,26 @@ test('legacy TX qualification requires its actual retained run outcomes and cann
     assert.equal(buildAtlas(repoRoot, { [path]: JSON.stringify(replacement) }).evidence.find((item) => item.id === 'E0016').status, 'NOT_VERIFIED');
   }
 });
+test('a PASS summary cannot override failed, cancelled or missing required CI outcomes', () => {
+  for (const [id, folder] of [['E0016', 'E0016-uart-tx-8n1'], ['E0018', 'E0018-uart-rx-public']]) {
+    const path = `evidence/${folder}/qualification.json`;
+    for (const name of ['push_test', 'pull_request_test', 'push_docs']) {
+      for (const outcome of ['failure', 'cancelled', undefined]) {
+        const replacement = JSON.parse(readFileSync(resolve(repoRoot, path), 'utf8'));
+        replacement.implementation_ci = 'PASS';
+        replacement.runs[name].conclusion = outcome;
+        const data = buildAtlas(repoRoot, { [path]: JSON.stringify(replacement) });
+        assert.equal(data.evidence.find((item) => item.id === id).status, 'NOT_VERIFIED', `${id}/${name}/${outcome}`);
+      }
+    }
+  }
+});
+test('unverified RX evidence cannot retain measured generic metrics', () => {
+  for (const replacement of [null, '{}']) {
+    const data = buildAtlas(repoRoot, { 'evidence/E0018-uart-rx-public/ci-manifest.json': replacement });
+    assert.equal(data.genericScreen.cells, null);
+    assert.equal(data.genericScreen.stateBits, null);
+    assert.equal(data.genericScreen.provenance, 'NOT_VERIFIED');
+    assert.equal(data.totalStateBits, 410, 'source-derived declarations remain independently inspectable');
+  }
+});
