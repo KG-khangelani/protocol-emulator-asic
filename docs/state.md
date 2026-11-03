@@ -37,6 +37,15 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0024 checks the actual public-loaded compact eight-word mode-0 program
+  against independent external-pin timing expectations. Both simulators pass
+  the original response envelope and a separately labelled ideal digital
+  aperture/noise envelope. The actual synchronizer's scheduled transport rules
+  pass induction; this is not a firmware/loader proof. Direct/reduced444-step
+  full-chip SAT attempts time out and remain INCONCLUSIVE. D25 keeps these
+  boundaries separate. An all-ones control exposed and repaired only the
+  experimental acceptance guard's missing response-deadline check. Candidate
+  and production RTL remain unchanged; no full-SPI/physical/learning promotion.
 - E0023 qualifies the actual compact-copy public loader, program/data stores,
   synchronizer and executor together. Induction proves written integration
   safety with only initial chip reset; publicly loaded symbolic-byte witnesses
@@ -310,8 +319,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: qualify the compact eight-word mode-0 program end to end under
-  explicit external-pin timing assumptions, building on E0023 integration safety.
+- Engineering: develop per-loop invariants or another measured decomposition
+  for the compact eight-word full-program proof; E0024's direct attempts remain
+  inconclusive despite scoped pin simulation and transport proof successes.
   Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review

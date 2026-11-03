@@ -81,6 +81,13 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_integration.py --output build/spi-phase-integration/ci --with-simulation
 
+      - name: Qualify compact mode-0 external pins and input transport
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_pin_qualification.py --output build/spi-mode0-pins/ci
+
       - name: Upload verification results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -119,5 +126,15 @@ jobs:
             build/spi-phase-integration/ci/*/PASS
             build/spi-phase-integration/ci/*/FAIL
             build/spi-phase-integration/ci/*/engine_0/trace*
+            build/spi-mode0-pins/ci/result.json
+            build/spi-mode0-pins/ci/*.sby
+            build/spi-mode0-pins/ci/*.log
+            build/spi-mode0-pins/ci/inputs/
+            build/spi-mode0-pins/ci/*/status
+            build/spi-mode0-pins/ci/*/PASS
+            build/spi-mode0-pins/ci/*/FAIL
+            build/spi-mode0-pins/ci/*/engine_0/trace*
+            build/spi-mode0-pins/ci/*/results.xml
+            build/spi-mode0-pins/ci/*/records/
           if-no-files-found: error
           retention-days: 90

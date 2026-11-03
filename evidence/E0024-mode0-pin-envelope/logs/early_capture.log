@@ -1,0 +1,89 @@
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] Removing directory '/workspace/build/spi-mode0-pins/final02/early_capture'.
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] Copy '/workspace/build/spi-mode0-pins/final02/inputs/m1_input_sync.v' to '/workspace/build/spi-mode0-pins/final02/early_capture/src/m1_input_sync.v'.
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] Copy '/workspace/build/spi-mode0-pins/final02/inputs/transport.sv' to '/workspace/build/spi-mode0-pins/final02/early_capture/src/transport.sv'.
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: smtbmc z3
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] base: starting process "cd /workspace/build/spi-mode0-pins/final02/early_capture/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] base: finished (returncode=0)
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] prep: starting process "cd /workspace/build/spi-mode0-pins/final02/early_capture/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] prep: finished (returncode=0)
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] smt2: starting process "cd /workspace/build/spi-mode0-pins/final02/early_capture/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] smt2: finished (returncode=0)
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: starting process "cd /workspace/build/spi-mode0-pins/final02/early_capture; yosys-smtbmc -s z3 --presat --noprogress -t 32  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Solver: z3
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 20..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 20..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 21..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 21..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 22..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 22..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 23..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 23..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 24..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 24..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 25..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 25..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 26..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 26..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 27..
+SBY 21:16:20 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 27..
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 28..
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 28..
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assumptions in step 29..
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Checking assertions in step 29..
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  BMC failed!
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Value for anyconst transport.msb_first (transport.sv:5.24-5.33): 0
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Value for anyconst transport.rx_byte (transport.sv:4.30-4.37): 255
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Assert failed in transport: transport.sv:33.17-33.78 (_witness_.check_assert_transport_sv_33_40)
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: ##   0:00:00  Status: failed
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: finished (returncode=1)
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] engine_0: Status returned by engine: FAIL
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] summary: counterexample trace: /workspace/build/spi-mode0-pins/final02/early_capture/engine_0/trace.vcd
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] summary:   failed assertion transport._witness_.check_assert_transport_sv_33_40 at transport.sv:33.17-33.78 step 29
+SBY 21:16:21 [/workspace/build/spi-mode0-pins/final02/early_capture] DONE (FAIL, rc=0)

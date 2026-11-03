@@ -52,3 +52,18 @@ falsifications and four public-pin simulation groups per simulator have separate
 records. Simulation uses uninstrumented candidate sources. Loader abort resets
 execution while retaining an old completed result; payload writes invalidate
 valid only. E0023 records that lifetime and the initial failed attempts.
+
+The eight-word external-pin experiment runs with:
+
+```sh
+python3 experiments/spi_phase/run_pin_qualification.py
+```
+
+Its [pin contract](../../docs/specs/spi-mode0-pin-qualification.md) separates
+full-program public-pin simulation, actual-synchronizer transport proof and
+inconclusive direct full-chip SAT attempts. Independent pin mathematics imports
+no VM or encoder; a separate reference test cross-checks the literal image.
+The runner retains per-case response profiles, counts, timestamps, negative
+controls and hashes, and requires identical public records on both simulators.
+E0024 preserves the all-ones acceptance-guard failure and earlier tool/timeout
+outcomes. The default CI job does not rerun the known full-chip SAT timeouts.

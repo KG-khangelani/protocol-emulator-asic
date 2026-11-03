@@ -1,0 +1,17 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793740525" />
+    <testcase name="mode0_alphabet_at_last_digital_setup" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="107" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="mode0_original_envelope_phase_sweep_and_jitter" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="115" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="mode0_noise_outside_aperture_and_boundary_offsets" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="129" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="mode0_preserved_program_and_envelope_counterexamples" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="143" time="0.13112854957580566" sim_time_ns="26499.009" ratio_time="202084.20733488607">
+      <failure error_type="AssertionError" error_msg="assert (255 == 255 and not True)" />
+    </testcase>
+  </testsuite>
+</testsuites>

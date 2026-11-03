@@ -42,3 +42,12 @@ values, all 40 abort cuts, old-result lifetime and reset ownership. Deliberately
 wrong loader-clear expectations and a dropped-store-write mutant must fail
 with witnesses. Full SPI and physical qualification remain open; ordinary
 production proofs stay attached to production sources.
+
+E0024 uses independent external GPIO/clock/CS and rising-edge word expectations
+for the complete public-loaded compact eight-word image. Per-bit original
+response and ideal digital aperture/noise envelopes remain distinct from
+electrical timing. Separate formal jobs qualify only the actual synchronizer
+with an independent schedule monitor; full-program SAT attempts remain
+inconclusive. Retain profile/masking, early-firmware and interruption controls,
+case manifests and representative timestamped public traces. Agreement between
+simulators and the transport proof does not turn those attempts into passes.

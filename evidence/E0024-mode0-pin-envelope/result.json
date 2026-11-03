@@ -1,0 +1,780 @@
+{
+  "record": "E0024",
+  "date": "2026-11-03",
+  "prior_head": "0b0409ea4078a997a0a487f36ebfac286d5d46a7",
+  "execution": "PASS_SCOPED_SIMULATION_AND_TRANSPORT_ONLY",
+  "provenance": "MEASURED",
+  "full_program_formal": "INCONCLUSIVE",
+  "candidate_changed": false,
+  "production_changed": false,
+  "candidate_source_sha256": {
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "protected_scope_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "info.yaml": "f13f81614c203835eb820677a0ef827c9a0326471d5f493017878cc880a76c2d",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "input_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/pin_timing.py": "adb1d8142c5e9e8310afd599e6ecfb08db7dad4e81e872fbc7068bf9b094355f",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_pin_qualification.py": "5c3b1ef19b57d6a1214352c6a3c8f50ebcf1e880067728943be20fe40f5a4cff",
+    "experiments/spi_phase/test_pin_timing.py": "d0086e5d5336ffea0588653311ac9618cc5379473fbfb0ed738e1d1a2e29141f",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_spi_mode0_pins.py": "71450ef032cd7210d400ea8d894f17383544bc89b78e9e8f73f6d98ab26422d5",
+    "Makefile": "3a59a0680e6333190abbc7438453f7755b205ba27d381800da06006869cb4d94",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "docs/specs/spi-mode0-pin-qualification.md": "fa28abb0f8899b70f10d5d821ecc3359f0ac846d618a895b7320dde5f5839b6a"
+  },
+  "tasks": [
+    {
+      "name": "transport_prove",
+      "mode": "prove",
+      "depth": 8,
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 0",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-mode0-pins/final02/transport_prove",
+        "/workspace/build/spi-mode0-pins/final02/transport_prove.sby"
+      ],
+      "seconds": 0.58,
+      "k_induction": true,
+      "induction_step": 5,
+      "last_checked_step": 7,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": []
+    },
+    {
+      "name": "transport_cover",
+      "mode": "cover",
+      "depth": 404,
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 1",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-mode0-pins/final02/transport_cover",
+        "/workspace/build/spi-mode0-pins/final02/transport_cover.sby"
+      ],
+      "seconds": 1.431,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": null,
+      "reached_covers": [
+        {
+          "step": 29,
+          "location": "transport: transport.sv:41.9-41.83 (_witness_.check_cover_transport_sv_41_148)"
+        },
+        {
+          "step": 381,
+          "location": "transport: transport.sv:39.9-39.65 (_witness_.check_cover_transport_sv_39_137)"
+        },
+        {
+          "step": 381,
+          "location": "transport: transport.sv:40.9-40.66 (_witness_.check_cover_transport_sv_40_142)"
+        }
+      ],
+      "failed_assertions": [],
+      "witnesses": [
+        "transport_cover/engine_0/trace0.vcd",
+        "transport_cover/engine_0/trace1.vcd",
+        "transport_cover/engine_0/trace2.vcd"
+      ]
+    },
+    {
+      "name": "early_capture",
+      "mode": "bmc",
+      "depth": 32,
+      "expected": "FAIL",
+      "status": "FAIL",
+      "raw_status": "FAIL 0 0",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-mode0-pins/final02/early_capture",
+        "/workspace/build/spi-mode0-pins/final02/early_capture.sby"
+      ],
+      "seconds": 0.98,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 29,
+      "reached_covers": [],
+      "failed_assertions": [
+        "transport: transport.sv:33.17-33.78 (_witness_.check_assert_transport_sv_33_40)"
+      ],
+      "witnesses": [
+        "early_capture/engine_0/trace.vcd"
+      ]
+    }
+  ],
+  "simulations": [
+    {
+      "simulator": "icarus",
+      "status": "PASS",
+      "returncode": 0,
+      "tests": 4,
+      "failed_or_skipped": [],
+      "positive_transactions": 856,
+      "negative_controls": 8,
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/spi-mode0-pins/final02/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_mode0_pins",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-mode0-pins/final02/icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-mode0-pins/final02/icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "seconds": 34.476,
+      "records_sha256": {
+        "icarus/records/alphabet-0-69.json": "bec98ce73112fcea0e43104c55ae8d50eaa418c5577988481820645c65e9fb69",
+        "icarus/records/alphabet-1-69.json": "5e35530098d347a8535fc69a117a0e263df863587ff44fe3131a729719b22c45",
+        "icarus/records/cases.jsonl": "355927aa59ac0257e35a6ca32c2bbff00d55fa94eb6030ecfc145a6280e4a89f",
+        "icarus/records/early-sample-0.json": "8fee5c9cb6d03abe1c02f789efe889c89b7ed3019eb8f35d52d2419532698e23",
+        "icarus/records/early-sample-1.json": "179be2d8f47fb2e68d3b597bbfe80dfc96a97931e968fcad9ae5afff93393c75",
+        "icarus/records/interruption-reset.json": "46f8ba4469b9f7a996da275b1e4f580cac8f4fb1ef3e660bdab1dda9ca5e5139",
+        "icarus/records/interruption-stall.json": "7239f0f2cf23a953cffffd57028b3a72ac4d12b12c2b47600cea145fe47ea452",
+        "icarus/records/noise-0-0.json": "e32333a6b707f89b5657a11bc330d830eaeac41b72f8e0626b2992ebe9dddbb2",
+        "icarus/records/noise-1-0.json": "1fe19a6eaaaa50c2bf42216ddedf5a89a9428715d6f517fee6064245f289eed1",
+        "icarus/records/outside-envelope-0.json": "498e2a71ef465009a14e3d32861c9f6747d9e67538aeb187286fd297d1226c00",
+        "icarus/records/outside-envelope-1.json": "e84f3a234d3ade91aebcde04be5001e9b96d870c0892105a33a821689165d649",
+        "icarus/records/outside-masked-0.json": "d2ffd659321ed0835dd4e2dd900b300c2914ac30d5523e708f693a90c2988dea",
+        "icarus/records/outside-masked-1.json": "2a4ad26cde1c68bf27da95b87eaa3f8a6c93bcb2224487bc53e075dd1b03c554",
+        "icarus/records/quarter-0-1.json": "4d7a6f7e154f429a5cf4f4909f7f938217f0b9165fbc0f2f042a779026b64b01",
+        "icarus/records/quarter-0-96.json": "344a9419a7b8701229cfa2e52b320551842e36c61233f05668ff65c0b4aa2278",
+        "icarus/records/quarter-1-1.json": "de6416f084651290d4ef05452937c949d150308419533819d75a4ed19a7f0746",
+        "icarus/records/quarter-1-96.json": "763de3a37c660eae2b341763a5489b2662eb8027d16f37a4a79c779c6fc3f119"
+      }
+    },
+    {
+      "simulator": "verilator",
+      "status": "PASS",
+      "returncode": 0,
+      "tests": 4,
+      "failed_or_skipped": [],
+      "positive_transactions": 856,
+      "negative_controls": 8,
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/spi-mode0-pins/final02/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_mode0_pins",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-mode0-pins/final02/verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-mode0-pins/final02/verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "seconds": 33.518,
+      "records_sha256": {
+        "verilator/records/alphabet-0-69.json": "bec98ce73112fcea0e43104c55ae8d50eaa418c5577988481820645c65e9fb69",
+        "verilator/records/alphabet-1-69.json": "5e35530098d347a8535fc69a117a0e263df863587ff44fe3131a729719b22c45",
+        "verilator/records/cases.jsonl": "355927aa59ac0257e35a6ca32c2bbff00d55fa94eb6030ecfc145a6280e4a89f",
+        "verilator/records/early-sample-0.json": "8fee5c9cb6d03abe1c02f789efe889c89b7ed3019eb8f35d52d2419532698e23",
+        "verilator/records/early-sample-1.json": "179be2d8f47fb2e68d3b597bbfe80dfc96a97931e968fcad9ae5afff93393c75",
+        "verilator/records/interruption-reset.json": "46f8ba4469b9f7a996da275b1e4f580cac8f4fb1ef3e660bdab1dda9ca5e5139",
+        "verilator/records/interruption-stall.json": "7239f0f2cf23a953cffffd57028b3a72ac4d12b12c2b47600cea145fe47ea452",
+        "verilator/records/noise-0-0.json": "e32333a6b707f89b5657a11bc330d830eaeac41b72f8e0626b2992ebe9dddbb2",
+        "verilator/records/noise-1-0.json": "1fe19a6eaaaa50c2bf42216ddedf5a89a9428715d6f517fee6064245f289eed1",
+        "verilator/records/outside-envelope-0.json": "498e2a71ef465009a14e3d32861c9f6747d9e67538aeb187286fd297d1226c00",
+        "verilator/records/outside-envelope-1.json": "e84f3a234d3ade91aebcde04be5001e9b96d870c0892105a33a821689165d649",
+        "verilator/records/outside-masked-0.json": "d2ffd659321ed0835dd4e2dd900b300c2914ac30d5523e708f693a90c2988dea",
+        "verilator/records/outside-masked-1.json": "2a4ad26cde1c68bf27da95b87eaa3f8a6c93bcb2224487bc53e075dd1b03c554",
+        "verilator/records/quarter-0-1.json": "4d7a6f7e154f429a5cf4f4909f7f938217f0b9165fbc0f2f042a779026b64b01",
+        "verilator/records/quarter-0-96.json": "344a9419a7b8701229cfa2e52b320551842e36c61233f05668ff65c0b4aa2278",
+        "verilator/records/quarter-1-1.json": "de6416f084651290d4ef05452937c949d150308419533819d75a4ed19a7f0746",
+        "verilator/records/quarter-1-96.json": "763de3a37c660eae2b341763a5489b2662eb8027d16f37a4a79c779c6fc3f119"
+      }
+    }
+  ],
+  "cross_simulator_records": "BYTE_IDENTICAL",
+  "positive_transactions_per_simulator": 856,
+  "controls_per_simulator": 8,
+  "groups": {
+    "alphabet": 512,
+    "original_envelope": 256,
+    "digital_noise_boundary": 88
+  },
+  "assumptions": "initial schedule reset; symbolic constant RX/order; raw MISO constrained only on R=27+50j; other ticks arbitrary",
+  "simulation_envelopes": {
+    "original": "per-bit response5..480ns; setup>=20ns, hold until next launch",
+    "digital_stress": "intended bit on closed R+-1ps window; ideal flip-flops; no electrical claim"
+  },
+  "full_program_attempts": [
+    {
+      "attempt": 1,
+      "outcome": "TOOL_CONVERSION_FAIL",
+      "bound": 444,
+      "solver_timeout_seconds": 90,
+      "returncode": 1,
+      "seconds": 0.36755083599996397,
+      "input_harness_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "candidate_source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    {
+      "attempt": 2,
+      "outcome": "TOOL_CONVERSION_FAIL",
+      "bound": 444,
+      "solver_timeout_seconds": 90,
+      "returncode": 1,
+      "seconds": 0.31815712299999177,
+      "input_harness_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "candidate_source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    {
+      "attempt": 3,
+      "outcome": "INCONCLUSIVE_TIMEOUT",
+      "bound": 444,
+      "solver_timeout_seconds": 90,
+      "returncode": 1,
+      "seconds": 159.69546960800005,
+      "input_harness_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "candidate_source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    {
+      "attempt": 4,
+      "outcome": "INCONCLUSIVE_TIMEOUT",
+      "bound": 444,
+      "solver_timeout_seconds": 90,
+      "returncode": 1,
+      "seconds": 152.51217612499988,
+      "input_harness_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "candidate_source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  ],
+  "early_monitor_counterexample": [
+    {
+      "step": 28,
+      "cycle": 28,
+      "msb_first": 0,
+      "observed": 0,
+      "past2_valid": 1,
+      "past_valid": 1,
+      "raw": 0,
+      "raw_miso": 0,
+      "rst_n": 1,
+      "rx_byte": 255,
+      "sampled": 0
+    }
+  ],
+  "failure_records": {
+    "initial_transport": "UNKNOWN; base0..7 PASS, unreachable incomplete monitor history in induction; strengthened partial-byte assertions only",
+    "masked_profile": "selected control FAIL before guard fix; JUnit includes3 intentionally filtered skips, not qualification; late all-one profile incorrectly accepted",
+    "earlier_E0023_timeout": "INCONCLUSIVE_UNCHANGED_NOT_RERUN"
+  },
+  "retained": {
+    "run-result.json": {
+      "source": "build/spi-mode0-pins/final02/result.json",
+      "original_sha256": "4fa4a042db50cfc8e3aa4ea9d0fe150d2b7a1cb0e87db842f5818d5661ee9590",
+      "curated_sha256": "4fa4a042db50cfc8e3aa4ea9d0fe150d2b7a1cb0e87db842f5818d5661ee9590",
+      "transformation": "none"
+    },
+    "inputs/m1_input_sync.v": {
+      "source": "build/spi-mode0-pins/final02/inputs/m1_input_sync.v",
+      "original_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "curated_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "transformation": "none"
+    },
+    "inputs/public_spi.sv": {
+      "source": "build/spi-mode0-pins/final02/inputs/public_spi.sv",
+      "original_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "curated_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "transformation": "none"
+    },
+    "inputs/transport.sv": {
+      "source": "build/spi-mode0-pins/final02/inputs/transport.sv",
+      "original_sha256": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+      "curated_sha256": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+      "transformation": "none"
+    },
+    "configs/transport_prove.sby": {
+      "source": "build/spi-mode0-pins/final02/transport_prove.sby",
+      "original_sha256": "c3a12d0e65a545c8ca656dfc9db3747c34239f3d616fa40acb6e3e4d7f943f60",
+      "curated_sha256": "c3a12d0e65a545c8ca656dfc9db3747c34239f3d616fa40acb6e3e4d7f943f60",
+      "transformation": "none"
+    },
+    "logs/transport_prove.log": {
+      "source": "build/spi-mode0-pins/final02/transport_prove.log",
+      "original_sha256": "9a0a20bbce9ee696bd44acac4fd836a8c7657f29b32219f37767f4114115f305",
+      "curated_sha256": "9a0a20bbce9ee696bd44acac4fd836a8c7657f29b32219f37767f4114115f305",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "statuses/transport_prove.txt": {
+      "source": "build/spi-mode0-pins/final02/transport_prove/status",
+      "original_sha256": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+      "curated_sha256": "4d489b9bfaac73d73a64a4023bf4d947ca1d4216d9f72864c97bfb6a2bc07d56",
+      "transformation": "none"
+    },
+    "configs/transport_cover.sby": {
+      "source": "build/spi-mode0-pins/final02/transport_cover.sby",
+      "original_sha256": "82dc743a9e8a961ae884c052f78c17f4b84b59a312a5bef40b98db5dafac95ec",
+      "curated_sha256": "82dc743a9e8a961ae884c052f78c17f4b84b59a312a5bef40b98db5dafac95ec",
+      "transformation": "none"
+    },
+    "logs/transport_cover.log": {
+      "source": "build/spi-mode0-pins/final02/transport_cover.log",
+      "original_sha256": "4f78745e678c9de0e70993936b9d456a6de77dcf6effa8a6ed97558cbb30f6fe",
+      "curated_sha256": "4f78745e678c9de0e70993936b9d456a6de77dcf6effa8a6ed97558cbb30f6fe",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "statuses/transport_cover.txt": {
+      "source": "build/spi-mode0-pins/final02/transport_cover/status",
+      "original_sha256": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+      "curated_sha256": "82bc437cdb0ebaedde9abc25a1795f5b1cd22d37f1e4d1240fd300e529561df4",
+      "transformation": "none"
+    },
+    "witnesses/transport_cover/trace0.jsonl": {
+      "source": "build/spi-mode0-pins/final02/transport_cover/engine_0/trace0.vcd",
+      "original_sha256": "a22bcf6671244e96c076a6fefb39a7eb943e915de528860d44bac6eddf12574c",
+      "curated_sha256": "3250fcc1578c24b9ec7c305246c551fc2ae2863c86971f9a18a7b1d1098ffc50",
+      "transformation": "selected root signals at every SMT step; original raw VCD hash retained"
+    },
+    "witnesses/transport_cover/trace1.jsonl": {
+      "source": "build/spi-mode0-pins/final02/transport_cover/engine_0/trace1.vcd",
+      "original_sha256": "9295a205b91c515fd16014484d1c77325206784e1084039771574f723b816ce1",
+      "curated_sha256": "44ff00f6630d57c515224d4b44b633246eaec4a121b9e22d09389b4fb90b47f7",
+      "transformation": "selected root signals at every SMT step; original raw VCD hash retained"
+    },
+    "witnesses/transport_cover/trace2.jsonl": {
+      "source": "build/spi-mode0-pins/final02/transport_cover/engine_0/trace2.vcd",
+      "original_sha256": "bbeb418d1cb603596fd6de17d65b4b7c7d572dc7c246b943c03becb2df930262",
+      "curated_sha256": "b1f53c7ca14aa7703e428e316f134dd6668521beeceea8a6fc1c7b10426195c9",
+      "transformation": "selected root signals at every SMT step; original raw VCD hash retained"
+    },
+    "configs/early_capture.sby": {
+      "source": "build/spi-mode0-pins/final02/early_capture.sby",
+      "original_sha256": "d8ec7a6c7d0aad8d0866b4937c1e6ee575535c3f18a6185db7f41020e899ecb0",
+      "curated_sha256": "d8ec7a6c7d0aad8d0866b4937c1e6ee575535c3f18a6185db7f41020e899ecb0",
+      "transformation": "none"
+    },
+    "logs/early_capture.log": {
+      "source": "build/spi-mode0-pins/final02/early_capture.log",
+      "original_sha256": "5374091da3bd6c47ccb8ad99c54a427c4a53a40ed9c3ad32dcf22222471b01c9",
+      "curated_sha256": "5374091da3bd6c47ccb8ad99c54a427c4a53a40ed9c3ad32dcf22222471b01c9",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "statuses/early_capture.txt": {
+      "source": "build/spi-mode0-pins/final02/early_capture/status",
+      "original_sha256": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+      "curated_sha256": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+      "transformation": "none"
+    },
+    "witnesses/early_capture/trace.jsonl": {
+      "source": "build/spi-mode0-pins/final02/early_capture/engine_0/trace.vcd",
+      "original_sha256": "3764a0ccd0dcba894004d53a7573edb27bec485e7531eeb15f9f88a5f279adf8",
+      "curated_sha256": "19cdabbbd7a627f6388478284c671d65ce239fe4b2557ee12cdbc45742136fdb",
+      "transformation": "selected root signals at every SMT step; original raw VCD hash retained"
+    },
+    "counterexamples/early-monitor/trace.smtc": {
+      "source": "build/spi-mode0-pins/final02/early_capture/engine_0/trace.smtc",
+      "original_sha256": "c256edda6807eff51f19ce0bfa60553cacbe7662152ad48310fe45fecf380d23",
+      "curated_sha256": "c256edda6807eff51f19ce0bfa60553cacbe7662152ad48310fe45fecf380d23",
+      "transformation": "none"
+    },
+    "counterexamples/early-monitor/trace.yw": {
+      "source": "build/spi-mode0-pins/final02/early_capture/engine_0/trace.yw",
+      "original_sha256": "7b81ce1295b86c92a43e264671a2f3814e5000ed81ac6f64862e56f681813841",
+      "curated_sha256": "7b81ce1295b86c92a43e264671a2f3814e5000ed81ac6f64862e56f681813841",
+      "transformation": "none"
+    },
+    "counterexamples/early-monitor/trace_tb.v": {
+      "source": "build/spi-mode0-pins/final02/early_capture/engine_0/trace_tb.v",
+      "original_sha256": "7a1ce93aa115716bcdc54aa3b10bdd88598796ab9cb81972692c883327c4c18b",
+      "curated_sha256": "7a1ce93aa115716bcdc54aa3b10bdd88598796ab9cb81972692c883327c4c18b",
+      "transformation": "none"
+    },
+    "simulation/icarus.log": {
+      "source": "build/spi-mode0-pins/final02/icarus.log",
+      "original_sha256": "b31bb2244a7225c066ffc070adb247916ccead342b2615ca0872bfa5e68ea18b",
+      "curated_sha256": "42bf6d96d14e41cc8f7af531ad93aa626e53031bc32d851dc36564df60d91d3b",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "simulation/icarus.xml": {
+      "source": "build/spi-mode0-pins/final02/icarus/results.xml",
+      "original_sha256": "b19672216b40e01be8220f3e406dab76f77fbbffcdfed1b7803e9c1d5b278fd8",
+      "curated_sha256": "b19672216b40e01be8220f3e406dab76f77fbbffcdfed1b7803e9c1d5b278fd8",
+      "transformation": "none"
+    },
+    "simulation/verilator.log": {
+      "source": "build/spi-mode0-pins/final02/verilator.log",
+      "original_sha256": "6a666c19e13bf09bb9c6c6d5d4b7d739d56c1ce82d031fa9c201912a06906a3a",
+      "curated_sha256": "15373f4f4ab25823a3c212db6db736dd878b43de4afd5e18bfb7de2b79659ab9",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "simulation/verilator.xml": {
+      "source": "build/spi-mode0-pins/final02/verilator/results.xml",
+      "original_sha256": "2fc45cd968a2d6d9d83e11bb1b28d658acdc01759fad005da86421d37907f635",
+      "curated_sha256": "2fc45cd968a2d6d9d83e11bb1b28d658acdc01759fad005da86421d37907f635",
+      "transformation": "none"
+    },
+    "simulation/cases.jsonl": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/cases.jsonl",
+      "original_sha256": "355927aa59ac0257e35a6ca32c2bbff00d55fa94eb6030ecfc145a6280e4a89f",
+      "curated_sha256": "355927aa59ac0257e35a6ca32c2bbff00d55fa94eb6030ecfc145a6280e4a89f",
+      "transformation": "none"
+    },
+    "public-traces/alphabet-1-69.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/alphabet-1-69.json",
+      "original_sha256": "5e35530098d347a8535fc69a117a0e263df863587ff44fe3131a729719b22c45",
+      "curated_sha256": "5c165be8cd5d2f773ad94cb6d4b72ff5468ffc658939dc508b14e42810ca9fc5",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/noise-1-0.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/noise-1-0.json",
+      "original_sha256": "1fe19a6eaaaa50c2bf42216ddedf5a89a9428715d6f517fee6064245f289eed1",
+      "curated_sha256": "2655175a8ab55303b2d1f9d71432f49e2f29fed1f79e7f8fc1946f2617419cf0",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/quarter-1-96.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/quarter-1-96.json",
+      "original_sha256": "763de3a37c660eae2b341763a5489b2662eb8027d16f37a4a79c779c6fc3f119",
+      "curated_sha256": "44ce67219a54d20a232e19ee56cd234636d130c170982514947b87639bfc84a3",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/early-sample-0.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/early-sample-0.json",
+      "original_sha256": "8fee5c9cb6d03abe1c02f789efe889c89b7ed3019eb8f35d52d2419532698e23",
+      "curated_sha256": "47e2aad00bc509328e951b06a89c7604fec65efd2da7ae65f8479b94a02ba62c",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/early-sample-1.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/early-sample-1.json",
+      "original_sha256": "179be2d8f47fb2e68d3b597bbfe80dfc96a97931e968fcad9ae5afff93393c75",
+      "curated_sha256": "defc12e8065f0957845d755eb42aaf0ce46a46e7f6cf6f04155cf909d86714ab",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/outside-envelope-0.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/outside-envelope-0.json",
+      "original_sha256": "498e2a71ef465009a14e3d32861c9f6747d9e67538aeb187286fd297d1226c00",
+      "curated_sha256": "1947102ad483cca120c13595d93433ca615864656f63d568fd74c7cad668f527",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/outside-envelope-1.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/outside-envelope-1.json",
+      "original_sha256": "e84f3a234d3ade91aebcde04be5001e9b96d870c0892105a33a821689165d649",
+      "curated_sha256": "0753225d1cfd904ef0268a35c75a4e383f61a0c3da3e21c5bec43aa4e859b179",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/outside-masked-0.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/outside-masked-0.json",
+      "original_sha256": "d2ffd659321ed0835dd4e2dd900b300c2914ac30d5523e708f693a90c2988dea",
+      "curated_sha256": "61572c6432f966f2c3883331fc3df52af838c10c98044048c7a0856f7e98f0c9",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/outside-masked-1.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/outside-masked-1.json",
+      "original_sha256": "2a4ad26cde1c68bf27da95b87eaa3f8a6c93bcb2224487bc53e075dd1b03c554",
+      "curated_sha256": "b59e5c7a6199a79b5188fe6a9f1f8a518b7abafa70cf0226d3ecd704bba94624",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/interruption-reset.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/interruption-reset.json",
+      "original_sha256": "46f8ba4469b9f7a996da275b1e4f580cac8f4fb1ef3e660bdab1dda9ca5e5139",
+      "curated_sha256": "793e53568450a2ae2f65b15b8e8f534d4b530ba0dcf938161c332a91f83505a5",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "public-traces/interruption-stall.json": {
+      "source": "build/spi-mode0-pins/final02/icarus/records/interruption-stall.json",
+      "original_sha256": "7239f0f2cf23a953cffffd57028b3a72ac4d12b12c2b47600cea145fe47ea452",
+      "curated_sha256": "3535ec39ff457d978aeb5441f31ff5a84a3c9fd7c45552bc94e2af283b890e28",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    },
+    "failures/sat-probe01/proof.ys": {
+      "source": "build/spi-mode0-pins/sat-probe01/proof.ys",
+      "original_sha256": "20493999ba0385b8de74959b74a66566d7fca6aa28580d0dbe7aa15590255329",
+      "curated_sha256": "20493999ba0385b8de74959b74a66566d7fca6aa28580d0dbe7aa15590255329",
+      "transformation": "none"
+    },
+    "failures/sat-probe01/result.json": {
+      "source": "build/spi-mode0-pins/sat-probe01/result.json",
+      "original_sha256": "24d8ab25f06bcca81ca8ada121b1ddbf1ed6fdb4167513ec9caba1d628d8f5a2",
+      "curated_sha256": "24d8ab25f06bcca81ca8ada121b1ddbf1ed6fdb4167513ec9caba1d628d8f5a2",
+      "transformation": "none"
+    },
+    "failures/sat-probe01/proof.log.gz": {
+      "source": "build/spi-mode0-pins/sat-probe01/proof.log",
+      "original_sha256": "544142d3d98b38413c2cc1ecb3e371a6ce48fc8f63ba840f1393295c923987ca",
+      "curated_sha256": "2297f97eb70b45ac38329638917191db06062e7994db8a99880142f0752ebb7c",
+      "transformation": "lossless gzip with mtime0; decompresses to exact original bytes"
+    },
+    "failures/sat-probe01/excerpt.log": {
+      "source": "build/spi-mode0-pins/sat-probe01/proof.log",
+      "original_sha256": "544142d3d98b38413c2cc1ecb3e371a6ce48fc8f63ba840f1393295c923987ca",
+      "curated_sha256": "0c5e76e1f8910e2afcbe765b3df8b7d3f760823536feb3cb2b18eb3ffa015d9d",
+      "transformation": "explicit first/last log excerpt; full exact log in adjacent gzip"
+    },
+    "failures/sat-probe02/proof.ys": {
+      "source": "build/spi-mode0-pins/sat-probe02/proof.ys",
+      "original_sha256": "fccf1da8b91630dd248f088d0436f3c06a990d1e32dce786918bef347f15974e",
+      "curated_sha256": "fccf1da8b91630dd248f088d0436f3c06a990d1e32dce786918bef347f15974e",
+      "transformation": "none"
+    },
+    "failures/sat-probe02/result.json": {
+      "source": "build/spi-mode0-pins/sat-probe02/result.json",
+      "original_sha256": "65adfb9ed9293fe3bb006c080bbe5182f80c49c30f5732298e5d120b27cc315a",
+      "curated_sha256": "65adfb9ed9293fe3bb006c080bbe5182f80c49c30f5732298e5d120b27cc315a",
+      "transformation": "none"
+    },
+    "failures/sat-probe02/proof.log.gz": {
+      "source": "build/spi-mode0-pins/sat-probe02/proof.log",
+      "original_sha256": "3be2095a3739ec2e32c6d070753ddba2d83d7855c7b92a5d60d0b0921732ea87",
+      "curated_sha256": "e78d9eb40157127f87be5452e09f2185574a294f2d4cf09420fed9f2ded7aea5",
+      "transformation": "lossless gzip with mtime0; decompresses to exact original bytes"
+    },
+    "failures/sat-probe02/excerpt.log": {
+      "source": "build/spi-mode0-pins/sat-probe02/proof.log",
+      "original_sha256": "3be2095a3739ec2e32c6d070753ddba2d83d7855c7b92a5d60d0b0921732ea87",
+      "curated_sha256": "460ccabfe227feceb1d63862730c923642fd06a195b51d692eb2b38ebad05ea4",
+      "transformation": "explicit first/last log excerpt; full exact log in adjacent gzip"
+    },
+    "failures/sat-probe03/proof.ys": {
+      "source": "build/spi-mode0-pins/sat-probe03/proof.ys",
+      "original_sha256": "a44c4407feaab25b5b10c31d7d3f1b70ad179f54ddeb04156d22e0ed405ff469",
+      "curated_sha256": "a44c4407feaab25b5b10c31d7d3f1b70ad179f54ddeb04156d22e0ed405ff469",
+      "transformation": "none"
+    },
+    "failures/sat-probe03/result.json": {
+      "source": "build/spi-mode0-pins/sat-probe03/result.json",
+      "original_sha256": "95f31d3df281ae89e4046b25054bba9ef26ca12c9af19e83888b1222dfb24870",
+      "curated_sha256": "95f31d3df281ae89e4046b25054bba9ef26ca12c9af19e83888b1222dfb24870",
+      "transformation": "none"
+    },
+    "failures/sat-probe03/proof.log.gz": {
+      "source": "build/spi-mode0-pins/sat-probe03/proof.log",
+      "original_sha256": "e7c18cd1ad446e8427846f1e6ea9128afbf12393f02543e8bce58942f9f57235",
+      "curated_sha256": "3b609d76a70f05d7f28bc72c1248b364b2140b5b2cd99dd4852b74ba3561cb88",
+      "transformation": "lossless gzip with mtime0; decompresses to exact original bytes"
+    },
+    "failures/sat-probe03/excerpt.log": {
+      "source": "build/spi-mode0-pins/sat-probe03/proof.log",
+      "original_sha256": "e7c18cd1ad446e8427846f1e6ea9128afbf12393f02543e8bce58942f9f57235",
+      "curated_sha256": "95cc84bcd2e69d7781a157b314f40f91e95548fd8863c94c07bd9da230123b26",
+      "transformation": "explicit first/last log excerpt; full exact log in adjacent gzip"
+    },
+    "failures/sat-probe04/proof.ys": {
+      "source": "build/spi-mode0-pins/sat-probe04/proof.ys",
+      "original_sha256": "eb86f9660cd29fdc3853fd13d80070ff7cddb5506d45a9a54aa522914debd340",
+      "curated_sha256": "eb86f9660cd29fdc3853fd13d80070ff7cddb5506d45a9a54aa522914debd340",
+      "transformation": "none"
+    },
+    "failures/sat-probe04/result.json": {
+      "source": "build/spi-mode0-pins/sat-probe04/result.json",
+      "original_sha256": "73259fa891555cc79886b0bf798a1a42e94588d7bca9dfb9693c7e377d9f0070",
+      "curated_sha256": "73259fa891555cc79886b0bf798a1a42e94588d7bca9dfb9693c7e377d9f0070",
+      "transformation": "none"
+    },
+    "failures/sat-probe04/proof.log.gz": {
+      "source": "build/spi-mode0-pins/sat-probe04/proof.log",
+      "original_sha256": "cd42c23b31a95fcbf82ea047bb6cfd23a948dd22835c858d1c7864fad1fe47fe",
+      "curated_sha256": "238143ddbabf93b307ccc4dcc09635638be248ad7472f7963221f9e1c7f2ff4d",
+      "transformation": "lossless gzip with mtime0; decompresses to exact original bytes"
+    },
+    "failures/sat-probe04/excerpt.log": {
+      "source": "build/spi-mode0-pins/sat-probe04/proof.log",
+      "original_sha256": "cd42c23b31a95fcbf82ea047bb6cfd23a948dd22835c858d1c7864fad1fe47fe",
+      "curated_sha256": "cd7f0249786074e152a1f9ddb37e6be62617a636ebf0956cbe1062e3edd8116d",
+      "transformation": "explicit first/last log excerpt; full exact log in adjacent gzip"
+    },
+    "failures/full-program-inputs/public_spi.sv": {
+      "source": "build/spi-mode0-pins/sat-probe04/public_spi.sv",
+      "original_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "curated_sha256": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+      "transformation": "none"
+    },
+    "failures/full-program-inputs/project.v": {
+      "source": "build/spi-mode0-pins/sat-probe04/variants/compact/src/project.v",
+      "original_sha256": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+      "curated_sha256": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+      "transformation": "none"
+    },
+    "failures/full-program-inputs/m1_engine.v": {
+      "source": "build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_engine.v",
+      "original_sha256": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+      "curated_sha256": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+      "transformation": "none"
+    },
+    "failures/full-program-inputs/m1_program_store.v": {
+      "source": "build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_program_store.v",
+      "original_sha256": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+      "curated_sha256": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+      "transformation": "none"
+    },
+    "failures/full-program-inputs/m1_data_store.v": {
+      "source": "build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_data_store.v",
+      "original_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "curated_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "transformation": "none"
+    },
+    "failures/full-program-inputs/m1_input_sync.v": {
+      "source": "build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_input_sync.v",
+      "original_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "curated_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/result.json": {
+      "source": "build/spi-mode0-pins/transport-probe01/result.json",
+      "original_sha256": "2929059f27e7bf151210fef0cf4c3076111e92051a558b361aa4b74702213067",
+      "curated_sha256": "2929059f27e7bf151210fef0cf4c3076111e92051a558b361aa4b74702213067",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/proof.sby": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove.sby",
+      "original_sha256": "cfdfe7443220c1e0dc69c52d9524c2beaaf08a08fc181748fc3dd35ec8b57154",
+      "curated_sha256": "cfdfe7443220c1e0dc69c52d9524c2beaaf08a08fc181748fc3dd35ec8b57154",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/proof.log": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove.log",
+      "original_sha256": "85ecf40b3c73b822c80438ef84f6d97af78bf47506fc256c53ac698f2977c774",
+      "curated_sha256": "85ecf40b3c73b822c80438ef84f6d97af78bf47506fc256c53ac698f2977c774",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "failures/transport-induction-unknown/status.txt": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove/status",
+      "original_sha256": "03b7f0cead52615e3b970400f2b4257402f6c0b6f34509ef62a59941b2734fc0",
+      "curated_sha256": "03b7f0cead52615e3b970400f2b4257402f6c0b6f34509ef62a59941b2734fc0",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/inputs/transport.sv": {
+      "source": "build/spi-mode0-pins/transport-probe01/inputs/transport.sv",
+      "original_sha256": "03af7e45fb26a73e86acbde2334a2edf7dc3cf3e7fa3d300861485cd75cafb42",
+      "curated_sha256": "03af7e45fb26a73e86acbde2334a2edf7dc3cf3e7fa3d300861485cd75cafb42",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/inputs/m1_input_sync.v": {
+      "source": "build/spi-mode0-pins/transport-probe01/inputs/m1_input_sync.v",
+      "original_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "curated_sha256": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/trace.jsonl": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove/engine_0/trace_induct.vcd",
+      "original_sha256": "44b93449aad9bdd1d298d6fcbaa899db1f7ed8ecd299a0146bebe37d8c737c86",
+      "curated_sha256": "1777e5edeb3f4beabb9e132eea78739756e088c1d88ce7911e8f8b8a973c05b7",
+      "transformation": "selected root signals at every SMT step; original raw VCD hash retained"
+    },
+    "failures/transport-induction-unknown/trace_induct.smtc": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove/engine_0/trace_induct.smtc",
+      "original_sha256": "c98b25c338a743944e01d7da3ecee6ae1fb6747484e64f4a5319cad1ce1888ef",
+      "curated_sha256": "c98b25c338a743944e01d7da3ecee6ae1fb6747484e64f4a5319cad1ce1888ef",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/trace_induct.yw": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove/engine_0/trace_induct.yw",
+      "original_sha256": "d98751d21934954a17cb64654cb377f12a53330eef5e175712d4a3ac72e5282f",
+      "curated_sha256": "d98751d21934954a17cb64654cb377f12a53330eef5e175712d4a3ac72e5282f",
+      "transformation": "none"
+    },
+    "failures/transport-induction-unknown/trace_induct_tb.v": {
+      "source": "build/spi-mode0-pins/transport-probe01/transport_prove/engine_0/trace_induct_tb.v",
+      "original_sha256": "5d4ca31212c5839e45c9715adf9e0c6ce350e58c2597e761c0046b1445bbc215",
+      "curated_sha256": "5d4ca31212c5839e45c9715adf9e0c6ce350e58c2597e761c0046b1445bbc215",
+      "transformation": "none"
+    },
+    "failures/masked-profile/inputs/test_spi_mode0_pins.py": {
+      "source": "build/spi-mode0-pins/masked-probe/inputs/test_spi_mode0_pins.py",
+      "original_sha256": "d4176d4a8e756067ecc70f5ce79a1dbe3c37e2d064b7a8eb7293eea370828092",
+      "curated_sha256": "d4176d4a8e756067ecc70f5ce79a1dbe3c37e2d064b7a8eb7293eea370828092",
+      "transformation": "none"
+    },
+    "failures/masked-profile/inputs/pin_timing.py": {
+      "source": "build/spi-mode0-pins/masked-probe/inputs/pin_timing.py",
+      "original_sha256": "e51140499946266789f0aeb33291a060f20eb3a01bba420808f7bee6b50e971b",
+      "curated_sha256": "e51140499946266789f0aeb33291a060f20eb3a01bba420808f7bee6b50e971b",
+      "transformation": "none"
+    },
+    "failures/masked-profile/results.xml": {
+      "source": "build/spi-mode0-pins/masked-probe/results.xml",
+      "original_sha256": "8519c7f938e0e4b8375f1e93744c87b97040e45f399580cfc7fd0bad8b70ab8d",
+      "curated_sha256": "8519c7f938e0e4b8375f1e93744c87b97040e45f399580cfc7fd0bad8b70ab8d",
+      "transformation": "none"
+    },
+    "failures/masked-profile/run.log": {
+      "source": "build/spi-mode0-pins/masked-probe/run.log",
+      "original_sha256": "7fee0c194dc395b86c8e0dfbd171838560b53d86215b9c123c6aae9149c8e3c1",
+      "curated_sha256": "dac2e5e711a14613061a3b8bc0ad8abc06d5e0b410cf316633cc9a22e2613795",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "failures/masked-profile/counterexample.json": {
+      "source": "build/spi-mode0-pins/masked-probe/records/outside-masked-0.json",
+      "original_sha256": "5b464f6e23b2495c4a315df32d2f8f67f01ba352af563bb7c0136093b56ddbed",
+      "curated_sha256": "a89c34bd3234b50f3f75eec8160145a9a1104107710256c337e6ee23e9aa0275",
+      "transformation": "public edge rows near low/rise/capture/fall and errors; full events and metadata; raw full JSON retained in CI"
+    }
+  },
+  "four_mode_spi": "NOT_EVALUATED",
+  "physical": "NOT_EVALUATED",
+  "owner_M0_fluency": "PENDING",
+  "tools": {
+    "image": "protocol-emulator-asic-workbench:2026-07-29",
+    "yosys": "0.67+111",
+    "sby": "0.67-4-gfea6e46",
+    "z3": "4.15.5"
+  },
+  "next": "measured per-loop invariants/decomposition for actual eight-word full-program proof; no production promotion"
+}

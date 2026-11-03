@@ -1,0 +1,27 @@
+
+-- Executing script file `/workspace/build/spi-mode0-pins/sat-probe02/proof.ys' --
+
+1. Executing Verilog-2005 frontend: /workspace/build/spi-mode0-pins/sat-probe02/variants/compact/src/project.v
+Parsing formal SystemVerilog input from `/workspace/build/spi-mode0-pins/sat-probe02/variants/compact/src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_khangelani_protocol_emulator'.
+Successfully finished Verilog frontend.
+
+[middle retained losslessly in proof.log.gz]
+      525   $mux
+        2   $ne
+        1   $neg
+        6   $not
+       17   $or
+       27   $pmux
+        3   $reduce_bool
+        5   $reduce_or
+        5   $scopeinfo
+        2   $shift
+       12   $shiftx
+        2   $shl
+        6   $sub
+
+7.15. Executing CHECK pass (checking for obvious problems).
+Checking module public_spi...
+Found and reported 0 problems.
+ERROR: Cannot lower edge triggered $check cell $assert$/workspace/build/spi-mode0-pins/sat-probe02/public_spi.sv:64$715, run async2sync or clk2fflogic first.

@@ -1,0 +1,31 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-mode0-pins/masked-probe/results.xml
+"make" -f Makefile /workspace/build/spi-mode0-pins/masked-probe/results.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-mode0-pins/masked-probe/sim
+/usr/local/bin/iverilog -o /workspace/build/spi-mode0-pins/masked-probe/sim/sim.vvp -s tb -g2012 -I/workspace/build/spi-mode0-pins/final/variants/compact/src -f /workspace/build/spi-mode0-pins/masked-probe/sim/cmds.f  /workspace/build/spi-mode0-pins/final/variants/compact/src/project.v /workspace/build/spi-mode0-pins/final/variants/compact/src/m1_engine.v /workspace/build/spi-mode0-pins/final/variants/compact/src/m1_program_store.v /workspace/build/spi-mode0-pins/final/variants/compact/src/m1_data_store.v /workspace/build/spi-mode0-pins/final/variants/compact/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/spi-mode0-pins/masked-probe/results.xml
+COCOTB_TEST_MODULES=test_spi_mode0_pins COCOTB_TESTCASE= COCOTB_TEST_FILTER=mode0_preserved_program_and_envelope_counterexamples COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/spi-mode0-pins/masked-probe/sim/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1793740525
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples (1/1)
+ 26499.01ns WARNING  ..ram_and_envelope_counterexamples assert (255 == 255 and not True)
+                                                        Traceback (most recent call last):
+                                                          File "/workspace/test/test_spi_mode0_pins.py", line 154, in mode0_preserved_program_and_envelope_counterexamples
+                                                            assert r['raw_rx']==r['wire_rx']==0xFF and not r['accepted']
+                                                        AssertionError: assert (255 == 255 and not True)
+ 26499.01ns WARNING  cocotb.regression                  test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples failed
+ 26499.01ns INFO     cocotb.regression                  **********************************************************************************************************************************
+                                                        ** TEST                                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **********************************************************************************************************************************
+                                                        ** test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples   FAIL       26499.01           0.13     202084.21  **
+                                                        **********************************************************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                                                          26499.01           0.15     181205.45  **
+                                                        **********************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

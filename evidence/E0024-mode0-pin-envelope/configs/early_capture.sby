@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 32
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv -D EARLY_CAPTURE m1_input_sync.v transport.sv
+prep -top transport
+
+[files]
+/workspace/build/spi-mode0-pins/final02/inputs/m1_input_sync.v
+/workspace/build/spi-mode0-pins/final02/inputs/transport.sv
