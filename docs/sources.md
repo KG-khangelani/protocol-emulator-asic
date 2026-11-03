@@ -2,6 +2,11 @@
 
 Checked: 2026-09-25. Recheck changeable rules before a release/submission.
 
+S1 was rechecked on 2026-11-03 for the SPI comparison: the official brief still
+requires an open-source reprogrammable emulator, targets CMOS5L with 6x4 tiles,
+and names 18 January 2027 as the deadline. The possible 8x4 allocation remains
+conditional. This observation updates S1 only, not the other source snapshots.
+
 | ID | Source | Use |
 |---|---|---|
 | S1 | https://blog.janestreet.com/protocol-emulator-asic-competition/ | Official scope, deadline, allocation and process |

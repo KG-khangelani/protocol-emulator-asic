@@ -60,6 +60,13 @@ jobs:
         if: success()
         run: ./tools/workbench.sh Evidence
 
+      - name: Compare isolated SPI phase and program-capacity candidates
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_comparison.py --output build/spi-phase-comparison/ci
+
       - name: Upload verification results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -74,5 +81,12 @@ jobs:
             build/formal/
             build/synthesis.log
             build/synth.json
+            build/spi-phase-comparison/ci/result.json
+            build/spi-phase-comparison/ci/source-manifest.json
+            build/spi-phase-comparison/ci/*.log
+            build/spi-phase-comparison/ci/*/source.patch
+            build/spi-phase-comparison/ci/*/src/*.v
+            build/spi-phase-comparison/ci/*/*.xml
+            build/spi-phase-comparison/ci/*/synth.json
           if-no-files-found: error
           retention-days: 90

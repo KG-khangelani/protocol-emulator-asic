@@ -68,6 +68,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D18 | Deliver only the last byte of a validated two-frame batch and expose raw data through a generic dedicated-output runtime selector without GPIO contention or new state | `decisions/0018-bounded-rx-delivery-runtime-readout.md` |
 | D20 | Publish source-backed, neutral compact atlas/interaction guardrails as reviewable increments; keep design approval, implementation, chip evidence and owner learning distinct | `decisions/0020-source-backed-compact-atlas.md`, `specs/protocol-atlas.md`; working app candidate with soft light/dark and fewer borders; UI0001 is UI evidence, not a hardware experiment or H1-H4 result |
 | D21 | Falsify coupled serial drive/sample phases before RTL expansion; compare reference word/cycle and full loader costs without selecting an ISA | `decisions/0021-spi-phase-feasibility-before-rtl.md`, `specs/p-spi-host-mode0.md`; E0020 keeps conditional success, response-envelope failure and model-only extension distinct |
+| D22 | Select compact DRIVE+aux/delayed SAMPLE for the next isolated formal qualification; retain faster-target option and hold production promotion | `decisions/0022-compact-phase-candidate-before-promotion.md`, E0021; generic complete-chip comparison includes actual public loader/capacity and declared incompatibilities |
 
 ## Experimental results
 
@@ -104,6 +105,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | ID | Experiment | Observed result | Claim boundary |
 |---|---|---|---|
 | E0020 | Public-pin eight-word mode-0 schedules and isolated DRIVE/SAMPLE reference | Coupled late schedule has a retained `0x69 -> 0xb4` response-envelope counterexample on both simulators despite 55 ns target setup; early control also fails. Six reference cases and two focused groups per simulator reproduce conditional successes, failures and abort/capacity limits. Split reference uses ten words/320 used bits and 403 edges | Partial mode-0 hypothesis FAIL for these schedules; P-SPI-HOST-4MODE NOT_EVALUATED. Phase reference is not RTL/publicly loadable; real loader rejects ten words and exposes only 32 byte addresses. Complete-chip extension gate/area cost and H1-H4 remain unproven; `../evidence/E0020-spi-mode0-feasibility/README.md` |
+| E0021 | Isolated encoded compact versus ten-word/banked phase implementations, compared with unchanged faster-target baseline | Both candidates pass four groups per simulator with 519 public-loaded transfers each. Whole-chip generic baseline 2,793 cells/410 bits; compact 3,107/412; banked 3,403/477. Compact passes all 17 legacy groups; banked retains one declared length-nine compatibility failure (16 pass). All preserve 403-edge transaction; phase capture379 | PASS/MEASURED only at experimental RTL/generic rung; banked compatibility FAIL. Compact selected for next formal qualification, no production promotion; prior counterexample and runner failures retained. Full SPI, mapped/physical timing, minimum-state claim and H1-H4 remain unproven; `../evidence/E0021-spi-phase-comparison/README.md` |
 
 ## Open questions
 

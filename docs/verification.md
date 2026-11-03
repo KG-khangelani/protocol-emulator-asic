@@ -15,7 +15,7 @@ physical timing and real hardware observations as separate evidence categories.
 | GL-shaped harness | RTL compiled with `GL_TEST`, direct-engine handles absent, separate FST/JUnit provenance | Public reset smoke catches harness/API drift without overwriting or being labelled as the full RTL waveform; no gate-netlist claim |
 | Formal | M1 engine, program store, data store and input-synchronizer SBY/Z3 proofs/covers plus expected-failing wrong-decrement property; archived M0 evidence retained separately | Preserve event-on-final-edge priority, shift completion/capture, result-valid, timeout and freeze properties as the instruction set evolves |
 | GDS reproducibility | `tools/compare_gds_records.py` | Separate BGNLIB/BGNSTR timestamp drift from geometry-record differences |
-| Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
+| Protocol differential | Independent UART and partial SPI mode-0 oracles; isolated phase/capacity comparison in `experiments/spi_phase/` | All-four-mode SPI and I2C remain open; candidate results do not qualify production RTL |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
 
 For each future protocol scenario vary payload, phase, clock ratio, reset,
@@ -26,3 +26,10 @@ An experiment record needs its question, source revision/hash, configuration,
 command, tool versions, observations, limitations and next decision. Preserve
 negative evidence. Large reports/GDS belong in immutable release or CI artifacts
 with identifiers and SHA-256; keep concise results and links in this repository.
+
+The SPI comparison's separate CI step retains candidate sources, hashes, patches,
+logs, JUnit and complete-chip generic netlists. Its banked loader intentionally
+fails the existing length-nine rejection test; the comparison runner requires
+exactly that failure and labels compatibility separately. Missing, skipped or
+additional failures block it. Experimental phase RTL has no formal or physical
+qualification; ordinary production proofs remain attached to production sources.

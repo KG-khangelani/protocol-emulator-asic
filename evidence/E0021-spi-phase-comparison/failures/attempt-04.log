@@ -1,0 +1,29 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-phase-comparison/attempt-04/compact/phase-verilator.xml
+"make" -f Makefile /workspace/build/spi-phase-comparison/attempt-04/compact/phase-verilator.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-phase-comparison/attempt-04/compact/sim/verilator
+/opt/oss-cad-suite/bin/verilator -cc --exe -Mdir /workspace/build/spi-phase-comparison/attempt-04/compact/sim/verilator --top-module tb --timing -I/workspace/build/spi-phase-comparison/attempt-04/compact/src --timescale 1ns/1ps --vpi --public-flat-rw --prefix Vtop -o Vtop -LDFLAGS "-Wl,-rpath,/usr/local/lib/python3.11/site-packages/cocotb/libs -L/usr/local/lib/python3.11/site-packages/cocotb/libs -lcocotbvpi_verilator"  /workspace/build/spi-phase-comparison/attempt-04/compact/src/project.v /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_engine.v /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_program_store.v /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_data_store.v /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_input_sync.v /workspace/test/tb.v /usr/local/lib/python3.11/site-packages/cocotb/share/lib/verilator/verilator.cpp
+%Warning-WIDTHTRUNC: /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_engine.v:113:47: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'COMPACT_PHASE' generates 32 bits.
+                                                                                                    : ... note: In instance 'tb.user_project.engine'
+  113 |     wire [7:0] phase_aux_mask = COMPACT_PHASE ? instruction[18:11] : 8'd0;
+      |                                               ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.051
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_engine.v:114:48: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'COMPACT_PHASE' generates 32 bits.
+                                                                                                    : ... note: In instance 'tb.user_project.engine'
+  114 |     wire [7:0] phase_aux_value = COMPACT_PHASE ? instruction[10:3] : 8'd0;
+      |                                                ^
+%Warning-WIDTHTRUNC: /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_engine.v:119:45: Logical operator LOGOR expects 1 bit on the LHS, but LHS's VARREF 'COMPACT_PHASE' generates 32 bits.
+                                                                                                    : ... note: In instance 'tb.user_project.engine'
+  119 |                              (COMPACT_PHASE || (instruction[18:0] == 19'd0)) &&
+      |                                             ^~
+%Warning-WIDTHTRUNC: /workspace/build/spi-phase-comparison/attempt-04/compact/src/m1_engine.v:125:46: Logical operator LOGOR expects 1 bit on the LHS, but LHS's VARREF 'COMPACT_PHASE' generates 32 bits.
+                                                                                                    : ... note: In instance 'tb.user_project.engine'
+  125 |                               (COMPACT_PHASE || (instruction[18:0] == 19'd0)) &&
+      |                                              ^~
+%Error: Exiting due to 4 warning(s)
+make[1]: *** [/usr/local/lib/python3.11/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:61: /workspace/build/spi-phase-comparison/attempt-04/compact/sim/verilator/Vtop.mk] Error 1
+make[1]: Leaving directory '/workspace/test'
+make: *** [/usr/local/lib/python3.11/site-packages/cocotb_tools/makefiles/Makefile.inc:17: sim] Error 2
+make: Leaving directory '/workspace/test'

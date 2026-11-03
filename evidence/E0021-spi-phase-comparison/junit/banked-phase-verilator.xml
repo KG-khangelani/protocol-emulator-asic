@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793731216" />
+    <testcase name="phase_public_all_bytes_and_response_corners" classname="test_spi_phase_comparison" file="/workspace/test/test_spi_phase_comparison.py" lineno="114" time="23.53109312057495" sim_time_ns="4695420.0" ratio_time="199541.09126764076" />
+    <testcase name="phase_invalid_partial_and_loader_contract" classname="test_spi_phase_comparison" file="/workspace/test/test_spi_phase_comparison.py" lineno="126" time="0.008258342742919922" sim_time_ns="3030.020999999717" ratio_time="366904.2439050411" />
+    <testcase name="phase_pending_latched_freeze_reset_and_complete_legacy" classname="test_spi_phase_comparison" file="/workspace/test/test_spi_phase_comparison.py" lineno="161" time="0.0035622119903564453" sim_time_ns="1540.0020000003278" ratio_time="432316.213681104" />
+    <testcase name="phase_aux_reserved_and_banked_nonalias" classname="test_spi_phase_comparison" file="/workspace/test/test_spi_phase_comparison.py" lineno="238" time="0.00962519645690918" sim_time_ns="2691.015000000596" ratio_time="279580.26748315623" />
+  </testsuite>
+</testsuites>

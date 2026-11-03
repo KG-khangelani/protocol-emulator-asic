@@ -2,7 +2,7 @@
 
 Updated: 2026-11-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M3-T01 SPI mode-0 feasibility seed**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
@@ -37,6 +37,15 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0021 implements isolated compact and ten-word/banked phase candidates under
+  the unchanged external oracle. Both pass four groups per simulator, including
+  519 public-loaded transactions each. Whole-chip generic counts are baseline
+  2,793 cells/410 bits, compact 3,107/412 and banked 3,403/477. Compact retains
+  eight words and passes all 17 legacy groups; banked passes 16 and retains the
+  declared length-nine compatibility failure. D22 selects compact for formal
+  qualification, with production `src/` unchanged. Earlier failures and E0020's
+  counterexample remain retained. Draft PR11 tracks new exact-head CI; no merge
+  or four-mode/physical/learning promotion follows from this comparison.
 - The 2026-11-03 continuation freezes a partial SPI host mode-0 contract and
   independent waveform oracle without importing PR8. Public-pin-loaded
   eight-word schedules generate exact 1 MHz-target SCK/CS/MOSI, but the late
@@ -262,13 +271,14 @@ efficiently express useful digital communication protocols under hard temporal c
 - [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
   separate draft/unmerged host-service candidate. This simulation branch starts
   from merged main `ae13f6b` and imports no PR8 code/evidence. The November
-  continuation authorizes the independent SPI feasibility seed, not PR8
-  integration, compiler work, storage expansion or production RTL promotion.
-- The tested coupled-shift SPI schedules do not cover the complete declared
-  response envelope. The phase-separated ten-word experiment is model-only
-  and cannot be loaded on the real chip. Complete-chip cost of an encoding,
-  phase-state recoding and any loader banking remains NOT_EVALUATED; see
-  [E0020](../evidence/E0020-spi-mode0-feasibility/README.md). Four-mode SPI and
+  continuation authorizes the independent SPI comparison and isolated capacity
+  prototypes, not PR8 integration, compiler work or production RTL promotion.
+- The tested production coupled-shift SPI schedules do not cover the declared
+  response envelope. E0021's experimental compact and banked candidates are
+  publicly loadable in simulation and have measured generic complete-chip
+  costs, but production still has the original eight-word store/ISA. New phase
+  formal proofs, mapped costs and physical timing remain NOT_EVALUATED; see
+  [E0021](../evidence/E0021-spi-phase-comparison/README.md). Four-mode SPI and
   I2C remain unqualified. The open M0 issue still has stale technical checklist
   items; archived physical closure is not rerun or owner-fluency evidence.
 
@@ -282,11 +292,11 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: freeze isolated phase-separated encodings/atomicity and compare
-  a compact eight-word alternative with the ten-word/banked-loader design,
-  accounting for complete-chip cost under E0020's unchanged response oracle.
-  Keep production RTL, PR8 and compiler deferred; do not infer SPI qualification
-  from conditional fast-target success or green counterexample regressions.
+- Engineering: formally qualify D22's compact candidate before production
+  promotion: phase sequencing, delayed capture/counter boundaries, eighth-sample
+  commit, reset/enable/loader abort and preservation of previous legal programs.
+  Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
+  Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
@@ -297,7 +307,8 @@ efficiently express useful digital communication protocols under hard temporal c
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
-UART receive delivery, SPI and I2C remain unevaluated;
+UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
+phase/capacity comparison is measured only in isolated experimental RTL;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.
