@@ -1,0 +1,14 @@
+rm -f ../build/spi-mode0-20261103/results-icarus-isolated.xml
+"make" -f Makefile ../build/spi-mode0-20261103/results-icarus-isolated.xml
+make[1]: Entering directory '/workspace/test'
+/usr/local/bin/iverilog -o ../build/spi-mode0-20261103/icarus/sim.vvp -s tb -g2012 -I/workspace/test/../src -f ../build/spi-mode0-20261103/icarus/cmds.f  /workspace/test/../src/project.v /workspace/test/../src/m1_engine.v /workspace/test/../src/m1_program_store.v /workspace/test/../src/m1_data_store.v /workspace/test/../src/m1_input_sync.v /workspace/test/tb.v
+rm -f ../build/spi-mode0-20261103/results-icarus-isolated.xml
+COCOTB_TEST_MODULES=test_spi_mode0_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus +NO_DUMP  ../build/spi-mode0-20261103/icarus/sim.vvp
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
++NO_DUMP: Unable to open input file.
+make[1]: *** [/usr/local/lib/python3.11/site-packages/cocotb_tools/makefiles/simulators/Makefile.icarus:66: ../build/spi-mode0-20261103/results-icarus-isolated.xml] Error 255
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'
+make: *** [/usr/local/lib/python3.11/site-packages/cocotb_tools/makefiles/Makefile.inc:17: sim] Error 2

@@ -1,12 +1,18 @@
 # Current state
 
-Updated: 2026-10-14. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 SPI mode-0 feasibility seed**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
+PR9 was merged on 2026-10-14 at `ae13f6bfcfd3fe21cd937768bc9e1151f441379c`.
+Its three post-merge workflows passed, including 18 source/model and 15 Chromium
+checks; the exact integration record is on
+[PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+The following October checkpoints are historical. This SPI slice changes no
+visualizer source/data and claims no fresh local browser or device-access pass.
 The bounded app candidate was delivered at `2160aeb` on 2026-10-05. Its original
 build, 16 source/model and 13 Chromium results remain historical in
 [UI0001](../evidence/UI0001-protocol-atlas/README.md) and its
@@ -19,7 +25,8 @@ source fixtures pass 11/11; the production build, six focused Chromium cases
 four views at desktop/mobile sizes pass. Initial failures are retained; see the
 [dated smoke record](../evidence/UI0001-protocol-atlas/smoke-20261014.json).
 The owner authorized publication of the pending documentation and guard fixes
-into existing draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+into then-draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9),
+which was subsequently explicitly authorized and merged.
 The published head and fresh remote CI outcomes are tracked there; local passes
 do not qualify a remote head. A local production preview was checked on
 KhanCreate; access from the user's own device remains unverified. This is UI
@@ -30,6 +37,15 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- The 2026-11-03 continuation freezes a partial SPI host mode-0 contract and
+  independent waveform oracle without importing PR8. Public-pin-loaded
+  eight-word schedules generate exact 1 MHz-target SCK/CS/MOSI, but the late
+  schedule reads `0xb4` instead of target `0x69` at a declared response with
+  55 ns input setup. Icarus and Verilator reproduce this; the broad seed
+  hypothesis is FAIL, not a full-SPI PASS. An isolated DRIVE/SAMPLE reference
+  handles the latest response in the same 403 edges but uses ten words; the
+  real eight-word/five-bit-byte-address loader rejects that capacity. E0020
+  retains the counterexample, focused checks and reference-only cost limits.
 - Official CMOS5L template retrieved; all 22 imported file blobs verified.
 - Local Git `main` initialized with template import history.
 - Public GitHub repository released after E0004 audit: https://github.com/KG-khangelani/protocol-emulator-asic
@@ -244,9 +260,17 @@ efficiently express useful digital communication protocols under hard temporal c
   Private concept/reference assets remain excluded, and UI delivery does not
   establish chip evidence or access from an unverified user device.
 - [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
-  separate draft/unmerged host-service candidate. This documentation branch
-  starts from main `155e130` and imports no PR8 code/evidence; no merge or SPI
-  work is authorized by this increment.
+  separate draft/unmerged host-service candidate. This simulation branch starts
+  from merged main `ae13f6b` and imports no PR8 code/evidence. The November
+  continuation authorizes the independent SPI feasibility seed, not PR8
+  integration, compiler work, storage expansion or production RTL promotion.
+- The tested coupled-shift SPI schedules do not cover the complete declared
+  response envelope. The phase-separated ten-word experiment is model-only
+  and cannot be loaded on the real chip. Complete-chip cost of an encoding,
+  phase-state recoding and any loader banking remains NOT_EVALUATED; see
+  [E0020](../evidence/E0020-spi-mode0-feasibility/README.md). Four-mode SPI and
+  I2C remain unqualified. The open M0 issue still has stale technical checklist
+  items; archived physical closure is not rerun or owner-fluency evidence.
 
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
@@ -258,13 +282,13 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Supporting UI: review existing draft PR9, its exact published head and fresh
-  CI outcomes tracked there. Retain the dated local smoke record and earlier
-  failure history; merge/deployment and broader browser coverage remain separate.
-- Engineering: keep PR8 draft/deferred until a separate integration decision.
-  Its host-service work is not merged into this branch. Preserve scoped
-  workload/physical limits; no new storage, protocol or physical result is
-  claimed by design documentation.
+- Engineering: freeze isolated phase-separated encodings/atomicity and compare
+  a compact eight-word alternative with the ten-word/banked-loader design,
+  accounting for complete-chip cost under E0020's unchanged response oracle.
+  Keep production RTL, PR8 and compiler deferred; do not infer SPI qualification
+  from conditional fast-target success or green counterexample regressions.
+- Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
+  next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 

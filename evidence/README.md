@@ -21,6 +21,7 @@
 | E0017 | Can existing instructions schedule and check UART-RX without new protocol RTL, and where does delivery fail? | Exact semantic timing/payload and bounded error checks PASS; raw capture before validation and overwritten first result remain limitations; RX RTL NOT_EVALUATED | `E0017-uart-rx-semantic/README.md` |
 | E0018 | Can bounded last-byte RX be verified at public pins without loader contention or additional retained state? | Local and clean implementation CI/re-review PASS at `181cfa1`; initial failures preserved; PR7 tracks final-record exact-head CI/integration; generic +10 cells/+0 state | `E0018-uart-rx-public/README.md` |
 | UI0001 | Can a source-backed atlas preserve graph, timing and claim boundaries with usable light/dark interaction? | Expanded build, 16 source/reference tests and 13 Chromium cases PASS locally; independent 8,192-edge oracle; first-checkpoint failures preserved; exact-head frontend CI follows | `UI0001-protocol-atlas/README.md` |
+| E0020 | Can an eight-word coupled shifter satisfy a mode-0 response envelope, and what does phase separation cost? | Declared envelope FAIL: exact RX counterexample reproduced at public pins on both simulators. Conditional successes retained; ten-word split reference has measured word/cycle cost but cannot fit/address the real store; no production RTL change | `E0020-spi-mode0-feasibility/README.md` |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

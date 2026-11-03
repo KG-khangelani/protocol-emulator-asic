@@ -1,0 +1,18 @@
+{
+  "hypothesis": "eight-word late schedule covers the full response envelope",
+  "result": "FAIL",
+  "tx": 150,
+  "target_rx": 105,
+  "actual_rx": 180,
+  "response_quarters": 89,
+  "raw_captures": [
+    [
+      376,
+      180
+    ]
+  ],
+  "terminal": "HALT",
+  "pc": 7,
+  "command": "python test/test_spi_mode0_oracle.py --require-mode0",
+  "exit_code": 1
+}

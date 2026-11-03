@@ -67,6 +67,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D17 | Falsify an eight-word UART-RX sampling/check schedule before changing result delivery; keep raw capture distinct from frame acceptance | `decisions/0017-rx-contract-before-delivery-extension.md` |
 | D18 | Deliver only the last byte of a validated two-frame batch and expose raw data through a generic dedicated-output runtime selector without GPIO contention or new state | `decisions/0018-bounded-rx-delivery-runtime-readout.md` |
 | D20 | Publish source-backed, neutral compact atlas/interaction guardrails as reviewable increments; keep design approval, implementation, chip evidence and owner learning distinct | `decisions/0020-source-backed-compact-atlas.md`, `specs/protocol-atlas.md`; working app candidate with soft light/dark and fewer borders; UI0001 is UI evidence, not a hardware experiment or H1-H4 result |
+| D21 | Falsify coupled serial drive/sample phases before RTL expansion; compare reference word/cycle and full loader costs without selecting an ISA | `decisions/0021-spi-phase-feasibility-before-rtl.md`, `specs/p-spi-host-mode0.md`; E0020 keeps conditional success, response-envelope failure and model-only extension distinct |
 
 ## Experimental results
 
@@ -97,6 +98,12 @@ express useful digital communication protocols under hard temporal constraints?*
 | P-UART-TX-8N1 | Eight-word public SET/WAIT/LOOP/SHIFT_BURST program with two alternating payload slots | All complementary byte pairs at exact period in model; pin oracle covers full byte alphabet plus retained exact-period RTL traces; formal proof/covers/mutant and generic synthesis pass; independent review clean | E0016; final head `229c97c` passes push/PR CI and docs; PR5 merged at `80975ed` with post-merge CI PASS; PASS/MEASURED only at the digital RTL/formal rung; 2,783 cells/410 state bits, +249/+25; RX/electrical/CMOS5L/gate/silicon NOT_EVALUATED |
 | P-UART-RX-8N1-semantic | Proposed eight-word WAIT_PIN/WAIT/SHIFT_BURST/LOOP receive/check witness | Frame/schedule oracle and existing semantic model agree on exact capture/check/HALT edges, byte alphabet, retained phase corners and bounded framing failures; generator rejects timeout overflow | E0017; PASS/MEASURED for reference execution only, timing formulas DERIVED; no production RTL delta; raw-valid-before-stop and overwritten first result are explicit limitations; mandatory RX RTL/delivery result remains NOT_EVALUATED |
 | P-UART-RX-bounded-last | Same eight-word firmware plus generic runtime register readout | Pin traces pass capture-before-validation, final byte, phase/alphabet, framing/timeout and abort/reload on both simulators; corrected local/clean collector and independent re-review pass; initial failures retained | E0018; implementation `181cfa1` passes push/PR CI and docs, PR7 tracks final-record exact-head CI/integration; generic 2,793 cells/410 state bits (+10/+0); no retained-two-byte/continuous delivery, accepted flag, physical, analog or silicon result |
+
+## SPI phase feasibility
+
+| ID | Experiment | Observed result | Claim boundary |
+|---|---|---|---|
+| E0020 | Public-pin eight-word mode-0 schedules and isolated DRIVE/SAMPLE reference | Coupled late schedule has a retained `0x69 -> 0xb4` response-envelope counterexample on both simulators despite 55 ns target setup; early control also fails. Six reference cases and two focused groups per simulator reproduce conditional successes, failures and abort/capacity limits. Split reference uses ten words/320 used bits and 403 edges | Partial mode-0 hypothesis FAIL for these schedules; P-SPI-HOST-4MODE NOT_EVALUATED. Phase reference is not RTL/publicly loadable; real loader rejects ten words and exposes only 32 byte addresses. Complete-chip extension gate/area cost and H1-H4 remain unproven; `../evidence/E0020-spi-mode0-feasibility/README.md` |
 
 ## Open questions
 

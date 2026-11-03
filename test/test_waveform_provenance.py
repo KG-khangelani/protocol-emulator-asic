@@ -27,7 +27,8 @@ class WaveformProvenanceTest(unittest.TestCase):
         self.gl_junit = root / "gl.xml"
         self.rtl_waveform.write_bytes(b"full-rtl-waveform")
         self.gl_waveform.write_bytes(b"short-gl-smoke-waveform")
-        write_junit(self.rtl_junit, ["test", "test_uart_rx_public"], "full_regression", 100.0)
+        write_junit(self.rtl_junit, ["test", "test_spi_mode0_public", "test_uart_rx_public"],
+                    "full_regression", 100.0)
         write_junit(
             self.gl_junit,
             "test_gate_harness_smoke",
@@ -64,7 +65,7 @@ class WaveformProvenanceTest(unittest.TestCase):
             self.build(checkpoint)
 
     def test_incomplete_or_unknown_full_modules_are_rejected(self):
-        for modules in (["test"], ["test_uart_rx_public"],
+        for modules in (["test"], ["test_uart_rx_public"], ["test", "test_uart_rx_public"],
                         ["test", "test_uart_rx_public", "unknown"]):
             with self.subTest(modules=modules):
                 write_junit(self.rtl_junit, modules, "filtered_regression", 100.0)
