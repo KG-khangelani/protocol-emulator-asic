@@ -74,6 +74,13 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_formal.py --output build/spi-phase-formal/ci
 
+      - name: Qualify actual compact public loader, capture and abort integration
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_integration.py --output build/spi-phase-integration/ci --with-simulation
+
       - name: Upload verification results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -103,5 +110,14 @@ jobs:
             build/spi-phase-formal/ci/*/PASS
             build/spi-phase-formal/ci/*/FAIL
             build/spi-phase-formal/ci/*/engine_0/trace*
+            build/spi-phase-integration/ci/result.json
+            build/spi-phase-integration/ci/*.sby
+            build/spi-phase-integration/ci/*.log
+            build/spi-phase-integration/ci/*.xml
+            build/spi-phase-integration/ci/inputs/
+            build/spi-phase-integration/ci/*/status
+            build/spi-phase-integration/ci/*/PASS
+            build/spi-phase-integration/ci/*/FAIL
+            build/spi-phase-integration/ci/*/engine_0/trace*
           if-no-files-found: error
           retention-days: 90

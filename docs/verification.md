@@ -34,5 +34,11 @@ exactly that failure and labels compatibility separately. Missing, skipped or
 additional failures block it. E0022's separate formal job qualifies written
 compact-executor phase properties and legacy-only refinement, with initial-reset
 and explicit fetch assumptions, bounded covers and expected-failing mutants.
-Integrated-chip, full-SPI and physical qualification remain open; ordinary
+E0023 adds the actual compact-copy top, real public loader/program/data stores
+and synchronizer. Its universal safety job assumes only initial chip reset;
+guided public-pin completion/abort jobs state finite schedules and bounds.
+Four simulation groups per simulator cover complete image readback, all byte
+values, all 40 abort cuts, old-result lifetime and reset ownership. Deliberately
+wrong loader-clear expectations and a dropped-store-write mutant must fail
+with witnesses. Full SPI and physical qualification remain open; ordinary
 production proofs stay attached to production sources.

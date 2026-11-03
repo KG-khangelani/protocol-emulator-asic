@@ -37,6 +37,15 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0023 qualifies the actual compact-copy public loader, program/data stores,
+  synchronizer and executor together. Induction proves written integration
+  safety with only initial chip reset; publicly loaded symbolic-byte witnesses
+  check completion and final-capture-edge abort. Dual-simulator tests cover all
+  40 abort cuts, old-result retention and reset/readback. Loader entry resets
+  execution but preserves an old completed RX/valid; payload writes invalidate
+  valid only, and chip reset erases storage. D24 retains a timeout, fixture error
+  and expected falsification witnesses. Candidate and production are unchanged;
+  no complete-SPI/physical/learning promotion follows. Exact-head CI is on PR11.
 - E0022 proves written compact-executor phase properties by k-induction
   (configured depth8, successful step6) and legacy-only refinement (depth12,
   step10), assuming an initial sampled reset and the stated legacy fetch
@@ -284,9 +293,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
   publicly loadable in simulation and have measured generic complete-chip
-  costs, but production still has the original eight-word store/ISA. An
-  integrated top-level formal proof, mapped costs and physical timing remain
-  NOT_EVALUATED; E0022 now supplies partial written core properties/refinement.
+  costs, but production still has the original eight-word store/ISA. Technology-
+  mapped costs and physical timing remain NOT_EVALUATED; E0022 supplies partial
+  core properties/refinement and E0023 written actual-top integration safety.
   See [E0022](../evidence/E0022-compact-phase-formal/README.md). Four-mode SPI and
   I2C remain unqualified. The open M0 issue still has stale technical checklist
   items; archived physical closure is not rerun or owner-fluency evidence.
@@ -301,8 +310,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: prove compact-copy integration of actual result-store capture
-  and public loader/reset abort, building on E0022's core phase/refinement proofs.
+- Engineering: qualify the compact eight-word mode-0 program end to end under
+  explicit external-pin timing assumptions, building on E0023 integration safety.
   Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review

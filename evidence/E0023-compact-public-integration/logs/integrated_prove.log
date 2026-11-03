@@ -1,0 +1,54 @@
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Removing directory '/workspace/build/spi-phase-integration/final/integrated_prove'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/phase_engine.v' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/phase_engine.v'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_program_store.v' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/m1_program_store.v'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_data_store.v' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/m1_data_store.v'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_input_sync.v' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/m1_input_sync.v'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/phase_observer.sv' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/phase_observer.sv'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/project.v' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/project.v'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/integration_properties.vh' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/integration_properties.vh'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] Copy '/workspace/build/spi-phase-integration/final/inputs/public_scenario.sv' to '/workspace/build/spi-phase-integration/final/integrated_prove/src/public_scenario.sv'.
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0: smtbmc z3
+SBY 20:22:28 [/workspace/build/spi-phase-integration/final/integrated_prove] base: starting process "cd /workspace/build/spi-phase-integration/final/integrated_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] base: finished (returncode=0)
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] prep: starting process "cd /workspace/build/spi-phase-integration/final/integrated_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] prep: finished (returncode=0)
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] smt2: starting process "cd /workspace/build/spi-phase-integration/final/integrated_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] smt2: finished (returncode=0)
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: starting process "cd /workspace/build/spi-phase-integration/final/integrated_prove; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: starting process "cd /workspace/build/spi-phase-integration/final/integrated_prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 8  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 20:22:29 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY 20:22:30 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 20:22:30 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 20:22:31 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:01  Trying induction in step 5..
+SBY 20:22:31 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 4..
+SBY 20:22:31 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 4..
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 5..
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 5..
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:05  Temporal induction successful.
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: ##   0:00:05  Status: passed
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: finished (returncode=0)
+SBY 20:22:34 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.induction: Status returned by engine for induction: pass
+SBY 20:22:38 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:09  Checking assumptions in step 6..
+SBY 20:22:38 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:09  Checking assertions in step 6..
+SBY 20:22:48 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:19  Checking assumptions in step 7..
+SBY 20:22:49 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:19  Checking assertions in step 7..
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: ##   0:00:36  Status: passed
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: finished (returncode=0)
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:37 (37)
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:42 (42)
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: engine_0 did not produce any traces
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] summary: successful proof by k-induction.
+SBY 20:23:05 [/workspace/build/spi-phase-integration/final/integrated_prove] DONE (PASS, rc=0)

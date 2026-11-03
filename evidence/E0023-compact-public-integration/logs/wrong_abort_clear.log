@@ -1,0 +1,173 @@
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Removing directory '/workspace/build/spi-phase-integration/final/wrong_abort_clear'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/phase_engine.v' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/phase_engine.v'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_program_store.v' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/m1_program_store.v'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_data_store.v' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/m1_data_store.v'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/m1_input_sync.v' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/m1_input_sync.v'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/phase_observer.sv' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/phase_observer.sv'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/project.v' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/project.v'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/integration_properties.vh' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/integration_properties.vh'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] Copy '/workspace/build/spi-phase-integration/final/inputs/public_scenario.sv' to '/workspace/build/spi-phase-integration/final/wrong_abort_clear/src/public_scenario.sv'.
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: smtbmc z3
+SBY 20:25:47 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] base: starting process "cd /workspace/build/spi-phase-integration/final/wrong_abort_clear/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] base: finished (returncode=0)
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] prep: starting process "cd /workspace/build/spi-phase-integration/final/wrong_abort_clear/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] prep: finished (returncode=0)
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] smt2: starting process "cd /workspace/build/spi-phase-integration/final/wrong_abort_clear/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] smt2: finished (returncode=0)
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: starting process "cd /workspace/build/spi-phase-integration/final/wrong_abort_clear; yosys-smtbmc -s z3 --presat --noprogress -t 80  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Solver: z3
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 20:25:48 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 20:25:49 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 13..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 14..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 14..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 15..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 15..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 16..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 16..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 17..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 17..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 18..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 18..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 19..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 19..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 20..
+SBY 20:25:50 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 20..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 21..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assertions in step 21..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:01  Checking assumptions in step 22..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assertions in step 22..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assumptions in step 23..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assertions in step 23..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assumptions in step 24..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assertions in step 24..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assumptions in step 25..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assertions in step 25..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assumptions in step 26..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:02  Checking assertions in step 26..
+SBY 20:25:51 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:03  Checking assumptions in step 27..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:03  Checking assertions in step 27..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:03  Checking assumptions in step 28..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assertions in step 28..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assumptions in step 29..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assertions in step 29..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assumptions in step 30..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assertions in step 30..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assumptions in step 31..
+SBY 20:25:52 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:04  Checking assertions in step 31..
+SBY 20:25:53 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:05  Checking assumptions in step 32..
+SBY 20:25:53 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:05  Checking assertions in step 32..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:05  Checking assumptions in step 33..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:05  Checking assertions in step 33..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assumptions in step 34..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assertions in step 34..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assumptions in step 35..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assertions in step 35..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assumptions in step 36..
+SBY 20:25:54 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assertions in step 36..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assumptions in step 37..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:06  Checking assertions in step 37..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assumptions in step 38..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assertions in step 38..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assumptions in step 39..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assertions in step 39..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assumptions in step 40..
+SBY 20:25:55 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assertions in step 40..
+SBY 20:25:56 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assumptions in step 41..
+SBY 20:25:56 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:07  Checking assertions in step 41..
+SBY 20:25:56 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:08  Checking assumptions in step 42..
+SBY 20:25:56 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:08  Checking assertions in step 42..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:08  Checking assumptions in step 43..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assertions in step 43..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assumptions in step 44..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assertions in step 44..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assumptions in step 45..
+SBY 20:25:57 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assertions in step 45..
+SBY 20:25:58 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assumptions in step 46..
+SBY 20:25:58 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:09  Checking assertions in step 46..
+SBY 20:25:59 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:10  Checking assumptions in step 47..
+SBY 20:25:59 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:10  Checking assertions in step 47..
+SBY 20:25:59 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:11  Checking assumptions in step 48..
+SBY 20:25:59 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:11  Checking assertions in step 48..
+SBY 20:26:00 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:11  Checking assumptions in step 49..
+SBY 20:26:00 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:12  Checking assertions in step 49..
+SBY 20:26:00 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:12  Checking assumptions in step 50..
+SBY 20:26:00 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:12  Checking assertions in step 50..
+SBY 20:26:01 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:12  Checking assumptions in step 51..
+SBY 20:26:01 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:12  Checking assertions in step 51..
+SBY 20:26:01 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:13  Checking assumptions in step 52..
+SBY 20:26:01 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:13  Checking assertions in step 52..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:14  Checking assumptions in step 53..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:14  Checking assertions in step 53..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:14  Checking assumptions in step 54..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:15  Checking assertions in step 54..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:15  Checking assumptions in step 55..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:15  Checking assertions in step 55..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:15  Checking assumptions in step 56..
+SBY 20:26:03 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:15  Checking assertions in step 56..
+SBY 20:26:05 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:17  Checking assumptions in step 57..
+SBY 20:26:05 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:17  Checking assertions in step 57..
+SBY 20:26:06 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:17  Checking assumptions in step 58..
+SBY 20:26:07 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:19  Checking assertions in step 58..
+SBY 20:26:07 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:19  Checking assumptions in step 59..
+SBY 20:26:08 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:19  Checking assertions in step 59..
+SBY 20:26:08 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:20  Checking assumptions in step 60..
+SBY 20:26:08 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:20  Checking assertions in step 60..
+SBY 20:26:08 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:20  Checking assumptions in step 61..
+SBY 20:26:08 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:20  Checking assertions in step 61..
+SBY 20:26:18 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:29  Checking assumptions in step 62..
+SBY 20:26:18 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:30  Checking assertions in step 62..
+SBY 20:26:19 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:31  Checking assumptions in step 63..
+SBY 20:26:21 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:32  Checking assertions in step 63..
+SBY 20:26:22 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:33  Checking assumptions in step 64..
+SBY 20:26:22 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:34  Checking assertions in step 64..
+SBY 20:26:22 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:34  Checking assumptions in step 65..
+SBY 20:26:22 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:34  Checking assertions in step 65..
+SBY 20:26:23 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:35  Checking assumptions in step 66..
+SBY 20:26:23 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:35  Checking assertions in step 66..
+SBY 20:26:24 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Checking assumptions in step 67..
+SBY 20:26:24 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Checking assertions in step 67..
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  BMC failed!
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Value for anyconst public_scenario.dut.watched_address (integration_properties.vh:3.30-3.45): 0
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Value for anyconst public_scenario.msb_first (public_scenario.sv:5.24-5.33): 0
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Value for anyconst public_scenario.tx_byte (public_scenario.sv:4.30-4.37): 64
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Value for anyconst public_scenario.rx_byte (public_scenario.sv:4.39-4.46): 0
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Assert failed in public_scenario: public_scenario.sv:97.33-97.55 (_witness_.check_assert_public_scenario_sv_97_107)
+SBY 20:26:25 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:36  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:37  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:37  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:37  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: ##   0:00:38  Status: failed
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: finished (returncode=1)
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] engine_0: Status returned by engine: FAIL
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:39 (39)
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:38 (38)
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] summary: counterexample trace: /workspace/build/spi-phase-integration/final/wrong_abort_clear/engine_0/trace.vcd
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] summary:   failed assertion public_scenario._witness_.check_assert_public_scenario_sv_97_107 at public_scenario.sv:97.33-97.55 step 67
+SBY 20:26:26 [/workspace/build/spi-phase-integration/final/wrong_abort_clear] DONE (FAIL, rc=0)

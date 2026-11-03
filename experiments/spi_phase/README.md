@@ -38,3 +38,17 @@ and records actual task mode/depth and induction results. Formal-only readout
 instrumentation has a checked inverse transform; it adds no state or inputs.
 The original production `make formal` job remains separate. Failed/unknown
 proof attempts are retained rather than converted into passes by the runner.
+
+The integrated boundary runs separately:
+
+```sh
+python3 experiments/spi_phase/run_integration.py --with-simulation
+```
+
+It checks the actual compact top, public loader, full program/data stores and
+two-stage synchronizer under the [integration contract](../../docs/specs/spi-phase-integration.md).
+Universal safety, bounded public-loaded witnesses, reachability, expected
+falsifications and four public-pin simulation groups per simulator have separate
+records. Simulation uses uninstrumented candidate sources. Loader abort resets
+execution while retaining an old completed result; payload writes invalidate
+valid only. E0023 records that lifetime and the initial failed attempts.

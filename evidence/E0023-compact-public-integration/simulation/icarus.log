@@ -1,0 +1,38 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-phase-integration/final/icarus.xml
+"make" -f Makefile /workspace/build/spi-phase-integration/final/icarus.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-phase-integration/final/sim/icarus
+/usr/local/bin/iverilog -o /workspace/build/spi-phase-integration/final/sim/icarus/sim.vvp -s tb -g2012 -I/workspace/build/spi-phase-integration/final/variants/compact/src -f /workspace/build/spi-phase-integration/final/sim/icarus/cmds.f  /workspace/build/spi-phase-integration/final/variants/compact/src/project.v /workspace/build/spi-phase-integration/final/variants/compact/src/m1_engine.v /workspace/build/spi-phase-integration/final/variants/compact/src/m1_program_store.v /workspace/build/spi-phase-integration/final/variants/compact/src/m1_data_store.v /workspace/build/spi-phase-integration/final/variants/compact/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/spi-phase-integration/final/icarus.xml
+COCOTB_TEST_MODULES=test_phase_integration_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/spi-phase-integration/final/sim/icarus/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1793737618
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_phase_integration_public.public_capture_visibility_and_all_payloads (1/4)
+654343.68ns INFO     cocotb.tb                          INTEGRATION: 512 public loaded/read-back byte transfers PASS
+654343.68ns INFO     cocotb.regression                  test_phase_integration_public.public_capture_visibility_and_all_payloads passed
+654343.68ns INFO     cocotb.regression                  running test_phase_integration_public.public_abort_all_cuts_and_enable_priority (2/4)
+1090188.04ns INFO     cocotb.tb                          INTEGRATION: 480 public abort cases PASS, cuts2..41/kinds3/enable2/orders2
+1090188.04ns INFO     cocotb.regression                  test_phase_integration_public.public_abort_all_cuts_and_enable_priority passed
+1090188.04ns INFO     cocotb.regression                  running test_phase_integration_public.old_result_survives_loader_abort_and_payload_invalidates (3/4)
+1176732.89ns INFO     cocotb.tb                          INTEGRATION: 48 retained-old-result abort/invalidation cases PASS
+1176732.89ns INFO     cocotb.regression                  test_phase_integration_public.old_result_survives_loader_abort_and_payload_invalidates passed
+1176732.89ns INFO     cocotb.regression                  running test_phase_integration_public.public_reset_erases_storage_and_loader_owns_read_bus (4/4)
+1178068.90ns INFO     cocotb.regression                  test_phase_integration_public.public_reset_erases_storage_and_loader_owns_read_bus passed
+1178068.90ns INFO     cocotb.regression                  ************************************************************************************************************************************************
+                                                         ** TEST                                                                                    STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ************************************************************************************************************************************************
+                                                         ** test_phase_integration_public.public_capture_visibility_and_all_payloads                 PASS      654343.68           3.47     188735.95  **
+                                                         ** test_phase_integration_public.public_abort_all_cuts_and_enable_priority                  PASS      435844.36           2.21     197486.49  **
+                                                         ** test_phase_integration_public.old_result_survives_loader_abort_and_payload_invalidates   PASS       86544.85           0.43     202626.82  **
+                                                         ** test_phase_integration_public.public_reset_erases_storage_and_loader_owns_read_bus       PASS        1336.01           0.01     160177.24  **
+                                                         ************************************************************************************************************************************************
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                                                      1178068.90           6.13     192315.97  **
+                                                         ************************************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'
