@@ -67,6 +67,13 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_comparison.py --output build/spi-phase-comparison/ci
 
+      - name: Qualify isolated compact phase assertions and legacy refinement
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_formal.py --output build/spi-phase-formal/ci
+
       - name: Upload verification results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -88,5 +95,13 @@ jobs:
             build/spi-phase-comparison/ci/*/src/*.v
             build/spi-phase-comparison/ci/*/*.xml
             build/spi-phase-comparison/ci/*/synth.json
+            build/spi-phase-formal/ci/result.json
+            build/spi-phase-formal/ci/*.sby
+            build/spi-phase-formal/ci/*.log
+            build/spi-phase-formal/ci/inputs/
+            build/spi-phase-formal/ci/*/status
+            build/spi-phase-formal/ci/*/PASS
+            build/spi-phase-formal/ci/*/FAIL
+            build/spi-phase-formal/ci/*/engine_0/trace*
           if-no-files-found: error
           retention-days: 90

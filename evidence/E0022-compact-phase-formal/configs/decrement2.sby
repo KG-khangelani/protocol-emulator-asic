@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 8
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal decrement2.v phase_properties.sv
+prep -top phase_properties
+
+[files]
+/workspace/build/spi-phase-formal/attempt-05/inputs/decrement2.v
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_properties.sv
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_bindings.vh

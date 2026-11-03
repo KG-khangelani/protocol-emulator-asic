@@ -37,6 +37,14 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0022 proves written compact-executor phase properties by k-induction
+  (configured depth8, successful step6) and legacy-only refinement (depth12,
+  step10), assuming an initial sampled reset and the stated legacy fetch
+  exclusion. All10 phase/3 legacy covers are reachable within depth40; two
+  deliberate mutants retain expected FAIL counterexamples at steps4/14. No
+  candidate or production RTL change was needed. D23 keeps this partial core
+  qualification separate from integrated-chip, complete-SPI and physical claims.
+  Initial UNKNOWN/status-parser failure and all witnesses remain in E0022.
 - E0021 implements isolated compact and ten-word/banked phase candidates under
   the unchanged external oracle. Both pass four groups per simulator, including
   519 public-loaded transactions each. Whole-chip generic counts are baseline
@@ -276,9 +284,10 @@ efficiently express useful digital communication protocols under hard temporal c
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
   publicly loadable in simulation and have measured generic complete-chip
-  costs, but production still has the original eight-word store/ISA. New phase
-  formal proofs, mapped costs and physical timing remain NOT_EVALUATED; see
-  [E0021](../evidence/E0021-spi-phase-comparison/README.md). Four-mode SPI and
+  costs, but production still has the original eight-word store/ISA. An
+  integrated top-level formal proof, mapped costs and physical timing remain
+  NOT_EVALUATED; E0022 now supplies partial written core properties/refinement.
+  See [E0022](../evidence/E0022-compact-phase-formal/README.md). Four-mode SPI and
   I2C remain unqualified. The open M0 issue still has stale technical checklist
   items; archived physical closure is not rerun or owner-fluency evidence.
 
@@ -292,9 +301,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: formally qualify D22's compact candidate before production
-  promotion: phase sequencing, delayed capture/counter boundaries, eighth-sample
-  commit, reset/enable/loader abort and preservation of previous legal programs.
+- Engineering: prove compact-copy integration of actual result-store capture
+  and public loader/reset abort, building on E0022's core phase/refinement proofs.
   Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
@@ -309,6 +317,7 @@ candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
 UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
 phase/capacity comparison is measured only in isolated experimental RTL;
+E0022 proves written executor properties/refinement under its stated assumptions;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

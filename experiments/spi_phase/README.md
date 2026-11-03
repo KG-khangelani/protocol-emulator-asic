@@ -25,3 +25,16 @@ the runner preserves that failed JUnit and labels compatibility FAIL. A green
 comparison means this predeclared difference was measured, not that the loader
 is compatible. Production formal/physical proofs do not cover experimental RTL.
 No experiment writes `src/`, edits the compiler or changes the visualizer.
+
+The separate formal slice runs with:
+
+```sh
+python3 experiments/spi_phase/run_formal.py
+```
+
+It proves the [phase assertions and legacy refinement](../../docs/specs/spi-phase-formal.md)
+in generated copies, retains reachability and deliberate-mutation witnesses,
+and records actual task mode/depth and induction results. Formal-only readout
+instrumentation has a checked inverse transform; it adds no state or inputs.
+The original production `make formal` job remains separate. Failed/unknown
+proof attempts are retained rather than converted into passes by the runner.

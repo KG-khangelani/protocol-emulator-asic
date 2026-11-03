@@ -31,5 +31,8 @@ The SPI comparison's separate CI step retains candidate sources, hashes, patches
 logs, JUnit and complete-chip generic netlists. Its banked loader intentionally
 fails the existing length-nine rejection test; the comparison runner requires
 exactly that failure and labels compatibility separately. Missing, skipped or
-additional failures block it. Experimental phase RTL has no formal or physical
-qualification; ordinary production proofs remain attached to production sources.
+additional failures block it. E0022's separate formal job qualifies written
+compact-executor phase properties and legacy-only refinement, with initial-reset
+and explicit fetch assumptions, bounded covers and expected-failing mutants.
+Integrated-chip, full-SPI and physical qualification remain open; ordinary
+production proofs stay attached to production sources.
