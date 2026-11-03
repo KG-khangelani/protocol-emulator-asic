@@ -51,3 +51,11 @@ with an independent schedule monitor; full-program SAT attempts remain
 inconclusive. Retain profile/masking, early-firmware and interruption controls,
 case manifests and representative timestamped public traces. Agreement between
 simulators and the transport proof does not turn those attempts into passes.
+
+E0025 adds one depth12/180s actual-program induction configuration. Original
+public loading, firmware, timing premise and public assertions are preserved;
+loaded-image and per-loop facts are proved strengthening assertions over real
+DUT readouts, with no added assumptions. Retain four finite Icarus witnesses
+and label them separately from formal covers. Audit generated module state,
+assumption sites and inverse readout transforms so that monitor-only or
+internally assumed behavior cannot masquerade as the actual-program result.

@@ -1,0 +1,530 @@
+{
+  "record": "E0025",
+  "date_utc": "2026-11-03",
+  "prior_head": "4e207793b6cc7fb6602c4e8ee43775be4e9c28e7",
+  "execution": "PROVED_WRITTEN_ACTUAL_PROGRAM_PROPERTIES",
+  "provenance": "MEASURED",
+  "proof_class": "K_INDUCTION_NOT_BOUNDED_ONLY",
+  "proof": {
+    "status": "PASS",
+    "raw_status": "PASS 0 6",
+    "returncode": 0,
+    "command": [
+      "sby",
+      "-f",
+      "-d",
+      "/workspace/build/spi-program-invariants/final01/program",
+      "/workspace/build/spi-program-invariants/final01/program.sby"
+    ],
+    "seconds": 7.103,
+    "k_induction": true,
+    "induction_step": 9,
+    "last_started_base_step": 11,
+    "failed_assertions": [],
+    "witnesses": []
+  },
+  "proof_budget": {
+    "mode": "prove",
+    "depth": 12,
+    "wall_seconds": 180,
+    "attempts": 1
+  },
+  "scope": "actual publicly loaded eight-word normal transaction, subsequent reset and quiescent tail",
+  "assumptions": "E0024 public driver unchanged; symbolic constant TX/RX/order; raw MISO intended bit only at R=27+50j; select_valid otherwise arbitrary",
+  "added_input_assumptions": 0,
+  "model_audit": {
+    "actual_dut_state_bits": 412,
+    "module_dff_widths": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55,
+      "tt_um_khangelani_protocol_emulator": 0
+    },
+    "check_flavors": {
+      "assert": 82,
+      "assume": 8
+    },
+    "assume_sites": [
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      },
+      {
+        "module": "public_spi",
+        "src": "public_spi.sv:63.17-63.76"
+      }
+    ],
+    "any_values": [
+      [
+        "$anyseq",
+        1
+      ],
+      [
+        "$anyseq",
+        1
+      ],
+      [
+        "$anyconst",
+        8
+      ],
+      [
+        "$anyconst",
+        8
+      ],
+      [
+        "$anyconst",
+        1
+      ]
+    ],
+    "original_public_driver_and_goals": "UNCHANGED",
+    "new_strengthening_assumptions": 0,
+    "preflight_witnesses": 4,
+    "proof": {
+      "status": "PASS",
+      "raw_status": "PASS 0 6",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-program-invariants/final01/program",
+        "/workspace/build/spi-program-invariants/final01/program.sby"
+      ],
+      "seconds": 7.103,
+      "k_induction": true,
+      "induction_step": 9,
+      "last_started_base_step": 11,
+      "failed_assertions": [],
+      "witnesses": []
+    },
+    "proof_budget": {
+      "mode": "prove",
+      "depth": 12,
+      "wall_seconds": 180,
+      "attempts": 1
+    }
+  },
+  "preflight_witnesses": [
+    {
+      "order": 0,
+      "tx": 150,
+      "rx": 105,
+      "status": "PASS",
+      "path": "sim-0-150-105"
+    },
+    {
+      "order": 1,
+      "tx": 150,
+      "rx": 105,
+      "status": "PASS",
+      "path": "sim-1-150-105"
+    },
+    {
+      "order": 0,
+      "tx": 0,
+      "rx": 255,
+      "status": "PASS",
+      "path": "sim-0-0-255"
+    },
+    {
+      "order": 1,
+      "tx": 255,
+      "rx": 0,
+      "status": "PASS",
+      "path": "sim-1-255-0"
+    }
+  ],
+  "formal_reachability_cover": "NOT_RUN",
+  "production_changed": false,
+  "candidate_changed": false,
+  "candidate_source_sha256": {
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "protected_scope_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "info.yaml": "f13f81614c203835eb820677a0ef827c9a0326471d5f493017878cc880a76c2d",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "input_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/pin_timing.py": "adb1d8142c5e9e8310afd599e6ecfb08db7dad4e81e872fbc7068bf9b094355f",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_pin_qualification.py": "5c3b1ef19b57d6a1214352c6a3c8f50ebcf1e880067728943be20fe40f5a4cff",
+    "experiments/spi_phase/run_program_invariants.py": "8ff2b47b1d75f147b3b0a84ab5628bb252f47d3aea4df4c935b7b6a8af75a47e",
+    "experiments/spi_phase/test_pin_timing.py": "d0086e5d5336ffea0588653311ac9618cc5379473fbfb0ed738e1d1a2e29141f",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "docs/specs/spi-program-invariant-attempt.md": "9ef340e468bf731d0679c12dfa1757a1c4a6b76dfb11d94b483bd8d9dd8be5f4"
+  },
+  "retained": {
+    "run-result.json": {
+      "source": "build/spi-program-invariants/final01/result.json",
+      "original_sha256": "7fd93a523369f0c80388596c77b20c377a603f3bcb8c490b3d330ae475de88ae",
+      "curated_sha256": "7fd93a523369f0c80388596c77b20c377a603f3bcb8c490b3d330ae475de88ae",
+      "transformation": "none"
+    },
+    "preflight.json": {
+      "source": "build/spi-program-invariants/final01/preflight.json",
+      "original_sha256": "0d24d60c565d461f5b95e83c8abc8ba5711fcb90c9da908b14a68723657936f4",
+      "curated_sha256": "0d24d60c565d461f5b95e83c8abc8ba5711fcb90c9da908b14a68723657936f4",
+      "transformation": "none"
+    },
+    "model-audit.json": {
+      "source": "build/spi-program-invariants/final01/model-audit.json",
+      "original_sha256": "eadb15362595525a2788f5fe3214da85bafe4c168fd0d75639af9a21c4e0b0db",
+      "curated_sha256": "2b1cc52a9f772a0b96491393a2cb9be7acd1ce3bcfee41f8ec66320b7dc758b7",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "inputs/m1_data_store.v": {
+      "source": "build/spi-program-invariants/final01/inputs/m1_data_store.v",
+      "original_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "curated_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "transformation": "none"
+    },
+    "inputs/m1_input_sync.v": {
+      "source": "build/spi-program-invariants/final01/inputs/m1_input_sync.v",
+      "original_sha256": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+      "curated_sha256": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+      "transformation": "none"
+    },
+    "inputs/m1_input_sync.v.patch.json": {
+      "source": "build/spi-program-invariants/final01/inputs/m1_input_sync.v.patch",
+      "original_sha256": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+      "curated_sha256": "a095ca26111dca1295f63b8d1c523d01de3e43b1a2e9d5799d5baa7aa05e5692",
+      "transformation": "JSON-escaped exact patch"
+    },
+    "inputs/m1_program_store.v": {
+      "source": "build/spi-program-invariants/final01/inputs/m1_program_store.v",
+      "original_sha256": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+      "curated_sha256": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+      "transformation": "none"
+    },
+    "inputs/m1_program_store.v.patch.json": {
+      "source": "build/spi-program-invariants/final01/inputs/m1_program_store.v.patch",
+      "original_sha256": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+      "curated_sha256": "8a6c4029c8ffe7a78f0d12da016b7d29cbbeb6e2b8707470a031c25cb50f1304",
+      "transformation": "JSON-escaped exact patch"
+    },
+    "inputs/phase-engine-declarations.v.patch.json": {
+      "source": "build/spi-program-invariants/final01/inputs/phase-engine-declarations.v.patch",
+      "original_sha256": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40",
+      "curated_sha256": "06efedbd1ac02ad75326a7f442386166a753275eee4df1aa6fc6deaea1fc9506",
+      "transformation": "JSON-escaped exact patch"
+    },
+    "inputs/phase_engine.v": {
+      "source": "build/spi-program-invariants/final01/inputs/phase_engine.v",
+      "original_sha256": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+      "curated_sha256": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+      "transformation": "none"
+    },
+    "inputs/program_bindings.vh": {
+      "source": "build/spi-program-invariants/final01/inputs/program_bindings.vh",
+      "original_sha256": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+      "curated_sha256": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+      "transformation": "none"
+    },
+    "inputs/program_invariants.vh": {
+      "source": "build/spi-program-invariants/final01/inputs/program_invariants.vh",
+      "original_sha256": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+      "curated_sha256": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+      "transformation": "none"
+    },
+    "inputs/project.v": {
+      "source": "build/spi-program-invariants/final01/inputs/project.v",
+      "original_sha256": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+      "curated_sha256": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+      "transformation": "none"
+    },
+    "inputs/project.v.patch.json": {
+      "source": "build/spi-program-invariants/final01/inputs/project.v.patch",
+      "original_sha256": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+      "curated_sha256": "d127b9b33efa713a24e6b839a96b4bc058f803d0892dce9db5f9a967eafc6969",
+      "transformation": "JSON-escaped exact patch"
+    },
+    "inputs/public_spi.sv": {
+      "source": "build/spi-program-invariants/final01/inputs/public_spi.sv",
+      "original_sha256": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066",
+      "curated_sha256": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066",
+      "transformation": "none"
+    },
+    "program.sby": {
+      "source": "build/spi-program-invariants/final01/program.sby",
+      "original_sha256": "89cc3cb534aa02db5b70a229e5501f9244c5a1460778e6af59d0409cd25b1be4",
+      "curated_sha256": "89cc3cb534aa02db5b70a229e5501f9244c5a1460778e6af59d0409cd25b1be4",
+      "transformation": "none"
+    },
+    "program.log": {
+      "source": "build/spi-program-invariants/final01/program.log",
+      "original_sha256": "992b2648968798ac89265f0a01072f312dbe5daf4d9965f3398b2d7fdd4a524e",
+      "curated_sha256": "992b2648968798ac89265f0a01072f312dbe5daf4d9965f3398b2d7fdd4a524e",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "status.txt": {
+      "source": "build/spi-program-invariants/final01/program/status",
+      "original_sha256": "cc738ba80399aa89c77984a8ed44a7d391c3f0e429624f66e5696894862bb383",
+      "curated_sha256": "cc738ba80399aa89c77984a8ed44a7d391c3f0e429624f66e5696894862bb383",
+      "transformation": "none"
+    },
+    "solver/logfile_basecase.txt": {
+      "source": "build/spi-program-invariants/final01/program/engine_0/logfile_basecase.txt",
+      "original_sha256": "232ba70682695ee218e1076d6531e05e822987b5d841ca2f2216d3662bea73af",
+      "curated_sha256": "232ba70682695ee218e1076d6531e05e822987b5d841ca2f2216d3662bea73af",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "solver/logfile_induction.txt": {
+      "source": "build/spi-program-invariants/final01/program/engine_0/logfile_induction.txt",
+      "original_sha256": "d670c5958e79461b6f92e7d6d9a0f73199ed180e7057997f457d39b1942ad9f2",
+      "curated_sha256": "d670c5958e79461b6f92e7d6d9a0f73199ed180e7057997f457d39b1942ad9f2",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "solver/design.ys": {
+      "source": "build/spi-program-invariants/final01/program/model/design.ys",
+      "original_sha256": "b80523799846d72fa599f5b363e0353789a973de0057e781a801c562abfe7e80",
+      "curated_sha256": "b80523799846d72fa599f5b363e0353789a973de0057e781a801c562abfe7e80",
+      "transformation": "none"
+    },
+    "solver/design_prep.ys": {
+      "source": "build/spi-program-invariants/final01/program/model/design_prep.ys",
+      "original_sha256": "030a363b6aafa0e17b2c7f9ff54f9bbf1bf751402b1ee5e3138a53c300063232",
+      "curated_sha256": "030a363b6aafa0e17b2c7f9ff54f9bbf1bf751402b1ee5e3138a53c300063232",
+      "transformation": "none"
+    },
+    "solver/design_smt2.ys": {
+      "source": "build/spi-program-invariants/final01/program/model/design_smt2.ys",
+      "original_sha256": "0cc1a29464efc2fbfc782167fc2fec0a91c11f784bc9ae3cb2e9a1effd9514d0",
+      "curated_sha256": "0cc1a29464efc2fbfc782167fc2fec0a91c11f784bc9ae3cb2e9a1effd9514d0",
+      "transformation": "none"
+    },
+    "preflight/sim-0-150-105/driver.sv": {
+      "source": "build/spi-program-invariants/final01/sim-0-150-105/driver.sv",
+      "original_sha256": "6edecd8f06ffea20fec64741e7b6cdbc46529d4f74013e508d8d4264d1292577",
+      "curated_sha256": "6edecd8f06ffea20fec64741e7b6cdbc46529d4f74013e508d8d4264d1292577",
+      "transformation": "none"
+    },
+    "preflight/sim-0-150-105/clock.sv": {
+      "source": "build/spi-program-invariants/final01/sim-0-150-105/clock.sv",
+      "original_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "curated_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "transformation": "none"
+    },
+    "preflight/sim-0-150-105/compile.log": {
+      "source": "build/spi-program-invariants/final01/sim-0-150-105/compile.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "curated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-0-150-105/run.log": {
+      "source": "build/spi-program-invariants/final01/sim-0-150-105/run.log",
+      "original_sha256": "04c32a52b1f285a84b44c9c3dba1ce5617d6d9df0cea69a2f62749610e3acc57",
+      "curated_sha256": "04c32a52b1f285a84b44c9c3dba1ce5617d6d9df0cea69a2f62749610e3acc57",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-1-150-105/driver.sv": {
+      "source": "build/spi-program-invariants/final01/sim-1-150-105/driver.sv",
+      "original_sha256": "548bd11a6f1e04858db3ae3275f4ba2727eec4b48fd8c72a9d57e6f1b66a332a",
+      "curated_sha256": "548bd11a6f1e04858db3ae3275f4ba2727eec4b48fd8c72a9d57e6f1b66a332a",
+      "transformation": "none"
+    },
+    "preflight/sim-1-150-105/clock.sv": {
+      "source": "build/spi-program-invariants/final01/sim-1-150-105/clock.sv",
+      "original_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "curated_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "transformation": "none"
+    },
+    "preflight/sim-1-150-105/compile.log": {
+      "source": "build/spi-program-invariants/final01/sim-1-150-105/compile.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "curated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-1-150-105/run.log": {
+      "source": "build/spi-program-invariants/final01/sim-1-150-105/run.log",
+      "original_sha256": "7a27848340268a6cdfca5ce1939667a6512196562cccb76bcab7e7eb9ab90eb1",
+      "curated_sha256": "7a27848340268a6cdfca5ce1939667a6512196562cccb76bcab7e7eb9ab90eb1",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-0-0-255/driver.sv": {
+      "source": "build/spi-program-invariants/final01/sim-0-0-255/driver.sv",
+      "original_sha256": "c2645e9ef4f26c405a95b4ae2906fdfd18dc3d4d2fd0d0c4811e145a49882cee",
+      "curated_sha256": "c2645e9ef4f26c405a95b4ae2906fdfd18dc3d4d2fd0d0c4811e145a49882cee",
+      "transformation": "none"
+    },
+    "preflight/sim-0-0-255/clock.sv": {
+      "source": "build/spi-program-invariants/final01/sim-0-0-255/clock.sv",
+      "original_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "curated_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "transformation": "none"
+    },
+    "preflight/sim-0-0-255/compile.log": {
+      "source": "build/spi-program-invariants/final01/sim-0-0-255/compile.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "curated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-0-0-255/run.log": {
+      "source": "build/spi-program-invariants/final01/sim-0-0-255/run.log",
+      "original_sha256": "59af884797cffb1261ba488df0d5ba5466cc4d5cb3e11107d30a75683acc4e9f",
+      "curated_sha256": "59af884797cffb1261ba488df0d5ba5466cc4d5cb3e11107d30a75683acc4e9f",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-1-255-0/driver.sv": {
+      "source": "build/spi-program-invariants/final01/sim-1-255-0/driver.sv",
+      "original_sha256": "d55f72b7d01f9886d31a1427979966b39b512e6d7f33e9931d33d23caa65c5d5",
+      "curated_sha256": "d55f72b7d01f9886d31a1427979966b39b512e6d7f33e9931d33d23caa65c5d5",
+      "transformation": "none"
+    },
+    "preflight/sim-1-255-0/clock.sv": {
+      "source": "build/spi-program-invariants/final01/sim-1-255-0/clock.sv",
+      "original_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "curated_sha256": "d6a5bccd14cb676b56bae4d3b436b95c431422c19a97570cef96857afdc46cbb",
+      "transformation": "none"
+    },
+    "preflight/sim-1-255-0/compile.log": {
+      "source": "build/spi-program-invariants/final01/sim-1-255-0/compile.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "curated_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "preflight/sim-1-255-0/run.log": {
+      "source": "build/spi-program-invariants/final01/sim-1-255-0/run.log",
+      "original_sha256": "0d7c74fdf969b23a59ea0e91a31528d7dd151530c2ade819c84855d0195ccc42",
+      "curated_sha256": "0d7c74fdf969b23a59ea0e91a31528d7dd151530c2ade819c84855d0195ccc42",
+      "transformation": "LF/trailing whitespace only"
+    },
+    "failures/preflight-declarations/result.json": {
+      "source": "build/spi-program-invariants/preflight01/result.json",
+      "original_sha256": "65a4dd0cec412f8d759f2ce0e1e21263a0b9d9086275873a233c1e07af55260e",
+      "curated_sha256": "65a4dd0cec412f8d759f2ce0e1e21263a0b9d9086275873a233c1e07af55260e",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/m1_data_store.v": {
+      "source": "build/spi-program-invariants/preflight01/inputs/m1_data_store.v",
+      "original_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "curated_sha256": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/m1_input_sync.v": {
+      "source": "build/spi-program-invariants/preflight01/inputs/m1_input_sync.v",
+      "original_sha256": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+      "curated_sha256": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/m1_program_store.v": {
+      "source": "build/spi-program-invariants/preflight01/inputs/m1_program_store.v",
+      "original_sha256": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+      "curated_sha256": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/phase_engine.v": {
+      "source": "build/spi-program-invariants/preflight01/inputs/phase_engine.v",
+      "original_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "curated_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/program_bindings.vh": {
+      "source": "build/spi-program-invariants/preflight01/inputs/program_bindings.vh",
+      "original_sha256": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+      "curated_sha256": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/program_invariants.vh": {
+      "source": "build/spi-program-invariants/preflight01/inputs/program_invariants.vh",
+      "original_sha256": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+      "curated_sha256": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/project.v": {
+      "source": "build/spi-program-invariants/preflight01/inputs/project.v",
+      "original_sha256": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+      "curated_sha256": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/inputs/public_spi.sv": {
+      "source": "build/spi-program-invariants/preflight01/inputs/public_spi.sv",
+      "original_sha256": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066",
+      "curated_sha256": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/driver.sv": {
+      "source": "build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv",
+      "original_sha256": "a09ebb51288dc2f9f07edb101d641c0c0dbe5c30b18762debdf91373642d463e",
+      "curated_sha256": "a09ebb51288dc2f9f07edb101d641c0c0dbe5c30b18762debdf91373642d463e",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/clock.sv": {
+      "source": "build/spi-program-invariants/preflight01/sim-0-150-105/clock.sv",
+      "original_sha256": "2d3a6d5370dfef4043e1654e2b6e969dacfa7b048ff2e10b4bd80899db83a61d",
+      "curated_sha256": "2d3a6d5370dfef4043e1654e2b6e969dacfa7b048ff2e10b4bd80899db83a61d",
+      "transformation": "none"
+    },
+    "failures/preflight-declarations/compile.log": {
+      "source": "build/spi-program-invariants/preflight01/sim-0-150-105/compile.log",
+      "original_sha256": "1c1e9dee91fe064b156125ae169fae0c7896f0879f0dfaf4d97d0333fdb4eb00",
+      "curated_sha256": "1c1e9dee91fe064b156125ae169fae0c7896f0879f0dfaf4d97d0333fdb4eb00",
+      "transformation": "LF/trailing whitespace only"
+    }
+  },
+  "raw_generated_model_sha256": {
+    "design.json": "1302001125708d12258e2c8689382a6f4e376e0067f56dac5d7bb4e2d9a27af0",
+    "design.il": "851985d05d1cd47dda468cb281b59f50ad52b00f0aae0e47aedc6f949db82bc2"
+  },
+  "initial_failure": "PREFLIGHT_COMPILE_FAIL: declaration order in generated readouts/simulation logic; corrected before the sole proof job; compiled failed inputs/log retained, then-runner byte snapshot not retained",
+  "historical_E0024_timeouts": "INCONCLUSIVE_UNCHANGED",
+  "historical_counterexamples": "UNCHANGED",
+  "full_spi": "NOT_EVALUATED",
+  "physical": "NOT_EVALUATED",
+  "owner_M0_fluency": "PENDING",
+  "tools": {
+    "image": "protocol-emulator-asic-workbench:2026-07-29",
+    "yosys": "0.67+111",
+    "sby": "0.67-4-gfea6e46",
+    "z3": "4.15.5"
+  },
+  "next": "independent property/assumption sensitivity and actual-firmware negative controls/reachability review before promotion"
+}

@@ -67,3 +67,17 @@ The runner retains per-case response profiles, counts, timestamps, negative
 controls and hashes, and requires identical public records on both simulators.
 E0024 preserves the all-ones acceptance-guard failure and earlier tool/timeout
 outcomes. The default CI job does not rerun the known full-chip SAT timeouts.
+
+The separate actual-program invariant attempt runs once per invocation:
+
+```sh
+python3 experiments/spi_phase/run_program_invariants.py --output build/spi-program-invariants/new-attempt
+```
+
+The [attempt contract](../../docs/specs/spi-program-invariant-attempt.md) fixes
+depth12 and a180-second wall limit. It keeps the real public-loaded eight-word
+program and original input premises, adding proved loading/per-loop assertions
+through reversible read-only taps. Four simulation preflights check the
+assertions and premises before the single proof. The result distinguishes
+induction, bounded/finite evidence and inconclusive attempts. CI additionally
+requires an actual inductive PASS; E0024's previous timeouts are not rewritten.

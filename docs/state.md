@@ -37,6 +37,15 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0025 resolves E0024's written actual eight-word normal-transaction claim by
+  k-induction with proved loading/per-loop state invariants. The real loader,
+  all256 program bits, data store, synchronizer and executor remain in the
+  model; no input assumption is added and the original public driver/goals
+  are preserved. One depth12/180s local attempt passes at induction step9,
+  with base0..11. Four finite preflight witnesses pass after a retained generated
+  declaration-order correction. D26 distinguishes this proof from bounded
+  tests, formal covers, arbitrary firmware and physical/full-SPI qualification.
+  E0024's timeouts remain unchanged historical INCONCLUSIVE observations.
 - E0024 checks the actual public-loaded compact eight-word mode-0 program
   against independent external-pin timing expectations. Both simulators pass
   the original response envelope and a separately labelled ideal digital
@@ -319,9 +328,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: develop per-loop invariants or another measured decomposition
-  for the compact eight-word full-program proof; E0024's direct attempts remain
-  inconclusive despite scoped pin simulation and transport proof successes.
+- Engineering: independently test the actual-program proof's property/input
+  sensitivity and known bad firmware/reachability, building on E0025 induction.
+  E0024's direct timeouts remain inconclusive historical observations.
   Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review

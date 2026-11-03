@@ -1,0 +1,30 @@
+[
+  {
+    "order": 0,
+    "tx": 150,
+    "rx": 105,
+    "status": "PASS",
+    "path": "sim-0-150-105"
+  },
+  {
+    "order": 1,
+    "tx": 150,
+    "rx": 105,
+    "status": "PASS",
+    "path": "sim-1-150-105"
+  },
+  {
+    "order": 0,
+    "tx": 0,
+    "rx": 255,
+    "status": "PASS",
+    "path": "sim-0-0-255"
+  },
+  {
+    "order": 1,
+    "tx": 255,
+    "rx": 0,
+    "status": "PASS",
+    "path": "sim-1-255-0"
+  }
+]

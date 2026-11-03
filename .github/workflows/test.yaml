@@ -88,6 +88,21 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_pin_qualification.py --output build/spi-mode0-pins/ci
 
+      - name: Prove actual loaded eight-word program with loop invariants
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_program_invariants.py --output build/spi-program-invariants/ci
+          python3 - <<'PY'
+          import json
+          result = json.load(open('build/spi-program-invariants/ci/result.json'))
+          assert result['status'] == 'PROVED_WRITTEN_PROGRAM_PROPERTIES'
+          assert result['proof']['status'] == 'PASS' and result['proof']['returncode'] == 0
+          assert result['proof']['k_induction']
+          assert result['proof_budget'] == {'mode': 'prove', 'depth': 12, 'wall_seconds': 180, 'attempts': 1}
+          PY
+
       - name: Upload verification results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -136,5 +151,21 @@ jobs:
             build/spi-mode0-pins/ci/*/engine_0/trace*
             build/spi-mode0-pins/ci/*/results.xml
             build/spi-mode0-pins/ci/*/records/
+            build/spi-program-invariants/ci/result.json
+            build/spi-program-invariants/ci/preflight.json
+            build/spi-program-invariants/ci/program.sby
+            build/spi-program-invariants/ci/program.log
+            build/spi-program-invariants/ci/inputs/
+            build/spi-program-invariants/ci/program/status
+            build/spi-program-invariants/ci/program/PASS
+            build/spi-program-invariants/ci/program/FAIL
+            build/spi-program-invariants/ci/program/model/design.json
+            build/spi-program-invariants/ci/program/model/*.ys
+            build/spi-program-invariants/ci/program/engine_0/logfile*.txt
+            build/spi-program-invariants/ci/program/engine_0/trace*
+            build/spi-program-invariants/ci/sim-*/driver.sv
+            build/spi-program-invariants/ci/sim-*/clock.sv
+            build/spi-program-invariants/ci/sim-*/compile.log
+            build/spi-program-invariants/ci/sim-*/run.log
           if-no-files-found: error
           retention-days: 90

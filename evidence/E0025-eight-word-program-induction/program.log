@@ -1,0 +1,62 @@
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Removing directory '/workspace/build/spi-program-invariants/final01/program'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/project.v' to '/workspace/build/spi-program-invariants/final01/program/src/project.v'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/phase_engine.v' to '/workspace/build/spi-program-invariants/final01/program/src/phase_engine.v'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/m1_program_store.v' to '/workspace/build/spi-program-invariants/final01/program/src/m1_program_store.v'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/m1_data_store.v' to '/workspace/build/spi-program-invariants/final01/program/src/m1_data_store.v'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/m1_input_sync.v' to '/workspace/build/spi-program-invariants/final01/program/src/m1_input_sync.v'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/public_spi.sv' to '/workspace/build/spi-program-invariants/final01/program/src/public_spi.sv'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/program_bindings.vh' to '/workspace/build/spi-program-invariants/final01/program/src/program_bindings.vh'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] Copy '/workspace/build/spi-program-invariants/final01/inputs/program_invariants.vh' to '/workspace/build/spi-program-invariants/final01/program/src/program_invariants.vh'.
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] engine_0: smtbmc z3
+SBY 22:04:04 [/workspace/build/spi-program-invariants/final01/program] base: starting process "cd /workspace/build/spi-program-invariants/final01/program/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] base: finished (returncode=0)
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] prep: starting process "cd /workspace/build/spi-program-invariants/final01/program/model; yosys -ql design_prep.log design_prep.ys"
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] prep: finished (returncode=0)
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] smt2: starting process "cd /workspace/build/spi-program-invariants/final01/program/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] smt2: finished (returncode=0)
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: starting process "cd /workspace/build/spi-program-invariants/final01/program; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: starting process "cd /workspace/build/spi-program-invariants/final01/program; yosys-smtbmc -s z3 --presat -i --noprogress -t 12  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:00  Solver: z3
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 22:04:05 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: finished (returncode=0)
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 22:04:06 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:05  Temporal induction successful.
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: ##   0:00:05  Status: passed
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: finished (returncode=0)
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] engine_0.induction: Status returned by engine for induction: pass
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: engine_0 did not produce any traces
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] summary: successful proof by k-induction.
+SBY 22:04:11 [/workspace/build/spi-program-invariants/final01/program] DONE (PASS, rc=0)

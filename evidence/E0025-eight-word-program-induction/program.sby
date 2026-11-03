@@ -1,0 +1,20 @@
+[options]
+mode prove
+depth 12
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv project.v phase_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v public_spi.sv
+prep -top public_spi
+
+[files]
+/workspace/build/spi-program-invariants/final01/inputs/project.v
+/workspace/build/spi-program-invariants/final01/inputs/phase_engine.v
+/workspace/build/spi-program-invariants/final01/inputs/m1_program_store.v
+/workspace/build/spi-program-invariants/final01/inputs/m1_data_store.v
+/workspace/build/spi-program-invariants/final01/inputs/m1_input_sync.v
+/workspace/build/spi-program-invariants/final01/inputs/public_spi.sv
+/workspace/build/spi-program-invariants/final01/inputs/program_bindings.vh
+/workspace/build/spi-program-invariants/final01/inputs/program_invariants.vh
