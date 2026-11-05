@@ -1,0 +1,9 @@
+test_actual_words_and_capacity (test_reference.PhaseComparisonReferenceTests.test_actual_words_and_capacity) ... ok
+test_both_variants_all_bytes_and_orders_at_latest_response (test_reference.PhaseComparisonReferenceTests.test_both_variants_all_bytes_and_orders_at_latest_response) ... ok
+test_delayed_sample_latches_operands_and_freezes (test_reference.PhaseComparisonReferenceTests.test_delayed_sample_latches_operands_and_freezes) ... ok
+test_mixed_partial_modes_and_config_fault (test_reference.PhaseComparisonReferenceTests.test_mixed_partial_modes_and_config_fault) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 4.370s
+
+OK

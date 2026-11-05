@@ -1,0 +1,100 @@
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Removing directory '/workspace/build/spi-phase-integration/attempt-02/abort_bmc'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/phase_engine.v' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/phase_engine.v'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/m1_program_store.v' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/m1_program_store.v'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/m1_data_store.v' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/m1_data_store.v'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/m1_input_sync.v' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/m1_input_sync.v'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/phase_observer.sv' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/phase_observer.sv'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/project.v' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/project.v'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/integration_properties.vh' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/integration_properties.vh'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] Copy '/workspace/build/spi-phase-integration/attempt-02/inputs/public_scenario.sv' to '/workspace/build/spi-phase-integration/attempt-02/abort_bmc/src/public_scenario.sv'.
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: smtbmc z3
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] base: starting process "cd /workspace/build/spi-phase-integration/attempt-02/abort_bmc/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] base: finished (returncode=0)
+SBY 20:10:22 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] prep: starting process "cd /workspace/build/spi-phase-integration/attempt-02/abort_bmc/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] prep: finished (returncode=0)
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] smt2: starting process "cd /workspace/build/spi-phase-integration/attempt-02/abort_bmc/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] smt2: finished (returncode=0)
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: starting process "cd /workspace/build/spi-phase-integration/attempt-02/abort_bmc; yosys-smtbmc -s z3 --presat --noprogress -t 72  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Solver: z3
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 20:10:23 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 14..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 15..
+SBY 20:10:24 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 15..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 16..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 16..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 17..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 17..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 18..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 18..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 19..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 19..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 20..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 20..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 21..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 21..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assumptions in step 22..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:01  Checking assertions in step 22..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:02  Checking assumptions in step 23..
+SBY 20:10:25 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:02  Checking assertions in step 23..
+SBY 20:10:26 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:02  Checking assumptions in step 24..
+SBY 20:10:26 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:03  Checking assertions in step 24..
+SBY 20:10:28 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:05  Checking assumptions in step 25..
+SBY 20:10:28 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:05  Checking assertions in step 25..
+SBY 20:10:31 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:08  Checking assumptions in step 26..
+SBY 20:10:31 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:08  Checking assertions in step 26..
+SBY 20:10:34 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:11  Checking assumptions in step 27..
+SBY 20:10:34 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:11  Checking assertions in step 27..
+SBY 20:10:43 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:20  Checking assumptions in step 28..
+SBY 20:10:44 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:21  Checking assertions in step 28..
+SBY 20:10:50 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:27  Checking assumptions in step 29..
+SBY 20:10:50 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:27  Checking assertions in step 29..
+SBY 20:10:59 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:35  Checking assumptions in step 30..
+SBY 20:11:00 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:37  Checking assertions in step 30..
+SBY 20:11:10 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:47  Checking assumptions in step 31..
+SBY 20:11:10 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:00:47  Checking assertions in step 31..
+SBY 20:11:30 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:06  Checking assumptions in step 32..
+SBY 20:11:31 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:08  Checking assertions in step 32..
+SBY 20:11:44 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:21  Checking assumptions in step 33..
+SBY 20:11:44 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:21  Checking assertions in step 33..
+SBY 20:12:07 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:43  Checking assumptions in step 34..
+SBY 20:12:08 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:01:45  Checking assertions in step 34..
+SBY 20:12:31 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:02:08  Checking assumptions in step 35..
+SBY 20:12:32 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:02:08  Checking assertions in step 35..
+SBY 20:12:48 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:02:25  Checking assumptions in step 36..
+SBY 20:12:51 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:02:28  Checking assertions in step 36..
+SBY 20:13:26 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:03:03  Checking assumptions in step 37..
+SBY 20:13:27 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:03:03  Checking assertions in step 37..
+SBY 20:13:53 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:03:29  Checking assumptions in step 38..
+SBY 20:13:53 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:03:30  Checking assertions in step 38..
+SBY 20:14:32 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:04:08  Checking assumptions in step 39..
+SBY 20:14:32 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:04:09  Checking assertions in step 39..
+SBY 20:15:12 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:04:48  Checking assumptions in step 40..
+SBY 20:15:13 [/workspace/build/spi-phase-integration/attempt-02/abort_bmc] engine_0: ##   0:04:50  Checking assertions in step 40..

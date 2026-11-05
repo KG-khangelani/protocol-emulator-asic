@@ -15,7 +15,7 @@ physical timing and real hardware observations as separate evidence categories.
 | GL-shaped harness | RTL compiled with `GL_TEST`, direct-engine handles absent, separate FST/JUnit provenance | Public reset smoke catches harness/API drift without overwriting or being labelled as the full RTL waveform; no gate-netlist claim |
 | Formal | M1 engine, program store, data store and input-synchronizer SBY/Z3 proofs/covers plus expected-failing wrong-decrement property; archived M0 evidence retained separately | Preserve event-on-final-edge priority, shift completion/capture, result-valid, timeout and freeze properties as the instruction set evolves |
 | GDS reproducibility | `tools/compare_gds_records.py` | Separate BGNLIB/BGNSTR timestamp drift from geometry-record differences |
-| Protocol differential | Not implemented | Independent UART/SPI/I2C waveform oracles |
+| Protocol differential | Independent UART and partial SPI mode-0 oracles; isolated phase/capacity comparison in `experiments/spi_phase/` | All-four-mode SPI and I2C remain open; candidate results do not qualify production RTL |
 | FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
 
 For each future protocol scenario vary payload, phase, clock ratio, reset,
@@ -26,3 +26,36 @@ An experiment record needs its question, source revision/hash, configuration,
 command, tool versions, observations, limitations and next decision. Preserve
 negative evidence. Large reports/GDS belong in immutable release or CI artifacts
 with identifiers and SHA-256; keep concise results and links in this repository.
+
+The SPI comparison's separate CI step retains candidate sources, hashes, patches,
+logs, JUnit and complete-chip generic netlists. Its banked loader intentionally
+fails the existing length-nine rejection test; the comparison runner requires
+exactly that failure and labels compatibility separately. Missing, skipped or
+additional failures block it. E0022's separate formal job qualifies written
+compact-executor phase properties and legacy-only refinement, with initial-reset
+and explicit fetch assumptions, bounded covers and expected-failing mutants.
+E0023 adds the actual compact-copy top, real public loader/program/data stores
+and synchronizer. Its universal safety job assumes only initial chip reset;
+guided public-pin completion/abort jobs state finite schedules and bounds.
+Four simulation groups per simulator cover complete image readback, all byte
+values, all 40 abort cuts, old-result lifetime and reset ownership. Deliberately
+wrong loader-clear expectations and a dropped-store-write mutant must fail
+with witnesses. Full SPI and physical qualification remain open; ordinary
+production proofs stay attached to production sources.
+
+E0024 uses independent external GPIO/clock/CS and rising-edge word expectations
+for the complete public-loaded compact eight-word image. Per-bit original
+response and ideal digital aperture/noise envelopes remain distinct from
+electrical timing. Separate formal jobs qualify only the actual synchronizer
+with an independent schedule monitor; full-program SAT attempts remain
+inconclusive. Retain profile/masking, early-firmware and interruption controls,
+case manifests and representative timestamped public traces. Agreement between
+simulators and the transport proof does not turn those attempts into passes.
+
+E0025 adds one depth12/180s actual-program induction configuration. Original
+public loading, firmware, timing premise and public assertions are preserved;
+loaded-image and per-loop facts are proved strengthening assertions over real
+DUT readouts, with no added assumptions. Retain four finite Icarus witnesses
+and label them separately from formal covers. Audit generated module state,
+assumption sites and inverse readout transforms so that monitor-only or
+internally assumed behavior cannot masquerade as the actual-program result.

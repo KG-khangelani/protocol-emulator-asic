@@ -1,0 +1,175 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-phase-comparison/attempt-05/baseline/legacy.xml
+"make" -f Makefile /workspace/build/spi-phase-comparison/attempt-05/baseline/legacy.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-phase-comparison/attempt-05/baseline/sim/icarus
+/usr/local/bin/iverilog -o /workspace/build/spi-phase-comparison/attempt-05/baseline/sim/icarus/sim.vvp -s tb -g2012 -I/workspace/build/spi-phase-comparison/attempt-05/baseline/src -f /workspace/build/spi-phase-comparison/attempt-05/baseline/sim/icarus/cmds.f  /workspace/build/spi-phase-comparison/attempt-05/baseline/src/project.v /workspace/build/spi-phase-comparison/attempt-05/baseline/src/m1_engine.v /workspace/build/spi-phase-comparison/attempt-05/baseline/src/m1_program_store.v /workspace/build/spi-phase-comparison/attempt-05/baseline/src/m1_data_store.v /workspace/build/spi-phase-comparison/attempt-05/baseline/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/spi-phase-comparison/attempt-05/baseline/legacy.xml
+COCOTB_TEST_MODULES=test,test_uart_rx_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/spi-phase-comparison/attempt-05/baseline/sim/icarus/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1793730991
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test.public_pin_reload_changes_observable_program (1/17)
+   726.00ns INFO     cocotb.regression                  test.public_pin_reload_changes_observable_program passed
+   726.00ns INFO     cocotb.regression                  running test.invalid_length_never_releases_engine (2/17)
+   826.00ns INFO     cocotb.regression                  test.invalid_length_never_releases_engine passed
+   826.00ns INFO     cocotb.regression                  running test.synchronized_input_wait_event_and_timeout (3/17)
+  1486.00ns INFO     cocotb.regression                  test.synchronized_input_wait_event_and_timeout passed
+  1486.00ns INFO     cocotb.regression                  running test.k_input_wait_public_program_event_timeout_and_reload (4/17)
+                                                            Independent public-pin trace for the adopted K-INPUT-WAIT kernel.
+  2392.00ns INFO     cocotb.regression                  test.k_input_wait_public_program_event_timeout_and_reload passed
+  2392.00ns INFO     cocotb.regression                  running test.k_bounded_loop_public_program_counts (5/17)
+                                                            Independent public trace for counts 0, 1, 2 and maximum 255.
+ 14400.00ns INFO     cocotb.regression                  test.k_bounded_loop_public_program_counts passed
+ 14400.00ns INFO     cocotb.regression                  running test.loop_target_overflow_faults_without_alias (6/17)
+ 14545.00ns INFO     cocotb.regression                  test.loop_target_overflow_faults_without_alias passed
+ 14545.00ns INFO     cocotb.regression                  running test.k_shift_8_public_payload_both_orders (7/17)
+                                                            Independent public-pin K-SHIFT-8 traces with synchronized RX data.
+ 15841.01ns INFO     cocotb.regression                  test.k_shift_8_public_payload_both_orders passed
+ 15841.01ns INFO     cocotb.regression                  running test.uart_tx_8n1_public_pin_oracle (8/17)
+                                                            All bytes at a short legal period plus retained exact-434 cases.
+1128761.01ns INFO     cocotb.regression                  test.uart_tx_8n1_public_pin_oracle passed
+1128761.01ns INFO     cocotb.regression                  running test.timed_shift_burst_invalid_freeze_and_reset (9/17)
+1129061.01ns INFO     cocotb.regression                  test.timed_shift_burst_invalid_freeze_and_reset passed
+1129061.01ns INFO     cocotb.regression                  running test.timed_shift_burst_trace_matches_semantic_model (10/17)
+                                                             Exercise RX assembly, both orders, slot reuse and disabled resumes.
+1136798.01ns INFO     cocotb.regression                  test.timed_shift_burst_trace_matches_semantic_model passed
+1136798.01ns INFO     cocotb.regression                  running test.shift_trace_matches_semantic_model (11/17)
+1138225.01ns INFO     cocotb.regression                  test.shift_trace_matches_semantic_model passed
+1138225.01ns INFO     cocotb.regression                  running test.shift_invalid_partial_and_reset_fail_closed (12/17)
+1138645.01ns INFO     cocotb.regression                  test.shift_invalid_partial_and_reset_fail_closed passed
+1138645.01ns INFO     cocotb.regression                  running test.randomized_trace_matches_reviewed_model (13/17)
+1139485.01ns INFO     cocotb.regression                  test.randomized_trace_matches_reviewed_model passed
+1139485.01ns INFO     cocotb.regression                  running test.invalid_encoding_and_out_of_range_fail_closed (14/17)
+1139565.01ns INFO     cocotb.regression                  test.invalid_encoding_and_out_of_range_fail_closed passed
+1139565.01ns INFO     cocotb.regression                  running test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery (15/17)
+1783700.61ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+1783720.61ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+1783800.61ns INFO     cocotb.tb                          RX edge=6 status=22 raw=00 valid=0
+1788140.61ns INFO     cocotb.tb                          RX edge=223 status=24 raw=00 valid=0
+1796820.61ns INFO     cocotb.tb                          RX edge=657 status=65 raw=00 valid=0
+1857580.61ns INFO     cocotb.tb                          RX edge=3695 status=65 raw=00 valid=1
+1866260.61ns INFO     cocotb.tb                          RX edge=4129 status=21 raw=00 valid=1
+1870600.61ns INFO     cocotb.tb                          RX edge=4346 status=22 raw=00 valid=1
+1874940.61ns INFO     cocotb.tb                          RX edge=4563 status=24 raw=00 valid=1
+1883620.61ns INFO     cocotb.tb                          RX edge=4997 status=65 raw=00 valid=1
+1944380.61ns INFO     cocotb.tb                          RX edge=8035 status=65 raw=ff valid=1
+1953060.61ns INFO     cocotb.tb                          RX edge=8469 status=27 raw=ff valid=1
+1953080.61ns INFO     cocotb.tb                          RX edge=8470 status=a7 raw=ff valid=1
+1953953.64ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+1953973.64ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+1954073.64ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+1958413.64ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+1967093.64ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2027853.65ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=ff valid=1
+2036533.64ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=ff valid=1
+2040873.64ns INFO     cocotb.tb                          RX edge=4347 status=22 raw=ff valid=1
+2045213.64ns INFO     cocotb.tb                          RX edge=4564 status=24 raw=ff valid=1
+2053893.64ns INFO     cocotb.tb                          RX edge=4998 status=65 raw=ff valid=1
+2114653.65ns INFO     cocotb.tb                          RX edge=8036 status=65 raw=00 valid=1
+2123333.64ns INFO     cocotb.tb                          RX edge=8470 status=27 raw=00 valid=1
+2123353.65ns INFO     cocotb.tb                          RX edge=8471 status=a7 raw=00 valid=1
+2124226.68ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2124246.68ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2124346.68ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2128686.68ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2137366.68ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2198126.68ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=55 valid=1
+2206806.68ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=55 valid=1
+2211146.68ns INFO     cocotb.tb                          RX edge=4347 status=22 raw=55 valid=1
+2215486.68ns INFO     cocotb.tb                          RX edge=4564 status=24 raw=55 valid=1
+2224166.68ns INFO     cocotb.tb                          RX edge=4998 status=65 raw=55 valid=1
+2284926.68ns INFO     cocotb.tb                          RX edge=8036 status=65 raw=aa valid=1
+2293606.68ns INFO     cocotb.tb                          RX edge=8470 status=27 raw=aa valid=1
+2293626.68ns INFO     cocotb.tb                          RX edge=8471 status=a7 raw=aa valid=1
+2294499.71ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2294519.71ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2294619.71ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2298959.71ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2307639.71ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2368399.71ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=aa valid=1
+2377079.71ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=aa valid=1
+2381419.71ns INFO     cocotb.tb                          RX edge=4347 status=22 raw=aa valid=1
+2385759.71ns INFO     cocotb.tb                          RX edge=4564 status=24 raw=aa valid=1
+2394439.71ns INFO     cocotb.tb                          RX edge=4998 status=65 raw=aa valid=1
+2455199.71ns INFO     cocotb.tb                          RX edge=8036 status=65 raw=55 valid=1
+2463879.71ns INFO     cocotb.tb                          RX edge=8470 status=27 raw=55 valid=1
+2463899.71ns INFO     cocotb.tb                          RX edge=8471 status=a7 raw=55 valid=1
+2463968.74ns INFO     cocotb.regression                  test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery passed
+2463968.74ns INFO     cocotb.regression                  running test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts (16/17)
+2464772.75ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2464792.75ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2464892.75ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2469232.75ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2477912.75ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2538672.75ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=5a valid=1
+2547352.75ns INFO     cocotb.tb                          RX edge=4130 status=e6 raw=5a valid=1
+2548185.77ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2548205.77ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2548305.77ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2552645.77ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2561325.77ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2622085.77ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=5a valid=1
+2630765.77ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=5a valid=1
+2635105.77ns INFO     cocotb.tb                          RX edge=4347 status=22 raw=5a valid=1
+2639445.77ns INFO     cocotb.tb                          RX edge=4564 status=24 raw=5a valid=1
+2648125.77ns INFO     cocotb.tb                          RX edge=4998 status=65 raw=5a valid=1
+2708885.77ns INFO     cocotb.tb                          RX edge=8036 status=65 raw=a5 valid=1
+2717565.77ns INFO     cocotb.tb                          RX edge=8470 status=e6 raw=a5 valid=1
+2718398.79ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2718418.79ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2735778.79ns INFO     cocotb.tb                          RX edge=870 status=e1 raw=00 valid=0
+2736591.80ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2736611.80ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2736711.80ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2741051.80ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2749731.80ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2810491.80ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=5a valid=1
+2819171.80ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=5a valid=1
+2836551.80ns INFO     cocotb.tb                          RX edge=4999 status=e1 raw=5a valid=1
+2837364.81ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2837384.81ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2841824.81ns INFO     cocotb.tb                          RX edge=224 status=e3 raw=00 valid=0
+2841833.82ns INFO     cocotb.regression                  test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts passed
+2841833.82ns INFO     cocotb.regression                  running test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload (17/17)
+2842637.83ns INFO     cocotb.tb                          RX edge=1 status=21 raw=00 valid=0
+2842657.83ns INFO     cocotb.tb                          RX edge=2 status=61 raw=00 valid=0
+2842757.83ns INFO     cocotb.tb                          RX edge=7 status=22 raw=00 valid=0
+2847097.83ns INFO     cocotb.tb                          RX edge=224 status=24 raw=00 valid=0
+2855777.83ns INFO     cocotb.tb                          RX edge=658 status=65 raw=00 valid=0
+2916537.83ns INFO     cocotb.tb                          RX edge=3696 status=65 raw=5a valid=1
+2925217.83ns INFO     cocotb.tb                          RX edge=4130 status=21 raw=5a valid=1
+2929557.83ns INFO     cocotb.tb                          RX edge=4347 status=22 raw=5a valid=1
+2933897.83ns INFO     cocotb.tb                          RX edge=4564 status=24 raw=5a valid=1
+2942577.83ns INFO     cocotb.tb                          RX edge=4998 status=65 raw=5a valid=1
+2959937.83ns INFO     cocotb.tb                          RX edge=5866 status=65 raw=5a valid=1
+2962539.86ns INFO     cocotb.regression                  test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload passed
+2962539.86ns INFO     cocotb.regression                  ****************************************************************************************************************************
+                                                         ** TEST                                                                STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ****************************************************************************************************************************
+                                                         ** test.public_pin_reload_changes_observable_program                    PASS         726.00           0.01     139323.97  **
+                                                         ** test.invalid_length_never_releases_engine                            PASS         100.00           0.00     198499.95  **
+                                                         ** test.synchronized_input_wait_event_and_timeout                       PASS         660.00           0.00     183545.99  **
+                                                         ** test.k_input_wait_public_program_event_timeout_and_reload            PASS         906.00           0.01     178640.44  **
+                                                         ** test.k_bounded_loop_public_program_counts                            PASS       12008.00           0.05     244692.02  **
+                                                         ** test.loop_target_overflow_faults_without_alias                       PASS         145.00           0.00     165219.80  **
+                                                         ** test.k_shift_8_public_payload_both_orders                            PASS        1296.00           0.01     179328.91  **
+                                                         ** test.uart_tx_8n1_public_pin_oracle                                   PASS     1112920.00           4.62     240693.73  **
+                                                         ** test.timed_shift_burst_invalid_freeze_and_reset                      PASS         300.00           0.00     175200.67  **
+                                                         ** test.timed_shift_burst_trace_matches_semantic_model                  PASS        7737.00           0.07     118480.48  **
+                                                         ** test.shift_trace_matches_semantic_model                              PASS        1427.00           0.01     112632.14  **
+                                                         ** test.shift_invalid_partial_and_reset_fail_closed                     PASS         420.00           0.00     205315.58  **
+                                                         ** test.randomized_trace_matches_reviewed_model                         PASS         840.00           0.01     105154.91  **
+                                                         ** test.invalid_encoding_and_out_of_range_fail_closed                   PASS          80.00           0.00     171108.78  **
+                                                         ** test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery        PASS     1324403.72          13.61      97304.97  **
+                                                         ** test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts      PASS      377865.08           3.98      95036.89  **
+                                                         ** test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload   PASS      120706.05           1.25      96827.81  **
+                                                         ****************************************************************************************************************************
+                                                         ** TESTS=17 PASS=17 FAIL=0 SKIP=0                                                2962539.86          23.68     125102.27  **
+                                                         ****************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

@@ -1,0 +1,101 @@
+{
+  "status": "FAIL",
+  "rung": "ACTUAL_COMPACT_TOP_INTEGRATION",
+  "sources": {
+    "baseline": {
+      "directory": "/workspace/build/spi-phase-integration/attempt-02/variants/baseline/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact": {
+      "directory": "/workspace/build/spi-phase-integration/attempt-02/variants/compact/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "banked": {
+      "directory": "/workspace/build/spi-phase-integration/attempt-02/variants/banked/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "input_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "43ea15021dd98cbf7747ba514ef986c55903720817ddbf899c07a6c42706fe57",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/formal/integration_properties.vh": "b43d52fb58229359e786815142729f6a75dd14ced437427c842fa999d73a60d8",
+    "experiments/spi_phase/formal/legacy_refinement.sv": "b13e10591b1b2ef136408cb39b77cb11f03e732b5da48fac2c7684b7113ac383",
+    "experiments/spi_phase/formal/phase_properties.sv": "8ff643674c7ea44b0a78b88c728afa6a3d201773a49b140568e81ef131df8304",
+    "experiments/spi_phase/formal/public_scenario.sv": "4e8519018a5eedb8c79d6e8ca57260efbf5b2c15b29085c81ebb7094b7f82158",
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "docs/specs/spi-phase-integration.md": "b07eed4973109cd71eb558ae0e7e4733c32c609092dfb87360800b6c0cdc8009"
+  },
+  "generated_sha256": {
+    "inputs/integration_properties.vh": "b43d52fb58229359e786815142729f6a75dd14ced437427c842fa999d73a60d8",
+    "inputs/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "inputs/m1_input_sync.v": "d6c59f7257e2d6b1bf0e356c406f12f63436104d754702fb22343e5ade94ca6b",
+    "inputs/m1_input_sync.v.patch": "e892de5a22e4dcab799877fe1b362f03b3174b58bb687c325ae8c1ef958829a3",
+    "inputs/m1_program_store.v": "ba67dc5a4bc131a133198ae75f9b3408418c37ba729c8a68207d81eb65d65193",
+    "inputs/m1_program_store.v.patch": "1d4d38f55b537ce7aadfd846580efd9d939e5e6562443e8f2ed3b2d5aa5ff591",
+    "inputs/phase_engine.v": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+    "inputs/phase_observer.sv": "3aa2b2171770ca91be0c974ea957fa2238195142938595a7bea91ca9e4004aaa",
+    "inputs/project.v": "7e8a9b5b7bcd97a11ede229216bf32bba9a043a5552642f71a5b4d8490280df0",
+    "inputs/project.v.patch": "236b8229c8e240639f7e9ef7d1f31e19d9fcd2c8db6207aed79d54e55ffcdf51",
+    "inputs/project_drop.v": "a13c3bfb769aa426d55e5d8bdb900e8a933a384121e80d8ea5858d2dd28a4cb1",
+    "inputs/public_scenario.sv": "4e8519018a5eedb8c79d6e8ca57260efbf5b2c15b29085c81ebb7094b7f82158"
+  },
+  "assumptions": {
+    "universal": "initial sampled chip reset only; public pins/enable/reset thereafter arbitrary",
+    "guided": "public serialized four-word kernel; symbolic TX/RX/order; abort cut2..41,kind0..2,enable0/1",
+    "fairness": "none"
+  },
+  "tasks": [
+    {
+      "name": "abort_bmc",
+      "mode": "bmc",
+      "depth": 72,
+      "top": "public_scenario",
+      "defines": "-D ABORT_SCENARIO",
+      "expected": "PASS",
+      "status": "MALFORMED_OR_MISSING",
+      "raw_status": "MISSING",
+      "returncode": 124,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/attempt-02/abort_bmc",
+        "/workspace/build/spi-phase-integration/attempt-02/abort_bmc.sby"
+      ],
+      "seconds": 300.015,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 40,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": []
+    }
+  ],
+  "error": "abort_bmc: MALFORMED_OR_MISSING,exit124; retained logs/witnesses"
+}

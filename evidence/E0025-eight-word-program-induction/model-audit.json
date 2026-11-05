@@ -1,0 +1,98 @@
+{
+  "actual_dut_state_bits": 412,
+  "module_dff_widths": {
+    "m1_data_store": 25,
+    "m1_input_sync": 16,
+    "m1_program_store": 261,
+    "phase_engine": 110,
+    "public_spi": 55,
+    "tt_um_khangelani_protocol_emulator": 0
+  },
+  "check_flavors": {
+    "assert": 82,
+    "assume": 8
+  },
+  "assume_sites": [
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    },
+    {
+      "module": "public_spi",
+      "src": "public_spi.sv:63.17-63.76"
+    }
+  ],
+  "any_values": [
+    [
+      "$anyseq",
+      1
+    ],
+    [
+      "$anyseq",
+      1
+    ],
+    [
+      "$anyconst",
+      8
+    ],
+    [
+      "$anyconst",
+      8
+    ],
+    [
+      "$anyconst",
+      1
+    ]
+  ],
+  "original_public_driver_and_goals": "UNCHANGED",
+  "new_strengthening_assumptions": 0,
+  "preflight_witnesses": 4,
+  "proof": {
+    "status": "PASS",
+    "raw_status": "PASS 0 6",
+    "returncode": 0,
+    "command": [
+      "sby",
+      "-f",
+      "-d",
+      "/workspace/build/spi-program-invariants/final01/program",
+      "/workspace/build/spi-program-invariants/final01/program.sby"
+    ],
+    "seconds": 7.103,
+    "k_induction": true,
+    "induction_step": 9,
+    "last_started_base_step": 11,
+    "failed_assertions": [],
+    "witnesses": []
+  },
+  "proof_budget": {
+    "mode": "prove",
+    "depth": 12,
+    "wall_seconds": 180,
+    "attempts": 1
+  }
+}

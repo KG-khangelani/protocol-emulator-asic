@@ -1,0 +1,79 @@
+{
+  "status": "HARNESS_OR_TOOL_FAILURE",
+  "scope": "ACTUAL_PUBLIC_LOADED_EIGHT_WORD_PROGRAM",
+  "sources": {
+    "baseline": {
+      "directory": "/workspace/build/spi-program-invariants/preflight01/variants/baseline/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact": {
+      "directory": "/workspace/build/spi-program-invariants/preflight01/variants/compact/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "banked": {
+      "directory": "/workspace/build/spi-program-invariants/preflight01/variants/banked/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "input_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/pin_timing.py": "adb1d8142c5e9e8310afd599e6ecfb08db7dad4e81e872fbc7068bf9b094355f",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_pin_qualification.py": "5c3b1ef19b57d6a1214352c6a3c8f50ebcf1e880067728943be20fe40f5a4cff",
+    "experiments/spi_phase/run_program_invariants.py": "cc7f6a405d6d058a9ed2be7c30f7c5ced72834ba5badaf7f8803b13d0ed650ad",
+    "experiments/spi_phase/test_pin_timing.py": "d0086e5d5336ffea0588653311ac9618cc5379473fbfb0ed738e1d1a2e29141f",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "docs/specs/spi-program-invariant-attempt.md": "9ef340e468bf731d0679c12dfa1757a1c4a6b76dfb11d94b483bd8d9dd8be5f4"
+  },
+  "generated_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+    "m1_input_sync.v.patch": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+    "m1_program_store.v": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+    "m1_program_store.v.patch": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+    "phase_engine.v": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+    "program_bindings.vh": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+    "program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "project.v": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+    "project.v.patch": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+    "public_spi.sv": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066"
+  },
+  "proof_budget": {
+    "mode": "prove",
+    "depth": 12,
+    "wall_seconds": 180,
+    "attempts": 1
+  },
+  "assumptions": "E0024 public driver unchanged; symbolic constant TX/RX/order; raw MISO intended bit only at R=27+50j; select_valid otherwise arbitrary",
+  "strengthening": "assertions on actual loaded bytes and complete architectural loop/shift/data state; no added input assumptions",
+  "error": "preflight compilation failed: /workspace/build/spi-program-invariants/preflight01/sim-0-150-105"
+}

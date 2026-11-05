@@ -1,0 +1,17 @@
+[options]
+mode prove
+depth 12
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal phase_engine.v legacy_engine.v legacy_refinement.sv
+prep -top legacy_refinement
+
+[files]
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_engine.v
+/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_refinement.sv
+/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_bindings.vh
+/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_engine.v

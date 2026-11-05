@@ -1,0 +1,381 @@
+{
+  "record": "E0021",
+  "date": "2026-11-03",
+  "prior_head": "463cc1e1c270018b8b63378f057deeeca51d6ee0",
+  "execution": "PASS",
+  "provenance": "MEASURED",
+  "scope": "ISOLATED_EXPERIMENTAL_RTL_CHIP_COMPLETE_GENERIC",
+  "production_promoted": false,
+  "four_mode_spi": "NOT_EVALUATED",
+  "experimental_formal": "NOT_EVALUATED",
+  "physical": "NOT_EVALUATED",
+  "legacy_compatibility": {
+    "baseline": "PASS",
+    "compact": "PASS",
+    "banked": "FAIL"
+  },
+  "measurements": {
+    "baseline": {
+      "primitive_cells": 2793,
+      "state_bits": 410,
+      "cell_types": {
+        "$_ANDNOT_": 103,
+        "$_AND_": 645,
+        "$_MUX_": 389,
+        "$_NAND_": 971,
+        "$_NOR_": 69,
+        "$_NOT_": 7,
+        "$_ORNOT_": 44,
+        "$_OR_": 94,
+        "$_SDFFE_PN0P_": 393,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 43,
+        "$_XOR_": 18
+      }
+    },
+    "compact": {
+      "primitive_cells": 3107,
+      "state_bits": 412,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 766,
+        "$_MUX_": 394,
+        "$_NAND_": 1091,
+        "$_NOR_": 71,
+        "$_NOT_": 11,
+        "$_ORNOT_": 69,
+        "$_OR_": 116,
+        "$_SDFFE_PN0P_": 395,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 47,
+        "$_XOR_": 16
+      }
+    },
+    "banked": {
+      "primitive_cells": 3403,
+      "state_bits": 477,
+      "cell_types": {
+        "$_ANDNOT_": 126,
+        "$_AND_": 889,
+        "$_MUX_": 467,
+        "$_NAND_": 1133,
+        "$_NOR_": 71,
+        "$_NOT_": 9,
+        "$_ORNOT_": 59,
+        "$_OR_": 114,
+        "$_SDFFE_PN0P_": 460,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 42,
+        "$_XOR_": 16
+      }
+    }
+  },
+  "inputs_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "15f5e901578ce5a6322c639c2fab520c731c2b38e239564c8311c99a0ddc426b",
+    "test/test_spi_mode0_public.py": "09d58c11ffcfa2de0c76e8a0ac26d188a26fc940b5a96aeebd1f3561644c9707",
+    "test/test_spi_phase_comparison.py": "811dcff3f3b0eea1dd14a9b15a497cc58e9c39b7183079000244ebf7ca8294bb",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "docs/specs/spi-phase-comparison.md": "ca10e9b8c275fc9728e37196d598527b1245d1687249f59310f7e281bcc0f298"
+  },
+  "production_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "protected_scope_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "info.yaml": "f13f81614c203835eb820677a0ef827c9a0326471d5f493017878cc880a76c2d",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "retained": {
+    "run-result.json": {
+      "source": "build/spi-phase-comparison/attempt-05/result.json",
+      "original_sha256": "9adac5cee5345e5b4cfc410111654fced67e98f5e560027dc7ce08358422d14c",
+      "curated_sha256": "9adac5cee5345e5b4cfc410111654fced67e98f5e560027dc7ce08358422d14c",
+      "normalization": "none"
+    },
+    "source-manifest.json": {
+      "source": "build/spi-phase-comparison/attempt-05/source-manifest.json",
+      "original_sha256": "8583001af679752aa38c30308783baeafcfcf5a8191c7ff364be89d9ab3e0396",
+      "curated_sha256": "8583001af679752aa38c30308783baeafcfcf5a8191c7ff364be89d9ab3e0396",
+      "normalization": "none"
+    },
+    "logs/banked-legacy.log": {
+      "source": "build/spi-phase-comparison/attempt-05/banked-legacy.log",
+      "original_sha256": "467db98c58256ab3f27ea1ef5c88433c59a2944112108f0e3e5efd3f95a077fc",
+      "curated_sha256": "20879be8d5d54b1155953b2f6a1b3b3f2875dca9a11fdde3665d9c4f5321bd73",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/banked-phase-icarus.log": {
+      "source": "build/spi-phase-comparison/attempt-05/banked-phase-icarus.log",
+      "original_sha256": "e1de72a672cfba1757e6f32e3f0715bf46daac878633f002e02eedf43c110452",
+      "curated_sha256": "72dd56defc64a13446d7f513ff88611a2c189635ddddca579f58560b7f4c7a4b",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/banked-phase-verilator.log": {
+      "source": "build/spi-phase-comparison/attempt-05/banked-phase-verilator.log",
+      "original_sha256": "0e20038fd757ded3b3046556cb124d257b8fa4a8d55eda395e81f2f504f81b28",
+      "curated_sha256": "2e5617d1b915a71286bd67ca456d619109d0abe1c9be70b03925c9941077d53f",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/banked-synth.log": {
+      "source": "build/spi-phase-comparison/attempt-05/banked-synth.log",
+      "original_sha256": "1e3845425b53d77915dc4f7f1cb685e27c5bd6fa2be09bdc974baa53814b56a1",
+      "curated_sha256": "fa3c1c4c8314662bf6ad5ce5278a61bcab94441957c73b6e596a4e644c28f8f9",
+      "normalization": "final CHECK/statistics excerpt, LF and trailing-whitespace; full original retained in build/CI"
+    },
+    "logs/baseline-counterexample.log": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline-counterexample.log",
+      "original_sha256": "b7afbaad202e110e0f7fb016d54f182d701895cdd4ba8e23518b416a7863a1bd",
+      "curated_sha256": "12505b8af89ea29bb70fd198959e3558ee9bfa30a6da4c5eac9b403a7e82a0eb",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/baseline-legacy.log": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline-legacy.log",
+      "original_sha256": "de75ee94cf161a559f314066f01c0bc1569578b83e69888e2fb886467689819b",
+      "curated_sha256": "4cc084f65f0059adcf683b581746420b3982d842481306dc7aed4a326910052c",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/baseline-synth.log": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline-synth.log",
+      "original_sha256": "782220261d219dc7a794e2ec13c44679caf80128d03c1b0690a111bd769cfcab",
+      "curated_sha256": "c48a7d5ccacfb35e3bdbddac28fa7f95c19c7f2644385f8f34f52bf0cc5c3ea6",
+      "normalization": "final CHECK/statistics excerpt, LF and trailing-whitespace; full original retained in build/CI"
+    },
+    "logs/compact-legacy.log": {
+      "source": "build/spi-phase-comparison/attempt-05/compact-legacy.log",
+      "original_sha256": "a1926e74baf8195b33a22f46e26d9f3a02412d0ceaffde3399668f74e7a11979",
+      "curated_sha256": "805b5cc0012b89ab89bd0495fadc626a2918073b8c23f680bb3ab4d642f863e5",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/compact-phase-icarus.log": {
+      "source": "build/spi-phase-comparison/attempt-05/compact-phase-icarus.log",
+      "original_sha256": "17f2dbf8e8cf0e95f132ef13f719bde6314c13538b982065089f054093a26d22",
+      "curated_sha256": "dc3887322e9bfb1a5138ded91e27556b67ae3f8a02e27ad4aacbf22b8134a773",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/compact-phase-verilator.log": {
+      "source": "build/spi-phase-comparison/attempt-05/compact-phase-verilator.log",
+      "original_sha256": "58f60ebade00e6fa07c8d95d2f7bfcc9cfeda8732f08f59054ddb9327242e72a",
+      "curated_sha256": "0c077381ddc5305ea6846d9cbbb4b0ea0bae4ab62a3041b6bac7e5271010a22a",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "logs/compact-synth.log": {
+      "source": "build/spi-phase-comparison/attempt-05/compact-synth.log",
+      "original_sha256": "6c57747184cfbc4ec98ddc974af45157d77199f6aa532b9a44de875dd78d455a",
+      "curated_sha256": "26fef6a4e291944509b79459ae71470bc3055b96c41a7d4745186dc4b551b7ce",
+      "normalization": "final CHECK/statistics excerpt, LF and trailing-whitespace; full original retained in build/CI"
+    },
+    "logs/reference.log": {
+      "source": "build/spi-phase-comparison/attempt-05/reference.log",
+      "original_sha256": "afe089ea94f4176070dfb3be9a9aefcf30e760355097faf900eb97e081d18328",
+      "curated_sha256": "afe089ea94f4176070dfb3be9a9aefcf30e760355097faf900eb97e081d18328",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/baseline-counterexample.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline/counterexample.xml",
+      "original_sha256": "37fe555f67c5a79870dbb2f26c554924db508e7fa8f162640c37a020608db59c",
+      "curated_sha256": "4588cd2215504180ec7f40476f3dbd8b4e093a50634ab979fc133affd64941df",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/baseline-legacy.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline/legacy.xml",
+      "original_sha256": "36d1af75b2379b93e2badfcff74e1bde434d34eaf2eb11429f70a397fcf1013a",
+      "curated_sha256": "edec9f95f5e99d8dbbffee7011982da5ed8081fc0221737cde82c172aebb7a03",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "patches/baseline.patch.json": {
+      "source": "build/spi-phase-comparison/attempt-05/baseline/source.patch",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "curated_sha256": "ca3b37b5701a8f06b2f3c8aabcc8d4360a42f4a1f2568d953b0439b9426e94ef",
+      "normalization": "JSON-escaped exact patch; decode patch field before applying"
+    },
+    "junit/compact-legacy.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/compact/legacy.xml",
+      "original_sha256": "5a3f7789d41287cd68239022ab4f29c18146981415c06be193882a73c55186c9",
+      "curated_sha256": "b4fbfb61e519ab24726744b27b06966822deeda1beed65d7c5ea8df32d4c2d18",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/compact-phase-icarus.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/compact/phase-icarus.xml",
+      "original_sha256": "f5f6378203b934b9e29d66560396f12c4fc20fc9f42d23731204efc6609fed1c",
+      "curated_sha256": "a06839f2cb61f7d5da663fbab44e9e556c72f2b4f458c9ec810a87b20ef69787",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/compact-phase-verilator.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/compact/phase-verilator.xml",
+      "original_sha256": "68584fa66c33ea8b749116e8e82eba4cf92c81153ac8dfe17c08f8364e007b66",
+      "curated_sha256": "823c68d6d519bf5cf08d8aeea3399e41f33df551ddc2cc6cd5f4199554f95757",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "patches/compact.patch.json": {
+      "source": "build/spi-phase-comparison/attempt-05/compact/source.patch",
+      "original_sha256": "9e8645070f5cb0d576ec4be76e2a88d8ba57fd244b79a9123eab9c045e615d08",
+      "curated_sha256": "d82b3c5a66af7d5d949753de6df8982b205958dc1a8455bec8dd0ddce27e3602",
+      "normalization": "JSON-escaped exact patch; decode patch field before applying"
+    },
+    "junit/banked-legacy.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/banked/legacy.xml",
+      "original_sha256": "8fb48594936e3e18ecc3328421a8d0e0f71d2ba494d38618c02ff11e0c395b38",
+      "curated_sha256": "83ba95c78935e67cef87b66f2253827c70013aa7dbe47d70fe64b118d8078592",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/banked-phase-icarus.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/banked/phase-icarus.xml",
+      "original_sha256": "acc8ce0cbec9cb87bc300e4fdc7c888cfebf4acccc7ae32445800a2c844b25c7",
+      "curated_sha256": "27f3d486086bb0fd10480ce2d3b469d017eb8e0fb7e5372b0bc9811f234386e5",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "junit/banked-phase-verilator.xml": {
+      "source": "build/spi-phase-comparison/attempt-05/banked/phase-verilator.xml",
+      "original_sha256": "411e4d33f2e29d20279ddb6082d324d668e8d4ba9deda4741094ae194b02bb81",
+      "curated_sha256": "d2f87931b48e3ef96beb56eb17407a29fa9d1d965cb7993fd3bca8451a48b155",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "patches/banked.patch.json": {
+      "source": "build/spi-phase-comparison/attempt-05/banked/source.patch",
+      "original_sha256": "62a5a0337be679aea7517290285c00f65026ea9b7a1d232ac80eea28782c33ee",
+      "curated_sha256": "8600ba76aa15bfab327381fdb9ba8dddbd0ef7d9ff04fd7f18618cff3a3e0a1b",
+      "normalization": "JSON-escaped exact patch; decode patch field before applying"
+    },
+    "failures/attempt-01.json": {
+      "source": "build/spi-phase-comparison/attempt-01/result.json",
+      "original_sha256": "fe2893e7744f4422dd46476031c7218d15f1c74df72a724917eae9779227cff8",
+      "curated_sha256": "fe2893e7744f4422dd46476031c7218d15f1c74df72a724917eae9779227cff8",
+      "normalization": "none"
+    },
+    "failures/attempt-01.log": {
+      "source": "build/spi-phase-comparison/attempt-01/compact-phase-icarus.log",
+      "original_sha256": "88f6273a6c263da7853e4f45ce165cf9fb69f8ce4937f62350540dd4b342d01b",
+      "curated_sha256": "738b33715474100750d3d8e915b3e8198bb18d4dd15c28bc6cfbebe4d8618d21",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "failures/attempt-02.json": {
+      "source": "build/spi-phase-comparison/attempt-02/result.json",
+      "original_sha256": "8fe02afa11a1c4a4ba9d0f66402b36e7a95075850a339d808762f61c852f92ac",
+      "curated_sha256": "8fe02afa11a1c4a4ba9d0f66402b36e7a95075850a339d808762f61c852f92ac",
+      "normalization": "none"
+    },
+    "failures/attempt-02.log": {
+      "source": "build/spi-phase-comparison/attempt-02/compact-phase-icarus.log",
+      "original_sha256": "28d3868e5172a6d6d81a3ed4d3b2f0a8d5a40bffe38db3d607b879e55d2f2e6f",
+      "curated_sha256": "2d470e7b209dbe310edb44ea05d4d8e614be9311f7ede21488c4c10174a94773",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "failures/attempt-03.json": {
+      "source": "build/spi-phase-comparison/attempt-03/result.json",
+      "original_sha256": "70320b1c49f6684c31f605acef87238ad3a74a258d66891aee2a5c8173803514",
+      "curated_sha256": "70320b1c49f6684c31f605acef87238ad3a74a258d66891aee2a5c8173803514",
+      "normalization": "none"
+    },
+    "failures/attempt-03.log": {
+      "source": "build/spi-phase-comparison/attempt-03/compact-phase-icarus.log",
+      "original_sha256": "61498e9d4809f9bcb981844e1043036a6138e210c15ee12b7118a66715fe7816",
+      "curated_sha256": "32363e290e9111ae22004f7b99b81075e7c1d3baf21a71cda52e448a2512dcf9",
+      "normalization": "LF and trailing-whitespace only"
+    },
+    "failures/attempt-04.json": {
+      "source": "build/spi-phase-comparison/attempt-04/result.json",
+      "original_sha256": "36e65ff447550bd5f7e3f82001880b56ed8c88a2294839863ce1c3c6947446e5",
+      "curated_sha256": "36e65ff447550bd5f7e3f82001880b56ed8c88a2294839863ce1c3c6947446e5",
+      "normalization": "none"
+    },
+    "failures/attempt-04.log": {
+      "source": "build/spi-phase-comparison/attempt-04/compact-phase-verilator.log",
+      "original_sha256": "c0911cacde1f96ef1c45215838720c270e70b16db5fc98f0debe5e0dea62d62d",
+      "curated_sha256": "c0911cacde1f96ef1c45215838720c270e70b16db5fc98f0debe5e0dea62d62d",
+      "normalization": "LF and trailing-whitespace only"
+    }
+  },
+  "tools": {
+    "image": "protocol-emulator-asic-workbench:2026-07-29",
+    "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "yosys": "0.67+111",
+    "icarus": "14.0 devel",
+    "verilator": "5.051 devel",
+    "cocotb": "2.0.1",
+    "check_python": "3.11.16",
+    "embedded_python": "3.11.9"
+  },
+  "capacity": {
+    "baseline": {
+      "words": 8,
+      "program_bits": 256
+    },
+    "compact": {
+      "words": 8,
+      "program_bits": 256
+    },
+    "banked": {
+      "words": 10,
+      "program_bits": 320,
+      "bank_bits": 1
+    }
+  },
+  "cycles": {
+    "all_halt": 403,
+    "phase_rx_capture": 379,
+    "legacy_rx_capture": 376
+  },
+  "attempts": [
+    {
+      "id": "initial-probe",
+      "result": "FAIL",
+      "reason": "Icarus declaration-before-use elaboration error; generated failed source remains under ignored probe/",
+      "retained_raw_log": false
+    },
+    {
+      "id": "attempt-01",
+      "result": "FAIL",
+      "reason": "locked vvp wrapper replaces PYTHONPATH; experimental test module not found"
+    },
+    {
+      "id": "attempt-02",
+      "result": "FAIL",
+      "reason": "make PYTHONPATH override also replaced by vvp wrapper"
+    },
+    {
+      "id": "probe3",
+      "result": "PASS",
+      "reason": "four compact Icarus groups after explicit repository-root module bootstrap"
+    },
+    {
+      "id": "attempt-03",
+      "result": "FAIL",
+      "reason": "all four selected phase groups pass, but fourteen bootstrap-module tests appear as skipped; strict JUnit runner rejects them"
+    },
+    {
+      "id": "attempt-04",
+      "result": "FAIL",
+      "reason": "Icarus four groups pass, Verilator rejects four implicit-width feature-parameter warnings; corrected to explicit one-bit parameter without suppressing warnings"
+    },
+    {
+      "id": "probe5",
+      "result": "PASS",
+      "reason": "compact four groups pass on Verilator with warnings fatal; banked Icarus probe recorded separately"
+    },
+    {
+      "id": "attempt-05",
+      "result": "PASS",
+      "reason": "frozen runner completes entire predeclared comparison"
+    }
+  ]
+}

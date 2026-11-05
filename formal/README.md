@@ -3,6 +3,14 @@
 The active `make formal` target checks the M1 engine. Historical M0 proof files
 and retained E0007 evidence remain available and are not rewritten.
 
+The isolated compact phase candidate has a separate runner,
+`python3 experiments/spi_phase/run_formal.py`, and a precise
+[assumption/property contract](../docs/specs/spi-phase-formal.md). It uses copied
+RTL under ignored build/, proves phase properties and legacy refinement, and
+retains bounded covers plus expected-failing mutations. Formal-only flag
+readouts have a mechanically checked inverse transform. These jobs do not change
+the production target below or qualify complete SPI/physical timing.
+
 ## M1 active suite
 
 `m1_engine_formal.sv` proves sampled reset priority, enable and terminal-state

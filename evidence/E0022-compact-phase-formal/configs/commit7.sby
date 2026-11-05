@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 20
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal commit7.v phase_properties.sv
+prep -top phase_properties
+
+[files]
+/workspace/build/spi-phase-formal/attempt-05/inputs/commit7.v
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_properties.sv
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_bindings.vh

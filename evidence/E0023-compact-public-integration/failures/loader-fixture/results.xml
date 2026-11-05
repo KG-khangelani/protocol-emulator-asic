@@ -1,0 +1,17 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793736629" />
+    <testcase name="public_capture_visibility_and_all_payloads" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="89" time="0.007993936538696289" sim_time_ns="397.003" ratio_time="49663.01622213606">
+      <failure error_type="AssertionError" error_msg="assert (0, 0) == (255, 0)" />
+    </testcase>
+    <testcase name="public_abort_all_cuts_and_enable_priority" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="100" time="0.005225419998168945" sim_time_ns="397.00299999999993" ratio_time="75975.328325592">
+      <failure error_type="AssertionError" error_msg="assert (0, 0) == (150, 0)" />
+    </testcase>
+    <testcase name="old_result_survives_loader_abort_and_payload_invalidates" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="115" time="0.004060506820678711" sim_time_ns="397.00299999999993" ratio_time="97771.78503387938">
+      <failure error_type="AssertionError" error_msg="assert (0, 0) == (150, 0)" />
+    </testcase>
+    <testcase name="public_reset_erases_storage_and_loader_owns_read_bus" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="141" time="0.0038383007049560547" sim_time_ns="397.00300000000016" ratio_time="103431.96912305117">
+      <failure error_type="AssertionError" error_msg="assert (0, 0) == (165, 0)" />
+    </testcase>
+  </testsuite>
+</testsuites>

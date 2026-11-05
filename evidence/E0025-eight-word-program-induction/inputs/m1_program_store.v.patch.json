@@ -1,0 +1,3 @@
+{
+  "patch": "--- compact/m1_program_store.v\n+++ formal/m1_program_store.v\n@@ -8,10 +8,11 @@\n     input wire [4:0] pc,\n     output reg [7:0] data_out, output reg [3:0] program_length,\n     output reg program_ready, output reg [31:0] instruction,\n-    output wire instruction_valid\n+    output wire instruction_valid, output wire [255:0] formal_program_bits\n );\n     reg [31:0] word0, word1, word2, word3;\n     reg [31:0] word4, word5, word6, word7;\n+    assign formal_program_bits={word7,word6,word5,word4,word3,word2,word1,word0};\n     wire length_valid = (data_in[7:4] == 4'd0) &&\n                         (data_in[3:0] >= 4'd1) && (data_in[3:0] <= 4'd8);\n \n"
+}

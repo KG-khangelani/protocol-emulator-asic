@@ -1,0 +1,8 @@
+read_verilog -formal -sv /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/project.v /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_engine.v /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_program_store.v /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_data_store.v /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/m1_input_sync.v /workspace/build/spi-mode0-pins/sat-probe04/public_spi.sv
+prep -top public_spi -flatten
+async2sync
+chformal -lower
+synth -top public_spi -flatten -noabc
+dffunmap
+opt_clean
+sat -seq 444 -set-assumes -prove-asserts -verify -timeout 90 -show-public -dump_vcd /workspace/build/spi-mode0-pins/sat-probe04/trace.vcd -dump_json /workspace/build/spi-mode0-pins/sat-probe04/trace.json

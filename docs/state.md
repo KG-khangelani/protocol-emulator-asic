@@ -1,12 +1,18 @@
 # Current state
 
-Updated: 2026-10-14. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-03. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M2-T01 bounded UART receive/public readback**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
+PR9 was merged on 2026-10-14 at `ae13f6bfcfd3fe21cd937768bc9e1151f441379c`.
+Its three post-merge workflows passed, including 18 source/model and 15 Chromium
+checks; the exact integration record is on
+[PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+The following October checkpoints are historical. This SPI slice changes no
+visualizer source/data and claims no fresh local browser or device-access pass.
 The bounded app candidate was delivered at `2160aeb` on 2026-10-05. Its original
 build, 16 source/model and 13 Chromium results remain historical in
 [UI0001](../evidence/UI0001-protocol-atlas/README.md) and its
@@ -19,7 +25,8 @@ source fixtures pass 11/11; the production build, six focused Chromium cases
 four views at desktop/mobile sizes pass. Initial failures are retained; see the
 [dated smoke record](../evidence/UI0001-protocol-atlas/smoke-20261014.json).
 The owner authorized publication of the pending documentation and guard fixes
-into existing draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9).
+into then-draft [PR9](https://github.com/KG-khangelani/protocol-emulator-asic/pull/9),
+which was subsequently explicitly authorized and merged.
 The published head and fresh remote CI outcomes are tracked there; local passes
 do not qualify a remote head. A local production preview was checked on
 KhanCreate; access from the user's own device remains unverified. This is UI
@@ -30,6 +37,59 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0025 resolves E0024's written actual eight-word normal-transaction claim by
+  k-induction with proved loading/per-loop state invariants. The real loader,
+  all256 program bits, data store, synchronizer and executor remain in the
+  model; no input assumption is added and the original public driver/goals
+  are preserved. One depth12/180s local attempt passes at induction step9,
+  with base0..11. Four finite preflight witnesses pass after a retained generated
+  declaration-order correction. D26 distinguishes this proof from bounded
+  tests, formal covers, arbitrary firmware and physical/full-SPI qualification.
+  E0024's timeouts remain unchanged historical INCONCLUSIVE observations.
+- E0024 checks the actual public-loaded compact eight-word mode-0 program
+  against independent external-pin timing expectations. Both simulators pass
+  the original response envelope and a separately labelled ideal digital
+  aperture/noise envelope. The actual synchronizer's scheduled transport rules
+  pass induction; this is not a firmware/loader proof. Direct/reduced444-step
+  full-chip SAT attempts time out and remain INCONCLUSIVE. D25 keeps these
+  boundaries separate. An all-ones control exposed and repaired only the
+  experimental acceptance guard's missing response-deadline check. Candidate
+  and production RTL remain unchanged; no full-SPI/physical/learning promotion.
+- E0023 qualifies the actual compact-copy public loader, program/data stores,
+  synchronizer and executor together. Induction proves written integration
+  safety with only initial chip reset; publicly loaded symbolic-byte witnesses
+  check completion and final-capture-edge abort. Dual-simulator tests cover all
+  40 abort cuts, old-result retention and reset/readback. Loader entry resets
+  execution but preserves an old completed RX/valid; payload writes invalidate
+  valid only, and chip reset erases storage. D24 retains a timeout, fixture error
+  and expected falsification witnesses. Candidate and production are unchanged;
+  no complete-SPI/physical/learning promotion follows. Exact-head CI is on PR11.
+- E0022 proves written compact-executor phase properties by k-induction
+  (configured depth8, successful step6) and legacy-only refinement (depth12,
+  step10), assuming an initial sampled reset and the stated legacy fetch
+  exclusion. All10 phase/3 legacy covers are reachable within depth40; two
+  deliberate mutants retain expected FAIL counterexamples at steps4/14. No
+  candidate or production RTL change was needed. D23 keeps this partial core
+  qualification separate from integrated-chip, complete-SPI and physical claims.
+  Initial UNKNOWN/status-parser failure and all witnesses remain in E0022.
+- E0021 implements isolated compact and ten-word/banked phase candidates under
+  the unchanged external oracle. Both pass four groups per simulator, including
+  519 public-loaded transactions each. Whole-chip generic counts are baseline
+  2,793 cells/410 bits, compact 3,107/412 and banked 3,403/477. Compact retains
+  eight words and passes all 17 legacy groups; banked passes 16 and retains the
+  declared length-nine compatibility failure. D22 selects compact for formal
+  qualification, with production `src/` unchanged. Earlier failures and E0020's
+  counterexample remain retained. Draft PR11 tracks new exact-head CI; no merge
+  or four-mode/physical/learning promotion follows from this comparison.
+- The 2026-11-03 continuation freezes a partial SPI host mode-0 contract and
+  independent waveform oracle without importing PR8. Public-pin-loaded
+  eight-word schedules generate exact 1 MHz-target SCK/CS/MOSI, but the late
+  schedule reads `0xb4` instead of target `0x69` at a declared response with
+  55 ns input setup. Icarus and Verilator reproduce this; the broad seed
+  hypothesis is FAIL, not a full-SPI PASS. An isolated DRIVE/SAMPLE reference
+  handles the latest response in the same 403 edges but uses ten words; the
+  real eight-word/five-bit-byte-address loader rejects that capacity. E0020
+  retains the counterexample, focused checks and reference-only cost limits.
 - Official CMOS5L template retrieved; all 22 imported file blobs verified.
 - Local Git `main` initialized with template import history.
 - Public GitHub repository released after E0004 audit: https://github.com/KG-khangelani/protocol-emulator-asic
@@ -244,9 +304,19 @@ efficiently express useful digital communication protocols under hard temporal c
   Private concept/reference assets remain excluded, and UI delivery does not
   establish chip evidence or access from an unverified user device.
 - [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
-  separate draft/unmerged host-service candidate. This documentation branch
-  starts from main `155e130` and imports no PR8 code/evidence; no merge or SPI
-  work is authorized by this increment.
+  separate draft/unmerged host-service candidate. This simulation branch starts
+  from merged main `ae13f6b` and imports no PR8 code/evidence. The November
+  continuation authorizes the independent SPI comparison and isolated capacity
+  prototypes, not PR8 integration, compiler work or production RTL promotion.
+- The tested production coupled-shift SPI schedules do not cover the declared
+  response envelope. E0021's experimental compact and banked candidates are
+  publicly loadable in simulation and have measured generic complete-chip
+  costs, but production still has the original eight-word store/ISA. Technology-
+  mapped costs and physical timing remain NOT_EVALUATED; E0022 supplies partial
+  core properties/refinement and E0023 written actual-top integration safety.
+  See [E0022](../evidence/E0022-compact-phase-formal/README.md). Four-mode SPI and
+  I2C remain unqualified. The open M0 issue still has stale technical checklist
+  items; archived physical closure is not rerun or owner-fluency evidence.
 
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
@@ -258,13 +328,13 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Supporting UI: review existing draft PR9, its exact published head and fresh
-  CI outcomes tracked there. Retain the dated local smoke record and earlier
-  failure history; merge/deployment and broader browser coverage remain separate.
-- Engineering: keep PR8 draft/deferred until a separate integration decision.
-  Its host-service work is not merged into this branch. Preserve scoped
-  workload/physical limits; no new storage, protocol or physical result is
-  claimed by design documentation.
+- Engineering: independently test the actual-program proof's property/input
+  sensitivity and known bad firmware/reachability, building on E0025 induction.
+  E0024's direct timeouts remain inconclusive historical observations.
+  Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
+  Retain the no-RTL faster-target option and E0020's failed broader envelope.
+- Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
+  next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
   fluency from engineering progress.
 
@@ -273,7 +343,9 @@ efficiently express useful digital communication protocols under hard temporal c
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
-UART receive delivery, SPI and I2C remain unevaluated;
+UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
+phase/capacity comparison is measured only in isolated experimental RTL;
+E0022 proves written executor properties/refinement under its stated assumptions;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

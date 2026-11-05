@@ -1,0 +1,38 @@
+make: Entering directory '/workspace/test'
+rm -f ../build/spi-mode0-20261103/results-icarus-final.xml
+"make" -f Makefile ../build/spi-mode0-20261103/results-icarus-final.xml
+make[1]: Entering directory '/workspace/test'
+rm -f ../build/spi-mode0-20261103/results-icarus-final.xml
+COCOTB_TEST_MODULES=test_spi_mode0_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   ../build/spi-mode0-20261103/icarus/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1793727319
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample (1/2)
+  8833.00ns INFO     cocotb.tb                          SPI seed order=1 response_q=1 late=True target=69 raw=69 HALT=403
+ 17666.01ns INFO     cocotb.tb                          SPI seed order=1 response_q=88 late=True target=69 raw=69 HALT=403
+ 26499.01ns INFO     cocotb.tb                          SPI seed order=1 response_q=89 late=True target=69 raw=b4 HALT=403
+ 35332.01ns INFO     cocotb.tb                          SPI seed order=1 response_q=96 late=True target=69 raw=b4 HALT=403
+ 44165.01ns INFO     cocotb.tb                          SPI seed order=0 response_q=1 late=True target=69 raw=69 HALT=403
+ 52998.02ns INFO     cocotb.tb                          SPI seed order=0 response_q=89 late=True target=69 raw=d3 HALT=403
+ 61831.02ns INFO     cocotb.tb                          SPI seed order=1 response_q=1 late=False target=69 raw=b4 HALT=403
+ 70664.02ns INFO     cocotb.tb                          SPI seed order=1 response_q=1 late=True target=00 raw=00 HALT=403
+ 79497.03ns INFO     cocotb.tb                          SPI seed order=1 response_q=1 late=True target=aa raw=aa HALT=403
+ 88330.03ns INFO     cocotb.tb                          SPI seed order=1 response_q=96 late=True target=ff raw=ff HALT=403
+ 88330.03ns INFO     cocotb.regression                  test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample passed
+ 88330.03ns INFO     cocotb.regression                  running test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary (2/2)
+100596.04ns INFO     cocotb.tb                          SPI seed order=1 response_q=1 late=True target=96 raw=96 HALT=403
+100637.04ns INFO     cocotb.regression                  test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary passed
+100637.04ns INFO     cocotb.regression                  *******************************************************************************************************************************
+                                                        ** TEST                                                                   STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************************************
+                                                        ** test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample   PASS       88330.03           1.18      74638.88  **
+                                                        ** test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary      PASS       12307.01           0.19      64975.25  **
+                                                        *******************************************************************************************************************************
+                                                        ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                      100637.04           1.39      72275.94  **
+                                                        *******************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

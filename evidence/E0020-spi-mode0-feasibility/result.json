@@ -1,0 +1,168 @@
+{
+  "record": "E0020",
+  "date": "2026-11-03",
+  "base_head": "ae13f6bfcfd3fe21cd937768bc9e1151f441379c",
+  "rungs": [
+    "REFERENCE_EXECUTION",
+    "FOCUSED_PUBLIC_PIN_RTL"
+  ],
+  "qualification": {
+    "eight_word_response_envelope": "FAIL",
+    "conditional_fast_response": "PASS_SCOPED",
+    "split_phase": "PASS_REFERENCE_ONLY_NOT_IMPLEMENTED",
+    "P-SPI-HOST-4MODE": "NOT_EVALUATED",
+    "physical": "NOT_EVALUATED"
+  },
+  "tested_source_sha256": {
+    "Makefile": "fff34254ccc75540d56b942032130f7d55cd688d8b9747728c4adc94ad440635",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test_spi_mode0_oracle.py": "9b02e39bfb81aa7aa68bdf5fa52d5eeb655e2825d116d3c831b814ffab0a3f83",
+    "test/test_spi_mode0_public.py": "09d58c11ffcfa2de0c76e8a0ac26d188a26fc940b5a96aeebd1f3561644c9707",
+    "test/test_waveform_provenance.py": "c00754846a69d9c6fdd50ae69e52499958c6ae398bb20ef92bd2e0543c886795",
+    "tools/check_waveform_provenance.py": "5a4c02b111410e55ca5692d1f3feb554acc2192efdfa22fd053b87a73955bb86",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b"
+  },
+  "unchanged_source_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "info.yaml": "f13f81614c203835eb820677a0ef827c9a0326471d5f493017878cc880a76c2d",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "protected_scope_diff_vs_base": "EMPTY: src, web, info.yaml and learning record",
+  "doctor": {
+    "result": "PASS",
+    "image": "protocol-emulator-asic-workbench:2026-07-29",
+    "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "pull_or_image_build": false
+  },
+  "tools": {
+    "host_python": "3.14.6",
+    "doctor_check_python": "3.11.16",
+    "cocotb_embedded_python": "3.11.9",
+    "cocotb": "2.0.1",
+    "icarus": "14.0 devel",
+    "verilator": "5.051 devel",
+    "node": "24.18.0"
+  },
+  "check": {
+    "result": "PASS",
+    "python_cases": {
+      "m1": 18,
+      "uart_rx": 3,
+      "spi_mode0": 6,
+      "waveform_provenance": 4
+    },
+    "log": "logs/check.log"
+  },
+  "model_enumeration": {
+    "bit_orders": 2,
+    "rx_values_per_order": 256,
+    "late_coupled_d1_wrong_per_order": 0,
+    "late_coupled_d89_wrong_per_order": 255,
+    "split_d96_wrong_per_order": 0,
+    "role": "falsification plus conditional/reference checks, not four-mode qualification"
+  },
+  "focused_rtl": {
+    "icarus": {
+      "result": "PASS",
+      "groups": 2,
+      "failures": 0,
+      "skipped": 0,
+      "junit": "focused-icarus.xml",
+      "sha256": "f71e0f6687092dbf8a81062f5e438ebad27c81e1f2bd41ba89527629fafc00fb",
+      "scope": "filtered public-pin tests, not the full RTL regression"
+    },
+    "verilator": {
+      "result": "PASS",
+      "groups": 2,
+      "failures": 0,
+      "skipped": 0,
+      "junit": "focused-verilator.xml",
+      "sha256": "63c852aaa077cd91325547410a1bb979144a9e809445b1d8ba76593f3b074ab9",
+      "scope": "filtered public-pin tests, not the full RTL regression"
+    }
+  },
+  "counterexample": {
+    "path": "counterexample.json",
+    "sha256": "f333e3ae601d9dd518b4cf7fe0c5ba02724d4d57ccd21a748db154cc9a4c4479",
+    "reproduced_by": [
+      "independent mathematical predictor",
+      "existing semantic model",
+      "Icarus public pins",
+      "Verilator public pins"
+    ]
+  },
+  "reference_cost": {
+    "rung": "REFERENCE_ONLY",
+    "coupled_words": 8,
+    "split_words": 10,
+    "word_bits": 32,
+    "trace_verified_accepted_edges_each": 403,
+    "coupled_capture": [
+      [
+        376,
+        180
+      ]
+    ],
+    "split_capture": [
+      [
+        379,
+        105
+      ]
+    ],
+    "extra_reference_fields": [
+      "prepared"
+    ],
+    "real_store_words": 8,
+    "real_loader_byte_address_bits": 5,
+    "split_required_byte_address_bits": 6,
+    "additional_program_bits_if_expanded": 64,
+    "gate_area_timing_cost": "NOT_EVALUATED"
+  },
+  "cost_limits": [
+    "No encoding selected",
+    "No synthesized phase-extension cell count, mapped area or timing",
+    "Additional 64 program bits omit loader bank/address/control logic",
+    "One prepared reference field is not a minimum-state proof",
+    "Legacy/new shift interoperation and backward-compatible encoding are outside the reference contract"
+  ],
+  "visualizer_data_check": "PASS, checked dataset unchanged",
+  "final_no_dump_interface": "COCOTB_PLUSARGS=+NO_DUMP",
+  "preserved_trace_sha256": "4c7b262a50e30882c7678058138be240077375d99ddc18978da072b6697d2569",
+  "preserved_trace_role": "initial filtered VCD only, NOT full RTL evidence",
+  "log_sha256": {
+    "logs/check.log": "b28719dff813f15a278c223a6de4e580328a877f4049da6c125ab166e4c2ecdc",
+    "logs/icarus-focused.log": "608ffd85a9dac7c28667a1840fc96ff06e6017ecd2ef4e5f67073fe7509f68cb",
+    "logs/initial-isolation-error.log": "6bddddca7a5c43d24b8c0d153222cf50d3f722e3d52990464bd861841494656c",
+    "logs/verilator-focused.log": "8fdfa0158d8607690ee9c3dc6ac47769cb9c0c8cd2743195c8c7713eb19c448b"
+  },
+  "remote_qualification": "Exact published draft-PR head and remote runs are tracked on the draft PR; not inferred from local results",
+  "not_run_locally": [
+    "full RTL regression",
+    "HDL formal",
+    "generic synthesis",
+    "frontend build/browser",
+    "physical/FPGA/silicon"
+  ],
+  "scope_deferrals": [
+    "PR8",
+    "compiler",
+    "production RTL/ISA/storage changes",
+    "owner-fluency promotion",
+    "security/deployment/hardware changes"
+  ],
+  "log_normalization": "LF and trailing whitespace only; outcomes and messages unchanged",
+  "raw_log_sha256": {
+    "build/spi-mode0-20261103/raw-logs/check.log": "b28719dff813f15a278c223a6de4e580328a877f4049da6c125ab166e4c2ecdc",
+    "build/spi-mode0-20261103/raw-logs/icarus-focused.log": "ae996efc0440b5127511d5b20381b8c22bb1b198a48be0c9529d1213d3912abe",
+    "build/spi-mode0-20261103/raw-logs/initial-isolation-error.log": "c15259b33cd98bafb3df39eaefe95fbd19c8560a9099a0a0ee7944117d7ee740",
+    "build/spi-mode0-20261103/raw-logs/verilator-focused.log": "64ef34d4c65e1458941fb85687600ee6c3701f16673e7f59efca6c25326507f7"
+  }
+}

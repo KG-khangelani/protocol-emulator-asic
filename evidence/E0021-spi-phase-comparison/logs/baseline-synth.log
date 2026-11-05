@@ -1,0 +1,156 @@
+8. Executing CHECK pass (checking for obvious problems).
+Checking module m1_input_sync...
+Checking module m1_data_store...
+Checking module m1_program_store...
+Checking module m1_engine...
+Checking module tt_um_khangelani_protocol_emulator...
+Found and reported 0 problems.
+
+9. Printing statistics.
+
+=== m1_input_sync ===
+
+        +----------Local Count, excluding submodules.
+        |
+        5 wires
+       26 wire bits
+        5 public wires
+       26 public wire bits
+        4 ports
+       18 port bits
+       16 cells
+       16   $_SDFF_PN0_
+
+=== m1_data_store ===
+
+        +----------Local Count, excluding submodules.
+        |
+       65 wires
+      111 wire bits
+       14 public wires
+       60 public wire bits
+       14 ports
+       60 port bits
+       84 cells
+        2   $_ANDNOT_
+       19   $_AND_
+       33   $_NAND_
+        3   $_NOR_
+        1   $_ORNOT_
+        1   $_OR_
+       24   $_SDFFE_PN0P_
+        1   $_SDFFE_PP0P_
+
+=== m1_program_store ===
+
+        +----------Local Count, excluding submodules.
+        |
+     1366 wires
+     1670 wire bits
+       22 public wires
+      326 public wire bits
+       14 ports
+       70 port bits
+     1646 cells
+       20   $_ANDNOT_
+      409   $_AND_
+      256   $_MUX_
+      678   $_NAND_
+       13   $_NOR_
+        8   $_ORNOT_
+      261   $_SDFFE_PN0P_
+        1   $_XNOR_
+
+=== m1_engine ===
+
+        +----------Local Count, excluding submodules.
+        |
+      921 wires
+     1158 wire bits
+       59 public wires
+      288 public wire bits
+       34 ports
+      179 port bits
+     1003 cells
+       78   $_ANDNOT_
+      214   $_AND_
+      101   $_MUX_
+      258   $_NAND_
+       51   $_NOR_
+        6   $_NOT_
+       35   $_ORNOT_
+       92   $_OR_
+      108   $_SDFFE_PN0P_
+       42   $_XNOR_
+       18   $_XOR_
+
+=== tt_um_khangelani_protocol_emulator ===
+
+        +----------Local Count, excluding submodules.
+        |
+       70 wires
+      278 wire bits
+       53 public wires
+      261 public wire bits
+        8 ports
+       43 port bits
+       44 cells
+        3   $_ANDNOT_
+        3   $_AND_
+       32   $_MUX_
+        2   $_NAND_
+        2   $_NOR_
+        1   $_NOT_
+        1   $_OR_
+        4 submodules
+        1   m1_data_store
+        1   m1_engine
+        1   m1_input_sync
+        1   m1_program_store
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |
+     2793 tt_um_khangelani_protocol_emulator
+       84 m1_data_store
+     1003 m1_engine
+       16 m1_input_sync
+     1646 m1_program_store
+
+        +----------Count including submodules.
+        |
+     2427 wires
+     3243 wire bits
+      153 public wires
+      961 public wire bits
+       74 ports
+      370 port bits
+        - memories
+        - memory bits
+        - processes
+     2793 cells
+      103   $_ANDNOT_
+      645   $_AND_
+      389   $_MUX_
+      971   $_NAND_
+       69   $_NOR_
+        7   $_NOT_
+       44   $_ORNOT_
+       94   $_OR_
+      393   $_SDFFE_PN0P_
+        1   $_SDFFE_PP0P_
+       16   $_SDFF_PN0_
+       43   $_XNOR_
+       18   $_XOR_
+        4 submodules
+        1   m1_data_store
+        1   m1_engine
+        1   m1_input_sync
+        1   m1_program_store
+
+10. Executing JSON backend.
+
+End of script. Logfile hash: e49954f6c7, time: 1.19s, user: 0.71s, system: 0.02s, MEM: 39.76 MB peak
+Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 37% 1x abc (0 sec), 11% 47x opt_expr (0 sec), ...

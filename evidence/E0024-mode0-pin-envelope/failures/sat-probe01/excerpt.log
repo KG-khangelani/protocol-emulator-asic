@@ -1,0 +1,27 @@
+
+-- Executing script file `/workspace/build/spi-mode0-pins/sat-probe01/proof.ys' --
+
+1. Executing Verilog-2005 frontend: /workspace/build/spi-mode0-pins/sat-probe01/variants/compact/src/project.v
+Parsing formal SystemVerilog input from `/workspace/build/spi-mode0-pins/sat-probe01/variants/compact/src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_khangelani_protocol_emulator'.
+Successfully finished Verilog frontend.
+
+[middle retained losslessly in proof.log.gz]
+        2   $shift
+       12   $shiftx
+        2   $shl
+        6   $sub
+
+7.15. Executing CHECK pass (checking for obvious problems).
+Checking module public_spi...
+Found and reported 0 problems.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \public_spi..
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+ERROR: No SAT model available for cell $assert$/workspace/build/spi-mode0-pins/sat-probe01/public_spi.sv:64$715 ($check).

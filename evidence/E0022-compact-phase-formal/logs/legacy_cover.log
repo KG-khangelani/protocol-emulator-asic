@@ -1,0 +1,62 @@
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] Removing directory '/workspace/build/spi-phase-formal/attempt-05/legacy_cover'.
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/phase_engine.v' to '/workspace/build/spi-phase-formal/attempt-05/legacy_cover/src/phase_engine.v'.
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_refinement.sv' to '/workspace/build/spi-phase-formal/attempt-05/legacy_cover/src/legacy_refinement.sv'.
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_bindings.vh' to '/workspace/build/spi-phase-formal/attempt-05/legacy_cover/src/legacy_bindings.vh'.
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/legacy_engine.v' to '/workspace/build/spi-phase-formal/attempt-05/legacy_cover/src/legacy_engine.v'.
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: smtbmc z3
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] base: starting process "cd /workspace/build/spi-phase-formal/attempt-05/legacy_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] base: finished (returncode=0)
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] prep: starting process "cd /workspace/build/spi-phase-formal/attempt-05/legacy_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] prep: finished (returncode=0)
+SBY 19:19:46 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] smt2: starting process "cd /workspace/build/spi-phase-formal/attempt-05/legacy_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] smt2: finished (returncode=0)
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: starting process "cd /workspace/build/spi-phase-formal/attempt-05/legacy_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 40  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Solver: z3
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 19:19:47 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Reached cover statement in step 9 at legacy_refinement: legacy_refinement.sv:22.9-22.75 (_witness_.check_cover_legacy_refinement_sv_22_27)
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 19:19:48 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Checking cover reachability in step 9..
+SBY 19:19:49 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:01  Checking cover reachability in step 10..
+SBY 19:19:50 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:03  Checking cover reachability in step 11..
+SBY 19:19:52 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:05  Checking cover reachability in step 12..
+SBY 19:19:53 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:06  Checking cover reachability in step 13..
+SBY 19:19:56 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:09  Checking cover reachability in step 14..
+SBY 19:20:01 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:14  Checking cover reachability in step 15..
+SBY 19:20:04 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:17  Checking cover reachability in step 16..
+SBY 19:20:09 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:22  Reached cover statement in step 16 at legacy_refinement: legacy_refinement.sv:21.9-21.74 (_witness_.check_cover_legacy_refinement_sv_21_24)
+SBY 19:20:09 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:22  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 19:20:10 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:23  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 19:20:10 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:23  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 19:20:10 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:23  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 19:20:10 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:23  Checking cover reachability in step 16..
+SBY 19:20:16 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:29  Checking cover reachability in step 17..
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:34  Reached cover statement in step 17 at legacy_refinement: legacy_refinement.sv:23.9-23.78 (_witness_.check_cover_legacy_refinement_sv_23_31)
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:34  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:35  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:35  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:35  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: ##   0:00:35  Status: passed
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: finished (returncode=0)
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] engine_0: Status returned by engine: pass
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:35 (35)
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:35 (35)
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: cover trace: /workspace/build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace0.vcd
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary:   reached cover statement legacy_refinement._witness_.check_cover_legacy_refinement_sv_22_27 at legacy_refinement.sv:22.9-22.75 step 9
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: cover trace: /workspace/build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace1.vcd
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary:   reached cover statement legacy_refinement._witness_.check_cover_legacy_refinement_sv_21_24 at legacy_refinement.sv:21.9-21.74 step 16
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary: cover trace: /workspace/build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace2.vcd
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] summary:   reached cover statement legacy_refinement._witness_.check_cover_legacy_refinement_sv_23_31 at legacy_refinement.sv:23.9-23.78 step 17
+SBY 19:20:22 [/workspace/build/spi-phase-formal/attempt-05/legacy_cover] DONE (PASS, rc=0)

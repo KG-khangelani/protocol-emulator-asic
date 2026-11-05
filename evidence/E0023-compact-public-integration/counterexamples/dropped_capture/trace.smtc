@@ -1,0 +1,447 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$5567] false)
+assume (= [$auto$async2sync.cc:107:execute$5573] false)
+assume (= [$auto$async2sync.cc:107:execute$5579] false)
+assume (= [$auto$async2sync.cc:107:execute$5585] false)
+assume (= [$auto$async2sync.cc:107:execute$5591] false)
+assume (= [$auto$async2sync.cc:107:execute$5597] false)
+assume (= [$auto$async2sync.cc:107:execute$5603] false)
+assume (= [$auto$async2sync.cc:107:execute$5609] false)
+assume (= [$auto$async2sync.cc:107:execute$5615] false)
+assume (= [$auto$async2sync.cc:116:execute$5565] true)
+assume (= [$auto$async2sync.cc:116:execute$5571] true)
+assume (= [$auto$async2sync.cc:116:execute$5577] true)
+assume (= [$auto$async2sync.cc:116:execute$5583] true)
+assume (= [$auto$async2sync.cc:116:execute$5589] true)
+assume (= [$auto$async2sync.cc:116:execute$5595] true)
+assume (= [$auto$async2sync.cc:116:execute$5601] true)
+assume (= [$auto$async2sync.cc:116:execute$5619] true)
+assume (= [cycle] #b0000000)
+assume (= [dut.$auto$async2sync.cc:107:execute$5651] false)
+assume (= [dut.$auto$async2sync.cc:107:execute$5663] false)
+assume (= [dut.$auto$async2sync.cc:107:execute$5669] false)
+assume (= [dut.$auto$async2sync.cc:107:execute$5681] false)
+assume (= [dut.$auto$async2sync.cc:107:execute$5687] false)
+assume (= [dut.$auto$async2sync.cc:116:execute$5649] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5655] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5661] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5667] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5673] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5679] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5685] true)
+assume (= [dut.$auto$async2sync.cc:116:execute$5691] true)
+assume (= [dut.$past$integration_properties.vh:79$128$0] false)
+assume (= [dut.$past$integration_properties.vh:82$129$0] false)
+assume (= [dut._witness_.anyinit_procdff_5104] true)
+assume (= [dut._witness_.anyinit_procdff_5105] false)
+assume (= [dut._witness_.anyinit_procdff_5106] #x8)
+assume (= [dut._witness_.anyinit_procdff_5107] #x8)
+assume (= [dut._witness_.anyinit_procdff_5108] false)
+assume (= [dut._witness_.anyinit_procdff_5109] true)
+assume (= [dut._witness_.anyinit_procdff_5110] true)
+assume (= [dut._witness_.anyinit_procdff_5111] false)
+assume (= [dut._witness_.anyinit_procdff_5112] true)
+assume (= [dut._witness_.anyinit_procdff_5113] true)
+assume (= [dut._witness_.anyinit_procdff_5114] false)
+assume (= [dut._witness_.anyinit_procdff_5115] false)
+assume (= [dut._witness_.anyinit_procdff_5116] false)
+assume (= [dut._witness_.anyinit_procdff_5117] #x00)
+assume (= [dut._witness_.anyinit_procdff_5118] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5195] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5201] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5243] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5249] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5285] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5309] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5321] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5351] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5369] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5405] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5411] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5423] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5435] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5477] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5501] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5507] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5513] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5519] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5537] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:107:execute$5555] false)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5199] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5205] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5211] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5217] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5223] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5229] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5235] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5241] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5247] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5253] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5265] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5271] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5277] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5283] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5289] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5295] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5301] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5307] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5313] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5319] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5325] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5331] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5337] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5343] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5349] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5355] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5361] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5367] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5373] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5379] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5385] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5391] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5397] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5403] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5409] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5415] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5421] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5427] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5433] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5439] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5445] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5451] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5457] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5463] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5469] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5475] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5481] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5487] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5493] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5499] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5505] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5511] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5517] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5523] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5529] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5535] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5541] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5547] true)
+assume (= [dut.actual_engine_observer.$auto$async2sync.cc:116:execute$5553] true)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:136$384$0] false)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:147$388$0] false)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:155$402$0] false)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:178$430$0] false)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:193$447$0] false)
+assume (= [dut.actual_engine_observer.$past$phase_observer.sv:206$460$0] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5014] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5015] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5016] #b00000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5018] #x29)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5019] #x29)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5020] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5021] #x80)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5022] #xa0)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5023] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5024] #x04)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5025] #x7c)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5026] #x03)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5027] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5028] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5029] #x10)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5030] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5032] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5033] #b001)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5034] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5035] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5036] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5037] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5038] #b00010)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5039] #b00011)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5040] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5041] #b00000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5042] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5043] #b00100)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5044] #b01100)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5045] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5046] #x0003)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5047] #x0400)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5048] #b00001)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5049] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5050] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5051] #x20)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5052] #x80)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5053] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5054] #x0000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5055] #b00010)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5056] #x0800)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5057] #b000000000000000000000000000000000000000000000000000000000000000000000000000010000000000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5059] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5060] #x04)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5061] #x40)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5062] #x02)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5063] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5064] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5065] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5066] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5067] #b00010)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5068] #b00011)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5069] #x00)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5070] #b00001)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5071] #x40)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5072] #b00001)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5073] #b11011)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5075] #b00010)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5076] #x08)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5077] #x02)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5078] #x08)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5079] #x08)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5080] #b100)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5081] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5082] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5083] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5084] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5085] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5086] #x10)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5088] true)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5089] false)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5090] #b100)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5091] #b000)
+assume (= [dut.actual_engine_observer._witness_.anyinit_procdff_5093] #x40)
+assume (= [dut.actual_engine_observer.past_valid] false)
+assume (= [dut.data_store.rx_result] #x00)
+assume (= [dut.data_store.rx_valid] true)
+assume (= [dut.data_store.tx_payload] #x84)
+assume (= [dut.data_store.tx_payload_alt] #x02)
+assume (= [dut.engine.gpio_oe] #x00)
+assume (= [dut.engine.gpio_value] #x00)
+assume (= [dut.engine.loop_active] false)
+assume (= [dut.engine.loop_end] #b00000)
+assume (= [dut.engine.loop_remaining] #x00)
+assume (= [dut.engine.loop_start] #b00000)
+assume (= [dut.engine.pc] #b00000)
+assume (= [dut.engine.phase_active] false)
+assume (= [dut.engine.phase_prepared] false)
+assume (= [dut.engine.shift_active] false)
+assume (= [dut.engine.shift_bits_done] #b000)
+assume (= [dut.engine.shift_msb_first] false)
+assume (= [dut.engine.shift_period] #x0000)
+assume (= [dut.engine.shift_rx_data] #x00)
+assume (= [dut.engine.shift_rx_pin] #b000)
+assume (= [dut.engine.shift_tx_data] #x00)
+assume (= [dut.engine.shift_tx_pin] #b000)
+assume (= [dut.engine.shift_tx_slot] false)
+assume (= [dut.engine.state] #b00)
+assume (= [dut.engine.wait_is_input] false)
+assume (= [dut.engine.wait_left] #x0000)
+assume (= [dut.engine.wait_level] false)
+assume (= [dut.engine.wait_pin] #b000)
+assume (= [dut.engine.wait_timeout_skip] false)
+assume (= [dut.input_sync.metastability_stage] #x00)
+assume (= [dut.input_sync.sampled_in] #x01)
+assume (= [dut.integration_past_valid] false)
+assume (= [dut.reference_alt] #x00)
+assume (= [dut.reference_rx] #x00)
+assume (= [dut.reference_sync0] #x00)
+assume (= [dut.reference_sync1] #x00)
+assume (= [dut.reference_tx] #x02)
+assume (= [dut.reference_valid] false)
+assume (= [dut.store.program_length] #x0)
+assume (= [dut.store.program_ready] false)
+assume (= [dut.store.word0] #x08800000)
+assume (= [dut.store.word1] #x00000000)
+assume (= [dut.store.word2] #x00000000)
+assume (= [dut.store.word3] #x00000000)
+assume (= [dut.store.word4] #x00000000)
+assume (= [dut.store.word5] #x00000000)
+assume (= [dut.store.word6] #x00000000)
+assume (= [dut.store.word7] #x00000008)
+assume (= [dut.watched_byte] #x08)
+assume (= [past_valid] false)
+
+state 0
+assume (= [clk] false)
+
+state 1
+assume (= [clk] false)
+
+state 2
+assume (= [clk] false)
+
+state 3
+assume (= [clk] false)
+
+state 4
+assume (= [clk] false)
+
+state 5
+assume (= [clk] false)
+
+state 6
+assume (= [clk] false)
+
+state 7
+assume (= [clk] false)
+
+state 8
+assume (= [clk] false)
+
+state 9
+assume (= [clk] false)
+
+state 10
+assume (= [clk] false)
+
+state 11
+assume (= [clk] false)
+
+state 12
+assume (= [clk] false)
+
+state 13
+assume (= [clk] false)
+
+state 14
+assume (= [clk] false)
+
+state 15
+assume (= [clk] false)
+
+state 16
+assume (= [clk] false)
+
+state 17
+assume (= [clk] false)
+
+state 18
+assume (= [clk] false)
+
+state 19
+assume (= [clk] false)
+
+state 20
+assume (= [clk] false)
+
+state 21
+assume (= [clk] false)
+
+state 22
+assume (= [clk] false)
+
+state 23
+assume (= [clk] false)
+
+state 24
+assume (= [clk] false)
+
+state 25
+assume (= [clk] false)
+
+state 26
+assume (= [clk] false)
+
+state 27
+assume (= [clk] false)
+
+state 28
+assume (= [clk] false)
+
+state 29
+assume (= [clk] false)
+
+state 30
+assume (= [clk] false)
+
+state 31
+assume (= [clk] false)
+
+state 32
+assume (= [clk] false)
+
+state 33
+assume (= [clk] false)
+
+state 34
+assume (= [clk] false)
+
+state 35
+assume (= [clk] false)
+
+state 36
+assume (= [clk] false)
+
+state 37
+assume (= [clk] false)
+
+state 38
+assume (= [clk] false)
+
+state 39
+assume (= [clk] false)
+
+state 40
+assume (= [clk] false)
+
+state 41
+assume (= [clk] false)
+
+state 42
+assume (= [clk] false)
+
+state 43
+assume (= [clk] false)
+
+state 44
+assume (= [clk] false)
+
+state 45
+assume (= [clk] false)
+
+state 46
+assume (= [clk] false)
+
+state 47
+assume (= [clk] false)
+
+state 48
+assume (= [clk] false)
+
+state 49
+assume (= [clk] false)
+
+state 50
+assume (= [clk] false)
+
+state 51
+assume (= [clk] false)
+
+state 52
+assume (= [clk] false)
+
+state 53
+assume (= [clk] false)
+
+state 54
+assume (= [clk] false)
+
+state 55
+assume (= [clk] false)
+
+state 56
+assume (= [clk] false)
+
+state 57
+assume (= [clk] false)
+
+state 58
+assume (= [clk] false)
+
+state 59
+assume (= [clk] false)
+
+state 60
+assume (= [clk] false)
+
+state 61
+assume (= [clk] false)
+
+state 62
+assume (= [clk] false)

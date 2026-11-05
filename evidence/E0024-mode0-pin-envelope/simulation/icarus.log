@@ -1,0 +1,39 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-mode0-pins/final02/icarus/results.xml
+"make" -f Makefile /workspace/build/spi-mode0-pins/final02/icarus/results.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-mode0-pins/final02/icarus/sim
+/usr/local/bin/iverilog -o /workspace/build/spi-mode0-pins/final02/icarus/sim/sim.vvp -s tb -g2012 -I/workspace/build/spi-mode0-pins/final02/variants/compact/src -f /workspace/build/spi-mode0-pins/final02/icarus/sim/cmds.f  /workspace/build/spi-mode0-pins/final02/variants/compact/src/project.v /workspace/build/spi-mode0-pins/final02/variants/compact/src/m1_engine.v /workspace/build/spi-mode0-pins/final02/variants/compact/src/m1_program_store.v /workspace/build/spi-mode0-pins/final02/variants/compact/src/m1_data_store.v /workspace/build/spi-mode0-pins/final02/variants/compact/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/spi-mode0-pins/final02/icarus/results.xml
+COCOTB_TEST_MODULES=test_spi_mode0_pins COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/spi-mode0-pins/final02/icarus/sim/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1793740582
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_spi_mode0_pins.mode0_alphabet_at_last_digital_setup (1/4)
+4522497.54ns INFO     cocotb.tb                          SPI_PINS alphabet: 512 complete public-loaded transfers PASS
+4522497.54ns INFO     cocotb.regression                  test_spi_mode0_pins.mode0_alphabet_at_last_digital_setup passed
+4522497.54ns INFO     cocotb.regression                  running test_spi_mode0_pins.mode0_original_envelope_phase_sweep_and_jitter (2/4)
+6783746.30ns INFO     cocotb.tb                          SPI_PINS original envelope: 256 response-phase/jitter transfers PASS
+6783746.30ns INFO     cocotb.regression                  test_spi_mode0_pins.mode0_original_envelope_phase_sweep_and_jitter passed
+6783746.30ns INFO     cocotb.regression                  running test_spi_mode0_pins.mode0_noise_outside_aperture_and_boundary_offsets (3/4)
+7561050.57ns INFO     cocotb.tb                          SPI_PINS digital stress: 88 noise/boundary transfers PASS
+7561050.57ns INFO     cocotb.regression                  test_spi_mode0_pins.mode0_noise_outside_aperture_and_boundary_offsets passed
+7561050.57ns INFO     cocotb.regression                  running test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples (4/4)
+7631714.59ns INFO     cocotb.tb                          SPI_PINS controls: 2 early-capture mismatches,4 envelope rejections,2 interrupted transactions retained
+7631714.59ns INFO     cocotb.regression                  test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples passed
+7631714.59ns INFO     cocotb.regression                  **********************************************************************************************************************************
+                                                         ** TEST                                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         **********************************************************************************************************************************
+                                                         ** test_spi_mode0_pins.mode0_alphabet_at_last_digital_setup                   PASS     4522497.54          19.61     230615.25  **
+                                                         ** test_spi_mode0_pins.mode0_original_envelope_phase_sweep_and_jitter         PASS     2261248.77           9.82     230216.18  **
+                                                         ** test_spi_mode0_pins.mode0_noise_outside_aperture_and_boundary_offsets      PASS      777304.26           3.37     230417.53  **
+                                                         ** test_spi_mode0_pins.mode0_preserved_program_and_envelope_counterexamples   PASS       70664.02           0.35     200678.17  **
+                                                         **********************************************************************************************************************************
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                                        7631714.59          33.17     230079.04  **
+                                                         **********************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'
