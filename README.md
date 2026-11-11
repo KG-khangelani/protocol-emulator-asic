@@ -14,15 +14,30 @@ the [project goal](docs/goal.md) and the visual
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Current state: M0 fluency closure.** The repo contains a deterministic
-GPIO baseline, pin-level tests, a locked Docker verification workbench, and the
-official Tiny Tapeout CMOS5L physical workflow. The first physical run produced
-a cleanly checked GDS with positive timing slack, while its separate gate-level
-job exposed a missing PDK model in the test source list. That defect is fixed;
-the corrected official run and its clean repository-pinned reproduction both
-pass GDS generation, gate-level regression, and all nine prechecks. The technical
-M0 gate has passed; its owner teach-back is still pending. **M0 is not complete.**
-No UART, SPI, I2C or VM is implemented yet.
+**Engineering: M1 reloadable sequencer; learning: M0 teach-back pending.** The
+repo implements a public-pin-loaded temporal engine, synchronized bounded input
+waits, LOOP and reusable shifting. Named digital UART transmit and bounded
+last-byte receive workloads have RTL/scoped-formal qualification; see
+[E0016](evidence/E0016-uart-tx-8n1/README.md) and
+[E0018](evidence/E0018-uart-rx-public/README.md). This is not continuous/full UART,
+SPI/I2C, M1 physical fit/timing or silicon evidence. The separate
+[PR8 host-service candidate](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8)
+remains draft/unmerged, not part of main.
+
+The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
+gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).
+Its owner fluency gate remains pending; **M0 is not complete**. Engineering
+progresses independently without automatically promoting human understanding.
+Current task and exact claim boundaries are in [docs/state.md](docs/state.md).
+
+The [Protocol atlas contract](docs/specs/protocol-atlas.md) records neutral,
+compact, source-backed architecture/cycle/evidence views and sparing relationship
+tracing. Its direction is approved, including dark mode, softer surfaces and
+fewer borders. The first working [browser app](web/) now provides architecture,
+reference cycles, evidence and progress views. It runs locally, not on a chip;
+[UI0001](evidence/UI0001-protocol-atlas/README.md) records scoped browser/model
+checks and limits. Implementation continues as reviewable increments.
+Private concept/reference images are not published.
 
 ## Start with Codex
 
@@ -30,15 +45,37 @@ Open this repository's root folder in Codex. The root [AGENTS.md](AGENTS.md)
 provides project instructions; [docs/state.md](docs/state.md) identifies the
 current task and blockers. Use this first task:
 
-> Read AGENTS.md, docs/state.md and docs/backlog.md. Continue M0-T01. Run the
-> GPIO regression and generic synthesis, then the official CMOS5L GDS workflow.
-> Record real versions, logs, waveform, physical reports and artifact hashes.
-> Complete the M0 teach-back from the retained evidence before defining M1
-> execution semantics. Do not expand the VM instruction set yet.
+> Read AGENTS.md, docs/state.md and docs/backlog.md. Inspect local and remote
+> heads; preserve unrelated work. Run Doctor and checks relevant to the active
+> scoped change. Keep engineering qualification separate from M0 owner learning;
+> do not rerun archived physical closure merely to report progress. Record
+> evidence and push coherent reviewable increments. Implement the approved
+> visualization contract without another concept round; do not infer merge,
+> hardware-spend or competition-submission permission from commit/push permission.
 
 No API key or agent-specific model setting is needed in the repository.
 
 ## Run locally
+
+The Protocol atlas is independent of Docker/EDA. With Node 24
+and Python 3 for the independent model checks:
+
+```powershell
+cd web
+npm ci --ignore-scripts
+npm test
+npm run build
+npm run dev
+```
+
+Open `http://127.0.0.1:5179`. The server binds to loopback only.
+On KhanCreate, the repo-root shortcut is `.\tools\atlas.ps1 Start`: it builds
+the checked snapshot and serves it locally. Stop with Ctrl+C; no Docker,
+execution-policy change, global install or port-killing is involved.
+The checked-in dataset is regenerated with `npm run data` and checked against repository source
+by `npm run data:check`. No API key, device connection or telemetry is used.
+Browser verification uses pinned Playwright/Chromium; see [web/README.md](web/README.md).
+The app is not deployed to GitHub Pages and this branch is not merged.
 
 The supported Windows path needs Docker Desktop, PowerShell and Git; chip tools
 run inside the pinned Linux workbench:
@@ -53,9 +90,9 @@ run inside the pinned Linux workbench:
 ```
 
 `Setup` builds the sealed tool environment, `Doctor` explains every tool and
-rejects version drift, and `All` currently runs consistency checks, Verible
-lint, the same cocotb regression through Icarus and Verilator, the M0 formal
-proof/witness/falsification suite, and generic Yosys synthesis. Individual
+rejects version drift, and `All` runs consistency checks, Verible lint, the
+active cocotb regression through Icarus and Verilator, scoped engine/storage/
+synchronizer formal proof/covers/mutation, and generic Yosys synthesis. Individual
 commands include `Check`, `Lint`, `Test`, `TestVerilator`, `Formal`, `Synth`,
 `Evidence`, `LearnStatus`, `LearnM0`, `LearnWaveform`, and `Shell`. `LearnStatus`
 shows technical and human gates separately and never promotes understanding from
@@ -84,7 +121,9 @@ for physical fit and timing; a local generic synthesis pass cannot replace it.
 | `docs/state.md`, `docs/backlog.md` | Persistent state and next executable tasks |
 | `docs/learning/` | Practical map, glossary, labs, checkpoints and conservative fluency status |
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |
+| `docs/specs/protocol-atlas.md` | Approved UI direction and source/interaction/verification contract; implementation tracked separately |
 | `src/` | Synthesizable Verilog and preserved physical configuration |
+| `web/` | Local source-backed interactive atlas, not device control |
 | `test/` | cocotb RTL and gate-level harness |
 | `tools/` | Consistency checks and evidence capture |
 | `docs/research-ledger.md` | Hypotheses, questions and falsification gates |

@@ -9,7 +9,9 @@ module tb ();
 
   // Normal regression uses compact FST. The learning target requests readable
   // VCD so a source-controlled walkthrough can explain selected clock edges.
+  // Focused probes can opt out without overwriting a full-regression trace.
   initial begin
+    if (!$test$plusargs("NO_DUMP")) begin
 `ifdef LEARNING_VCD
     $dumpfile("../build/m0-learning.vcd");
 `elsif GL_HARNESS_SMOKE
@@ -18,6 +20,7 @@ module tb ();
     $dumpfile("tb.fst");
 `endif
     $dumpvars(0, tb);
+    end
     #1;
   end
 

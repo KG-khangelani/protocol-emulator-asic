@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793727319" />
+    <testcase name="spi_mode0_public_conditional_and_counterexample" classname="test_spi_mode0_public" file="/workspace/test/test_spi_mode0_public.py" lineno="102" time="0.7352156639099121" sim_time_ns="88330.03" ratio_time="120141.65956456459" />
+    <testcase name="spi_mode0_abort_reload_and_capacity_boundary" classname="test_spi_mode0_public" file="/workspace/test/test_spi_mode0_public.py" lineno="120" time="0.09586048126220703" sim_time_ns="12307.005999999994" ratio_time="128384.5630436244" />
+  </testsuite>
+</testsuites>

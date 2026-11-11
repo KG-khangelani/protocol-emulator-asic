@@ -1,0 +1,355 @@
+{
+  "status": "PASS",
+  "rung": "ACTUAL_COMPACT_TOP_INTEGRATION",
+  "sources": {
+    "baseline": {
+      "directory": "/workspace/build/spi-phase-integration/final/variants/baseline/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact": {
+      "directory": "/workspace/build/spi-phase-integration/final/variants/compact/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "banked": {
+      "directory": "/workspace/build/spi-phase-integration/final/variants/banked/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "input_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/formal/integration_properties.vh": "b43d52fb58229359e786815142729f6a75dd14ced437427c842fa999d73a60d8",
+    "experiments/spi_phase/formal/legacy_refinement.sv": "b13e10591b1b2ef136408cb39b77cb11f03e732b5da48fac2c7684b7113ac383",
+    "experiments/spi_phase/formal/phase_properties.sv": "8ff643674c7ea44b0a78b88c728afa6a3d201773a49b140568e81ef131df8304",
+    "experiments/spi_phase/formal/public_scenario.sv": "4dc9fa0d510b2da11e368c07a0b20960e96a690c12bd2d9c7207b95c632dcc04",
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "docs/specs/spi-phase-integration.md": "c42b8bda1cdbe5aab051389957da6b8e3b615d0b55d95da12ce37f35fb68126b",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "15f5e901578ce5a6322c639c2fab520c731c2b38e239564c8311c99a0ddc426b",
+    "test/test_spi_mode0_public.py": "09d58c11ffcfa2de0c76e8a0ac26d188a26fc940b5a96aeebd1f3561644c9707",
+    "test/test_phase_integration_public.py": "6d18171a4def5d4aa445102435ea4d2f6dbf2ce37595b04452cf58bb3f06b2d5"
+  },
+  "generated_sha256": {
+    "inputs/integration_properties.vh": "b43d52fb58229359e786815142729f6a75dd14ced437427c842fa999d73a60d8",
+    "inputs/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "inputs/m1_input_sync.v": "d6c59f7257e2d6b1bf0e356c406f12f63436104d754702fb22343e5ade94ca6b",
+    "inputs/m1_input_sync.v.patch": "e892de5a22e4dcab799877fe1b362f03b3174b58bb687c325ae8c1ef958829a3",
+    "inputs/m1_program_store.v": "ba67dc5a4bc131a133198ae75f9b3408418c37ba729c8a68207d81eb65d65193",
+    "inputs/m1_program_store.v.patch": "1d4d38f55b537ce7aadfd846580efd9d939e5e6562443e8f2ed3b2d5aa5ff591",
+    "inputs/phase_engine.v": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+    "inputs/phase_observer.sv": "3aa2b2171770ca91be0c974ea957fa2238195142938595a7bea91ca9e4004aaa",
+    "inputs/project.v": "7e8a9b5b7bcd97a11ede229216bf32bba9a043a5552642f71a5b4d8490280df0",
+    "inputs/project.v.patch": "236b8229c8e240639f7e9ef7d1f31e19d9fcd2c8db6207aed79d54e55ffcdf51",
+    "inputs/project_drop.v": "a13c3bfb769aa426d55e5d8bdb900e8a933a384121e80d8ea5858d2dd28a4cb1",
+    "inputs/public_scenario.sv": "4dc9fa0d510b2da11e368c07a0b20960e96a690c12bd2d9c7207b95c632dcc04"
+  },
+  "assumptions": {
+    "universal": "initial sampled chip reset only; public pins/enable/reset thereafter arbitrary",
+    "guided": "public serialized four-word kernel; symbolic TX/RX/order; formal abort at capture-edge41,kind0..2,enable0/1; simulation covers cuts2..41",
+    "fairness": "none"
+  },
+  "tasks": [
+    {
+      "name": "integrated_prove",
+      "mode": "prove",
+      "depth": 8,
+      "top": "tt_um_khangelani_protocol_emulator",
+      "defines": "",
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 42",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/integrated_prove",
+        "/workspace/build/spi-phase-integration/final/integrated_prove.sby"
+      ],
+      "seconds": 37.243,
+      "k_induction": true,
+      "induction_step": 5,
+      "last_checked_step": 7,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": []
+    },
+    {
+      "name": "capture_bmc",
+      "mode": "bmc",
+      "depth": 80,
+      "top": "public_scenario",
+      "defines": "",
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 68",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/capture_bmc",
+        "/workspace/build/spi-phase-integration/final/capture_bmc.sby"
+      ],
+      "seconds": 68.638,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 79,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": []
+    },
+    {
+      "name": "abort_bmc",
+      "mode": "bmc",
+      "depth": 72,
+      "top": "public_scenario",
+      "defines": "-D ABORT_SCENARIO",
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 68",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/abort_bmc",
+        "/workspace/build/spi-phase-integration/final/abort_bmc.sby"
+      ],
+      "seconds": 68.534,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 71,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": []
+    },
+    {
+      "name": "capture_cover",
+      "mode": "cover",
+      "depth": 80,
+      "top": "public_scenario",
+      "defines": "",
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 12",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/capture_cover",
+        "/workspace/build/spi-phase-integration/final/capture_cover.sby"
+      ],
+      "seconds": 13.016,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": null,
+      "reached_covers": [
+        {
+          "step": 64,
+          "location": "public_scenario: public_scenario.sv:100.9-100.62 (_witness_.check_cover_public_scenario_sv_100_106)"
+        },
+        {
+          "step": 67,
+          "location": "public_scenario: public_scenario.sv:101.9-101.62 (_witness_.check_cover_public_scenario_sv_101_111)"
+        },
+        {
+          "step": 70,
+          "location": "public_scenario: public_scenario.sv:102.9-102.62 (_witness_.check_cover_public_scenario_sv_102_116)"
+        },
+        {
+          "step": 72,
+          "location": "public_scenario: public_scenario.sv:103.9-103.62 (_witness_.check_cover_public_scenario_sv_103_121)"
+        }
+      ],
+      "failed_assertions": [],
+      "witnesses": [
+        "capture_cover/engine_0/trace0.vcd",
+        "capture_cover/engine_0/trace1.vcd",
+        "capture_cover/engine_0/trace2.vcd",
+        "capture_cover/engine_0/trace3.vcd"
+      ]
+    },
+    {
+      "name": "abort_cover",
+      "mode": "cover",
+      "depth": 72,
+      "top": "public_scenario",
+      "defines": "-D ABORT_SCENARIO",
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 11",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/abort_cover",
+        "/workspace/build/spi-phase-integration/final/abort_cover.sby"
+      ],
+      "seconds": 11.159,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": null,
+      "reached_covers": [
+        {
+          "step": 63,
+          "location": "public_scenario: public_scenario.sv:85.9-85.111 (_witness_.check_cover_public_scenario_sv_85_125)"
+        },
+        {
+          "step": 63,
+          "location": "public_scenario: public_scenario.sv:83.9-83.127 (_witness_.check_cover_public_scenario_sv_83_106)"
+        },
+        {
+          "step": 63,
+          "location": "public_scenario: public_scenario.sv:82.9-82.128 (_witness_.check_cover_public_scenario_sv_82_95)"
+        },
+        {
+          "step": 63,
+          "location": "public_scenario: public_scenario.sv:84.9-84.111 (_witness_.check_cover_public_scenario_sv_84_116)"
+        }
+      ],
+      "failed_assertions": [],
+      "witnesses": [
+        "abort_cover/engine_0/trace0.vcd",
+        "abort_cover/engine_0/trace1.vcd",
+        "abort_cover/engine_0/trace2.vcd",
+        "abort_cover/engine_0/trace3.vcd"
+      ]
+    },
+    {
+      "name": "wrong_abort_clear",
+      "mode": "bmc",
+      "depth": 80,
+      "top": "public_scenario",
+      "defines": "-D EXPECT_ABORT_CLEAR",
+      "expected": "FAIL",
+      "status": "FAIL",
+      "raw_status": "FAIL 0 38",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/wrong_abort_clear",
+        "/workspace/build/spi-phase-integration/final/wrong_abort_clear.sby"
+      ],
+      "seconds": 39.196,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 67,
+      "reached_covers": [],
+      "failed_assertions": [
+        "public_scenario: public_scenario.sv:97.33-97.55 (_witness_.check_assert_public_scenario_sv_97_107)"
+      ],
+      "witnesses": [
+        "wrong_abort_clear/engine_0/trace.vcd"
+      ]
+    },
+    {
+      "name": "dropped_capture",
+      "mode": "bmc",
+      "depth": 80,
+      "top": "public_scenario",
+      "defines": "",
+      "expected": "FAIL",
+      "status": "FAIL",
+      "raw_status": "FAIL 0 30",
+      "returncode": 0,
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-integration/final/dropped_capture",
+        "/workspace/build/spi-phase-integration/final/dropped_capture.sby"
+      ],
+      "seconds": 30.62,
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 62,
+      "reached_covers": [],
+      "failed_assertions": [
+        "public_scenario.dut: integration_properties.vh:30.9-30.73 (_witness_.check_assert_integration_properties_vh_30_258)",
+        "public_scenario.dut: integration_properties.vh:53.23-53.53 (_witness_.check_assert_integration_properties_vh_53_318)"
+      ],
+      "witnesses": [
+        "dropped_capture/engine_0/trace.vcd"
+      ]
+    }
+  ],
+  "simulations": [
+    {
+      "simulator": "icarus",
+      "status": "PASS",
+      "returncode": 0,
+      "tests": 4,
+      "failed_or_skipped": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/spi-phase-integration/final/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_phase_integration_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-phase-integration/final/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-phase-integration/final/icarus.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "seconds": 7.343,
+      "junit": "icarus.xml"
+    },
+    {
+      "simulator": "verilator",
+      "status": "PASS",
+      "returncode": 0,
+      "tests": 4,
+      "failed_or_skipped": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/spi-phase-integration/final/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_phase_integration_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-phase-integration/final/sim/verilator",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-phase-integration/final/verilator.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "seconds": 17.37,
+      "junit": "verilator.xml"
+    }
+  ]
+}

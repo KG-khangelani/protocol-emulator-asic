@@ -1,0 +1,100 @@
+{
+  "record": "UI0001",
+  "date": "2026-10-14",
+  "rung": "FRONTEND_SOURCE_FIXTURES_AND_BROWSER_SMOKE",
+  "scope": "Local atlas evidence-claim guards and production preview; not chip qualification",
+  "preserved_documentation_parent": "b9bcc71d46bb62a074b059b276ad710bb5c2fb2c",
+  "publication": {
+    "authorized": true,
+    "destination": "existing draft PR9",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/9",
+    "exact_published_head_and_remote_runs": "Tracked on PR9; not inferred from this local record",
+    "merge_or_deployment_authorized": false
+  },
+  "tested_source_sha256": {
+    "test/test_atlas_data.mjs": "8d10effebb27428c69739df0a154378260e2cf498981bf75f74c3f4bcf2f04ef",
+    "tools/export_atlas.mjs": "c0d8abfaf57b27f29f0799eed4defc54814f235d181dbad8bbabd1015fb477f9",
+    "web/src/App.tsx": "34a6aa8ad53aaad637ced32ef5e27dc268e1c70e8daa2889b8e12271a9195cf6",
+    "web/src/Architecture.tsx": "45242548baadc0857ab49945305e73f8d17ce554416ad43fbb04be76285e0c3d",
+    "web/src/Evidence.tsx": "fda7890ae80da14acf215c2710a0a8a21df65a715e240451d4a81993bb143f14",
+    "web/tests/atlas.spec.mjs": "8f72203613e30a6e3583ae526d1b5238590f4277d8b90a0aca0cfc2a9bc0062d",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "tools": {
+    "node": "24.18.0",
+    "npm": "11.8.0",
+    "playwright": "1.63.0",
+    "chromium": "153.0.8010.12",
+    "browser_revision": 1243,
+    "installation": "Existing project dependencies and browser cache; no installation or upgrade"
+  },
+  "initial_failures": {
+    "source_fixtures": { "passed": 9, "failed": 2 },
+    "synthetic_browser_cases": { "passed": 0, "failed": 2 },
+    "finding": "PASS summary overrode failed required outcomes; invalid evidence retained positive workload claims and measured metrics",
+    "browser_outputs": "build/atlas-readiness-20261014/initial-failure/",
+    "teardown": "Restricted test-owned Vite cleanup hung; PowerShell Stop-Process failed; native taskkill stopped the verified task-owned listener. Assertion failures remain failures. Subsequent approved runs exited normally."
+  },
+  "corrected_local_checks": {
+    "doctor": { "result": "PASS", "command": ".\\tools\\workbench.ps1 Doctor", "scope": "Locked tool identities only" },
+    "repository_check": {
+      "result": "PASS",
+      "command": ".\\tools\\workbench.ps1 Check",
+      "python_cases": { "m1_contract": 18, "rx_oracle": 3, "waveform_provenance": 4 },
+      "scope": "Metadata/learning/evidence consistency and existing Python checks, not HDL or frontend JS/Python qualification",
+      "initial_attempt": "BLOCKED by sandbox Docker named-pipe permission denial; approved retry exited 0 using the existing workbench"
+    },
+    "source_fixtures": { "result": "PASS", "command": "node --test test/test_atlas_data.mjs", "passed": 11, "failed": 0 },
+    "production_build": { "result": "PASS", "command": "npm run build (web)", "checks": ["data:check", "TypeScript noEmit", "Vite production bundle"] },
+    "focused_browser_subset": {
+      "result": "PASS",
+      "passed": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "reported_seconds": 7.2,
+      "selection": "architecture is real|view URLs|reference specimen|evidence and progress|synthetic",
+      "outputs": "build/atlas-readiness-20261014/qualified/"
+    },
+    "final_synthetic_subset": {
+      "result": "PASS",
+      "passed": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "reported_seconds": 5.7,
+      "scope": "Reruns the two synthetic cases after adding mobile 390x844/overflow; not two additional unique cases",
+      "outputs": "build/atlas-readiness-20261014/final-mobile-fixture/"
+    }
+  },
+  "production_preview": {
+    "result": "PASS",
+    "url": "http://127.0.0.1:5179/",
+    "host_scope": "KhanCreate loopback; user's visible tab/device access NOT_VERIFIED",
+    "runner": "Existing regular Playwright in isolated contexts; Browser plugin unavailable",
+    "viewports": [ { "width": 1536, "height": 1024 }, { "width": 390, "height": 844 } ],
+    "views_each": ["Architecture", "Cycles", "Evidence", "Progress"],
+    "theme_captures": ["light", "dark"],
+    "document_overflow": false,
+    "app_console_page_request_errors": [],
+    "asset_responses": [200, 304],
+    "javascript_asset": "index-Bj-kDMuc.js",
+    "css_asset": "index-Brna59Ke.css",
+    "summary": "build/atlas-readiness-20261014/production-smoke.json",
+    "screenshots": "build/atlas-readiness-20261014/production-screenshots/"
+  },
+  "render_inspection": {
+    "viewed": ["desktop production light", "mobile production dark", "initial failed-CI evidence", "corrected failed-CI evidence", "corrected missing-record evidence mobile"],
+    "result": "No material clipping or overlap found in the inspected captures"
+  },
+  "fixture_isolation": "Per-page Vite JSON-module response override only; no source/evidence JSON mutation on disk; checked normal dataset unchanged",
+  "independent_review": "Read-only six-file implementation/test re-review found no remaining release blocker for the scoped claim defects; reviewer did not rerun tests",
+  "not_claimed": [
+    "Fresh local complete frontend model suite or 8192-edge oracle rerun",
+    "Fresh local complete browser suite",
+    "Fresh local RTL/formal/synthesis or physical qualification",
+    "User-device or visible-tab readiness",
+    "Broader screen-reader, Safari, Firefox, iOS or deployed-hosting coverage",
+    "PR8 integration, compiler progress, H1-H4 promotion or M0 owner fluency"
+  ]
+}

@@ -1,0 +1,58 @@
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] Removing directory '/workspace/build/spi-phase-formal/attempt-05/commit7'.
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/commit7.v' to '/workspace/build/spi-phase-formal/attempt-05/commit7/src/commit7.v'.
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/phase_properties.sv' to '/workspace/build/spi-phase-formal/attempt-05/commit7/src/phase_properties.sv'.
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] Copy '/workspace/build/spi-phase-formal/attempt-05/inputs/phase_bindings.vh' to '/workspace/build/spi-phase-formal/attempt-05/commit7/src/phase_bindings.vh'.
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: smtbmc z3
+SBY 19:20:23 [/workspace/build/spi-phase-formal/attempt-05/commit7] base: starting process "cd /workspace/build/spi-phase-formal/attempt-05/commit7/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] base: finished (returncode=0)
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] prep: starting process "cd /workspace/build/spi-phase-formal/attempt-05/commit7/model; yosys -ql design_prep.log design_prep.ys"
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] prep: finished (returncode=0)
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] smt2: starting process "cd /workspace/build/spi-phase-formal/attempt-05/commit7/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] smt2: finished (returncode=0)
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: starting process "cd /workspace/build/spi-phase-formal/attempt-05/commit7; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Solver: z3
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 19:20:24 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 19:20:25 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 19:20:25 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 19:20:26 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:02  Checking assumptions in step 6..
+SBY 19:20:26 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:02  Checking assertions in step 6..
+SBY 19:20:29 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:05  Checking assumptions in step 7..
+SBY 19:20:29 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:05  Checking assertions in step 7..
+SBY 19:20:31 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:07  Checking assumptions in step 8..
+SBY 19:20:31 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:07  Checking assertions in step 8..
+SBY 19:20:34 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:09  Checking assumptions in step 9..
+SBY 19:20:34 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:09  Checking assertions in step 9..
+SBY 19:20:38 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:13  Checking assumptions in step 10..
+SBY 19:20:38 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:14  Checking assertions in step 10..
+SBY 19:20:43 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:18  Checking assumptions in step 11..
+SBY 19:20:43 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:18  Checking assertions in step 11..
+SBY 19:20:51 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:27  Checking assumptions in step 12..
+SBY 19:20:52 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:28  Checking assertions in step 12..
+SBY 19:20:59 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:34  Checking assumptions in step 13..
+SBY 19:20:59 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:35  Checking assertions in step 13..
+SBY 19:21:07 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:42  Checking assumptions in step 14..
+SBY 19:21:07 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:43  Checking assertions in step 14..
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  BMC failed!
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Assert failed in phase_properties: phase_properties.sv:80.9-80.53 (_witness_.check_assert_phase_properties_sv_80_226)
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Writing trace to VCD file: engine_0/trace.vcd
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Writing trace to constraints file: engine_0/trace.smtc
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: ##   0:00:50  Status: failed
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: finished (returncode=1)
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] engine_0: Status returned by engine: FAIL
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:50 (50)
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:50 (50)
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] summary: counterexample trace: /workspace/build/spi-phase-formal/attempt-05/commit7/engine_0/trace.vcd
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] summary:   failed assertion phase_properties._witness_.check_assert_phase_properties_sv_80_226 at phase_properties.sv:80.9-80.53 step 14
+SBY 19:21:14 [/workspace/build/spi-phase-formal/attempt-05/commit7] DONE (FAIL, rc=0)

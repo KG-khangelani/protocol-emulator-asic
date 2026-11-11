@@ -1,0 +1,13 @@
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:108: error: Unable to bind wire/reg/memory `phase_active' in `sim.dut.dut.engine'
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:110:      : A symbol with that name was declared here. Check for declaration after use.
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:108: error: Unable to elaborate r-value: phase_active
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:109: error: Unable to bind wire/reg/memory `phase_prepared' in `sim.dut.dut.engine'
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:111:      : A symbol with that name was declared here. Check for declaration after use.
+/workspace/build/spi-program-invariants/preflight01/inputs/phase_engine.v:109: error: Unable to elaborate r-value: phase_prepared
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:8: error: Unable to bind wire/reg/memory `cycle['sd0]' in `sim.dut'
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:12:      : A symbol with that name was declared here. Check for declaration after use.
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:10: error: Unable to bind wire/reg/memory `exec_edge' in `sim.dut.$ivl_for_loop0'
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:17:      : A symbol with that name was declared here. Check for declaration after use.
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:10: error: Unable to elaborate condition expression.
+/workspace/build/spi-program-invariants/preflight01/sim-0-150-105/driver.sv:7: warning: @* found no sensitivities so it will never trigger.
+7 error(s) during elaboration.

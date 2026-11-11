@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793740629" />
+    <testcase name="mode0_alphabet_at_last_digital_setup" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="109" time="11.520617008209229" sim_time_ns="4522497.536" ratio_time="392556.885866218" />
+    <testcase name="mode0_original_envelope_phase_sweep_and_jitter" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="117" time="5.748405456542969" sim_time_ns="2261248.768" ratio_time="393369.741416934" />
+    <testcase name="mode0_noise_outside_aperture_and_boundary_offsets" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="131" time="1.9803624153137207" sim_time_ns="777304.2640000004" ratio_time="392506.06757090124" />
+    <testcase name="mode0_preserved_program_and_envelope_counterexamples" classname="test_spi_mode0_pins" file="/workspace/test/test_spi_mode0_pins.py" lineno="145" time="0.21902227401733398" sim_time_ns="70664.02399999928" ratio_time="322633.9618517829" />
+  </testsuite>
+</testsuites>

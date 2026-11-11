@@ -1,0 +1,651 @@
+{
+  "record": "E0022",
+  "date": "2026-11-03",
+  "prior_head": "f0c41fcf3aaca14a76dd0c45a23f259599de24fd",
+  "execution": "PASS",
+  "provenance": "MEASURED",
+  "scope": "EXPERIMENTAL_EXECUTOR_WRITTEN_PROPERTIES",
+  "candidate_changed": false,
+  "production_changed": false,
+  "protected_scope_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "info.yaml": "f13f81614c203835eb820677a0ef827c9a0326471d5f493017878cc880a76c2d",
+    "docs/learning/progress.json": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+    "web/src/data/atlas.json": "6c9590b80bca8f2a2831a331e6726bb50f7f39b74933f7f1c6f4e849a1993100"
+  },
+  "candidate_source_sha256": {
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "inputs_sha256": {
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/run_comparison.py": "651685f76c12fcd716fa99808675625bc2a8fc7620adcb00fc1b797545e1abad",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/test_reference.py": "773673ed94d795fbf925a80dbb8f95b8953c865882a232862fdfe1aed4797c89",
+    "experiments/spi_phase/formal/legacy_refinement.sv": "b13e10591b1b2ef136408cb39b77cb11f03e732b5da48fac2c7684b7113ac383",
+    "experiments/spi_phase/formal/phase_properties.sv": "8ff643674c7ea44b0a78b88c728afa6a3d201773a49b140568e81ef131df8304",
+    "docs/specs/spi-phase-formal.md": "f47d62d6e54644f14a8f7c3b6f4c4b118f0e3d4de363de5ffd93862a25089a8c",
+    "docs/specs/spi-phase-comparison.md": "ca10e9b8c275fc9728e37196d598527b1245d1687249f59310f7e281bcc0f298",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa"
+  },
+  "tasks": [
+    {
+      "name": "phase_prove",
+      "mode": "prove",
+      "depth": 8,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/phase_prove",
+        "/workspace/build/spi-phase-formal/attempt-05/phase_prove.sby"
+      ],
+      "returncode": 0,
+      "status": "PASS",
+      "raw_status": "PASS 0 7",
+      "expected": "PASS",
+      "k_induction": true,
+      "induction_step": 6,
+      "last_checked_step": 7,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": [],
+      "seconds": 6.452
+    },
+    {
+      "name": "legacy_prove",
+      "mode": "prove",
+      "depth": 12,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/legacy_prove",
+        "/workspace/build/spi-phase-formal/attempt-05/legacy_prove.sby"
+      ],
+      "returncode": 0,
+      "status": "PASS",
+      "raw_status": "PASS 0 24",
+      "expected": "PASS",
+      "k_induction": true,
+      "induction_step": 10,
+      "last_checked_step": 11,
+      "reached_covers": [],
+      "failed_assertions": [],
+      "witnesses": [],
+      "seconds": 23.653
+    },
+    {
+      "name": "phase_cover",
+      "mode": "cover",
+      "depth": 40,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/phase_cover",
+        "/workspace/build/spi-phase-formal/attempt-05/phase_cover.sby"
+      ],
+      "returncode": 0,
+      "status": "PASS",
+      "raw_status": "PASS 0 53",
+      "expected": "PASS",
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": null,
+      "reached_covers": [
+        {
+          "step": 2,
+          "location": "phase_properties: phase_properties.sv:185.13-185.75 (_witness_.check_cover_phase_properties_sv_185_554)"
+        },
+        {
+          "step": 2,
+          "location": "phase_properties: phase_properties.sv:186.13-186.67 (_witness_.check_cover_phase_properties_sv_186_559)"
+        },
+        {
+          "step": 3,
+          "location": "phase_properties: phase_properties.sv:188.13-188.39 (_witness_.check_cover_phase_properties_sv_188_566)"
+        },
+        {
+          "step": 3,
+          "location": "phase_properties: phase_properties.sv:187.13-187.67 (_witness_.check_cover_phase_properties_sv_187_563)"
+        },
+        {
+          "step": 4,
+          "location": "phase_properties: phase_properties.sv:183.13-183.73 (_witness_.check_cover_phase_properties_sv_183_545)"
+        },
+        {
+          "step": 4,
+          "location": "phase_properties: phase_properties.sv:189.13-189.38 (_witness_.check_cover_phase_properties_sv_189_569)"
+        },
+        {
+          "step": 5,
+          "location": "phase_properties: phase_properties.sv:184.13-184.71 (_witness_.check_cover_phase_properties_sv_184_550)"
+        },
+        {
+          "step": 5,
+          "location": "phase_properties: phase_properties.sv:182.13-182.60 (_witness_.check_cover_phase_properties_sv_182_542)"
+        },
+        {
+          "step": 17,
+          "location": "phase_properties: phase_properties.sv:181.13-181.61 (_witness_.check_cover_phase_properties_sv_181_539)"
+        },
+        {
+          "step": 25,
+          "location": "phase_properties: phase_properties.sv:190.13-190.51 (_witness_.check_cover_phase_properties_sv_190_571)"
+        }
+      ],
+      "failed_assertions": [],
+      "witnesses": [
+        "phase_cover/engine_0/trace0.vcd",
+        "phase_cover/engine_0/trace1.vcd",
+        "phase_cover/engine_0/trace2.vcd",
+        "phase_cover/engine_0/trace3.vcd",
+        "phase_cover/engine_0/trace4.vcd",
+        "phase_cover/engine_0/trace5.vcd",
+        "phase_cover/engine_0/trace6.vcd",
+        "phase_cover/engine_0/trace7.vcd"
+      ],
+      "seconds": 53.802
+    },
+    {
+      "name": "legacy_cover",
+      "mode": "cover",
+      "depth": 40,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/legacy_cover",
+        "/workspace/build/spi-phase-formal/attempt-05/legacy_cover.sby"
+      ],
+      "returncode": 0,
+      "status": "PASS",
+      "raw_status": "PASS 0 35",
+      "expected": "PASS",
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": null,
+      "reached_covers": [
+        {
+          "step": 9,
+          "location": "legacy_refinement: legacy_refinement.sv:22.9-22.75 (_witness_.check_cover_legacy_refinement_sv_22_27)"
+        },
+        {
+          "step": 16,
+          "location": "legacy_refinement: legacy_refinement.sv:21.9-21.74 (_witness_.check_cover_legacy_refinement_sv_21_24)"
+        },
+        {
+          "step": 17,
+          "location": "legacy_refinement: legacy_refinement.sv:23.9-23.78 (_witness_.check_cover_legacy_refinement_sv_23_31)"
+        }
+      ],
+      "failed_assertions": [],
+      "witnesses": [
+        "legacy_cover/engine_0/trace0.vcd",
+        "legacy_cover/engine_0/trace1.vcd",
+        "legacy_cover/engine_0/trace2.vcd"
+      ],
+      "seconds": 35.784
+    },
+    {
+      "name": "decrement2",
+      "mode": "bmc",
+      "depth": 8,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/decrement2",
+        "/workspace/build/spi-phase-formal/attempt-05/decrement2.sby"
+      ],
+      "returncode": 0,
+      "status": "FAIL",
+      "raw_status": "FAIL 0 0",
+      "expected": "FAIL",
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 4,
+      "reached_covers": [],
+      "failed_assertions": [
+        "phase_properties: phase_properties.sv:78.13-78.38 (_witness_.check_assert_phase_properties_sv_78_224)"
+      ],
+      "witnesses": [
+        "decrement2/engine_0/trace.vcd"
+      ],
+      "seconds": 1.33
+    },
+    {
+      "name": "commit7",
+      "mode": "bmc",
+      "depth": 20,
+      "engine": "smtbmc z3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/spi-phase-formal/attempt-05/commit7",
+        "/workspace/build/spi-phase-formal/attempt-05/commit7.sby"
+      ],
+      "returncode": 0,
+      "status": "FAIL",
+      "raw_status": "FAIL 0 50",
+      "expected": "FAIL",
+      "k_induction": false,
+      "induction_step": null,
+      "last_checked_step": 14,
+      "reached_covers": [],
+      "failed_assertions": [
+        "phase_properties: phase_properties.sv:80.9-80.53 (_witness_.check_assert_phase_properties_sv_80_226)"
+      ],
+      "witnesses": [
+        "commit7/engine_0/trace.vcd"
+      ],
+      "seconds": 51.126
+    }
+  ],
+  "retained": {
+    "run-result.json": {
+      "source": "build/spi-phase-formal/attempt-05/result.json",
+      "original_sha256": "34f5591132664d936c52bb6d081a4e58b841367a3b98e3ed641a37757a097a26",
+      "curated_sha256": "34f5591132664d936c52bb6d081a4e58b841367a3b98e3ed641a37757a097a26",
+      "normalization": "none"
+    },
+    "inputs/commit7.v": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/commit7.v",
+      "original_sha256": "52e503627ac154688824993a86eb474a4de5d1dbe5152586d095cc26db177fd8",
+      "curated_sha256": "52e503627ac154688824993a86eb474a4de5d1dbe5152586d095cc26db177fd8",
+      "normalization": "none"
+    },
+    "inputs/decrement2.v": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/decrement2.v",
+      "original_sha256": "2c147762ff024d887d0a66fbe764dee4234a03df6d57f7921776526d133ca593",
+      "curated_sha256": "2c147762ff024d887d0a66fbe764dee4234a03df6d57f7921776526d133ca593",
+      "normalization": "none"
+    },
+    "inputs/instrumentation.patch.json": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/instrumentation.patch",
+      "original_sha256": "ce16459447df110af2d6b4d76928f866d07476b498cf0283e57e5dd5cb866dec",
+      "curated_sha256": "2857ee6a0a1d9c7cb9b84e2bcf6174f90a59249e650cf217208d9e6283982200",
+      "normalization": "JSON-escaped exact patch"
+    },
+    "inputs/legacy_bindings.vh": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/legacy_bindings.vh",
+      "original_sha256": "d12648b0e5bca8cd9fe467323d97961055f66094a155d39791e84b5ed9d32951",
+      "curated_sha256": "d12648b0e5bca8cd9fe467323d97961055f66094a155d39791e84b5ed9d32951",
+      "normalization": "none"
+    },
+    "inputs/legacy_engine.v": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/legacy_engine.v",
+      "original_sha256": "04759fbe22b8e07d1d8ac2db5384f21b8660eae586330246a668033b3ce30129",
+      "curated_sha256": "04759fbe22b8e07d1d8ac2db5384f21b8660eae586330246a668033b3ce30129",
+      "normalization": "none"
+    },
+    "inputs/legacy_refinement.sv": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/legacy_refinement.sv",
+      "original_sha256": "b13e10591b1b2ef136408cb39b77cb11f03e732b5da48fac2c7684b7113ac383",
+      "curated_sha256": "b13e10591b1b2ef136408cb39b77cb11f03e732b5da48fac2c7684b7113ac383",
+      "normalization": "none"
+    },
+    "inputs/phase_bindings.vh": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/phase_bindings.vh",
+      "original_sha256": "b91352400b7667872b47aade436dfea418ec4195395249f3c34438f949096a64",
+      "curated_sha256": "b91352400b7667872b47aade436dfea418ec4195395249f3c34438f949096a64",
+      "normalization": "none"
+    },
+    "inputs/phase_engine.v": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/phase_engine.v",
+      "original_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "curated_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "normalization": "none"
+    },
+    "inputs/phase_properties.sv": {
+      "source": "build/spi-phase-formal/attempt-05/inputs/phase_properties.sv",
+      "original_sha256": "8ff643674c7ea44b0a78b88c728afa6a3d201773a49b140568e81ef131df8304",
+      "curated_sha256": "8ff643674c7ea44b0a78b88c728afa6a3d201773a49b140568e81ef131df8304",
+      "normalization": "none"
+    },
+    "logs/phase_prove.log": {
+      "source": "build/spi-phase-formal/attempt-05/phase_prove.log",
+      "original_sha256": "ae8afd458befe97f655d2ccfd4199b1cd87f94a82dacbb0e1c9779a9d1f24a77",
+      "curated_sha256": "ae8afd458befe97f655d2ccfd4199b1cd87f94a82dacbb0e1c9779a9d1f24a77",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/phase_prove.sby": {
+      "source": "build/spi-phase-formal/attempt-05/phase_prove.sby",
+      "original_sha256": "877a5c724ac31f138599052d4bf8b79b2254105727ee574205d25a228bd81696",
+      "curated_sha256": "877a5c724ac31f138599052d4bf8b79b2254105727ee574205d25a228bd81696",
+      "normalization": "none"
+    },
+    "statuses/phase_prove.txt": {
+      "source": "build/spi-phase-formal/attempt-05/phase_prove/status",
+      "original_sha256": "a6c63e3678056df93337e9b9abbba89b080fa5fdebcd990f12997864180bce37",
+      "curated_sha256": "a6c63e3678056df93337e9b9abbba89b080fa5fdebcd990f12997864180bce37",
+      "normalization": "none"
+    },
+    "logs/legacy_prove.log": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_prove.log",
+      "original_sha256": "df9e58630eaa63165b8036a576b2e56444836bcfb412861fc9894387e9cc648f",
+      "curated_sha256": "df9e58630eaa63165b8036a576b2e56444836bcfb412861fc9894387e9cc648f",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/legacy_prove.sby": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_prove.sby",
+      "original_sha256": "d0e02c8e62d6b2baff836a5243bc78b7d4fc488ce453beeb2917a6145396d4f7",
+      "curated_sha256": "d0e02c8e62d6b2baff836a5243bc78b7d4fc488ce453beeb2917a6145396d4f7",
+      "normalization": "none"
+    },
+    "statuses/legacy_prove.txt": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_prove/status",
+      "original_sha256": "16002a628ee535676dcd6ed1a98fd124b60e52d923a0bd63bea502c47dc120d7",
+      "curated_sha256": "16002a628ee535676dcd6ed1a98fd124b60e52d923a0bd63bea502c47dc120d7",
+      "normalization": "none"
+    },
+    "logs/phase_cover.log": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover.log",
+      "original_sha256": "cc161e9550ebeed3880c833d9375006d541273c372a08eea32a43bf512baf8e5",
+      "curated_sha256": "cc161e9550ebeed3880c833d9375006d541273c372a08eea32a43bf512baf8e5",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/phase_cover.sby": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover.sby",
+      "original_sha256": "186f47fea7034d1542a675a19ae01dd09426f1455bb3326c89af4c29630dfdcd",
+      "curated_sha256": "186f47fea7034d1542a675a19ae01dd09426f1455bb3326c89af4c29630dfdcd",
+      "normalization": "none"
+    },
+    "statuses/phase_cover.txt": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/status",
+      "original_sha256": "4e044f9b436462d469759fb1908007bd2bd15ea5164c281f29344162d631dc89",
+      "curated_sha256": "4e044f9b436462d469759fb1908007bd2bd15ea5164c281f29344162d631dc89",
+      "normalization": "none"
+    },
+    "witnesses/phase_cover/trace0.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace0.vcd",
+      "original_sha256": "811d011d77b206a8ad4904dac8d212a05ebb0b08fcc1cb7ecb3b8f1c5d136f46",
+      "curated_sha256": "50ea71540cfaa9c2c76848deaa52372cfc59c5ae048de760940a55afb4086594",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace1.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace1.vcd",
+      "original_sha256": "b3a030ae803da5b1cf178b26a64073ea52ce70096d693a87dac99bf5552ec77a",
+      "curated_sha256": "6864d562014313ebb50375fcce0c966d701c2df2fcca665b337719f72abaea8b",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace2.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace2.vcd",
+      "original_sha256": "d62a8ffd33e2bd24b7f340805744953ff119992c7b774e20a0a972b4f513cdf0",
+      "curated_sha256": "1fffe0036a404098366d213c1c0354597878587af533cb7d9dc9b3c5a9e5e3db",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace3.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace3.vcd",
+      "original_sha256": "6886dfdf57f0171d727de0567da79a99ebb8ecf8b4115348d829364b550d68bf",
+      "curated_sha256": "76b56851c16e15137e8edadb07d98a7f87a42103a4f65499b85b0fa930e85d1b",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace4.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace4.vcd",
+      "original_sha256": "8887b3da54c9e8b59a98a881d95796a343fc6981aecf64b326aec96537ebb66e",
+      "curated_sha256": "ffbbb189624a35c767ca577cf6c85b5976d7c55c58885e535ce578c56ab5b343",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace5.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace5.vcd",
+      "original_sha256": "fcf74cb0359dbfddc4387b11a20cca76c85381e96d1c8d016a441afb12b87aef",
+      "curated_sha256": "641b9c486425f3bf4aff868bf29e33bde990551b6ce1465a4e256689b356d228",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace6.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace6.vcd",
+      "original_sha256": "cdedd66ef50ac08a6f5546fae157ed316ab0d06bcbc44e4a58c3865c3324fc7c",
+      "curated_sha256": "bc1c67892db2f88575d2c0ab91382b8ede8ffd6ac96fc7fec42c96f1a694ad7b",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/phase_cover/trace7.json": {
+      "source": "build/spi-phase-formal/attempt-05/phase_cover/engine_0/trace7.vcd",
+      "original_sha256": "38f0ca3956d4338470eba8f7f15d664bdae64222694c8d5bcf3f0d71fc8541cb",
+      "curated_sha256": "fb89b37a9e20524491dc6be90863ebb778bf85b21f9ac9819e964027b2c9db1e",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "logs/legacy_cover.log": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover.log",
+      "original_sha256": "1b3d90bbda50174888eee85218003816a836937e54cf26cbe537a43b3be5bf7c",
+      "curated_sha256": "1b3d90bbda50174888eee85218003816a836937e54cf26cbe537a43b3be5bf7c",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/legacy_cover.sby": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover.sby",
+      "original_sha256": "86dfd76ce9ba5cb4140834e8273d367e55913514eb26362b664b2b311301f477",
+      "curated_sha256": "86dfd76ce9ba5cb4140834e8273d367e55913514eb26362b664b2b311301f477",
+      "normalization": "none"
+    },
+    "statuses/legacy_cover.txt": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover/status",
+      "original_sha256": "3dd45305abbcfac5ce766af1e044ce679309b5957ac3c9fc19502c1fe9cd98c7",
+      "curated_sha256": "3dd45305abbcfac5ce766af1e044ce679309b5957ac3c9fc19502c1fe9cd98c7",
+      "normalization": "none"
+    },
+    "witnesses/legacy_cover/trace0.json": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace0.vcd",
+      "original_sha256": "037b114cdbc30c72e9b450a2cb11d40650f4229f93a742c0e3dd84cfa035356d",
+      "curated_sha256": "00301cef941608d01678bfbb95d17bdaad5c5e2138d5b62e59ac6cdd04ef613a",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/legacy_cover/trace1.json": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace1.vcd",
+      "original_sha256": "8d8ca1e5b09a9323b1f7e7327442d08f3c164119f6f618648136769f181015bc",
+      "curated_sha256": "414c20e264bce736d157616482ce174123dfe223b0b0a085b75c5cb5435fa08f",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "witnesses/legacy_cover/trace2.json": {
+      "source": "build/spi-phase-formal/attempt-05/legacy_cover/engine_0/trace2.vcd",
+      "original_sha256": "d14be69877bb88fb36c08b044cb63fe14a9a7708a17c60fbbc3023fa32fb5c10",
+      "curated_sha256": "327d7d5e4ead90d5932e7617f2d0a277ad09badfe49752c399d4309c59f9ae11",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "logs/decrement2.log": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2.log",
+      "original_sha256": "4147a8f571ac2e1e851256ca7f51fafeac3079b7b44e1225d85c83058708bc82",
+      "curated_sha256": "4147a8f571ac2e1e851256ca7f51fafeac3079b7b44e1225d85c83058708bc82",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/decrement2.sby": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2.sby",
+      "original_sha256": "517a44bbc5f3728ba006ecfd74faabb064952f6d26e3b6cc4e73ad1163f9c04d",
+      "curated_sha256": "517a44bbc5f3728ba006ecfd74faabb064952f6d26e3b6cc4e73ad1163f9c04d",
+      "normalization": "none"
+    },
+    "statuses/decrement2.txt": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2/status",
+      "original_sha256": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+      "curated_sha256": "71d27dee6a897bf42da8c7c03ad3f082c37c5702b97019f309a690213ada0ff0",
+      "normalization": "none"
+    },
+    "witnesses/decrement2/trace.json": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2/engine_0/trace.vcd",
+      "original_sha256": "82f4dfbffb2ca7de4180413203d59804e74101c14d48f9c16698573feda12037",
+      "curated_sha256": "adc5778fc5e244d653bb3890d617f95f9865b926ba10dc016b78624773bbd022",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "counterexamples/decrement2/trace.smtc": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2/engine_0/trace.smtc",
+      "original_sha256": "d3bbb44c100802eae6b27f4fd721128a9d209abe9124ffdcb99614368568a8e9",
+      "curated_sha256": "d3bbb44c100802eae6b27f4fd721128a9d209abe9124ffdcb99614368568a8e9",
+      "normalization": "none"
+    },
+    "counterexamples/decrement2/trace.yw": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2/engine_0/trace.yw",
+      "original_sha256": "5fc6339d64d5f5b2333810c54f2faca599e3d9b6c0d6fda00aa84620371993dd",
+      "curated_sha256": "5fc6339d64d5f5b2333810c54f2faca599e3d9b6c0d6fda00aa84620371993dd",
+      "normalization": "none"
+    },
+    "counterexamples/decrement2/trace_tb.v": {
+      "source": "build/spi-phase-formal/attempt-05/decrement2/engine_0/trace_tb.v",
+      "original_sha256": "7fe2bc82bca026f8b6eb0f69cfc5e2d2a26a0123cfb2ee52face7135888c3dff",
+      "curated_sha256": "7fe2bc82bca026f8b6eb0f69cfc5e2d2a26a0123cfb2ee52face7135888c3dff",
+      "normalization": "none"
+    },
+    "logs/commit7.log": {
+      "source": "build/spi-phase-formal/attempt-05/commit7.log",
+      "original_sha256": "b6cf1da21e446642bf1d26f0acc596c33f695309a28ddf9d55cdf42c3afd8c40",
+      "curated_sha256": "b6cf1da21e446642bf1d26f0acc596c33f695309a28ddf9d55cdf42c3afd8c40",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "configs/commit7.sby": {
+      "source": "build/spi-phase-formal/attempt-05/commit7.sby",
+      "original_sha256": "70391b4a333f3a3ebb4cd0bb04ca0ce2b4538afce83d868e24d10823dbdbf5d5",
+      "curated_sha256": "70391b4a333f3a3ebb4cd0bb04ca0ce2b4538afce83d868e24d10823dbdbf5d5",
+      "normalization": "none"
+    },
+    "statuses/commit7.txt": {
+      "source": "build/spi-phase-formal/attempt-05/commit7/status",
+      "original_sha256": "951d9f13c49fe4e1a68b5d2c544ea17b51deff6adf56b0c4b471288bbdf90291",
+      "curated_sha256": "951d9f13c49fe4e1a68b5d2c544ea17b51deff6adf56b0c4b471288bbdf90291",
+      "normalization": "none"
+    },
+    "witnesses/commit7/trace.json": {
+      "source": "build/spi-phase-formal/attempt-05/commit7/engine_0/trace.vcd",
+      "original_sha256": "7be358016b7910352886093b6633a493f828ed365d46e2d2b89f507e162357fa",
+      "curated_sha256": "6d207ecbd3cd9176dacfcf5d511601ddd7a528c4ea26f66eef583a62ccdcab5d",
+      "normalization": "selected root signals at each SMT step; raw VCD in build/CI; compact JSON rows, no signal-value change"
+    },
+    "counterexamples/commit7/trace.smtc": {
+      "source": "build/spi-phase-formal/attempt-05/commit7/engine_0/trace.smtc",
+      "original_sha256": "8ad20677fb4bdeb0cd55ed2f712cbf26a1ca9eddd5a66ed8b4b77f7425b6bada",
+      "curated_sha256": "8ad20677fb4bdeb0cd55ed2f712cbf26a1ca9eddd5a66ed8b4b77f7425b6bada",
+      "normalization": "none"
+    },
+    "counterexamples/commit7/trace.yw": {
+      "source": "build/spi-phase-formal/attempt-05/commit7/engine_0/trace.yw",
+      "original_sha256": "e730a39aa46d7e870bfc24c1ed46515e0fb53bb4bc13bbb20dd17baa877d3eef",
+      "curated_sha256": "e730a39aa46d7e870bfc24c1ed46515e0fb53bb4bc13bbb20dd17baa877d3eef",
+      "normalization": "none"
+    },
+    "counterexamples/commit7/trace_tb.v": {
+      "source": "build/spi-phase-formal/attempt-05/commit7/engine_0/trace_tb.v",
+      "original_sha256": "6c974acc22650aa4b3bfeb8a7e43c4cedca1020dbfcae290cee8d7a13c881503",
+      "curated_sha256": "6c974acc22650aa4b3bfeb8a7e43c4cedca1020dbfcae290cee8d7a13c881503",
+      "normalization": "none"
+    },
+    "failures/attempt-01/result.json": {
+      "source": "build/spi-phase-formal/attempt-01/result.json",
+      "original_sha256": "a6dc0050929adaa3f1a8f440df209404e674be6630bcb0b8003da4e127b9082b",
+      "curated_sha256": "a6dc0050929adaa3f1a8f440df209404e674be6630bcb0b8003da4e127b9082b",
+      "normalization": "none"
+    },
+    "failures/attempt-01/phase_prove.log": {
+      "source": "build/spi-phase-formal/attempt-01/phase_prove.log",
+      "original_sha256": "2e03fbb670e25ef3aa26891b3da4ad330cdd1b7223f9969a063e3d9d02a2ba70",
+      "curated_sha256": "2e03fbb670e25ef3aa26891b3da4ad330cdd1b7223f9969a063e3d9d02a2ba70",
+      "normalization": "LF/trailing whitespace only"
+    },
+    "failures/attempt-01/inputs/phase_properties.sv": {
+      "source": "build/spi-phase-formal/attempt-01/inputs/phase_properties.sv",
+      "original_sha256": "4ae8e6a34075e02a2a9de2e64a6b3d6ebe9a36bbe8d0495731a2c87bcd7820ea",
+      "curated_sha256": "4ae8e6a34075e02a2a9de2e64a6b3d6ebe9a36bbe8d0495731a2c87bcd7820ea",
+      "normalization": "none"
+    },
+    "failures/attempt-01/inputs/phase_bindings.vh": {
+      "source": "build/spi-phase-formal/attempt-01/inputs/phase_bindings.vh",
+      "original_sha256": "b91352400b7667872b47aade436dfea418ec4195395249f3c34438f949096a64",
+      "curated_sha256": "b91352400b7667872b47aade436dfea418ec4195395249f3c34438f949096a64",
+      "normalization": "none"
+    },
+    "failures/attempt-01/inputs/phase_engine.v": {
+      "source": "build/spi-phase-formal/attempt-01/inputs/phase_engine.v",
+      "original_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "curated_sha256": "328ef3fc5754551446f590a86f0e75659c9732de51b7c26fa05f69c3072b1da5",
+      "normalization": "none"
+    },
+    "failures/attempt-01/trace_induct.smtc": {
+      "source": "build/spi-phase-formal/attempt-01/phase_prove/engine_0/trace_induct.smtc",
+      "original_sha256": "bebe0f678aa9f2987d6a10655394b8716df2c02a2b3678a0ff5902d38845f91b",
+      "curated_sha256": "bebe0f678aa9f2987d6a10655394b8716df2c02a2b3678a0ff5902d38845f91b",
+      "normalization": "none"
+    },
+    "failures/attempt-01/trace_induct.yw": {
+      "source": "build/spi-phase-formal/attempt-01/phase_prove/engine_0/trace_induct.yw",
+      "original_sha256": "7bfe57f299c236e8847ee6bed414a8257cde149f34b1461c501a4759faa278b7",
+      "curated_sha256": "7bfe57f299c236e8847ee6bed414a8257cde149f34b1461c501a4759faa278b7",
+      "normalization": "none"
+    },
+    "failures/attempt-01/trace_induct_tb.v": {
+      "source": "build/spi-phase-formal/attempt-01/phase_prove/engine_0/trace_induct_tb.v",
+      "original_sha256": "253d4e529685f8a3e3a6d56d71ab7ab0b820c0475165c149e1e7211ebfda0107",
+      "curated_sha256": "253d4e529685f8a3e3a6d56d71ab7ab0b820c0475165c149e1e7211ebfda0107",
+      "normalization": "none"
+    },
+    "failures/attempt-01/induction-trace.json": {
+      "source": "build/spi-phase-formal/attempt-01/phase_prove/engine_0/trace_induct.vcd",
+      "original_sha256": "0548ee99b78b0deefb2abd02706ac5d2b176ac89ba9058442a413c220dba567e",
+      "curated_sha256": "142ef3f0cd83173bda3774278e024c547ff9ccb995302ff8498c2ab62ee399a8",
+      "normalization": "selected root signals at each SMT step; compact JSON rows, no signal-value change"
+    },
+    "failures/attempt-02/result.json": {
+      "source": "build/spi-phase-formal/attempt-02/result.json",
+      "original_sha256": "0fac7e212aefc01def5c6832b3cd68d205d5c95750df64b85874e75a2e523c44",
+      "curated_sha256": "0fac7e212aefc01def5c6832b3cd68d205d5c95750df64b85874e75a2e523c44",
+      "normalization": "none"
+    },
+    "failures/attempt-02/phase_prove.log": {
+      "source": "build/spi-phase-formal/attempt-02/phase_prove.log",
+      "original_sha256": "e12c3370bbfbb5b77edb2f7e70c437a42e6846a01ca87c1407287efa136504a6",
+      "curated_sha256": "e12c3370bbfbb5b77edb2f7e70c437a42e6846a01ca87c1407287efa136504a6",
+      "normalization": "LF/trailing whitespace only"
+    }
+  },
+  "assumptions": {
+    "safety": [
+      "first sampled edge rst_n=0; all subsequent inputs unrestricted"
+    ],
+    "legacy": [
+      "same initial reset; exclude new phase types only at enabled valid legacy RUN fetch"
+    ],
+    "fairness": "none",
+    "sampled_inputs": "arbitrary synchronized digital bits; no CDC model"
+  },
+  "fairness": "none",
+  "delay_width": 16,
+  "four_mode_spi": "NOT_EVALUATED",
+  "integrated_chip_formal": "NOT_EVALUATED",
+  "physical": "NOT_EVALUATED",
+  "failures": [
+    {
+      "attempt": "01",
+      "result": "UNKNOWN",
+      "base_depth": 24,
+      "base_checked_through_step": 23,
+      "reason": "induction starts from unreachable RUN with period1, phase flags0; strengthen period!=0 implies WAIT as an assertion, not an assumption"
+    },
+    {
+      "attempt": "02",
+      "result": "RUNNER_FAIL_PROOF_PASS",
+      "reason": "strict status parser expected PASS alone; installed SBY writes PASS 0 <time>; parser now validates optional numeric fields and retains raw status"
+    }
+  ],
+  "intermediate_passes": [
+    "attempt-03: phase/refinement induction,9+3 covers,two rejected mutants",
+    "attempt-04: phase/refinement induction,10+3 covers,slot stability,two rejected mutants"
+  ],
+  "tools": {
+    "image": "protocol-emulator-asic-workbench:2026-07-29",
+    "yosys": "0.67+111",
+    "sby": "0.67-4-gfea6e46",
+    "z3": "4.15.5"
+  },
+  "next": "integrated compact-copy proof of result-store capture and public loader/reset abort; production stays unchanged"
+}

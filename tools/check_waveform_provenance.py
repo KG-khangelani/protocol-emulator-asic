@@ -15,7 +15,7 @@ RTL_JUNIT = ROOT / "test/results.xml"
 GL_WAVEFORM = ROOT / "test/tb-gl-harness.fst"
 GL_JUNIT = ROOT / "test/results-gl-harness.xml"
 SCHEMA = "protocol-emulator-waveform-provenance-v1"
-FULL_RTL_MODULES = ["test", "test_uart_rx_public"]
+FULL_RTL_MODULES = ["test", "test_spi_mode0_public", "test_uart_rx_public"]
 
 
 class ProvenanceError(RuntimeError):

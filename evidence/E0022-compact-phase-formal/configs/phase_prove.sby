@@ -1,0 +1,16 @@
+[options]
+mode prove
+depth 8
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal phase_engine.v phase_properties.sv
+prep -top phase_properties
+
+[files]
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_engine.v
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_properties.sv
+/workspace/build/spi-phase-formal/attempt-05/inputs/phase_bindings.vh

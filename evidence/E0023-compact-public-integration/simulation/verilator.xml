@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793737638" />
+    <testcase name="public_capture_visibility_and_all_payloads" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="89" time="1.7637951374053955" sim_time_ns="654343.68" ratio_time="370986.2138312517" />
+    <testcase name="public_abort_all_cuts_and_enable_priority" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="100" time="1.1583490371704102" sim_time_ns="435844.356" ratio_time="376263.4076725882" />
+    <testcase name="old_result_survives_loader_abort_and_payload_invalidates" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="115" time="0.2349076271057129" sim_time_ns="86544.85199999996" ratio_time="368420.78337904764" />
+    <testcase name="public_reset_erases_storage_and_loader_owns_read_bus" classname="test_phase_integration_public" file="/workspace/test/test_phase_integration_public.py" lineno="141" time="0.003919363021850586" sim_time_ns="1336.0119999998715" ratio_time="340874.7780064153" />
+  </testsuite>
+</testsuites>

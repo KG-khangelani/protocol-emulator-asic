@@ -1,0 +1,1 @@
+module sim; reg clk=0; public_spi dut(clk); initial begin repeat(444) begin #10 clk=1; #10 clk=0; end $display("PREFLIGHT_COMPLETE"); $finish; end endmodule

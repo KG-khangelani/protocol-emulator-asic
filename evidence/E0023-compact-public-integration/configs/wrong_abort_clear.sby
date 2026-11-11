@@ -1,0 +1,21 @@
+[options]
+mode bmc
+depth 80
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv -D EXPECT_ABORT_CLEAR phase_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v phase_observer.sv project.v public_scenario.sv
+prep -top public_scenario
+
+[files]
+/workspace/build/spi-phase-integration/final/inputs/phase_engine.v
+/workspace/build/spi-phase-integration/final/inputs/m1_program_store.v
+/workspace/build/spi-phase-integration/final/inputs/m1_data_store.v
+/workspace/build/spi-phase-integration/final/inputs/m1_input_sync.v
+/workspace/build/spi-phase-integration/final/inputs/phase_observer.sv
+/workspace/build/spi-phase-integration/final/inputs/project.v
+/workspace/build/spi-phase-integration/final/inputs/integration_properties.vh
+/workspace/build/spi-phase-integration/final/inputs/public_scenario.sv

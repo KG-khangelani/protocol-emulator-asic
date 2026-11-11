@@ -1,0 +1,62 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$275] false)
+assume (= [$auto$async2sync.cc:107:execute$281] false)
+assume (= [$auto$async2sync.cc:107:execute$287] false)
+assume (= [$auto$async2sync.cc:107:execute$293] false)
+assume (= [$auto$async2sync.cc:107:execute$299] false)
+assume (= [$auto$async2sync.cc:107:execute$305] false)
+assume (= [$auto$async2sync.cc:107:execute$311] false)
+assume (= [$auto$async2sync.cc:107:execute$317] false)
+assume (= [$auto$async2sync.cc:107:execute$323] false)
+assume (= [$auto$async2sync.cc:107:execute$329] false)
+assume (= [$auto$async2sync.cc:107:execute$335] false)
+assume (= [$auto$async2sync.cc:116:execute$279] false)
+assume (= [$auto$async2sync.cc:116:execute$285] false)
+assume (= [$auto$async2sync.cc:116:execute$291] false)
+assume (= [$auto$async2sync.cc:116:execute$297] false)
+assume (= [$auto$async2sync.cc:116:execute$303] false)
+assume (= [$auto$async2sync.cc:116:execute$309] false)
+assume (= [$auto$async2sync.cc:116:execute$315] false)
+assume (= [$auto$async2sync.cc:116:execute$321] false)
+assume (= [$auto$async2sync.cc:116:execute$327] false)
+assume (= [$auto$async2sync.cc:116:execute$333] false)
+assume (= [$auto$async2sync.cc:116:execute$339] false)
+assume (= [_witness_.anyinit_procdff_268] false)
+assume (= [_witness_.anyinit_procdff_269] false)
+assume (= [_witness_.anyinit_procdff_270] false)
+assume (= [_witness_.anyinit_procdff_271] false)
+assume (= [_witness_.anyinit_procdff_272] #x00)
+assume (= [_witness_.anyinit_procdff_273] #x00)
+assume (= [actual_sync.metastability_stage] #x08)
+assume (= [actual_sync.sampled_in] #x02)
+assume (= [cycle] #b101110101)
+assume (= [observed] #x1e)
+assume (= [past2_valid] false)
+assume (= [past_valid] false)
+
+state 0
+assume (= [clk] false)
+
+state 1
+assume (= [clk] false)
+
+state 2
+assume (= [clk] false)
+
+state 3
+assume (= [clk] false)
+
+state 4
+assume (= [clk] false)
+
+state 5
+assume (= [clk] false)
+
+state 6
+assume (= [clk] false)
+
+state 7
+assume (= [clk] false)
+
+state 8
+assume (= [clk] false)

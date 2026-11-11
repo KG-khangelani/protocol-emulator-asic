@@ -1,0 +1,27 @@
+
+-- Executing script file `/workspace/build/spi-mode0-pins/sat-probe04/proof.ys' --
+
+1. Executing Verilog-2005 frontend: /workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/project.v
+Parsing formal SystemVerilog input from `/workspace/build/spi-mode0-pins/sat-probe04/variants/compact/src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_khangelani_protocol_emulator'.
+Successfully finished Verilog frontend.
+
+[middle retained losslessly in proof.log.gz]
+Import show expression: \tx_byte
+Import show expression: \ui_in
+Import show expression: \uio_in
+Import show expression: \uio_oe
+Import show expression: \uio_out
+Import show expression: \uo_out
+Import show expression: \write_index
+
+Solving problem with 14438890 variables and 38064160 clauses..
+Interrupted SAT solver: TIMEOUT!
+
+        _____  _  _      _____ ____  _     _____
+       /__ __\/ \/ \__/|/  __//  _ \/ \ /\/__ __\
+         / \  | || |\/|||  \  | / \|| | ||  / \
+         | |  | || |  |||  /_ | \_/|| \_/|  | |
+         \_/  \_/\_/  \|\____\\____/\____/  \_/
+
+ERROR: Called with -verify and proof did time out!

@@ -1,0 +1,24 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1793731132" />
+    <testcase name="public_pin_reload_changes_observable_program" classname="test" file="/workspace/test/test.py" lineno="180" time="0.0045206546783447266" sim_time_ns="726.0" ratio_time="160596.2082168662" />
+    <testcase name="invalid_length_never_releases_engine" classname="test" file="/workspace/test/test.py" lineno="213" time="0.001918792724609375" sim_time_ns="40.0" ratio_time="20846.44135188867">
+      <failure error_type="AssertionError" error_msg="assert 32 == 0&#10; +  where 32 = int(LogicArray('00100000', Range(7, 'downto', 0)))&#10; +    where LogicArray('00100000', Range(7, 'downto', 0)) = LogicArrayObject(tb.uo_out).value&#10; +      where LogicArrayObject(tb.uo_out) = HierarchyObject(tb).uo_out" />
+    </testcase>
+    <testcase name="synchronized_input_wait_event_and_timeout" classname="test" file="/workspace/test/test.py" lineno="228" time="0.004015445709228516" sim_time_ns="660.0" ratio_time="164365.31528322052" />
+    <testcase name="k_input_wait_public_program_event_timeout_and_reload" classname="test" file="/workspace/test/test.py" lineno="271" time="0.003839254379272461" sim_time_ns="906.0000000000002" ratio_time="235983.32136868912" />
+    <testcase name="k_bounded_loop_public_program_counts" classname="test" file="/workspace/test/test.py" lineno="315" time="0.05530834197998047" sim_time_ns="12008.0" ratio_time="217110.1061815674" />
+    <testcase name="loop_target_overflow_faults_without_alias" classname="test" file="/workspace/test/test.py" lineno="354" time="0.0008301734924316406" sim_time_ns="145.0" ratio_time="174662.2860425043" />
+    <testcase name="k_shift_8_public_payload_both_orders" classname="test" file="/workspace/test/test.py" lineno="368" time="0.00706791877746582" sim_time_ns="1296.0" ratio_time="183363.73702142015" />
+    <testcase name="uart_tx_8n1_public_pin_oracle" classname="test" file="/workspace/test/test.py" lineno="431" time="4.524202823638916" sim_time_ns="1112920.0" ratio_time="245992.50815746008" />
+    <testcase name="timed_shift_burst_invalid_freeze_and_reset" classname="test" file="/workspace/test/test.py" lineno="479" time="0.0014052391052246094" sim_time_ns="300.0" ratio_time="213486.80013573126" />
+    <testcase name="timed_shift_burst_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="534" time="0.06510615348815918" sim_time_ns="7737.0" ratio_time="118836.69339192529" />
+    <testcase name="shift_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="591" time="0.014972686767578125" sim_time_ns="1427.0" ratio_time="95306.87592356688" />
+    <testcase name="shift_invalid_partial_and_reset_fail_closed" classname="test" file="/workspace/test/test.py" lineno="641" time="0.0016334056854248047" sim_time_ns="420.0" ratio_time="257131.46693913298" />
+    <testcase name="randomized_trace_matches_reviewed_model" classname="test" file="/workspace/test/test.py" lineno="703" time="0.0051631927490234375" sim_time_ns="840.0" ratio_time="162690.03324713706" />
+    <testcase name="invalid_encoding_and_out_of_range_fail_closed" classname="test" file="/workspace/test/test.py" lineno="733" time="0.000400543212890625" sim_time_ns="80.0" ratio_time="199728.7619047619" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="106" time="14.356582403182983" sim_time_ns="1324403.724" ratio_time="92250.62670251993" />
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="130" time="3.976083278656006" sim_time_ns="377865.07799999975" ratio_time="95034.49790109164" />
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="154" time="1.2656924724578857" sim_time_ns="120706.04600000009" ratio_time="95367.59412465924" />
+  </testsuite>
+</testsuites>

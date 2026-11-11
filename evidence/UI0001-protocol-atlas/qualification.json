@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "evidence_id": "UI0001",
+  "observation_date_utc": "2026-10-13",
+  "kind": "documentation closeout of existing frontend delivery",
+  "qualified_app_head": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+  "existing_ci_execution_date_utc": "2026-10-05",
+  "pr": {
+    "number": 9,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/9",
+    "head_branch": "feat/protocol-atlas",
+    "base_branch": "main",
+    "base_head": "155e130ea402f78a86558fb3c2b094c536be41a4",
+    "state_observed": "open",
+    "draft_observed": true,
+    "merged_observed": false
+  },
+  "tested_pr_merge_revision": "ea4143b55835b4e20a8dfd2ce5ff7d4bea829a1e",
+  "tested_pr_merge_revision_scope": "GitHub synthetic PR merge checkout; not a merge into main",
+  "existing_implementation_ci": "PASS",
+  "existing_runs": [
+    {
+      "id": 37327455365,
+      "workflow": "atlas",
+      "event": "pull_request",
+      "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+      "status_observed": "completed",
+      "conclusion_observed": "success",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327455365"
+    },
+    {
+      "id": 37327455357,
+      "workflow": "test",
+      "event": "pull_request",
+      "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+      "status_observed": "completed",
+      "conclusion_observed": "success",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327455357"
+    },
+    {
+      "id": 37327449102,
+      "workflow": "docs",
+      "event": "push",
+      "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+      "status_observed": "completed",
+      "conclusion_observed": "success",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449102"
+    },
+    {
+      "id": 37327449164,
+      "workflow": "atlas",
+      "event": "push",
+      "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+      "status_observed": "completed",
+      "conclusion_observed": "success",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449164"
+    },
+    {
+      "id": 37327449008,
+      "workflow": "test",
+      "event": "push",
+      "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9",
+      "status_observed": "completed",
+      "conclusion_observed": "success",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/37327449008"
+    }
+  ],
+  "retained_browser_artifact": {
+    "run_id": 37327455365,
+    "id": 11353080379,
+    "name": "atlas-ea4143b55835b4e20a8dfd2ce5ff7d4bea829a1e",
+    "size_bytes": 3141180,
+    "metadata_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/11353080379",
+    "github_reported_zip_digest": "sha256:e9c1efd400c6a80288480336e969503e14cd1ff92211d1828b619c0a42c54e9f",
+    "zip_digest_independently_checked_this_session": false,
+    "created_at": "2026-10-05T14:47:27Z",
+    "expires_at": "2026-11-04T14:47:25Z",
+    "expired_observed": false,
+    "head_sha": "2160aebeb02819d8a82cd62c2f1576724dc4e5b9"
+  },
+  "existing_browser_result": {
+    "source": "Retained browser artifact 11353080379 (2026-10-05), entry results.json inspected; tests were not re-executed",
+    "artifact_relative_path": "results.json",
+    "passed": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "newly_executed_documentation_checks": {
+    "date_utc": "2026-10-13",
+    "doctor": "PASS",
+    "repository_check": "PASS",
+    "repository_check_command": "tools/workbench.ps1 Check (make check in the existing locked workbench)",
+    "repository_check_python_cases": {
+      "m1_contract_model": 18,
+      "uart_rx_oracle": 3,
+      "waveform_provenance": 4
+    },
+    "handoff_consistency_and_links": "PASS",
+    "handoff_check_scope": "Observed PR/head/run/artifact identities and canonical run links, local document links, retained result counts, verbatim historical decision/evidence prefixes, unchanged non-UI roadmap and five-file patch scope",
+    "git_diff_check": "PASS"
+  },
+  "not_reexecuted_this_session": [
+    "Frontend build",
+    "npm test / 8192-edge frontend oracle",
+    "Chromium browser suite",
+    "RTL simulation",
+    "HDL formal proofs",
+    "Synthesis",
+    "GDS / physical checks"
+  ],
+  "scope_boundary": "Existing CI qualifies the delivered app head above. It does not qualify the new unpublished documentation commit, user-device access, broader browsers or ASIC hardware.",
+  "status_boundaries": {
+    "pr8": "DRAFT / DEFERRED / NOT MERGED",
+    "semantic_compiler": "UNTOUCHED",
+    "m0_owner_fluency": "PENDING",
+    "m1_physical": "NOT_EVALUATED",
+    "h1_h4": "UNPROVEN",
+    "safari_firefox_ios": "NOT_EVALUATED",
+    "full_screen_reader_audit": "NOT_EVALUATED"
+  }
+}
