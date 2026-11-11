@@ -1,0 +1,4016 @@
+{
+  "status": "PASS_SCOPED_SCREEN",
+  "scope": "REFERENCE_SCHEDULE_SCREEN_AND_SCOPED_PUBLIC_RTL",
+  "started_utc": "2026-11-11T22:09:52.761038+00:00",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "tools/spi_four_mode_oracle.py": "8a161231669b9492c70fe90c3de3469e6e473467f01f8f788d1cb5d79c75a5d6",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/four_mode_programs.py": "ae6a8a86894df9f661159886428045efad900672fed124d4c0015b19ab443b96",
+    "experiments/spi_phase/run_four_mode_screen.py": "5bc7795adefacbb62df1c819eb015dc393361a3f25263a285b2691f5ee3b5f9d",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "test/test_spi_four_mode.py": "91179a66360214d576b454174b9923af9b4bb1fdf7f4fe19b99cce6b248fc165",
+    "test/test_spi_four_mode_public.py": "9d2d90d325354c95c0fd2e8bb59286feabf56fc4c68117fdc7573ad6870578db",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "docs/specs/p-spi-host-4mode.md": "08e051403ff62cb6e3609e7236a5519c0135f130cc3ce6b89b376bf18ffd8287"
+  },
+  "model_reference_capacity": 16,
+  "actual_compact_capacity": 8,
+  "production_and_candidate_rtl": "UNCHANGED",
+  "simulations": [
+    {
+      "simulator": "icarus",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/spi-four-mode-screen/ci/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_four_mode_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-four-mode-screen/ci/icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-four-mode-screen/ci/icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 3.773,
+      "wall_limit": 180,
+      "accepted": true,
+      "tests": 1,
+      "failed_or_skipped": [],
+      "records": [
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "naive",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "naive",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "actual": 4,
+              "edge": 2,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 4,
+              "edge": 3,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 3,
+              "kind": "direction"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 1,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 211,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "actual": 4,
+              "edge": 2,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 4,
+              "edge": 3,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 3,
+              "kind": "direction"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 1,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 180,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "idle_before_cs"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "idle_before_cs"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "idle_before_cs",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            },
+            {
+              "actual": 0,
+              "edge": 2,
+              "expected": 4,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 0,
+              "edge": 3,
+              "expected": 4,
+              "kind": "pins"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 3,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 211,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "idle_before_cs",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            },
+            {
+              "actual": 0,
+              "edge": 2,
+              "expected": 4,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 0,
+              "edge": 3,
+              "expected": 4,
+              "kind": "pins"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 3,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 180,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        }
+      ],
+      "records_sha256": {
+        "naive-held-m0-o1-r69.json": "3234d7dc1cdec6d3fbd4f97f0c9048f303cfb5a57172a15791e971cf2ab24898",
+        "held-held-m2-o1-r69.json": "9c3c26ad2274190c4e64cfcb5d57d4863510b61f73706d76a9783be609959cd3",
+        "naive-held-m3-o0-r69.json": "be709ce7133ea504e36ca191a5f4a7c661f208489f664d84c766ea1537045936",
+        "naive-held-m2-o0-r69.json": "22b9ac38de41e97e556866c61f8d7989e1acb457da17ae09d8acc5844b6d56d4",
+        "held-edge_only-m0-o0-r69.json": "c6d438b0b44dec0ef9e25d47a6d9afb5eb743151cd30fddb65f00dff53178e43",
+        "held-edge_only-m0-o1-r69.json": "35db03fc4200b283278b4a3185d48dfee4d6b3ab14cda560637c81319dfc7e2a",
+        "held-held-m0-o1-r69.json": "bd9bf28e7a736165ef550cfeadd45f419f81bfc514201915ba463a4f04ce0d44",
+        "naive-held-m2-o1-r69.json": "7c3febc2d17b85cf01180e64163500a80625c19be2cff8b8aa14d6a47cbeeffb",
+        "cases.jsonl": "93ecba92308a902dd2d0b439fe269e8322c8646db96dc21d6571c6d34111d2d0",
+        "naive-held-m1-o0-r69.json": "5c4d6ee0ad3d244bda4cfedba12d15a77e47887fe4e06e4c31fa0f9e02121f6f",
+        "naive-held-m0-o0-r69.json": "fa2783309c4ef6448dfd326a1af2cfd969d2fda8deb5323605e256ffd17e7f43",
+        "held-held-m0-o0-r69.json": "d8547c3f51b452bf3aa9993fb1ae2d21368ee57d055d83c8b31b39c14d6633a5",
+        "held-edge_only-m2-o0-r69.json": "490266dfa61e770c85a1ab7648005b18fcdfaec38888e4de9212812622d752ba",
+        "held-edge_only-m2-o1-r69.json": "214356f14cf2d2a5d36025b1189c214a74c2761298290513bf1ae837db82cc95",
+        "naive-held-m1-o1-r69.json": "4dbc7170cb5ad4fa2f6dbcdf7dcb201e032b89c219c58328eaf90bdd979cc35d",
+        "naive-held-m3-o1-r69.json": "40763ea432a0bdfb8fa53dc679dd2e022b2fee2b8d589055436c3d958880e54e",
+        "held-held-m2-o0-r69.json": "e206abbfbbde06ffdf7b8271cd596b2b193219c4bfced25ec38a5c85e1a3591f"
+      }
+    },
+    {
+      "simulator": "verilator",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/spi-four-mode-screen/ci/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_four_mode_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/spi-four-mode-screen/ci/verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-four-mode-screen/ci/verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 16.204,
+      "wall_limit": 180,
+      "accepted": true,
+      "tests": 1,
+      "failed_or_skipped": [],
+      "records": [
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c08",
+            "64000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b05000b8",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 0,
+          "rx": 0,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 19,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 1,
+          "rx": 1,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 92,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 150,
+          "rx": 150,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 217,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 254,
+          "rx": 254,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 129,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "held",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 255,
+          "rx": 255,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 202,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "received_byte"
+          ],
+          "expected_acceptance": false,
+          "family": "held",
+          "first_errors": [
+            {
+              "actual": 150,
+              "edge": 402,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 403,
+              "expected": 105,
+              "kind": "received_byte"
+            },
+            {
+              "actual": 150,
+              "edge": 404,
+              "expected": 105,
+              "kind": "received_byte"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "edge_only",
+          "raw_rx": 150,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "000c0c0c",
+            "64000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b05000b8",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "naive",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": true,
+          "error_kinds": [],
+          "expected_acceptance": true,
+          "family": "naive",
+          "first_errors": [],
+          "halt": "HALT",
+          "mode": 0,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "actual": 4,
+              "edge": 2,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 4,
+              "edge": 3,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 3,
+              "kind": "direction"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 1,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 211,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "actual": 4,
+              "edge": 2,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 4,
+              "edge": 3,
+              "expected": 0,
+              "kind": "pins"
+            },
+            {
+              "edge": 3,
+              "kind": "direction"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 1,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 180,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b0500008",
+            "40000015",
+            "000c0c08",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "idle_before_cs"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486020",
+            "40000017",
+            "00040400",
+            "a0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "idle_before_cs"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 2,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 105,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486020",
+            "40000017",
+            "00040400",
+            "b0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "idle_before_cs",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            },
+            {
+              "actual": 0,
+              "edge": 2,
+              "expected": 4,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 0,
+              "edge": 3,
+              "expected": 4,
+              "kind": "pins"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 3,
+          "order": 0,
+          "profile": "held",
+          "raw_rx": 211,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "a0486000",
+            "40000017",
+            "00040404",
+            "a0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        },
+        {
+          "accepted": false,
+          "error_kinds": [
+            "direction",
+            "idle_before_cs",
+            "pins",
+            "received_byte",
+            "terminal_timing",
+            "valid_timing",
+            "wire_mosi"
+          ],
+          "expected_acceptance": false,
+          "family": "naive",
+          "first_errors": [
+            {
+              "edge": 1,
+              "kind": "idle_before_cs"
+            },
+            {
+              "actual": 0,
+              "edge": 2,
+              "expected": 4,
+              "kind": "pins"
+            },
+            {
+              "edge": 2,
+              "kind": "direction"
+            },
+            {
+              "actual": 0,
+              "edge": 3,
+              "expected": 4,
+              "kind": "pins"
+            }
+          ],
+          "halt": "HALT",
+          "mode": 3,
+          "order": 1,
+          "profile": "held",
+          "raw_rx": 180,
+          "rx": 105,
+          "scope": "ACTUAL_PUBLIC_LOADED_COMPACT_CORE_TICK_SCREEN",
+          "tx": 4,
+          "words": [
+            "65000008",
+            "b0486000",
+            "40000017",
+            "00040404",
+            "b0500008",
+            "40000015",
+            "000c0c0c",
+            "80000000"
+          ]
+        }
+      ],
+      "records_sha256": {
+        "naive-held-m0-o1-r69.json": "3234d7dc1cdec6d3fbd4f97f0c9048f303cfb5a57172a15791e971cf2ab24898",
+        "held-held-m2-o1-r69.json": "9c3c26ad2274190c4e64cfcb5d57d4863510b61f73706d76a9783be609959cd3",
+        "naive-held-m3-o0-r69.json": "be709ce7133ea504e36ca191a5f4a7c661f208489f664d84c766ea1537045936",
+        "naive-held-m2-o0-r69.json": "22b9ac38de41e97e556866c61f8d7989e1acb457da17ae09d8acc5844b6d56d4",
+        "held-edge_only-m0-o0-r69.json": "c6d438b0b44dec0ef9e25d47a6d9afb5eb743151cd30fddb65f00dff53178e43",
+        "held-edge_only-m0-o1-r69.json": "35db03fc4200b283278b4a3185d48dfee4d6b3ab14cda560637c81319dfc7e2a",
+        "held-held-m0-o1-r69.json": "bd9bf28e7a736165ef550cfeadd45f419f81bfc514201915ba463a4f04ce0d44",
+        "naive-held-m2-o1-r69.json": "7c3febc2d17b85cf01180e64163500a80625c19be2cff8b8aa14d6a47cbeeffb",
+        "cases.jsonl": "93ecba92308a902dd2d0b439fe269e8322c8646db96dc21d6571c6d34111d2d0",
+        "naive-held-m1-o0-r69.json": "5c4d6ee0ad3d244bda4cfedba12d15a77e47887fe4e06e4c31fa0f9e02121f6f",
+        "naive-held-m0-o0-r69.json": "fa2783309c4ef6448dfd326a1af2cfd969d2fda8deb5323605e256ffd17e7f43",
+        "held-held-m0-o0-r69.json": "d8547c3f51b452bf3aa9993fb1ae2d21368ee57d055d83c8b31b39c14d6633a5",
+        "held-edge_only-m2-o0-r69.json": "490266dfa61e770c85a1ab7648005b18fcdfaec38888e4de9212812622d752ba",
+        "held-edge_only-m2-o1-r69.json": "214356f14cf2d2a5d36025b1189c214a74c2761298290513bf1ae837db82cc95",
+        "naive-held-m1-o1-r69.json": "4dbc7170cb5ad4fa2f6dbcdf7dcb201e032b89c219c58328eaf90bdd979cc35d",
+        "naive-held-m3-o1-r69.json": "40763ea432a0bdfb8fa53dc679dd2e022b2fee2b8d589055436c3d958880e54e",
+        "held-held-m2-o0-r69.json": "e206abbfbbde06ffdf7b8271cd596b2b193219c4bfced25ec38a5c85e1a3591f"
+      }
+    }
+  ],
+  "oracle_tests": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "test",
+      "-p",
+      "test_spi_four_mode.py"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 0.214,
+    "wall_limit": 60
+  },
+  "reference": {
+    "positive_cases": 6176,
+    "control_cases": [
+      {
+        "mode": 0,
+        "order": 0,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c08",
+          "64000008",
+          "a0486000",
+          "40000017",
+          "00040404",
+          "a05000b8",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            402,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 402,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 403,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 404,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 0,
+          "cpol": 0,
+          "cpha": 0,
+          "half": 25,
+          "cs": 3,
+          "leading": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "trailing": [
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353,
+            403
+          ],
+          "sample": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "launch": [
+            3,
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353
+          ],
+          "release": 403,
+          "halt": 404
+        }
+      },
+      {
+        "mode": 0,
+        "order": 1,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c08",
+          "64000008",
+          "b0486000",
+          "40000017",
+          "00040404",
+          "b05000b8",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            402,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 402,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 403,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 404,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 0,
+          "cpol": 0,
+          "cpha": 0,
+          "half": 25,
+          "cs": 3,
+          "leading": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "trailing": [
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353,
+            403
+          ],
+          "sample": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "launch": [
+            3,
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353
+          ],
+          "release": 403,
+          "halt": 404
+        }
+      },
+      {
+        "mode": 1,
+        "order": 0,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 10,
+        "used_bits": 320,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": false,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c08",
+          "000c0c00",
+          "40000016",
+          "64000008",
+          "a0486020",
+          "40000017",
+          "00040400",
+          "a05000b8",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            426,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 426,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 427,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 428,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 1,
+          "cpol": 0,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 1,
+        "order": 1,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 10,
+        "used_bits": 320,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": false,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c08",
+          "000c0c00",
+          "40000016",
+          "64000008",
+          "b0486020",
+          "40000017",
+          "00040400",
+          "b05000b8",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            426,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 426,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 427,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 428,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 1,
+          "cpol": 0,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 2,
+        "order": 0,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c0c",
+          "64000008",
+          "a0486020",
+          "40000017",
+          "00040400",
+          "a05000b8",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            402,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 402,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 403,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 404,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 2,
+          "cpol": 1,
+          "cpha": 0,
+          "half": 25,
+          "cs": 3,
+          "leading": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "trailing": [
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353,
+            403
+          ],
+          "sample": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "launch": [
+            3,
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353
+          ],
+          "release": 403,
+          "halt": 404
+        }
+      },
+      {
+        "mode": 2,
+        "order": 1,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c0c",
+          "64000008",
+          "b0486020",
+          "40000017",
+          "00040400",
+          "b05000b8",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            402,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 402,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 403,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 404,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 2,
+          "cpol": 1,
+          "cpha": 0,
+          "half": 25,
+          "cs": 3,
+          "leading": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "trailing": [
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353,
+            403
+          ],
+          "sample": [
+            28,
+            78,
+            128,
+            178,
+            228,
+            278,
+            328,
+            378
+          ],
+          "launch": [
+            3,
+            53,
+            103,
+            153,
+            203,
+            253,
+            303,
+            353
+          ],
+          "release": 403,
+          "halt": 404
+        }
+      },
+      {
+        "mode": 3,
+        "order": 0,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 10,
+        "used_bits": 320,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": false,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c0c",
+          "000c0c04",
+          "40000016",
+          "64000008",
+          "a0486000",
+          "40000017",
+          "00040404",
+          "a05000b8",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            426,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 426,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 427,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 428,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 3,
+          "cpol": 1,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 3,
+        "order": 1,
+        "family": "held",
+        "profile": "edge_only",
+        "rx": 105,
+        "tx": 4,
+        "words": 10,
+        "used_bits": 320,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": false,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "000c0c0c",
+          "000c0c04",
+          "40000016",
+          "64000008",
+          "b0486000",
+          "40000017",
+          "00040404",
+          "b05000b8",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            426,
+            150
+          ]
+        ],
+        "error_kinds": [
+          "received_byte"
+        ],
+        "first_errors": [
+          {
+            "kind": "received_byte",
+            "edge": 426,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 427,
+            "actual": 150,
+            "expected": 105
+          },
+          {
+            "kind": "received_byte",
+            "edge": 428,
+            "actual": 150,
+            "expected": 105
+          }
+        ],
+        "schedule": {
+          "mode": 3,
+          "cpol": 1,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 0,
+        "order": 0,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "a0486000",
+          "40000017",
+          "00040404",
+          "a0500008",
+          "40000015",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": true,
+        "expected_acceptance": true,
+        "commits": [
+          [
+            379,
+            105
+          ]
+        ],
+        "error_kinds": [],
+        "first_errors": [],
+        "schedule": {
+          "mode": 0,
+          "cpol": 0,
+          "cpha": 0,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "launch": [
+            2,
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352
+          ],
+          "release": 402,
+          "halt": 403
+        }
+      },
+      {
+        "mode": 0,
+        "order": 1,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "b0486000",
+          "40000017",
+          "00040404",
+          "b0500008",
+          "40000015",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": true,
+        "expected_acceptance": true,
+        "commits": [
+          [
+            379,
+            105
+          ]
+        ],
+        "error_kinds": [],
+        "first_errors": [],
+        "schedule": {
+          "mode": 0,
+          "cpol": 0,
+          "cpha": 0,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "launch": [
+            2,
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352
+          ],
+          "release": 402,
+          "halt": 403
+        }
+      },
+      {
+        "mode": 1,
+        "order": 0,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "a0486020",
+          "40000017",
+          "00040400",
+          "a0500008",
+          "40000015",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            211
+          ]
+        ],
+        "error_kinds": [
+          "direction",
+          "pins",
+          "received_byte",
+          "terminal_timing",
+          "valid_timing",
+          "wire_mosi"
+        ],
+        "first_errors": [
+          {
+            "kind": "pins",
+            "edge": 2,
+            "actual": 4,
+            "expected": 0
+          },
+          {
+            "kind": "direction",
+            "edge": 2
+          },
+          {
+            "kind": "pins",
+            "edge": 3,
+            "actual": 4,
+            "expected": 0
+          },
+          {
+            "kind": "direction",
+            "edge": 3
+          }
+        ],
+        "schedule": {
+          "mode": 1,
+          "cpol": 0,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 1,
+        "order": 1,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "b0486020",
+          "40000017",
+          "00040400",
+          "b0500008",
+          "40000015",
+          "000c0c08",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            180
+          ]
+        ],
+        "error_kinds": [
+          "direction",
+          "pins",
+          "received_byte",
+          "terminal_timing",
+          "valid_timing",
+          "wire_mosi"
+        ],
+        "first_errors": [
+          {
+            "kind": "pins",
+            "edge": 2,
+            "actual": 4,
+            "expected": 0
+          },
+          {
+            "kind": "direction",
+            "edge": 2
+          },
+          {
+            "kind": "pins",
+            "edge": 3,
+            "actual": 4,
+            "expected": 0
+          },
+          {
+            "kind": "direction",
+            "edge": 3
+          }
+        ],
+        "schedule": {
+          "mode": 1,
+          "cpol": 0,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 2,
+        "order": 0,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "a0486020",
+          "40000017",
+          "00040400",
+          "a0500008",
+          "40000015",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            105
+          ]
+        ],
+        "error_kinds": [
+          "idle_before_cs"
+        ],
+        "first_errors": [
+          {
+            "kind": "idle_before_cs",
+            "edge": 1
+          }
+        ],
+        "schedule": {
+          "mode": 2,
+          "cpol": 1,
+          "cpha": 0,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "launch": [
+            2,
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352
+          ],
+          "release": 402,
+          "halt": 403
+        }
+      },
+      {
+        "mode": 2,
+        "order": 1,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "b0486020",
+          "40000017",
+          "00040400",
+          "b0500008",
+          "40000015",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            105
+          ]
+        ],
+        "error_kinds": [
+          "idle_before_cs"
+        ],
+        "first_errors": [
+          {
+            "kind": "idle_before_cs",
+            "edge": 1
+          }
+        ],
+        "schedule": {
+          "mode": 2,
+          "cpol": 1,
+          "cpha": 0,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "launch": [
+            2,
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352
+          ],
+          "release": 402,
+          "halt": 403
+        }
+      },
+      {
+        "mode": 3,
+        "order": 0,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "a0486000",
+          "40000017",
+          "00040404",
+          "a0500008",
+          "40000015",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            211
+          ]
+        ],
+        "error_kinds": [
+          "direction",
+          "idle_before_cs",
+          "pins",
+          "received_byte",
+          "terminal_timing",
+          "valid_timing",
+          "wire_mosi"
+        ],
+        "first_errors": [
+          {
+            "kind": "idle_before_cs",
+            "edge": 1
+          },
+          {
+            "kind": "pins",
+            "edge": 2,
+            "actual": 0,
+            "expected": 4
+          },
+          {
+            "kind": "direction",
+            "edge": 2
+          },
+          {
+            "kind": "pins",
+            "edge": 3,
+            "actual": 0,
+            "expected": 4
+          }
+        ],
+        "schedule": {
+          "mode": 3,
+          "cpol": 1,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      },
+      {
+        "mode": 3,
+        "order": 1,
+        "family": "naive",
+        "profile": "held",
+        "rx": 105,
+        "tx": 4,
+        "words": 8,
+        "used_bits": 256,
+        "actual_capacity_words": 8,
+        "fits_eight_word_store": true,
+        "rtl_execution": "NOT_EVALUATED",
+        "encoded_words": [
+          "65000008",
+          "b0486000",
+          "40000017",
+          "00040404",
+          "b0500008",
+          "40000015",
+          "000c0c0c",
+          "80000000"
+        ],
+        "schedule_pass": false,
+        "expected_acceptance": false,
+        "commits": [
+          [
+            379,
+            180
+          ]
+        ],
+        "error_kinds": [
+          "direction",
+          "idle_before_cs",
+          "pins",
+          "received_byte",
+          "terminal_timing",
+          "valid_timing",
+          "wire_mosi"
+        ],
+        "first_errors": [
+          {
+            "kind": "idle_before_cs",
+            "edge": 1
+          },
+          {
+            "kind": "pins",
+            "edge": 2,
+            "actual": 0,
+            "expected": 4
+          },
+          {
+            "kind": "direction",
+            "edge": 2
+          },
+          {
+            "kind": "pins",
+            "edge": 3,
+            "actual": 0,
+            "expected": 4
+          }
+        ],
+        "schedule": {
+          "mode": 3,
+          "cpol": 1,
+          "cpha": 1,
+          "half": 25,
+          "cs": 2,
+          "leading": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "trailing": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "sample": [
+            52,
+            102,
+            152,
+            202,
+            252,
+            302,
+            352,
+            402
+          ],
+          "launch": [
+            27,
+            77,
+            127,
+            177,
+            227,
+            277,
+            327,
+            377
+          ],
+          "release": 427,
+          "halt": 428
+        }
+      }
+    ],
+    "limited_family_search": true,
+    "minimum_or_impossibility_proved": false
+  },
+  "sources": {
+    "baseline": {
+      "directory": "/workspace/build/spi-four-mode-screen/ci/variants/baseline/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact": {
+      "directory": "/workspace/build/spi-four-mode-screen/ci/variants/compact/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "banked": {
+      "directory": "/workspace/build/spi-four-mode-screen/ci/variants/banked/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "cross_simulator_records_identical": true
+}

@@ -45,8 +45,10 @@
     "check-final.log": "96bf8299861fb03b7ec92e893dec67486b1ea7f79b879daa81d80d5950f2dbb2",
     "oracle-tests.log": "808ec9e7499e91546592b950d09f12393ef47ceaf3ff95c289e23916697f2ee0",
     "public-cases.jsonl": "93ecba92308a902dd2d0b439fe269e8322c8646db96dc21d6571c6d34111d2d0",
-    "README.md": "e9a9f0178e330928f00622359a5493beb890ed066d34af04d8e6bf0a51ac44af",
+    "README.md": "4c61d033d2dbf02ec9efef69ffceb45cc89d5538508bcc322e13dbfc384eedc5",
     "reference-witnesses.json.gz": "4c880b2f2a1999586cd5a597f5883f6c790b5706f20faac4ae7db6cc95fc5ee2",
+    "remote-qualification.json": "374cd8e09056f2ffc9f8c0cb061e1f2e9962cbf3862e601d2bc6513484e04ce2",
+    "remote-run-result.json": "09404d1512455b23c64d24b4076bc088e90da7b8f8530da572202a13e705acd3",
     "run-result.json": "bc2d05eed8ffba81de86a3c89b0a574760781a59a5eb7d2de7756a815b4acd97",
     "schedule-matrix.json": "99d1d76bb153912eadb1d2760ff9e596bb569495ceb02b7cac3c98543cdf5c38",
     "source-manifest.json": "29ff43bb1279c01760c04051f9c8a97e1b9381e9a92a36d387d1287baeed29d0",
@@ -72,5 +74,19 @@
     "workflow_yaml_and_shell": "PASS",
     "unchanged_compact_RTL_vs_E0026": true
   },
-  "workbench_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+  "workbench_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "remote_qualification": {
+    "source": "a3bfcea78aa200079ebacd541fbc5c19d183dfa5",
+    "run": 43109088096,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43109088096",
+    "conclusion": "success",
+    "artifact_id": 13896090464,
+    "artifact_name": "spi-sensitivity-a3bfcea78aa200079ebacd541fbc5c19d183dfa5",
+    "artifact_zip_sha256": "57e2adacbe8a5e418a83f16c5ded74ee144d7be191b7f15caf0773ca11736528",
+    "zip_sha256_verified": true,
+    "all_recorded_input_hashes_match_git_blobs": true,
+    "public_records_match_local_and_both_simulators": true,
+    "prior_program_sensitivity_gate": "PASS",
+    "scope": "Four-mode reference screen and fitting HELD modes0/2 public RTL; no four-mode RTL or delayed-program formal promotion"
+  }
 }

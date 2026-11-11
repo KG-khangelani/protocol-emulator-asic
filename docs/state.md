@@ -46,6 +46,8 @@ efficiently express useful digital communication protocols under hard temporal c
   checked on six payloads per mode/order; full four-mode RTL remains unqualified.
   Naive mode2 can return the correct byte while violating idle-before-CS;
   edge-only inputs falsify delayed capture. D28 keeps these boundaries separate.
+  Clean implementation a3bfcea passes the expanded SPI CI gate; its artifact
+  ZIP/source hashes and byte-identical local/remote records were verified.
   See [E0027](../evidence/E0027-four-mode-schedule-screen/README.md).
 
 - E0026 qualifies actual-program sensitivity: unchanged baseline induction
@@ -378,8 +380,8 @@ efficiently express useful digital communication protocols under hard temporal c
   and finite reference/RTL checks are complete; no new physical or all-mode
   claim follows. E0026's cover timeout/interruption remain inconclusive; do not
   retry deep covers without a new method and frozen budget.
-  Broad verification for0eaa54c passed (run43102775206); fresh E0027 CI is
-  tracked separately. Keep compiler work deferred and production RTL unchanged.
+  Broad verification for0eaa54c passed (run43102775206). E0027's expanded
+  SPI gate passes at a3bfcea (run43109088096); broader CI remains separate. Keep compiler work deferred and production RTL unchanged.
   Refresh remote history before relying on a local handoff. Retain the no-RTL
   faster-target alternative and E0020's failed broader response envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review

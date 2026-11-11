@@ -89,3 +89,14 @@ Next prove the fitting delayed-capture images under their actual input-hold
 premise, and investigate phase1 schedule capacity without treating these
 family counts as a global lower bound. See
 [D28](../../docs/decisions/0028-delayed-sampling-under-explicit-hold.md).
+
+## Remote qualification
+
+Clean implementation a3bfcea passes the expanded
+[CI run43109088096](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43109088096),
+including the earlier sensitivity gate, new four-mode screen and artifact upload.
+Every recorded input hash matches that Git revision. All public record files
+match the local run and both simulators byte for byte.
+[remote-qualification.json](remote-qualification.json) retains the verified
+artifact ZIP digest/identity; [remote-run-result.json](remote-run-result.json)
+retains the full remote result. Broader repository CI is tracked separately.

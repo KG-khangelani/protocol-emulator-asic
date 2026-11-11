@@ -1,0 +1,14 @@
+{
+  "source": "a3bfcea78aa200079ebacd541fbc5c19d183dfa5",
+  "run": 43109088096,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43109088096",
+  "conclusion": "success",
+  "artifact_id": 13896090464,
+  "artifact_name": "spi-sensitivity-a3bfcea78aa200079ebacd541fbc5c19d183dfa5",
+  "artifact_zip_sha256": "57e2adacbe8a5e418a83f16c5ded74ee144d7be191b7f15caf0773ca11736528",
+  "zip_sha256_verified": true,
+  "all_recorded_input_hashes_match_git_blobs": true,
+  "public_records_match_local_and_both_simulators": true,
+  "prior_program_sensitivity_gate": "PASS",
+  "scope": "Four-mode reference screen and fitting HELD modes0/2 public RTL; no four-mode RTL or delayed-program formal promotion"
+}
