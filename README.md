@@ -20,9 +20,10 @@ waits, LOOP and reusable shifting. Named digital UART transmit and bounded
 last-byte receive workloads have RTL/scoped-formal qualification; see
 [E0016](evidence/E0016-uart-tx-8n1/README.md) and
 [E0018](evidence/E0018-uart-rx-public/README.md). This is not continuous/full UART,
-SPI/I2C, M1 physical fit/timing or silicon evidence. The separate
-[PR8 host-service candidate](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8)
-remains draft/unmerged, not part of main.
+SPI/I2C, M1 physical fit/timing or silicon evidence. The bounded
+[PR8 host-service work](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8)
+is merged; its digital checks and limits are recorded in
+[E0019](evidence/E0019-uart-rx-host-service/README.md).
 
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).
@@ -38,6 +39,16 @@ reference cycles, evidence and progress views. It runs locally, not on a chip;
 [UI0001](evidence/UI0001-protocol-atlas/README.md) records scoped browser/model
 checks and limits. Implementation continues as reviewable increments.
 Private concept/reference images are not published.
+
+## Releases and packages
+
+[Versioned research releases](https://github.com/KG-khangelani/protocol-emulator-asic/releases)
+and the
+[verification workbench package](https://github.com/KG-khangelani/protocol-emulator-asic/pkgs/container/protocol-emulator-asic-workbench)
+are maintained by the [publication workflow](.github/workflows/publish.yaml).
+See [how releases and packages are updated](docs/releases.md) for checks,
+versioning and container use. Research prereleases retain the qualification
+limits above.
 
 ## Start with Codex
 

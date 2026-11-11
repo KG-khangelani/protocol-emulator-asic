@@ -1,0 +1,170 @@
+name: publish
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - 'tools/workbench/**'
+      - 'tools/workbench.sh'
+      - 'tools/workbench.ps1'
+      - 'tools/doctor.py'
+      - '.github/workflows/publish.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  workbench:
+    if: github.repository == 'KG-khangelani/protocol-emulator-asic'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      packages: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out the exact publication source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate the publication target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            [[ "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$ ]]
+            git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+            test -s "docs/releases/$GITHUB_REF_NAME.md"
+            # Published versions are immutable. A failed run can be retried before release.
+            if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+              echo "::error::This version already has a release; use a new version."
+              exit 1
+            fi
+          else
+            test "$GITHUB_REF" = refs/heads/main
+          fi
+          echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}-workbench" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          lock = json.loads(Path("tools/workbench/toolchain.lock.json").read_text())
+          with open(os.environ["GITHUB_ENV"], "a") as output:
+              output.write("LOCAL_IMAGE=" + lock["developer_workbench"]["image_tag"] + "\n")
+          PY
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build the locked Linux amd64 workbench
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: tools/workbench
+          file: tools/workbench/Dockerfile
+          platforms: linux/amd64
+          load: true
+          tags: ${{ env.LOCAL_IMAGE }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ github.sha }}
+            org.opencontainers.image.description=Pinned digital verification tools; not the CMOS5L tapeout flow.
+          cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+          cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+      - name: Verify tools, models, both RTL simulators, formal checks and synthesis
+        run: ./tools/workbench.sh All
+      - name: Verify research release claims with the focused SPI gates
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$LOCAL_IMAGE" \
+            python3 experiments/spi_phase/run_program_sensitivity.py --output build/release-sensitivity
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$LOCAL_IMAGE" \
+            python3 experiments/spi_phase/run_four_mode_screen.py --output build/release-four-mode
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push the exact tested image and record its digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          immutable="$IMAGE:sha-$GITHUB_SHA"
+          docker tag "$LOCAL_IMAGE" "$immutable"
+          docker push "$immutable"
+          digest="$(docker image inspect --format '{{index .RepoDigests 0}}' "$immutable")"
+          test "${digest%@*}" = "$IMAGE"
+          echo "PUBLISHED_IMAGE=$digest" >> "$GITHUB_ENV"
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            alias="$IMAGE:$GITHUB_REF_NAME"
+          else
+            alias="$IMAGE:main"
+          fi
+          docker tag "$LOCAL_IMAGE" "$alias"
+          docker push "$alias"
+          mkdir -p build/publication
+          docker image inspect "$LOCAL_IMAGE" > build/publication/image-inspect.json
+      - name: Write publication manifest and checksums
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, shutil
+          from pathlib import Path
+          output = Path("build/publication")
+          lock = Path("tools/workbench/toolchain.lock.json")
+          shutil.copy2(lock, output / lock.name)
+          manifest = {
+              "schema": "protocol-emulator-publication-v1",
+              "source_commit": os.environ["GITHUB_SHA"],
+              "ref": os.environ["GITHUB_REF"],
+              "image": os.environ["PUBLISHED_IMAGE"],
+              "platform": "linux/amd64",
+              "toolchain_lock_sha256": hashlib.sha256(lock.read_bytes()).hexdigest(),
+              "verification_run": f'{os.environ["GITHUB_SERVER_URL"]}/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}',
+              "checks": ["doctor", "check", "lint", "test", "test-verilator", "formal", "synth"],
+              "physical_qualification": "NOT_EVALUATED",
+          }
+          if os.environ["GITHUB_REF"].startswith("refs/tags/"):
+              manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen"]
+              shutil.copy2("build/release-sensitivity/result.json", output / "spi-sensitivity.json")
+              shutil.copy2("build/release-four-mode/result.json", output / "spi-four-mode.json")
+          (output / "publication.json").write_text(json.dumps(manifest, indent=2) + "\n")
+          files = sorted(p for p in output.iterdir() if p.name != "SHA256SUMS")
+          (output / "SHA256SUMS").write_text("".join(
+              f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n" for p in files))
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+              summary.write(f'Published verified workbench: `{manifest["image"]}`\n')
+          PY
+      - name: Publish the versioned GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp "docs/releases/$GITHUB_REF_NAME.md" build/release-notes.md
+          printf '\nVerified workbench: `%s`\n' "$PUBLISHED_IMAGE" >> build/release-notes.md
+          printf '\nPublication checks: %s/%s/actions/runs/%s\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" >> build/release-notes.md
+          options=()
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            options+=(--prerelease --latest=false)
+          fi
+          gh release create "$GITHUB_REF_NAME" build/publication/* \
+            --verify-tag --title "Protocol Emulator ASIC $GITHUB_REF_NAME" \
+            --notes-file build/release-notes.md "${options[@]}"
+      - name: Retain publication records
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: publication-${{ github.sha }}
+          path: |
+            build/publication/
+            build/release-sensitivity/result.json
+            build/release-four-mode/result.json
+            test/results*.xml
+          if-no-files-found: warn
+          retention-days: 90

@@ -5,6 +5,11 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
+Publication maintenance: [versioned research releases and the verification workbench
+package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
+updates publish after the locked verification ladder; version tags additionally
+run focused SPI gates and publish release notes with digest/checksum assets.
+
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
 PR9 was merged on 2026-10-14 at `ae13f6bfcfd3fe21cd937768bc9e1151f441379c`.
