@@ -37,11 +37,12 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
-- PR8 host-service integration is being checked against main `483df67`
-  (including merged PR11 SPI experiments and PR10 Vite patch). The merge
-  preserves all newer SPI, atlas and evidence changes and adds the bounded
-  host-service checks. Historical E0019 passes are not fresh integration
-  evidence; current check results are recorded separately in
+- PR10 merged at `483df67` and all its post-merge workflows passed. PR8 merged
+  at `7b2f746` after full PR CI passed at `996b967`; the merged tree is identical
+  to that tested head. Newer SPI, atlas and evidence changes are preserved.
+  The expanded SPI compatibility guard now requires all 20 legacy cases.
+  Its earlier stale-count failure and a separate local formal timeout are
+  retained; remote core formal passed. Current integration results are in
   [the integration addendum](../evidence/E0019-uart-rx-host-service/integration-20261111.md).
 
 - E0025 resolves E0024's written actual eight-word normal-transaction claim by
@@ -320,12 +321,11 @@ efficiently express useful digital communication protocols under hard temporal c
   historical status is preserved in D20 and superseded by its delivery addendum.
   Private concept/reference assets remain excluded, and UI delivery does not
   establish chip evidence or access from an unverified user device.
-- [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) is being
-  integrated under the owner's 11 November instruction to merge outstanding
-  pull requests. Earlier SPI experiments intentionally excluded PR8; their
-  source identities and limits remain historical. Current integration results
-  must be checked independently before merging. Compiler work, production SPI
-  promotion and physical qualification remain separate.
+- PR8's bounded host service is integrated at `7b2f746`. Earlier SPI experiments
+  intentionally excluded it; their source identities and limits remain
+  historical. Post-merge workflows and the duplicate push run are separate
+  observations, not inferred from the successful PR run. Compiler work,
+  production SPI promotion and physical qualification remain separate.
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
   publicly loadable in simulation and have measured generic complete-chip
@@ -349,8 +349,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - Engineering: independently test the actual-program proof's property/input
   sensitivity and known bad firmware/reachability, building on E0025 induction.
   E0024's direct timeouts remain inconclusive historical observations.
-  PR11 was merged at `1383158`; complete PR8 integration checks before its
-  authorized merge. Keep compiler work deferred and production RTL unchanged.
+  PR11 merged at `1383158` and PR8 at `7b2f746`. Keep compiler work deferred and
+  production RTL unchanged. Refresh remote history and PR state before relying
+  on a stale local checkout or historical handoff text.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
@@ -362,7 +363,7 @@ efficiently express useful digital communication protocols under hard temporal c
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate, a bounded last-byte RX experiment and the
-bounded host-serviced pair from E0019, whose current integration is pending.
+bounded host-serviced pair from E0019, integrated through PR8.
 Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
 phase/capacity comparison is measured only in isolated experimental RTL;
 E0022 proves written executor properties/refinement under its stated assumptions;

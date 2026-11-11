@@ -1,7 +1,7 @@
 # PR8 integration with current main
 
-Status: integration candidate; core CI passes, SPI test-count guard corrected;
-complete corrected-head validation pending. This addendum preserves
+Status: merged at `7b2f746b608d1685115071c0ae79f64d39c93f2a` after complete
+corrected-head PR validation. This addendum preserves
 the original E0019 records and does not rewrite their tested revisions or limits.
 
 The owner explicitly requested merging outstanding pull requests on
@@ -61,6 +61,30 @@ unfinished; no local complete formal proof is claimed. The remote formal PASS
 is separate evidence, not a rewrite of the local timeout. No timeout budget was
 increased. Bulk solver logs and the comparison rerun remain under ignored
 `build/`; the clean remote workflow artifacts are the integration authority.
+
+## Final corrected-head qualification and merge
+
+Corrected source `996b967379a5782a6aa666646e8541b6ba98282f` passes the complete
+[PR verification run 43091404934](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43091404934),
+[atlas run 43091405065](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43091405065)
+and [docs run 43091389546](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43091389546).
+The full PR run includes the SPI comparisons, core and public integration
+properties, pin timing and actual eight-word program induction.
+
+The local corrected comparison also passes all 12 stages. Baseline and compact
+each pass 20 legacy cases; banked has 19 passes and only the documented
+invalid-length failure, with no skips. Both experimental phase variants pass
+four cases on each simulator. Generic cell/state counts remain unchanged.
+`integration-20261111-comparison.json` retains the result and experiment/source
+hashes; SHA-256 is
+`6b26b07c153b4e2591eb3f1b93cd8879c3e880fdbec9b5764611822e80e6bc2d`.
+
+The owner-authorized normal merge used an exact-head guard and no admin bypass.
+Its source tree `a7bfb0622c39e3d68bdef2efa69bb70ba2aef0ee` equals the tested
+head's tree. The duplicate push verification run `43091389556` was still running
+when the merge completed; this is not reported as a pass. Post-merge workflows
+were newly triggered and their results are likewise separate. No open PRs
+remained at the merge check.
 
 ## Claim boundary
 
