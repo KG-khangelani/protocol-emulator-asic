@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-11-11. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
@@ -36,6 +36,17 @@ Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
 
 ## Established
+
+- E0027 freezes a four-mode SPI pin/timing contract and independent oracle.
+  Seven boundary/mutation tests and6,176 positive reference cases pass.
+  Delaying SAMPLE can absorb one WAIT under an explicit input-hold premise:
+  modes0/2 fit8 words with correct idle-clock setup, while the examined phase1
+  schedule uses10. Both simulators pass36 public cases each (26 accepted,
+  10 expected rejections), with identical records. The new held images are
+  checked on six payloads per mode/order; full four-mode RTL remains unqualified.
+  Naive mode2 can return the correct byte while violating idle-before-CS;
+  edge-only inputs falsify delayed capture. D28 keeps these boundaries separate.
+  See [E0027](../evidence/E0027-four-mode-schedule-screen/README.md).
 
 - E0026 qualifies actual-program sensitivity: unchanged baseline induction
   passes; wrong-public-MOSI and missing-first-input-premise controls produce
@@ -361,17 +372,16 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: define the four CPOL/CPHA pin schedules and input envelopes
-  against an independent oracle before changing RTL. E0026 closes the local
-  property/input/actual-firmware sensitivity slice. Its cover timeout and
-  interruption, and E0024's direct timeouts, remain inconclusive. Revisit deep
-  covers only with a new method and frozen budget. The focused sensitivity CI
-  gate and earlier hardware/docs/atlas artifact-upload retries all passed;
-  broader verification for the new implementation is tracked separately.
-  PR11 merged at `1383158` and PR8 at `7b2f746`. Keep compiler work deferred and
-  production RTL unchanged. Refresh remote history and PR state before relying
-  on a stale local checkout or historical handoff text.
-  Retain the no-RTL faster-target option and E0020's failed broader envelope.
+- Engineering: formally qualify the fitting mode0/2 delayed-capture images
+  under their actual input-hold premise, then investigate phase1 schedule
+  compression/capacity without assuming a minimum word count. E0027's contract
+  and finite reference/RTL checks are complete; no new physical or all-mode
+  claim follows. E0026's cover timeout/interruption remain inconclusive; do not
+  retry deep covers without a new method and frozen budget.
+  Broad verification for0eaa54c passed (run43102775206); fresh E0027 CI is
+  tracked separately. Keep compiler work deferred and production RTL unchanged.
+  Refresh remote history before relying on a local handoff. Retain the no-RTL
+  faster-target alternative and E0020's failed broader response envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
@@ -383,8 +393,9 @@ M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate, a bounded last-byte RX experiment and the
 bounded host-serviced pair from E0019, integrated through PR8.
-Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
-phase/capacity comparison is measured only in isolated experimental RTL;
+Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; scoped mode0/2
+held-data transfers and phase/capacity comparisons are measured only in isolated
+experimental RTL;
 E0022 proves written executor properties/refinement under its stated assumptions;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records

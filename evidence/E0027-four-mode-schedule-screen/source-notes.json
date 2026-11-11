@@ -1,0 +1,15 @@
+{
+  "consulted_utc": "2026-11-11T22:07:09.633121+00:00",
+  "basis": "Mode conventions only; the H25 margins and held/edge-only profiles are project choices.",
+  "primary_sources": [
+    {
+      "url": "https://onlinedocs.microchip.com/oxy/GUID-DDF2C9BC-07FB-4ABF-938A-774B157B4519-en-US-11/GUID-0E901CC4-8D8D-458D-8FF5-8898F0C41259.html",
+      "claim": "Four combinations of polarity and phase; phase selects first versus second edge sampling."
+    },
+    {
+      "url": "https://onlinedocs.microchip.com/oxy/GUID-80B1922D-872B-40C8-A8A5-0CBE009FD908-en-US-3/GUID-C6974F86-9EF8-4215-A97F-0A3924201AB3.html",
+      "claim": "Polarity determines idle SCK; phase determines sample/setup edge roles."
+    }
+  ],
+  "older_reference_fetch": "The older Microchip GUID-A9964E93 URL timed out; current official table and register description were used."
+}

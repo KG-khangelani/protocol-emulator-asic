@@ -1,0 +1,591 @@
+[
+  {
+    "family": "exact",
+    "mode": 0,
+    "profile": "held",
+    "words": 9,
+    "used_bits": 288,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        380,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 0,
+    "profile": "edge_only",
+    "words": 9,
+    "used_bits": 288,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        380,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 1,
+    "profile": "held",
+    "words": 11,
+    "used_bits": 352,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        404,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "000c0c00",
+      "40000016",
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 1,
+    "profile": "edge_only",
+    "words": 11,
+    "used_bits": 352,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        404,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "000c0c00",
+      "40000016",
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 2,
+    "profile": "held",
+    "words": 9,
+    "used_bits": 288,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        380,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 2,
+    "profile": "edge_only",
+    "words": 9,
+    "used_bits": 288,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        380,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 3,
+    "profile": "held",
+    "words": 11,
+    "used_bits": 352,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        404,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "000c0c04",
+      "40000016",
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "exact",
+    "mode": 3,
+    "profile": "edge_only",
+    "words": 11,
+    "used_bits": 352,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        404,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "000c0c04",
+      "40000016",
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 0,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": true,
+    "commits": [
+      [
+        402,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "64000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b05000b8",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 1,
+    "profile": "held",
+    "words": 10,
+    "used_bits": 320,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        426,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c08",
+      "000c0c00",
+      "40000016",
+      "64000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b05000b8",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 2,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": true,
+    "commits": [
+      [
+        402,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "64000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b05000b8",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 3,
+    "profile": "held",
+    "words": 10,
+    "used_bits": 320,
+    "fits_eight_word_store": false,
+    "schedule_pass": true,
+    "commits": [
+      [
+        426,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "000c0c0c",
+      "000c0c04",
+      "40000016",
+      "64000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b05000b8",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 0,
+    "profile": "edge_only",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": false,
+    "commits": [
+      [
+        402,
+        150
+      ]
+    ],
+    "error_kinds": [
+      "received_byte"
+    ],
+    "encoded_words": [
+      "000c0c08",
+      "64000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b05000b8",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 1,
+    "profile": "edge_only",
+    "words": 10,
+    "used_bits": 320,
+    "fits_eight_word_store": false,
+    "schedule_pass": false,
+    "commits": [
+      [
+        426,
+        150
+      ]
+    ],
+    "error_kinds": [
+      "received_byte"
+    ],
+    "encoded_words": [
+      "000c0c08",
+      "000c0c00",
+      "40000016",
+      "64000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b05000b8",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 2,
+    "profile": "edge_only",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": false,
+    "commits": [
+      [
+        402,
+        150
+      ]
+    ],
+    "error_kinds": [
+      "received_byte"
+    ],
+    "encoded_words": [
+      "000c0c0c",
+      "64000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b05000b8",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "held",
+    "mode": 3,
+    "profile": "edge_only",
+    "words": 10,
+    "used_bits": 320,
+    "fits_eight_word_store": false,
+    "schedule_pass": false,
+    "commits": [
+      [
+        426,
+        150
+      ]
+    ],
+    "error_kinds": [
+      "received_byte"
+    ],
+    "encoded_words": [
+      "000c0c0c",
+      "000c0c04",
+      "40000016",
+      "64000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b05000b8",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "naive",
+    "mode": 0,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": true,
+    "commits": [
+      [
+        379,
+        105
+      ]
+    ],
+    "error_kinds": [],
+    "encoded_words": [
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "naive",
+    "mode": 1,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": false,
+    "commits": [
+      [
+        379,
+        180
+      ]
+    ],
+    "error_kinds": [
+      "direction",
+      "pins",
+      "received_byte",
+      "terminal_timing",
+      "valid_timing",
+      "wire_mosi"
+    ],
+    "encoded_words": [
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c08",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "naive",
+    "mode": 2,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": false,
+    "commits": [
+      [
+        379,
+        105
+      ]
+    ],
+    "error_kinds": [
+      "idle_before_cs"
+    ],
+    "encoded_words": [
+      "65000008",
+      "b0486020",
+      "40000017",
+      "00040400",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  },
+  {
+    "family": "naive",
+    "mode": 3,
+    "profile": "held",
+    "words": 8,
+    "used_bits": 256,
+    "fits_eight_word_store": true,
+    "schedule_pass": false,
+    "commits": [
+      [
+        379,
+        180
+      ]
+    ],
+    "error_kinds": [
+      "direction",
+      "idle_before_cs",
+      "pins",
+      "received_byte",
+      "terminal_timing",
+      "valid_timing",
+      "wire_mosi"
+    ],
+    "encoded_words": [
+      "65000008",
+      "b0486000",
+      "40000017",
+      "00040404",
+      "b0500008",
+      "40000015",
+      "000c0c0c",
+      "80000000"
+    ],
+    "rtl_execution": "NOT_EVALUATED"
+  }
+]

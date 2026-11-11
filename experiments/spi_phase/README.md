@@ -94,3 +94,14 @@ accepts them only at the intended assertions and witness values.
 --simulation-only labels finite controls; --reachability-only separates bounded
 covers. [E0026](../../evidence/E0026-program-sensitivity/README.md) retains
 successful controls, import failures and inconclusive reachability attempts.
+
+The four-mode contract and schedule screen runs with:
+
+    python3 experiments/spi_phase/run_four_mode_screen.py --output build/spi-four-mode-screen/new
+
+The oracle imports no instruction/engine code. Reference images may exceed
+the actual eight-word store and are explicitly marked non-loadable. Only
+fitting images enter scoped public RTL tests. The runner separates input-held
+and edge-only contracts, retains naive-boundary counterexamples, and requires
+identical simulator records. [E0027](../../evidence/E0027-four-mode-schedule-screen/README.md)
+records the word saving and its remaining proof/capacity limits.

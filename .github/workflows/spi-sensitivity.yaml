@@ -9,6 +9,10 @@ on:
       - 'test/Makefile'
       - 'test/tb.v'
       - 'tools/workbench/**'
+      - 'tools/spi_four_mode_oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/spi_phase_reference.py'
+      - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
       - '.github/workflows/spi-sensitivity.yaml'
   pull_request:
@@ -20,6 +24,10 @@ on:
       - 'test/Makefile'
       - 'test/tb.v'
       - 'tools/workbench/**'
+      - 'tools/spi_four_mode_oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/spi_phase_reference.py'
+      - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
       - '.github/workflows/spi-sensitivity.yaml'
   workflow_dispatch:
@@ -53,12 +61,26 @@ jobs:
             --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_program_sensitivity.py --output build/spi-program-sensitivity/ci
+      - name: Screen four-mode timing references and fitting public images
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_four_mode_screen.py --output build/spi-four-mode-screen/ci
       - name: Retain successes and counterexamples
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: spi-sensitivity-${{ github.sha }}
           path: |
+            build/spi-four-mode-screen/ci/result.json
+            build/spi-four-mode-screen/ci/oracle-tests.log
+            build/spi-four-mode-screen/ci/reference-witnesses.json
+            build/spi-four-mode-screen/ci/variants/source-manifest.json
+            build/spi-four-mode-screen/ci/variants/compact/src/
+            build/spi-four-mode-screen/ci/*/results.xml
+            build/spi-four-mode-screen/ci/*/run.log
+            build/spi-four-mode-screen/ci/*/records/
             build/spi-program-sensitivity/ci/result.json
             build/spi-program-sensitivity/ci/*/inputs/
             build/spi-program-sensitivity/ci/*/transformation.json

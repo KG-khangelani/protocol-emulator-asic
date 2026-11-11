@@ -20,6 +20,7 @@ check:
 	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_oracle.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_host_service.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_spi_mode0_oracle.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_spi_four_mode.py'
 	$(PYTHON) -m unittest discover -s experiments/spi_phase -p 'test_reference.py'
 	$(PYTHON) -m unittest discover -s experiments/spi_phase -p 'test_pin_timing.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'

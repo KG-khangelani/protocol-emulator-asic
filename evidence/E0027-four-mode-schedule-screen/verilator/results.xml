@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794434298" />
+    <testcase name="fitting_images_and_boundary_controls" classname="test_spi_four_mode_public" file="/workspace/test/test_spi_four_mode_public.py" lineno="68" time="5.133705139160156" sim_time_ns="320548.0" ratio_time="62439.89308128432" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,26 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/results.xml
+"make" -f Makefile /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/results.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/sim
+/usr/local/bin/iverilog -o /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/sim/sim.vvp -s tb -g2012 -I/workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src -f /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/sim/cmds.f  /workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src/project.v /workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src/m1_engine.v /workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src/m1_program_store.v /workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src/m1_data_store.v /workspace/build/spi-four-mode-screen/20261111-attempt1/variants/compact/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/results.xml
+COCOTB_TEST_MODULES=test_spi_four_mode_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/spi-four-mode-screen/20261111-attempt1/icarus/sim/sim.vvp  +NO_DUMP
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1794434226
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_spi_four_mode_public.fitting_images_and_boundary_controls (1/1)
+320548.00ns INFO     cocotb.regression                  test_spi_four_mode_public.fitting_images_and_boundary_controls passed
+320548.00ns INFO     cocotb.regression                  ************************************************************************************************************************
+                                                        ** TEST                                                            STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ************************************************************************************************************************
+                                                        ** test_spi_four_mode_public.fitting_images_and_boundary_controls   PASS      320548.00           8.39      38215.43  **
+                                                        ************************************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                               320548.00           8.40      38141.12  **
+                                                        ************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

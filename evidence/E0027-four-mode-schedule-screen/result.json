@@ -1,0 +1,76 @@
+{
+  "status": "PASS_SCOPED_SCREEN",
+  "baseline": "f9dcd8abc71800aa884552d2b2522d2276769ad9",
+  "reference_positive_cases": 6176,
+  "reference_controls": 16,
+  "oracle_unit_tests": 7,
+  "public_cases_per_simulator": 36,
+  "accepted_per_simulator": 26,
+  "expected_rejections_per_simulator": 10,
+  "cross_simulator_records_identical": true,
+  "boundary": "Four-mode reference schedules measured. Actual fitting HELD modes0/2 checked with six payloads per order; NAIVE boundary controls checked for all modes. This is not full four-mode RTL qualification.",
+  "word_counts": {
+    "exact_CPHA0": 9,
+    "exact_CPHA1": 11,
+    "held_CPHA0": 8,
+    "held_CPHA1": 10
+  },
+  "saving": "One WAIT is absorbed by SAMPLE(delay23); raw input consumed at wire-sample+22, not wire-sample.",
+  "minimum_or_impossibility_proved": false,
+  "production_and_candidate_rtl": "UNCHANGED",
+  "new_physical_or_generic_synthesis": "NOT_EVALUATED",
+  "curation_transforms": {
+    "icarus/run.log": {
+      "original_sha256": "f84b1034bfba3709f9e33f77b74ff84d24ffdde56001e244ee250b7204ef6b72",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "icarus/results.xml": {
+      "original_sha256": "e0edcd4a4f3f3876c8453bf474534caf4dbc731c10d7fc04f33401fd639d4568",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "verilator/run.log": {
+      "original_sha256": "4aa206585c7dda3292ff7d638483c5d7014a33860154a948ba8881dd993d0872",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "verilator/results.xml": {
+      "original_sha256": "3494a08f7b6d61c2f850fd385057026743ae97f8e7f3594192021eed4f14c302",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "check-final.log": {
+      "original_sha256": "a281e8f78f60cf86c2aea5ae129fb39cc1d276c132e5f6fbf1d5433a99e2287c",
+      "operation": "normalize LF and trailing whitespace only"
+    }
+  },
+  "curated_sha256": {
+    "check-final.log": "96bf8299861fb03b7ec92e893dec67486b1ea7f79b879daa81d80d5950f2dbb2",
+    "oracle-tests.log": "808ec9e7499e91546592b950d09f12393ef47ceaf3ff95c289e23916697f2ee0",
+    "public-cases.jsonl": "93ecba92308a902dd2d0b439fe269e8322c8646db96dc21d6571c6d34111d2d0",
+    "README.md": "e9a9f0178e330928f00622359a5493beb890ed066d34af04d8e6bf0a51ac44af",
+    "reference-witnesses.json.gz": "4c880b2f2a1999586cd5a597f5883f6c790b5706f20faac4ae7db6cc95fc5ee2",
+    "run-result.json": "bc2d05eed8ffba81de86a3c89b0a574760781a59a5eb7d2de7756a815b4acd97",
+    "schedule-matrix.json": "99d1d76bb153912eadb1d2760ff9e596bb569495ceb02b7cac3c98543cdf5c38",
+    "source-manifest.json": "29ff43bb1279c01760c04051f9c8a97e1b9381e9a92a36d387d1287baeed29d0",
+    "source-notes.json": "cce75f21b2e482a952519780dcdd2cd3e8441f4c69b6fb0de88bd0d35e70c6be",
+    "icarus/results.xml": "200f49243fb46e46b04e166689da37e29729a6cc236e0fbf030272a44820e23a",
+    "icarus/run.log": "a0b9e7889a398218ff3d334b540bb7426d68332f89ad76a2284dcc9bfa08927b",
+    "inputs/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "inputs/m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "inputs/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "inputs/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "inputs/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "public-traces/held-edge_only-m2-o1-r69.json.gz": "0436886827ca34135b931813cc4f36d11262e9366cfe10fe9fcadbe293b9ed37",
+    "public-traces/held-held-m2-o1-r69.json.gz": "8d99d297de383f0efa3d38c9c29e96bf0cf2b5def9754fa600e3e84f16c9831a",
+    "public-traces/naive-held-m1-o1-r69.json.gz": "66b4cc9338cca9e26d7b8e51f0b89308a68ffcd97441b6e0c1c7e0ed7e1b05f6",
+    "public-traces/naive-held-m2-o1-r69.json.gz": "24f6dee8584e2994fd14f1341d0f5d3f2ace5c5bf1540781ac7137bba95814c9",
+    "verilator/results.xml": "1d496fb82a32699f6bb270955dc77be5fad442014f94228195a40c61bae402da",
+    "verilator/run.log": "9ec471ccb7169b245b4888162aca4cc87c5031470708aa902e22a08c0e7e5e1a"
+  },
+  "final_checks": {
+    "doctor": "PASS",
+    "repository_check": "PASS",
+    "python_syntax": "PASS",
+    "workflow_yaml_and_shell": "PASS",
+    "unchanged_compact_RTL_vs_E0026": true
+  },
+  "workbench_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+}
