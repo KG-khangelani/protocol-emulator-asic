@@ -45,7 +45,9 @@ efficiently express useful digital communication protocols under hard temporal c
   One terminal cover times out at180s; another is interrupted with no result.
   Initial simulator-import/source-drift failures are retained. D27 moves the
   next slice to a four-mode timing contract, without RTL promotion.
-  See [E0026](../evidence/E0026-program-sensitivity/README.md).
+  Clean implementation0eaa54c passes the complete sensitivity CI gate
+  (run43102775075); the retained artifact ZIP digest and every source hash
+  were checked. See [E0026](../evidence/E0026-program-sensitivity/README.md).
 
 - PR10 merged at `483df67` and all its post-merge workflows passed. PR8 merged
   at `7b2f746` after full PR CI passed at `996b967`; the merged tree is identical
@@ -335,8 +337,9 @@ efficiently express useful digital communication protocols under hard temporal c
   intentionally excluded it; their source identities and limits remain
   historical. Post-merge tests/builds passed, but artifact creation failed
   during GitHub's 11 November Actions outage. One retry was queued per failed
-  workflow: docs and atlas retries passed; hardware retry was still running
-  at the latest check. These are separate from pre-merge CI. Compiler,
+  workflow: all three retries now pass completely on the same merge source.
+  The E0019 recovery record retains their identities and the earlier failures.
+  These are separate from pre-merge CI. Compiler,
   production SPI promotion and physical qualification remain separate.
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
@@ -362,8 +365,9 @@ efficiently express useful digital communication protocols under hard temporal c
   against an independent oracle before changing RTL. E0026 closes the local
   property/input/actual-firmware sensitivity slice. Its cover timeout and
   interruption, and E0024's direct timeouts, remain inconclusive. Revisit deep
-  covers only with a new method and frozen budget. Check the new sensitivity
-  CI gate and hardware artifact-upload retry after GitHub service recovery.
+  covers only with a new method and frozen budget. The focused sensitivity CI
+  gate and earlier hardware/docs/atlas artifact-upload retries all passed;
+  broader verification for the new implementation is tracked separately.
   PR11 merged at `1383158` and PR8 at `7b2f746`. Keep compiler work deferred and
   production RTL unchanged. Refresh remote history and PR state before relying
   on a stale local checkout or historical handoff text.

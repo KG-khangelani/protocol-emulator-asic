@@ -91,3 +91,14 @@ inconclusive and do not erase the finite completion witnesses.
 Curation normalizes log line endings/trailing whitespace and JSON-escapes exact
 patch text. result.json records original hashes and each transformation; failed
 outcomes are unchanged. Original patch bytes are recoverable from original_text.
+
+## Remote qualification
+
+The complete default gate passes on clean implementation commit0eaa54c in
+[run43102775075](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43102775075),
+including artifact upload. [remote-qualification.json](remote-qualification.json)
+records the artifact identity and verified ZIP digest;
+[remote-run-result.json](remote-run-result.json) retains all outcomes.
+Every recorded input hash matches the exact Git blob at that commit.
+This reproduces the full default gate after the local import fix; it does
+not rerun or promote either inconclusive cover.

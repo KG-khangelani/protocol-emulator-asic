@@ -94,3 +94,11 @@ an asynchronous operating-system host guarantee, full SPI/I2C, physical timing
 or owner fluency. The previous approval rejection in the historical PR record
 remains historical; the new explicit owner merge instruction authorizes this
 integration and review.
+
+## Post-merge artifact-upload recovery
+
+The first post-merge test, docs and atlas attempts passed their checks/builds
+but failed creating artifacts during GitHub incident dvy0t3mvh1lg. One failed-job
+retry per workflow now passes completely on the same merge source. No checks
+were weakened. [The recovery record](postmerge-recovery-20261111.json) retains
+run/job identities and links; original failed attempts remain historical.

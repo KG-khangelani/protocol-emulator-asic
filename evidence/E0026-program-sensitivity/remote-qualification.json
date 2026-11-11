@@ -1,0 +1,12 @@
+{
+  "source": "0eaa54ce8d0fe67309ca23d088fa9acca3edafff",
+  "run": 43102775075,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43102775075",
+  "conclusion": "success",
+  "artifact_id": 13892228169,
+  "artifact_name": "spi-sensitivity-0eaa54ce8d0fe67309ca23d088fa9acca3edafff",
+  "artifact_zip_sha256": "1bc116eeb5ac035a8d62a77e172e7caf9156e68d59eca517ad44aa6f6763b9c9",
+  "zip_sha256_verified": true,
+  "all_input_hashes_match_git_blobs": true,
+  "default_suite": "inductive baseline, two validated reachable negatives, six transactions per simulator, identical records"
+}

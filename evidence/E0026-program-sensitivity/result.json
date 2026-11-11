@@ -20,7 +20,9 @@
     "initial-run-result.json": "f7497a18564b3ca4d94ab47c3d66853c4b6633896a2727bd8ae668e44c3eef21",
     "interrupted-cover-run-result.json": "715b25f88180aba46213a125ed5c19cfae115273f5d7a1de99e9fa053607abf1",
     "model-audit.json": "b1ff080cf7e69025ec64662b15d2c25419ff1653bd806bf9e27eb87e8c02e777",
-    "README.md": "52e5c8d1847af0739fd0898d185b5cc1666690e02efd9f9cb96ee6e735e87339",
+    "README.md": "95a580c30df67170a10b414b67ec45d3f1bacf879929ed40d53c4baf99784e80",
+    "remote-qualification.json": "ee7575687846912a1f9d812d426632be42bcfdaec99491f8913543825e39bbe3",
+    "remote-run-result.json": "4069f11eaffc794499882e7e3d17070877d0d019b378dd81937a5394a451facf",
     "simulation-result.json": "0976041bf6fa7e7073515615557ab61306e8164cd661ea0e17fbe1d86bee7bca",
     "failures/import-path-icarus-run.log": "09fa08fe81b8ce955fff1f468ff16644035223cfd8d2835f030abc96c58e5bd9",
     "failures/import-path-run-result.json": "93284164640a571e8e90a8f9796167e27f0b3b5dd201f4e50fca05a277e277a9",
@@ -159,5 +161,17 @@
       "original_sha256": "8b5358dde634d1184bb7b91485c09fd9820dc78888b35164b5c56913cd4a94b7",
       "operation": "normalize LF and trailing whitespace only"
     }
+  },
+  "remote_qualification": {
+    "source": "0eaa54ce8d0fe67309ca23d088fa9acca3edafff",
+    "run": 43102775075,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43102775075",
+    "conclusion": "success",
+    "artifact_id": 13892228169,
+    "artifact_name": "spi-sensitivity-0eaa54ce8d0fe67309ca23d088fa9acca3edafff",
+    "artifact_zip_sha256": "1bc116eeb5ac035a8d62a77e172e7caf9156e68d59eca517ad44aa6f6763b9c9",
+    "zip_sha256_verified": true,
+    "all_input_hashes_match_git_blobs": true,
+    "default_suite": "inductive baseline, two validated reachable negatives, six transactions per simulator, identical records"
   }
 }
