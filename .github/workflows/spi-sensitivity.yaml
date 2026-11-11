@@ -14,6 +14,7 @@ on:
       - 'tools/spi_phase_reference.py'
       - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
+      - 'docs/specs/spi-held-program-proof.md'
       - '.github/workflows/spi-sensitivity.yaml'
   pull_request:
     paths:
@@ -29,6 +30,7 @@ on:
       - 'tools/spi_phase_reference.py'
       - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
+      - 'docs/specs/spi-held-program-proof.md'
       - '.github/workflows/spi-sensitivity.yaml'
   workflow_dispatch:
 permissions:
@@ -67,12 +69,31 @@ jobs:
             --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_four_mode_screen.py --output build/spi-four-mode-screen/ci
+      - name: Prove held-response mode-0 and mode-2 programs with checked controls
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_held_program_proof.py --output build/spi-held-proof/ci
       - name: Retain successes and counterexamples
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: spi-sensitivity-${{ github.sha }}
           path: |
+            build/spi-held-proof/ci/result.json
+            build/spi-held-proof/ci/preflight-inputs/inputs/
+            build/spi-held-proof/ci/preflight-inputs/preflight.json
+            build/spi-held-proof/ci/preflight-inputs/preflight/*/driver.sv
+            build/spi-held-proof/ci/preflight-inputs/preflight/*/clock.sv
+            build/spi-held-proof/ci/preflight-inputs/preflight/*/*.log
+            build/spi-held-proof/ci/preflight-inputs/preflight/*/trace.json
+            build/spi-held-proof/ci/*/inputs/
+            build/spi-held-proof/ci/*/transformation.json
+            build/spi-held-proof/ci/*/proof.sby
+            build/spi-held-proof/ci/*/proof.log
+            build/spi-held-proof/ci/*/proof/status
+            build/spi-held-proof/ci/*/proof/engine_0/trace*
             build/spi-four-mode-screen/ci/result.json
             build/spi-four-mode-screen/ci/oracle-tests.log
             build/spi-four-mode-screen/ci/reference-witnesses.json

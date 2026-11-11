@@ -2,8 +2,15 @@
 
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 phase1 SPI schedule/capacity research**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
+
+Latest engineering result: **D29/E0028 held mode0/2 program induction PASS**.
+The actual public-loaded eight-word images are proved for symbolic TX/RX,
+both bit orders and CPOL under the explicit input-hold band. Twelve finite
+preflights and both reachable negative controls pass. Production/candidate RTL
+remain unchanged; modes1/3 and new physical qualification remain open. See
+[E0028](../evidence/E0028-held-program-induction/README.md).
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
@@ -379,9 +386,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: formally qualify the fitting mode0/2 delayed-capture images
-  under their actual input-hold premise, then investigate phase1 schedule
-  compression/capacity without assuming a minimum word count. E0027's contract
+- Engineering: investigate phase1 schedule compression/capacity without assuming
+  a minimum word count. D29/E0028 closes the held mode0/2 written-program proof
+  under its actual input-hold premise; retain that proof and its controls. E0027's contract
   and finite reference/RTL checks are complete; no new physical or all-mode
   claim follows. E0026's cover timeout/interruption remain inconclusive; do not
   retry deep covers without a new method and frozen budget.

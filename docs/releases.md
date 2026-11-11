@@ -40,15 +40,17 @@ or documentation commits do not create a milestone release.
 
 The workflow validates the tag, runs `workbench.sh All` (tool versions, model
 checks, lint, both RTL simulators, formal checks and synthesis), and reruns the
-program-sensitivity and four-mode SPI screens for releases. Publication stops on
+program-sensitivity and four-mode SPI screens plus the held-program proof
+and its counterexamples for releases. Publication stops on
 a failed check. Release assets include the lock, manifest, checksums and scoped
-SPI results; source archives and the checked-in evidence come from the tag.
+SPI results (including the held-program proof); source archives and the checked-in evidence come from the tag.
 The separate full experimental CI and official CMOS5L flows retain their own
 evidence boundaries.
 
 To retry an unpublished version after an infrastructure failure, rerun its failed
 workflow. For a deliberate workbench rebuild, dispatch `publish` on main.
-Do not move an already published version tag.
+Do not move an already published version tag. Each branch/tag has its own
+publication queue so a workbench update cannot cancel a waiting milestone release.
 
 ## Use the published workbench
 

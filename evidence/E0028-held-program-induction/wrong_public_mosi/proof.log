@@ -1,0 +1,121 @@
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Removing directory '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/project.v' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/project.v'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/phase_engine.v' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/phase_engine.v'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/m1_program_store.v' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/m1_program_store.v'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/m1_data_store.v' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/m1_data_store.v'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/m1_input_sync.v' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/m1_input_sync.v'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/public_spi.sv' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/public_spi.sv'.
+SBY 23:29:10 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/program_bindings.vh' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/program_bindings.vh'.
+SBY 23:29:11 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] Copy '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/inputs/program_invariants.vh' to '/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src/program_invariants.vh'.
+SBY 23:29:11 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: smtbmc z3
+SBY 23:29:11 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] base: starting process "cd /workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:29:13 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] base: finished (returncode=0)
+SBY 23:29:13 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] prep: starting process "cd /workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] prep: finished (returncode=0)
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] smt2: starting process "cd /workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] smt2: finished (returncode=0)
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: starting process "cd /workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof; yosys-smtbmc -s z3 --presat --noprogress -t 44  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Solver: z3
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:29:14 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:29:15 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 23:29:16 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:29:16 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 23:29:16 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:29:16 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 23:29:17 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 23:29:18 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 23:29:19 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 23:29:19 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 23:29:20 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 23:29:20 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 13..
+SBY 23:29:21 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 14..
+SBY 23:29:21 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 14..
+SBY 23:29:21 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 15..
+SBY 23:29:21 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 15..
+SBY 23:29:22 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 16..
+SBY 23:29:22 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 16..
+SBY 23:29:23 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 17..
+SBY 23:29:23 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 17..
+SBY 23:29:24 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 18..
+SBY 23:29:24 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assertions in step 18..
+SBY 23:29:24 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:01  Checking assumptions in step 19..
+SBY 23:29:24 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 19..
+SBY 23:29:25 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 20..
+SBY 23:29:25 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 20..
+SBY 23:29:25 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 21..
+SBY 23:29:25 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 21..
+SBY 23:29:26 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 22..
+SBY 23:29:26 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 22..
+SBY 23:29:26 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 23..
+SBY 23:29:26 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 23..
+SBY 23:29:27 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 24..
+SBY 23:29:27 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 24..
+SBY 23:29:27 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 25..
+SBY 23:29:27 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assertions in step 25..
+SBY 23:29:28 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:02  Checking assumptions in step 26..
+SBY 23:29:28 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assertions in step 26..
+SBY 23:29:28 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assumptions in step 27..
+SBY 23:29:28 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assertions in step 27..
+SBY 23:29:29 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assumptions in step 28..
+SBY 23:29:29 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assertions in step 28..
+SBY 23:29:30 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:03  Checking assumptions in step 29..
+SBY 23:29:30 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:04  Checking assertions in step 29..
+SBY 23:29:30 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:04  Checking assumptions in step 30..
+SBY 23:29:30 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:04  Checking assertions in step 30..
+SBY 23:29:31 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:04  Checking assumptions in step 31..
+SBY 23:29:31 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assertions in step 31..
+SBY 23:29:31 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assumptions in step 32..
+SBY 23:29:31 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assertions in step 32..
+SBY 23:29:32 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assumptions in step 33..
+SBY 23:29:32 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assertions in step 33..
+SBY 23:29:32 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assumptions in step 34..
+SBY 23:29:32 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assertions in step 34..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:05  Checking assumptions in step 35..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assertions in step 35..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assumptions in step 36..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assertions in step 36..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assumptions in step 37..
+SBY 23:29:33 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assertions in step 37..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assumptions in step 38..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assertions in step 38..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:06  Checking assumptions in step 39..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:07  Checking assertions in step 39..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:07  Checking assumptions in step 40..
+SBY 23:29:34 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:07  Checking assertions in step 40..
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:07  Checking assumptions in step 41..
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Checking assertions in step 41..
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  BMC failed!
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Value for anyconst public_spi.cpol (public_spi.sv:5.35-5.39): 0
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Value for anyconst public_spi.tx_byte (public_spi.sv:4.30-4.37): 136
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Value for anyconst public_spi.msb_first (public_spi.sv:5.24-5.33): 0
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Value for anyconst public_spi.rx_byte (public_spi.sv:4.39-4.46): 124
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Assert failed in public_spi: public_spi.sv:64.13-65.157 (_witness_.check_assert_public_spi_sv_64_232)
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace.vcd
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:09  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:09  Writing trace to constraints file: engine_0/trace.smtc
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:09  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: ##   0:00:09  Status: failed
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: finished (returncode=1)
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] engine_0: Status returned by engine: FAIL
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:24 (24)
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:12 (12)
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] summary: counterexample trace: /workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof/engine_0/trace.vcd
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] summary:   failed assertion public_spi._witness_.check_assert_public_spi_sv_64_232 at public_spi.sv:64.13-65.157 step 41
+SBY 23:29:35 [/workspace/build/spi-held-proof/qualification-01/wrong_public_mosi/proof] DONE (FAIL, rc=0)

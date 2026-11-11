@@ -1,0 +1,62 @@
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Removing directory '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/project.v' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/project.v'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/phase_engine.v' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/phase_engine.v'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/m1_program_store.v' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/m1_program_store.v'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/m1_data_store.v' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/m1_data_store.v'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/m1_input_sync.v' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/m1_input_sync.v'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/public_spi.sv' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/public_spi.sv'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/program_bindings.vh' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/program_bindings.vh'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] Copy '/workspace/build/spi-held-proof/qualification-01/held_baseline/inputs/program_invariants.vh' to '/workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src/program_invariants.vh'.
+SBY 23:28:29 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0: smtbmc z3
+SBY 23:28:30 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] base: starting process "cd /workspace/build/spi-held-proof/qualification-01/held_baseline/proof/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 23:28:31 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] base: finished (returncode=0)
+SBY 23:28:31 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] prep: starting process "cd /workspace/build/spi-held-proof/qualification-01/held_baseline/proof/model; yosys -ql design_prep.log design_prep.ys"
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] prep: finished (returncode=0)
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] smt2: starting process "cd /workspace/build/spi-held-proof/qualification-01/held_baseline/proof/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] smt2: finished (returncode=0)
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: starting process "cd /workspace/build/spi-held-proof/qualification-01/held_baseline/proof; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: starting process "cd /workspace/build/spi-held-proof/qualification-01/held_baseline/proof; yosys-smtbmc -s z3 --presat -i --noprogress -t 12  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:00  Solver: z3
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 23:28:32 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 23:28:33 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 23:28:33 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 23:28:34 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 23:28:35 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:01  Checking assumptions in step 11..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:01  Checking assertions in step 11..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: ##   0:00:01  Status: passed
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: finished (returncode=0)
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 23:28:36 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:01  Trying induction in step 9..
+SBY 23:29:08 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:36  Temporal induction successful.
+SBY 23:29:08 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: ##   0:00:36  Status: passed
+SBY 23:29:08 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: finished (returncode=0)
+SBY 23:29:08 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] engine_0.induction: Status returned by engine for induction: pass
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:39 (39)
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:39 (39)
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: engine_0 did not produce any traces
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] summary: successful proof by k-induction.
+SBY 23:29:09 [/workspace/build/spi-held-proof/qualification-01/held_baseline/proof] DONE (PASS, rc=0)

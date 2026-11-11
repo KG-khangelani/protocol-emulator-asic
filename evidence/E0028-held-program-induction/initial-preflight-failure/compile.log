@@ -1,0 +1,4 @@
+/workspace/build/spi-held-proof/preflight-01/preflight-inputs/preflight/mode0-order0-early/driver.sv:6: error: Unable to bind wire/reg/memory `cycle['sd0]' in `sim.dut'
+/workspace/build/spi-held-proof/preflight-01/preflight-inputs/preflight/mode0-order0-early/driver.sv:7:      : A symbol with that name was declared here. Check for declaration after use.
+/workspace/build/spi-held-proof/preflight-01/preflight-inputs/preflight/mode0-order0-early/driver.sv:6: error: Unable to elaborate r-value: cycle['sd0]
+2 error(s) during elaboration.

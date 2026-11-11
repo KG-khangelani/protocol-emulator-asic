@@ -25,6 +25,11 @@ SPI/I2C, M1 physical fit/timing or silicon evidence. The bounded
 is merged; its digital checks and limits are recorded in
 [E0019](evidence/E0019-uart-rx-host-service/README.md).
 
+The isolated compact SPI candidate now has a formal proof for its eight-word
+mode0/2 programs, both bit orders and symbolic payloads under an explicit
+input-hold requirement ([E0028](evidence/E0028-held-program-induction/README.md)).
+Modes1/3 remain open, and this experimental core has not replaced production RTL.
+
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).
 Its owner fluency gate remains pending; **M0 is not complete**. Engineering

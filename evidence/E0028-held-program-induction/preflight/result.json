@@ -1,0 +1,530 @@
+[
+  {
+    "name": "mode0-order0-early",
+    "mode": 0,
+    "order": 0,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "37fed03fef38e5de5f0677293bf5a3fe6169d73f94297672bc2c3caea1c39971",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-early/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-early/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.178,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.341,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode0-order0-late",
+    "mode": 0,
+    "order": 0,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "b16c1ecc8bd19bd06aa14b3adef9b4f9232ef35604477d352b215240c4742711",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-late/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-late/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.132,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.184,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode0-order0-jitter",
+    "mode": 0,
+    "order": 0,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "e67e7f54c29527e3e93cc0fdb24f54d8f46c38aecd985c76b657ce7ccd9a3b56",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-jitter/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-jitter/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.122,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order0-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.177,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode0-order1-early",
+    "mode": 0,
+    "order": 1,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "33ea94b428251c0ad65aa102517bec65cbd14ac0000f8fc4e1682cc6f874a82e",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-early/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-early/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.127,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.177,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode0-order1-late",
+    "mode": 0,
+    "order": 1,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "b16c1ecc8bd19bd06aa14b3adef9b4f9232ef35604477d352b215240c4742711",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-late/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-late/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.177,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.18,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode0-order1-jitter",
+    "mode": 0,
+    "order": 1,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "e67e7f54c29527e3e93cc0fdb24f54d8f46c38aecd985c76b657ce7ccd9a3b56",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-jitter/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-jitter/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.139,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode0-order1-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order0-early",
+    "mode": 2,
+    "order": 0,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "479a963615a4bd984251e8b6025d57805fcbf6bb89f78bae2881d3c0605b8a2d",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-early/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-early/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.126,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order0-late",
+    "mode": 2,
+    "order": 0,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "7a571df7cbe6097143fa860975859bd1add232b0e7e54c31679e631e84df77cc",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-late/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-late/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.123,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order0-jitter",
+    "mode": 2,
+    "order": 0,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "02eb3944f3da563adea640a09d0a4b7f2bb9363999f9c728bbfc9edb182408f9",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-jitter/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-jitter/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.125,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order0-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.178,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order1-early",
+    "mode": 2,
+    "order": 1,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "fe667c20b57cc61d54ce90768e0a2af30a54b04b59200e878f2ab204426bd094",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-early/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-early/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.127,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order1-late",
+    "mode": 2,
+    "order": 1,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "7a571df7cbe6097143fa860975859bd1add232b0e7e54c31679e631e84df77cc",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-late/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-late/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.125,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode2-order1-jitter",
+    "mode": 2,
+    "order": 1,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_e0027": true,
+    "oracle_errors": [],
+    "trace_sha256": "02eb3944f3da563adea640a09d0a4b7f2bb9363999f9c728bbfc9edb182408f9",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-jitter/sim.vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/project.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-jitter/driver.sv",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.245,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/spi-held-proof/qualification-01/preflight-inputs/preflight/mode2-order1-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.235,
+      "wall_limit": 30
+    }
+  }
+]

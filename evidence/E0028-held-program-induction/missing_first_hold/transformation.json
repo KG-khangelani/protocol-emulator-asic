@@ -1,0 +1,4 @@
+{
+  "old": "exec_edge >= 28+50*j && exec_edge <= 53+50*j)",
+  "new": "exec_edge >= 28+50*j && exec_edge <= 53+50*j && (j != 0 || exec_edge == 28))"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+  "baseline": "39271658321f4b60128e4fc132b759b90cb4a57d",
+  "local_run": "build/spi-held-proof/qualification-01",
+  "proofs": [
+    {
+      "name": "held_baseline",
+      "status": "PASS",
+      "accepted": true,
+      "seconds": 40.136,
+      "depth": 12,
+      "induction_step": 9
+    },
+    {
+      "name": "wrong_public_mosi",
+      "status": "FAIL",
+      "accepted": true,
+      "seconds": 25.079,
+      "depth": 44,
+      "induction_step": null
+    },
+    {
+      "name": "missing_first_hold",
+      "status": "FAIL",
+      "accepted": true,
+      "seconds": 51.209,
+      "depth": 92,
+      "induction_step": null
+    }
+  ],
+  "preflight_count": 12,
+  "mode_scope": [
+    0,
+    2
+  ],
+  "tx_rx_order_cpol": "SYMBOLIC",
+  "assumption": "Raw intended bit at S..T inclusive; fixed public driver",
+  "rtl": "UNCHANGED",
+  "formal_reachability_cover": "NOT_ATTEMPTED",
+  "physical": "NOT_EVALUATED",
+  "initial_failure_retained": true
+}
