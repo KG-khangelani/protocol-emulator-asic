@@ -1,0 +1,18 @@
+{
+  "source": "3254d25abf62b5c5cefb8852eaeb3ae80691d192",
+  "run": 43120985742,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43120985742",
+  "conclusion": "success",
+  "artifact_id": 13900961930,
+  "artifact_name": "spi-sensitivity-3254d25abf62b5c5cefb8852eaeb3ae80691d192",
+  "artifact_zip_sha256": "d9bc437a3d0a2ab8882446a00d4a461682b0474597ce47d6a11a3c94b43fa1b8",
+  "zip_sha256_verified": true,
+  "all_input_hashes_match_git_blobs": true,
+  "generated_formal_inputs_match_local": true,
+  "all_12_preflight_traces_match_local": true,
+  "prior_spi_gates": [
+    "PASS",
+    "PASS_SCOPED_SCREEN"
+  ],
+  "scope": "Written public-loaded held mode0/2 programs, symbolic bytes/order/CPOL, fixed driver and hold band; no physical/full-mode promotion"
+}

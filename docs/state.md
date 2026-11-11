@@ -8,7 +8,9 @@ Active engineering task: **M3-T01 phase1 SPI schedule/capacity research**. Activ
 Latest engineering result: **D29/E0028 held mode0/2 program induction PASS**.
 The actual public-loaded eight-word images are proved for symbolic TX/RX,
 both bit orders and CPOL under the explicit input-hold band. Twelve finite
-preflights and both reachable negative controls pass. Production/candidate RTL
+preflights and both reachable negative controls pass locally and in clean
+implementation3254d25 SPI CI (run43120985742); artifact/source/trace hashes
+are verified. Production/candidate RTL
 remain unchanged; modes1/3 and new physical qualification remain open. See
 [E0028](../evidence/E0028-held-program-induction/README.md).
 
@@ -16,6 +18,9 @@ Publication maintenance: [versioned research releases and the verification workb
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
 updates publish after the locked verification ladder; version tags additionally
 run focused SPI gates and publish release notes with digest/checksum assets.
+Research release [v0.1.0-alpha.2](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.2)
+publishes D29/E0028 at3254d25; publication checks, asset hashes and anonymous
+container access pass (run43120993964).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.

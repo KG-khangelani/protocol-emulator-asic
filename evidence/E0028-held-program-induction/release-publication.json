@@ -1,0 +1,22 @@
+{
+  "schema": "protocol-emulator-publication-v1",
+  "source_commit": "3254d25abf62b5c5cefb8852eaeb3ae80691d192",
+  "ref": "refs/tags/v0.1.0-alpha.2",
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:d0cc2f2438f36e25472684132f34531de14f72c61854e3a71e2a9dc5c7b33dbd",
+  "platform": "linux/amd64",
+  "toolchain_lock_sha256": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81",
+  "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43120993964",
+  "checks": [
+    "doctor",
+    "check",
+    "lint",
+    "test",
+    "test-verilator",
+    "formal",
+    "synth",
+    "spi-program-sensitivity",
+    "spi-four-mode-screen",
+    "spi-held-program-proof"
+  ],
+  "physical_qualification": "NOT_EVALUATED"
+}

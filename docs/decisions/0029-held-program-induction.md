@@ -1,6 +1,6 @@
 # D29 - Qualify the delayed program under its actual hold premise
 
-Date: 2026-11-12 Johannesburg. Status: local formal qualification complete.
+Date: 2026-11-12 Johannesburg. Status: local and clean-CI formal qualification complete (3254d25, run43120985742).
 
 E0028 proves the actual public-loaded eight-word HELD mode0/2 programs with
 symbolic TX/RX, order and polarity. One prove12/180s job passes by induction

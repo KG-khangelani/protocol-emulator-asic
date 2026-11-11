@@ -70,3 +70,25 @@ examined ten-word family is not a lower bound. Preserve this fitting program
 and its hold condition while measuring any encoding/capacity alternative.
 See [D29](../../docs/decisions/0029-held-program-induction.md) and the
 [frozen experiment](../../docs/specs/spi-held-program-proof.md).
+
+## Clean remote qualification
+
+Implementation `3254d25abf62b5c5cefb8852eaeb3ae80691d192` passes the expanded
+[SPI CI gate](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43120985742).
+The earlier program-sensitivity and four-mode screens also pass in that run.
+The artifact ZIP matches GitHub's SHA-256; all recorded source hashes match
+that exact commit, generated formal inputs match local, and all12 finite
+preflight traces are byte-identical. Both negative traces are independently
+validated; they need not choose the same symbolic bytes on different runners.
+See [remote-qualification.json](remote-qualification.json) and
+[remote-run-result.json](remote-run-result.json).
+
+## Published research snapshot
+
+[v0.1.0-alpha.2](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.2)
+publishes this milestone. Its publication run43120993964 passes the full locked
+ladder and all three focused SPI gates. All six checksummed release assets
+match; the public container version resolves to the manifest's exact digest
+and its OCI source label matches3254d25. Anonymous registry access passes.
+See [release-verification.json](release-verification.json). No full local image
+pull was needed for this publication check.

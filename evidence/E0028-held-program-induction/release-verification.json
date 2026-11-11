@@ -1,0 +1,21 @@
+{
+  "tag": "v0.1.0-alpha.2",
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.2",
+  "source": "3254d25abf62b5c5cefb8852eaeb3ae80691d192",
+  "publish_run": 43120993964,
+  "asset_sha256_verified": {
+    "image-inspect.json": "1c627dba622ef3273aea79ee3c3e23faa00e843800e56e307d3da560e37c5806",
+    "publication.json": "3f0c0d5c65409eed079df7b1f1deacd0e4783ed8b0d6f6bf2f7a31f86ae3433d",
+    "spi-four-mode.json": "84f8889d1b69f578b645e4be0bc8bfc40292473479572cbbba5cb3b4b1fc04c7",
+    "spi-held-proof.json": "656e144589f204d82029ecb36bf473348eece14a73d15748f7f79785e55848c7",
+    "spi-sensitivity.json": "8a49eac457d81a19ccd2478955454c0f20398b672d3fc826be3db4d89a63cfa1",
+    "toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81"
+  },
+  "anonymous_registry_manifest": "PASS",
+  "image_digest_matches_manifest": true,
+  "image_revision_matches_source": true,
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:d0cc2f2438f36e25472684132f34531de14f72c61854e3a71e2a9dc5c7b33dbd",
+  "held_proof_result": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+  "physical": "NOT_EVALUATED",
+  "publish_run_conclusion": "success"
+}
