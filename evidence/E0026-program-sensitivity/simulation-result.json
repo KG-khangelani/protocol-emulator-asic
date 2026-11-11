@@ -1,0 +1,1085 @@
+{
+  "status": "SIMULATION_ONLY_PASS",
+  "started_utc": "2026-11-11T21:00:01.168697+00:00",
+  "scope": "FINITE_PUBLIC_PROGRAM_CONTROLS",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_program_invariants.py": "8ff2b47b1d75f147b3b0a84ab5628bb252f47d3aea4df4c935b7b6a8af75a47e",
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "experiments/spi_phase/pin_timing.py": "adb1d8142c5e9e8310afd599e6ecfb08db7dad4e81e872fbc7068bf9b094355f",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "docs/specs/spi-program-sensitivity.md": "48c6e4176c1f33534947e9261ce5e459681cbb00042883bc067ac9de3c5103bb",
+    "test/test_spi_mode0_pins.py": "71450ef032cd7210d400ea8d894f17383544bc89b78e9e8f73f6d98ab26422d5",
+    "test/test_spi_program_controls.py": "1d446ca17323d719deb32fb62dcc9433df2bb61db7ec0f5e32e88aa414bfc16d",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7"
+  },
+  "tasks": [],
+  "production_rtl_changed": false,
+  "candidate_rtl_changed": false,
+  "simulations": [
+    {
+      "simulator": "icarus",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/baseline/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_program_controls",
+        "COCOTB_TEST_FILTER=",
+        "PYTHONPATH=/workspace/test:/workspace",
+        "SIM_BUILD=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/simulation/icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/simulation/icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 10.229,
+      "wall_limit": 180,
+      "accepted": true,
+      "tests": 1,
+      "failed_or_skipped": [],
+      "records": [
+        {
+          "abort": null,
+          "accepted": true,
+          "aperture_violations": [],
+          "case": "baseline-0",
+          "early_sample_firmware": false,
+          "errors": [],
+          "event_count": 6,
+          "event_sha256": "3d5087d9d63d99f7fd4eb35894f69fd0da1bfefa88b28360575fc4db13f794fb",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 105,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [],
+          "case": "early-0",
+          "early_sample_firmware": true,
+          "errors": [
+            [
+              378,
+              "raw",
+              211
+            ],
+            [
+              378,
+              "valid",
+              1
+            ],
+            [
+              379,
+              "raw",
+              211
+            ],
+            [
+              380,
+              "raw",
+              211
+            ],
+            [
+              381,
+              "raw",
+              211
+            ],
+            [
+              382,
+              "raw",
+              211
+            ],
+            [
+              383,
+              "raw",
+              211
+            ],
+            [
+              384,
+              "raw",
+              211
+            ],
+            [
+              385,
+              "raw",
+              211
+            ],
+            [
+              386,
+              "raw",
+              211
+            ],
+            [
+              387,
+              "raw",
+              211
+            ],
+            [
+              388,
+              "raw",
+              211
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "3d5087d9d63d99f7fd4eb35894f69fd0da1bfefa88b28360575fc4db13f794fb",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 211,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 1,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [
+            1,
+            3,
+            4,
+            5,
+            7
+          ],
+          "case": "late-input-0",
+          "early_sample_firmware": false,
+          "errors": [
+            [
+              379,
+              "raw",
+              211
+            ],
+            [
+              380,
+              "raw",
+              211
+            ],
+            [
+              381,
+              "raw",
+              211
+            ],
+            [
+              382,
+              "raw",
+              211
+            ],
+            [
+              383,
+              "raw",
+              211
+            ],
+            [
+              384,
+              "raw",
+              211
+            ],
+            [
+              385,
+              "raw",
+              211
+            ],
+            [
+              386,
+              "raw",
+              211
+            ],
+            [
+              387,
+              "raw",
+              211
+            ],
+            [
+              388,
+              "raw",
+              211
+            ],
+            [
+              389,
+              "raw",
+              211
+            ],
+            [
+              390,
+              "raw",
+              211
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "2d6624bbb7374aceb96dfecca9db9cd6bbd71785a4a34c93911a99b34a517a22",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 211,
+          "response_profile_violations": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "responses_ps": [
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 211,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": true,
+          "aperture_violations": [],
+          "case": "baseline-1",
+          "early_sample_firmware": false,
+          "errors": [],
+          "event_count": 6,
+          "event_sha256": "eb112d7f02480724d350a1dd4d535ba337fffcecec4e9687079c04ce453d2e9c",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 105,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [],
+          "case": "early-1",
+          "early_sample_firmware": true,
+          "errors": [
+            [
+              378,
+              "raw",
+              180
+            ],
+            [
+              378,
+              "valid",
+              1
+            ],
+            [
+              379,
+              "raw",
+              180
+            ],
+            [
+              380,
+              "raw",
+              180
+            ],
+            [
+              381,
+              "raw",
+              180
+            ],
+            [
+              382,
+              "raw",
+              180
+            ],
+            [
+              383,
+              "raw",
+              180
+            ],
+            [
+              384,
+              "raw",
+              180
+            ],
+            [
+              385,
+              "raw",
+              180
+            ],
+            [
+              386,
+              "raw",
+              180
+            ],
+            [
+              387,
+              "raw",
+              180
+            ],
+            [
+              388,
+              "raw",
+              180
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "eb112d7f02480724d350a1dd4d535ba337fffcecec4e9687079c04ce453d2e9c",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 180,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 1,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            7
+          ],
+          "case": "late-input-1",
+          "early_sample_firmware": false,
+          "errors": [
+            [
+              379,
+              "raw",
+              180
+            ],
+            [
+              380,
+              "raw",
+              180
+            ],
+            [
+              381,
+              "raw",
+              180
+            ],
+            [
+              382,
+              "raw",
+              180
+            ],
+            [
+              383,
+              "raw",
+              180
+            ],
+            [
+              384,
+              "raw",
+              180
+            ],
+            [
+              385,
+              "raw",
+              180
+            ],
+            [
+              386,
+              "raw",
+              180
+            ],
+            [
+              387,
+              "raw",
+              180
+            ],
+            [
+              388,
+              "raw",
+              180
+            ],
+            [
+              389,
+              "raw",
+              180
+            ],
+            [
+              390,
+              "raw",
+              180
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "1625eb96b02595b4e8996cafb95f5cf5a56bccd56b0d706e6c8d4998f9e4f272",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 180,
+          "response_profile_violations": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "responses_ps": [
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 180,
+          "wire_tx": 150
+        }
+      ],
+      "records_sha256": {
+        "baseline-0.json": "5ef6eb9e8c0bb76b027ccea86f5b87a814da3c0ca504a3e8998a7e52fe2504ae",
+        "baseline-1.json": "6bd87453b5304488063973b87db78475a3e5d3fa6abfa6c45e30ae6f9780642d",
+        "cases.jsonl": "df7bd75fbebcca812f6cb1a30d3f184afbac2b616206523d3b0b9a01db9f5eeb",
+        "early-0.json": "ea553cbf4a5ef5fb9a95b1d0d71d91c7839e66cd891be814708ff93cff8e6e88",
+        "early-1.json": "12add1299344c7371e2ebfc0af4b78f859b61c6e75086944ba5ea069992d90d0",
+        "late-input-0.json": "2e657721076668758492182d400995a0c12620d636f64877136aa5e43acecd85",
+        "late-input-1.json": "8d0c02819dee9f2045a8596149708b1e38c5ea05a116f75cb10010db758d5e6c"
+      }
+    },
+    {
+      "simulator": "verilator",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/baseline/variants/compact/src",
+        "COCOTB_TEST_MODULES=test_spi_program_controls",
+        "COCOTB_TEST_FILTER=",
+        "PYTHONPATH=/workspace/test:/workspace",
+        "SIM_BUILD=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/simulation/verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/spi-program-sensitivity/20261111-test-entry-fix/simulation/verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 61.605,
+      "wall_limit": 180,
+      "accepted": true,
+      "tests": 1,
+      "failed_or_skipped": [],
+      "records": [
+        {
+          "abort": null,
+          "accepted": true,
+          "aperture_violations": [],
+          "case": "baseline-0",
+          "early_sample_firmware": false,
+          "errors": [],
+          "event_count": 6,
+          "event_sha256": "3d5087d9d63d99f7fd4eb35894f69fd0da1bfefa88b28360575fc4db13f794fb",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 105,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [],
+          "case": "early-0",
+          "early_sample_firmware": true,
+          "errors": [
+            [
+              378,
+              "raw",
+              211
+            ],
+            [
+              378,
+              "valid",
+              1
+            ],
+            [
+              379,
+              "raw",
+              211
+            ],
+            [
+              380,
+              "raw",
+              211
+            ],
+            [
+              381,
+              "raw",
+              211
+            ],
+            [
+              382,
+              "raw",
+              211
+            ],
+            [
+              383,
+              "raw",
+              211
+            ],
+            [
+              384,
+              "raw",
+              211
+            ],
+            [
+              385,
+              "raw",
+              211
+            ],
+            [
+              386,
+              "raw",
+              211
+            ],
+            [
+              387,
+              "raw",
+              211
+            ],
+            [
+              388,
+              "raw",
+              211
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "3d5087d9d63d99f7fd4eb35894f69fd0da1bfefa88b28360575fc4db13f794fb",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 211,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 1,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [
+            1,
+            3,
+            4,
+            5,
+            7
+          ],
+          "case": "late-input-0",
+          "early_sample_firmware": false,
+          "errors": [
+            [
+              379,
+              "raw",
+              211
+            ],
+            [
+              380,
+              "raw",
+              211
+            ],
+            [
+              381,
+              "raw",
+              211
+            ],
+            [
+              382,
+              "raw",
+              211
+            ],
+            [
+              383,
+              "raw",
+              211
+            ],
+            [
+              384,
+              "raw",
+              211
+            ],
+            [
+              385,
+              "raw",
+              211
+            ],
+            [
+              386,
+              "raw",
+              211
+            ],
+            [
+              387,
+              "raw",
+              211
+            ],
+            [
+              388,
+              "raw",
+              211
+            ],
+            [
+              389,
+              "raw",
+              211
+            ],
+            [
+              390,
+              "raw",
+              211
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "2d6624bbb7374aceb96dfecca9db9cd6bbd71785a4a34c93911a99b34a517a22",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 0,
+          "pin_schedule_ok": true,
+          "raw_rx": 211,
+          "response_profile_violations": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "responses_ps": [
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 211,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": true,
+          "aperture_violations": [],
+          "case": "baseline-1",
+          "early_sample_firmware": false,
+          "errors": [],
+          "event_count": 6,
+          "event_sha256": "eb112d7f02480724d350a1dd4d535ba337fffcecec4e9687079c04ce453d2e9c",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 105,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [],
+          "case": "early-1",
+          "early_sample_firmware": true,
+          "errors": [
+            [
+              378,
+              "raw",
+              180
+            ],
+            [
+              378,
+              "valid",
+              1
+            ],
+            [
+              379,
+              "raw",
+              180
+            ],
+            [
+              380,
+              "raw",
+              180
+            ],
+            [
+              381,
+              "raw",
+              180
+            ],
+            [
+              382,
+              "raw",
+              180
+            ],
+            [
+              383,
+              "raw",
+              180
+            ],
+            [
+              384,
+              "raw",
+              180
+            ],
+            [
+              385,
+              "raw",
+              180
+            ],
+            [
+              386,
+              "raw",
+              180
+            ],
+            [
+              387,
+              "raw",
+              180
+            ],
+            [
+              388,
+              "raw",
+              180
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "eb112d7f02480724d350a1dd4d535ba337fffcecec4e9687079c04ce453d2e9c",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 180,
+          "response_profile_violations": [],
+          "responses_ps": [
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999,
+            499999
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 1,
+            "379": 1
+          },
+          "wire_rx": 105,
+          "wire_tx": 150
+        },
+        {
+          "abort": null,
+          "accepted": false,
+          "aperture_violations": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            7
+          ],
+          "case": "late-input-1",
+          "early_sample_firmware": false,
+          "errors": [
+            [
+              379,
+              "raw",
+              180
+            ],
+            [
+              380,
+              "raw",
+              180
+            ],
+            [
+              381,
+              "raw",
+              180
+            ],
+            [
+              382,
+              "raw",
+              180
+            ],
+            [
+              383,
+              "raw",
+              180
+            ],
+            [
+              384,
+              "raw",
+              180
+            ],
+            [
+              385,
+              "raw",
+              180
+            ],
+            [
+              386,
+              "raw",
+              180
+            ],
+            [
+              387,
+              "raw",
+              180
+            ],
+            [
+              388,
+              "raw",
+              180
+            ],
+            [
+              389,
+              "raw",
+              180
+            ],
+            [
+              390,
+              "raw",
+              180
+            ]
+          ],
+          "event_count": 6,
+          "event_sha256": "1625eb96b02595b4e8996cafb95f5cf5a56bccd56b0d706e6c8d4998f9e4f272",
+          "hold_ps": 1,
+          "noise": false,
+          "order": 1,
+          "pin_schedule_ok": true,
+          "raw_rx": 180,
+          "response_profile_violations": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "responses_ps": [
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001,
+            500001
+          ],
+          "rx": 105,
+          "setup_ps": 1,
+          "status": 167,
+          "tx": 150,
+          "valid_probes": {
+            "378": 0,
+            "379": 1
+          },
+          "wire_rx": 180,
+          "wire_tx": 150
+        }
+      ],
+      "records_sha256": {
+        "baseline-0.json": "5ef6eb9e8c0bb76b027ccea86f5b87a814da3c0ca504a3e8998a7e52fe2504ae",
+        "baseline-1.json": "6bd87453b5304488063973b87db78475a3e5d3fa6abfa6c45e30ae6f9780642d",
+        "cases.jsonl": "df7bd75fbebcca812f6cb1a30d3f184afbac2b616206523d3b0b9a01db9f5eeb",
+        "early-0.json": "ea553cbf4a5ef5fb9a95b1d0d71d91c7839e66cd891be814708ff93cff8e6e88",
+        "early-1.json": "12add1299344c7371e2ebfc0af4b78f859b61c6e75086944ba5ea069992d90d0",
+        "late-input-0.json": "2e657721076668758492182d400995a0c12620d636f64877136aa5e43acecd85",
+        "late-input-1.json": "8d0c02819dee9f2045a8596149708b1e38c5ea05a116f75cb10010db758d5e6c"
+      }
+    }
+  ],
+  "cross_simulator_records_identical": true
+}

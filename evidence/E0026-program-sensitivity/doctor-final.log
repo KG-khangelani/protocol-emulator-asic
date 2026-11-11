@@ -1,0 +1,39 @@
+python3 tools/doctor.py
+PASS: Dockerfile ingredient declarations match the machine-readable lock
+MODE: locked workbench: exact versions required
+PASS: Python 3.11.16 — runs project checks and cocotb tests
+PASS: git — records and retrieves the exact project history
+  observed: git version 2.39.5
+PASS: make — gives the project one consistent command interface
+  observed: GNU Make 4.3
+PASS: g++ — compiles Verilator's generated C++ hardware model
+  observed: g++ (Debian 12.2.0-14+deb12u1) 12.2.0
+PASS: iverilog — compiles RTL for fast cycle-by-cycle simulation
+  observed: Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)
+PASS: vvp — runs the simulation program produced by Icarus
+  observed: Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)
+PASS: verilator — provides a second, independent RTL compiler and simulator
+  observed: Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)
+PASS: verible — checks Verilog style and suspicious source patterns
+  observed: Version	v0.0-4296-g0f262651
+PASS: yosys — translates RTL into generic logic cells for synthesis checks
+  observed: Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+PASS: sby — coordinates exhaustive formal-property checks
+  observed: SBY v0.67-4-gfea6e46
+PASS: z3 — solves mathematical constraints for formal verification
+  observed: Z3 version 4.15.5 - 64 bit
+PASS: boolector — provides a second bit-vector formal solver
+  observed: 3.2.4
+PASS: cocotb — lets Python drive and inspect the simulated hardware
+  observed: 2.0.1
+PASS: hashed Python dependency lock
+  observed: 32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a
+PASS: workbench platform linux/x86_64
+PASS: OSS CAD Suite release marker 20260729
+PASS: Debian package ca-certificates 20250419~deb12u1
+PASS: Debian package curl 7.88.1-10+deb12u15
+PASS: Debian package g++ 4:12.2.0-3
+PASS: Debian package git 1:2.39.5-0+deb12u3
+PASS: Debian package make 4.3-4.1
+RESULT: PASS — every required tool matches its recorded version.
+LIMIT: this proves tool identity, not RTL correctness or physical-chip acceptance.

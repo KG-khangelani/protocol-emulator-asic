@@ -1,0 +1,11 @@
+{
+  "public_inputs": {
+    "tx": 150,
+    "rx": 105,
+    "order": 0,
+    "raw_miso": "lawful preflight holds bit from R",
+    "select_valid": "cycle parity"
+  },
+  "cover": "cycle440, public HALT A7, actual RX69 and valid",
+  "assertions_checked_by_cover": false
+}

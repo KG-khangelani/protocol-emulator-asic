@@ -1,0 +1,73 @@
+name: spi-program-sensitivity
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'experiments/spi_phase/**'
+      - 'test/test_spi*.py'
+      - 'test/test.py'
+      - 'test/Makefile'
+      - 'test/tb.v'
+      - 'tools/workbench/**'
+      - 'docs/specs/spi-program-sensitivity.md'
+      - '.github/workflows/spi-sensitivity.yaml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'experiments/spi_phase/**'
+      - 'test/test_spi*.py'
+      - 'test/test.py'
+      - 'test/Makefile'
+      - 'test/tb.v'
+      - 'tools/workbench/**'
+      - 'docs/specs/spi-program-sensitivity.md'
+      - '.github/workflows/spi-sensitivity.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: spi-sensitivity-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build locked workbench
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: tools/workbench
+          file: tools/workbench/Dockerfile
+          load: true
+          tags: protocol-emulator-asic-workbench:2026-07-29
+          cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+          cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+      - name: Check tools and actual-program sensitivity
+        run: |
+          ./tools/workbench.sh Doctor
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_program_sensitivity.py --output build/spi-program-sensitivity/ci
+      - name: Retain successes and counterexamples
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: spi-sensitivity-${{ github.sha }}
+          path: |
+            build/spi-program-sensitivity/ci/result.json
+            build/spi-program-sensitivity/ci/*/inputs/
+            build/spi-program-sensitivity/ci/*/transformation.json
+            build/spi-program-sensitivity/ci/*/proof.sby
+            build/spi-program-sensitivity/ci/*/proof.log
+            build/spi-program-sensitivity/ci/*/proof/status
+            build/spi-program-sensitivity/ci/*/proof/engine_0/trace*
+            build/spi-program-sensitivity/ci/simulation/*/results.xml
+            build/spi-program-sensitivity/ci/simulation/*/run.log
+            build/spi-program-sensitivity/ci/simulation/*/records/
+          if-no-files-found: error
+          retention-days: 90

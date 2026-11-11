@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794430595" />
+    <testcase name="actual_program_controls" classname="program_sensitivity_cases" file="/workspace/build/spi-program-sensitivity/20261111-attempt1/simulation/program_sensitivity_cases.py" lineno="6" time="0.6572859287261963" sim_time_ns="52998.018" ratio_time="80631.60290485578" />
+  </testsuite>
+</testsuites>

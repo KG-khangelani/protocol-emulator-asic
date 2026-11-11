@@ -1,0 +1,4 @@
+{
+  "original_sha256": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40",
+  "original_text": "--- compact/phase-engine-declarations.v\n+++ formal/phase-engine-declarations.v\n@@ -105,10 +105,10 @@\n     assign shift_period_status = shift_period;\n     assign shift_tx_slot_status = shift_tx_slot;\n \n+    reg phase_active;\n+    reg phase_prepared;\n     assign formal_phase_active = phase_active;\n     assign formal_phase_prepared = phase_prepared;\n-    reg phase_active;\n-    reg phase_prepared;\n     wire phase_drive_word = instruction[29] && !instruction[21] &&\n                             (instruction[20:19] == 2'b01);\n     wire phase_sample_word = instruction[29] && !instruction[21] &&\n"
+}

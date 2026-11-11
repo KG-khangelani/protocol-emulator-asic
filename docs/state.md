@@ -37,6 +37,16 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Established
 
+- E0026 qualifies actual-program sensitivity: unchanged baseline induction
+  passes; wrong-public-MOSI and missing-first-input-premise controls produce
+  reachable counterexamples at the intended assertions. Both simulators pass
+  six public transactions each with identical records; early-SAMPLE firmware
+  keeps correct external timing but returns0xd3/0xb4 for wire0x69 and is rejected.
+  One terminal cover times out at180s; another is interrupted with no result.
+  Initial simulator-import/source-drift failures are retained. D27 moves the
+  next slice to a four-mode timing contract, without RTL promotion.
+  See [E0026](../evidence/E0026-program-sensitivity/README.md).
+
 - PR10 merged at `483df67` and all its post-merge workflows passed. PR8 merged
   at `7b2f746` after full PR CI passed at `996b967`; the merged tree is identical
   to that tested head. Newer SPI, atlas and evidence changes are preserved.
@@ -323,8 +333,10 @@ efficiently express useful digital communication protocols under hard temporal c
   establish chip evidence or access from an unverified user device.
 - PR8's bounded host service is integrated at `7b2f746`. Earlier SPI experiments
   intentionally excluded it; their source identities and limits remain
-  historical. Post-merge workflows and the duplicate push run are separate
-  observations, not inferred from the successful PR run. Compiler work,
+  historical. Post-merge tests/builds passed, but artifact creation failed
+  during GitHub's 11 November Actions outage. One retry was queued per failed
+  workflow: docs and atlas retries passed; hardware retry was still running
+  at the latest check. These are separate from pre-merge CI. Compiler,
   production SPI promotion and physical qualification remain separate.
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
@@ -346,9 +358,12 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: independently test the actual-program proof's property/input
-  sensitivity and known bad firmware/reachability, building on E0025 induction.
-  E0024's direct timeouts remain inconclusive historical observations.
+- Engineering: define the four CPOL/CPHA pin schedules and input envelopes
+  against an independent oracle before changing RTL. E0026 closes the local
+  property/input/actual-firmware sensitivity slice. Its cover timeout and
+  interruption, and E0024's direct timeouts, remain inconclusive. Revisit deep
+  covers only with a new method and frozen budget. Check the new sensitivity
+  CI gate and hardware artifact-upload retry after GitHub service recovery.
   PR11 merged at `1383158` and PR8 at `7b2f746`. Keep compiler work deferred and
   production RTL unchanged. Refresh remote history and PR state before relying
   on a stale local checkout or historical handoff text.

@@ -1,0 +1,163 @@
+{
+  "status": "SENSITIVITY_QUALIFIED_REACHABILITY_INCONCLUSIVE",
+  "baseline": "213e391be6888ae0298bc8d14f794ded43b11a68",
+  "formal": "baseline induction PASS; wrong MOSI and missing first premise reachable FAIL as required",
+  "simulations": "six public cases per simulator; both PASS; records byte-identical",
+  "cover_lsb": "INCONCLUSIVE_TIMEOUT:180.088 seconds, no witness",
+  "cover_msb": "INCONCLUSIVE_INTERRUPTED: last logged check step379; no final solver status or witness; container no longer running at recovery",
+  "historical_cover_result": "original aggregate RUNNING retained unchanged; no second-cover timeout or pass inferred",
+  "local_failures": "two Icarus import failures; second run also hit input drift when the source module moved before its aggregate completed",
+  "production_and_candidate_rtl": "UNCHANGED",
+  "final_input_sha256": {
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "test/test_spi_program_controls.py": "1d446ca17323d719deb32fb62dcc9433df2bb61db7ec0f5e32e88aa414bfc16d",
+    "docs/specs/spi-program-sensitivity.md": "48c6e4176c1f33534947e9261ce5e459681cbb00042883bc067ac9de3c5103bb",
+    ".github/workflows/spi-sensitivity.yaml": "b03c1dc40f1811ee5aaaeef94c5c07f7742fc0b73db700db1fd72a56aa9dde0b"
+  },
+  "curated_sha256": {
+    "check-final.log": "c65925066b19daeea6d4d6427c4007eb385d6f7fbfe02a5be1e49447d002e065",
+    "doctor-final.log": "02ed95c9569bd9e55f35f7b4ab491d0271ba947fcec9dd87b2ecc7a5dddc8d2e",
+    "initial-run-result.json": "f7497a18564b3ca4d94ab47c3d66853c4b6633896a2727bd8ae668e44c3eef21",
+    "interrupted-cover-run-result.json": "715b25f88180aba46213a125ed5c19cfae115273f5d7a1de99e9fa053607abf1",
+    "model-audit.json": "b1ff080cf7e69025ec64662b15d2c25419ff1653bd806bf9e27eb87e8c02e777",
+    "README.md": "52e5c8d1847af0739fd0898d185b5cc1666690e02efd9f9cb96ee6e735e87339",
+    "simulation-result.json": "0976041bf6fa7e7073515615557ab61306e8164cd661ea0e17fbe1d86bee7bca",
+    "failures/import-path-icarus-run.log": "09fa08fe81b8ce955fff1f468ff16644035223cfd8d2835f030abc96c58e5bd9",
+    "failures/import-path-run-result.json": "93284164640a571e8e90a8f9796167e27f0b3b5dd201f4e50fca05a277e277a9",
+    "failures/import-path-verilator-results.xml": "4fd85947b8ece814eec102b2f643ff5c258b8cfcb2404ea3080cc2b04784d3ba",
+    "failures/import-path-verilator-run.log": "f3ab9016adc30ffa4cda39421888aab3b8ce6abaa242caa1aa21f931e8b4a51a",
+    "failures/initial-icarus-run.log": "45998472f0cbe27707db900f9b2bd234b4d8e00d606883b6c6646a5c65c3f1e2",
+    "failures/initial-verilator-results.xml": "d7f5f446407c4e7c7787c802f55a9925e9198d969d03c243f0b162a3ea776e48",
+    "failures/initial-verilator-run.log": "1f9535be583ebf78657132e61c2b19c28d4f13b004b72836758733626ab94798",
+    "failures/runner-import-path.py": "0fad1d89d8efaa63a1eccafe6367e6a22a2149ba19e774508283941c8b5ee980",
+    "failures/runner-initial.py": "3be5a06ee0646114e3273deb0b5f9d79d717089a2ab0f4fb71be46e0e934ae57",
+    "inputs/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "inputs/m1_input_sync.v": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+    "inputs/m1_input_sync.v.patch.json": "a9c39e7caa8e971afb943206a6be459356cebfa5daf84865160ed13aef2df338",
+    "inputs/m1_program_store.v": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+    "inputs/m1_program_store.v.patch.json": "b73a3598eb2d87f434e9c297659d8008050a3205611e6a397862591a9a1a0d25",
+    "inputs/phase-engine-declarations.v.patch.json": "d74549ae55e66d9146ac9934c78e1977c6d1637e1d29bb2c1b42bb580364a021",
+    "inputs/phase_engine.v": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+    "inputs/program_bindings.vh": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+    "inputs/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "inputs/project.v": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+    "inputs/project.v.patch.json": "e086cced6cdf4b63651a748267c22044f1957f53fdc5dd9cc71ddf82d7893853",
+    "inputs/public_spi.sv": "7553ac5311fb85ede716f6fba3583277c9229b8eef97849667168c0a86d19066",
+    "simulation/cases.jsonl": "df7bd75fbebcca812f6cb1a30d3f184afbac2b616206523d3b0b9a01db9f5eeb",
+    "simulation/icarus/results.xml": "7136d7e192127676a8a055e47f46bc1a41bffde502d93065b56a951f0f796547",
+    "simulation/icarus/run.log": "40beae2b056cccd3f668960ad20e7d8748e6d275543ca16cc2aa5b4bece2aae0",
+    "simulation/traces/baseline-0.json.gz": "4d697373366e00bc728e70bc88c7bb0115a62a8895377313a5ef915235cac543",
+    "simulation/traces/baseline-1.json.gz": "b30ab93411976c163c906a8ea2152eb61a1014f48c3075830597a4e0bc1a3647",
+    "simulation/traces/early-0.json.gz": "7e395424e2bf1d295551cc6c400bff3c54c428bf326ab8b83e31d366eaa1104a",
+    "simulation/traces/early-1.json.gz": "f4d853fe61fbade6acf6605dcedf634dc0405da22275e52543e27208c1791f7e",
+    "simulation/traces/late-input-0.json.gz": "535c53064bd3e67605a15c14622ba31de957cfc6787b6624e0c3e92a16b701b7",
+    "simulation/traces/late-input-1.json.gz": "01105ec24e75b2553f3d48c38866b437b3e5e6ff4b51797029499e73ada3da1a",
+    "simulation/verilator/results.xml": "ae874ca792705f1187d554a1e3b3a4014a4d4d98441147e7e37ad7f898efcf71",
+    "simulation/verilator/run.log": "7efb3ff3d313e52b0c55b60c970ad9d57717666faa81a2bcc0439a629e73ed5c",
+    "reachability/cover_lsb/proof.log": "8e0417daa71b1f52b7c5ad16936faa45b21a5c62a04722d52412c5d627b612dc",
+    "reachability/cover_lsb/proof.sby": "26281aa204c8cd4faee9ac66c15a64f7eb27382a6dbf82829acc8f8569175be7",
+    "reachability/cover_lsb/public_spi.sv": "22d55877213412fc19088fe96c73666e5dec9e4816d67f1be817b17853976ddc",
+    "reachability/cover_lsb/transformation.json": "1896d427f724d2d87907bbab3ae3a5a4b3249d02be334f64d566bfc3e141e412",
+    "reachability/cover_msb/proof.log": "53c4af051daab0d785b7e000ff839ef889a8a10e8532bbb43c47965a14998a0a",
+    "reachability/cover_msb/proof.sby": "cea67e811efde703a662b5ef2c77d663e31106a24f038385e4f7cbf8bc5709b0",
+    "reachability/cover_msb/public_spi.sv": "253be2e29969ab50c7f9ed523dd03959553397c3607140397c31d5f9c2722364",
+    "reachability/cover_msb/transformation.json": "00a12e982692779142cc56b84eb5d463e9aba8c2cb179cb3a33d2bcfbc96d87f",
+    "formal/baseline/proof.log": "86e9ba6c8c53ab3d5da617fc18573510509f36f019b9a03cd37963bbde6b271b",
+    "formal/baseline/proof.sby": "e35f2a3cf7fdef9ed798e2ca859d79f4b058b17e996c5a51d2cddc7309fd826a",
+    "formal/baseline/status.txt": "7566cd89a64914ba4350223bfb7cb74d13e1e0bfcf41f3edd4a7ce7ca1a43bb3",
+    "formal/baseline/transformation.json": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+    "formal/missing_first_premise/proof.log": "2c15c220e4c90d0224e56350128ed818d48c0f81de21d89d656b2ba612561fbb",
+    "formal/missing_first_premise/proof.sby": "a4928ffbd4396a61013f733575023080b00664cf71c78fd5b8625af7885b6d91",
+    "formal/missing_first_premise/public_spi.sv": "d12739eaeaf5f304673eb4bbd276f67761afb075b5301001b78dc3bc429257b6",
+    "formal/missing_first_premise/status.txt": "b13b017ea7da31f8d60f382c19e2d93f917584e923ee1de69485a03eeba32c81",
+    "formal/missing_first_premise/trace.vcd.gz": "ea5204caba53399445c303cb57ecf3936f6aee55e631032761e1793de371a87c",
+    "formal/missing_first_premise/transformation.json": "da546e32ee099edd52fb1a5ece3805e53aff8c8536bedb8aa6a9d27912daa6a6",
+    "formal/wrong_public_mosi/proof.log": "c7ad0fcf59b20b7447fd66c418c9bdab8c06a64b1f9bbd11debf1c1a77ebb5e3",
+    "formal/wrong_public_mosi/proof.sby": "61dd3aea11231f84c01f29e694d25efaafbd87d5ac467cee690c52afa1c16c27",
+    "formal/wrong_public_mosi/public_spi.sv": "21007b8f5e7d03ee806f66c0a7a6d4a5762cae915175c6c37fac204a3c740de9",
+    "formal/wrong_public_mosi/status.txt": "dfc10c0ce3560077b4640f6d53e1d606dedf43ebeafbd27007e2fdf122da833e",
+    "formal/wrong_public_mosi/trace.vcd.gz": "a22729e838a6105029ff43e16b76c3d46806716a6a661baf1089eae35f3a9198",
+    "formal/wrong_public_mosi/transformation.json": "d1824fc0f3316cf52ba7f0e9a56be3a05f0a6ab888dde11013992df4b3fba3b2"
+  },
+  "final_checks": {
+    "doctor": "PASS",
+    "repository_check": "PASS",
+    "python_syntax": "PASS",
+    "workflow_structure_and_pinned_actions": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "curation_transforms": {
+    "check-final.log": {
+      "original_sha256": "d0ed5e54b49164ad76dfd6dbfcb6c2ede68d44f70353ea8f2914dcce62a492cf",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "doctor-final.log": {
+      "original_sha256": "f67400f5d0fd771ebab4ccd9501b3960ae3bb86f35a958ed655778bde7ff61c8",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "model-audit.json": {
+      "original_sha256": "f73228606fb9bd9c9b88ae7bd84413715d988d5a9291922474e592c5f8a99685",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/import-path-icarus-run.log": {
+      "original_sha256": "69f8a0303412aa0fee1ea68f211753ef2cec5fec1f0528a7d6165565f01b3f43",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/import-path-verilator-results.xml": {
+      "original_sha256": "79d0c92192156486b717e142cd73ac0c6f53bfe6c6378dea5b80bb4547ea73de",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/import-path-verilator-run.log": {
+      "original_sha256": "a8413a4fc34a4e97724a9f84928caefd5db3833aec2175aab0fca517fd2d5d3a",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/initial-icarus-run.log": {
+      "original_sha256": "eb7047001e2cd2bc92f486e173e2c5073e54e9bd25097c57bfaa1fa14556defa",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/initial-verilator-results.xml": {
+      "original_sha256": "895c77f3cd78ddbfae3b43fe63fa45e8af2128c649e24b6a1b09e04469dab2e8",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "failures/initial-verilator-run.log": {
+      "original_sha256": "0af4b183000a4777601307f28244bf2355c787a2a28a0efd8fa6adacb69fee3e",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "inputs/m1_input_sync.v.patch.json": {
+      "original_path": "inputs/m1_input_sync.v.patch",
+      "original_sha256": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+      "operation": "JSON escape exact patch text; decode original_text to recover original bytes"
+    },
+    "inputs/m1_program_store.v.patch.json": {
+      "original_path": "inputs/m1_program_store.v.patch",
+      "original_sha256": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+      "operation": "JSON escape exact patch text; decode original_text to recover original bytes"
+    },
+    "inputs/phase-engine-declarations.v.patch.json": {
+      "original_path": "inputs/phase-engine-declarations.v.patch",
+      "original_sha256": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40",
+      "operation": "JSON escape exact patch text; decode original_text to recover original bytes"
+    },
+    "inputs/project.v.patch.json": {
+      "original_path": "inputs/project.v.patch",
+      "original_sha256": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+      "operation": "JSON escape exact patch text; decode original_text to recover original bytes"
+    },
+    "simulation/icarus/results.xml": {
+      "original_sha256": "bdf5a656b41e6ef7ff837efcfd753f42c816108d30373e30e3436eba5b546f9a",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "simulation/icarus/run.log": {
+      "original_sha256": "1e63079cbc8cda43c4d4497120881969a305589486435e45e3e300a19f866995",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "simulation/verilator/results.xml": {
+      "original_sha256": "a0c6088ac1b0455d8f94a302b67890673d348c1b134151c2638630b2300087e9",
+      "operation": "normalize LF and trailing whitespace only"
+    },
+    "simulation/verilator/run.log": {
+      "original_sha256": "8b5358dde634d1184bb7b91485c09fd9820dc78888b35164b5c56913cd4a94b7",
+      "operation": "normalize LF and trailing whitespace only"
+    }
+  }
+}

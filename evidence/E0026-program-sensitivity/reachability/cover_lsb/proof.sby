@@ -1,0 +1,21 @@
+[options]
+mode cover
+depth 444
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv project.v phase_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v public_spi.sv
+prep -top public_spi
+
+[files]
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/project.v
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/phase_engine.v
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/m1_program_store.v
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/m1_data_store.v
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/m1_input_sync.v
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/public_spi.sv
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/program_bindings.vh
+/workspace/build/spi-program-sensitivity/20261111-terminal-covers/cover_lsb/inputs/program_invariants.vh

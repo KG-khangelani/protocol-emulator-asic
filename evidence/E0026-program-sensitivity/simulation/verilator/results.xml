@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794430873" />
+    <testcase name="actual_program_controls" classname="test_spi_program_controls" file="/workspace/test/test_spi_program_controls.py" lineno="6" time="0.45630693435668945" sim_time_ns="52998.018" ratio_time="116145.54592451603" />
+  </testsuite>
+</testsuites>

@@ -81,3 +81,16 @@ through reversible read-only taps. Four simulation preflights check the
 assertions and premises before the single proof. The result distinguishes
 induction, bounded/finite evidence and inconclusive attempts. CI additionally
 requires an actual inductive PASS; E0024's previous timeouts are not rewritten.
+
+The actual-program sensitivity gate runs separately:
+
+    python3 experiments/spi_phase/run_program_sensitivity.py --output build/spi-program-sensitivity/new
+
+It requires the inductive baseline, two reachable and inspected negative
+traces, and six public transactions on each simulator. The early image is
+loaded/read back against its supplied bytes before checking unchanged external
+requirements. Expected solver FAILs remain labelled FAIL; the aggregate
+accepts them only at the intended assertions and witness values.
+--simulation-only labels finite controls; --reachability-only separates bounded
+covers. [E0026](../../evidence/E0026-program-sensitivity/README.md) retains
+successful controls, import failures and inconclusive reachability attempts.

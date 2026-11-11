@@ -1,0 +1,96 @@
+{
+  "baseline": {
+    "state_bits_by_module": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55
+    },
+    "check_cells_by_flavor": {
+      "assert": 82,
+      "assume": 8
+    },
+    "actual_dut_state_bits": 412,
+    "model_json_sha256": "1302001125708d12258e2c8689382a6f4e376e0067f56dac5d7bb4e2d9a27af0"
+  },
+  "wrong_public_mosi": {
+    "state_bits_by_module": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55
+    },
+    "check_cells_by_flavor": {
+      "assert": 82,
+      "assume": 8
+    },
+    "actual_dut_state_bits": 412,
+    "model_json_sha256": "2a3f37d04768789b45e17a1ac7083fdb4e1a6ee66ed568049d9849c2919fd297"
+  },
+  "missing_first_premise": {
+    "state_bits_by_module": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55
+    },
+    "check_cells_by_flavor": {
+      "assert": 82,
+      "assume": 8
+    },
+    "actual_dut_state_bits": 412,
+    "model_json_sha256": "5bdf075a373eb5ae5d12a5a7391bfcf13795e5f565ae86792dbd22bb31128929"
+  },
+  "cover_lsb": {
+    "state_bits_by_module": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55
+    },
+    "check_cells_by_flavor": {
+      "assert": 82,
+      "assume": 8,
+      "cover": 1
+    },
+    "actual_dut_state_bits": 412,
+    "model_json_sha256": "4be10a8dde0f036ef62adc1ffc9c022ee3901b01e80e979791909e8050e913f1"
+  },
+  "cover_msb": {
+    "state_bits_by_module": {
+      "m1_data_store": 25,
+      "m1_input_sync": 16,
+      "m1_program_store": 261,
+      "phase_engine": 110,
+      "public_spi": 55
+    },
+    "check_cells_by_flavor": {
+      "assert": 82,
+      "assume": 8,
+      "cover": 1
+    },
+    "actual_dut_state_bits": 412,
+    "model_json_sha256": "e0323aee2c51de4556d74bd2e4683155798630645fc5ad5e1894b66df29414c2"
+  },
+  "formal_functions_unchanged_after_simulation_import_fix": {
+    "formal_case": true,
+    "execute": true,
+    "inspect_negative": true,
+    "vcd_frames": true
+  },
+  "E0025_compiled_input_text_equal": {
+    "m1_data_store.v": true,
+    "m1_input_sync.v": true,
+    "m1_program_store.v": true,
+    "phase_engine.v": true,
+    "program_bindings.vh": true,
+    "program_invariants.vh": true,
+    "project.v": true,
+    "public_spi.sv": true
+  },
+  "assumption_cell_note": "All models retain 8 syntactic assumption cells; missing_first_premise disables j=0 at the source condition, rather than deleting that cell."
+}
