@@ -1,0 +1,17 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791192011" />
+    <testcase name="uart_rx_host_service_last_safe_edge" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="147" time="8.36366605758667" sim_time_ns="998798.048" ratio_time="119421.0817508659" />
+    <testcase name="uart_rx_host_service_fault_abort_quarantine" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="175" time="0.10359525680541992" sim_time_ns="8392.032000000007" ratio_time="81007.87872713638" />
+    <testcase name="uart_rx_host_service_late_read_counterexample" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="207" time="0.046421051025390625" sim_time_ns="5026.015999999945" ratio_time="108270.18968723688" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="233" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="257" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="281" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+  </testsuite>
+</testsuites>

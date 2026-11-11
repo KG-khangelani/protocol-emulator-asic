@@ -1,0 +1,91 @@
+{
+  "date_utc": "2026-10-05",
+  "implementation_head": "9379d686fb37f912a4beb874c0f506b2f5d2541f",
+  "baseline_head": "155e130ea402f78a86558fb3c2b094c536be41a4",
+  "pr": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/8",
+  "implementation_ci": "PASS",
+  "runs": {
+    "pull_request_test": {
+      "id": 37290652951,
+      "conclusion": "success"
+    },
+    "push_test": {
+      "id": 37290646619,
+      "conclusion": "success"
+    },
+    "push_docs": {
+      "id": 37290646419,
+      "conclusion": "success"
+    }
+  },
+  "push_artifact": {
+    "zip_digest_independently_checked": false,
+    "size_bytes": 1530266,
+    "expires_at": "2027-01-03T09:31:55Z",
+    "name": "verification-9379d686fb37f912a4beb874c0f506b2f5d2541f",
+    "github_reported_zip_digest": "sha256:b81b3015e533a218cb0175994727e0d79426fe1b3e46d9d458bb69e35ec22681",
+    "id": 11337435048
+  },
+  "clean_collector": {
+    "state_bits": 410,
+    "source_hashes_matched_committed_local_files_before_record_update": 136,
+    "simulator_failures": 0,
+    "original_artifact_hashes_verified": 31,
+    "workbench_image_id": "sha256:1b756a6b8cbfd5536aa7b85c13acf7aa4a293dc42973129721dd8aa19d66e05b",
+    "run": "20261005T093737983770Z",
+    "icarus_tests": 20,
+    "manifest_sha256": "87c3bacdc2fb609f44f0e53ff11490e8bdbd91293bf502d2cf718b3a9f5fc4f1",
+    "stages_passed": 11,
+    "generic_cells": 2793,
+    "verilator_tests": 20,
+    "git_status": ""
+  },
+  "independent_review": "PASS: corrected clock handoff; no remaining implementation blocker",
+  "expected_mutant_outcome": "FAIL 0 2: deliberate wrong WAIT decrement rejected, required success condition",
+  "curated_junit_records": [
+    {
+      "run": "local",
+      "curated_file": "local-results-icarus.xml",
+      "normalization": "One terminal LF added; content equivalent, not byte identical",
+      "original_size_bytes": 4524,
+      "curated_size_bytes": 4525,
+      "original_sha256": "8428b744efca58147fe663530a5d0d2083feb2a6155de49db6654c7bec43fa0d",
+      "curated_sha256": "b3da23bfa8d4e065156a1867679c96451ed19df6f55987f295a63ade25f40901"
+    },
+    {
+      "run": "local",
+      "curated_file": "local-results-verilator.xml",
+      "normalization": "One terminal LF added; content equivalent, not byte identical",
+      "original_size_bytes": 4525,
+      "curated_size_bytes": 4526,
+      "original_sha256": "453a1a343fa88e0d56ba4ff3190403179fa356900225d025c734f10aae7b046b",
+      "curated_sha256": "156d42ccfeb33ce4708a5f56d5c83b391bfd6a06f68e02cebb33207dc2df9be1"
+    },
+    {
+      "run": "ci",
+      "curated_file": "ci-results-icarus.xml",
+      "normalization": "One terminal LF added; content equivalent, not byte identical",
+      "original_size_bytes": 4522,
+      "curated_size_bytes": 4523,
+      "original_sha256": "0ad381fcc1590514fb328ba3822a6499dc3c492874e74a1d3091617d28361011",
+      "curated_sha256": "f2e99b4ac9c8485a30a65f1006af88b1764bddc0a58fb64b98655dbb7e737a1a"
+    },
+    {
+      "run": "ci",
+      "curated_file": "ci-results-verilator.xml",
+      "normalization": "One terminal LF added; content equivalent, not byte identical",
+      "original_size_bytes": 4525,
+      "curated_size_bytes": 4526,
+      "original_sha256": "c6803db7b4411b0dae7a2b7e859c3c7912a9689e8c52ff96d3d2cced4c036428",
+      "curated_sha256": "c227ea3b202be753c3d75d6be39ccda3505cc5d80c92c3de9d01bbef03adfa23"
+    }
+  ],
+  "delivery_policy": "Tentative first byte; known-image HALT a7 plus terminal read accepts pair atomically; FAULT/control interruption rejects batch",
+  "host_deadline": "H>=1,L>=1,H+L<=10P for settled integer-edge host",
+  "chip_rtl_state_interface_delta": "NONE",
+  "external_host_storage": "Two bytes plus service/control state, outside CHIP_COMPLETE",
+  "autonomous_unserviced_continuous_async_rx": "NOT_EVALUATED",
+  "physical_flow": "NOT_RUN",
+  "m0_owner_fluency": "PENDING",
+  "qualification_record_head_ci_and_integration": "Check separately at PR8 before normal exact-green merge"
+}

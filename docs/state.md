@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-11-03. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-11. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M3-T01 compact SPI phase candidate qualification**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
@@ -30,12 +30,19 @@ which was subsequently explicitly authorized and merged.
 The published head and fresh remote CI outcomes are tracked there; local passes
 do not qualify a remote head. A local production preview was checked on
 KhanCreate; access from the user's own device remains unverified. This is UI
-evidence only and promotes no chip/learning gate. PR8 remains draft/deferred.
+evidence only and promotes no chip/learning gate. PR8 integration is tracked separately below.
 
 Research question: What is the smallest computational substrate that can
 efficiently express useful digital communication protocols under hard temporal constraints?
 
 ## Established
+
+- PR8 host-service integration is being checked against main `483df67`
+  (including merged PR11 SPI experiments and PR10 Vite patch). The merge
+  preserves all newer SPI, atlas and evidence changes and adds the bounded
+  host-service checks. Historical E0019 passes are not fresh integration
+  evidence; current check results are recorded separately in
+  [the integration addendum](../evidence/E0019-uart-rx-host-service/integration-20261111.md).
 
 - E0025 resolves E0024's written actual eight-word normal-transaction claim by
   k-induction with proved loading/per-loop state invariants. The real loader,
@@ -79,8 +86,8 @@ efficiently express useful digital communication protocols under hard temporal c
   eight words and passes all 17 legacy groups; banked passes 16 and retains the
   declared length-nine compatibility failure. D22 selects compact for formal
   qualification, with production `src/` unchanged. Earlier failures and E0020's
-  counterexample remain retained. Draft PR11 tracks new exact-head CI; no merge
-  or four-mode/physical/learning promotion follows from this comparison.
+  counterexample remain retained. PR11 later merged at `1383158`; this
+  comparison itself makes no four-mode/physical/learning promotion.
 - The 2026-11-03 continuation freezes a partial SPI host mode-0 contract and
   independent waveform oracle without importing PR8. Public-pin-loaded
   eight-word schedules generate exact 1 MHz-target SCK/CS/MOSI, but the late
@@ -292,6 +299,16 @@ efficiently express useful digital communication protocols under hard temporal c
   tracks final-record exact-head CI and normal integration. Generic screening is
   2,793 abstract cells/410 state bits (+10 cells, no new state versus TX).
   Complete retained-two-byte/continuous receive and physical closure remain open.
+- D19 freezes an explicitly host-serviced two-frame batch, not continuous RX.
+  Cache raw byte one tentatively, accept the pair only after known-image HALT
+  and terminal readback, and discard the cache on FAULT/control interruption.
+  A settled synchronous polling/read schedule with H+L<=10P preserves byte one
+  before overwrite; one-edge weakening has an indistinguishable late-reader
+  counterexample. Local and clean CI pass all eleven stages at `9379d68`
+  (E0019), with independent review clean and 20 groups per simulator.
+  [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) tracks final-record
+  exact-head CI and integration. No production RTL/state/interface
+  change occurs, and external two-byte host storage is outside CHIP_COMPLETE.
 
 ## Blocked or unverified
 
@@ -303,11 +320,12 @@ efficiently express useful digital communication protocols under hard temporal c
   historical status is preserved in D20 and superseded by its delivery addendum.
   Private concept/reference assets remain excluded, and UI delivery does not
   establish chip evidence or access from an unverified user device.
-- [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) remains a
-  separate draft/unmerged host-service candidate. This simulation branch starts
-  from merged main `ae13f6b` and imports no PR8 code/evidence. The November
-  continuation authorizes the independent SPI comparison and isolated capacity
-  prototypes, not PR8 integration, compiler work or production RTL promotion.
+- [PR8](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8) is being
+  integrated under the owner's 11 November instruction to merge outstanding
+  pull requests. Earlier SPI experiments intentionally excluded PR8; their
+  source identities and limits remain historical. Current integration results
+  must be checked independently before merging. Compiler work, production SPI
+  promotion and physical qualification remain separate.
 - The tested production coupled-shift SPI schedules do not cover the declared
   response envelope. E0021's experimental compact and banked candidates are
   publicly loadable in simulation and have measured generic complete-chip
@@ -331,7 +349,8 @@ efficiently express useful digital communication protocols under hard temporal c
 - Engineering: independently test the actual-program proof's property/input
   sensitivity and known bad firmware/reachability, building on E0025 induction.
   E0024's direct timeouts remain inconclusive historical observations.
-  Keep PR11 draft/unmerged, PR8/compiler deferred and production RTL unchanged.
+  PR11 was merged at `1383158`; complete PR8 integration checks before its
+  authorized merge. Keep compiler work deferred and production RTL unchanged.
   Retain the no-RTL faster-target option and E0020's failed broader envelope.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
@@ -342,8 +361,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 M0's technical gate has passed and its fluency gate remains pending. The M1
 candidate is reloadable through clock-synchronous public pins and has a local
-UART-transmit firmware candidate and a bounded last-byte RX experiment. Complete
-UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
+UART-transmit firmware candidate, a bounded last-byte RX experiment and the
+bounded host-serviced pair from E0019, whose current integration is pending.
+Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; a partial mode-0
 phase/capacity comparison is measured only in isolated experimental RTL;
 E0022 proves written executor properties/refinement under its stated assumptions;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain

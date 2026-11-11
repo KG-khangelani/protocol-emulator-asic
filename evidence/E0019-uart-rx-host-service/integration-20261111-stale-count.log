@@ -1,0 +1,21 @@
+test	Compare isolated SPI phase and program-capacity candidates	﻿2026-11-11T19:45:12.5392289Z ##[group]Run docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5392996Z ^[[36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \^[[0m
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5393624Z ^[[36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \^[[0m
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5394284Z ^[[36;1m  --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \^[[0m
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5395107Z ^[[36;1m  python3 experiments/spi_phase/run_comparison.py --output build/spi-phase-comparison/ci^[[0m
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5422290Z shell: /usr/bin/bash -e {0}
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:12.5422514Z ##[endgroup]
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:15.4816818Z reference PASS
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1440928Z baseline-legacy FAIL
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1445581Z /workspace/build/spi-phase-comparison/ci
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1446103Z Traceback (most recent call last):
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1446607Z   File "/workspace/experiments/spi_phase/run_comparison.py", line 150, in <module>
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1447120Z     main()
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1447575Z   File "/workspace/experiments/spi_phase/run_comparison.py", line 122, in main
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1448277Z     simulate(variant, "icarus", "test,test_uart_rx_public", "legacy", 17,
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1448864Z   File "/workspace/experiments/spi_phase/run_comparison.py", line 108, in simulate
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1449363Z     run(variant + "-" + label,
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1449763Z   File "/workspace/experiments/spi_phase/run_comparison.py", line 102, in run
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1450217Z     raise RuntimeError(f"{label} failed; inspect {log}")
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.1450661Z RuntimeError: baseline-legacy failed; inspect /workspace/build/spi-phase-comparison/ci/baseline-legacy.log
+test	Compare isolated SPI phase and program-capacity candidates	2026-11-11T19:45:37.2303882Z ##[error]Process completed with exit code 1.

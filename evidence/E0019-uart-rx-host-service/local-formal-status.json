@@ -1,0 +1,12 @@
+{
+  "formal-cover.status": "PASS 0 11",
+  "formal-data-store-cover.status": "PASS 0 0",
+  "formal-data-store-prove.status": "PASS 0 0",
+  "formal-input-sync-cover.status": "PASS 0 0",
+  "formal-input-sync-prove.status": "PASS 0 0",
+  "formal-mutant.status": "FAIL 0 2",
+  "formal-prove.status": "PASS 0 187",
+  "formal-public-readout-prove.status": "PASS 0 0",
+  "formal-store-cover.status": "PASS 0 0",
+  "formal-store-prove.status": "PASS 0 11"
+}

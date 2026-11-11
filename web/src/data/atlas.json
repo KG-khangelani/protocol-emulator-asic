@@ -663,13 +663,15 @@
     }
   ],
   "deferred": {
-    "id": "PR8",
+    "id": "E0019",
     "branch": "feat/bounded-uart-rx-host-service",
     "head": "b19a718e25b2f6e3343a15a1632aaed7da14c05f",
-    "snapshotDate": "2026-10-05",
-    "status": "DRAFT / NOT MERGED",
-    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/pull/8",
-    "scope": "Separate host-service branch. Its cache is external to CHIP_COMPLETE; evidence is not imported in this app snapshot."
+    "snapshotDate": "2026-11-11",
+    "status": "MODEL NOT VISUALIZED",
+    "reportStatus": "RETAINED REPORT AVAILABLE",
+    "reportHash": "182fb4e61cdd05633f485b6597f58ba735ad7e6643af89e8bcade5e22c98e48d",
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/b19a718e25b2f6e3343a15a1632aaed7da14c05f/evidence/E0019-uart-rx-host-service/README.md",
+    "scope": "E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. The chip evidence view remains scoped to E0018 bounded last-byte RX."
   },
   "limits": [
     "Logical geometry is schematic, not physical area.",

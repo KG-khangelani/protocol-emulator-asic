@@ -164,6 +164,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
       { archived: false, currentSourceMatches: allSourceMatches, manifestIntegrity: evidenceIntegrity, tools: tools(manifest), runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
   ];
   const metadata = read('info.yaml');
+  const hostServiceReport = read('evidence/E0019-uart-rx-host-service/README.md', false);
   return {
     schema: 'protocol-atlas-source-v1', repository,
     source: { revision: qualification?.implementation_head ?? mainSnapshot, mainSnapshot, allSourceMatches, evidenceIntegrity,
@@ -175,7 +176,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     genericScreen: { cells: evidenceIntegrity ? qualification.clean_collector.generic_cells ?? null : null, stateBits: evidenceIntegrity ? qualification.clean_collector.state_bits ?? null : null, qualification: 'E0018', provenance: evidenceIntegrity ? 'MEASURED' : 'NOT_VERIFIED', scope: 'Generic synthesis only; not CMOS5L area/fit/timing.' },
     learning: { activeMilestone: learning?.active_milestone ?? 'Unknown', m0Technical: ownerM0?.technical_gate?.status ?? 'Unknown', m0Fluency: ownerM0?.fluency_gate?.status ?? 'Unknown' },
     hypotheses,
-    deferred: { id: 'PR8', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-10-05', status: 'DRAFT / NOT MERGED', url: `${repository}/pull/8`, scope: 'Separate host-service branch. Its cache is external to CHIP_COMPLETE; evidence is not imported in this app snapshot.' },
+    deferred: { id: 'E0019', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-11-11', status: 'MODEL NOT VISUALIZED', reportStatus: hostServiceReport === null ? 'RETAINED REPORT UNAVAILABLE' : 'RETAINED REPORT AVAILABLE', reportHash: hostServiceReport === null ? null : sha(hostServiceReport), url: `${repository}/blob/b19a718e25b2f6e3343a15a1632aaed7da14c05f/evidence/E0019-uart-rx-host-service/README.md`, scope: 'E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. The chip evidence view remains scoped to E0018 bounded last-byte RX.' },
     limits: ['Logical geometry is schematic, not physical area.', 'Reference playback is not measured RTL or a hardware capture.', '50 MHz is a target, not measured Fmax.', 'M1 physical closure and silicon: NOT EVALUATED.', 'M0 owner fluency is not promoted by engineering.'],
   };
 }

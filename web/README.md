@@ -62,8 +62,11 @@ tested. The retained seed `0xa71a5206` checks 128 separately decoded programs
 against the Python oracle on 8,192 edges. `ATLAS_PYTHON` can select the Python
 executable; absence is a failed check, never a skipped pass.
 
-This is a versioned snapshot, not live CI or branch polling. PR8 remains a
-separate unmerged draft. M1 physical results and owner fluency are not promoted.
+This is a versioned snapshot, not live CI or branch polling. The export records
+whether the E0019 host-service report is present and hashes its text; this is
+not a qualification check. Host service and its external cache are not modeled
+by the visualizer, whose chip evidence remains scoped to E0018 bounded last-byte
+RX. M1 physical results and owner fluency are not promoted.
 
 See [UI0001](../evidence/UI0001-protocol-atlas/README.md) for actual checks and
 the [approved contract](../docs/specs/protocol-atlas.md) for pending obligations.

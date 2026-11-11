@@ -41,13 +41,23 @@ test('missing or corrupted evidence cannot assert verified qualification', () =>
     assert.equal(data.evidence.find((item) => item.id === 'E0018').status, 'NOT_VERIFIED');
   }
 });
-test('archived physical evidence, owner learning and deferred branch remain distinct', () => {
+test('archived physical evidence, owner learning and unvisualized host service remain distinct', () => {
   const data = buildAtlas();
   assert.equal(data.evidence.find((item) => item.id === 'E0010').archived, true);
   assert.equal(data.learning.m0Fluency, 'PENDING');
-  assert.equal(data.deferred.status, 'DRAFT / NOT MERGED');
+  assert.equal(data.deferred.status, 'MODEL NOT VISUALIZED');
+  assert.equal(data.deferred.reportStatus, 'RETAINED REPORT AVAILABLE');
+  assert.match(data.deferred.reportHash, /^[0-9a-f]{64}$/);
+  assert.equal(data.evidence.some((item) => item.id === 'E0019'), false);
   assert.ok(data.hypotheses.every((item) => item.status === 'UNPROVEN'));
   assert.equal(JSON.stringify(data).includes('libfile_'), false);
+});
+test('missing host-service report does not imply retained or qualified evidence', () => {
+  const data = buildAtlas(repoRoot, { 'evidence/E0019-uart-rx-host-service/README.md': null });
+  assert.equal(data.deferred.reportStatus, 'RETAINED REPORT UNAVAILABLE');
+  assert.equal(data.deferred.reportHash, null);
+  assert.equal(data.deferred.status, 'MODEL NOT VISUALIZED');
+  assert.equal(data.evidence.some((item) => item.id === 'E0019'), false);
 });
 test('hypothesis status comes from the ledger, not a hardcoded UI promotion', () => {
   const path = 'docs/research-ledger.md';

@@ -1,0 +1,65 @@
+{
+  "schema": "protocol-emulator-waveform-provenance-v1",
+  "simulations": {
+    "gl_harness_smoke": {
+      "junit": {
+        "bytes": 393,
+        "modules": [
+          "test_gate_harness_smoke"
+        ],
+        "path": "test/results-gl-harness.xml",
+        "sha256": "1f8c11d4090c7f523a098743777001c5bb2e1c0638f5c85f6991285aaf1e7e64",
+        "tests": [
+          "public_handles_reset_without_direct_engine"
+        ],
+        "total_sim_time_ns": 11.0
+      },
+      "label": "gl_harness_smoke",
+      "waveform": {
+        "bytes": 2059,
+        "path": "test/tb-gl-harness.fst",
+        "sha256": "e19214a56792fec2eb3039491063fc828f3959aa0597e5ebe3d3a12ebddb9601"
+      }
+    },
+    "rtl_icarus": {
+      "junit": {
+        "bytes": 4524,
+        "modules": [
+          "test",
+          "test_uart_rx_public"
+        ],
+        "path": "test/results.xml",
+        "sha256": "8428b744efca58147fe663530a5d0d2083feb2a6155de49db6654c7bec43fa0d",
+        "tests": [
+          "public_pin_reload_changes_observable_program",
+          "invalid_length_never_releases_engine",
+          "synchronized_input_wait_event_and_timeout",
+          "k_input_wait_public_program_event_timeout_and_reload",
+          "k_bounded_loop_public_program_counts",
+          "loop_target_overflow_faults_without_alias",
+          "k_shift_8_public_payload_both_orders",
+          "uart_tx_8n1_public_pin_oracle",
+          "timed_shift_burst_invalid_freeze_and_reset",
+          "timed_shift_burst_trace_matches_semantic_model",
+          "shift_trace_matches_semantic_model",
+          "shift_invalid_partial_and_reset_fail_closed",
+          "randomized_trace_matches_reviewed_model",
+          "invalid_encoding_and_out_of_range_fail_closed",
+          "uart_rx_host_service_last_safe_edge",
+          "uart_rx_host_service_fault_abort_quarantine",
+          "uart_rx_host_service_late_read_counterexample",
+          "uart_rx_public_bounded_last_byte_delivery",
+          "uart_rx_public_framing_and_bounded_timeouts",
+          "uart_rx_public_disable_reset_abort_then_reload"
+        ],
+        "total_sim_time_ns": 3974755.9440000006
+      },
+      "label": "rtl_icarus",
+      "waveform": {
+        "bytes": 174390,
+        "path": "test/tb.fst",
+        "sha256": "047d0dea2d9b9f03a1807792c8e72fc7e4757f6d62be25bf2ba54c94e898c84c"
+      }
+    }
+  }
+}

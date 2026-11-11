@@ -160,8 +160,13 @@ test('reference specimen, disabled edge, reset priority and malformed program re
   await expect(page.locator('.inspector')).toContainText('FAULT');
 });
 
-test('evidence and progress do not promote physical, fluency or deferred branch results', async ({ page }) => {
+test('evidence and progress keep physical, fluency and host-service boundaries separate', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
   await page.goto('/#view=evidence&evidence=E0018');
+  await expect(page).toHaveTitle('Protocol atlas');
+  await expect(page.locator('vite-error-overlay')).toHaveCount(0);
   await expect(page.getByText('5/5 chip source hashes match E0018')).toBeVisible();
   await expect(page.locator('.evidence-facts')).toContainText('No FIFO/continuous receive');
   await expect(page.locator('.tool-list')).toContainText('Icarus Verilog version 14.0');
@@ -171,9 +176,21 @@ test('evidence and progress do not promote physical, fluency or deferred branch 
   await expect(page.locator('.evidence-facts')).toContainText('Historical GPIO source, not current M1');
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'M0 owner fluency: PENDING' })).toBeVisible();
-  await expect(page.getByRole('table')).toContainText('PR8 DRAFT / NOT MERGED');
+  await expect(page.getByRole('table')).toContainText('E0019 · MODEL NOT VISUALIZED');
+  await expect(page.getByRole('heading', { name: 'Host service is not visualized' })).toBeVisible();
+  await expect(page.getByText('E0019 · RETAINED REPORT AVAILABLE')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Inspect host-service report' })).toHaveAttribute('href', /E0019-uart-rx-host-service\/README\.md$/);
   await expect(page.getByRole('heading', { name: 'Hypotheses remain UNPROVEN' })).toBeVisible();
   await expect(page.getByRole('table')).toContainText('NOT EVALUATED');
+  await expect(page.locator('footer')).toContainText('Host service: model not visualized');
+  await expect(page.getByText(/draft \/ not merged/i)).toHaveCount(0);
+  await mkdir('../build/atlas-qa/screenshots', { recursive: true });
+  await page.screenshot({ path: '../build/atlas-qa/screenshots/host-service-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole('heading', { name: 'Host service is not visualized' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: '../build/atlas-qa/screenshots/host-service-mobile.png', fullPage: true });
+  expect(errors).toEqual([]);
 });
 
 test('mobile focus/tap alternatives and both themes fit portrait and landscape', async ({ page }) => {
