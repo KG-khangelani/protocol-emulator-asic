@@ -119,7 +119,9 @@ def main():
         run("reference", [sys.executable, "-m", "unittest", "discover", "-s",
                           "experiments/spi_phase", "-p", "test_reference.py", "-v"])
         for variant in sources:
-            simulate(variant, "icarus", "test,test_uart_rx_public", "legacy", 17,
+            # The 17 historical legacy groups plus PR8's three host-service
+            # groups all run; the banked variant retains its one named failure.
+            simulate(variant, "icarus", "test,test_uart_rx_public", "legacy", 20,
                      ["test.invalid_length_never_releases_engine"] if variant == "banked" else None)
             if variant == "baseline":
                 simulate(variant, "icarus", "test_spi_mode0_public", "counterexample", 2)

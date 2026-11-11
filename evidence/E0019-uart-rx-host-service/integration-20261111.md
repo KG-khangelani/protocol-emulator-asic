@@ -1,7 +1,7 @@
 # PR8 integration with current main
 
-Status: integration candidate; focused local checks pass, complete validation
-pending. This addendum preserves
+Status: integration candidate; core CI passes, SPI test-count guard corrected;
+complete corrected-head validation pending. This addendum preserves
 the original E0019 records and does not rewrite their tested revisions or limits.
 
 The owner explicitly requested merging outstanding pull requests on
@@ -29,10 +29,38 @@ Focused Icarus execution with `COCOTB_TEST_MODULES=test_uart_rx_public` and
 `COCOTB_TEST_FILTER=uart_rx_host_service_` passes all three public-pin groups.
 The JUnit result is in `integration-20261111-focused-icarus.xml`.
 
-Independent code and conflict-resolution review found no blocker. The complete
-evidence ladder and clean remote head remain pending. Local integration checks
-do not imply a completed merge; remote outcomes must be recorded by exact run
-and commit identities.
+Independent code and conflict-resolution review found no blocker. Atlas build,
+19 source/model checks and three focused Chromium cases pass locally at
+`f7281cf3d2705b774f4b0080fa5b5ca75e1ee150`. The atlas identifies the retained
+E0019 report without claiming to model host service or its external cache.
+
+At that clean source, remote run
+[43088833648](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43088833648)
+passes all eleven collector stages, including formal and both simulators
+(22 cases each). `integration-20261111-ci-manifest.json` retains that result.
+Artifact `13888586496`, `verification-f7281cf3d2705b774f4b0080fa5b5ca75e1ee150`,
+has GitHub-reported ZIP digest
+`33e17af53a8bc784e68d3edf787efb8f7b6df2bedcf30ea85c980cf4667695f8`.
+
+The overall workflow then **failed** in the isolated SPI comparison: every one
+of its 20 baseline legacy cases passed, but the acceptance guard still expected
+17 cases. PR8 added three host-service cases to that unchanged module list.
+The raw failed-step log and JUnit are retained as
+`integration-20261111-stale-count.log` and
+`integration-20261111-stale-count.xml`. The minimal fix changes the required
+count to exactly 20. Zero skips, exact named failures and return-code checks
+remain enforced; the banked variant still permits only the known invalid-length
+failure. No test is filtered out. Corrected-head CI must pass before merging;
+the earlier overall failure remains a failure.
+
+Separately, the same clean source's local collector
+`20261111T193637553739Z` passes ten stages but times out in the aggregate formal
+stage after 300 seconds. `integration-20261111-local-manifest.json` retains its
+**FAIL**. Engine induction had passed while base-case solving remained
+unfinished; no local complete formal proof is claimed. The remote formal PASS
+is separate evidence, not a rewrite of the local timeout. No timeout budget was
+increased. Bulk solver logs and the comparison rerun remain under ignored
+`build/`; the clean remote workflow artifacts are the integration authority.
 
 ## Claim boundary
 
