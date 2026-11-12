@@ -1,0 +1,23 @@
+{
+  "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "configured_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "command": [
+    "python3",
+    "build/replay_prefetch_newlines.py",
+    "--output",
+    "build/g2-sram-prefetch-newlines-linux-01"
+  ],
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-12T22:34:37.058476581Z",
+    "FinishedAt": "2026-11-12T22:34:37.965053644Z"
+  }
+}

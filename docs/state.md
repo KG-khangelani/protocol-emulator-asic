@@ -130,6 +130,9 @@ that incomplete aggregate. Complete `sram-current` CI passes at
 13660ac/run43309369604: all eight stages, the separate historical baseline
 and both fresh 116-check executions pass. The original 1,928-file ZIP,
 295 exact inputs and actual runtime pass audit and retained Linux replay.
+The current counterexample inspector now preserves waveform bytes on Windows
+and Linux. E0044 retains the real-witness comparison and old-code failure
+control; both fresh retained replays pass with identical observations.
 Official `gds-sram` run43303867849 at 2bd2688 fails with 58,327 Magic DRC
 reports and an LVS pin mismatch followed by a JSON-escaping error; precheck
 and netlist jobs are skipped. Diagnosis identifies 17 real public-pin/power

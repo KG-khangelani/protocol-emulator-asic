@@ -29,10 +29,10 @@ def digest(path):
 def inspect_counterexample(directory):
     observations = []
     for witness in sorted((directory / 'proof/engine_0').glob('trace*.vcd')):
-        raw = witness.read_text()
-        assert raw.count('$scope module m1_engine $end') == 1
+        raw = witness.read_bytes()
+        assert raw.count(b'$scope module m1_engine $end') == 1
         parsed = directory / ('parsed-' + witness.name)
-        parsed.write_text(raw.replace('$scope module m1_engine $end', '$scope module public_spi $end'))
+        parsed.write_bytes(raw.replace(b'$scope module m1_engine $end', b'$scope module public_spi $end'))
         rows = [row for row in vcd_frames(parsed) if row['time'] % 10 == 0]
         for before, after in zip(rows, rows[1:]):
             if after.get('f_prefetch_past') and after.get('pc') != before.get('prefetch_pc'):

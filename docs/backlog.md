@@ -103,6 +103,8 @@ overlaps. Correct and qualify that geometry and the vendor SRAM import,
 then repeat all physical gates and finish the actual-netlist follow-up.
 Production adoption and publication remain pending.
 D45's original 961-file failure replay and 342-file diagnostic replay pass.
+E0044 also fixes the current counterexample inspector's Windows newline rewrite;
+real-witness checks preserve identical bytes and observations on both platforms.
 The native core-bounded grid passes both supply checks and all 43 fixed pins;
 the old database remains a detected 24-clearance/17-overlap negative control.
 Finish the fresh guarded full run and repeat official qualification.
@@ -132,7 +134,7 @@ an ISA change. Experimental public-loaded I2C and combined results are retained;
 the complete-store and exact physical-selection gates pass locally and in CI.
 Physical qualification and production promotion remain pending.
 
-## M0-T01 — Establish RTL-to-GDS baseline (active)
+## M0-T01 â€” Establish RTL-to-GDS baseline (active)
 
 Outcome: a reproducible, deterministic GPIO design hardened with the official
 IHP CMOS5L Tiny Tapeout flow.
@@ -172,7 +174,7 @@ IHP CMOS5L Tiny Tapeout flow.
 Reference: `docs/specs/m0-gpio.md`; evidence index: `evidence/README.md`.
 Do not substitute a static syntax check or generic synthesis for physical fit.
 
-## R0-T01 — Pre-M1 architecture research (active supporting work)
+## R0-T01 â€” Pre-M1 architecture research (active supporting work)
 
 Outcome: compare credible programmable substrates with one evidence contract,
 without choosing an ISA by reputation or importing unverified external claims.

@@ -1,0 +1,58 @@
+{
+  "status": "PASS_REAL_COUNTEREXAMPLE_BYTE_PRESERVATION",
+  "os_name": "posix",
+  "source_revision": "13660ace269c7b0746d8197fe824f76a5f896934",
+  "original_ci_zip_sha256": "658c32f8474f1fd1afa3a245e1cbb3be6affdb8dcfdd31c4a4345aac6f456108",
+  "witness_sha256": "faadf5ed42c8157751b85db4b686e4270ba1eb186ca796147e1869ef53c7bfb6",
+  "original_parsed_sha256": "dd6615b9a078efb37055e0964a15167dfdf1005dd05aa6b2fcf08aaf4269ebbe",
+  "original_witness_unchanged": true,
+  "inspectors": [
+    {
+      "inspector": "original",
+      "source_sha256": "88184eb6375fab0a22194265b151698dd0713b6223441d7069d9141d50890bbb",
+      "observations": [
+        {
+          "edge": 10,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        },
+        {
+          "edge": 20,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        },
+        {
+          "edge": 30,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        }
+      ],
+      "parsed_sha256": "dd6615b9a078efb37055e0964a15167dfdf1005dd05aa6b2fcf08aaf4269ebbe",
+      "unchanged_after_two_inspections": true
+    },
+    {
+      "inspector": "corrected",
+      "source_sha256": "9c2cd256fc1438c59e8fec1c9be8ec2d61fd8699e2c3fc8a878e6bc54ea67fc8",
+      "observations": [
+        {
+          "edge": 10,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        },
+        {
+          "edge": 20,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        },
+        {
+          "edge": 30,
+          "predicted_pc": 1,
+          "actual_pc": 0
+        }
+      ],
+      "parsed_sha256": "dd6615b9a078efb37055e0964a15167dfdf1005dd05aa6b2fcf08aaf4269ebbe",
+      "unchanged_after_two_inspections": true
+    }
+  ],
+  "scope": "Counterexample inspection only; no changed RTL, proof property, solver or interpretation."
+}

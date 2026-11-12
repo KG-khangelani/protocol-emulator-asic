@@ -41,6 +41,12 @@ historical baseline under its original bounds. Its original 1,928-file ZIP,
 116-check executions pass audit and retained Linux replay. Official physical
 qualification, production promotion and publication remain required.
 
+The [newline preservation follow-up](newline-replay/README.md) corrects the
+current counterexample inspector's Windows text translation. The actual CI
+witness now preserves its bytes and three observations through repeated
+inspection on both Windows and Linux. The frozen old inspector reproduces
+the Windows hash change; the old complete replay remains Linux-specific.
+
 `verification.tar.gz` retains 2,154 files, with per-file hashes in `archive.json`.
 It includes proof inputs/models/logs/witnesses, the failures and timeout, three
 normal fast-stage receipts, runtime observations, and separate original launch
