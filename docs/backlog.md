@@ -66,13 +66,14 @@ candidate. Compositional engine/reset and arbitrary-word real-memory proofs
 pass, with four coverage witnesses and a checked stale-lane fault. Both
 simulators pass store-port checks and expose four actual faulty variants.
 The historical 22-group suites and retained screen replay pass; both earlier
-whole-chip timeouts remain visible. Finish the running 30-group SRAM regression,
-audit its exact protocol records, then measure whole-chip cost and declare
-physical integration. No production or physical acceptance is claimed.
-Icarus now passes all 30 groups and exact records; Verilator remains running.
-The new SRAM CI wrapper passes its local proof/control gate and all 114
-repository checks pass. The separate CI workflow and bounded mapped-screen
-runner are prepared; mapping requires the complete passing simulator pair.
+whole-chip timeouts remain visible. Both simulators now pass all 30 SRAM groups
+and exact reference records plus the 44-byte bank control. The 994-file replay
+passes. Matched mapping reproduces D39's reference exactly and measures
+102,578.259 square micrometres including SRAM, 78.5306% lower. The actual
+netlist has one macro and 353 flip-flops; the 144-file mapped replay passes.
+The new SRAM CI proof/control and Verilator jobs pass; finish Icarus and audit
+the original archives. Next, declare/test physical power and layout integration.
+No production or routed/timing/precheck/actual-netlist acceptance is claimed.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

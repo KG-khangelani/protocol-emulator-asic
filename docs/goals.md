@@ -16,7 +16,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; od128 functional/formal gates pass, physical gate open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; SRAM functional/formal gates pass, mapped footprint down 78.5306%, physical gate open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -116,9 +116,10 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** finish the complete 30-group SRAM regression and
-audit the unchanged protocol records. Then measure the complete candidate
-with its actual macro before freezing a separate physical integration decision.
+**Next executable action:** audit the clean SRAM CI archives and freeze/test
+physical power and layout integration. The complete 30-group simulator pair
+and exact records pass; matched mapped footprint is 78.5306% below D39,
+including the actual macro. The retained regression and mapped replays pass.
 D42 declares clocked program-byte readback as interface 0x22; instruction
 timing, logical capacity and the UART/SPI/I2C expectations remain unchanged.
 Preserve the pinned 8x4 limits, G1's pilot and all rejected trials. Integration
@@ -172,8 +173,12 @@ whole-chip 120-second timeouts remain retained. The complete vendor memory
 passes arbitrary-word induction, four coverage witnesses and a checked
 partial-mask fault. Both simulators pass store-port checks and all four
 deliberate fault controls; the historical 22-group suites remain passing.
-The retained replay passes. Full SRAM regression is running; no mapped,
-routed/timing, precheck or real-netlist acceptance is claimed yet.
+The retained screen replay passes. Both simulators now pass all 30 SRAM groups
+with exact reference records and the 44-byte bank control; the 994-file replay
+passes. Matched mapping reproduces D39 exactly and measures 102,578.259 total
+square micrometres including SRAM, 78.5306% lower. The actual mapped netlist
+has one macro and 353 flip-flops; its 144-file replay passes. No routed/timing,
+precheck or real-netlist acceptance is claimed yet.
 
 Completion checks:
 

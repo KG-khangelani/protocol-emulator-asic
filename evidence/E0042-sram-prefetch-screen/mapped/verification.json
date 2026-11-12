@@ -1,0 +1,174 @@
+{
+  "status": "PASS_MATCHED_SRAM_MAPPED_SCREEN",
+  "measurements": {
+    "gold": {
+      "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 1,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 34683,
+        "design__instance__area": 477788.2578,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+      },
+      "cell_types": {
+        "sg13cmos5l_buf_1": 3577,
+        "sg13cmos5l_buf_2": 654,
+        "sg13cmos5l_inv_2": 4,
+        "sg13cmos5l_buf_8": 232,
+        "sg13cmos5l_inv_1": 287,
+        "sg13cmos5l_nand2b_1": 230,
+        "sg13cmos5l_buf_4": 540,
+        "sg13cmos5l_xnor2_1": 40,
+        "sg13cmos5l_nor3_2": 7,
+        "sg13cmos5l_nand3_1": 2371,
+        "sg13cmos5l_buf_16": 17,
+        "sg13cmos5l_or2_1": 141,
+        "sg13cmos5l_nor4_2": 66,
+        "sg13cmos5l_nor2b_1": 80,
+        "sg13cmos5l_and3_1": 210,
+        "sg13cmos5l_nor4_1": 380,
+        "sg13cmos5l_o21ai_1": 1745,
+        "sg13cmos5l_nand2_1": 3700,
+        "sg13cmos5l_a22oi_1": 1283,
+        "sg13cmos5l_nor2_1": 3192,
+        "sg13cmos5l_a21oi_1": 4504,
+        "sg13cmos5l_a21o_1": 138,
+        "sg13cmos5l_nor3_1": 265,
+        "sg13cmos5l_nand3b_1": 41,
+        "sg13cmos5l_nand2_2": 8,
+        "sg13cmos5l_nand4_1": 1286,
+        "sg13cmos5l_and2_1": 301,
+        "sg13cmos5l_or3_1": 13,
+        "sg13cmos5l_a21oi_2": 8,
+        "sg13cmos5l_or4_1": 94,
+        "sg13cmos5l_and4_1": 202,
+        "sg13cmos5l_mux2_1": 200,
+        "sg13cmos5l_a221oi_1": 270,
+        "sg13cmos5l_nor2_2": 3,
+        "sg13cmos5l_and3_2": 4,
+        "sg13cmos5l_mux4_1": 10,
+        "sg13cmos5l_nand2b_2": 1,
+        "sg13cmos5l_xor2_1": 23,
+        "sg13cmos5l_dfrbpq_1": 4278,
+        "sg13cmos5l_tiehi": 4278
+      },
+      "standard_cells": 34683,
+      "standard_area_um2": 477788.2578,
+      "macro_count": 0,
+      "macro_area_um2": 0.0,
+      "complete_mapped_footprint_um2": 477788.2578,
+      "sequential_cells": 4278,
+      "sequential_area_um2": 209574.0864,
+      "macro_connections": {
+        "clock_is_public": null,
+        "bist_all_zero": null,
+        "delay_and_read_enable_high": null
+      },
+      "lint_warning_types": {
+        "UNUSEDSIGNAL": 1
+      },
+      "netlist_sha256": "c2a0810d8d1387c95d01854e8161d2ad5f0072dd95c61cdbfef319fd40d1fc20"
+    },
+    "sram": {
+      "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 106,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 4201,
+        "design__instance__area": 53089.7598,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+      },
+      "cell_types": {
+        "sg13cmos5l_buf_1": 444,
+        "sg13cmos5l_nor2b_1": 46,
+        "sg13cmos5l_nand4_1": 73,
+        "sg13cmos5l_inv_1": 121,
+        "sg13cmos5l_nor2_1": 347,
+        "sg13cmos5l_and2_1": 123,
+        "sg13cmos5l_nand2b_1": 91,
+        "sg13cmos5l_buf_4": 38,
+        "sg13cmos5l_xnor2_1": 47,
+        "sg13cmos5l_buf_2": 66,
+        "sg13cmos5l_buf_8": 11,
+        "sg13cmos5l_nor4_2": 10,
+        "sg13cmos5l_a21o_1": 49,
+        "sg13cmos5l_o21ai_1": 316,
+        "sg13cmos5l_and4_1": 12,
+        "sg13cmos5l_a21oi_1": 363,
+        "sg13cmos5l_or2_1": 33,
+        "sg13cmos5l_nand3_1": 206,
+        "sg13cmos5l_a221oi_1": 64,
+        "sg13cmos5l_nand2_1": 413,
+        "sg13cmos5l_nor3_1": 100,
+        "sg13cmos5l_a22oi_1": 133,
+        "sg13cmos5l_nor4_1": 48,
+        "sg13cmos5l_mux2_1": 125,
+        "sg13cmos5l_xor2_1": 21,
+        "sg13cmos5l_nand2_2": 9,
+        "sg13cmos5l_nand3b_1": 16,
+        "sg13cmos5l_or3_1": 11,
+        "sg13cmos5l_and3_1": 24,
+        "sg13cmos5l_or4_1": 13,
+        "sg13cmos5l_a21oi_2": 2,
+        "sg13cmos5l_nor2_2": 2,
+        "sg13cmos5l_nor3_2": 6,
+        "sg13cmos5l_mux4_1": 32,
+        "sg13cmos5l_dfrbpq_1": 353,
+        "sg13cmos5l_tiehi": 355,
+        "sg13cmos5l_tielo": 77,
+        "RM_IHPSG13_1P_256x32_c2_bm_bist": 1
+      },
+      "standard_cells": 4200,
+      "standard_area_um2": 53089.7598,
+      "macro_count": 1,
+      "macro_area_um2": 49488.4992,
+      "complete_mapped_footprint_um2": 102578.259,
+      "sequential_cells": 353,
+      "sequential_area_um2": 17293.0464,
+      "macro_connections": {
+        "clock_is_public": true,
+        "bist_all_zero": true,
+        "delay_and_read_enable_high": true,
+        "memory_enable_is_reset_not": true,
+        "outputs_retained": 32,
+        "address_bits": 8,
+        "mask_bits": 32
+      },
+      "lint_warning_types": {
+        "TIMESCALEMOD": 106
+      },
+      "netlist_sha256": "26e52a016e31254dad3793e166eecbcdcc6e8e0dea8c6307c589070121a55c48"
+    }
+  },
+  "libraries": {
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib": {
+      "sha256": "34163f3e7de9f854afac57332ba06f1739b78e7ac35660a8a5ddd39c570124ad",
+      "bytes": 1720579
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib": {
+      "sha256": "024eb5be8858aca1416cf7bdccb91b25e5b1951a5ea5b242968047a2bd26d9f3",
+      "bytes": 194222
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": {
+      "sha256": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6",
+      "bytes": 49064
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": {
+      "sha256": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27",
+      "bytes": 48997
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": {
+      "sha256": "8ab1090ecf527bc71f0c4dc8db05b833e0f9960b4bdb94f3b0351533463b79a2",
+      "bytes": 49077
+    }
+  },
+  "mapped_footprint_reduction_percent": 78.53060276693975,
+  "advance": "PHYSICAL_INTEGRATION_TRIAL_REQUIRED",
+  "lint_boundary": "The SRAM black-box header inherits a timescale; all 106 warnings are TIMESCALEMOD on other modules. No timing constructs, latches, width, mapping or synthesis errors. Remove the irrelevant header timescale before the separate physical trial.",
+  "physical": "NOT_EVALUATED",
+  "production": "NOT_PROMOTED"
+}

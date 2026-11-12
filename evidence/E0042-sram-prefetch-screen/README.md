@@ -66,6 +66,64 @@ Replay the retained screen without rerunning solvers or simulations:
 python evidence/E0042-sram-prefetch-screen/verify.py --output build/sram-screen-replay
 ```
 
-The complete 30-group SRAM protocol regression is running separately. No
-complete-matrix, mapped-area, routed/timing, precheck or real-netlist pass is
-claimed yet. Production is not promoted.
+## Complete protocol regression
+
+Both simulators pass all 30 required groups. Icarus takes 922.396 seconds;
+Verilator takes 457.304 seconds, each within the declared 1,800-second limit.
+Both reproduce the unchanged 1,052 SPI, 1,160 I2C, four boundary and 36 abort
+records, plus all 44 expected bank-read observations. UART service/framing
+and SPI input-hold expectations remain unchanged. `regression/` retains 994
+files, including exact frozen inputs, both complete logs/JUnit files, every
+record and the original reference bytes. Its standalone replay passes:
+
+```console
+python evidence/E0042-sram-prefetch-screen/regression/verify.py --output build/sram-regression-replay
+```
+
+The local simulator logs identify their actual versions. The completed
+temporary container was removed before its exact image ID could be captured;
+the archive states that limit explicitly. The separate clean-checkout CI
+workflow retains same-job build/image/tool identity for its new runs. Its
+proof/control and Verilator jobs have passed; Icarus is still running, and
+the original CI archives require their own audit.
+
+## Matched complete-chip mapping
+
+The [predeclared screen](../../docs/specs/g2-sram-mapped-screen.md) runs only
+after the complete simulator pair. It uses the same pinned physical image,
+PDK, 8x4 footprint, 20 ns constraint and synthesis settings as E0040. D39's
+reference reproduces its earlier result exactly. The only resolved setting
+difference, after source-path normalization, is the added MACROS definition.
+
+| Measurement | D39 reference | SRAM candidate |
+|---|---:|---:|
+| Standard cells | 34,683 | 4,200 |
+| Flip-flops outside SRAM | 4,278 | 353 |
+| Standard-cell area, square micrometres | 477,788.2578 | 53,089.7598 |
+| SRAM macros | 0 | 1 |
+| Macro footprint, square micrometres | 0 | 49,488.4992 |
+| Complete mapped footprint, square micrometres | 477,788.2578 | 102,578.259 |
+
+The complete mapped footprint falls **78.5306%**, clearing the declared 20%
+threshold. The tool's 53,089.7598 area metric omits the black box; the total
+above explicitly includes its actual LEF/library footprint. The mapped
+netlist contains exactly `store.program_memory`, with the public clock,
+reset-controlled enable, A_DLY/read enable high and all BIST inputs low.
+Both runs have zero inferred latches, timing constructs, unmapped cells and
+synthesis/check errors. The SRAM header inherits the vendor timescale,
+causing 106 TIMESCALEMOD warnings on other modules; there are no other warning
+types. The reference retains its one unused-signal warning. These logs stay
+unchanged; remove the irrelevant black-box timescale in the next flow setup.
+
+`mapped/` retains 144 exact inputs/outputs, including both real netlists,
+settings, selected compressed timing libraries, logs, active container/image
+observation and the independent area/connectivity audit. The 144-file replay
+recomputes area from those libraries and validates all macro connections:
+
+```console
+python evidence/E0042-sram-prefetch-screen/mapped/verify.py --output build/sram-mapping-replay
+```
+
+Advance to a separately declared power/layout integration trial. Mapped area
+is not routed area or timing acceptance. No routed/timing, precheck or
+real-netlist pass is claimed; production is not promoted.

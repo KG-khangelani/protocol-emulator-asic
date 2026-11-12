@@ -1,7 +1,8 @@
 # D42 - Screen synchronous SRAM with preserved instruction timing
 
-Date: 2026-11-12. Status: engine/store screen passes; full regression running;
-physical gate open and production unchanged.
+Date: 2026-11-12. Status: engine/store and full protocol gates pass; complete
+mapped footprint falls 78.5306%. Advance to physical integration; production
+is unchanged and the physical gate remains open.
 
 E0040 rejects the banked-read implementation's mapped cost. E0041 shows that
 clock spacing alone leaves substantial congestion. Stop those branches and
@@ -25,14 +26,25 @@ partial-write-mask counterexample. Both simulators pass the store-port suite
 and expose each of four deliberately faulty implementations. All 22 historical
 default groups still pass in both simulators. E0042's retained replay passes.
 
-Run the complete 30-group protocol matrix in both simulators with only the
-declared clocked program-read helper; its current run is unfinished. Measure
-whole-chip cost only after those gates. The SRAM fast-library temperature
+Both simulators now pass the complete 30-group protocol matrix with only the
+declared clocked program-read helper. All 1,052 SPI, 1,160 I2C, four boundary,
+36 abort records and the 44-byte bank control match their unchanged references.
+The [predeclared mapped screen](../specs/g2-sram-mapped-screen.md) reproduces
+D39's 477,788.2578 square-micrometre reference exactly. The SRAM candidate has
+4,200 standard cells / 53,089.7598 square micrometres and one real macro /
+49,488.4992 square micrometres: 102,578.259 total, 78.5306% lower. State outside
+the macro falls from 4,278 to 353 flip-flops. Actual netlist connectivity and
+selected library areas are audited; this clears the declared 20% screen.
+All 106 SRAM-side lint warnings concern the black-box header's timescale;
+there are no latch, width, mapping or synthesis errors. Remove the irrelevant
+header timescale for the separate physical integration trial.
+
+The SRAM fast-library temperature
 differs from the existing standard-cell corner; freeze an honest, explicit
 physical model before any full qualification run.
 
 E0042 records the installed macro's feasibility inputs and the actual isolated
-candidate, proofs, observed faults and retained failed attempts. Its footprint
-is not a chip-area result; no complete-protocol or physical pass is claimed
-yet. G1, D39, failed trials, production and owner-fluency
+candidate, proofs, observed faults, complete regression, matched mapping and
+retained failed attempts. All three retained replays pass. No routed/timing,
+precheck or real-netlist pass is claimed yet. G1, D39, failed trials, production and owner-fluency
 status remain separate.

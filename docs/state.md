@@ -75,16 +75,20 @@ The complete vendor 8,192-bit digital memory passes arbitrary-logical-word
 induction, four coverage witnesses and a checked stale-lane counterexample.
 Both simulators pass store-port checks and expose all four deliberate faults.
 The 22 historical default groups still pass in both; 114 repository checks
-pass, and the retained engine/store replay passes. The full 30-group SRAM
-protocol regression is running. No mapped or physical acceptance is claimed.
-Next, audit its exact protocol records, then measure the complete candidate
-with the actual macro and declare the physical integration inputs.
-The full Icarus run now passes all 30 groups and every exact reference record
-in 922.396 seconds; Verilator is running. The new clean-checkout CI wrapper's
-engine, store-port controls and real-memory proof all pass locally. A separate
-SRAM workflow repeats those gates and each full simulator run with retained
-inputs/runtime identity. The predeclared mapped screen requires both complete
-simulator results before execution and counts the real macro footprint.
+pass, and the retained engine/store replay passes. Both simulators now pass
+all 30 SRAM groups and every unchanged reference record, plus the 44-byte bank
+control. Icarus takes 922.396 seconds; Verilator takes 457.304 seconds. The
+994-file regression replay passes. Matched pinned mapping reproduces D39's
+477,788.2578 square-micrometre reference exactly. SRAM uses 53,089.7598 of
+standard cells plus the real 49,488.4992 macro: 102,578.259 total, 78.5306% lower.
+Its mapped netlist has one real SRAM and 353 flip-flops; connections and exact
+library areas are audited. All 144 retained mapping files replay successfully.
+There are no latch, width, mapping or synthesis errors; the macro header's
+timescale causes 106 documented lint warnings. Next, remove that irrelevant
+header directive and declare/test physical power and layout integration.
+The clean-checkout SRAM CI proof/control and Verilator jobs pass; Icarus and
+the original-archive audit remain open. No routed/timing, precheck or actual
+netlist qualification is claimed. Production remains unchanged.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
