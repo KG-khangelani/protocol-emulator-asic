@@ -6,6 +6,9 @@ page contains versioned research snapshots. The linked
 contains the pinned Linux amd64 verification tools. A release is not a tapeout,
 silicon result, new physical qualification or owner fluency sign-off.
 
+Current research snapshot: [v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4),
+[E0030 timed GPIO comparison](../evidence/E0030-timed-gpio-comparison/README.md).
+
 ## Automatic updates
 
 The [publish workflow](../.github/workflows/publish.yaml) builds and tests the

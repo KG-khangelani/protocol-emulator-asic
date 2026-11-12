@@ -109,3 +109,20 @@ timeouts remain inconclusive historical attempts. P is still selected on cost:
 configurations and logs are retained under clean-ci/. The separate previous
 SPI gates also pass with source identities verified. No additional solver
 budget or weaker property was used.
+
+## Published research snapshot
+
+[v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4)
+publishes source d707ee5. The publication runner independently passes the locked
+ladder and all five SPI gates. All 15 published asset checksums, every recorded
+input source hash, the registry manifest/config digest and image source revision
+are verified. Anonymous package access succeeds. Publication-run public records
+and whole-chip costs match the local evidence; both candidates qualify and P wins.
+
+[release-verification.json](release-verification.json) retains the public image
+digest and asset identities. [release-workflows.json](release-workflows.json)
+records the successful tag publication, timed comparison, earlier SPI gates,
+full regression, docs and atlas checks, plus the documentation commit's main
+checks. The release tag's full regression is run43150438747. The earlier
+implementation's five green workflows are in
+[implementation-ci.json](implementation-ci.json).

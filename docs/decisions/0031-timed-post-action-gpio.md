@@ -1,7 +1,8 @@
 # D31 - Select timed post-action GPIO for the next mapped experiment
 
 Date: 2026-11-12. Status: local and clean-CI qualification complete at19265ff/run43148870589;
-publication is tracked in E0030. Production and historical compact sources remain unchanged.
+alpha.4 publication is verified at d707ee5/run43150438669. The tag also passes
+the full regression (run43150438747). Production and historical compact sources remain unchanged.
 
 P fits the explicit-idle mode1/3 transfer into eight words while preserving the
 matched ten-word design's pin/direction/receive/terminal timing. It uses 3,146

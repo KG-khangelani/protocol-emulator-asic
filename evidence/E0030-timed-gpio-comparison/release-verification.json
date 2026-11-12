@@ -1,0 +1,41 @@
+{
+  "tag": "v0.1.0-alpha.4",
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4",
+  "source": "d707ee5b71a59c8c362e243073ebc52d8727d81c",
+  "publish_run": 43150438669,
+  "conclusion": "success",
+  "asset_sha256_verified": {
+    "image-inspect.json": "afc8fd496da232714144422d8cb04f53370b09c96668c178ce172dda8b0be99a",
+    "publication.json": "be716050773d5659128c86f7b033dd009ef0ebad161c0a26e5bc1dfa42af3050",
+    "spi-four-mode.json": "8874ecb7d29b20e369c8ba3e981fa48c4ef3886f1e14eda2e1b82b6fe946af23",
+    "spi-held-proof.json": "8509ed15426614d536f0b8c40cd10c2e3ca5310566d215fc055b373030922b5f",
+    "spi-phase1-capacity.json": "8f105c4d31f22d54134fbe021f6af6e7e3fb36c4dad82693f142d6365cdd3532",
+    "spi-sensitivity.json": "02169b5853486376a7021cf3cac37cb6d1dbe39e73eeacdb96ef3d235ad1648d",
+    "spi-timed-comparison.json": "9966bc181f3cbc1ec58f526d20eb027a29a3fed6f92d5ac21b3133da01774cc7",
+    "spi-timed-gpio.json": "4e9ff34e9bb4e0c4e6b7cf360646c66d9d979286017e9f1452033958710f9d72",
+    "spi-timed-instruction_f.json": "08eb221f04996c1cd12f904d5cbb2a306bd5df3ca0e56c6fc9cf208587909309",
+    "spi-timed-instruction_p.json": "8be853c70d842d30759866ef1d4fc8aa68c9d4f0088d5a0a523c6faa187ce9f8",
+    "spi-timed-program_f.json": "4ba3929a816ea646724612a5da115257f31e22a7cdbfd6c75e4ff7dcca620c6b",
+    "spi-timed-program_p.json": "7288a4b90171b5cdc96d1c3ea73d76cff69321244e262b7a3d5cf8380b1d22f2",
+    "spi-timed-refinement_f.json": "4ff657e7f46a54bd56ac3a263f62f96b460888f1791ea2d4c4a750f184696cd0",
+    "spi-timed-refinement_p.json": "1af4b6c0d38cb01c73d66016838f1f65dd298d93c631b88b7c38f4c940c5d1de",
+    "toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81"
+  },
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:4b4d4957c31cb71065ca7432a1b75e9dd25f8bb6e5d61f6b6577d5fc0912ef24",
+  "anonymous_package_pull_manifest_verified": true,
+  "image_digest_and_source_revision_verified": true,
+  "all_input_hashes_match_git_blobs": true,
+  "timed_records_and_cost_match_local": true,
+  "candidate_qualification": {
+    "P": "PASS",
+    "F": "PASS"
+  },
+  "prior_spi_gates": {
+    "spi-sensitivity.json": "PASS",
+    "spi-four-mode.json": "PASS_SCOPED_SCREEN",
+    "spi-held-proof.json": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+    "spi-phase1-capacity.json": "PASS_DECLARED_PHASE1_CAPACITY_SCREEN"
+  },
+  "physical": "NOT_EVALUATED",
+  "checked_utc": "2026-11-12T04:03:17.795948+00:00"
+}

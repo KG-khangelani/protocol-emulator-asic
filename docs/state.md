@@ -23,11 +23,14 @@ Publication maintenance: [versioned research releases and the verification workb
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
 updates publish after the locked verification ladder; version tags additionally
 run focused SPI gates and publish release notes with digest/checksum assets.
-Research release [v0.1.0-alpha.3](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.3)
-publishes D30/E0029 at c54a795. Publication run43126569316 passes the locked
-ladder and all four SPI gates. All seven asset checksums, exact source hashes,
-container digest/revision and anonymous package access are verified. The release
-tag also passes the separate full regression (run43126569565).
+Research release [v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4)
+publishes D31/E0030 at d707ee5. Publication run43150438669 passes the locked
+ladder, all previous SPI gates and the full timed-GPIO comparison. Both
+candidates qualify; P wins on generic cost. All 15 asset checksums, source
+identities, image digest/revision and anonymous package access are verified.
+The release tag passes the separate full regression (run43150438747), timed
+comparison (run43150438686), existing SPI gates, docs and atlas checks.
+See [publication verification](../evidence/E0030-timed-gpio-comparison/release-verification.json).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
