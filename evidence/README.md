@@ -45,6 +45,7 @@
 | E0040 | Banked read-network screen | Complete-store/reset equivalence and port/alias controls pass; generic count rises 2.5113%, matched mapped area rises 5.20216%; set aside without routing | E0040-banked-read-screen/README.md |
 | E0041 | Isolated clock-spacing routing diagnostic | Exact sixteen-assignment edit audited; first timeout retained, follow-up completes with 159,781 overflow / 152.09% Metal3 usage; branch stopped | E0041-clock-routing-diagnostic/README.md |
 | E0042 | Synchronous SRAM and next-PC fetch screen | Proof/fault controls and both complete 30-group suites pass with exact records; real-macro complete mapped footprint falls 78.5306%; all retained replays pass, physical gate open | E0042-sram-prefetch-screen/README.md |
+| E0043 | SRAM power/physical integration | Native grid failure retained; 144 short edge connections cover all 104 supply rectangles and pass both grids; exact OpenDB reconstruction passes, full physical flow open | E0043-sram-physical-integration/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

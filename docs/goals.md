@@ -116,8 +116,10 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** audit the clean SRAM CI archives and freeze/test
-physical power and layout integration. The complete 30-group simulator pair
+**Next executable action:** finish the clean SRAM CI archive audit and integrate
+the verified D43 power connections into the full pinned physical flow. The
+native power trial fails, but 144 short edge connections pass both fresh grids
+and the exact-database replay. The complete 30-group simulator pair
 and exact records pass; matched mapped footprint is 78.5306% below D39,
 including the actual macro. The retained regression and mapped replays pass.
 D42 declares clocked program-byte readback as interface 0x22; instruction

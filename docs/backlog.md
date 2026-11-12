@@ -74,6 +74,13 @@ netlist has one macro and 353 flip-flops; the 144-file mapped replay passes.
 The new SRAM CI proof/control and Verilator jobs pass; finish Icarus and audit
 the original archives. Next, declare/test physical power and layout integration.
 No production or routed/timing/precheck/actual-netlist acceptance is claimed.
+D43/E0043 retains the native power-grid failure and its exact cause: 0.480
+micrometre gaps leave all 104 supply rectangles unpowered. An isolated repair
+adds 144 short outer-edge segments, preserving all placements and net/pin
+assignments. Both fresh grids pass; the 260-file replay reconstructs the exact
+database and repeats those checks. Integrate this as an explicit flow step,
+then run full hardening. All three SRAM CI jobs pass and original ZIP hashes
+are verified; finish their semantic audit. Physical acceptance stays open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

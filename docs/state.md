@@ -90,6 +90,18 @@ The clean-checkout SRAM CI proof/control and Verilator jobs pass; Icarus and
 the original-archive audit remain open. No routed/timing, precheck or actual
 netlist qualification is claimed. Production remains unchanged.
 
+D43/E0043's native power trial fails: 104 SRAM supply rectangles have no
+routed overlap, with external stripes ending 0.480 micrometres short. The
+separately declared repair adds exactly 144 short outer-edge Metal4 segments,
+preserving instance/placement/net/pin identity and the internal blockages.
+All supply rectangles then overlap the correct net and both fresh power-grid
+checks pass. The 260-file replay rebuilds the exact database hash and reruns
+both checks. The header timescale cleanup also removes all lint warnings
+without changing any of the five RTL files. Next, integrate the edge connections
+and fresh grid checks into the full pinned flow. All three 95120d8 SRAM CI jobs
+have passed; their three original ZIP hashes are verified, with semantic archive
+audit still pending. Full physical qualification remains open.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the
