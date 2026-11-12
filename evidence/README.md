@@ -32,6 +32,7 @@
 | E0027 | Can explicit four-mode timing fit existing compact instructions, and what does input hold buy? | One WAIT absorbed into delayed SAMPLE under held input;8-word modes0/2 publicly checked,10-word phase1 reference not loadable. Seven unit tests,6,176 model positives,36 RTL cases per simulator PASS; boundaries and edge-only counterexamples retained | E0027-four-mode-schedule-screen/README.md |
 | E0028 | Do the actual eight-word held mode0/2 programs satisfy their written contract, and does the input hold matter? | Induction PASS for symbolic bytes/order/CPOL;12 finite preflights and2 checked reachable negative controls pass. Initial harness error retained; unchanged RTL, no physical/full-mode promotion | E0028-held-program-induction/README.md |
 | E0029 | Can existing instructions fit held phase1 SPI in eight words? | Mode1 saves one word to9, mode3 remains10 in declared6,920-candidate family;3,072 model positives,112 expected public rejections per simulator with identical records. No global minimum or fitting phase1 RTL claim | E0029-phase1-capacity-screen/README.md |
+| E0030 | Can general timed GPIO avoid expanding program storage? | P fits phase1 in8words and saves443generic cells/65bits against matched compact10; required local P proofs pass, F refinement inconclusive; full dual-simulator comparison retained | E0030-timed-gpio-comparison/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

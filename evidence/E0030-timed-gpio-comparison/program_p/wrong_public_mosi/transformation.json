@@ -1,0 +1,4 @@
+{
+  "old": "expected_sck,1'b0,expected_mosi} : 8'd0",
+  "new": "expected_sck,1'b0,(previous_edge == 9'd27 ? ~expected_mosi : expected_mosi)} : 8'd0"
+}

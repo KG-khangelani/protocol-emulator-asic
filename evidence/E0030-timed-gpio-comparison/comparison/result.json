@@ -1,0 +1,689 @@
+{
+  "status": "PASS_PUBLIC_AND_GENERIC_COMPARISON_FORMAL_PENDING",
+  "started_utc": "2026-11-12T03:09:51.620770+00:00",
+  "smoke_only": false,
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/build_timed_gpio.py": "4f147546f1609f821bb76c0afc9ce0c6b4deb48bb640272e2ad69807cbdd8afc",
+    "experiments/spi_phase/timed_gpio_programs.py": "955a7f5309256ecdad011236aab27112fc7ae02de769bc1fe61ba610752b0cc7",
+    "experiments/spi_phase/run_timed_gpio.py": "14325026ecfcea31fc7a9007f1827bd4442d9469d86f690ddd2ef18a4cd424a1",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/four_mode_programs.py": "ae6a8a86894df9f661159886428045efad900672fed124d4c0015b19ab443b96",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b",
+    "test/test_spi_timed_gpio.py": "ed101fc3b0ef01acfb1e0762d90cfdaf1e55f81518d7c257889f46497272fb81",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "test/Makefile": "0c9c86ac106f401efbf1a95c0c52ec6e303d57db45520d9640c81f801df07ae1",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1",
+    "tools/workbench/toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81"
+  },
+  "stages": [
+    {
+      "name": "compact8-legacy",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/compact8/src",
+        "COCOTB_TEST_MODULES=test,test_uart_rx_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/compact8/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/compact8/legacy/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 70.853,
+      "wall_limit": 600,
+      "tests": 20,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "compact8-synthesis",
+      "command": [
+        "yosys",
+        "-Q",
+        "-p",
+        "read_verilog /workspace/build/timed-gpio/full-01/variants/compact8/src/project.v /workspace/build/timed-gpio/full-01/variants/compact8/src/m1_engine.v /workspace/build/timed-gpio/full-01/variants/compact8/src/m1_program_store.v /workspace/build/timed-gpio/full-01/variants/compact8/src/m1_data_store.v /workspace/build/timed-gpio/full-01/variants/compact8/src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json /workspace/build/timed-gpio/full-01/compact8/synth.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 3.852,
+      "wall_limit": 600,
+      "accepted": true
+    },
+    {
+      "name": "compact10-legacy",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/compact10/src",
+        "COCOTB_TEST_MODULES=test,test_uart_rx_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/compact10/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/compact10/legacy/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 2,
+      "timed_out": false,
+      "seconds": 66.088,
+      "wall_limit": 600,
+      "tests": 20,
+      "failed": [
+        "test.invalid_length_never_releases_engine"
+      ],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "compact10-public-icarus",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/compact10/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/compact10/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/compact10/public-icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 262.816,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "compact10-public-verilator",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/compact10/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/compact10/sim/verilator",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/compact10/public-verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 238.03,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "compact10-synthesis",
+      "command": [
+        "yosys",
+        "-Q",
+        "-p",
+        "read_verilog /workspace/build/timed-gpio/full-01/variants/compact10/src/project.v /workspace/build/timed-gpio/full-01/variants/compact10/src/m1_engine.v /workspace/build/timed-gpio/full-01/variants/compact10/src/m1_program_store.v /workspace/build/timed-gpio/full-01/variants/compact10/src/m1_data_store.v /workspace/build/timed-gpio/full-01/variants/compact10/src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json /workspace/build/timed-gpio/full-01/compact10/synth.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 6.419,
+      "wall_limit": 600,
+      "accepted": true
+    },
+    {
+      "name": "P-legacy",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/P/src",
+        "COCOTB_TEST_MODULES=test,test_uart_rx_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/P/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/P/legacy/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 2,
+      "timed_out": false,
+      "seconds": 82.557,
+      "wall_limit": 600,
+      "tests": 20,
+      "failed": [
+        "test.invalid_encoding_and_out_of_range_fail_closed"
+      ],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "P-public-icarus",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/P/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/P/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/P/public-icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 268.764,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "P-public-verilator",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/P/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/P/sim/verilator",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/P/public-verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 176.173,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "P-synthesis",
+      "command": [
+        "yosys",
+        "-Q",
+        "-p",
+        "read_verilog /workspace/build/timed-gpio/full-01/variants/P/src/project.v /workspace/build/timed-gpio/full-01/variants/P/src/m1_engine.v /workspace/build/timed-gpio/full-01/variants/P/src/m1_program_store.v /workspace/build/timed-gpio/full-01/variants/P/src/m1_data_store.v /workspace/build/timed-gpio/full-01/variants/P/src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json /workspace/build/timed-gpio/full-01/P/synth.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 4.614,
+      "wall_limit": 600,
+      "accepted": true
+    },
+    {
+      "name": "F-legacy",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/F/src",
+        "COCOTB_TEST_MODULES=test,test_uart_rx_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/F/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/F/legacy/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 2,
+      "timed_out": false,
+      "seconds": 65.809,
+      "wall_limit": 600,
+      "tests": 20,
+      "failed": [
+        "test.invalid_encoding_and_out_of_range_fail_closed"
+      ],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "F-public-icarus",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/F/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/F/sim/icarus",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/F/public-icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 209.874,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "F-public-verilator",
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/timed-gpio/full-01/variants/F/src",
+        "COCOTB_TEST_MODULES=test_spi_timed_gpio",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/timed-gpio/full-01/F/sim/verilator",
+        "COCOTB_RESULTS_FILE=/workspace/build/timed-gpio/full-01/F/public-verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 165.444,
+      "wall_limit": 600,
+      "tests": 2,
+      "failed": [],
+      "skipped": [],
+      "accepted": true
+    },
+    {
+      "name": "F-synthesis",
+      "command": [
+        "yosys",
+        "-Q",
+        "-p",
+        "read_verilog /workspace/build/timed-gpio/full-01/variants/F/src/project.v /workspace/build/timed-gpio/full-01/variants/F/src/m1_engine.v /workspace/build/timed-gpio/full-01/variants/F/src/m1_program_store.v /workspace/build/timed-gpio/full-01/variants/F/src/m1_data_store.v /workspace/build/timed-gpio/full-01/variants/F/src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json /workspace/build/timed-gpio/full-01/F/synth.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 3.841,
+      "wall_limit": 600,
+      "accepted": true
+    }
+  ],
+  "sources": {
+    "compact8": {
+      "directory": "/workspace/build/timed-gpio/full-01/variants/compact8/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact10": {
+      "directory": "/workspace/build/timed-gpio/full-01/variants/compact10/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "P": {
+      "directory": "/workspace/build/timed-gpio/full-01/variants/P/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "F": {
+      "directory": "/workspace/build/timed-gpio/full-01/variants/F/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "c46958572b031bc1d8650880e3b673f0b1b7c15cf2554cbad88a13ca2ba852ce",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "measurements": {
+    "compact8": {
+      "primitive_cells": 3107,
+      "state_bits": 412,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 766,
+        "$_MUX_": 394,
+        "$_NAND_": 1091,
+        "$_NOR_": 71,
+        "$_NOT_": 11,
+        "$_ORNOT_": 69,
+        "$_OR_": 116,
+        "$_SDFFE_PN0P_": 395,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 47,
+        "$_XOR_": 16
+      }
+    },
+    "compact10": {
+      "primitive_cells": 3589,
+      "state_bits": 477,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 913,
+        "$_MUX_": 469,
+        "$_NAND_": 1242,
+        "$_NOR_": 77,
+        "$_NOT_": 18,
+        "$_ORNOT_": 85,
+        "$_OR_": 136,
+        "$_SDFFE_PN0P_": 460,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 43,
+        "$_XOR_": 15
+      }
+    },
+    "P": {
+      "primitive_cells": 3146,
+      "state_bits": 412,
+      "cell_types": {
+        "$_ANDNOT_": 113,
+        "$_AND_": 808,
+        "$_MUX_": 400,
+        "$_NAND_": 1076,
+        "$_NOR_": 72,
+        "$_NOT_": 13,
+        "$_ORNOT_": 80,
+        "$_OR_": 117,
+        "$_SDFFE_PN0P_": 395,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 41,
+        "$_XOR_": 14
+      }
+    },
+    "F": {
+      "primitive_cells": 3228,
+      "state_bits": 429,
+      "cell_types": {
+        "$_ANDNOT_": 129,
+        "$_AND_": 823,
+        "$_MUX_": 386,
+        "$_NAND_": 1124,
+        "$_NOR_": 83,
+        "$_NOT_": 10,
+        "$_ORNOT_": 69,
+        "$_OR_": 114,
+        "$_SDFFE_PN0P_": 412,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 48,
+        "$_XOR_": 13
+      }
+    }
+  },
+  "physical": "NOT_EVALUATED",
+  "formal": "SEPARATE_REQUIRED_GATE",
+  "reference": {
+    "P": {
+      "paired_byte_positives": 3072
+    },
+    "F": {
+      "paired_byte_positives": 3072
+    }
+  },
+  "public": {
+    "compact10": {
+      "icarus": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "26afc01171dd518b53807f46f93f801a230c926c852fe23683deecf012327de9",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "5c899b27ee9d4506406af56ae3679f01f06e7daeae856d890f8d7cc030cd6085",
+          "m1-o0-edge-only.json": "2fb90f54a3cbb8248c54ccd6a41cb4064633b5f134d806ce8cddd2642e5b7d3a",
+          "m1-o0-late.json": "39c1e2f9f2686e091c0a8bcf16cd247d28a810909de4935e3fbc0e013725176f",
+          "m1-o0-mixed.json": "01f9788f27dd93fd44544282d9b8533a3b0a8d7a1d665c1360edbcc390e96931",
+          "m1-o1-early.json": "be1d97928ee9d7c78f4728f306f73cf91e7f8583feeafafdaad4ed0b5680f285",
+          "m1-o1-edge-only.json": "3f360fd0c1d04f4edd2008e3e7600174eb499a3614d90d42c9b86fb3411326ad",
+          "m1-o1-late.json": "39c1e2f9f2686e091c0a8bcf16cd247d28a810909de4935e3fbc0e013725176f",
+          "m1-o1-mixed.json": "01f9788f27dd93fd44544282d9b8533a3b0a8d7a1d665c1360edbcc390e96931",
+          "m3-o0-early.json": "4bd0e879194edaeb1fc6b0093f7ab50b87935d3145b4956c00ee07954f343f26",
+          "m3-o0-edge-only.json": "a0fcf86025486d9a9bb17cfec0ac40dfb2b1f67f55fb3365ad3be46733369299",
+          "m3-o0-late.json": "971f7091b44dc92d58f8962da7d410a7a68cc1c04b96647d50d256f98a935dd3",
+          "m3-o0-mixed.json": "88287a8338299124f77b85ac8618825acd843bc50f3ae7c939ea472af50a9263",
+          "m3-o1-early.json": "ba6b02bd2504ecd7bb1930977564a8ccc5a226257a33f7dc665b1fab1634dbb8",
+          "m3-o1-edge-only.json": "f5a9071b94858daf548eee9b403d2ba8abb824193ac6520bd82955efa0134210",
+          "m3-o1-late.json": "971f7091b44dc92d58f8962da7d410a7a68cc1c04b96647d50d256f98a935dd3",
+          "m3-o1-mixed.json": "88287a8338299124f77b85ac8618825acd843bc50f3ae7c939ea472af50a9263"
+        }
+      },
+      "verilator": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "26afc01171dd518b53807f46f93f801a230c926c852fe23683deecf012327de9",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "5c899b27ee9d4506406af56ae3679f01f06e7daeae856d890f8d7cc030cd6085",
+          "m1-o0-edge-only.json": "2fb90f54a3cbb8248c54ccd6a41cb4064633b5f134d806ce8cddd2642e5b7d3a",
+          "m1-o0-late.json": "39c1e2f9f2686e091c0a8bcf16cd247d28a810909de4935e3fbc0e013725176f",
+          "m1-o0-mixed.json": "01f9788f27dd93fd44544282d9b8533a3b0a8d7a1d665c1360edbcc390e96931",
+          "m1-o1-early.json": "be1d97928ee9d7c78f4728f306f73cf91e7f8583feeafafdaad4ed0b5680f285",
+          "m1-o1-edge-only.json": "3f360fd0c1d04f4edd2008e3e7600174eb499a3614d90d42c9b86fb3411326ad",
+          "m1-o1-late.json": "39c1e2f9f2686e091c0a8bcf16cd247d28a810909de4935e3fbc0e013725176f",
+          "m1-o1-mixed.json": "01f9788f27dd93fd44544282d9b8533a3b0a8d7a1d665c1360edbcc390e96931",
+          "m3-o0-early.json": "4bd0e879194edaeb1fc6b0093f7ab50b87935d3145b4956c00ee07954f343f26",
+          "m3-o0-edge-only.json": "a0fcf86025486d9a9bb17cfec0ac40dfb2b1f67f55fb3365ad3be46733369299",
+          "m3-o0-late.json": "971f7091b44dc92d58f8962da7d410a7a68cc1c04b96647d50d256f98a935dd3",
+          "m3-o0-mixed.json": "88287a8338299124f77b85ac8618825acd843bc50f3ae7c939ea472af50a9263",
+          "m3-o1-early.json": "ba6b02bd2504ecd7bb1930977564a8ccc5a226257a33f7dc665b1fab1634dbb8",
+          "m3-o1-edge-only.json": "f5a9071b94858daf548eee9b403d2ba8abb824193ac6520bd82955efa0134210",
+          "m3-o1-late.json": "971f7091b44dc92d58f8962da7d410a7a68cc1c04b96647d50d256f98a935dd3",
+          "m3-o1-mixed.json": "88287a8338299124f77b85ac8618825acd843bc50f3ae7c939ea472af50a9263"
+        }
+      }
+    },
+    "P": {
+      "icarus": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "35e309a66321ba62770de954d9bae14d9f63b2782e0737ae4729b92b93635f56",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "9a72c39d67cd7344e8f140f944d50854469f92068965a608f5a2aee40b0f8d11",
+          "m1-o0-edge-only.json": "a95cef72282860bc582460c36ddfc3c178f46020bdd05d106105fb9554732e05",
+          "m1-o0-late.json": "7b49664e96f97c22acaffdbee622834136fed1ff668a2d92214a58e89a28f183",
+          "m1-o0-mixed.json": "976426b79fb8394eadce7cd7e581664868719df2ee1e9feec483d524a968a255",
+          "m1-o1-early.json": "24c7b641e8ae816d5a5d80a92ca7b0145a7ef9bcb71b0191c07edae0a2780b37",
+          "m1-o1-edge-only.json": "badf9dc9dda45c5c306cdadbab642b758bf13dd0f9bd9e6616a6a6ba9a40e759",
+          "m1-o1-late.json": "7b49664e96f97c22acaffdbee622834136fed1ff668a2d92214a58e89a28f183",
+          "m1-o1-mixed.json": "976426b79fb8394eadce7cd7e581664868719df2ee1e9feec483d524a968a255",
+          "m3-o0-early.json": "af027d539ba43d2be1a5a1bfb7805856928b4778235b870d6069001462c33dd9",
+          "m3-o0-edge-only.json": "a63d53cba6121baac82ff5f0c435b537a5aad13c477adf1c68a8ef5324ac2ac8",
+          "m3-o0-late.json": "ab62078a00757fd35dfbaf3d68b0275562aa174b69f13b2731fe5aa80fa990a3",
+          "m3-o0-mixed.json": "ab842fba73fee154a2d60fb2a11afad76c43c718e27bd368cdbfef1e00b5be67",
+          "m3-o1-early.json": "84cdb97d120deb7d204351e9c3d6fb540af396bf0872e0d4cfe4ae326edb12fb",
+          "m3-o1-edge-only.json": "a92c68b6e4798d9a0f205310361be188ee87e130ada4ff53a18a10c27a344f40",
+          "m3-o1-late.json": "ab62078a00757fd35dfbaf3d68b0275562aa174b69f13b2731fe5aa80fa990a3",
+          "m3-o1-mixed.json": "ab842fba73fee154a2d60fb2a11afad76c43c718e27bd368cdbfef1e00b5be67"
+        }
+      },
+      "verilator": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "35e309a66321ba62770de954d9bae14d9f63b2782e0737ae4729b92b93635f56",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "9a72c39d67cd7344e8f140f944d50854469f92068965a608f5a2aee40b0f8d11",
+          "m1-o0-edge-only.json": "a95cef72282860bc582460c36ddfc3c178f46020bdd05d106105fb9554732e05",
+          "m1-o0-late.json": "7b49664e96f97c22acaffdbee622834136fed1ff668a2d92214a58e89a28f183",
+          "m1-o0-mixed.json": "976426b79fb8394eadce7cd7e581664868719df2ee1e9feec483d524a968a255",
+          "m1-o1-early.json": "24c7b641e8ae816d5a5d80a92ca7b0145a7ef9bcb71b0191c07edae0a2780b37",
+          "m1-o1-edge-only.json": "badf9dc9dda45c5c306cdadbab642b758bf13dd0f9bd9e6616a6a6ba9a40e759",
+          "m1-o1-late.json": "7b49664e96f97c22acaffdbee622834136fed1ff668a2d92214a58e89a28f183",
+          "m1-o1-mixed.json": "976426b79fb8394eadce7cd7e581664868719df2ee1e9feec483d524a968a255",
+          "m3-o0-early.json": "af027d539ba43d2be1a5a1bfb7805856928b4778235b870d6069001462c33dd9",
+          "m3-o0-edge-only.json": "a63d53cba6121baac82ff5f0c435b537a5aad13c477adf1c68a8ef5324ac2ac8",
+          "m3-o0-late.json": "ab62078a00757fd35dfbaf3d68b0275562aa174b69f13b2731fe5aa80fa990a3",
+          "m3-o0-mixed.json": "ab842fba73fee154a2d60fb2a11afad76c43c718e27bd368cdbfef1e00b5be67",
+          "m3-o1-early.json": "84cdb97d120deb7d204351e9c3d6fb540af396bf0872e0d4cfe4ae326edb12fb",
+          "m3-o1-edge-only.json": "a92c68b6e4798d9a0f205310361be188ee87e130ada4ff53a18a10c27a344f40",
+          "m3-o1-late.json": "ab62078a00757fd35dfbaf3d68b0275562aa174b69f13b2731fe5aa80fa990a3",
+          "m3-o1-mixed.json": "ab842fba73fee154a2d60fb2a11afad76c43c718e27bd368cdbfef1e00b5be67"
+        }
+      }
+    },
+    "F": {
+      "icarus": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "16aacf9ac2c7d642f12bc05b8bafedb0a52cb19597167df919c96272ac89c3a1",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "2806dec7e165acbafe6e5626fb47e9b782e111948e6763792386849a1d02fd7f",
+          "m1-o0-edge-only.json": "9f1841d688b3d659fe77bd6afa0442fc18af0f2b7b422d3121822e4d71980367",
+          "m1-o0-late.json": "0f8898e7369f4a74d11cd650c317b012289b9b762f9bf9bda378d2610e089251",
+          "m1-o0-mixed.json": "a145c06577d26aba50869809fa8198b24f85aedc2b4c515f9dec68b08de955e7",
+          "m1-o1-early.json": "dd9dcb94e42ca6f2b1245055cb4085817c0958f4d91b9c6dcdc74bbfadc31e70",
+          "m1-o1-edge-only.json": "69b99dc938f2aa2005d34edbdcdfa445889a2f9e1b3f0e395cb4b8172d830f21",
+          "m1-o1-late.json": "0f8898e7369f4a74d11cd650c317b012289b9b762f9bf9bda378d2610e089251",
+          "m1-o1-mixed.json": "a145c06577d26aba50869809fa8198b24f85aedc2b4c515f9dec68b08de955e7",
+          "m3-o0-early.json": "5b6f627b08d9347fffae5e6c53971e9f13d4ed2bddfee54d677caaa503247dcb",
+          "m3-o0-edge-only.json": "fa135ef2b67507cee904b43a4c0126c8426fd79edf3c304911ae325bcee42e85",
+          "m3-o0-late.json": "6f741547547d8c85bfea536cd5078d8b411bebdcb038367e9446fcc89ff41568",
+          "m3-o0-mixed.json": "506763671a9d11de4426ee77b5aa58bcac200cd8708cb14e444d45fcef79952b",
+          "m3-o1-early.json": "d5e91fbd4b5072ae79ad8b1c85cd4b39af04b800a910dd56696724bdf2bf86b0",
+          "m3-o1-edge-only.json": "c4fc6e31f4ffdeb0e020ceb40dc4d269afcfa6a736f6c82060972361dc6535e7",
+          "m3-o1-late.json": "6f741547547d8c85bfea536cd5078d8b411bebdcb038367e9446fcc89ff41568",
+          "m3-o1-mixed.json": "506763671a9d11de4426ee77b5aa58bcac200cd8708cb14e444d45fcef79952b"
+        }
+      },
+      "verilator": {
+        "cases": 1052,
+        "positive": 1048,
+        "expected_negative": 4,
+        "records_sha256": "16aacf9ac2c7d642f12bc05b8bafedb0a52cb19597167df919c96272ac89c3a1",
+        "trace_files": {
+          "held-m0-o0-early.json": "bed41e89c21e0b5cf2558edda6d297c68aab402aa9762dfbbc057f829065325f",
+          "held-m0-o0-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o0-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m0-o1-early.json": "3c2ee055992f66814caf2deaa1657ebdaa0c599eba2bafef5471c6a6c42738b2",
+          "held-m0-o1-late.json": "64591f182382519c9e484b0cbf3c0a6b83418bf1abf377893d4f52f2b3cdc10e",
+          "held-m0-o1-mixed.json": "9458f3cc9da7432ec0480580d7c5796eaf7f44e150ce176506227e726da51f48",
+          "held-m2-o0-early.json": "e73d3f433cd52e40f19bdea583dc51231eea4c4ad786eb594436b02c1f5908b9",
+          "held-m2-o0-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o0-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "held-m2-o1-early.json": "2ec10ce88cc80103011037139750ce182612f017ca47b419f52dee9879e284e3",
+          "held-m2-o1-late.json": "ef3a3945ba86a306d8f6c5b24f1b013438891ae5d778a8074a8622a039801126",
+          "held-m2-o1-mixed.json": "47df9f4a1c4f3cbc9da65500cb20b7a4584fc16014e98dc01b00e6a6a9d8e21f",
+          "m1-o0-early.json": "2806dec7e165acbafe6e5626fb47e9b782e111948e6763792386849a1d02fd7f",
+          "m1-o0-edge-only.json": "9f1841d688b3d659fe77bd6afa0442fc18af0f2b7b422d3121822e4d71980367",
+          "m1-o0-late.json": "0f8898e7369f4a74d11cd650c317b012289b9b762f9bf9bda378d2610e089251",
+          "m1-o0-mixed.json": "a145c06577d26aba50869809fa8198b24f85aedc2b4c515f9dec68b08de955e7",
+          "m1-o1-early.json": "dd9dcb94e42ca6f2b1245055cb4085817c0958f4d91b9c6dcdc74bbfadc31e70",
+          "m1-o1-edge-only.json": "69b99dc938f2aa2005d34edbdcdfa445889a2f9e1b3f0e395cb4b8172d830f21",
+          "m1-o1-late.json": "0f8898e7369f4a74d11cd650c317b012289b9b762f9bf9bda378d2610e089251",
+          "m1-o1-mixed.json": "a145c06577d26aba50869809fa8198b24f85aedc2b4c515f9dec68b08de955e7",
+          "m3-o0-early.json": "5b6f627b08d9347fffae5e6c53971e9f13d4ed2bddfee54d677caaa503247dcb",
+          "m3-o0-edge-only.json": "fa135ef2b67507cee904b43a4c0126c8426fd79edf3c304911ae325bcee42e85",
+          "m3-o0-late.json": "6f741547547d8c85bfea536cd5078d8b411bebdcb038367e9446fcc89ff41568",
+          "m3-o0-mixed.json": "506763671a9d11de4426ee77b5aa58bcac200cd8708cb14e444d45fcef79952b",
+          "m3-o1-early.json": "d5e91fbd4b5072ae79ad8b1c85cd4b39af04b800a910dd56696724bdf2bf86b0",
+          "m3-o1-edge-only.json": "c4fc6e31f4ffdeb0e020ceb40dc4d269afcfa6a736f6c82060972361dc6535e7",
+          "m3-o1-late.json": "6f741547547d8c85bfea536cd5078d8b411bebdcb038367e9446fcc89ff41568",
+          "m3-o1-mixed.json": "506763671a9d11de4426ee77b5aa58bcac200cd8708cb14e444d45fcef79952b"
+        }
+      }
+    }
+  },
+  "cross_simulator_records_identical": true,
+  "cross_variant_spi_contract_traces_identical": true
+}

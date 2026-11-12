@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794453774" />
+    <testcase name="timed_public_programs" classname="test_spi_timed_gpio" file="/workspace/test/test_spi_timed_gpio.py" lineno="97" time="254.2589888572693" sim_time_ns="9832544.0" ratio_time="38671.3722263703" />
+    <testcase name="timed_instruction_and_abort_controls" classname="test_spi_timed_gpio" file="/workspace/test/test_spi_timed_gpio.py" lineno="143" time="10.240274429321289" sim_time_ns="618851.0" ratio_time="60433.0483788623" />
+  </testsuite>
+</testsuites>

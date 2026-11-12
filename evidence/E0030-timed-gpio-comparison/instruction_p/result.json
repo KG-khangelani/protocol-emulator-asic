@@ -1,0 +1,239 @@
+{
+  "status": "NOT_QUALIFIED",
+  "variant": "P",
+  "started_utc": "2026-11-12T03:16:41.176929+00:00",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/build_timed_gpio.py": "4f147546f1609f821bb76c0afc9ce0c6b4deb48bb640272e2ad69807cbdd8afc",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "experiments/spi_phase/run_timed_instruction_proof.py": "1203dc52b124d62860145f57a8b846cbf2a9db3a799aa6fc47c5008a1b6f65b0",
+    "experiments/spi_phase/formal/timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "experiments/spi_phase/formal/timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "experiments/spi_phase/formal/timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1"
+  },
+  "sources": {
+    "compact8": {
+      "directory": "/workspace/build/timed-gpio/instruction-P-01/variants/compact8/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact10": {
+      "directory": "/workspace/build/timed-gpio/instruction-P-01/variants/compact10/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "P": {
+      "directory": "/workspace/build/timed-gpio/instruction-P-01/variants/P/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "F": {
+      "directory": "/workspace/build/timed-gpio/instruction-P-01/variants/F/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "c46958572b031bc1d8650880e3b673f0b1b7c15cf2554cbad88a13ca2ba852ce",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "name": "instruction",
+      "mode": "prove",
+      "depth": 12,
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 161",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/timed-gpio/instruction-P-01/instruction/proof",
+        "/workspace/build/timed-gpio/instruction-P-01/instruction/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 152.949,
+      "wall_limit": 180,
+      "accepted": true,
+      "k_induction": true,
+      "failed_assertions": [],
+      "reached_covers": [],
+      "control_check": null
+    },
+    {
+      "name": "refinement",
+      "mode": "prove",
+      "depth": 12,
+      "expected": "PASS",
+      "status": "MISSING_OR_MALFORMED",
+      "raw_status": "MISSING",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/timed-gpio/instruction-P-01/refinement/proof",
+        "/workspace/build/timed-gpio/instruction-P-01/refinement/proof.sby"
+      ],
+      "returncode": 124,
+      "timed_out": true,
+      "seconds": 180.074,
+      "wall_limit": 180,
+      "accepted": false,
+      "k_induction": false,
+      "failed_assertions": [],
+      "reached_covers": [],
+      "control_check": null
+    },
+    {
+      "name": "covers",
+      "mode": "cover",
+      "depth": 80,
+      "expected": "PASS",
+      "status": "PASS",
+      "raw_status": "PASS 0 2",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/timed-gpio/instruction-P-01/covers/proof",
+        "/workspace/build/timed-gpio/instruction-P-01/covers/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 4.315,
+      "wall_limit": 180,
+      "accepted": true,
+      "k_induction": false,
+      "failed_assertions": [],
+      "reached_covers": [
+        [
+          "2",
+          "timed_properties: timed_gpio_properties.vh:79.13-79.62 (_witness_.check_cover_timed_gpio_properties_vh_79_770)"
+        ],
+        [
+          "3",
+          "timed_properties: timed_gpio_properties.vh:84.13-84.85 (_witness_.check_cover_timed_gpio_properties_vh_84_773)"
+        ],
+        [
+          "3",
+          "timed_properties: timed_gpio_properties.vh:77.13-77.98 (_witness_.check_cover_timed_gpio_properties_vh_77_762)"
+        ],
+        [
+          "5",
+          "timed_properties: timed_gpio_properties.vh:78.13-78.98 (_witness_.check_cover_timed_gpio_properties_vh_78_766)"
+        ]
+      ],
+      "control_check": null
+    },
+    {
+      "name": "wrong_count",
+      "mode": "bmc",
+      "depth": 80,
+      "expected": "FAIL",
+      "status": "FAIL",
+      "raw_status": "FAIL 0 2",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/timed-gpio/instruction-P-01/wrong_count/proof",
+        "/workspace/build/timed-gpio/instruction-P-01/wrong_count/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 5.871,
+      "wall_limit": 180,
+      "accepted": true,
+      "k_induction": false,
+      "failed_assertions": [
+        "timed_properties: timed_gpio_properties.vh:28.25-28.67 (_witness_.check_assert_timed_gpio_properties_vh_28_700)"
+      ],
+      "reached_covers": [],
+      "control_check": {
+        "validated": true,
+        "observations": [
+          {
+            "issue_delay": 2,
+            "observed_count": 2
+          }
+        ],
+        "witness_sha256": {
+          "trace.vcd": "9ed8b444c8220c8b796d6059a18539b6d67f0e08542a1706fd78347bfeedbb01"
+        }
+      }
+    },
+    {
+      "name": "wrong_update",
+      "mode": "bmc",
+      "depth": 80,
+      "expected": "FAIL",
+      "status": "FAIL",
+      "raw_status": "FAIL 0 3",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/timed-gpio/instruction-P-01/wrong_update/proof",
+        "/workspace/build/timed-gpio/instruction-P-01/wrong_update/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 6.376,
+      "wall_limit": 180,
+      "accepted": true,
+      "k_induction": false,
+      "failed_assertions": [
+        "timed_properties: timed_gpio_properties.vh:38.25-38.102 (_witness_.check_assert_timed_gpio_properties_vh_38_712)"
+      ],
+      "reached_covers": [],
+      "control_check": {
+        "validated": true,
+        "observations": [
+          {
+            "expected_gpio": 23,
+            "observed_gpio": 23
+          }
+        ],
+        "witness_sha256": {
+          "trace.vcd": "6fad7f910ead23fcff686ae04b05e9133a748f0e8035f0d4e3c7da296aa154c0"
+        }
+      }
+    }
+  ],
+  "assumptions": "initial reset only; refinement excludes new allocation space only at enabled valid compact RUN fetch",
+  "generated_sha256": {
+    "compact_engine.v": "1ef98fa99b54194827f833492820c1cde1e44348bb2c007681de4280e4ccb5b3",
+    "phase_bindings.vh": "b60ab476e1bf0f69d62796c71425cf0e51cb9206322ad8e64fbede15a88824f5",
+    "phase_engine.v": "cdde16f83aa0f9c1007bcf017444edf2a0b4f5226d50a0189b911ed96529a105",
+    "refinement_bindings.vh": "b804464978d89506b37d378adee3f42d86936794bce1239f6c81a76ee4984fae",
+    "timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70"
+  }
+}

@@ -2,29 +2,22 @@
 
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M3-T01 general timed GPIO ablation after phase1 capacity screen**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 mapped comparison of selected timed-GPIO P**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
-E0030 timed GPIO comparison is in progress. Isolated P/F eight-word mode1/3
-programs pass actual-program induction and sensitivity controls. Local P
-instruction and compact-refinement proofs pass; F refinement is inconclusive
-at the fixed limit. Preliminary matched cost: P3,146 cells/412 bits versus
-compact10 3,589/477; full comparison and clean CI are still pending. Production
-and historical compact sources are unchanged. See the
-[frozen contract](specs/spi-timed-gpio-comparison.md).
-
-Latest engineering result: **D30/E0029 bounded phase1 capacity screen PASS**.
-Mode1 saves one word (nine); mode3 remains at ten in the declared family.
-No seven/eight-word schedule passed6,920 candidates. The3,072 positive paired-byte
-cases are model-only; both simulators reject108 shortened programs and four
-oversized commits each, with identical records/traces. Clean implementation
-c54a795 passes the complete SPI gate (run43126561645);
-source hashes and local/remote traces match. No ISA minimum is proved.
-Production/candidate RTL remain unchanged. E0028's held mode0/2 induction and
-checked counterexamples remain qualified at3254d25/run43120985742.
-See [E0029](../evidence/E0029-phase1-capacity-screen/README.md).
-Next measure a general GPIO update with pre/post delay before expanding storage;
-its proposed eight-word phase1 schedule remains an unimplemented hypothesis.
+Latest engineering result: **D31/E0030 selects isolated timed post-action GPIO P**.
+Both phase1 modes fit eight words and preserve the ten-word reference timing.
+P measures3,146 cells/412 bits versus matched compact10 3,589/477: 443 fewer
+generic cells and65 fewer state bits. P adds39 cells and no bits to compact8.
+Instruction safety, scoped compact refinement and actual public-loaded
+symbolic-byte phase1 induction pass; all public traces agree across simulators.
+Clean19265ff CI (run43148870589) qualifies both candidates and selects P;
+source hashes, all public records and measurements match local evidence.
+Local F refinement timeouts remain retained. Historical failures
+and newly allocated invalid encodings are explicit in
+[E0030](../evidence/E0030-timed-gpio-comparison/README.md).
+Next compare isolated P/compact10 in the same mapped CMOS5L conditions.
+Production and the historical compact sources remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench

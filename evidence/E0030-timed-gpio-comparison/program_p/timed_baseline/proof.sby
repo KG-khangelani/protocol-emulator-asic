@@ -1,0 +1,21 @@
+[options]
+mode prove
+depth 12
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv project.v phase_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v public_spi.sv
+prep -top public_spi
+
+[files]
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/project.v
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/phase_engine.v
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/m1_program_store.v
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/m1_data_store.v
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/m1_input_sync.v
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/public_spi.sv
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/program_bindings.vh
+/workspace/build/timed-gpio/program-P-02/timed_baseline/inputs/program_invariants.vh

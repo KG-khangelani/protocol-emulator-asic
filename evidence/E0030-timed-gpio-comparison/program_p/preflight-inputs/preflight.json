@@ -1,0 +1,530 @@
+[
+  {
+    "name": "mode1-order0-early",
+    "mode": 1,
+    "order": 0,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "0c6ad65d3829e76e8d319a8a2285da023c53e5a008cb985cfe7a38cd9d7b1626",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-early/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-early/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.178,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.232,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode1-order0-late",
+    "mode": 1,
+    "order": 0,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "acf4a4ad91fe0889e04b0098ee53f466d7acdc1d938cde5be852d123ee02aacf",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-late/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-late/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.232,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.228,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode1-order0-jitter",
+    "mode": 1,
+    "order": 0,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "9e8cc5c8bc6e6b06cef2cf90ba78a644fc0cf1757c5239c071c2454db600f947",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-jitter/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-jitter/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.186,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order0-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.227,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode1-order1-early",
+    "mode": 1,
+    "order": 1,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "b8a0c2e5afc3e2b78fe7599204ba37fa7a9033d55856b09663df80f3e99d3089",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-early/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-early/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.243,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.237,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode1-order1-late",
+    "mode": 1,
+    "order": 1,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "acf4a4ad91fe0889e04b0098ee53f466d7acdc1d938cde5be852d123ee02aacf",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-late/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-late/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.232,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode1-order1-jitter",
+    "mode": 1,
+    "order": 1,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "9e8cc5c8bc6e6b06cef2cf90ba78a644fc0cf1757c5239c071c2454db600f947",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-jitter/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-jitter/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.236,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode1-order1-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.226,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order0-early",
+    "mode": 3,
+    "order": 0,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "734a4a8c139db8a7c7229636fa0228910e3dba84fc4c0cf95e4b11f41955e2f7",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-early/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-early/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.176,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.227,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order0-late",
+    "mode": 3,
+    "order": 0,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "e5a65cb40a0e8e1935af9aa756243519104b6f16af1927dcd6ba4029f1f86dfc",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-late/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-late/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.224,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.236,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order0-jitter",
+    "mode": 3,
+    "order": 0,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "35e744a936f98a21baeca9ac654ff0b8177e280ac7d98eee3fb82ed662e1cf98",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-jitter/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-jitter/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.3,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order0-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.308,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order1-early",
+    "mode": 3,
+    "order": 1,
+    "tx": 150,
+    "rx": 105,
+    "profile": "early",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "0115ea7174de8f513444dc4ca9a858df7292aa7324f3861a88d2f3163196e123",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-early/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-early/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-early/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.174,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-early/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.334,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order1-late",
+    "mode": 3,
+    "order": 1,
+    "tx": 0,
+    "rx": 255,
+    "profile": "late",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "e5a65cb40a0e8e1935af9aa756243519104b6f16af1927dcd6ba4029f1f86dfc",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-late/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-late/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-late/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.288,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-late/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.231,
+      "wall_limit": 30
+    }
+  },
+  {
+    "name": "mode3-order1-jitter",
+    "mode": 3,
+    "order": 1,
+    "tx": 255,
+    "rx": 0,
+    "profile": "jitter",
+    "status": "PASS",
+    "serialized_words_match_timed_model": true,
+    "oracle_errors": [],
+    "trace_sha256": "35e744a936f98a21baeca9ac654ff0b8177e280ac7d98eee3fb82ed662e1cf98",
+    "compile": {
+      "command": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "sim",
+        "-I/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs",
+        "-o",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-jitter/sim.vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/project.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/phase_engine.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_program_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_data_store.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/inputs/m1_input_sync.v",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-jitter/driver.sv",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-jitter/clock.sv"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.248,
+      "wall_limit": 30
+    },
+    "run": {
+      "command": [
+        "vvp",
+        "/workspace/build/timed-gpio/program-P-02/preflight-inputs/preflight/mode3-order1-jitter/sim.vvp"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.224,
+      "wall_limit": 30
+    }
+  }
+]

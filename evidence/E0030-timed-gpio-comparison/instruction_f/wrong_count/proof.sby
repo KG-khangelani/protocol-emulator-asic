@@ -1,0 +1,17 @@
+[options]
+mode bmc
+depth 80
+expect fail
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv -D VARIANT_F -D WRONG_COUNT phase_engine.v timed_properties.sv
+prep -top timed_properties
+
+[files]
+/workspace/build/timed-gpio/instruction-F-01/inputs/phase_engine.v
+/workspace/build/timed-gpio/instruction-F-01/inputs/timed_properties.sv
+/workspace/build/timed-gpio/instruction-F-01/inputs/phase_bindings.vh
+/workspace/build/timed-gpio/instruction-F-01/inputs/timed_gpio_properties.vh

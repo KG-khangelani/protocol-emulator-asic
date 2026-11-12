@@ -1,0 +1,17 @@
+[options]
+mode prove
+depth 12
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv  phase_engine.v timed_refinement.sv compact_engine.v
+prep -top timed_refinement
+
+[files]
+/workspace/build/timed-gpio/ci/instruction_p/inputs/phase_engine.v
+/workspace/build/timed-gpio/ci/instruction_p/inputs/timed_refinement.sv
+/workspace/build/timed-gpio/ci/instruction_p/inputs/compact_engine.v
+/workspace/build/timed-gpio/ci/instruction_p/inputs/refinement_bindings.vh

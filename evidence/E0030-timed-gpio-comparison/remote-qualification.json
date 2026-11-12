@@ -1,0 +1,20 @@
+{
+  "source": "19265ffb711c2db5d4fe4946355c4afbe2ed929f",
+  "run": 43148870589,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43148870589",
+  "conclusion": "success",
+  "artifact_id": 13913755186,
+  "artifact_zip_sha256": "97311d648a6f350ef065f0c34f21d580caaa47c2165030e769fbc82fd51b7407",
+  "artifact_checksums_verified": true,
+  "all_input_hashes_match_git_blobs": true,
+  "all_six_public_record_sets_and_corner_traces_match_local": true,
+  "all_generic_measurements_match_local": true,
+  "candidate_qualification": {
+    "P": "PASS",
+    "F": "PASS"
+  },
+  "selected_candidate": "P",
+  "physical": "NOT_EVALUATED",
+  "checked_utc": "2026-11-12T03:43:30.042866+00:00",
+  "generated_formal_inputs_match_local": true
+}

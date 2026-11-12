@@ -1,0 +1,17 @@
+[options]
+mode cover
+depth 80
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv -D VARIANT_F  phase_engine.v timed_properties.sv
+prep -top timed_properties
+
+[files]
+/workspace/build/timed-gpio/ci/instruction_f/inputs/phase_engine.v
+/workspace/build/timed-gpio/ci/instruction_f/inputs/timed_properties.sv
+/workspace/build/timed-gpio/ci/instruction_f/inputs/phase_bindings.vh
+/workspace/build/timed-gpio/ci/instruction_f/inputs/timed_gpio_properties.vh

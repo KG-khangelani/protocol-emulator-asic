@@ -1,0 +1,21 @@
+{
+  "implementation": "19265ffb711c2db5d4fe4946355c4afbe2ed929f",
+  "container": "protocol-emulator-asic-workbench:2026-07-29",
+  "doctor": "PASS",
+  "make_check": {
+    "status": "PASS",
+    "unittest_cases": 55,
+    "unittest_groups": 9
+  },
+  "actionlint": {
+    "status": "PASS",
+    "workflows": [
+      ".github/workflows/publish.yaml",
+      ".github/workflows/spi-timed-gpio.yaml"
+    ]
+  },
+  "git_diff_check": "PASS",
+  "production_and_historical_builder_diff": "EMPTY",
+  "unrelated_devcontainer_lock_sha256": "41b8de31d8c52979a6a6624e594fdab2e57512383c7f690bc91f92078af653c2",
+  "physical": "NOT_EVALUATED"
+}

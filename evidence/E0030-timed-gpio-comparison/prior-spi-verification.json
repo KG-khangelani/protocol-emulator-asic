@@ -1,0 +1,14 @@
+{
+  "source": "19265ffb711c2db5d4fe4946355c4afbe2ed929f",
+  "run": 43148870691,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43148870691",
+  "conclusion": "success",
+  "artifact_zip_sha256": "3f4193d9623e5e6a7ad018db73f529cb176c6248cb2d105f53ea7777c25d2dda",
+  "all_input_hashes_match_git_blobs": true,
+  "prior_gates": {
+    "spi-program-sensitivity": "PASS",
+    "spi-four-mode-screen": "PASS_SCOPED_SCREEN",
+    "spi-held-proof": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+    "spi-phase1-capacity": "PASS_DECLARED_PHASE1_CAPACITY_SCREEN"
+  }
+}
