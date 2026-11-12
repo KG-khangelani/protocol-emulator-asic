@@ -1,0 +1,47 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261112" />
+    <testcase name="public_pin_reload_changes_observable_program" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="180" time="0.013900279998779297" sim_time_ns="726.0" ratio_time="52229.16373366265" />
+    <testcase name="invalid_length_never_releases_engine" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="213" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="synchronized_input_wait_event_and_timeout" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="228" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="k_input_wait_public_program_event_timeout_and_reload" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="271" time="0.01185464859008789" sim_time_ns="906.0" ratio_time="76425.71545794618" />
+    <testcase name="k_bounded_loop_public_program_counts" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="315" time="0.18772172927856445" sim_time_ns="12008.0" ratio_time="63967.0220711693" />
+    <testcase name="loop_target_overflow_faults_without_alias" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="354" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="k_shift_8_public_payload_both_orders" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="368" time="0.017711877822875977" sim_time_ns="1296.0" ratio_time="73171.2364414651" />
+    <testcase name="uart_tx_8n1_public_pin_oracle" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="431" time="10.282525062561035" sim_time_ns="1112920.0" ratio_time="108234.11498914534" />
+    <testcase name="timed_shift_burst_invalid_freeze_and_reset" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="479" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="timed_shift_burst_trace_matches_semantic_model" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="534" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="shift_trace_matches_semantic_model" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="591" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="shift_invalid_partial_and_reset_fail_closed" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="641" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized_trace_matches_reviewed_model" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="703" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="invalid_encoding_and_out_of_range_fail_closed" classname="test" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test.py" lineno="733" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="uart_rx_host_service_last_safe_edge" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="147" time="13.720387935638428" sim_time_ns="998798.048" ratio_time="72796.63320638641" />
+    <testcase name="uart_rx_host_service_fault_abort_quarantine" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="175" time="0.21079087257385254" sim_time_ns="8392.032000000123" ratio_time="39812.12230648126" />
+    <testcase name="uart_rx_host_service_late_read_counterexample" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="207" time="0.10217809677124023" sim_time_ns="5026.016000000294" ratio_time="49188.780754575106" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="233" time="23.8526394367218" sim_time_ns="1324403.7240000004" ratio_time="55524.409678580225" />
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="257" time="6.407043695449829" sim_time_ns="377865.0780000002" ratio_time="58976.51022239062" />
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_uart_rx_public.py" lineno="281" time="2.0392658710479736" sim_time_ns="120706.04600000009" ratio_time="59190.931262910584" />
+    <testcase name="timed_public_programs" classname="test_spi_timed_gpio" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_spi_timed_gpio.py" lineno="97" time="176.6079957485199" sim_time_ns="10048864.0" ratio_time="56899.25848153009" />
+    <testcase name="timed_instruction_and_abort_controls" classname="test_spi_timed_gpio" file="/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/test/test_spi_timed_gpio.py" lineno="143" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+  </testsuite>
+</testsuites>

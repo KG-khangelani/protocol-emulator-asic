@@ -1,0 +1,93 @@
+{
+  "comparison_configuration": {
+    "CELL_LIBS": {
+      "*_fast_1p32V_m40C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_fast_1p32V_m40C.lib"
+      ],
+      "*_slow_1p08V_125C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_slow_1p08V_125C.lib"
+      ],
+      "*_typ_1p20V_25C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib"
+      ]
+    },
+    "CLOCK_PERIOD": 20,
+    "CTS_DISTANCE_BETWEEN_BUFFERS": 100,
+    "CTS_SINK_CLUSTERING_SIZE": 8,
+    "DEFAULT_CORNER": "nom_typ_1p20V_25C",
+    "DIE_AREA": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "EXTRA_LIBS": null,
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+    "MAX_FANOUT_CONSTRAINT": 8,
+    "PL_RANDOM_SEED": null,
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+    "PL_TARGET_DENSITY_PCT": 60,
+    "PNR_SDC_FILE": null,
+    "RANDOM_GLB_PLACEMENT": null,
+    "RT_MAX_LAYER": "Metal4",
+    "SIGNOFF_SDC_FILE": null,
+    "STA_CORNERS": [
+      "nom_fast_1p32V_m40C",
+      "nom_slow_1p08V_125C",
+      "nom_typ_1p20V_25C"
+    ],
+    "STD_CELL_LIBRARY": "sg13cmos5l_stdcell"
+  },
+  "metrics_sha256": "438f6b503b5a663f040c4250300704dd0bb2b694be2a4e380a0a0b2f040bce11",
+  "netlist_sha256": "bf845f532d6c307ac6080b377e99b26fa69b58c56e260288bcdee38f8d4cdda6",
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "physical_metrics": {
+    "checked": {
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "design__lvs_error__count": 0,
+      "design__max_cap_violation__count": 0,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_fanout_violation__count": 0,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_slew_violation__count": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__power_grid_violation__count": 0,
+      "magic__drc_error__count": 0,
+      "route__antenna_violation__count": 0,
+      "route__drc_errors": 0,
+      "timing__hold__ws": 0.12259044126814563,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12259044126814563,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.6553392458632257,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.3197491251164763,
+      "timing__setup__ws": 4.438053605787992,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 8.78919628621506,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 4.438053605787992,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 7.182885600728928
+    },
+    "errors": [],
+    "status": "PASS"
+  },
+  "resolved_config_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+    "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7"
+  },
+  "status": "INPUT_IDENTITIES_AND_PHYSICAL_METRICS_VERIFIED_PRECHECK_PENDING",
+  "variant": "compact10"
+}

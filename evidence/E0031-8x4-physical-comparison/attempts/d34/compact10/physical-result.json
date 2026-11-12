@@ -1,0 +1,25 @@
+{
+  "evidence_kind": "FUNCTIONAL_ZERO_DELAY_NETLIST",
+  "excluded_discovered_tests": [
+    "test.invalid_length_never_releases_engine",
+    "test.synchronized_input_wait_event_and_timeout",
+    "test.loop_target_overflow_faults_without_alias",
+    "test.timed_shift_burst_invalid_freeze_and_reset",
+    "test.timed_shift_burst_trace_matches_semantic_model",
+    "test.shift_trace_matches_semantic_model",
+    "test.shift_invalid_partial_and_reset_fail_closed",
+    "test.randomized_trace_matches_reviewed_model",
+    "test.invalid_encoding_and_out_of_range_fail_closed",
+    "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+  ],
+  "expected_negative_controls": 4,
+  "junit_sha256": "11fd9d7ce241e918b2dbaf61901f8b1596892a83d866639b36787921a5d75019",
+  "netlist_sha256": "bf845f532d6c307ac6080b377e99b26fa69b58c56e260288bcdee38f8d4cdda6",
+  "positive": 1048,
+  "public_test_groups": 12,
+  "records_sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+  "reference_records_identical": true,
+  "spi_transfers": 1052,
+  "status": "PASS",
+  "variant": "compact10"
+}

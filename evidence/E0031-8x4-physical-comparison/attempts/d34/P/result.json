@@ -1,0 +1,229 @@
+{
+  "schema": "protocol-emulator-g1-physical-attempt-v2",
+  "variant": "P",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "run_id": 43173112351,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351",
+  "observed_utc": "2026-11-12T08:21:59.509442+00:00",
+  "workflow_status": "completed",
+  "workflow_conclusion": "failure",
+  "jobs": {
+    "gds": {
+      "id": 131030863121,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-12T07:08:55Z",
+      "completed_at": "2026-11-12T08:11:16Z"
+    },
+    "precheck": {
+      "id": 131056294931,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-12T08:11:16Z",
+      "completed_at": "2026-11-12T08:11:16Z"
+    },
+    "gl_test": {
+      "id": 131056296389,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-12T08:11:16Z",
+      "completed_at": "2026-11-12T08:11:16Z"
+    }
+  },
+  "status": "NOT_QUALIFIED",
+  "program_words": 8,
+  "program_bits": 256,
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f"
+  },
+  "config_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+  "sdc_sha256": "2b9b4aa28941b605190a19bde0403ee85bef5395a2e98054970f6999fa7125e1",
+  "netlist_sha256": "6f5bb74fb9366ba6e43ca24c52eff42c2ef94f1d883f91206c74c2769a2a9504",
+  "gds_sha256": "9f9140a1ad8843e33d5db33d20a9640387e30af2e618786a34e8a6c15d92abbc",
+  "gds_bytes": 8895980,
+  "mapped": {
+    "cells": 3926,
+    "area_um2": 56107.9386,
+    "sequential_area_um2": 20183.3856,
+    "sequential_cells": 412
+  },
+  "final_metrics": {
+    "design__instance__count__stdcell": 4493,
+    "design__instance__area__stdcell": 66209.3,
+    "design__instance__utilization": 0.0548012,
+    "timing__setup__ws": 7.444868043883565,
+    "timing__hold__ws": 0.12417039969917396,
+    "route__drc_errors": 0,
+    "magic__drc_error__count": 0,
+    "design__lvs_error__count": 0,
+    "antenna__violating__nets": 0,
+    "antenna__violating__pins": 0,
+    "route__antenna_violation__count": 0,
+    "design__power_grid_violation__count": 0,
+    "design__max_fanout_violation__count": 1,
+    "design__max_cap_violation__count": 0,
+    "design__max_slew_violation__count": 0
+  },
+  "corner_timing_ns": {
+    "nom_fast_1p32V_m40C": {
+      "setup": 10.01290190213406,
+      "hold": 0.12417039969917396
+    },
+    "nom_slow_1p08V_125C": {
+      "setup": 7.444868043883565,
+      "hold": 0.665182205922174
+    },
+    "nom_typ_1p20V_25C": {
+      "setup": 9.043148708050083,
+      "hold": 0.31666037355231075
+    }
+  },
+  "physical_metric_review": {
+    "status": "FAIL",
+    "checked": {
+      "route__drc_errors": 0,
+      "route__antenna_violation__count": 0,
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "magic__drc_error__count": 0,
+      "design__lvs_error__count": 0,
+      "design__power_grid_violation__count": 0,
+      "design__max_fanout_violation__count": 1,
+      "design__max_cap_violation__count": 0,
+      "design__max_slew_violation__count": 0,
+      "timing__setup__ws": 7.444868043883565,
+      "timing__hold__ws": 0.12417039969917396,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 1,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 10.01290190213406,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12417039969917396,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 1,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 7.444868043883565,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.665182205922174,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 1,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 9.043148708050083,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.31666037355231075
+    },
+    "errors": [
+      "design__max_fanout_violation__count: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C: 1 violates zero requirement"
+    ]
+  },
+  "runtime_identities": {
+    "status": "PASS_RUNTIME_IDENTITIES",
+    "job_id": 131030863121,
+    "log_sha256": "a892435f2a1568419e326c0e6db04348d3101327c6a478d0b5459f91b38af4f0",
+    "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "physical_yosys": {
+      "version": "0.69",
+      "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+    },
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+      "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+      "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+    },
+    "confirmation_lines": [
+      "2026-11-12T07:10:46.5389597Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T07:10:46.5423131Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T07:10:53.9815569Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T07:10:54.4074528Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T07:10:56.3794698Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T07:10:56.4974441Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T07:11:01.2519244Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+    ],
+    "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate.",
+    "retained_log": {
+      "original_decoded_log_sha256": "a892435f2a1568419e326c0e6db04348d3101327c6a478d0b5459f91b38af4f0",
+      "retained_decoded_log_sha256": "a892435f2a1568419e326c0e6db04348d3101327c6a478d0b5459f91b38af4f0",
+      "url_query_strings_redacted": 0
+    }
+  },
+  "precheck": {
+    "status": "NOT_RUN",
+    "job_conclusion": "skipped"
+  },
+  "netlist_tests": {
+    "status": "NOT_RUN",
+    "job_conclusion": "skipped"
+  },
+  "verified_artifacts": [
+    {
+      "id": 13926381402,
+      "name": "GDS_logs",
+      "size_in_bytes": 73356743,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13926381402",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13926381402/zip",
+      "expired": false,
+      "created_at": "2026-11-12T08:10:13Z",
+      "expires_at": "2027-02-10T07:08:53Z",
+      "updated_at": "2026-11-12T08:10:13Z",
+      "digest": "sha256:10713c49d30baebb35a4033f6b17914f1c6952a8457dc5a5cbe5a3ab32a65ea4",
+      "workflow_run": {
+        "id": 43173112351,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8"
+      }
+    },
+    {
+      "id": 13926306467,
+      "name": "physical-candidate",
+      "size_in_bytes": 4703,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13926306467",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13926306467/zip",
+      "expired": false,
+      "created_at": "2026-11-12T08:11:14Z",
+      "expires_at": "2027-02-10T07:08:53Z",
+      "updated_at": "2026-11-12T08:11:14Z",
+      "digest": "sha256:e3acb7acb1e84cb1b09bcf214064004dc55173a55b92bb4c7f2d1e7b18e7e41d",
+      "workflow_run": {
+        "id": 43173112351,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8"
+      }
+    },
+    {
+      "id": 13925639356,
+      "name": "tt_submission",
+      "size_in_bytes": 3406454,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13925639356",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13925639356/zip",
+      "expired": false,
+      "created_at": "2026-11-12T08:10:15Z",
+      "expires_at": "2027-02-10T07:08:53Z",
+      "updated_at": "2026-11-12T08:10:15Z",
+      "digest": "sha256:9703b782eaea44047a48d643a1067f755a767e4db730546ed366e7d7116598e3",
+      "workflow_run": {
+        "id": 43173112351,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8"
+      }
+    }
+  ],
+  "scope": "Experimental complete-chip pilot only; no production promotion, combined I2C coverage, arbitrary input timing, silicon or owner-fluency claim."
+}

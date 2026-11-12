@@ -1,6 +1,6 @@
 # E0031 - Matched 8x4 physical comparison
 
-Status: **matched routed measurements and real-netlist tests recorded; fanout correction and full acceptance pending**.
+Status: **D34 routed reports verified; P fails fanout, compact10 passes GDS/netlist gates and awaits precheck**.
 
 Question: does the complete timed P chip retain its advantage over compact10
 after CMOS5L mapping/routing, and does either satisfy the 20 ns target?
@@ -100,8 +100,9 @@ P has instruction-safety, scoped legal-old-encoding refinement and actual
 eight-word public-loaded mode1/3 program induction evidence. That induction
 does not prove compact10's ten-word banked loader. Compact10's public
 loading/protocol results remain simulation evidence. Both original default-flow
-netlists passed the twelve-group public selection; the revised netlists await
-their own results. The excluded
+netlists passed the twelve-group public selection. Revised compact10 also
+passes all twelve; P's revised workflow skips these tests after its physical
+gate fails. The excluded
 direct-engine and incompatible legacy groups are not counted as coverage.
 
 Across candidates, the SPI comparison checks pins, direction, received
@@ -169,8 +170,9 @@ to official requalification, with compact10 the locally passing fallback.
 Further local tuning is deferred. The [D34 runs](d34-runs.json) are
 [P/run43173112351](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351)
 and [compact10/run43173116485](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485)
-at source 29f4b73. Both passed source staging and entered the official build;
-their final GDS/precheck/netlist results remain pending.
+at source 29f4b73. Both completed GDS generation; the additional physical gate
+rejects P. Compact10 passes that gate and its public netlist tests; its
+independent precheck remains active.
 
 The physical evidence guard now requires finite nonnegative setup/hold at
 all three frozen corners and zero final electrical, routing, antenna, power-grid,
@@ -178,5 +180,48 @@ Magic and LVS error counts. Regression controls reject the original
 green-but-fanout-failing result, missing corners, non-finite measurements and
 individual physical failures. Missing results cannot become passes.
 
-The P adoption decision remains **PENDING**. This experiment does not qualify
+## D34 official results
+
+The [revised comparison](attempts/d34/comparison.json) verifies identical
+resolved configurations, final timing constraints and actual GDS tool/action
+identities. Both generated designs retain every E0030 source identity.
+
+| Complete-chip measurement | P | compact10 |
+|---|---:|---:|
+| Program words / bits | 8 / 256 | 10 / 320 |
+| Mapped cells | 3,926 | 4,289 |
+| Mapped cell area, square micrometres | 56,107.9386 | 64,861.1712 |
+| Mapped sequential cells | 412 | 477 |
+| Mapped sequential cell area, square micrometres | 20,183.3856 | 23,367.6576 |
+| Routed standard-cell area, square micrometres | 66,209.3 | 76,230.2 |
+| Routed standard cells | 4,493 | 4,938 |
+| Standard-cell utilization | 5.48012% | 6.30955% |
+| Worst setup slack at 20 ns, ns | +7.444868 | +4.438054 |
+| Worst hold slack, ns | +0.124170 | +0.122590 |
+| Final routing / Magic DRC / LVS errors | 0 / 0 / 0 | 0 / 0 / 0 |
+| Fanout violations | **1** | 0 |
+| Required public netlist groups | NOT RUN | 12 PASS |
+| Independent official precheck | NOT RUN | PENDING |
+
+P's measured saving is 10,020.9 square micrometres, or **13.1456% of routed
+standard-cell area**, with two fewer program words on the same fixed die.
+It fails the acceptance rule. The [submitted-netlist diagnosis](attempts/d34/P/fanout-diagnosis.json)
+confirms seven functional loads plus four antenna diodes on `_0601_`, driven
+by `_3840_/X`: eleven loads against a limit of eight at every corner. The
+upstream build completes, but the added metric guard fails the job and its
+dependent precheck/netlist jobs are skipped. These skips are not passes.
+
+Compact10 clears every required routed metric and reproduces all 1,052 E0030
+SPI records in its real-netlist test, including the four expected negative
+controls. Its tested and submitted netlist hashes match. The official log
+also confirms the exact downloaded submission archive, source checkout,
+PDK cache identity and compiled physical-cell models. Official GL uses the
+observed Icarus 13.0/cocotb 2.0.1 environment, separately from the developer
+workbench. Tagged transitive actions remain an observed trust boundary.
+Retained job logs redact URL query strings; original and retained log hashes
+are recorded separately. [Audit notes](attempts/d34/audit-notes.json) explain
+the corrected provenance-check assumption and observed action identities.
+
+P is ineligible for adoption under this frozen flow. The final decision and
+compact10's full qualification await its precheck. This experiment does not qualify
 I2C, continuous UART delivery, owner fluency or fabricated silicon.

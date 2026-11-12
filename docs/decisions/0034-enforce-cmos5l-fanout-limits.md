@@ -78,3 +78,14 @@ Run both revised candidates through fresh complete official workflows and
 compare their resulting costs. If either fails, retain the attempt and diagnose
 it. G1 adoption and production promotion remain pending their respective gates;
 the original 6x4/M0 flow and owner-learning status are unaffected.
+
+## Official D34 checkpoint
+
+The 29f4b73 runs reproduce the local routed measurements. P completes GDS
+generation but fails the explicit fanout gate with one eleven-load net against
+the limit of eight. Its submitted netlist confirms seven functional loads and
+four antenna diodes; dependent precheck/netlist jobs are skipped. Compact10
+passes GDS and every required routed metric, plus all twelve public netlist
+groups and 1,052 unchanged SPI records. Its precheck remains active.
+The revised matched P area saving is 13.1456%; it does not qualify P for adoption.
+See the [official comparison](../../evidence/E0031-8x4-physical-comparison/attempts/d34/comparison.json).

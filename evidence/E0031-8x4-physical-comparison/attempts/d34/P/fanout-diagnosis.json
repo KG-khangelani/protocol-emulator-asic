@@ -1,0 +1,72 @@
+{
+  "status": "CONFIRMED_FANOUT_FAILURE",
+  "source_netlist_sha256": "6f5bb74fb9366ba6e43ca24c52eff42c2ef94f1d883f91206c74c2769a2a9504",
+  "net": "_0601_",
+  "driver": {
+    "cell": "sg13cmos5l_buf_1",
+    "instance": "_3840_",
+    "pin": "X"
+  },
+  "limit": 8,
+  "reported_fanout": 11,
+  "functional_loads": [
+    {
+      "cell": "sg13cmos5l_buf_1",
+      "instance": "_3841_",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_nand2_1",
+      "instance": "_4702_",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_nor3_1",
+      "instance": "_5687_",
+      "pin": "B"
+    },
+    {
+      "cell": "sg13cmos5l_buf_1",
+      "instance": "_5864_",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_mux2_1",
+      "instance": "_5905_",
+      "pin": "A0"
+    },
+    {
+      "cell": "sg13cmos5l_buf_1",
+      "instance": "_5931_",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_buf_1",
+      "instance": "_6177_",
+      "pin": "A"
+    }
+  ],
+  "antenna_diode_loads": [
+    {
+      "cell": "sg13cmos5l_antennanp",
+      "instance": "ANTENNA_4",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_antennanp",
+      "instance": "ANTENNA_5",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_antennanp",
+      "instance": "ANTENNA_6",
+      "pin": "A"
+    },
+    {
+      "cell": "sg13cmos5l_antennanp",
+      "instance": "ANTENNA_7",
+      "pin": "A"
+    }
+  ],
+  "diagnosis": "The official submitted netlist corroborates the local database diagnosis: seven functional loads plus four antenna diode loads exceed the eight-load limit. Retain normal antenna protection; this candidate fails acceptance."
+}

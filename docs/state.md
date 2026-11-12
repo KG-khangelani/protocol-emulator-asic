@@ -7,8 +7,10 @@ covering M3-T01/M3-T02/M5-T01. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
-Current architectural candidate: **D31/E0030 selects isolated timed post-action GPIO P**.
-Both phase1 modes fit eight words and preserve the ten-word reference timing.
+Functional/generic candidate: **D31/E0030 selects isolated timed post-action GPIO P**;
+the revised physical experiment rejects P at the fanout gate and advances
+compact10 through GDS and netlist checks, with precheck still pending.
+In P, both phase1 modes fit eight words and preserve the ten-word reference timing.
 P measures3,146 cells/412 bits versus matched compact10 3,589/477: 443 fewer
 generic cells and65 fewer state bits. P adds39 cells and no bits to compact8.
 Instruction safety, scoped compact refinement and actual public-loaded
@@ -32,6 +34,12 @@ records a common correction: the local routed compact10 clears the checked
 gates, while P retains one diode-induced fanout failure. Jumper-only repair
 leaves two antenna failures and is rejected. Fresh official qualification and
 the final adoption decision remain pending; compact10 is the viable fallback.
+The official D34 runs reproduce the local area, timing and fanout results: P retains
+one fanout violation (eleven loads against eight), while compact10 clears all
+required routed checks and passes all twelve real-netlist public groups plus
+1,052 unchanged SPI records. P's dependent jobs are skipped after its gate
+fails. The revised P area saving is 13.1456%, which cannot override that failure.
+Compact10's active precheck is the remaining official qualification gate.
 The same 3868ad2 implementation now passes the fresh timed comparison
 (run43158639030), with all seven gate records, candidate source identities and
 six simulator record sets verified. The full regression at the same source
@@ -40,12 +48,13 @@ Its refreshed workbench package
 (run43158638955) has verified checksums, source/image identity and public access.
 D34's 29f4b73 source also has a verified workbench publication
 (run43173078690), including immutable image/source identity and public access.
-Its official P/run43173112351 and compact10/run43173116485 builds are live;
-the fresh full regression, timed comparison and existing SPI controls now pass.
+Its official P/run43173112351 is terminal with the retained fanout failure;
+compact10/run43173116485 has passed GDS/netlist tests and is in precheck.
+The fresh full regression, timed comparison and existing SPI controls now pass.
 The [D34 functional audit](../evidence/E0031-8x4-physical-comparison/ci/d34/verification.json)
 verifies 257 regression source hashes, all 671 timed-comparison file checksums,
 all seven timed gates and six unchanged E0030 public record sets. Final
-physical acceptance remains pending for the two existing attempts.
+physical acceptance remains pending for compact10's existing attempt.
 Production RTL and all historical 6x4/M0 evidence remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench

@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-11-12T08:27:14.621055+00:00",
+  "artifact_review_corrections": [
+    {
+      "status": "AUDIT_ASSUMPTION_CORRECTED",
+      "initial_assertion": "GL consumer must show a support-tools checkout",
+      "observed": "The pinned official GL action downloads tt_submission, selects the PDK from its metadata and compiles the downloaded physical netlist. It does not check out support tools.",
+      "source": "https://github.com/TinyTapeout/tt-gds-action/blob/5e7361fdc445649261c0725dc15f38242dfad330/gl_test/action.yml",
+      "source_git_blob_sha1": "27c74c6950219a776db7c5d9eae4e48aa49d2202",
+      "corrected_verification": "Require the exact downloaded archive ID/digest, actual workflow source checkout, exact PDK activation/cache key, physical netlist/model compile command, all required public groups and unchanged records. Support checkout verification remains required for precheck.",
+      "hardware_or_test_inputs_changed": false,
+      "official_job_restarted": false
+    }
+  ],
+  "observed_ciel_action": {
+    "tag": "v1",
+    "runtime_commit": "7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6",
+    "initial_audited_commit": "949dd7165a99c173bed45b397305e37a60dce268",
+    "action_file_git_blob_sha1": "ab44b0bd2fba84576ffce04a7bfb4a022a4ff8f6",
+    "action_file_identical_to_initial_audit": true,
+    "runtime_source_url": "https://github.com/TinyTapeout/ciel-action/blob/7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6/action.yaml",
+    "boundary": "The official composite retains internally tagged dependencies; observed identities and source content are retained, without claiming all transitive actions are repository-pinned."
+  },
+  "job_log_handling": "Retain decoded job-log hashes; redact temporary URL query strings in committed compressed copies and record both hashes. Unredacted local downloads remain ignored."
+}

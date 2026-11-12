@@ -1,0 +1,16 @@
+{
+  "schema": "protocol-emulator-g1-matched-physical-comparison-v2",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "resolved_configurations_identical": true,
+  "final_sdc_identical": true,
+  "runtime_tool_and_action_identities_identical": true,
+  "routed_standard_cell_area_saved_um2": 10020.899999999994,
+  "routed_standard_cell_area_saved_percent": 13.145577474544202,
+  "formula": "100*(compact10 final stdcell area - P final stdcell area)/compact10 final stdcell area",
+  "candidates_passing_all_required_gates": [],
+  "decision": "PENDING_REVIEW_OF_QUALIFIED_CANDIDATES_AND_TRADEOFFS",
+  "variant_results": {
+    "P": "P/result.json",
+    "compact10": "compact10/result.json"
+  }
+}

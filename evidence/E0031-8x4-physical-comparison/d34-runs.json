@@ -1,23 +1,33 @@
 {
   "schema": "protocol-emulator-physical-runs-v1",
-  "observed_utc": "2026-11-12T07:38:42.723575+00:00",
+  "observed_utc": "2026-11-12T08:27:14.622426+00:00",
   "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
-  "status": "RUNNING_NOT_QUALIFIED",
+  "status": "P_FAILED_COMPACT10_PRECHECK_PENDING",
   "configuration_decision": "D34",
   "variants": {
     "P": {
       "run_id": 43173112351,
       "gds_job_id": 131030863121,
-      "status": "in_progress",
+      "status": "completed",
       "staging": "PASS",
-      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351"
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351",
+      "conclusion": "failure",
+      "physical_gate": "FAIL_FANOUT_1",
+      "precheck": "skipped",
+      "netlist_tests": "skipped"
     },
     "compact10": {
       "run_id": 43173116485,
       "gds_job_id": 131030876882,
       "status": "in_progress",
       "staging": "PASS",
-      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485"
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485",
+      "gds": "PASS",
+      "physical_gate": "PASS",
+      "netlist_tests": "PASS",
+      "precheck": "in_progress",
+      "precheck_job_id": 131056658578,
+      "netlist_job_id": 131056660179
     }
   },
   "source_ci_runs": {
@@ -36,6 +46,13 @@
     "atlas": 43173078654,
     "docs": 43173078563
   },
-  "observation": "Both exact official jobs confirmed live in Build GDS at07:38 UTC. Resume these attempts. Full regression, timed comparison, existing SPI controls and package publication pass with checked artifacts and source identities; physical acceptance remains pending.",
-  "functional_artifact_audit": "ci/d34/verification.json"
+  "observation": "Official P fails the retained one-count fanout violation; its dependent jobs are skipped. Compact10 passes GDS, required physical metrics and all 12 real-netlist public groups with 1,052 unchanged SPI records. Its exact precheck job remains active; resume it without restarting. Runtime, archive, source, configuration and submitted/tested netlist identities have been verified.",
+  "functional_artifact_audit": "ci/d34/verification.json",
+  "checkpoint_ci": {
+    "source_commit": "90428d80a18101928550838771cf781cc9511252",
+    "test_run": 43176923199,
+    "test_status": "PASS",
+    "docs_run": 43176923181,
+    "docs_status": "PASS"
+  }
 }

@@ -62,12 +62,14 @@ open until a candidate passes its gate. If P loses its advantage, retain the
 simpler viable alternative. Revisit clock or capacity through a documented,
 matched comparison instead of silently relaxing a failing condition.
 
-**Next executable action:** qualify a shared correction for the fanout
-violations found in both first routed builds. P's 13.4968% routed standard-cell
-area saving is measured; final adoption awaits clean physical acceptance.
-D34's local checks pass compact10; P retains a diode-induced fanout violation,
-and its jumper-only trial fails antenna checks. Retain these failures and run
-both revised candidates under identical conditions, with compact10 as fallback.
+**Next executable action:** finish compact10's active official precheck
+(run43173116485), then publish the supported physical decision. The D34
+routed comparison is verified: P saves 13.1456% standard-cell area but fails
+one diode-induced fanout limit; its dependent jobs are skipped. Compact10
+passes GDS, all required routed metrics and the twelve-group public netlist
+selection with 1,052 unchanged SPI records. Keep P's failure and the earlier
+jumper-only antenna failures. No candidate has full acceptance until precheck
+passes; do not restart the live attempt merely because observation expires.
 Do not rerun the archived M0 merely to report activity.
 
 ## G2 - Prove useful protocols on the same programmable machine

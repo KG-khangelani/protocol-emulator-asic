@@ -1,0 +1,98 @@
+{
+  "comparison_configuration": {
+    "CELL_LIBS": {
+      "*_fast_1p32V_m40C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_fast_1p32V_m40C.lib"
+      ],
+      "*_slow_1p08V_125C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_slow_1p08V_125C.lib"
+      ],
+      "*_typ_1p20V_25C": [
+        "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib"
+      ]
+    },
+    "CLOCK_PERIOD": 20,
+    "CTS_DISTANCE_BETWEEN_BUFFERS": 100,
+    "CTS_SINK_CLUSTERING_SIZE": 8,
+    "DEFAULT_CORNER": "nom_typ_1p20V_25C",
+    "DIE_AREA": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "EXTRA_LIBS": null,
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+    "MAX_FANOUT_CONSTRAINT": 8,
+    "PL_RANDOM_SEED": null,
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+    "PL_TARGET_DENSITY_PCT": 60,
+    "PNR_SDC_FILE": null,
+    "RANDOM_GLB_PLACEMENT": null,
+    "RT_MAX_LAYER": "Metal4",
+    "SIGNOFF_SDC_FILE": null,
+    "STA_CORNERS": [
+      "nom_fast_1p32V_m40C",
+      "nom_slow_1p08V_125C",
+      "nom_typ_1p20V_25C"
+    ],
+    "STD_CELL_LIBRARY": "sg13cmos5l_stdcell"
+  },
+  "metrics_sha256": "f484c4afc752d878b1cfc3c491f7b06921b19962932c397b1429baaf3c118436",
+  "netlist_sha256": "6f5bb74fb9366ba6e43ca24c52eff42c2ef94f1d883f91206c74c2769a2a9504",
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "physical_metrics": {
+    "checked": {
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "design__lvs_error__count": 0,
+      "design__max_cap_violation__count": 0,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_fanout_violation__count": 1,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 1,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 1,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 1,
+      "design__max_slew_violation__count": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__power_grid_violation__count": 0,
+      "magic__drc_error__count": 0,
+      "route__antenna_violation__count": 0,
+      "route__drc_errors": 0,
+      "timing__hold__ws": 0.12417039969917396,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12417039969917396,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.665182205922174,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.31666037355231075,
+      "timing__setup__ws": 7.444868043883565,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 10.01290190213406,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 7.444868043883565,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 9.043148708050083
+    },
+    "errors": [
+      "design__max_fanout_violation__count: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C: 1 violates zero requirement",
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C: 1 violates zero requirement"
+    ],
+    "status": "FAIL"
+  },
+  "resolved_config_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f"
+  },
+  "status": "PHYSICAL_METRICS_FAILED",
+  "variant": "P"
+}

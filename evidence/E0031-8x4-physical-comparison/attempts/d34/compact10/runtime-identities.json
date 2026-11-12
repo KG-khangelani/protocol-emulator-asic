@@ -1,0 +1,38 @@
+{
+  "status": "PASS_RUNTIME_IDENTITIES",
+  "job_id": 131030876882,
+  "log_sha256": "c92678c71a25180944e65bc4c81344e6a784688f0bd46aa09114fd804d4b7962",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+  "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+  "physical_yosys": {
+    "version": "0.69",
+    "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+  },
+  "resolved_actions": {
+    "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+    "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+    "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+    "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+    "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+    "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+    "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+  },
+  "confirmation_lines": [
+    "2026-11-12T07:11:29.8903574Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "2026-11-12T07:11:29.8911814Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "2026-11-12T07:11:39.9074047Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+    "2026-11-12T07:11:40.3798669Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+    "2026-11-12T07:11:42.5661693Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+    "2026-11-12T07:11:42.6812888Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+    "2026-11-12T07:11:48.0869519Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+  ],
+  "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate.",
+  "retained_log": {
+    "original_decoded_log_sha256": "c92678c71a25180944e65bc4c81344e6a784688f0bd46aa09114fd804d4b7962",
+    "retained_decoded_log_sha256": "f0c56823204ce4d2e02288c72acba94ad55ef05baadc2687c1bce0b14f3553eb",
+    "url_query_strings_redacted": 2
+  }
+}
