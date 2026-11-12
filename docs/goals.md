@@ -116,8 +116,8 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** finish D39's full public regression and qualify
-its separate physical trial while measuring the running D38 implementation.
+**Next executable action:** run D39's now-qualified RTL through its separate
+physical trial while measuring the running D38 implementation.
 Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
 generic savings are not physical results. Preserve G1's pilot, the original
 od128 routing failure and literal capacity rejection. Integration and
@@ -130,9 +130,11 @@ staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
 archives are audited. Physical run43241097269 is running at 869ee34; physical
 qualification remains pending. A separate shared-read screen saves 37.64%
 generic cells from D38 with reset-reachable complete-chip equivalence, but
-the full public and physical gates remain. D39/E0038 now reproduces that source;
-fresh whole-chip proof/reset and all three read-path mutation controls pass
-in both simulators. The complete eighteen-group regression is running.
+the physical gate remains. D39/E0038 reproduces that source; fresh whole-chip
+proof/reset and all three read-path mutation controls pass in both simulators.
+Both simulators pass all eighteen public groups with identical reference
+records; retained replay, ten audit-corruption controls and staging preflight
+pass. Proceed with its separate pinned physical trial.
 
 Completion checks:
 

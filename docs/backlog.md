@@ -43,7 +43,10 @@ A separate shared-read screen saves 37.64% generic cells from D38; both its
 conditional store and reset-reachable complete-chip equivalence pass. Qualify
 its public behavior before any separate physical trial. D39/E0038 freezes the
 new candidate; its fresh complete-chip proof/reset base and all three public
-mutation controls in both simulators pass. Full regression is running.
+mutation controls in both simulators pass. Both simulators now pass all eighteen
+public groups with identical records. The 1,030-file retained replay, ten audit
+corruption controls and physical staging preflight pass; launch its separate
+pinned 8x4 trial without changing any conditions or acceptance gates.
 It is not adopted. Production is unchanged. A fresh-checkout unit-test setup
 failure is fixed in 6ec83ae; replacement test CI passes. All 107 current local
 checks pass, including the additional candidate-identity rejection check.

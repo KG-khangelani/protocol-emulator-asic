@@ -1,0 +1,100 @@
+{
+  "status": "PASS_SHARED_CANDIDATE_RTL_FORMAL",
+  "implementation": "od128-shared",
+  "source_sha256": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "program_words": 128,
+  "program_bits": 4096,
+  "complete_chip_proof": {
+    "actual_state_bits_per_chip": 4278,
+    "public_output_bits": 24,
+    "proven_bit_comparisons_including_aliases": 4572,
+    "reset_base": {
+      "vector_assertions": 217,
+      "compared_bits_including_aliases": 4572
+    }
+  },
+  "mutation_controls": {
+    "public_simulators": [
+      "icarus",
+      "verilator"
+    ],
+    "baseline_passes": 2,
+    "checked_mutant_counterexamples": 6
+  },
+  "public_simulators": {
+    "icarus": {
+      "public_test_groups": 18,
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      },
+      "junit_sha256": "73f0eefb96c9ca75cda5a27a5ea1f1164c8923a71cc66a9f6114f13e1d7d1bcd"
+    },
+    "verilator": {
+      "public_test_groups": 18,
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      },
+      "junit_sha256": "a1dd2ff69914af3b3a9f7189cfd5461a7c597341b92c656252fb698319e9370a"
+    }
+  },
+  "archives": {
+    "controls": "ea98c92cca8b27679ae737ba73a2b7025b49c6b68f4c69ee3de3dd509e414f45",
+    "style": "d30db2edca42fe8769099acd75580622c2db8acd410ea7029ffdefdfcd67fec3",
+    "proof": "cb299f555c076df84120f207ec7c524993fa145303ecd59483495506f38b3d95",
+    "selection": "a0f226e610fd9d01aaf006b261281cf916536f8349c3081e6f6e0e3a4eecd423"
+  },
+  "style_review": {
+    "status": "PASS_SCOPED_STYLE_REVIEW",
+    "unwaived_warnings": 129,
+    "exception": "Only case-missing-default on the frozen program store: all four values of each two-bit byte selector are explicit and separately checked for all 128 words. An unknown simulation selector holds state. No RTL or physical threshold changes. D39 also preserves the inherited always-comb exception on its sole combinational read block; the inserted address wire separated the original line waiver from that block. The exact source and single block are checked before applying this exception."
+  },
+  "parent_qualification_sha256": "b2c313a749762817053d8107f6cfcd41860f19bae28fb119c9095280cf5e257b",
+  "rejected_audit_corruptions": 10,
+  "inheritance": "Complete-chip reset-reachable equivalence to D38. All 128 words and control bits remain real; inactive internal read-port values intentionally differ.",
+  "physical": "NOT_YET_QUALIFIED",
+  "production": "UNCHANGED"
+}

@@ -23,11 +23,24 @@ Fresh local checks:
   actual state bits and 24 public output bits are covered, with 4,572 proven
   bit comparisons including aliases and 217 vector reset assertions. Temporal
   induction closes at one step; reset starts the two chips independently.
-- Complete eighteen-group public regression is running. This record does not
-  yet qualify this candidate for the physical trial.
+- All eighteen public groups pass in both simulators: 595.887 seconds Icarus
+  and 392.544 seconds Verilator. Each reproduces all 1,052 SPI, 1,160 I2C,
+  four boundary and 36 abort/reload records from the audited reference.
+- Ten corrupted proof/witness cases are rejected, including missing actual
+  state/output coverage, an unproven bit, a disabled reset assertion, changed
+  reset premise, missing success log and wrong public counterexamples. Model,
+  observation and source hashes are updated in the controls so semantic checks
+  must reject the corruption. Candidate production/physical status stays open.
+
+`qualification.json` reports **PASS_SHARED_CANDIDATE_RTL_FORMAL**. The retained
+replay verifies all 1,030 archived files and reproduces the ten audit controls.
+Physical staging preflight passes; its retained inputs are explicitly marked
+as local, not a completed or in-place CI physical run.
 
 `archives.json` binds every retained member and each original compressed
 archive. Reproduce the two CI gates in the locked workbench using
 `experiments/i2c/run_general_gate.py --gate shared-selection` and
 `--gate shared-proof-controls`, each with a new `--output build/...` directory.
+Replay retained evidence using `python evidence/E0038-shared-program-read/verify.py
+--output build/new-replay-directory`.
 Physical qualification, production integration and publication remain pending.

@@ -22,7 +22,15 @@ reset-reachable controls before staging. Retain the original source and failed
 physical results. All physical conditions, limits and tests below apply equally
 to `od128-lanes`; no threshold or footprint changes accompany this trial.
 
-Run the two variants separately through `gds-g2`, avoiding collisions in the
+D39 adds `od128-shared`, frozen in E0038, with one shared combinational word
+read and the same real 128-word state. Require complete-chip equivalence and
+its reset base to the qualified D38 RTL, the exact eighteen public groups in
+both simulators, and checked public witnesses from all three read-path faults.
+Inactive internal read ports can differ; all public outputs and every actual
+state bit are compared. All physical conditions, limits, runtime/artifact
+identity checks and netlist tests below apply unchanged to this candidate.
+
+Run each variant separately through `gds-g2`, avoiding collisions in the
 official action's artifact names. Preserve `gds` as the historical G1 workflow.
 Use the unchanged `official_cmos5l_8x4` lock and `src/config.json`: 8x4,
 20 ns clock, the same die, pin constraints, 60% placement density, three

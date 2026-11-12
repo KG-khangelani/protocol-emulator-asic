@@ -1,6 +1,6 @@
 # D39 - Qualify a shared program-word read
 
-Date: 2026-11-12. Status: experimental qualification in progress.
+Date: 2026-11-12. Status: RTL/formal qualified; fresh physical trial required.
 
 D38's 128-word store retains two independent read-selection networks even
 though the complete chip consumes either loader bytes or instructions at a
@@ -35,6 +35,14 @@ measured/proved bytes and explicitly apply that inherited exception to the
 hash-checked store. The unwaived log must show exactly 128 complete-byte-case
 warnings and that one combinational-style warning; every other rule/module
 must pass. The initial lint attempt rejected the extra warning and is retained.
+
+E0038's exact eighteen-group selection now passes in both simulators (595.887
+seconds Icarus, 392.544 seconds Verilator). Each reproduces all 1,052 SPI,
+1,160 I2C, four boundary and 36 abort/reload records. The fresh complete-chip
+proof/reset base and all three public RTL mutation controls pass. Its evidence
+replay checks every one of 1,030 archived files and rejects ten deliberately
+corrupted proof/witness cases, including rehashed models. Physical staging
+preflight passes. Proceed with the separate pinned physical trial.
 
 Production promotion still requires the unchanged pinned 8x4 CMOS5L flow,
 all routed metrics, ten prechecks and actual-netlist public selection with

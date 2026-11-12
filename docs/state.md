@@ -40,8 +40,10 @@ reset-reachable complete-chip equivalence pass: every actual state bit and all
 24 public output bits are compared. D39/E0038 now reproduces that exact source
 as `od128-shared`. Its fresh complete-chip proof/reset base passes, and both
 simulators observe all three deliberate read-path faults against a passing
-baseline. Full public regression is running; physical qualification remains
-pending. The candidate is not promoted.
+baseline. Both simulators now pass all eighteen public groups with identical
+reference records. The retained 1,030-file replay, ten audit-corruption controls
+and physical staging preflight pass. Start its separate unchanged pinned 8x4
+physical trial; qualification, integration and publication remain pending.
 
 The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
 6ec83ae fixes it; all 106 checks pass in a fresh snapshot and replacement test

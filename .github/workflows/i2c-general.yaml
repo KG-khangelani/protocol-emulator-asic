@@ -4,6 +4,8 @@ on:
     paths:
       - 'src/**'
       - 'experiments/i2c/**'
+      - 'evidence/E0038-shared-program-read/sources/**'
+      - 'evidence/E0038-shared-program-read/verify.py'
       - 'experiments/spi_phase/**'
       - 'test/test*.py'
       - 'test/Makefile'
@@ -19,6 +21,8 @@ on:
     paths:
       - 'src/**'
       - 'experiments/i2c/**'
+      - 'evidence/E0038-shared-program-read/sources/**'
+      - 'evidence/E0038-shared-program-read/verify.py'
       - 'experiments/spi_phase/**'
       - 'test/test*.py'
       - 'test/Makefile'

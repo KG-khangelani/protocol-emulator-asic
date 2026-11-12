@@ -1,0 +1,152 @@
+{
+  "status": "PASS_SHARED_AUDIT_NEGATIVE_CONTROLS",
+  "sources": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "controls": [
+    {
+      "name": "missing-actual-state",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/gold.json": {
+          "before_sha256": "3a5bc9711fc16e384ac4418ffb60f7f0f3e83b4ce9126b585592ada97f66ecf7",
+          "after_sha256": "b32349bc1919786c920f78e9bae166ea7920ac924ac5ebae50107e97c8d6818b"
+        },
+        "proof/result.json": {
+          "before_sha256": "52a2dcbe0825361d0fe9b6156585386ad8987ba2408596bc7eb04ab435cfbbc4",
+          "after_sha256": "8e92174579ff6994860eb2c83f657dee0e2d302d5fbd1cc9c952a20eedff81ad"
+        }
+      }
+    },
+    {
+      "name": "excluded-state-match",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/blacklist.txt": {
+          "before_sha256": "99a6f30d05b533481657c48308f73ad0c1148bf72d81baaa622af7f312e61eaf",
+          "after_sha256": "511dd635ccebe2cd406941070df5b4c8e7cc5452f8d4a8baabdbfc3841e7ef26"
+        },
+        "proof/result.json": {
+          "before_sha256": "52a2dcbe0825361d0fe9b6156585386ad8987ba2408596bc7eb04ab435cfbbc4",
+          "after_sha256": "c59b25c09ca44f9decf793e2920b68d9faadc550a6df66bbf1f372e365f28a10"
+        }
+      }
+    },
+    {
+      "name": "unproven-temporal-bit",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/after.json": {
+          "before_sha256": "3898c3644e5622057361c9451e8ac201b554e8dcdf56cafbd762b16d8456a595",
+          "after_sha256": "a654079ea0998246896bcf2b6faa25185e47367183c8cd775e2602466adf2437"
+        },
+        "proof/result.json": {
+          "before_sha256": "52a2dcbe0825361d0fe9b6156585386ad8987ba2408596bc7eb04ab435cfbbc4",
+          "after_sha256": "ea8f16345e42f62160c26de520727fbd7906605f3ec140913aaec150759b95b3"
+        }
+      }
+    },
+    {
+      "name": "disabled-reset-assertion",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/reset.json": {
+          "before_sha256": "8680ee690d009d8ed206f467527d83f2087d0eb4a0ae50aae7223744277f6ae6",
+          "after_sha256": "6f1a72a08e252b39a32fab53163f4e80016ab0dc03b5d1b318bddcc1e4a8a27f"
+        },
+        "proof/result.json": {
+          "before_sha256": "52a2dcbe0825361d0fe9b6156585386ad8987ba2408596bc7eb04ab435cfbbc4",
+          "after_sha256": "a64fd9d74942a284dd51a980db829339bb65ce4b4874123ff8a80d10e45959fe"
+        }
+      }
+    },
+    {
+      "name": "missing-public-output",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/before.json": {
+          "before_sha256": "b83a3eb0a73f578cebe8a58d4983df6b23c5856859b713f0c3febdaaa6d99996",
+          "after_sha256": "b7118726d8076f163f6fe70757fb52b6b93859f65cd10db5d337a4136769f2eb"
+        },
+        "proof/result.json": {
+          "before_sha256": "52a2dcbe0825361d0fe9b6156585386ad8987ba2408596bc7eb04ab435cfbbc4",
+          "after_sha256": "9cba1972f89ccc6392e46eaf2acd783a8568d801b5e3ca7d08fe52bd036c7c80"
+        }
+      }
+    },
+    {
+      "name": "wrong-reset-premise",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/reset.ys": {
+          "before_sha256": "6bbaabf1f57c5dc1d3f0f150d3dc2b70b2ef21196af7fd8e93af9ef846f76ea2",
+          "after_sha256": "4456e5b6e95a50d6fa7e07d869446c9b7b35be975bdebc2f35182056c1593010"
+        }
+      }
+    },
+    {
+      "name": "missing-proof-success",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "proof/temporal.log": {
+          "before_sha256": "85897fd43f951c4030d4cf934fba40bc87da8d80ee80be492378f0f6ddd8d82b",
+          "after_sha256": "53a7dfe6577ce9cf357b8860f7441fcd981cd621fc588c1e397d0737209d6bec"
+        }
+      }
+    },
+    {
+      "name": "missing-mutant-observation",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "controls/result.json": {
+          "before_sha256": "08804ff913d2016cc72a375ade21db24f1543d32db7e6378b2dcef06dd5b87d6",
+          "after_sha256": "2981f941fc1a5b1f2dcb403adcab28a2f6de3c4b557d8bc6805d8c7f55b86e0c"
+        }
+      }
+    },
+    {
+      "name": "wrong-public-counterexample",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "controls/result.json": {
+          "before_sha256": "08804ff913d2016cc72a375ade21db24f1543d32db7e6378b2dcef06dd5b87d6",
+          "after_sha256": "6b61a0fee3b71e7859aed4aaaa7502e991a570541935825f6fccd27688552221"
+        },
+        "controls/high-bank-alias/icarus/observations.json": {
+          "before_sha256": "c0ded87f6a781383b28db2c4d007b2a43f7adeac71b14a7028b25b109851cac1",
+          "after_sha256": "fdb55c8133b9da6a17ad8038563dad91544b33a21bf6acd4bce5ad37dd8e447b"
+        }
+      }
+    },
+    {
+      "name": "unmodified-mutant-source",
+      "rejected": true,
+      "error": "AssertionError",
+      "changed_files": {
+        "controls/result.json": {
+          "before_sha256": "08804ff913d2016cc72a375ade21db24f1543d32db7e6378b2dcef06dd5b87d6",
+          "after_sha256": "821e944190bf41f562bdbdef239823ed16b1a5ee08b334997b4f9f2e75c0b9c4"
+        },
+        "controls/high-bank-alias/src/m1_program_store.v": {
+          "before_sha256": "c9caf2dda9be60a84104674a29a44e01167e1711f2bf09f984365546852b4384",
+          "after_sha256": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf"
+        }
+      }
+    }
+  ],
+  "baseline_proof_and_controls": "PASS",
+  "rehash_policy": "Update reported hashes for mutated models, observations and source; require semantic rejection, not checksum mismatch alone."
+}

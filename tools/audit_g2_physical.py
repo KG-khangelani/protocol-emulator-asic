@@ -114,7 +114,7 @@ def audit(directory, output, variant="od128"):
     try:
         lock = common.candidate_lock()
         logs, submission = archives["GDS_logs"], archives["tt_submission"]
-        require(variant in ("od128", "od128-lanes"), "unsupported physical qualification candidate")
+        require(variant in ("od128", "od128-lanes", "od128-shared"), "unsupported physical qualification candidate")
         inputs = archives["g2-physical-candidate"].json(variant + "/inputs.json")
         expected = physical_g2.candidate_manifest(variant)["source_sha256"]
         require(inputs["variant"] == variant and inputs["program_words"] == 128, "wrong physical candidate")
@@ -124,13 +124,16 @@ def audit(directory, output, variant="od128"):
         require(inputs["staged_in_ci"], "candidate was not staged in CI")
         for name, digest in inputs["provenance_sha256_lf"].items():
             require(sha(frozen(source, name)) == digest, "workflow input digest mismatch: " + name)
-        if variant == "od128-lanes":
-            evidence = "evidence/E0037-explicit-store-lanes/qualification.json"
+        if variant in ("od128-lanes", "od128-shared"):
+            evidence, status = {
+                "od128-lanes": ("evidence/E0037-explicit-store-lanes/qualification.json", "PASS_LANES_CANDIDATE_RTL_FORMAL"),
+                "od128-shared": ("evidence/E0038-shared-program-read/qualification.json", "PASS_SHARED_CANDIDATE_RTL_FORMAL"),
+            }[variant]
             qualification = frozen(source, evidence)
-            require(inputs["implementation_qualification_sha256"] == sha(qualification), "D38 qualification identity mismatch")
+            require(inputs["implementation_qualification_sha256"] == sha(qualification), "implementation qualification identity mismatch")
             qualified = json.loads(qualification)
-            require(qualified["status"] == "PASS_LANES_CANDIDATE_RTL_FORMAL" and
-                    qualified["source_sha256"] == expected, "D38 source qualification mismatch")
+            require(qualified["status"] == status and
+                    qualified["source_sha256"] == expected, "implementation source qualification mismatch")
         require(sha(frozen(source, "info.yaml")) == inputs["metadata_sha256_lf"], "metadata identity mismatch")
         require(sha(frozen(source, "src/config.json")) == inputs["config_sha256_lf"] == lock["config_sha256_lf"], "physical configuration mismatch")
         for archive in (logs, submission):
@@ -199,7 +202,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--variant", choices=("od128", "od128-lanes"), default="od128")
+    parser.add_argument("--variant", choices=("od128", "od128-lanes", "od128-shared"), default="od128")
     args = parser.parse_args()
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(), "use a new output directory under build/")

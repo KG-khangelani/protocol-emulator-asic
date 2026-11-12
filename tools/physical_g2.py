@@ -66,12 +66,15 @@ def prepare(args):
     ci = read_json(EVIDENCE / "ci/verification.json")
     require(ci["status"] == "PASS_AUDITED_G2_CI", "current candidate CI audit missing")
     explicit_lanes = args.variant == "od128-lanes"
-    qualification = store_lanes.EVIDENCE / "qualification.json"
-    if explicit_lanes:
+    shared = args.variant == "od128-shared"
+    implementation = shared_read if shared else store_lanes
+    qualification = implementation.EVIDENCE / "qualification.json"
+    if explicit_lanes or shared:
         qualified = read_json(qualification)
-        require(qualified["status"] == "PASS_LANES_CANDIDATE_RTL_FORMAL", "D38 RTL/formal qualification missing")
+        expected_status = "PASS_SHARED_CANDIDATE_RTL_FORMAL" if shared else "PASS_LANES_CANDIDATE_RTL_FORMAL"
+        require(qualified["status"] == expected_status, "implementation RTL/formal qualification missing")
         require(qualified["source_sha256"] == candidate_manifest(args.variant)["source_sha256"],
-                "D38 qualification source mismatch")
+                "implementation qualification source mismatch")
     if args.stage_ci:
         require(os.getenv("GITHUB_ACTIONS") == "true", "in-place staging is CI-only")
         require(Path(os.environ["GITHUB_WORKSPACE"]).resolve() == ROOT,
@@ -79,15 +82,16 @@ def prepare(args):
         dirty = subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=no"],
                                         cwd=ROOT, text=True)
         require(not dirty, "tracked checkout must be clean before CI staging")
-    (store_lanes.build if explicit_lanes else build)(out / "variants")
-    sources = out / "variants" / ("od128" if explicit_lanes else args.variant) / "src"
+    (implementation.build if explicit_lanes or shared else build)(out / "variants")
+    sources = out / "variants" / ("od128" if explicit_lanes or shared else args.variant) / "src"
     hashes = verify_sources(sources, args.variant)
     record = {
         "schema": "protocol-emulator-g2-physical-v1",
         "created_utc": datetime.now(timezone.utc).isoformat(), "variant": args.variant,
         "workflow_source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"],
                                                             cwd=ROOT, text=True).strip(),
-        "source_evidence": "E0037" if explicit_lanes else "E0035", "ci_audit_sha256": digest(EVIDENCE / "ci/verification.json"),
+        "source_evidence": "E0038" if shared else "E0037" if explicit_lanes else "E0035",
+        "ci_audit_sha256": digest(EVIDENCE / "ci/verification.json"),
         "program_words": candidate_manifest(args.variant)["capacity"],
         "source_sha256": hashes, "flow_lock": lock,
         "config_sha256_lf": common.text_digest(ROOT / "src/config.json"),
@@ -102,7 +106,7 @@ def prepare(args):
             "tools/i2c_oracle.py", "tools/spi_four_mode_oracle.py",
             "docs/specs/g2-cmos5l-qualification.md")},
         "staged_in_ci": bool(args.stage_ci),
-        "public_test_names": sorted(PUBLIC_TEST_MODULES) if args.variant in ("od128", "od128-lanes") else [],
+        "public_test_names": sorted(PUBLIC_TEST_MODULES) if args.variant in ("od128", "od128-lanes", "od128-shared") else [],
         "scope": "Experimental complete chip; production promotion remains a separate decision",
     }
     if explicit_lanes:
@@ -110,6 +114,13 @@ def prepare(args):
         for path in (store_lanes.MANIFEST, qualification, ROOT / "experiments/i2c/store_lanes.py",
                      ROOT / "experiments/i2c/run_store_lanes_gate.py",
                      ROOT / "docs/decisions/0038-explicit-store-lanes-after-routing-failure.md"):
+            record["provenance_sha256_lf"][path.relative_to(ROOT).as_posix()] = common.text_digest(path)
+    if shared:
+        record["implementation_qualification_sha256"] = digest(qualification)
+        for path in (shared_read.MANIFEST, qualification, ROOT / "experiments/i2c/shared_read.py",
+                     ROOT / "experiments/i2c/run_shared_read_gate.py", ROOT / "experiments/i2c/run_shared_read_proof.py",
+                     ROOT / "experiments/i2c/run_shared_read_controls.py", ROOT / "test/test_shared_read_controls.py",
+                     ROOT / "docs/decisions/0039-shared-program-read.md"):
             record["provenance_sha256_lf"][path.relative_to(ROOT).as_posix()] = common.text_digest(path)
     write_json(out / "inputs.json", record)
     if args.stage_ci:
@@ -217,7 +228,7 @@ def main():
         sub = actions.add_parser(action)
         sub.add_argument("--output", type=Path, required=True)
         if action != "check-tests":
-            sub.add_argument("--variant", choices=("od128", "literal255", "od128-lanes"), required=True)
+            sub.add_argument("--variant", choices=("od128", "literal255", "od128-lanes", "od128-shared"), required=True)
         if action == "prepare":
             sub.add_argument("--stage-ci", action="store_true")
         elif action == "check-run":

@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       variant:
-        description: Identified complete-chip candidate (E0035 or D38/E0037)
+        description: Identified complete-chip candidate (E0035, D38/E0037 or D39/E0038)
         type: choice
         required: true
         default: od128
-        options: [od128, literal255, od128-lanes]
+        options: [od128, literal255, od128-lanes, od128-shared]
 permissions:
   contents: read
 env:
@@ -57,7 +57,7 @@ jobs:
           tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
   gl_test:
     needs: gds
-    if: inputs.variant == 'od128' || inputs.variant == 'od128-lanes'
+    if: inputs.variant == 'od128' || inputs.variant == 'od128-lanes' || inputs.variant == 'od128-shared'
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     env:

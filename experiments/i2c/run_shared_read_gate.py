@@ -46,6 +46,9 @@ def main():
             assert stage['sources']['gate'] == manifest['od128']['source_sha256']
             stage = run('run_shared_read_controls.py', 'controls', 'PASS_PUBLIC_SHARED_READ_MUTATION_CONTROLS')
             assert stage['sources'] == manifest['od128']['source_sha256']
+            stage = run('falsify_shared_read_audit.py', 'audit', 'PASS_SHARED_AUDIT_NEGATIVE_CONTROLS',
+                        '--proof', out / 'proof', '--controls', out / 'controls')
+            assert stage['sources'] == manifest['od128']['source_sha256']
             result['status'] = 'PASS_SHARED_CHIP_PROOF_AND_CONTROLS'
     except Exception as error:
         result.update(status='FAILED_OR_INCOMPLETE', error=str(error))
