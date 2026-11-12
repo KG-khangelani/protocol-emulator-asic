@@ -34,9 +34,9 @@ AI-generated explanations are not proofs. Failed or unavailable tools are not pa
 ## Implementation constraints
 
 - Preserve the official Tiny Tapeout interface and `src/config.json` unless a
-  documented, evidence-backed change is needed. `info.yaml` still uses the
-  historical **6x4** baseline. G1/D32 requires a controlled migration to the
-  current **8x4** allocation; qualify metadata, checks and flow inputs together.
+  documented, evidence-backed change is needed. `info.yaml` targets **8x4**
+  under D33. The new physical flow awaits E0031 qualification; historical M0
+  results and its separate lock entry retain their original **6x4** conditions.
 - M0 is a deterministic GPIO counter, not a protocol VM. Close the physical-flow
   gate before broadening the architecture; draft M1 semantics separately.
 - Use synthesizable Verilog, explicit widths, nonblocking clocked assignments,

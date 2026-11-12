@@ -4,6 +4,11 @@ Status: adopted comparison method, 25 September 2026. It defines the ruler; it
 does not select an architecture or start M1. The machine-readable vocabulary is
 [`evaluation-contract.json`](evaluation-contract.json).
 
+D33 updates the current physical allocation to 8x4 on 2026-11-12.
+The new pinned flow is a candidate pending E0031; historical 6x4 results
+remain measurements under their original conditions. The comparison is
+[frozen separately](../specs/g1-cmos5l-physical-comparison.md).
+
 ## Why a contract is needed
 
 Architectures can look artificially small when different costs are omitted. A
@@ -45,7 +50,7 @@ directly into internal memory does not satisfy that requirement.
 
 ## Invariants for every candidate
 
-- The official Tiny Tapeout interface, 6x4 allocation and 50 MHz flow target are
+- The official Tiny Tapeout interface, 8x4 allocation and 50 MHz flow target are
   unchanged unless a separately recorded decision says why.
 - Candidate workloads see the same logical pin mapping, reset definition,
   synchronization assumptions and external stimulus.
@@ -173,7 +178,7 @@ A failed hypothesis is a research result, not a reason to hide the experiment.
 
 First reject candidates that fail a non-negotiable: reproducible mandatory
 workloads, public-pin reload, bounded timing, zero protocol-specific RTL delta
-for programmable candidates, or final 6x4 physical acceptance.
+for programmable candidates, or final 8x4 physical acceptance.
 
 Among survivors, remove a candidate only when another has evidence of equal
 quality and is no worse on every primary metric while being better on at least

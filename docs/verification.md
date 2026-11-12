@@ -3,6 +3,12 @@
 Keep functional simulation, generic synthesis, technology-mapped synthesis,
 physical timing and real hardware observations as separate evidence categories.
 
+D33's manual GDS workflow stages an E0030-identical P or compact10 chip in CI.
+The staged source manifest, not the workflow revision alone, identifies the
+synthesized design. Its twelve required public test groups and full SPI sweep
+must pass on the actual mapped netlist; the preceding RTL-only harness check
+does not qualify physical behavior. See [E0031](../evidence/E0031-8x4-physical-comparison/README.md).
+
 | Layer | Current implementation | Next evidence |
 |---|---|---|
 | Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |

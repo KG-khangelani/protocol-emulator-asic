@@ -15,6 +15,7 @@ test/results-verilator.xml
 test/results-gl-harness.xml
 test/results-learning.xml
 test/gate_level_netlist.v
+test/output/
 
 build/
 .venv/

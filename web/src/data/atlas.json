@@ -11,7 +11,7 @@
     "matchCount": 5
   },
   "clockTargetHz": 50000000,
-  "tileAllocation": "6x4",
+  "tileAllocation": "8x4",
   "modules": [
     {
       "id": "top",

@@ -16,6 +16,7 @@ check:
 	$(PYTHON) tools/check_project.py
 	$(PYTHON) tools/learning_status.py --verify
 	$(PYTHON) tools/m0_walkthrough.py --verify
+	$(PYTHON) -m unittest discover -s test -p 'test_physical_candidate.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_m1_contract_model.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_oracle.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_uart_rx_host_service.py'

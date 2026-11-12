@@ -18,12 +18,14 @@ source hashes, all public records and measurements match local evidence.
 Local F refinement timeouts remain retained. Historical failures
 and newly allocated invalid encodings are explicit in
 [E0030](../evidence/E0030-timed-gpio-comparison/README.md).
-Before the matched CMOS5L comparison, reconcile the current 8x4 allocation
-with the checked-in 6x4 setup; [S1](sources.md) was rechecked on 2026-11-12.
-G1 requires a reviewed, pinned configuration, matched complete-chip mapping,
-and a routed pilot before a physical decision. Historical 6x4 evidence remains
-valid for its original sources and conditions. This goal setup changes no RTL,
-physical configuration or tool pins and provides no new hardware qualification.
+D33 now freezes the [8x4 physical comparison](specs/g1-cmos5l-physical-comparison.md).
+The audited official ttihp27a action, LibreLane 3.1.0.dev4 image, support tools
+and shared PDK are pinned in a separate candidate lock. Metadata and the
+comparison contract use 8x4; existing placement/clock settings match the current
+template. The workflow stages E0030-identical P/compact10 source copies, with
+real-netlist public tests. [E0031](../evidence/E0031-8x4-physical-comparison/README.md)
+retains the audit and preflight results; physical qualification is pending.
+Production RTL and all historical 6x4/M0 evidence remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
@@ -407,13 +409,12 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering (G1): audit the current official template against qualified flow
-  pins and freeze an 8x4 comparison specification. Update metadata, configuration,
-  consistency checks and the evaluation contract together when qualifying the
-  migration. Compare complete P/compact10 chips under the same conditions, then
-  run the selected candidate through an official physical pilot. Preserve E0030
-  source identity and all older failures; do not substitute generic counts for
-  mapped/routed evidence. Further packing is deferred pending this decision.
+- Engineering (G1): the public-only harness passes for both variants; dispatch one
+  official gds run per P/compact10 variant under D33. Inspect resolved inputs,
+  mapping, routed setup/hold, physical checks and all 12 public netlist groups.
+  Compare retained reports only after checking matched conditions. Preserve
+  E0030 source identities and initial harness failures; no generic count is a
+  physical result. Further packing is deferred pending the measured decision.
 - Next coverage goal (G2): specify the missing I2C contract/oracle while physical
   jobs run, then qualify UART/SPI/I2C and public reload on one candidate. G3 adds
   a small assembler; a larger compiler needs a demonstrated use case.

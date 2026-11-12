@@ -1,0 +1,209 @@
+{
+  "schema": "protocol-emulator-upstream-audit-v1",
+  "observed_utc": "2026-11-12T04:49:19.943998+00:00",
+  "status": "SOURCE_AUDIT_ONLY_PHYSICAL_QUALIFICATION_PENDING",
+  "rules_url": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+  "rules_update_date": "2026-11-09",
+  "tiles": "8x4",
+  "source_config_matches_current_template_lf": true,
+  "source_config_sha256_lf": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+  "candidate_lock": {
+    "runner": "ubuntu-24.04",
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "outer_action_repository": "TinyTapeout/tt-gds-action",
+    "upstream_ref": "tags/ttihp27a",
+    "outer_action_commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+    "support_tools_repository": "TinyTapeout/tt-support-tools",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane": "3.1.0.dev4",
+    "librelane_source_commit": "dcea37e640e792186684004142e51a81a0a554de",
+    "librelane_image": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "template_commit": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+    "tiles": "8x4",
+    "die_area_um": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "default_corner": "nom_typ_1p20V_25C",
+    "clock_target_hz": 50000000,
+    "config_sha256_lf": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "state": "candidate-pending-e0031"
+  },
+  "librelane_image_manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+    "digest": "sha256:af2405f5d48d8fe14d406ecce913811177a95e365e3b625859677307cace2469",
+    "size": 741,
+    "manifests": [
+      {
+        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+        "digest": "sha256:1a2ddd27ccf6c83c2020d6f7c3dbfe3de89048f2d6d058d65001aedeb7b241da",
+        "size": 743,
+        "platform": {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      },
+      {
+        "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+        "digest": "sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+        "size": 743,
+        "platform": {
+          "architecture": "amd64",
+          "os": "linux"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "repository": "TinyTapeout/ttihp-verilog-template",
+      "commit": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+      "path": ".github/workflows/gds.yaml",
+      "url": "https://github.com/TinyTapeout/ttihp-verilog-template/blob/4b1204ab387b5ab94db1d57067051d8d89a2f83c/.github/workflows/gds.yaml",
+      "bytes": 1015,
+      "sha256": "72b449d7e552a92814f3adba428550a84b88aa4373b9f5d9743d2080876eb729",
+      "git_blob_sha1": "15a0a20a7db8a60ea724f5549a56504310084458"
+    },
+    {
+      "repository": "TinyTapeout/ttihp-verilog-template",
+      "commit": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+      "path": "src/config.json",
+      "url": "https://github.com/TinyTapeout/ttihp-verilog-template/blob/4b1204ab387b5ab94db1d57067051d8d89a2f83c/src/config.json",
+      "bytes": 2543,
+      "sha256": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+      "git_blob_sha1": "e19276da46a9ede15577db4e7641dfefa853e0cb"
+    },
+    {
+      "repository": "TinyTapeout/tt-gds-action",
+      "commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "path": "action.yml",
+      "url": "https://github.com/TinyTapeout/tt-gds-action/blob/5e7361fdc445649261c0725dc15f38242dfad330/action.yml",
+      "bytes": 5968,
+      "sha256": "dc5634536bb807bf98834c6319e6db6cc1f64e88f888ef001b48ca90ef3b3454",
+      "git_blob_sha1": "17029fb085f8e9e636cbcbc156ffa652716f4029"
+    },
+    {
+      "repository": "TinyTapeout/tt-gds-action",
+      "commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "path": "precheck/action.yml",
+      "url": "https://github.com/TinyTapeout/tt-gds-action/blob/5e7361fdc445649261c0725dc15f38242dfad330/precheck/action.yml",
+      "bytes": 3134,
+      "sha256": "688091ba49d0ea0930fdd1c171cafffab9fc1c02ae4e8f0e95e961d3b7697531",
+      "git_blob_sha1": "72331cfeb2c67790dbc455ef12843b15e053fec2"
+    },
+    {
+      "repository": "TinyTapeout/tt-gds-action",
+      "commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "path": "gl_test/action.yml",
+      "url": "https://github.com/TinyTapeout/tt-gds-action/blob/5e7361fdc445649261c0725dc15f38242dfad330/gl_test/action.yml",
+      "bytes": 2993,
+      "sha256": "dd204757e20040050b641958741f78f5d800e3fb3be2cba0f77021c72a38ca10",
+      "git_blob_sha1": "27c74c6950219a776db7c5d9eae4e48aa49d2202"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "project.py",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/project.py",
+      "bytes": 33379,
+      "sha256": "89679a1fb1420d769e3adaa3f836ba91a6df2df0625d993281723d5b9d48ab93",
+      "git_blob_sha1": "87f7386c252ef2798d9744f30cbcc30fba49756e"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "config.py",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/config.py",
+      "bytes": 1040,
+      "sha256": "25acf580d4ea7519d25ad558508892516cdd7502062141f0647184f9d93bc1f1",
+      "git_blob_sha1": "039b8851213bdff10256a12f5414d2aba536d4a8"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "tt_tool.py",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/tt_tool.py",
+      "bytes": 5809,
+      "sha256": "feaecb6ed5f0924babe01df54d2e62452a680f5311dcab34c34bfc771065b803",
+      "git_blob_sha1": "d962382fb54e39da4fd411f3f26038df02b775eb"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "tech.py",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/tech.py",
+      "bytes": 11422,
+      "sha256": "1e7ffd406c223bea9ef52ba137c56d9b4304e5ea4d4682c0f10f5381485746dc",
+      "git_blob_sha1": "580648bcb79482a270a8ea813b6fb330e3e5a6ca"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "requirements.txt",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/requirements.txt",
+      "bytes": 2735,
+      "sha256": "bbda6f05fe1090589bb1977619802935e1e0e22457a1dd8147e08c44c742992b",
+      "git_blob_sha1": "da5db0de989fba34bd4fd855b771377419bb1876"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "tech/ihp-sg13cmos5l/tile_sizes.yaml",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/tech/ihp-sg13cmos5l/tile_sizes.yaml",
+      "bytes": 432,
+      "sha256": "1fc6eb5ee12cd6f18c93f96f429a81a86005e9245e461c2dcf4f05959dcd0cca",
+      "git_blob_sha1": "cb96d4e7831e4cce1e22ac38e462be2e2ed3ee3f"
+    },
+    {
+      "repository": "TinyTapeout/tt-support-tools",
+      "commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "path": "tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def",
+      "url": "https://github.com/TinyTapeout/tt-support-tools/blob/9d13ff3e3e6202090740110438c6a10c1d62ca0f/tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def",
+      "bytes": 21163,
+      "sha256": "64b52f2150f699edc7fb500c2f486a51eca66fd91d3efb7347200bd2cf83a2ee",
+      "git_blob_sha1": "a49318399fbe9981b66b09320c61a75a27a8fc4a"
+    },
+    {
+      "repository": "librelane/librelane",
+      "commit": "dcea37e640e792186684004142e51a81a0a554de",
+      "path": "librelane/pdk_hashes.yaml",
+      "url": "https://github.com/librelane/librelane/blob/dcea37e640e792186684004142e51a81a0a554de/librelane/pdk_hashes.yaml",
+      "bytes": 203,
+      "sha256": "892de043b4711074e64fb99ff5bb5e1e40571aa2392a1eeac84fcf6909cdf191",
+      "git_blob_sha1": "4da5362aab838cb624f4217ed6113727f6ac3cd1"
+    },
+    {
+      "repository": "librelane/librelane",
+      "commit": "dcea37e640e792186684004142e51a81a0a554de",
+      "path": "librelane/__main__.py",
+      "url": "https://github.com/librelane/librelane/blob/dcea37e640e792186684004142e51a81a0a554de/librelane/__main__.py",
+      "bytes": 14908,
+      "sha256": "52a1704e53acd8bb3f16d0f085566f0511dcada482a28497df67bdb779e74c74",
+      "git_blob_sha1": "555dbf418c842dad3e34753bbd74632626154c26"
+    },
+    {
+      "repository": "TinyTapeout/ciel-action",
+      "commit": "949dd7165a99c173bed45b397305e37a60dce268",
+      "path": "action.yaml",
+      "url": "https://github.com/TinyTapeout/ciel-action/blob/949dd7165a99c173bed45b397305e37a60dce268/action.yaml",
+      "bytes": 1196,
+      "sha256": "e8426bc151100a7fca354f5d00367865d15997840227c2e0f9a862a8c58eaeb9",
+      "git_blob_sha1": "ab44b0bd2fba84576ffce04a7bfb4a022a4ff8f6"
+    }
+  ],
+  "observations": [
+    "Current template selects ttihp27a; direct action resolved and pinned.",
+    "LibreLane 3.1.0.dev4 and official precheck both select PDK 89d42ee6.",
+    "Support-tools 8x4 DEF and tile table agree on 1724.16 by 710.64 micrometres.",
+    "Only Metal1 through Metal4 are available to the project; TopMetal1 is reserved.",
+    "Current src/config.json is unchanged and matches the reviewed template.",
+    "Historical M0 qualified lock and results remain unchanged.",
+    "Official composites retain internally tagged dependencies; Ciel v1 resolution is observed, not a direct repository pin."
+  ]
+}

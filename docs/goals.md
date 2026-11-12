@@ -35,9 +35,10 @@ flowchart LR
 
 ## G1 - Establish physical feasibility before more optimization
 
-The official November 9 update confirms 8x4 tiles. Our checked-in configuration
-and historical physical evidence use 6x4. See [S1](sources.md) for the current
-rule observation. A planning update does not qualify a changed flow.
+The official November 9 update confirms 8x4 tiles. D33 updates the checked-in
+configuration and freezes the [comparison](specs/g1-cmos5l-physical-comparison.md);
+E0031 physical qualification is pending. Historical evidence retains 6x4.
+See [S1](sources.md) for the rule observation. Configuration is not qualification.
 
 Completion checks:
 
@@ -60,8 +61,8 @@ open until a candidate passes its gate. If P loses its advantage, retain the
 simpler viable alternative. Revisit clock or capacity through a documented,
 matched comparison instead of silently relaxing a failing condition.
 
-**First executable action:** audit the current official template against the
-qualified pins; freeze an 8x4 comparison specification before running P/compact10.
+**Next executable action:** run the preflighted P and
+compact10 under D33's frozen 8x4 conditions and inspect their retained reports.
 Do not rerun the archived M0 merely to report activity.
 
 ## G2 - Prove useful protocols on the same programmable machine

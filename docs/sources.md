@@ -6,7 +6,8 @@ S1 rechecked: **2026-11-12**. The November 9 update confirms an **8x4**
 allocation and says the template's main branch targets CMOS5L. The deadline
 remains **18 January 2027**. This supersedes the November 3 observation of 6x4
 with a possible expansion. Other source snapshots are unchanged; G1/D32 will
-qualify the migration from the checked-in historical setup.
+qualify the migration from the historical setup. D33 records the reviewed
+current template/action/support/PDK identities in E0031; qualification is pending.
 
 | ID | Source | Use |
 |---|---|---|

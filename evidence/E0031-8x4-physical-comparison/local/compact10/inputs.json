@@ -1,0 +1,60 @@
+{
+  "config_sha256_lf": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+  "created_utc": "2026-11-12T04:46:59.952636+00:00",
+  "flow_lock": {
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "clock_target_hz": 50000000,
+    "config_sha256_lf": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
+    "default_corner": "nom_typ_1p20V_25C",
+    "die_area_um": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "librelane": "3.1.0.dev4",
+    "librelane_image": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "librelane_source_commit": "dcea37e640e792186684004142e51a81a0a554de",
+    "outer_action_commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+    "outer_action_repository": "TinyTapeout/tt-gds-action",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "pdk_source": "IHP-Open-PDK",
+    "runner": "ubuntu-24.04",
+    "state": "candidate-pending-e0031",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "support_tools_repository": "TinyTapeout/tt-support-tools",
+    "template_commit": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+    "tiles": "8x4",
+    "upstream_ref": "tags/ttihp27a"
+  },
+  "metadata_sha256_lf": "f898a576505aae229af98253a361bc9f934aaf3f604f0b02abcaaebfb336db33",
+  "program_words": 10,
+  "public_test_names": [
+    "k_bounded_loop_public_program_counts",
+    "k_input_wait_public_program_event_timeout_and_reload",
+    "k_shift_8_public_payload_both_orders",
+    "public_pin_reload_changes_observable_program",
+    "timed_public_programs",
+    "uart_rx_host_service_fault_abort_quarantine",
+    "uart_rx_host_service_last_safe_edge",
+    "uart_rx_host_service_late_read_counterexample",
+    "uart_rx_public_bounded_last_byte_delivery",
+    "uart_rx_public_disable_reset_abort_then_reload",
+    "uart_rx_public_framing_and_bounded_timeouts",
+    "uart_tx_8n1_public_pin_oracle"
+  ],
+  "schema": "protocol-emulator-physical-candidate-v1",
+  "source_evidence": "E0030",
+  "source_note": "Workflow revision plus staged hashes identify this experimental chip.",
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+    "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7"
+  },
+  "staged_in_ci": false,
+  "variant": "compact10",
+  "workflow_source_commit": "393f8df9a532e00b5cd4f67ed79e40daa023b166"
+}

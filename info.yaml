@@ -1,4 +1,4 @@
-# Modified 2026-09-22: M0 metadata and competition allocation
+# Modified 2026-11-12: D33 current allocation; G1 physical qualification pending
 project:
   title:        "Protocol Emulator ASIC - M1 candidate"      # Project title
   author:       "Khangelani Mgoqi"      # Your name
@@ -7,8 +7,8 @@ project:
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
-  # Competition allocation verified 2026-09-22; do not infer physical dimensions here.
-  tiles: "6x4"          # Jane Street competition requirement
+  # Current competition allocation rechecked 2026-11-12; historical M0 used 6x4.
+  tiles: "8x4"          # D33; metadata alone does not establish physical fit
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_khangelani_protocol_emulator"

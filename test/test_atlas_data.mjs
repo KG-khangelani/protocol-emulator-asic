@@ -12,7 +12,7 @@ test('actual nonblocking state totals and grouping match the qualified source', 
   assert.equal(data.source.allSourceMatches, true);
   assert.equal(data.source.matchCount, 5);
   assert.equal(data.clockTargetHz, 50_000_000);
-  assert.equal(data.tileAllocation, '6x4');
+  assert.equal(data.tileAllocation, '8x4');
   assert.equal(data.evidence.find((item) => item.id === 'E0016').status, 'PASS');
 });
 test('synchronization, fetch, TX/RX and GPIO dependencies are actual named connections', () => {

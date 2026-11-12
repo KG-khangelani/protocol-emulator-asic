@@ -1,0 +1,25 @@
+{
+  "evidence_kind": "RTL_WITHOUT_DIRECT_ENGINE",
+  "excluded_discovered_tests": [
+    "test.invalid_length_never_releases_engine",
+    "test.synchronized_input_wait_event_and_timeout",
+    "test.loop_target_overflow_faults_without_alias",
+    "test.timed_shift_burst_invalid_freeze_and_reset",
+    "test.timed_shift_burst_trace_matches_semantic_model",
+    "test.shift_trace_matches_semantic_model",
+    "test.shift_invalid_partial_and_reset_fail_closed",
+    "test.randomized_trace_matches_reviewed_model",
+    "test.invalid_encoding_and_out_of_range_fail_closed",
+    "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+  ],
+  "expected_negative_controls": 4,
+  "junit_sha256": "577e276a7e7e40eb12c91ce4a9218ebf396ae0d7c33a462c84b450e402690148",
+  "netlist_sha256": null,
+  "positive": 1048,
+  "public_test_groups": 12,
+  "records_sha256": "757b58b46dabe327fe159fe76cb5e76df44d4c17dd1de8cb798cc6c7c27649b8",
+  "reference_records_identical": true,
+  "spi_transfers": 1052,
+  "status": "PASS",
+  "variant": "P"
+}

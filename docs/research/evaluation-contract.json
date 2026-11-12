@@ -78,5 +78,14 @@
     "post_route_hold_slack_ns",
     "physical_check_violations"
   ],
-  "comparison_rule": "Only compare values with the same boundary, workload, clock, source revision, toolchain, unit and evidence stage."
+  "comparison_rule": "Only compare values with the same boundary, workload, clock, source revision, toolchain, unit and evidence stage.",
+  "physical_configuration": {
+    "tiles": "8x4",
+    "pdk": "ihp-sg13cmos5l",
+    "flow_lock_key": "official_cmos5l_8x4",
+    "decision": "D33",
+    "effective_date": "2026-11-12",
+    "qualification": "PENDING_E0031",
+    "historical_results": "Retain the source conditions recorded with each prior experiment."
+  }
 }

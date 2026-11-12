@@ -10,6 +10,13 @@ SRC_DIR = $(CURDIR)/../src
 PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v
 COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_mode0_public
 
+# G1 reuses public expectations without instantiating the directly driven engine.
+ifeq ($(G1_PHYSICAL),yes)
+COMPILE_ARGS += -DGL_TEST
+COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_timed_gpio
+COCOTB_TEST_FILTER = '^(test\.(public_pin_reload_changes_observable_program|k_input_wait_public_program_event_timeout_and_reload|k_bounded_loop_public_program_counts|k_shift_8_public_payload_both_orders|uart_tx_8n1_public_pin_oracle)|test_uart_rx_public\.[a-z0-9_]+|test_spi_timed_gpio\.timed_public_programs)$$'
+endif
+
 # Verilator requires an explicit decision about testbench delays.
 ifeq ($(SIM),verilator)
 COMPILE_ARGS += --timing

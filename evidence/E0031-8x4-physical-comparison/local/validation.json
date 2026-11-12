@@ -1,0 +1,114 @@
+{
+  "schema": "protocol-emulator-physical-preflight-v1",
+  "checked_utc": "2026-11-12T04:59:30.987804+00:00",
+  "status": "PASS_RTL_PREFLIGHT_ONLY",
+  "variants": {
+    "P": {
+      "evidence_kind": "RTL_WITHOUT_DIRECT_ENGINE",
+      "excluded_discovered_tests": [
+        "test.invalid_length_never_releases_engine",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.shift_trace_matches_semantic_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+      ],
+      "expected_negative_controls": 4,
+      "junit_sha256": "577e276a7e7e40eb12c91ce4a9218ebf396ae0d7c33a462c84b450e402690148",
+      "netlist_sha256": null,
+      "positive": 1048,
+      "public_test_groups": 12,
+      "records_sha256": "757b58b46dabe327fe159fe76cb5e76df44d4c17dd1de8cb798cc6c7c27649b8",
+      "reference_records_identical": true,
+      "spi_transfers": 1052,
+      "status": "PASS",
+      "variant": "P"
+    },
+    "compact10": {
+      "evidence_kind": "RTL_WITHOUT_DIRECT_ENGINE",
+      "excluded_discovered_tests": [
+        "test.invalid_length_never_releases_engine",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.shift_trace_matches_semantic_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+      ],
+      "expected_negative_controls": 4,
+      "junit_sha256": "6445232bb52f410a2186826fc141db4b13ef4ba36ba2be38127092f123b9cd09",
+      "netlist_sha256": null,
+      "positive": 1048,
+      "public_test_groups": 12,
+      "records_sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+      "reference_records_identical": true,
+      "spi_transfers": 1052,
+      "status": "PASS",
+      "variant": "compact10"
+    }
+  },
+  "source_kind": "Local working-tree preflight; RTL identities match E0030; no physical claim.",
+  "source_sha256_lf": {
+    "test/Makefile": "8da36250a0c244db1c1b198045a3482b68145937fd5bfd395250e6ed39b595f2",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "test/test_spi_timed_gpio.py": "ed101fc3b0ef01acfb1e0762d90cfdaf1e55f81518d7c257889f46497272fb81",
+    "experiments/spi_phase/timed_gpio_programs.py": "955a7f5309256ecdad011236aab27112fc7ae02de769bc1fe61ba610752b0cc7",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/physical_candidate.py": "8644a952e5b6d015adf8b3a71e413d9519e829a669432523680e798a3c86b93a",
+    "test/test_physical_candidate.py": "21b68411e3336a135dbe692a5779c71b194fb4d343055c5e49316a6fe8836281",
+    "src/config.json": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510"
+  },
+  "configuration": {
+    "G1_PHYSICAL": "yes",
+    "TIMED_GPIO_SMOKE": "0",
+    "COCOTB_RANDOM_SEED": "20261112",
+    "simulator": "locked Icarus",
+    "COMPILE_ARGS_added": "-DGL_TEST",
+    "netlist": false
+  },
+  "checks": {
+    "repository_make_check": "PASS",
+    "checker_negative_controls": {
+      "status": "PASS",
+      "tests": 8
+    },
+    "workflow_actionlint": "PASS",
+    "atlas_source_model": {
+      "status": "PASS",
+      "tests": 19
+    },
+    "atlas_production_build": "PASS"
+  },
+  "retained_failures": [
+    {
+      "stage": "initial P and compact10 preflight",
+      "result": "HARNESS_ERROR_BEFORE_SIMULATION",
+      "cause": "Unquoted filter parentheses in the make shell assignment; fixed by quoting the filter."
+    },
+    {
+      "stage": "initial result classification of completed preflight02",
+      "result": "CHECKER_REJECTED_22_XML_ENTRIES",
+      "cause": "All 12 required groups passed; cocotb also listed ten excluded groups as skipped.",
+      "resolution": "Checker requires all twelve qualified identities and separately permits only known excluded skipped identities. Original simulator results were rechecked without rerunning or changing the oracle."
+    },
+    {
+      "stage": "atlas source test",
+      "result": "STALE_6X4_FIXTURE",
+      "resolution": "Updated the expected declared allocation to the new 8x4 metadata."
+    },
+    {
+      "stage": "initial atlas build",
+      "result": "MISSING_LOCAL_TSC",
+      "resolution": "Installed locked dependencies with scripts disabled; subsequent production build passes."
+    }
+  ]
+}

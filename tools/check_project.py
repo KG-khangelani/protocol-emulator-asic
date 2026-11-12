@@ -14,7 +14,7 @@ def require(condition, message):
 info = yaml.safe_load((ROOT / "info.yaml").read_text())
 project = info["project"]
 require(info["yaml_version"] == 6, "unexpected Tiny Tapeout metadata version")
-require(project["tiles"] == "6x4", "competition allocation must be 6x4")
+require(project["tiles"] == "8x4", "current competition allocation must be 8x4")
 top = project["top_module"]
 require(top.startswith("tt_um_"), "invalid Tiny Tapeout top prefix")
 require(set(info["pinout"]) == {f"{p}[{i}]" for p in ("ui", "uo", "uio") for i in range(8)}, "pinout differs from template")
@@ -45,11 +45,11 @@ for workflow in (ROOT / ".github/workflows").glob("*.yaml"):
     for action_ref in re.findall(r"^\s*uses:\s*([^\s#]+)", workflow_text, re.M):
         if not action_ref.startswith("./"):
             require(re.search(r"@[0-9a-f]{40}$", action_ref), f"mutable action ref in {workflow.name}: {action_ref}")
-physical = lock["official_cmos5l_qualification"]
+physical = lock["official_cmos5l_8x4"]
 gds_workflow = (ROOT / ".github/workflows/gds.yaml").read_text()
 require(f"runs-on: {physical['runner']}" in gds_workflow, "physical runner differs from toolchain lock")
 require(f"uses: actions/checkout@{physical['checkout_action_commit']}" in gds_workflow, "physical checkout action differs from lock")
-for action_path in ("", "/precheck", "/gl_test", "/viewer"):
+for action_path in ("", "/precheck", "/gl_test"):
     expected = f"uses: {physical['outer_action_repository']}{action_path}@{physical['outer_action_commit']}"
     require(expected in gds_workflow, f"physical action differs from lock: {action_path or '/'}")
 for expected in (
@@ -59,6 +59,12 @@ for expected in (
     f"pdk: {physical['pdk']}",
 ):
     require(expected in gds_workflow, f"physical workflow input differs from lock: {expected}")
+require(physical["librelane_image"] in gds_workflow, "physical image digest differs from lock")
+require("tools/physical_candidate.py prepare" in gds_workflow, "physical staging missing")
+require("check-tests" in gds_workflow and "--require-netlist" in gds_workflow,
+        "physical public-netlist verification missing")
+# The non-gating canary still watches the archived M0 qualified ref.
+physical = lock["official_cmos5l_qualification"]
 canary_workflow = (ROOT / ".github/workflows/upstream-canary.yaml").read_text()
 require(f"runs-on: {physical['runner']}" in canary_workflow, "canary runner differs from physical lock")
 require(
@@ -158,6 +164,9 @@ require(
     evaluation["schema"] == "protocol-emulator-evaluation-contract-v1",
     "unexpected architecture evaluation schema",
 )
+require(evaluation["physical_configuration"]["tiles"] == project["tiles"], "evaluation allocation mismatch")
+require(evaluation["clock_target_hz"] == project["clock_hz"], "evaluation clock mismatch")
+require(evaluation["physical_configuration"]["flow_lock_key"] == "official_cmos5l_8x4", "evaluation flow mismatch")
 require(evaluation["primary_boundary"]["id"] == "CHIP_COMPLETE", "complete-chip boundary must remain primary")
 require(evaluation["secondary_boundary"]["id"] == "CORE_ATTRIBUTION", "unexpected attribution boundary")
 require(
