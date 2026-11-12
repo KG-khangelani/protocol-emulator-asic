@@ -1,0 +1,10 @@
+{
+  "status": "PASS_FRESH_NATIVE_CIRCUIT_COMPARISON_AND_ROUTED_PIN_GEOMETRY",
+  "matched_nets": 4717,
+  "matched_devices": 4684,
+  "matched_pins_including_supplies": 45,
+  "routed_public_pin_rectangles": 43,
+  "routed_pin_power_violations": 0,
+  "scope": "Recompares the retained extracted circuit; does not repeat extraction or full GDS DRC. Original native black-box macro scope preserved.",
+  "full_physical_qualification": "OPEN"
+}

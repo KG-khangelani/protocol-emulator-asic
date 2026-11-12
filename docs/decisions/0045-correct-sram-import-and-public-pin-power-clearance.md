@@ -48,3 +48,11 @@ eight actual bad configurations are rejected. The official workflow uses
 this guarded setup and includes the hidden workflow source in its explicit
 artifact paths. Full manufacturing, official precheck and actual submitted
 netlist results remain required.
+
+A [bounded native LVS diagnostic](../../evidence/E0043-sram-physical-integration/guarded-lvs/README.md)
+on trial 05's unchanged routed design now passes in 60.813 seconds. Both
+circuits have 4,717 nets and 4,684 devices, and all 45 top-level pins including
+supplies match. Illegal overlaps and LVS errors are zero. Its 137-file archive
+and corrected native replay pass; the final routed database also passes all
+43 public pin checks. Preserve the original native DEF/LEF and black-box macro
+scope. Full GDS DRC and the official run at 2be7f5d/run43320295442 remain open.

@@ -159,6 +159,13 @@ Its 369-file archive and native replay pass; the official workflow now uses
 that setup. Complete manufacturing, official precheck and submitted-netlist
 qualification remain required.
 
+Trial 05's separate native LVS diagnostic passes in 60.813 seconds: 4,717
+matching nets, 4,684 matching devices, all 45 top-level pins and zero LVS
+errors/illegal overlaps. Its 137-file archive and native replay pass; all 43
+public pins also remain clear of power in the final routed database. This is
+the original DEF/LEF and black-box macro comparison; full GDS DRC and official
+run43320295442 at 2be7f5d remain open.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

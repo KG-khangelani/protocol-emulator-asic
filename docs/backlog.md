@@ -111,6 +111,9 @@ Finish the fresh guarded full run and repeat official qualification.
 Portable guarded staging passes in 41.669 seconds; its exact database,
 369-file archive, native replay and eight configuration controls pass. The
 official workflow now uses this setup with the original acceptance limits.
+The 60.813-second native LVS diagnostic and 137-file replay pass, with all
+4,717 nets, 4,684 devices and 45 top-level pins matched. Routed pin geometry
+also passes. Full GDS DRC and official run43320295442 remain open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups
@@ -134,7 +137,7 @@ an ISA change. Experimental public-loaded I2C and combined results are retained;
 the complete-store and exact physical-selection gates pass locally and in CI.
 Physical qualification and production promotion remain pending.
 
-## M0-T01 â€” Establish RTL-to-GDS baseline (active)
+## M0-T01 — Establish RTL-to-GDS baseline (active)
 
 Outcome: a reproducible, deterministic GPIO design hardened with the official
 IHP CMOS5L Tiny Tapeout flow.
@@ -174,7 +177,7 @@ IHP CMOS5L Tiny Tapeout flow.
 Reference: `docs/specs/m0-gpio.md`; evidence index: `evidence/README.md`.
 Do not substitute a static syntax check or generic synthesis for physical fit.
 
-## R0-T01 â€” Pre-M1 architecture research (active supporting work)
+## R0-T01 — Pre-M1 architecture research (active supporting work)
 
 Outcome: compare credible programmable substrates with one evidence contract,
 without choosing an ISA by reputation or importing unverified external claims.

@@ -86,3 +86,10 @@ in 41.669 seconds and reproduces the exact corrected fixed-pin database.
 Its 369-file archive, native replay and eight actual configuration controls
 pass. The official workflow now stages this guarded setup; all complete
 physical gates remain required.
+
+The [corrected routed LVS diagnostic](guarded-lvs/README.md) passes in
+60.813 seconds: 4,717 nets and 4,684 devices match, with all 45 top-level pins
+and zero LVS errors/illegal overlaps. The 137-file archive and native replay
+pass, including all 43 public pins checked in the finished routed database.
+This retains the original DEF/LEF and black-box macro scope; full GDS DRC and
+official qualification remain required.

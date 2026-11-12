@@ -1,0 +1,14 @@
+{
+  "status": "PASS_RETAINED_SCOPED_NATIVE_LVS",
+  "files": 137,
+  "seconds": 60.813,
+  "matched_nets": 4717,
+  "matched_devices": 4684,
+  "matched_top_level_pins_including_supplies": 45,
+  "lvs_errors": 0,
+  "illegal_overlaps": 0,
+  "layout_netlist_sha256": "7513f83e1d350e6e8e379ac33682d52565b2c21064393d658c4e9e1153a67bbf",
+  "reference_netlist_sha256": "07960dc36da097258c5cb68a47e6cd37048864cc4d8fcd8a99cbcd4329c9b586",
+  "scope": "Original native DEF/LEF extraction and black-box macro LVS; not internal transistor LVS of the vendor macro or full GDS manufacturing qualification.",
+  "full_physical_qualification": "OPEN"
+}
