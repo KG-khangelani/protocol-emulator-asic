@@ -97,6 +97,86 @@ class PhysicalEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unexpected test"):
             physical.check_tests(args)
 
+
+
+    def resolved_fixture(self):
+        path = (physical.ROOT / "evidence/E0031-8x4-physical-comparison/attempts/"
+                "template-default/P/resolved.json.gz")
+        resolved = json.loads(gzip.decompress(path.read_bytes()))
+        resolved.update(physical.candidate_lock()["physical_constraints"])
+        return resolved
+
+    def test_revised_shared_settings_are_required(self):
+        lock = physical.candidate_lock()
+        physical.verify_run_configuration(self.resolved_fixture(), lock)
+        for name, old_value in (("MAX_FANOUT_CONSTRAINT", 10),
+                                ("CTS_SINK_CLUSTERING_SIZE", None),
+                                ("CTS_DISTANCE_BETWEEN_BUFFERS", 0)):
+            with self.subTest(setting=name):
+                resolved = self.resolved_fixture()
+                resolved[name] = old_value
+                with self.assertRaisesRegex(ValueError, name):
+                    physical.verify_run_configuration(resolved, lock)
+
+    def test_missing_signoff_corner_is_rejected(self):
+        resolved = self.resolved_fixture()
+        resolved["STA_CORNERS"] = resolved["STA_CORNERS"][:-1]
+        with self.assertRaisesRegex(ValueError, "corner set"):
+            physical.verify_run_configuration(resolved, physical.candidate_lock())
+
+    def metrics_fixture(self, clear_fanout=True):
+        path = (physical.ROOT / "evidence/E0031-8x4-physical-comparison/attempts/"
+                "template-default/P/metrics.json.gz")
+        metrics = json.loads(gzip.decompress(path.read_bytes()))
+        if clear_fanout:
+            # Synthetic acceptance fixture; the actual failed attempt stays immutable.
+            for key in metrics:
+                if key.startswith("design__max_fanout_violation__count"):
+                    metrics[key] = 0
+        return metrics
+
+    def test_original_green_build_is_rejected_for_fanout(self):
+        result = physical.inspect_physical_metrics(self.metrics_fixture(False))
+        self.assertEqual(result["status"], "FAIL")
+        self.assertTrue(any("fanout" in error and "30" in error for error in result["errors"]))
+
+    def test_clean_metrics_fixture_is_accepted(self):
+        self.assertEqual(physical.inspect_physical_metrics(self.metrics_fixture())["status"], "PASS")
+
+    def test_each_corner_requires_setup_and_hold(self):
+        for corner in physical.SIGNOFF_CORNERS:
+            for kind in ("setup", "hold"):
+                with self.subTest(corner=corner, kind=kind):
+                    metrics = self.metrics_fixture()
+                    metrics[f"timing__{kind}__ws__corner:{corner}"] = -0.001
+                    self.assertEqual(physical.inspect_physical_metrics(metrics)["status"], "FAIL")
+
+    def test_missing_and_nonfinite_results_cannot_pass(self):
+        key = "timing__setup__ws__corner:nom_slow_1p08V_125C"
+        for value in (None, float("nan"), float("inf"), "0", True):
+            with self.subTest(value=value):
+                metrics = self.metrics_fixture()
+                metrics[key] = value
+                result = physical.inspect_physical_metrics(metrics)
+                self.assertEqual(result["status"], "FAIL")
+                json.dumps(result, allow_nan=False)
+        metrics = self.metrics_fixture()
+        del metrics[key]
+        self.assertEqual(physical.inspect_physical_metrics(metrics)["status"], "FAIL")
+
+    def test_physical_and_electrical_failures_cannot_pass(self):
+        for key in ("route__drc_errors", "route__antenna_violation__count",
+                    "antenna__violating__nets", "antenna__violating__pins",
+                    "magic__drc_error__count", "design__lvs_error__count",
+                    "design__power_grid_violation__count",
+                    "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C",
+                    "design__max_cap_violation__count__corner:nom_slow_1p08V_125C",
+                    "design__max_slew_violation__count__corner:nom_typ_1p20V_25C"):
+            with self.subTest(key=key):
+                metrics = self.metrics_fixture()
+                metrics[key] = 1
+                self.assertEqual(physical.inspect_physical_metrics(metrics)["status"], "FAIL")
+
     def test_in_place_staging_refuses_non_ci_without_creating_output(self):
         out = self.out / "must-not-exist"
         with patch.dict("os.environ", {"GITHUB_ACTIONS": "false"}):

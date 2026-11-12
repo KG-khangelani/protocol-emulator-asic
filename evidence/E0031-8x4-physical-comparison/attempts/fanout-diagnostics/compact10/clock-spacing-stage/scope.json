@@ -1,0 +1,4 @@
+{
+  "scope": "fresh nominal-corner post-CTS report only; other corners and inherited metrics are not qualified",
+  "fresh_report_sha256": "14460c9eea36a71e2c1a372fb0d7acdf7befba7bed910c52ea42f9e32e2859fd"
+}

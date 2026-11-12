@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--mount",
+    "type=bind,source=H:\\hikrepos\\protocol-emulator-asic,target=/workspace",
+    "--workdir",
+    "/workspace",
+    "protocol-emulator-asic-workbench:2026-07-29",
+    "make",
+    "check"
+  ],
+  "exit_code": 0,
+  "unit_test_total": 70,
+  "log_sha256": "899d7e587fe4f7c69419e38d1d99782c56af86d73ffe168fc1b3b0a2d7a3ab19",
+  "git_diff_check_exit": 0,
+  "git_diff_check_output": "",
+  "checked_sources_sha256": {
+    "src/config.json": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+    "tools/check_project.py": "855a24de4626f33e2bc73cea8805e07920c215ea0544d7c0457176d7cb634d3a",
+    "tools/physical_candidate.py": "353f757a49e68366ec87137d7b200fff013be60f207c52b4d66a610c73c178dd",
+    "test/test_physical_candidate.py": "ef1d60d661a2e4c6aca4a6cbba721ceba19144e9386af17d991966443b6292a4",
+    "tools/workbench/toolchain.lock.json": "d1edab1675b29ca8c45895337b83b33474846afc07df24a20ea7a57ec0b63377"
+  },
+  "completed_utc": "2026-11-12T07:04:44Z"
+}

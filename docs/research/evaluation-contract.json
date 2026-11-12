@@ -83,9 +83,10 @@
     "tiles": "8x4",
     "pdk": "ihp-sg13cmos5l",
     "flow_lock_key": "official_cmos5l_8x4",
-    "decision": "D33",
+    "decision": "D34",
     "effective_date": "2026-11-12",
-    "qualification": "PENDING_E0031",
-    "historical_results": "Retain the source conditions recorded with each prior experiment."
+    "qualification": "PENDING_E0031_REVISED_FANOUT",
+    "historical_results": "Retain the source conditions recorded with each prior experiment.",
+    "baseline_decision": "D33"
   }
 }

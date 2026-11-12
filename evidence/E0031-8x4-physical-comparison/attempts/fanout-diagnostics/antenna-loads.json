@@ -1,0 +1,139 @@
+{
+  "variant": "P",
+  "net": "_0601_",
+  "scope": "read-only database inspection before and after detailed routing",
+  "stages": {
+    "07-openroad-repairantennas/1-openroad-diodeinsertion/tt_um_khangelani_protocol_emulator.odb": {
+      "odb_sha256": "0593c415ddc0dcd53730b03cb1414341045bfeabb2a7ced5863f04f8e8d799e5",
+      "pins": [
+        {
+          "instance": "_6177_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5931_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5905_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5864_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5687_",
+          "cell": "sg13cmos5l_nor3_1",
+          "pin": "B",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_4702_",
+          "cell": "sg13cmos5l_nand2_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_3841_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_3840_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "X",
+          "direction": "OUTPUT"
+        }
+      ],
+      "load_count": 7
+    },
+    "09-openroad-detailedrouting/tt_um_khangelani_protocol_emulator.odb": {
+      "odb_sha256": "1a9d975936c8184cfff98eb719f15a1738b05d1d4a420bfe95a14facabf75a0e",
+      "pins": [
+        {
+          "instance": "ANTENNA_7",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "ANTENNA_6",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "ANTENNA_5",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "ANTENNA_4",
+          "cell": "sg13cmos5l_antennanp",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_6177_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5931_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5905_",
+          "cell": "sg13cmos5l_mux2_1",
+          "pin": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5864_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_5687_",
+          "cell": "sg13cmos5l_nor3_1",
+          "pin": "B",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_4702_",
+          "cell": "sg13cmos5l_nand2_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_3841_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "A",
+          "direction": "INPUT"
+        },
+        {
+          "instance": "_3840_",
+          "cell": "sg13cmos5l_buf_1",
+          "pin": "X",
+          "direction": "OUTPUT"
+        }
+      ],
+      "load_count": 11
+    }
+  }
+}

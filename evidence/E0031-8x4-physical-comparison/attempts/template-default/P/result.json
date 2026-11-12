@@ -1,0 +1,826 @@
+{
+  "schema": "protocol-emulator-g1-physical-attempt-v1",
+  "variant": "P",
+  "workflow_source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "run_id": 43158656790,
+  "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158656790",
+  "observed_utc": "2026-11-12T06:53:07.860446+00:00",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success",
+  "jobs": {
+    "gds": {
+      "id": 130984419268,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-12T05:02:18Z",
+      "completed_at": "2026-11-12T06:11:29Z"
+    },
+    "precheck": {
+      "id": 131009146882,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-12T06:11:32Z",
+      "completed_at": "2026-11-12T06:44:34Z"
+    },
+    "gl_test": {
+      "id": 131009146924,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-12T06:11:31Z",
+      "completed_at": "2026-11-12T06:16:39Z"
+    }
+  },
+  "status": "FANOUT_LIMIT_VIOLATIONS_REMAIN",
+  "program_words": 8,
+  "program_bits": 256,
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f"
+  },
+  "resolved_config_sha256": "eb5a788620bec7176402af4d675d7aa75ae23f9753948f9f82b2528efd18dd66",
+  "sdc_sha256": "4f36a8e7da2105c9ddf9ab63ea827311ff0700f31f27c2b5f9ac1d28e4d3e03b",
+  "netlist_sha256": "d0037180f3be5428fbcb11df17e540f87757b1e1333a9b4a398a920f9b67b4e4",
+  "mapped_cells": 3853,
+  "mapped_cell_area_um2": 55668.8538,
+  "mapped_sequential_cells": 412,
+  "mapped_sequential_area_um2": 20183.3856,
+  "final_metrics": {
+    "design__instance__count__stdcell": 4584,
+    "design__instance__area__stdcell": 65737.5,
+    "design__instance__utilization": 0.0544107,
+    "design__instance__count": 97099,
+    "design__instance__area": 1208170,
+    "timing__setup__ws": 6.450444805316281,
+    "timing__hold__ws": 0.12737489201693,
+    "route__drc_errors": 0,
+    "magic__drc_error__count": 0,
+    "design__lvs_error__count": 0,
+    "antenna__violating__nets": 0,
+    "antenna__violating__pins": 0,
+    "route__antenna_violation__count": 0,
+    "design__power_grid_violation__count": 0,
+    "design__max_fanout_violation__count": 30,
+    "design__max_cap_violation__count": 0,
+    "design__max_slew_violation__count": 0
+  },
+  "corner_timing_ns": {
+    "nom_fast_1p32V_m40C": {
+      "setup__ws": 9.591369747687377,
+      "hold__ws": 0.12737489201693,
+      "setup__tns": 0,
+      "hold__tns": 0
+    },
+    "nom_slow_1p08V_125C": {
+      "setup__ws": 6.450444805316281,
+      "hold__ws": 0.680729991643351,
+      "setup__tns": 0,
+      "hold__tns": 0
+    },
+    "nom_typ_1p20V_25C": {
+      "setup__ws": 8.413241896842736,
+      "hold__ws": 0.3318020951907469,
+      "setup__tns": 0,
+      "hold__tns": 0
+    }
+  },
+  "fanout_violations": {
+    "nom_fast_1p32V_m40C": [
+      {
+        "driver_pin": "clkbuf_leaf_10_clk/X",
+        "limit": 8,
+        "fanout": 16,
+        "slack": -8
+      },
+      {
+        "driver_pin": "clkbuf_leaf_0_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_19_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_1_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_20_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_21_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_2_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_5_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_7_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_9_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_12_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_23_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_24_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_26_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_27_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_28_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_29_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_3_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_4_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_8_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_14_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_15_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_16_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_17_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_18_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_22_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_6_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_30_clk/X",
+        "limit": 8,
+        "fanout": 12,
+        "slack": -4
+      },
+      {
+        "driver_pin": "clkbuf_leaf_11_clk/X",
+        "limit": 8,
+        "fanout": 11,
+        "slack": -3
+      },
+      {
+        "driver_pin": "clkbuf_leaf_13_clk/X",
+        "limit": 8,
+        "fanout": 10,
+        "slack": -2
+      }
+    ],
+    "nom_slow_1p08V_125C": [
+      {
+        "driver_pin": "clkbuf_leaf_10_clk/X",
+        "limit": 8,
+        "fanout": 16,
+        "slack": -8
+      },
+      {
+        "driver_pin": "clkbuf_leaf_0_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_19_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_1_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_20_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_21_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_2_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_5_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_7_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_9_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_12_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_23_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_24_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_26_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_27_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_28_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_29_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_3_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_4_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_8_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_14_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_15_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_16_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_17_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_18_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_22_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_6_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_30_clk/X",
+        "limit": 8,
+        "fanout": 12,
+        "slack": -4
+      },
+      {
+        "driver_pin": "clkbuf_leaf_11_clk/X",
+        "limit": 8,
+        "fanout": 11,
+        "slack": -3
+      },
+      {
+        "driver_pin": "clkbuf_leaf_13_clk/X",
+        "limit": 8,
+        "fanout": 10,
+        "slack": -2
+      }
+    ],
+    "nom_typ_1p20V_25C": [
+      {
+        "driver_pin": "clkbuf_leaf_10_clk/X",
+        "limit": 8,
+        "fanout": 16,
+        "slack": -8
+      },
+      {
+        "driver_pin": "clkbuf_leaf_0_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_19_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_1_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_20_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_21_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_2_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_5_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_7_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_9_clk/X",
+        "limit": 8,
+        "fanout": 15,
+        "slack": -7
+      },
+      {
+        "driver_pin": "clkbuf_leaf_12_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_23_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_24_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_26_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_27_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_28_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_29_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_3_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_4_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_8_clk/X",
+        "limit": 8,
+        "fanout": 14,
+        "slack": -6
+      },
+      {
+        "driver_pin": "clkbuf_leaf_14_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_15_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_16_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_17_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_18_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_22_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_6_clk/X",
+        "limit": 8,
+        "fanout": 13,
+        "slack": -5
+      },
+      {
+        "driver_pin": "clkbuf_leaf_30_clk/X",
+        "limit": 8,
+        "fanout": 12,
+        "slack": -4
+      },
+      {
+        "driver_pin": "clkbuf_leaf_11_clk/X",
+        "limit": 8,
+        "fanout": 11,
+        "slack": -3
+      },
+      {
+        "driver_pin": "clkbuf_leaf_13_clk/X",
+        "limit": 8,
+        "fanout": 10,
+        "slack": -2
+      }
+    ]
+  },
+  "precheck": {
+    "status": "PASS",
+    "test_count": 10,
+    "tests": [
+      {
+        "name": "KLayout pin label overlapping drawing",
+        "time": "1.5"
+      },
+      {
+        "name": "KLayout SG13CMOS5L DRC",
+        "time": "1872.32"
+      },
+      {
+        "name": "KLayout zero area",
+        "time": "1.61"
+      },
+      {
+        "name": "KLayout Checks",
+        "time": "0.05"
+      },
+      {
+        "name": "Pin check",
+        "time": "0.08"
+      },
+      {
+        "name": "Boundary check",
+        "time": "0.07"
+      },
+      {
+        "name": "Layer check",
+        "time": "0.05"
+      },
+      {
+        "name": "Cell name check",
+        "time": "0.03"
+      },
+      {
+        "name": "Analog pin check",
+        "time": "0.0"
+      },
+      {
+        "name": "Verilog syntax check",
+        "time": "12.52"
+      }
+    ],
+    "junit_sha256": "c093917382db11e4f6d868f648f22becd415402df80f2a88be4b65d5b2ceeb18"
+  },
+  "netlist_tests": {
+    "evidence_kind": "FUNCTIONAL_ZERO_DELAY_NETLIST",
+    "excluded_discovered_tests": [
+      "test.invalid_length_never_releases_engine",
+      "test.synchronized_input_wait_event_and_timeout",
+      "test.loop_target_overflow_faults_without_alias",
+      "test.timed_shift_burst_invalid_freeze_and_reset",
+      "test.timed_shift_burst_trace_matches_semantic_model",
+      "test.shift_trace_matches_semantic_model",
+      "test.shift_invalid_partial_and_reset_fail_closed",
+      "test.randomized_trace_matches_reviewed_model",
+      "test.invalid_encoding_and_out_of_range_fail_closed",
+      "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+    ],
+    "expected_negative_controls": 4,
+    "junit_sha256": "fc611ad0572fe5461d0a1576516169eaab612561b153159a1c4273d4249c813e",
+    "netlist_sha256": "d0037180f3be5428fbcb11df17e540f87757b1e1333a9b4a398a920f9b67b4e4",
+    "positive": 1048,
+    "public_test_groups": 12,
+    "records_sha256": "757b58b46dabe327fe159fe76cb5e76df44d4c17dd1de8cb798cc6c7c27649b8",
+    "reference_records_identical": true,
+    "spi_transfers": 1052,
+    "status": "PASS",
+    "variant": "P"
+  },
+  "verified_artifacts": [
+    {
+      "id": 13919749194,
+      "name": "gatelevel_test_results",
+      "size_in_bytes": 133283,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13919749194",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13919749194/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:16:32Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:16:32Z",
+      "digest": "sha256:23eed3678044fee74592aec87ba45a54043540a823a58e5fe0bc52dcb35b789e",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    },
+    {
+      "id": 13919857977,
+      "name": "GDS_logs",
+      "size_in_bytes": 73160768,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13919857977",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13919857977/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:10:26Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:10:26Z",
+      "digest": "sha256:c767729dbc99e26f8110b99b7b0f65a97f6e45b511f8a24764f6a57e7b383758",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    },
+    {
+      "id": 13920765357,
+      "name": "physical-candidate",
+      "size_in_bytes": 3912,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920765357",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920765357/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:11:26Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:11:26Z",
+      "digest": "sha256:dae53998a63817f6e30b682116f6773cd52221fdd15738769bff84286533554c",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    },
+    {
+      "id": 13920950243,
+      "name": "physical-netlist-check",
+      "size_in_bytes": 2909,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920950243",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920950243/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:16:33Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:16:33Z",
+      "digest": "sha256:87f243bab363e2500a17cd8f5c7ceb38527aa4524d5263bf8b69497c95ef8952",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    },
+    {
+      "id": 13921911696,
+      "name": "precheck_reports",
+      "size_in_bytes": 6914,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13921911696",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13921911696/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:44:28Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:44:28Z",
+      "digest": "sha256:fd06d938544337e554ecc27a189ae3f0620f8a4d3c435641e09ab8be6f6e9bc0",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    },
+    {
+      "id": 13920545977,
+      "name": "tt_submission",
+      "size_in_bytes": 3519794,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920545977",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13920545977/zip",
+      "expired": false,
+      "created_at": "2026-11-12T06:10:29Z",
+      "expires_at": "2027-02-10T05:02:15Z",
+      "updated_at": "2026-11-12T06:10:29Z",
+      "digest": "sha256:81efe0edf0ee3e73ea3434d264a4a4b0cc2b5575dd7f7d22e5dcd8234e083f5e",
+      "workflow_run": {
+        "id": 43158656790,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "3868ad2cfe33c98dfbf30c2190d75877a66295cc"
+      }
+    }
+  ],
+  "scope": "Official default-flow result retained. Positive timing and zero DRC/LVS do not erase reported fanout-limit violations. G1 adoption remains pending correction and complete acceptance."
+}

@@ -1,0 +1,142 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+Startpoint: ui_in[0] (input port clocked by clk)
+Endpoint: uio_out[3] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  4.000000    4.000000 ^ input external delay
+     1    0.003938    0.021099    0.003387    4.003386 ^ ui_in[0] (in)
+                                                         ui_in[0] (net)
+                      0.021099    0.000000    4.003386 ^ _3495_/A (sg13cmos5l_buf_1)
+     7    0.037074    0.156511    0.161174    4.164560 ^ _3495_/X (sg13cmos5l_buf_1)
+                                                         _2952_ (net)
+                      0.156553    0.002214    4.166775 ^ _3507_/A (sg13cmos5l_buf_1)
+     8    0.110395    0.450561    0.427960    4.594735 ^ _3507_/X (sg13cmos5l_buf_1)
+                                                         _2964_ (net)
+                      0.450562    0.000641    4.595376 ^ _3508_/A (sg13cmos5l_buf_1)
+     8    0.119755    0.488722    0.511597    5.106974 ^ _3508_/X (sg13cmos5l_buf_1)
+                                                         _2965_ (net)
+                      0.488722    0.000086    5.107059 ^ _3639_/S0 (sg13cmos5l_mux4_1)
+     1    0.015081    0.084668    0.394605    5.501665 v _3639_/X (sg13cmos5l_mux4_1)
+                                                         _0427_ (net)
+                      0.084668    0.000307    5.501971 v _3640_/A1 (sg13cmos5l_mux2_1)
+     1    0.003652    0.038481    0.139420    5.641391 v _3640_/X (sg13cmos5l_mux2_1)
+                                                         _0428_ (net)
+                      0.038481    0.000003    5.641395 v _3641_/B1 (sg13cmos5l_a221oi_1)
+     1    0.011148    0.201639    0.203125    5.844519 ^ _3641_/Y (sg13cmos5l_a221oi_1)
+                                                         _0429_ (net)
+                      0.201639    0.000329    5.844848 ^ _3645_/A2 (sg13cmos5l_a221oi_1)
+     1    0.005366    0.111066    0.148406    5.993254 v _3645_/Y (sg13cmos5l_a221oi_1)
+                                                         _0433_ (net)
+                      0.111066    0.000060    5.993314 v _3646_/B1 (sg13cmos5l_a21o_1)
+     1    0.013409    0.058047    0.171121    6.164435 v _3646_/X (sg13cmos5l_a21o_1)
+                                                         uio_out[3] (net)
+                      0.058048    0.000295    6.164731 v uio_out[3] (out)
+                                              6.164731   data arrival time
+
+                                 20.000000   20.000000   clock clk (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -4.000000   15.750001   output external delay
+                                             15.750001   data required time
+---------------------------------------------------------------------------------------------
+                                             15.750001   data required time
+                                             -6.164731   data arrival time
+---------------------------------------------------------------------------------------------
+                                              9.585270   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_typ_1p20V_25C Corner ===================================
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 49 unannotated drivers.
+ clkload0/X
+ clkload1/X
+ clkload10/Y
+ clkload11/X
+ clkload12/Y
+ clkload13/Y
+ clkload14/Y
+ clkload15/Y
+ clkload16/Y
+ clkload17/Y
+ clkload18/Y
+ clkload19/X
+ clkload2/X
+ clkload20/Y
+ clkload21/Y
+ clkload22/Y
+ clkload23/X
+ clkload24/Y
+ clkload25/X
+ clkload26/Y
+ clkload27/Y
+ clkload28/X
+ clkload29/X
+ clkload3/X
+ clkload30/X
+ clkload31/Y
+ clkload32/Y
+ clkload33/X
+ clkload34/Y
+ clkload35/X
+ clkload36/Y
+ clkload37/Y
+ clkload38/Y
+ clkload39/X
+ clkload4/X
+ clkload40/X
+ clkload41/Y
+ clkload42/Y
+ clkload43/X
+ clkload44/X
+ clkload45/Y
+ clkload46/Y
+ clkload47/Y
+ clkload48/Y
+ clkload5/X
+ clkload6/Y
+ clkload7/X
+ clkload8/X
+ clkload9/X
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+Writing metric design__max_slew_violation__count__corner:nom_typ_1p20V_25C: 0
+max fanout violation count 0
+Writing metric design__max_fanout_violation__count__corner:nom_typ_1p20V_25C: 0
+max cap violation count 0
+Writing metric design__max_cap_violation__count__corner:nom_typ_1p20V_25C: 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================

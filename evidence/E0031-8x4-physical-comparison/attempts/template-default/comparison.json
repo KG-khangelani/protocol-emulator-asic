@@ -1,0 +1,16 @@
+{
+  "schema": "protocol-emulator-g1-template-comparison-v1",
+  "status": "REVISION_REQUIRED_FANOUT_LIMITS",
+  "workflow_source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "resolved_configurations_identical": true,
+  "final_sdc_identical": true,
+  "mapped_area_saved_um2": 8900.199,
+  "routed_standard_cell_area_saved_um2": 10256.800000000003,
+  "routed_standard_cell_area_saved_percent": 13.49680173381425,
+  "formula": "100*(compact10 final stdcell area - P final stdcell area)/compact10 final stdcell area",
+  "qualification_boundary": "Both official GDS and real-netlist public tests pass; precheck states are per-variant. Fanout constraints remain violated (P 30, compact10 37). No final adoption or production promotion.",
+  "variant_results": {
+    "P": "P/result.json",
+    "compact10": "compact10/result.json"
+  }
+}

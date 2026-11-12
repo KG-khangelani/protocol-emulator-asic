@@ -1,0 +1,109 @@
+{
+  "status": "DIAGNOSTIC_PASS_CHECKED_STAGES_ONLY",
+  "all_required_official_gates_run": false,
+  "metrics": {
+    "design__instance__area__stdcell": 76230.2,
+    "design__instance__count__stdcell": 4938,
+    "design__max_fanout_violation__count": 0,
+    "design__max_cap_violation__count": 0,
+    "design__max_slew_violation__count": 0,
+    "timing__setup__ws": 4.438053605787992,
+    "timing__hold__ws": 0.12259044126814563,
+    "route__drc_errors": 0,
+    "route__antenna_violation__count": 0,
+    "antenna__violating__nets": 0,
+    "antenna__violating__pins": 0
+  },
+  "fresh_corner_timing_ns": {
+    "nom_fast_1p32V_m40C": {
+      "setup": 8.78919628621506,
+      "hold": 0.12259044126814563
+    },
+    "nom_slow_1p08V_125C": {
+      "setup": 4.438053605787992,
+      "hold": 0.6553392458632257
+    },
+    "nom_typ_1p20V_25C": {
+      "setup": 7.182885600728928,
+      "hold": 0.3197491251164763
+    }
+  },
+  "electrical_counts": {
+    "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+    "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+    "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+    "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+    "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+    "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+    "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+    "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+    "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+    "design__max_slew_violation__count": 0,
+    "design__max_fanout_violation__count": 0,
+    "design__max_cap_violation__count": 0
+  },
+  "config": {
+    "MAX_FANOUT_CONSTRAINT": 8,
+    "CTS_SINK_CLUSTERING_SIZE": 8,
+    "CTS_DISTANCE_BETWEEN_BUFFERS": 100,
+    "DRT_ANTENNA_REPAIR_JUMPER_ONLY": true
+  },
+  "config_sha256": "011a43c4b9d07f6db9adf8eac767ab1f1644f0514f2e6b7e03ef5a5381be4a41",
+  "source_sha256": {
+    "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "state_inputs": [
+    {
+      "stage": "01-openroad-detailedrouting",
+      "sha256": "81d5c6ab9a06ccbcb15d1adee5604bf81a0211fafe7de1afd0be79f1c30396e3"
+    },
+    {
+      "stage": "02-odb-removeroutingobstructions",
+      "sha256": "06ea18126e2547feb4bfe35acaa7cc3d9134aeb65ac464ef42f630381b7fed80"
+    },
+    {
+      "stage": "03-openroad-checkantennas-1",
+      "sha256": "06ea18126e2547feb4bfe35acaa7cc3d9134aeb65ac464ef42f630381b7fed80"
+    },
+    {
+      "stage": "04-checker-trdrc",
+      "sha256": "cd82f48ab7ff349e023b3a90ea4ce8a1c8c88aa1700aa86b9ccdeb7b7a8b11b5"
+    },
+    {
+      "stage": "05-odb-reportdisconnectedpins",
+      "sha256": "cd82f48ab7ff349e023b3a90ea4ce8a1c8c88aa1700aa86b9ccdeb7b7a8b11b5"
+    },
+    {
+      "stage": "06-checker-disconnectedpins",
+      "sha256": "d41d8c11a41ade5d5c6cc3c2066df30376d455dbd855fea0c554deb0a0c80b67"
+    },
+    {
+      "stage": "07-odb-reportwirelength",
+      "sha256": "d41d8c11a41ade5d5c6cc3c2066df30376d455dbd855fea0c554deb0a0c80b67"
+    },
+    {
+      "stage": "08-checker-wirelength",
+      "sha256": "c6b36ae38bb6f6dae614dff576ab700bd2875089332e2ac9085f4f247e0c107d"
+    },
+    {
+      "stage": "09-openroad-fillinsertion",
+      "sha256": "c6b36ae38bb6f6dae614dff576ab700bd2875089332e2ac9085f4f247e0c107d"
+    },
+    {
+      "stage": "10-odb-cellfrequencytables",
+      "sha256": "2a3ca9dfc425241b1032c201d2f5a53b933567554acb6f95b826037096484b55"
+    },
+    {
+      "stage": "11-openroad-rcx",
+      "sha256": "3f588c999f60a434becd5234269171bfb27c0c9d25c18473e21d565cb3def13b"
+    },
+    {
+      "stage": "12-openroad-stapostpnr",
+      "sha256": "20bdd85bba32e8ccecd557ee0ee54e7ab34a20fe3b853cbb962a8d047688fb17"
+    }
+  ]
+}

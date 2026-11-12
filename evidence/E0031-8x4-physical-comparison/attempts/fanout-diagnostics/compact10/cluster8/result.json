@@ -1,0 +1,281 @@
+{
+  "status": "DIAGNOSTIC_FAIL",
+  "all_required_official_gates_run": false,
+  "metrics": {
+    "design__instance__area__stdcell": 75818.3,
+    "design__instance__count__stdcell": 4936,
+    "design__max_fanout_violation__count": 3,
+    "design__max_cap_violation__count": 0,
+    "design__max_slew_violation__count": 0,
+    "timing__setup__ws": 4.49222627367287,
+    "timing__hold__ws": 0.11218315482982001,
+    "route__drc_errors": 0,
+    "route__antenna_violation__count": 0,
+    "antenna__violating__nets": 0,
+    "antenna__violating__pins": 0
+  },
+  "fresh_corner_timing_ns": {
+    "nom_fast_1p32V_m40C": {
+      "setup": 8.823097169275377,
+      "hold": 0.11218315482982001
+    },
+    "nom_slow_1p08V_125C": {
+      "setup": 4.49222627367287,
+      "hold": 0.6486619203150724
+    },
+    "nom_typ_1p20V_25C": {
+      "setup": 7.223362556994688,
+      "hold": 0.3048716920765268
+    }
+  },
+  "electrical_counts": {
+    "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+    "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 3,
+    "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+    "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+    "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 3,
+    "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+    "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+    "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 3,
+    "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+    "design__max_slew_violation__count": 0,
+    "design__max_fanout_violation__count": 3,
+    "design__max_cap_violation__count": 0
+  },
+  "config": {
+    "MAX_FANOUT_CONSTRAINT": 8,
+    "CTS_SINK_CLUSTERING_SIZE": 8,
+    "CTS_DISTANCE_BETWEEN_BUFFERS": 0,
+    "DRT_ANTENNA_REPAIR_JUMPER_ONLY": false
+  },
+  "config_sha256": "f903e3fc232effca4eeb617f85e4e93690c1cd15f85839cb1c8b7b784264479c",
+  "source_sha256": {
+    "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "state_inputs": [
+    {
+      "stage": "01-verilator-lint",
+      "sha256": "8bbbb272fcbae1f9f875f02f7fae97bb73751ce58d1f651e21b7928aaf9cee9d"
+    },
+    {
+      "stage": "02-checker-linttimingconstructs",
+      "sha256": "5f5801b28c48db8e96672a7a526400fb6385513513d719b62c64fe8547e2a181"
+    },
+    {
+      "stage": "03-checker-linterrors",
+      "sha256": "5f5801b28c48db8e96672a7a526400fb6385513513d719b62c64fe8547e2a181"
+    },
+    {
+      "stage": "04-checker-lintwarnings",
+      "sha256": "5f5801b28c48db8e96672a7a526400fb6385513513d719b62c64fe8547e2a181"
+    },
+    {
+      "stage": "05-yosys-jsonheader",
+      "sha256": "5f5801b28c48db8e96672a7a526400fb6385513513d719b62c64fe8547e2a181"
+    },
+    {
+      "stage": "06-yosys-synthesis",
+      "sha256": "c4b61b3a69a62aa04078a721caff84890b3f1157bdbb6dba39ce9d9ab6f90b5e"
+    },
+    {
+      "stage": "07-checker-yosysunmappedcells",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "08-checker-yosyssynthchecks",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "09-checker-netlistassignstatements",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "10-openroad-checksdcfiles",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "11-openroad-checkmacroinstances",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "12-openroad-staprepnr",
+      "sha256": "70bc04669815bfb0041e240523810558c496cef2b698189154974ef427c62dd3"
+    },
+    {
+      "stage": "13-openroad-floorplan",
+      "sha256": "f0f6618ecf9b7d8d137c52f6e5e0b9ceec138f96e1a9bac21b8867b9939454ac"
+    },
+    {
+      "stage": "14-openroad-dumprcvalues",
+      "sha256": "333f4df2494c911f70a0bfa4abe8c568455c7fc3fe7aba693a856db54673eee6"
+    },
+    {
+      "stage": "15-odb-checkmacroantennaproperties",
+      "sha256": "333f4df2494c911f70a0bfa4abe8c568455c7fc3fe7aba693a856db54673eee6"
+    },
+    {
+      "stage": "16-odb-setpowerconnections",
+      "sha256": "333f4df2494c911f70a0bfa4abe8c568455c7fc3fe7aba693a856db54673eee6"
+    },
+    {
+      "stage": "17-odb-manualmacroplacement",
+      "sha256": "23cf2fe7cdde2b986f9681dab6d6a4a20332787e1309b3b270006ec608c9de95"
+    },
+    {
+      "stage": "18-openroad-cutrows",
+      "sha256": "23cf2fe7cdde2b986f9681dab6d6a4a20332787e1309b3b270006ec608c9de95"
+    },
+    {
+      "stage": "19-openroad-tapendcapinsertion",
+      "sha256": "45619fac40d3cbb6488ca2526e5cc18f9aea785b1e752c7734075d99bc55d1cd"
+    },
+    {
+      "stage": "20-odb-addpdnobstructions",
+      "sha256": "bf04c165d6633b9d8a023f8ce28ba9dd74ccf68111b0828c95f416b86511b310"
+    },
+    {
+      "stage": "21-openroad-generatepdn",
+      "sha256": "bf04c165d6633b9d8a023f8ce28ba9dd74ccf68111b0828c95f416b86511b310"
+    },
+    {
+      "stage": "22-odb-removepdnobstructions",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "23-odb-addroutingobstructions",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "24-openroad-globalplacementskipio",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "25-openroad-ioplacement",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "26-odb-customioplacement",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "27-odb-applydeftemplate",
+      "sha256": "6dd545171c011e074ff8eaf35e0d9a1cd3a9146c1746553b448916330a83edeb"
+    },
+    {
+      "stage": "28-openroad-globalplacement",
+      "sha256": "206f0e03d032292f8dbb18ab30130e692987e4de403bd7556ab95c3d54b81745"
+    },
+    {
+      "stage": "29-odb-writeverilogheader",
+      "sha256": "0b4e0d63b526ab7c4bc52fd0e83688eba11565af3bdd2a891ad6c8122bfe65bc"
+    },
+    {
+      "stage": "30-checker-powergridviolations",
+      "sha256": "90cabe6befa6559dc2c5b20bc4994d6a6403d9721b5b2996f965b70f4c53b5b8"
+    },
+    {
+      "stage": "31-openroad-stamidpnr",
+      "sha256": "90cabe6befa6559dc2c5b20bc4994d6a6403d9721b5b2996f965b70f4c53b5b8"
+    },
+    {
+      "stage": "32-openroad-repairdesignpostgpl",
+      "sha256": "dbdf559028479adcf22994044422c4ce34825d72cb9a718ce0a3f54edc5a7a06"
+    },
+    {
+      "stage": "33-odb-manualglobalplacement",
+      "sha256": "d618591c72d42eeee2155a3ea990752f0f9089c0e140cca4f5d83ad104297bbe"
+    },
+    {
+      "stage": "34-openroad-detailedplacement",
+      "sha256": "d618591c72d42eeee2155a3ea990752f0f9089c0e140cca4f5d83ad104297bbe"
+    },
+    {
+      "stage": "35-openroad-cts",
+      "sha256": "f5e9aadb46e2c242fb61a754b7f5caa05dd942143e61dbf0a7a782190b634456"
+    },
+    {
+      "stage": "36-openroad-stamidpnr-1",
+      "sha256": "0f742d68ca2fd335e3d77403444c1a84a6e51adfb0d0ddd98baeade5ec7c5629"
+    },
+    {
+      "stage": "37-openroad-resizertimingpostcts",
+      "sha256": "68f5a15b684b42c276e9389716d7562b73ed8a2a32de9d29e8e73dad36996840"
+    },
+    {
+      "stage": "38-openroad-stamidpnr-2",
+      "sha256": "9b5e950ae0917f25d3563f3207f4f3edb61b9141d80674ad7426d442c8debad0"
+    },
+    {
+      "stage": "39-openroad-globalrouting",
+      "sha256": "eeca49d9ace73caaaad7013570afb993119e77cdd3895fe324d7b9c07733af2d"
+    },
+    {
+      "stage": "40-openroad-checkantennas",
+      "sha256": "2ef054e73f83b832a4104d8debb360f258a61651d0715dadaa4768bf68bbdb5f"
+    },
+    {
+      "stage": "41-odb-diodesonports",
+      "sha256": "5e3639be313a857de4c73847fccc4029bdfe768f7182ee991329c73e84676a28"
+    },
+    {
+      "stage": "42-openroad-repairantennas",
+      "sha256": "5e3639be313a857de4c73847fccc4029bdfe768f7182ee991329c73e84676a28"
+    },
+    {
+      "stage": "43-openroad-stamidpnr-3",
+      "sha256": "3a7a03499ad5e76cda4f95c6a29a94d063521a4fb6c86e24f28592febc3b723a"
+    },
+    {
+      "stage": "44-openroad-detailedrouting",
+      "sha256": "de0881889da6096cdfb4f7c0041c127e50e0f7b13f6554851ad824499f1407e2"
+    },
+    {
+      "stage": "45-odb-removeroutingobstructions",
+      "sha256": "17580b65cf017e8323b360335e8ec816a4c796d74948b6b1661207a4f7a44cbe"
+    },
+    {
+      "stage": "46-openroad-checkantennas-1",
+      "sha256": "17580b65cf017e8323b360335e8ec816a4c796d74948b6b1661207a4f7a44cbe"
+    },
+    {
+      "stage": "47-checker-trdrc",
+      "sha256": "d6e01aa2dd0f5ff3afe5ad5753172662b8710c8bdd71673991f4af5f56fe017d"
+    },
+    {
+      "stage": "48-odb-reportdisconnectedpins",
+      "sha256": "d6e01aa2dd0f5ff3afe5ad5753172662b8710c8bdd71673991f4af5f56fe017d"
+    },
+    {
+      "stage": "49-checker-disconnectedpins",
+      "sha256": "73d285b099371da2921ace522bcafe34562ef81e3e41ee0918eeb422de94e54a"
+    },
+    {
+      "stage": "50-odb-reportwirelength",
+      "sha256": "73d285b099371da2921ace522bcafe34562ef81e3e41ee0918eeb422de94e54a"
+    },
+    {
+      "stage": "51-checker-wirelength",
+      "sha256": "d63736d961a4ee8374da30f1d651fd3afb6367562721242c4ff53b9ef07de378"
+    },
+    {
+      "stage": "52-openroad-fillinsertion",
+      "sha256": "d63736d961a4ee8374da30f1d651fd3afb6367562721242c4ff53b9ef07de378"
+    },
+    {
+      "stage": "53-odb-cellfrequencytables",
+      "sha256": "98516c31f9343c3266d24f5560e4e3498e2c28c1691bbdb38b7a7d814ff64666"
+    },
+    {
+      "stage": "54-openroad-rcx",
+      "sha256": "ce3da3001e44cf5b44b33932fb6b4aa43c1e7498a6ab9c6759bfbc6feca579f8"
+    },
+    {
+      "stage": "55-openroad-stapostpnr",
+      "sha256": "1b158bebb00ec97ad27844db68199fa2c4c6285cd32efb91bdc6efdb74a3dfbf"
+    }
+  ]
+}

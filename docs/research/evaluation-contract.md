@@ -5,6 +5,7 @@ does not select an architecture or start M1. The machine-readable vocabulary is
 [`evaluation-contract.json`](evaluation-contract.json).
 
 D33 updates the current physical allocation to 8x4 on 2026-11-12.
+D34 records a shared fanout correction after the first routed results.
 The new pinned flow is a candidate pending E0031; historical 6x4 results
 remain measurements under their original conditions. The comparison is
 [frozen separately](../specs/g1-cmos5l-physical-comparison.md).

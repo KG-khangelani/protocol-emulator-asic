@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -141,6 +142,50 @@ def prepare(args):
     print(f"PASS: {args.variant} source identities match E0030; inputs: {out / 'inputs.json'}")
 
 
+SIGNOFF_CORNERS = ("nom_fast_1p32V_m40C", "nom_slow_1p08V_125C", "nom_typ_1p20V_25C")
+
+
+def inspect_physical_metrics(metrics):
+    """Fail closed on final physical counts and setup/hold at all frozen corners."""
+    zero_counts = (
+        "route__drc_errors", "route__antenna_violation__count",
+        "antenna__violating__nets", "antenna__violating__pins",
+        "magic__drc_error__count", "design__lvs_error__count",
+        "design__power_grid_violation__count",
+    )
+    electrical = tuple(f"design__max_{kind}_violation__count"
+                       for kind in ("fanout", "cap", "slew"))
+    slacks = ("timing__setup__ws", "timing__hold__ws")
+    checked, errors = {}, []
+    requirements = [(key, "zero") for key in zero_counts]
+    for corner in (None, *SIGNOFF_CORNERS):
+        suffix = "" if corner is None else f"__corner:{corner}"
+        requirements.extend((key + suffix, "zero") for key in electrical)
+        requirements.extend((key + suffix, "nonnegative") for key in slacks)
+    for key, condition in requirements:
+        value = metrics.get(key)
+        valid = (isinstance(value, (int, float)) and not isinstance(value, bool)
+                 and math.isfinite(value))
+        checked[key] = value if valid else None
+        if not valid:
+            errors.append(f"{key}: missing or non-finite numeric result")
+        elif (condition == "zero" and value != 0) or (condition == "nonnegative" and value < 0):
+            errors.append(f"{key}: {value} violates {condition} requirement")
+    return {"status": "PASS" if not errors else "FAIL", "checked": checked, "errors": errors}
+
+
+def verify_run_configuration(resolved, lock):
+    for name, expected in lock["physical_constraints"].items():
+        require(resolved.get(name) == expected, f"resolved {name} differs")
+    die = resolved["DIE_AREA"]
+    if isinstance(die, str):
+        die = die.split()
+    require([float(n) for n in die] == lock["die_area_um"], "resolved die area differs")
+    require(resolved["DEFAULT_CORNER"] == lock["default_corner"], "default corner drift")
+    require(resolved["RT_MAX_LAYER"] == "Metal4", "routing layer differs")
+    require(tuple(resolved["STA_CORNERS"]) == SIGNOFF_CORNERS, "signoff corner set drift")
+
+
 def check_run(args):
     run = args.run.resolve()
     lock = candidate_lock()
@@ -151,16 +196,7 @@ def check_run(args):
             "PDK identity drift")
     require(pdk["PDK_SOURCE"] == lock["pdk_source"], "PDK source drift")
     resolved = read_json(run / "resolved.json")
-    for name, expected in (("CLOCK_PERIOD", 20), ("PL_TARGET_DENSITY_PCT", 60),
-                           ("PL_RESIZER_HOLD_SLACK_MARGIN", 0.1),
-                           ("GRT_RESIZER_HOLD_SLACK_MARGIN", 0.05)):
-        require(float(resolved[name]) == expected, f"resolved {name} differs")
-    die = resolved["DIE_AREA"]
-    if isinstance(die, str):
-        die = die.split()
-    require([float(n) for n in die] == lock["die_area_um"], "resolved die area differs")
-    require(resolved["DEFAULT_CORNER"] == lock["default_corner"], "default corner drift")
-    require(resolved["RT_MAX_LAYER"] == "Metal4", "routing layer differs")
+    verify_run_configuration(resolved, lock)
     require(text_digest(ROOT / "src/config.json") == lock["config_sha256_lf"],
             "shared configuration changed during flow")
     support_commit = subprocess.check_output(["git", "-C", str(ROOT / "tt"),
@@ -169,19 +205,28 @@ def check_run(args):
     netlist = ROOT / "tt_submission/tt_um_khangelani_protocol_emulator.v"
     require(netlist.is_file(), "submission netlist missing")
     require("sg13cmos5l_" in netlist.read_text(encoding="utf-8"), "not a CMOS5L netlist")
+    metrics_path = run / "final/metrics.json"
+    metrics_review = inspect_physical_metrics(read_json(metrics_path))
     record = {
-        "status": "INPUT_IDENTITIES_VERIFIED_PHYSICAL_REVIEW_PENDING",
+        "status": ("INPUT_IDENTITIES_AND_PHYSICAL_METRICS_VERIFIED_PRECHECK_PENDING"
+                   if metrics_review["status"] == "PASS" else "PHYSICAL_METRICS_FAILED"),
+        "physical_metrics": metrics_review,
+        "metrics_sha256": digest(metrics_path),
         "variant": args.variant, "source_sha256": sources, "pdk": pdk,
         "netlist_sha256": digest(netlist),
         "resolved_config_sha256": digest(run / "resolved.json"),
         "comparison_configuration": {key: resolved.get(key) for key in (
             "CLOCK_PERIOD", "PL_TARGET_DENSITY_PCT", "PL_RESIZER_HOLD_SLACK_MARGIN",
             "GRT_RESIZER_HOLD_SLACK_MARGIN", "DIE_AREA", "DEFAULT_CORNER", "STA_CORNERS",
-            "STD_CELL_LIBRARY", "LIB", "RT_MAX_LAYER", "RANDOM_GLB_PLACEMENT",
+            "STD_CELL_LIBRARY", "CELL_LIBS", "EXTRA_LIBS", "RT_MAX_LAYER",
+            "MAX_FANOUT_CONSTRAINT", "CTS_SINK_CLUSTERING_SIZE",
+            "CTS_DISTANCE_BETWEEN_BUFFERS", "RANDOM_GLB_PLACEMENT",
             "PL_RANDOM_SEED", "PNR_SDC_FILE", "SIGNOFF_SDC_FILE")},
     }
     write_json(args.output, record)
-    print("PASS: physical input identities; inspect retained reports for physical acceptance")
+    require(metrics_review["status"] == "PASS",
+            "physical metrics failed: " + "; ".join(metrics_review["errors"]))
+    print("PASS: physical inputs, timing and violation counts; precheck and netlist tests remain separate")
 
 
 def check_tests(args):

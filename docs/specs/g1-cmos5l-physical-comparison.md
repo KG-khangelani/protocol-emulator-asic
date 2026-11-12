@@ -1,7 +1,7 @@
 # G1 - Matched 8x4 CMOS5L experiment
 
-Frozen: 2026-11-12, D33. Question: does E0030's timed post-action GPIO P
-retain a complete-chip advantage over compact10 in the current official flow,
+Frozen: 2026-11-12, D33; shared electrical correction D34.
+Question: does E0030's timed post-action GPIO P retain a complete-chip advantage over compact10 in the current official flow,
 and does a candidate meet the 20 ns target after routing?
 
 ## Candidates and boundaries
@@ -30,7 +30,10 @@ The candidate lock is `official_cmos5l_8x4` in
 - Metadata: 8x4; template die rectangle `0 0 1724.16 710.64` micrometres.
   This is the template boundary, not usable standard-cell area.
 - Clock: 50 MHz / 20 ns. Placement density: 60%; hold margins: 0.1/0.05 ns.
-  All functional configuration values match the audited current template.
+  These placement/timing settings match the audited template. D34 adds shared
+  MAX_FANOUT_CONSTRAINT=8, CTS_SINK_CLUSTERING_SIZE=8 and
+  CTS_DISTANCE_BETWEEN_BUFFERS=100 micrometres after retained default-flow
+  fanout failures. The revised source digest and settings are locked together.
 - Same official pin DEF, support-generated constraints, library defaults, corner
   set and tool image for both variants. Retain resolved configuration, libraries,
   corner reports and seeds; abort comparison if these differ unexpectedly.
@@ -74,6 +77,9 @@ For each variant retain source/configuration hashes, mapped cell area and counts
 final cell area/utilization, storage capacity, setup and hold slack for every
 reported corner, violations, precheck and netlist test results, plus artifact
 checksums. Keep mapping, placement and final routing stages distinct.
+D34 explicitly gates zero final fanout/capacitance/slew, routing, antenna,
+power-grid, Magic and LVS violations, plus finite nonnegative setup/hold at
+every frozen corner. A green upstream job with a failing count is insufficient.
 
 Route both variants to permit a matched routed comparison. First reject any
 candidate that fails a required functional/physical gate. If both pass, compare

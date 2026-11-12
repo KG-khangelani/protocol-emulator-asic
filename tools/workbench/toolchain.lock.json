@@ -146,7 +146,17 @@
     ],
     "default_corner": "nom_typ_1p20V_25C",
     "clock_target_hz": 50000000,
-    "config_sha256_lf": "4b192dffa877dcefa4ab969af9dedf105375921aa179c677524fa88ac94bb510",
-    "state": "candidate-pending-e0031"
+    "config_sha256_lf": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+    "state": "candidate-d34-pending-e0031",
+    "configuration_decision": "D34",
+    "physical_constraints": {
+      "CLOCK_PERIOD": 20,
+      "PL_TARGET_DENSITY_PCT": 60,
+      "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+      "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+      "MAX_FANOUT_CONSTRAINT": 8,
+      "CTS_SINK_CLUSTERING_SIZE": 8,
+      "CTS_DISTANCE_BETWEEN_BUFFERS": 100
+    }
   }
 }

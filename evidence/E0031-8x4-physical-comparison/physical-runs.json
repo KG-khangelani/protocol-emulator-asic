@@ -1,23 +1,31 @@
 {
   "schema": "protocol-emulator-physical-runs-v1",
-  "observed_utc": "2026-11-12T05:57:43Z",
+  "observed_utc": "2026-11-12T06:56:13.364521+00:00",
   "workflow_source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
-  "status": "RUNNING_NOT_QUALIFIED",
+  "status": "DEFAULT_RUNS_COMPLETE_FANOUT_FAILED",
   "variants": {
     "P": {
       "run_id": 43158656790,
       "gds_job_id": 130984419268,
-      "status": "in_progress",
-      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158656790"
+      "status": "completed",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158656790",
+      "conclusion": "success",
+      "precheck": "PASS",
+      "electrical_acceptance": "FAIL",
+      "fanout_violations": 30
     },
     "compact10": {
       "run_id": 43158660511,
       "gds_job_id": 130984430687,
-      "status": "in_progress",
-      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158660511"
+      "status": "completed",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158660511",
+      "conclusion": "success",
+      "precheck": "PASS",
+      "electrical_acceptance": "FAIL",
+      "fanout_violations": 37
     }
   },
-  "observation": "Both clean checkout/source-staging steps passed; Build GDS remained live at observation. No physical result is inferred. Resume these exact runs without restarting them.",
+  "observation": "Both official GDS, ten-check precheck and twelve-group public netlist jobs pass; explicit final fanout review fails (30/37). Preserve these attempts and qualify D34 in fresh runs.",
   "source_verification": {
     "timed_comparison_run": 43158639030,
     "full_regression_run": 43158638898,

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--mount",
+    "type=bind,source=H:\\hikrepos\\protocol-emulator-asic,target=/workspace",
+    "--workdir",
+    "/workspace",
+    "protocol-emulator-asic-workbench:2026-07-29",
+    "make",
+    "doctor",
+    "check"
+  ],
+  "exit_code": 0,
+  "completed_utc": "2026-11-12T06:49:07Z",
+  "scope": "locked workbench identity, repository consistency and model/evidence guard unit tests; no new RTL simulation or physical qualification",
+  "retained_initial_failure": {
+    "command": "python -m unittest test.test_physical_candidate",
+    "exit_status": "ERROR",
+    "reason": "Windows host Python imported its standard-library test package; no project tests ran. Corrected to unittest discovery in the pinned workbench."
+  },
+  "log_sha256": "c974eeb857ccad236a873ab7e84213acc20139c09040c498d77e04bd6b4cdc8c"
+}

@@ -7,7 +7,7 @@ covering M3-T01/M3-T02/M5-T01. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
-Latest engineering result: **D31/E0030 selects isolated timed post-action GPIO P**.
+Current architectural candidate: **D31/E0030 selects isolated timed post-action GPIO P**.
 Both phase1 modes fit eight words and preserve the ten-word reference timing.
 P measures3,146 cells/412 bits versus matched compact10 3,589/477: 443 fewer
 generic cells and65 fewer state bits. P adds39 cells and no bits to compact8.
@@ -24,7 +24,14 @@ and shared PDK are pinned in a separate candidate lock. Metadata and the
 comparison contract use 8x4; existing placement/clock settings match the current
 template. The workflow stages E0030-identical P/compact10 source copies, with
 real-netlist public tests. [E0031](../evidence/E0031-8x4-physical-comparison/README.md)
-retains the audit and preflight results; physical qualification is pending.
+retains matched first routed results: P saves13.4968% standard-cell area,
+both meet the 20 ns setup/hold target and pass all 12 real-netlist public groups.
+The first builds still report 30/37 fanout violations despite all 10 official
+prechecks passing. [D34](decisions/0034-enforce-cmos5l-fanout-limits.md)
+records a common correction: the local routed compact10 clears the checked
+gates, while P retains one diode-induced fanout failure. Jumper-only repair
+leaves two antenna failures and is rejected. Fresh official qualification and
+the final adoption decision remain pending; compact10 is the viable fallback.
 The same 3868ad2 implementation now passes the fresh timed comparison
 (run43158639030), with all seven gate records, candidate source identities and
 six simulator record sets verified. The full regression at the same source

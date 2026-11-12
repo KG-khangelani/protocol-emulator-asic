@@ -1,5 +1,6 @@
 """Repository consistency checks only; not an HDL compiler or physical check."""
 import ast
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -46,6 +47,11 @@ for workflow in (ROOT / ".github/workflows").glob("*.yaml"):
         if not action_ref.startswith("./"):
             require(re.search(r"@[0-9a-f]{40}$", action_ref), f"mutable action ref in {workflow.name}: {action_ref}")
 physical = lock["official_cmos5l_8x4"]
+config_lf = (ROOT / "src/config.json").read_text(encoding="utf-8").encode()
+require(hashlib.sha256(config_lf).hexdigest() == physical["config_sha256_lf"],
+        "physical configuration hash differs from lock")
+for name, value in physical["physical_constraints"].items():
+    require(config.get(name) == value, f"physical constraint differs from lock: {name}")
 gds_workflow = (ROOT / ".github/workflows/gds.yaml").read_text()
 require(f"runs-on: {physical['runner']}" in gds_workflow, "physical runner differs from toolchain lock")
 require(f"uses: actions/checkout@{physical['checkout_action_commit']}" in gds_workflow, "physical checkout action differs from lock")
@@ -167,6 +173,8 @@ require(
 require(evaluation["physical_configuration"]["tiles"] == project["tiles"], "evaluation allocation mismatch")
 require(evaluation["clock_target_hz"] == project["clock_hz"], "evaluation clock mismatch")
 require(evaluation["physical_configuration"]["flow_lock_key"] == "official_cmos5l_8x4", "evaluation flow mismatch")
+require(evaluation["physical_configuration"]["decision"] == lock["official_cmos5l_8x4"]["configuration_decision"],
+        "evaluation physical decision differs from lock")
 require(evaluation["primary_boundary"]["id"] == "CHIP_COMPLETE", "complete-chip boundary must remain primary")
 require(evaluation["secondary_boundary"]["id"] == "CORE_ATTRIBUTION", "unexpected attribution boundary")
 require(

@@ -1,0 +1,70 @@
+python3 tools/check_project.py
+PASS: metadata, pinout, source list, top module, clock target, Python syntax, immutable direct workflow refs, locked CI/physical inputs, research source/evaluation identities, learning entrypoint and Linux workspace ownership
+LIMIT: no RTL simulation, HDL elaboration, IHP synthesis or physical verification performed by this check
+python3 tools/learning_status.py --verify
+PASS: learning milestones, evidence references, resources, statuses, and gate rules agree.
+FALSIFICATION: PASS - an unearned active-milestone fluency promotion was rejected.
+LIMIT: structural consistency cannot demonstrate a person's understanding.
+python3 tools/m0_walkthrough.py --verify
+PASS: archived M0 RTL, fast evidence, physical evidence and tool lock agree.
+LIMIT: evidence consistency cannot demonstrate owner fluency or fabricated-silicon behaviour.
+python3 -m unittest discover -s test -p 'test_physical_candidate.py'
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.655s
+
+OK
+python3 -m unittest discover -s test -p 'test_m1_contract_model.py'
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 4.814s
+
+OK
+python3 -m unittest discover -s test -p 'test_uart_rx_oracle.py'
+...
+----------------------------------------------------------------------
+Ran 3 tests in 4.185s
+
+OK
+python3 -m unittest discover -s test -p 'test_uart_rx_host_service.py'
+...
+----------------------------------------------------------------------
+Ran 3 tests in 2.386s
+
+OK
+python3 -m unittest discover -s test -p 'test_spi_mode0_oracle.py'
+......
+----------------------------------------------------------------------
+Ran 6 tests in 5.456s
+
+OK
+python3 -m unittest discover -s test -p 'test_spi_four_mode.py'
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.191s
+
+OK
+python3 -m unittest discover -s test -p 'test_spi_phase1_capacity.py'
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.039s
+
+OK
+python3 -m unittest discover -s experiments/spi_phase -p 'test_reference.py'
+....
+----------------------------------------------------------------------
+Ran 4 tests in 4.372s
+
+OK
+python3 -m unittest discover -s experiments/spi_phase -p 'test_pin_timing.py'
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.062s
+
+OK
+python3 -m unittest discover -s test -p 'test_waveform_provenance.py'
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.010s
+
+OK

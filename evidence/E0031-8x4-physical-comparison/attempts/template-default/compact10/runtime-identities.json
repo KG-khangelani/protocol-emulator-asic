@@ -1,0 +1,11 @@
+{
+  "job_id": 130984430687,
+  "log_sha256": "db395963769841ea4e997bc51aef85fd6ddcc845932838d334baa28f9097e00b",
+  "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+  "physical_yosys": "0.69 (9f75ca1f9834a39a863915b5dae0c7b1e33533bc)",
+  "confirmation_lines": [
+    "2026-11-12T05:05:06.5723046Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "2026-11-12T05:05:19.3716114Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang  ",
+    "2026-11-12T05:05:19.8222123Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang  "
+  ]
+}

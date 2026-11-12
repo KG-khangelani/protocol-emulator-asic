@@ -1,0 +1,45 @@
+{
+  "comparison_configuration": {
+    "CLOCK_PERIOD": 20,
+    "DEFAULT_CORNER": "nom_typ_1p20V_25C",
+    "DIE_AREA": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+    "LIB": null,
+    "PL_RANDOM_SEED": null,
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+    "PL_TARGET_DENSITY_PCT": 60,
+    "PNR_SDC_FILE": null,
+    "RANDOM_GLB_PLACEMENT": null,
+    "RT_MAX_LAYER": "Metal4",
+    "SIGNOFF_SDC_FILE": null,
+    "STA_CORNERS": [
+      "nom_fast_1p32V_m40C",
+      "nom_slow_1p08V_125C",
+      "nom_typ_1p20V_25C"
+    ],
+    "STD_CELL_LIBRARY": "sg13cmos5l_stdcell"
+  },
+  "netlist_sha256": "7983d122cdc282bec0358e65ecaaa4fb0fd61ce034a6fc61e6d01c6e81b27b23",
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "resolved_config_sha256": "eb5a788620bec7176402af4d675d7aa75ae23f9753948f9f82b2528efd18dd66",
+  "source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+    "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7"
+  },
+  "status": "INPUT_IDENTITIES_VERIFIED_PHYSICAL_REVIEW_PENDING",
+  "variant": "compact10"
+}

@@ -33,7 +33,7 @@
 | E0028 | Do the actual eight-word held mode0/2 programs satisfy their written contract, and does the input hold matter? | Induction PASS for symbolic bytes/order/CPOL;12 finite preflights and2 checked reachable negative controls pass. Initial harness error retained; unchanged RTL, no physical/full-mode promotion | E0028-held-program-induction/README.md |
 | E0029 | Can existing instructions fit held phase1 SPI in eight words? | Mode1 saves one word to9, mode3 remains10 in declared6,920-candidate family;3,072 model positives,112 expected public rejections per simulator with identical records. No global minimum or fitting phase1 RTL claim | E0029-phase1-capacity-screen/README.md |
 | E0030 | Can general timed GPIO avoid expanding program storage? | P fits phase1 in8words and saves443generic cells/65bits against matched compact10; both clean-CI candidates qualify and P wins; local timeouts retained, alpha.4 assets/public package and full tag regression verified | E0030-timed-gpio-comparison/README.md |
-| E0031 | Does the timed P complete-chip advantage survive the current 8x4 CMOS5L flow? | Upstream audit and frozen D33 conditions recorded; public harness preflight and physical qualification tracked separately | E0031-8x4-physical-comparison/README.md |
+| E0031 | Does the timed P complete-chip advantage survive the current 8x4 CMOS5L flow? | First routed P saves13.4968% standard-cell area; both public netlists pass. Default-flow fanout failures30/37 retained; correction and final acceptance pending | E0031-8x4-physical-comparison/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

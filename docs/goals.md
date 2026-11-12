@@ -37,7 +37,8 @@ flowchart LR
 
 The official November 9 update confirms 8x4 tiles. D33 updates the checked-in
 configuration and freezes the [comparison](specs/g1-cmos5l-physical-comparison.md);
-E0031 physical qualification is pending. Historical evidence retains 6x4.
+D34 adds a shared correction for the measured fanout violations; E0031
+physical qualification is pending. Historical evidence retains 6x4.
 See [S1](sources.md) for the rule observation. Configuration is not qualification.
 
 Completion checks:
@@ -45,7 +46,7 @@ Completion checks:
 - [x] Record a reviewed 8x4 configuration and immutable CMOS5L flow inputs;
   update metadata, configuration, checks and the evaluation contract together.
   Preserve the archived 6x4 source identities and results.
-- [ ] Compare the complete P and compact10 chips with the same library, corner,
+- [x] Compare the complete P and compact10 chips with the same library, corner,
   flow, pin assumptions and 50 MHz target. Include their real loader, stores
   and support logic; retain each variant's actual capacity.
 - [ ] Record mapped area, timing, storage cost and functional/formal compatibility.
@@ -61,8 +62,12 @@ open until a candidate passes its gate. If P loses its advantage, retain the
 simpler viable alternative. Revisit clock or capacity through a documented,
 matched comparison instead of silently relaxing a failing condition.
 
-**Next executable action:** run the preflighted P and
-compact10 under D33's frozen 8x4 conditions and inspect their retained reports.
+**Next executable action:** qualify a shared correction for the fanout
+violations found in both first routed builds. P's 13.4968% routed standard-cell
+area saving is measured; final adoption awaits clean physical acceptance.
+D34's local checks pass compact10; P retains a diode-induced fanout violation,
+and its jumper-only trial fails antenna checks. Retain these failures and run
+both revised candidates under identical conditions, with compact10 as fallback.
 Do not rerun the archived M0 merely to report activity.
 
 ## G2 - Prove useful protocols on the same programmable machine
