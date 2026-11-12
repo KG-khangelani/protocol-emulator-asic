@@ -42,7 +42,7 @@ See [S1](sources.md) for the rule observation. Configuration is not qualificatio
 
 Completion checks:
 
-- [ ] Record a reviewed 8x4 configuration and immutable CMOS5L flow inputs;
+- [x] Record a reviewed 8x4 configuration and immutable CMOS5L flow inputs;
   update metadata, configuration, checks and the evaluation contract together.
   Preserve the archived 6x4 source identities and results.
 - [ ] Compare the complete P and compact10 chips with the same library, corner,
@@ -66,6 +66,10 @@ compact10 under D33's frozen 8x4 conditions and inspect their retained reports.
 Do not rerun the archived M0 merely to report activity.
 
 ## G2 - Prove useful protocols on the same programmable machine
+
+An [I2C acceptance draft](specs/p-i2c-controller-100k.md) identifies the initial
+public-pin cases, timing screen and existing open-drain obstacle. The oracle
+and final acceptance freeze remain pending; this preparation qualifies no RTL.
 
 Completion checks:
 

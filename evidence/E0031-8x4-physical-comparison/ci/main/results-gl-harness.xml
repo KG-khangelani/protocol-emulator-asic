@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794460107" />
+    <testcase name="public_handles_reset_without_direct_engine" classname="test_gate_harness_smoke" file="/workspace/test/test_gate_harness_smoke.py" lineno="8" time="0.001264333724975586" sim_time_ns="11.0" ratio_time="8700.234584197624" />
+  </testsuite>
+</testsuites>

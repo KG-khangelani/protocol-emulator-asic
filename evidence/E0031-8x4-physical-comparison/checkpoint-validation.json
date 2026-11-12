@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-12T05:59:30.967557+00:00",
+  "status": "PASS",
+  "scope": "Documentation and retained-CI checkpoint; no new candidate RTL or physical result.",
+  "commands": [
+    {
+      "command": ".\\tools\\workbench.ps1 Doctor",
+      "status": "PASS"
+    },
+    {
+      "command": ".\\tools\\workbench.ps1 Check",
+      "status": "PASS"
+    }
+  ],
+  "unittest_total": 63,
+  "required_evidence_checker_controls": 8,
+  "git_diff_check": "PASS"
+}

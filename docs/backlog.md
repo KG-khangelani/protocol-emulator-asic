@@ -7,6 +7,12 @@ with matched mapped/routed evidence and public-netlist tests. G2 covers the shar
 protocol set, G3 the assembler, G4 final publication, G5 bounded optional
 novelty, and G6 owner fluency. Historical task evidence below is preserved.
 
+G1's reviewed configuration, local public-harness preflights and fresh source
+regressions pass. P/run43158656790 and compact10/run43158660511 remain the
+physical attempts to resume at frozen source 3868ad2; see E0031.
+The [I2C acceptance draft](specs/p-i2c-controller-100k.md) prepares G2 without
+an ISA change or qualification claim. Its oracle and acceptance freeze are pending.
+
 ## M0-T01 — Establish RTL-to-GDS baseline (active)
 
 Outcome: a reproducible, deterministic GPIO design hardened with the official

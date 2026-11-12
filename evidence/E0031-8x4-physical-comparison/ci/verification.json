@@ -1,0 +1,27 @@
+{
+  "schema": "protocol-emulator-g1-timed-ci-verification-v1",
+  "observed_utc": "2026-11-12T05:23:17.637728+00:00",
+  "status": "PASS",
+  "workflow_source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "run_id": 43158639030,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158639030",
+  "artifact_id": 13917328751,
+  "artifact_zip_sha256": "28e2916e5c6c4ec0793e5de92d2a6e7880c058f9ec2364476e55ff9cd032a353",
+  "artifact_checked_files": 671,
+  "all_comparison_input_hashes_match_source_git_blobs": true,
+  "generated_rtl_hashes_match_e0030": true,
+  "records_identical_to_e0030": [
+    "comparison/P/public-icarus/records/cases.jsonl.gz",
+    "comparison/P/public-verilator/records/cases.jsonl.gz",
+    "comparison/F/public-icarus/records/cases.jsonl.gz",
+    "comparison/F/public-verilator/records/cases.jsonl.gz",
+    "comparison/compact10/public-icarus/records/cases.jsonl.gz",
+    "comparison/compact10/public-verilator/records/cases.jsonl.gz"
+  ],
+  "candidate_qualification": {
+    "P": "PASS",
+    "F": "PASS"
+  },
+  "scope": "mode1/3 normal-program proof; instruction safety and scoped compact refinement; public held mode0/2 compatibility",
+  "physical": "NOT_EVALUATED"
+}

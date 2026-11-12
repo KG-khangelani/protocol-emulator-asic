@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-11-12T05:33:08.713082+00:00",
+  "workflow_source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "clean_checkout": true,
+  "run_id": 43158638898,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158638898",
+  "artifact_id": 13917444102,
+  "artifact_zip_sha256": "e7054b7ecb7b019f748093deadc93f4453b97ffc3ef7bcb061ad551ab1d93a75",
+  "verified_source_hashes": 255,
+  "verified_manifest_artifacts": 31,
+  "stages": [
+    {
+      "name": "doctor",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/doctor.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "static",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/check_project.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "learning_status",
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/learning_status.py",
+        "--verify"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_icarus",
+      "command": [
+        "make",
+        "test-rtl-icarus"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "gl_harness_smoke",
+      "command": [
+        "make",
+        "test-gl-harness"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "waveform_provenance",
+      "command": [
+        "make",
+        "test-waveform-provenance"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "learning_waveform",
+      "command": [
+        "make",
+        "learn-waveform"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "rtl_verilator",
+      "command": [
+        "make",
+        "test-verilator"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "formal",
+      "command": [
+        "make",
+        "formal"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "name": "generic_synthesis",
+      "command": [
+        "make",
+        "synth"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "experimental_gates": {
+    "spi-mode0-pins": {
+      "status": "PASS",
+      "sha256": "b9e002798a529f3449430df9b43c678fa5f92338fb5d2909409311be255268b2"
+    },
+    "spi-phase-comparison": {
+      "status": "PASS",
+      "sha256": "670c0b9653f1adb426ece809f9522679d1557369f914aa9ab7c4f2a7ced35552"
+    },
+    "spi-phase-formal": {
+      "status": "PASS",
+      "sha256": "c0825f2d0cf3f0a128d8cd9a52980fb4027b4e227930d18df55fe42ab270f17c"
+    },
+    "spi-phase-integration": {
+      "status": "PASS",
+      "sha256": "c8f573c6d9d9752afdf99f4b405ec769d65f83581b3c7b8c1115e6591a97b12d"
+    },
+    "spi-program-invariants": {
+      "status": "PROVED_WRITTEN_PROGRAM_PROPERTIES",
+      "sha256": "f0aef78cd925361da3784bcc12e023886d8f88051013343a16c55b7d16a283c6"
+    }
+  },
+  "test_xml": {
+    "results-gl-harness.xml": {
+      "passed": 1,
+      "sha256": "e286b493f3367a760e1f161868d90f5b1519e3d398c8e4a84055b3009d6f1c47"
+    },
+    "results-learning.xml": {
+      "passed": 1,
+      "sha256": "3b45dc5096bdfc42796f5451f9782b772a8f48cee3fba2beeb6e04cbc6bff068"
+    },
+    "results-verilator.xml": {
+      "passed": 22,
+      "sha256": "c7a4feb552a8b605db47fbd6133ba5591b08304e635c2daad2293e0a7249a4c7"
+    },
+    "results.xml": {
+      "passed": 22,
+      "sha256": "3d1f33a3be76006798d059a3185279dd624e7849818cbc4039067c34fa8c9b2b"
+    }
+  },
+  "scope": "Production fast ladder and existing scoped SPI gates. GL-harness smoke is RTL, not real mapped-netlist evidence. Owner fluency and physical qualification remain separate."
+}

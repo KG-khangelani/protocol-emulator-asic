@@ -39,9 +39,34 @@ The atlas's target allocation was regenerated from metadata. Its old 6x4
 fixture was updated, and the initial missing local TypeScript dependency is
 recorded separately from chip results.
 
+## Fresh functional and publication checks
+
+The [clean timed comparison](ci/verification.json) at 3868ad2 passes all seven
+gates and selects P for the existing scoped experiment. Its archive digest,
+671 retained file checksums, generated RTL identities and source-input hashes
+were verified. All six P/F/compact10 public record sets match E0030 across
+Icarus and Verilator. [Gate records](ci/result.json) and their
+[checksums](ci/SHA256SUMS) are retained here; earlier E0030 failures remain.
+
+The [full source regression](ci/main/verification.json) also passes at 3868ad2:
+both 22-test RTL runs, existing model/formal checks and all five scoped SPI
+gates. Its clean-checkout manifest matches 255 source hashes and 31 retained
+artifact hashes. The Windows learning-tools job passes separately; this is
+tool validation and does not mark the owner's fluency complete.
+
+The [updated workbench package](workbench-verification.json) also passes its
+publication ladder. The downloaded archive, manifest checksums, registry image
+digest, Linux amd64 platform and source revision were verified, including
+anonymous registry access. This verifies the tools package; alpha.4 remains
+the versioned research release. Neither result supplies physical evidence.
+
 ## Physical work still required
 
-Run one official workflow per variant from the same implementation commit.
+The [tracked runs](physical-runs.json) use implementation 3868ad2:
+[P](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158656790)
+and [compact10](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158660511).
+Both have passed clean checkout/source staging and entered the official build.
+Their outcomes remain pending.
 Check resolved inputs, actual netlist test results, precheck, mapped area and
 post-route timing/violations. Compare both routed designs before claiming a
 routed saving. Keep failed runs and immutable artifact checksums.

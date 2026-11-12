@@ -1,0 +1,27 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794460068" />
+    <testcase name="public_pin_reload_changes_observable_program" classname="test" file="/workspace/test/test.py" lineno="180" time="0.0064449310302734375" sim_time_ns="726.0" ratio_time="112646.66706126073" />
+    <testcase name="invalid_length_never_releases_engine" classname="test" file="/workspace/test/test.py" lineno="213" time="0.0006012916564941406" sim_time_ns="100.0" ratio_time="166308.6439333862" />
+    <testcase name="synchronized_input_wait_event_and_timeout" classname="test" file="/workspace/test/test.py" lineno="228" time="0.0034050941467285156" sim_time_ns="660.0" ratio_time="193827.2398823694" />
+    <testcase name="k_input_wait_public_program_event_timeout_and_reload" classname="test" file="/workspace/test/test.py" lineno="271" time="0.005631923675537109" sim_time_ns="906.0000000000002" ratio_time="160868.65735331475" />
+    <testcase name="k_bounded_loop_public_program_counts" classname="test" file="/workspace/test/test.py" lineno="315" time="0.06174015998840332" sim_time_ns="12008.0" ratio_time="194492.53131601" />
+    <testcase name="loop_target_overflow_faults_without_alias" classname="test" file="/workspace/test/test.py" lineno="354" time="0.0010650157928466797" sim_time_ns="145.0" ratio_time="136148.2158047907" />
+    <testcase name="k_shift_8_public_payload_both_orders" classname="test" file="/workspace/test/test.py" lineno="368" time="0.00875544548034668" sim_time_ns="1296.0" ratio_time="148022.1655093538" />
+    <testcase name="uart_tx_8n1_public_pin_oracle" classname="test" file="/workspace/test/test.py" lineno="431" time="5.128172159194946" sim_time_ns="1112920.0" ratio_time="217020.7952173574" />
+    <testcase name="timed_shift_burst_invalid_freeze_and_reset" classname="test" file="/workspace/test/test.py" lineno="479" time="0.001832723617553711" sim_time_ns="300.0" ratio_time="163690.80265383114" />
+    <testcase name="timed_shift_burst_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="534" time="0.06607508659362793" sim_time_ns="7737.0" ratio_time="117094.0576678129" />
+    <testcase name="shift_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="591" time="0.012571573257446289" sim_time_ns="1427.0" ratio_time="113510.05723605606" />
+    <testcase name="shift_invalid_partial_and_reset_fail_closed" classname="test" file="/workspace/test/test.py" lineno="641" time="0.0020439624786376953" sim_time_ns="420.0" ratio_time="205483.22407558616" />
+    <testcase name="randomized_trace_matches_reviewed_model" classname="test" file="/workspace/test/test.py" lineno="703" time="0.0050847530364990234" sim_time_ns="840.0" ratio_time="165199.76367984246" />
+    <testcase name="invalid_encoding_and_out_of_range_fail_closed" classname="test" file="/workspace/test/test.py" lineno="733" time="0.00045943260192871094" sim_time_ns="80.0" ratio_time="174127.82563570316" />
+    <testcase name="uart_rx_host_service_last_safe_edge" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="147" time="9.506545782089233" sim_time_ns="998798.048" ratio_time="105064.24424755636" />
+    <testcase name="uart_rx_host_service_fault_abort_quarantine" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="175" time="0.12471890449523926" sim_time_ns="8392.032000000123" ratio_time="67287.56986732883" />
+    <testcase name="uart_rx_host_service_late_read_counterexample" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="207" time="0.05689501762390137" sim_time_ns="5026.016000000294" ratio_time="88338.42065441044" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="233" time="15.363924503326416" sim_time_ns="1324403.724" ratio_time="86202.17599437277" />
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="257" time="4.641578674316406" sim_time_ns="377865.0780000002" ratio_time="81408.74140319311" />
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="281" time="1.4658567905426025" sim_time_ns="120706.04600000009" ratio_time="82345.04678681432" />
+    <testcase name="spi_mode0_public_conditional_and_counterexample" classname="test_spi_mode0_public" file="/workspace/test/test_spi_mode0_public.py" lineno="102" time="0.7961215972900391" sim_time_ns="88330.0299999998" ratio_time="110950.42553885124" />
+    <testcase name="spi_mode0_abort_reload_and_capacity_boundary" classname="test_spi_mode0_public" file="/workspace/test/test_spi_mode0_public.py" lineno="120" time="0.11024832725524902" sim_time_ns="12307.006000000052" ratio_time="111629.86601607694" />
+  </testsuite>
+</testsuites>

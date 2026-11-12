@@ -25,6 +25,12 @@ comparison contract use 8x4; existing placement/clock settings match the current
 template. The workflow stages E0030-identical P/compact10 source copies, with
 real-netlist public tests. [E0031](../evidence/E0031-8x4-physical-comparison/README.md)
 retains the audit and preflight results; physical qualification is pending.
+The same 3868ad2 implementation now passes the fresh timed comparison
+(run43158639030), with all seven gate records, candidate source identities and
+six simulator record sets verified. The full regression at the same source
+(run43158638898) also passes, with its source/artifact hashes checked.
+Its refreshed workbench package
+(run43158638955) has verified checksums, source/image identity and public access.
 Production RTL and all historical 6x4/M0 evidence remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench
@@ -409,8 +415,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering (G1): the public-only harness passes for both variants; dispatch one
-  official gds run per P/compact10 variant under D33. Inspect resolved inputs,
+- Engineering (G1): both physical runs are active at implementation 3868ad2:
+  P/run43158656790 and compact10/run43158660511. Resume those exact runs;
+  their clean checkout and source-staging steps passed. Inspect resolved inputs,
   mapping, routed setup/hold, physical checks and all 12 public netlist groups.
   Compare retained reports only after checking matched conditions. Preserve
   E0030 source identities and initial harness failures; no generic count is a

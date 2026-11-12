@@ -1,0 +1,57 @@
+{
+  "schema": "protocol-emulator-workbench-verification-v1",
+  "observed_utc": "2026-11-12T05:16:23.591466+00:00",
+  "status": "PASS",
+  "source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158638955",
+  "artifact_id": 13917307204,
+  "artifact_zip_sha256": "f40d662f15534d222d321cf6ceace63197dfdf68e6c169e37c323aa331cba049",
+  "publication": {
+    "schema": "protocol-emulator-publication-v1",
+    "source_commit": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+    "ref": "refs/heads/main",
+    "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:af57189394646ba3a25663c0f4c83371c8fab7fb86c5f778f1d048f9f06cdfd7",
+    "platform": "linux/amd64",
+    "toolchain_lock_sha256": "1eb65bca963c4a2a477aaf9859b620e8a1d25d86c7081654109f4ed7bd02f97c",
+    "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43158638955",
+    "checks": [
+      "doctor",
+      "check",
+      "lint",
+      "test",
+      "test-verilator",
+      "formal",
+      "synth"
+    ],
+    "physical_qualification": "NOT_EVALUATED"
+  },
+  "file_sha256": {
+    "image-inspect.json": "b14b5e904a85a65de15ec80f9e6ed71ecbd5f5f3ac1eec630f5e204ccceb439f",
+    "publication.json": "b9233e4265559d41fee5897f76620f1767c92514a04e6d06d4273dd19f804b48",
+    "toolchain.lock.json": "1eb65bca963c4a2a477aaf9859b620e8a1d25d86c7081654109f4ed7bd02f97c"
+  },
+  "anonymous_registry_access": true,
+  "manifest_digest": "sha256:af57189394646ba3a25663c0f4c83371c8fab7fb86c5f778f1d048f9f06cdfd7",
+  "linux_amd64_manifest_digest": "sha256:af57189394646ba3a25663c0f4c83371c8fab7fb86c5f778f1d048f9f06cdfd7",
+  "config_digest": "sha256:6c0091c40be9ce08e7987d4b579249325ac51f586d1d0d5e9c5cf3dd1be3b7a1",
+  "oci_revision": "3868ad2cfe33c98dfbf30c2190d75877a66295cc",
+  "oci_source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+  "test_xml": {
+    "results-gl-harness.xml": {
+      "passed": 1,
+      "skipped": 0,
+      "sha256": "a6bec2016a173932b99f0bc12965dc9d53ff7987663868956e5b736dbe497459"
+    },
+    "results-verilator.xml": {
+      "passed": 22,
+      "skipped": 0,
+      "sha256": "22f8a2f193bbeec60877a53e199860e9c4b88d6bd23e2ed0cb916da396d2b2a5"
+    },
+    "results.xml": {
+      "passed": 22,
+      "skipped": 0,
+      "sha256": "a2c130ae6615436e2322f49b5c309bbfe04d0b9cf6c241568057c1ddeb23e777"
+    }
+  },
+  "scope": "Workbench publication only. No physical qualification inferred; milestone release remains alpha.4."
+}
