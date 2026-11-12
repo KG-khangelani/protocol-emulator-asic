@@ -100,7 +100,7 @@ def main():
               'prefetch_prediction': prediction, 'repository_checks': 116,
               'historical_timeout_seconds': 300, 'normal_aggregate': 'NOT_PASSED',
               'preparation_failures': 2, 'runtime_exit_codes': runtime, 'production': 'NOT_PROMOTED'}
-    (out / 'replay-result.json').write_text(json.dumps(result, indent=2) + '\n')
+    (out / 'replay-result.json').write_bytes((json.dumps(result, indent=2) + '\n').encode())
     print(result['status'], result['files'])
 
 
