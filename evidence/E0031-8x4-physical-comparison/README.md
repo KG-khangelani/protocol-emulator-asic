@@ -62,6 +62,53 @@ digest, Linux amd64 platform and source revision were verified, including
 anonymous registry access. This verifies the tools package; alpha.4 remains
 the versioned research release. Neither result supplies physical evidence.
 
+The [D34 workbench update](d34-workbench-verification.json) at 29f4b73 also
+passes publication. Its archive and asset checksums, image/config digest,
+source labels, main and immutable source tags, and anonymous read access to
+all thirteen image layers are verified. Layer bodies were not downloaded for
+this audit. Both 22-test RTL XML files and the separate one-test harness XML
+pass. This publishes the updated tools package; it does not qualify a chip.
+
+The [fresh D34 functional audit](ci/d34/verification.json) verifies the same
+29f4b73 source across the full regression, timed comparison and existing SPI
+controls. The main manifest matches 257 source hashes and 31 artifact hashes;
+both 22-test RTL suites and all eleven collection stages pass. All 671 files
+in the timed archive match its checksums, all seven timed gates pass and all
+six P/F/compact10 public record sets are byte-identical to E0030. Each record
+set contains 1,052 transfers plus a separate candidate-specific control record:
+timed instruction controls for P/F, banked non-aliasing for compact10.
+The four existing SPI-control gates also pass with checked source identities.
+The audit's initial transfer-count assertion counted the control record as a
+transfer; the corrected check validates both separately. No simulation input,
+oracle or saved result was changed. Inconclusive reachability covers retain
+their original status. Physical acceptance remains a separate gate.
+
+## Compatibility scope
+
+The [compatibility audit](compatibility.json) checks the 29f4b73 candidate source
+identities against E0030 and the qualified 3868ad2 run. All recorded functional
+and formal input files are unchanged except the toolchain lock; its developer
+workbench definition is identical. The physical-flow configuration changes
+do not alter the generated RTL or those proof obligations.
+
+Both candidates retain nineteen passes and one declared failure in the
+original twenty-group legacy suite. P allocates formerly-invalid timed SET
+and DRIVE words; compact10 accepts program lengths nine and ten. These changes
+are explicit, not a claim of complete backward compatibility.
+
+P has instruction-safety, scoped legal-old-encoding refinement and actual
+eight-word public-loaded mode1/3 program induction evidence. That induction
+does not prove compact10's ten-word banked loader. Compact10's public
+loading/protocol results remain simulation evidence. Both original default-flow
+netlists passed the twelve-group public selection; the revised netlists await
+their own results. The excluded
+direct-engine and incompatible legacy groups are not counted as coverage.
+
+Across candidates, the SPI comparison checks pins, direction, received
+byte/valid and terminal timing. Intermediate RUN/WAIT states can differ.
+The held-response input premise and four expected edge-only rejections stay
+explicit. Shared-core I2C and production promotion remain later gates.
+
 ## Original template-default physical results
 
 The [retained first comparison](attempts/template-default/comparison.json) uses
@@ -119,8 +166,11 @@ repair trial removes that fanout count but leaves two antenna violations; it is
 rejected. [All diagnostic results](attempts/fanout-diagnostics/result.json)
 are retained. Normal antenna repair and the three shared D34 settings proceed
 to official requalification, with compact10 the locally passing fallback.
-Further local tuning is deferred; fresh official GDS/precheck/netlist evidence
-will determine acceptance.
+Further local tuning is deferred. The [D34 runs](d34-runs.json) are
+[P/run43173112351](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351)
+and [compact10/run43173116485](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485)
+at source 29f4b73. Both passed source staging and entered the official build;
+their final GDS/precheck/netlist results remain pending.
 
 The physical evidence guard now requires finite nonnegative setup/hold at
 all three frozen corners and zero final electrical, routing, antenna, power-grid,

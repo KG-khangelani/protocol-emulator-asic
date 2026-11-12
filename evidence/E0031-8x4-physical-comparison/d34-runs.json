@@ -1,0 +1,41 @@
+{
+  "schema": "protocol-emulator-physical-runs-v1",
+  "observed_utc": "2026-11-12T07:38:42.723575+00:00",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "status": "RUNNING_NOT_QUALIFIED",
+  "configuration_decision": "D34",
+  "variants": {
+    "P": {
+      "run_id": 43173112351,
+      "gds_job_id": 131030863121,
+      "status": "in_progress",
+      "staging": "PASS",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351"
+    },
+    "compact10": {
+      "run_id": 43173116485,
+      "gds_job_id": 131030876882,
+      "status": "in_progress",
+      "staging": "PASS",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485"
+    }
+  },
+  "source_ci_runs": {
+    "test": 43173078684,
+    "spi_timed_gpio": 43173078655,
+    "spi_program_sensitivity": 43173078808,
+    "publish": 43173078690,
+    "atlas": 43173078654,
+    "docs": 43173078563
+  },
+  "verified_completed_checks": {
+    "test": 43173078684,
+    "spi_timed_gpio": 43173078655,
+    "spi_program_sensitivity": 43173078808,
+    "publish": 43173078690,
+    "atlas": 43173078654,
+    "docs": 43173078563
+  },
+  "observation": "Both exact official jobs confirmed live in Build GDS at07:38 UTC. Resume these attempts. Full regression, timed comparison, existing SPI controls and package publication pass with checked artifacts and source identities; physical acceptance remains pending.",
+  "functional_artifact_audit": "ci/d34/verification.json"
+}

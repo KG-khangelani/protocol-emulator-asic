@@ -1,0 +1,267 @@
+{
+  "status": "QUALIFIED_COMPARISON",
+  "started_utc": "2026-11-12T07:10:43.771610+00:00",
+  "gates": {
+    "comparison": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_gpio.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/comparison"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 708.758,
+        "wall_limit": 10800
+      },
+      "path": "/workspace/build/timed-gpio/ci/comparison",
+      "status": "PASS_PUBLIC_AND_GENERIC_COMPARISON_FORMAL_PENDING",
+      "result_sha256": "52e5a8d7cba97bb6bf9adae1ff8d3ee544147b562bb52b7aee82e200fc1fccb2"
+    },
+    "instruction_p": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_instruction_proof.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/instruction_p",
+          "--variant",
+          "P"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 69.843,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/instruction_p",
+      "status": "PASS",
+      "result_sha256": "6062e6f66c41e282cade845301b6b8390e6969dea3356d9c51e63f8df52ef196"
+    },
+    "instruction_f": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_instruction_proof.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/instruction_f",
+          "--variant",
+          "F"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 71.789,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/instruction_f",
+      "status": "PASS",
+      "result_sha256": "2da28f3c4bc30a7044300513cabbf713b0dfe5480d2e695113d039a76fbdd6cd"
+    },
+    "program_p": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_program_proof.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/program_p",
+          "--variant",
+          "P"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 35.047,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/program_p",
+      "status": "PROVED_TIMED_MODE1_MODE3_WITH_CHECKED_CONTROLS",
+      "result_sha256": "25f287442c3dabac9a74cd74dd714d882f9ee665ce77bb852ee9cc708e7c49ba"
+    },
+    "program_f": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_program_proof.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/program_f",
+          "--variant",
+          "F"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 38.708,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/program_f",
+      "status": "PROVED_TIMED_MODE1_MODE3_WITH_CHECKED_CONTROLS",
+      "result_sha256": "65fec8c53bcc2ea01eed2fe3807a3e17f2ab6d4bedfadff13d6ae565085242d4"
+    },
+    "refinement_p": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_refinement.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/refinement_p",
+          "--variant",
+          "P"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 22.725,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/refinement_p",
+      "status": "PASS",
+      "result_sha256": "20472aeea1f9cce0d6db2638447050e9b4538792bedd99c121a6c354e0242f0f"
+    },
+    "refinement_f": {
+      "run": {
+        "command": [
+          "/usr/local/bin/python3",
+          "/workspace/experiments/spi_phase/run_timed_refinement.py",
+          "--output",
+          "/workspace/build/timed-gpio/ci/refinement_f",
+          "--variant",
+          "F"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 33.902,
+        "wall_limit": 1500
+      },
+      "path": "/workspace/build/timed-gpio/ci/refinement_f",
+      "status": "PASS",
+      "result_sha256": "bb0854ab5dc7b3bfffe72c11304fb7bfa0e0bc1ae1480f9d63dbe2c699c6d7cf"
+    }
+  },
+  "decision": "ADVANCE_P_EXPERIMENT_ONLY",
+  "physical": "NOT_EVALUATED",
+  "production": "UNCHANGED",
+  "candidate_qualification": {
+    "P": "PASS",
+    "F": "PASS"
+  },
+  "refinement_frontend": "flattened proof is required; hierarchical attempts retained with their original statuses",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/build_timed_gpio.py": "4f147546f1609f821bb76c0afc9ce0c6b4deb48bb640272e2ad69807cbdd8afc",
+    "experiments/spi_phase/timed_gpio_programs.py": "955a7f5309256ecdad011236aab27112fc7ae02de769bc1fe61ba610752b0cc7",
+    "experiments/spi_phase/run_timed_gpio.py": "14325026ecfcea31fc7a9007f1827bd4442d9469d86f690ddd2ef18a4cd424a1",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/four_mode_programs.py": "ae6a8a86894df9f661159886428045efad900672fed124d4c0015b19ab443b96",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b",
+    "test/test_spi_timed_gpio.py": "ed101fc3b0ef01acfb1e0762d90cfdaf1e55f81518d7c257889f46497272fb81",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "test/Makefile": "8da36250a0c244db1c1b198045a3482b68145937fd5bfd395250e6ed39b595f2",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1",
+    "tools/workbench/toolchain.lock.json": "d1edab1675b29ca8c45895337b83b33474846afc07df24a20ea7a57ec0b63377",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "experiments/spi_phase/run_timed_instruction_proof.py": "1203dc52b124d62860145f57a8b846cbf2a9db3a799aa6fc47c5008a1b6f65b0",
+    "experiments/spi_phase/formal/timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "experiments/spi_phase/formal/timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "experiments/spi_phase/formal/timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "experiments/spi_phase/run_program_invariants.py": "8ff2b47b1d75f147b3b0a84ab5628bb252f47d3aea4df4c935b7b6a8af75a47e",
+    "experiments/spi_phase/run_timed_program_proof.py": "26ebcb0b7e15c707a8a4162f0c2b27b483c910817a916100f190d4eb70080ada",
+    "experiments/spi_phase/pins/held_spi.sv": "cfcdc7621716a2400459a4c34fa070e81f935a5953d9901417d31ac91565c6ba",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/timed_spi.sv": "1d69fbbed494baf0066451f1c0a829817c05dba05482b90a4223fe56e51124e8",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/held_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+    "experiments/spi_phase/pins/timed_invariants.vh": "b4cdc380f600aa19e3a521b45bde5437f6021ba733fc54781d9637261ea73489",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "experiments/spi_phase/run_timed_refinement.py": "189e5dce46a55b1156f29e2401bf1a3dd6e0a91e9aa7cf56a929df6da1d8a429",
+    "experiments/spi_phase/qualify_timed_gpio.py": "0d13069dc79912cdac1f16010959488749c73f928bc99e5d40ec03d3ef3598f3"
+  },
+  "measurements": {
+    "compact8": {
+      "primitive_cells": 3107,
+      "state_bits": 412,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 766,
+        "$_MUX_": 394,
+        "$_NAND_": 1091,
+        "$_NOR_": 71,
+        "$_NOT_": 11,
+        "$_ORNOT_": 69,
+        "$_OR_": 116,
+        "$_SDFFE_PN0P_": 395,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 47,
+        "$_XOR_": 16
+      }
+    },
+    "compact10": {
+      "primitive_cells": 3589,
+      "state_bits": 477,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 913,
+        "$_MUX_": 469,
+        "$_NAND_": 1242,
+        "$_NOR_": 77,
+        "$_NOT_": 18,
+        "$_ORNOT_": 85,
+        "$_OR_": 136,
+        "$_SDFFE_PN0P_": 460,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 43,
+        "$_XOR_": 15
+      }
+    },
+    "P": {
+      "primitive_cells": 3146,
+      "state_bits": 412,
+      "cell_types": {
+        "$_ANDNOT_": 113,
+        "$_AND_": 808,
+        "$_MUX_": 400,
+        "$_NAND_": 1076,
+        "$_NOR_": 72,
+        "$_NOT_": 13,
+        "$_ORNOT_": 80,
+        "$_OR_": 117,
+        "$_SDFFE_PN0P_": 395,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 41,
+        "$_XOR_": 14
+      }
+    },
+    "F": {
+      "primitive_cells": 3228,
+      "state_bits": 429,
+      "cell_types": {
+        "$_ANDNOT_": 129,
+        "$_AND_": 823,
+        "$_MUX_": 386,
+        "$_NAND_": 1124,
+        "$_NOR_": 83,
+        "$_NOT_": 10,
+        "$_ORNOT_": 69,
+        "$_OR_": 114,
+        "$_SDFFE_PN0P_": 412,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 48,
+        "$_XOR_": 13
+      }
+    }
+  },
+  "selected_candidate": "P",
+  "scope": "mode1/3 normal-program proof; instruction safety and scoped compact refinement; public held mode0/2 compatibility"
+}

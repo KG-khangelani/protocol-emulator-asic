@@ -1,0 +1,316 @@
+{
+  "schema": "protocol-emulator-d34-functional-ci-verification-v1",
+  "observed_utc": "2026-11-12T07:37:12.656973+00:00",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "status": "PASS",
+  "physical": "NOT_EVALUATED",
+  "main": {
+    "run_id": 43173078684,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173078684",
+    "artifact_id": 13924241662,
+    "artifact_zip_sha256": "cdf643f4072f3ca45a7de7a88fd3c8b95732ab81ef9a505974763c90eb09cc2c",
+    "clean_checkout": true,
+    "verified_source_hashes": 257,
+    "verified_manifest_artifacts": 31,
+    "stages": [
+      {
+        "name": "doctor",
+        "command": [
+          "/usr/local/bin/python3",
+          "tools/doctor.py"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "static",
+        "command": [
+          "/usr/local/bin/python3",
+          "tools/check_project.py"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "learning_status",
+        "command": [
+          "/usr/local/bin/python3",
+          "tools/learning_status.py",
+          "--verify"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "lint",
+        "command": [
+          "make",
+          "lint"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "rtl_icarus",
+        "command": [
+          "make",
+          "test-rtl-icarus"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "gl_harness_smoke",
+        "command": [
+          "make",
+          "test-gl-harness"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "waveform_provenance",
+        "command": [
+          "make",
+          "test-waveform-provenance"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "learning_waveform",
+        "command": [
+          "make",
+          "learn-waveform"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "rtl_verilator",
+        "command": [
+          "make",
+          "test-verilator"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "formal",
+        "command": [
+          "make",
+          "formal"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      },
+      {
+        "name": "generic_synthesis",
+        "command": [
+          "make",
+          "synth"
+        ],
+        "status": "PASS",
+        "returncode": 0
+      }
+    ],
+    "formal_status": "PASS: M1 engine/program-store/data-store/input-sync proofs and covers, public-readout decode/ownership proof and bounded integer-host deadline lemma passed; wrong WAIT-decrement and weakened host bound were rejected",
+    "experimental_gates": {
+      "spi-mode0-pins": {
+        "status": "PASS",
+        "verified_source_hashes": 40,
+        "sha256": "d055540f7e19a2fdb737b351494db3578a2229c5a959b1124c58fdaef3b88917"
+      },
+      "spi-phase-comparison": {
+        "status": "PASS",
+        "verified_source_hashes": 32,
+        "sha256": "0b94ea4ed2265b83a35ea8e1e6d9b5612c45b2f09a2b94c1429e1ccf64d222f4"
+      },
+      "spi-phase-formal": {
+        "status": "PASS",
+        "verified_source_hashes": 32,
+        "sha256": "3d3a912e298874449e2f5b59e94f518ee6890016577ed3efa98eedd06063f31c"
+      },
+      "spi-phase-integration": {
+        "status": "PASS",
+        "verified_source_hashes": 43,
+        "sha256": "a63e50a9fa14efe0ab845c91cb030a0fae1227251afc10bb3e597a267ef6f4d6"
+      },
+      "spi-program-invariants": {
+        "status": "PROVED_WRITTEN_PROGRAM_PROPERTIES",
+        "verified_source_hashes": 37,
+        "sha256": "d8bcc490425509146e7065c04ddcc7e56fc7d0373dfb2c7313c48e3733bff4c5"
+      }
+    },
+    "test_xml": {
+      "results-gl-harness.xml": {
+        "passed": 1,
+        "sha256": "2516aefd8cc0059a7ee4d89139a6b40a84819883c40950cbde91de1c83d76ed2"
+      },
+      "results-learning.xml": {
+        "passed": 1,
+        "sha256": "41fc6b2ee7a3c40032a065dc7850ef692c8786232b6770b3499808d812d039ec"
+      },
+      "results-verilator.xml": {
+        "passed": 22,
+        "sha256": "af9aaa5b087b2a90b110917e5311ab4a37b7d7acee1fadcd5ac82db0335707b7"
+      },
+      "results.xml": {
+        "passed": 22,
+        "sha256": "41a04cfe7ced0ac1eee845b705dfd393c3636b3343f665b196829686b4bb97d9"
+      }
+    }
+  },
+  "timed": {
+    "run_id": 43173078655,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173078655",
+    "artifact_id": 13923817147,
+    "artifact_zip_sha256": "3d92c72ad5f491bfcb45bae8a213c8cfc25a01102f39a7940cd6ea312ade121f",
+    "artifact_checked_files": 671,
+    "verified_root_source_hashes": 40,
+    "candidate_qualification": {
+      "P": "PASS",
+      "F": "PASS"
+    },
+    "scope": "mode1/3 normal-program proof; instruction safety and scoped compact refinement; public held mode0/2 compatibility",
+    "gates": {
+      "comparison": {
+        "status": "PASS_PUBLIC_AND_GENERIC_COMPARISON_FORMAL_PENDING",
+        "sha256": "52e5a8d7cba97bb6bf9adae1ff8d3ee544147b562bb52b7aee82e200fc1fccb2",
+        "verified_source_hashes": 22
+      },
+      "instruction_p": {
+        "status": "PASS",
+        "sha256": "6062e6f66c41e282cade845301b6b8390e6969dea3356d9c51e63f8df52ef196",
+        "verified_source_hashes": 15
+      },
+      "instruction_f": {
+        "status": "PASS",
+        "sha256": "2da28f3c4bc30a7044300513cabbf713b0dfe5480d2e695113d039a76fbdd6cd",
+        "verified_source_hashes": 15
+      },
+      "program_p": {
+        "status": "PROVED_TIMED_MODE1_MODE3_WITH_CHECKED_CONTROLS",
+        "sha256": "25f287442c3dabac9a74cd74dd714d882f9ee665ce77bb852ee9cc708e7c49ba",
+        "verified_source_hashes": 27
+      },
+      "program_f": {
+        "status": "PROVED_TIMED_MODE1_MODE3_WITH_CHECKED_CONTROLS",
+        "sha256": "65fec8c53bcc2ea01eed2fe3807a3e17f2ab6d4bedfadff13d6ae565085242d4",
+        "verified_source_hashes": 27
+      },
+      "refinement_p": {
+        "status": "PASS",
+        "sha256": "20472aeea1f9cce0d6db2638447050e9b4538792bedd99c121a6c354e0242f0f",
+        "verified_source_hashes": 16
+      },
+      "refinement_f": {
+        "status": "PASS",
+        "sha256": "bb0854ab5dc7b3bfffe72c11304fb7bfa0e0bc1ae1480f9d63dbe2c699c6d7cf",
+        "verified_source_hashes": 16
+      }
+    },
+    "generated_rtl_hashes_match_e0030": true,
+    "records_identical_to_e0030": [
+      "comparison/P/public-icarus/records/cases.jsonl.gz",
+      "comparison/P/public-verilator/records/cases.jsonl.gz",
+      "comparison/F/public-icarus/records/cases.jsonl.gz",
+      "comparison/F/public-verilator/records/cases.jsonl.gz",
+      "comparison/compact10/public-icarus/records/cases.jsonl.gz",
+      "comparison/compact10/public-verilator/records/cases.jsonl.gz"
+    ]
+  },
+  "sensitivity": {
+    "run_id": 43173078808,
+    "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173078808",
+    "artifact_id": 13922833646,
+    "artifact_zip_sha256": "cd3f44e760f0473df34125e891b9a95ff64845b36833f366d2fb32873f2c603d",
+    "gates": {
+      "spi-program-sensitivity": {
+        "status": "PASS",
+        "verified_source_hashes": 24,
+        "sha256": "bfd51d95c4d09f1c10641d8ccaa1daa7a452ddfc4357930a69cd6acc329e9153",
+        "formal_tasks": [
+          {
+            "name": "baseline",
+            "status": "PASS",
+            "expected": "PASS",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": true
+          },
+          {
+            "name": "wrong_public_mosi",
+            "status": "FAIL",
+            "expected": "FAIL",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": false
+          },
+          {
+            "name": "missing_first_premise",
+            "status": "FAIL",
+            "expected": "FAIL",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": false
+          }
+        ],
+        "simulation_cases": {
+          "icarus": 6,
+          "verilator": 6
+        }
+      },
+      "spi-phase1-capacity": {
+        "status": "PASS_DECLARED_PHASE1_CAPACITY_SCREEN",
+        "verified_source_hashes": 24,
+        "sha256": "a0a679f2121a42dde68a216142800970ef728d1735d530b929c0f0930102b63c",
+        "simulation_cases": {
+          "icarus": 112,
+          "verilator": 112
+        }
+      },
+      "spi-held-proof": {
+        "status": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+        "verified_source_hashes": 25,
+        "sha256": "11fedb3ba1115688dfa488d8c3b1334cfeccb718d207afe1df66af3642f0cfd5",
+        "formal_tasks": [
+          {
+            "name": "held_baseline",
+            "status": "PASS",
+            "expected": "PASS",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": true
+          },
+          {
+            "name": "wrong_public_mosi",
+            "status": "FAIL",
+            "expected": "FAIL",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": false
+          },
+          {
+            "name": "missing_first_hold",
+            "status": "FAIL",
+            "expected": "FAIL",
+            "accepted": true,
+            "classification": "EXPECTED_RESULT",
+            "k_induction": false
+          }
+        ]
+      },
+      "spi-four-mode-screen": {
+        "status": "PASS_SCOPED_SCREEN",
+        "verified_source_hashes": 20,
+        "sha256": "545c23ed966886e17adf968145ce070c4562cce5b2a185d5d8cb6209fe0005ea",
+        "simulation_cases": {
+          "icarus": 36,
+          "verilator": 36
+        }
+      }
+    }
+  },
+  "scope": "Source and artifact identities, production fast ladder and scoped experimental gates. Expected negative controls remain expected failures; inconclusive reachability covers remain inconclusive. GL harness is RTL, not a real netlist qualification. No physical, I2C, full backward-compatibility or owner-fluency claim."
+}

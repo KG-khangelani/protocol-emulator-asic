@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "variant": "P",
+  "started_utc": "2026-11-12T07:26:07.988803+00:00",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/build_timed_gpio.py": "4f147546f1609f821bb76c0afc9ce0c6b4deb48bb640272e2ad69807cbdd8afc",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/run_formal.py": "3b2a55538c95d65fe72da4b0ae9015a78f48436b0243d7d48b7ca5fe93960cc1",
+    "experiments/spi_phase/run_integration.py": "903b9af9463dfcab6bcb62903888cc175a044b01411251d0c57a10f20454eaed",
+    "experiments/spi_phase/run_program_sensitivity.py": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+    "experiments/spi_phase/run_timed_instruction_proof.py": "1203dc52b124d62860145f57a8b846cbf2a9db3a799aa6fc47c5008a1b6f65b0",
+    "experiments/spi_phase/run_timed_refinement.py": "189e5dce46a55b1156f29e2401bf1a3dd6e0a91e9aa7cf56a929df6da1d8a429",
+    "experiments/spi_phase/formal/timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "experiments/spi_phase/formal/timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "experiments/spi_phase/formal/timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1"
+  },
+  "sources": {
+    "compact8": {
+      "directory": "/workspace/build/timed-gpio/ci/refinement_p/variants/compact8/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact10": {
+      "directory": "/workspace/build/timed-gpio/ci/refinement_p/variants/compact10/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "P": {
+      "directory": "/workspace/build/timed-gpio/ci/refinement_p/variants/P/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "F": {
+      "directory": "/workspace/build/timed-gpio/ci/refinement_p/variants/F/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "c46958572b031bc1d8650880e3b673f0b1b7c15cf2554cbad88a13ca2ba852ce",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "generated_sha256": {
+    "phase_engine.v": "cdde16f83aa0f9c1007bcf017444edf2a0b4f5226d50a0189b911ed96529a105",
+    "timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "phase_bindings.vh": "b60ab476e1bf0f69d62796c71425cf0e51cb9206322ad8e64fbede15a88824f5",
+    "timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "compact_engine.v": "1ef98fa99b54194827f833492820c1cde1e44348bb2c007681de4280e4ccb5b3",
+    "timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "refinement_bindings.vh": "b804464978d89506b37d378adee3f42d86936794bce1239f6c81a76ee4984fae"
+  },
+  "change": "flatten and clean solver representation only; no changed assumptions/assertions/budget",
+  "proof": {
+    "command": [
+      "sby",
+      "-f",
+      "-d",
+      "/workspace/build/timed-gpio/ci/refinement_p/proof",
+      "/workspace/build/timed-gpio/ci/refinement_p/proof.sby"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 22.623,
+    "wall_limit": 180,
+    "status": "PASS",
+    "raw_status": "PASS 0 23",
+    "k_induction": true,
+    "failed_assertions": []
+  }
+}

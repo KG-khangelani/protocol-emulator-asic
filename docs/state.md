@@ -38,6 +38,14 @@ six simulator record sets verified. The full regression at the same source
 (run43158638898) also passes, with its source/artifact hashes checked.
 Its refreshed workbench package
 (run43158638955) has verified checksums, source/image identity and public access.
+D34's 29f4b73 source also has a verified workbench publication
+(run43173078690), including immutable image/source identity and public access.
+Its official P/run43173112351 and compact10/run43173116485 builds are live;
+the fresh full regression, timed comparison and existing SPI controls now pass.
+The [D34 functional audit](../evidence/E0031-8x4-physical-comparison/ci/d34/verification.json)
+verifies 257 regression source hashes, all 671 timed-comparison file checksums,
+all seven timed gates and six unchanged E0030 public record sets. Final
+physical acceptance remains pending for the two existing attempts.
 Production RTL and all historical 6x4/M0 evidence remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench
