@@ -1,0 +1,33 @@
+{
+  "status": "PASS_AUDITED_LANES_CI",
+  "run_id": 43238830793,
+  "source_commit": "e5eef5b413a9423ca6b6ea8bc463f2bb0673ee03",
+  "all_seven_jobs_successful": true,
+  "source_sha256": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "audited_archives": {
+    "lanes-selection": {
+      "artifact_id": 13954448623,
+      "sha256": "15d3cce621e15795b10ca45e5a9cee7f1a37e59db714e0b2c58e0bc6e40124af",
+      "retained_file": "lanes-selection-original.zip"
+    },
+    "lanes-store": {
+      "artifact_id": 13953159096,
+      "sha256": "6a958464bbee573e41e113a60c0fed4f270e5233bfdbb889ca62d55c1cf4b872",
+      "retained_file": "lanes-store-original.zip"
+    }
+  },
+  "store_assertions": 652,
+  "positive_store_tasks": 33,
+  "checked_mutations": 2,
+  "replayed_auditor_controls": 9,
+  "public_groups_per_simulator": 18,
+  "all_reference_records_identical": true,
+  "scope": "Both new D38 archives are fully byte/source/proof/public-record audited. The other five job successes are observed from GitHub; their current archives are not re-audited here. This commit predates the separately retained style review and the fresh-checkout unit-test fix.",
+  "physical": "Separate 869ee34 run43241097269 is still required"
+}

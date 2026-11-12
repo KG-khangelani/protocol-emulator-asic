@@ -27,16 +27,23 @@ integration. This input relocation changes no chip behavior.
 D38/E0037 starts the separate `od128-lanes` trial. Its exact store now passes
 all 652 assertions, both checked reset-reachable mutations and nine audit
 controls. Both simulators pass all eighteen public groups with identical
-reference records, and the retained evidence replay passes. Fresh CI is running;
-the physical staging preflight passes. Measure this exact candidate under the
+reference records, and the retained evidence replay passes. All seven e5eef5b
+CI jobs pass and both new-candidate archives are audited. The pinned physical
+run43241097269 at 869ee34 has passed staging and is running. Measure it under the
 same conditions. Its roughly 10% generic logic reduction and store equivalence
 justify this trial but establish no mapped/routed improvement. Original
 candidates and failures stay frozen.
 
 A separate bounded shared-read screen reduces D38's generic cells from 24,391
-to 15,211 with unchanged state and conditional store equivalence. It compares
-each read output only in its active mode; full-chip/public/physical gates are
-not run. Retain it as a potential next trial, not a promoted implementation.
+to 15,211 with unchanged state. Conditional store equivalence and subsequent
+reset-reachable complete-chip equivalence pass: every actual state bit and all
+24 public output bits are compared. Fresh public regression, negative controls
+and physical measurements remain pending. Retain it as the next candidate to
+qualify, not a promoted implementation.
+
+The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
+6ec83ae fixes it; all 106 checks pass in a fresh snapshot. Replacement CI is
+pending. Chip sources and the running physical trial are unchanged.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

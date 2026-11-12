@@ -29,3 +29,13 @@ equivalence to 240 seconds. Record exact source, cells/state bits, proof inputs,
 logs and timeout/failure status. Any promising result still needs a separate
 decision, public boundary/regression/negative controls and fresh matched
 physical evidence before adoption. Do not relax D38 or G2 acceptance gates.
+
+After the conditional store screen passes, allow one additional 300-second
+complete-chip equivalence trial. Compare all public outputs and every actual
+state bit. Exclude only combinational internal match points, whose inactive
+values intentionally differ; check that every flip-flop bit remains covered
+by a common state match and every public output has a comparison. Keep all
+actual modules and storage, with no abstract memory or environment assumptions.
+Treat timeout/unproven assertions as inconclusive. As with the store proof,
+temporal equivalence assumes corresponding state; reset correspondence must
+be justified separately before a whole-chip qualification claim.

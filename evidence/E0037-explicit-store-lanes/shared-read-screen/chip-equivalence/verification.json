@@ -1,0 +1,172 @@
+{
+  "status": "PASS_RESET_REACHABLE_COMPLETE_CHIP_EQUIVALENCE",
+  "sources": {
+    "gold": {
+      "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+      "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "gate": {
+      "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+      "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    }
+  },
+  "actual_state_bits_per_chip": 4278,
+  "public_output_bits": 24,
+  "proven_bit_comparisons_including_aliases": 4572,
+  "temporal": {
+    "observed_induction_step": 1,
+    "configured_maximum": 3,
+    "seconds": 152.599
+  },
+  "reset_base": {
+    "vector_assertions": 217,
+    "seconds": 8.9,
+    "assumptions": "rst_n low on first sampled edge; all other public inputs arbitrary defined digital values; initial actual state is independent and unconstrained"
+  },
+  "scope": "All public outputs remain equivalent after reset. Every actual flip-flop bit is included in common state matches; only combinational internal match points are excluded. Complete real memories and modules are retained, without abstract storage or protocol restrictions. Digital synchronous model only.",
+  "limits": "Shared-read public simulator regression, adversarial mutation sensitivity and physical qualification remain pending. This does not adopt the screen.",
+  "retained_failures": "Initial reset proof collection compared vector assertion count with bit count and failed after SAT succeeded. Corrected reset run has 217 vector assertions covering 4572 comparisons. An extra seq-4 base timed out at 90.064 seconds; it is not needed because the actual temporal proof closes at step 1, not the configured maximum 3.",
+  "retained": {
+    "temporal/result.json": {
+      "original_sha256": "729e2d78cfbbe94482cbf61bd4969c2b8320dacd7c6608e975cb4bdfed63a9c0",
+      "retained_file": "temporal/result.json.gz",
+      "retained_sha256": "1680965491aac20224096bfaebd42b56c653bba764562a544f6d8e62cb0e0eae"
+    },
+    "temporal/gold.il": {
+      "original_sha256": "4627ed801e5626178d97f09dfc3589c6bd24c4612887afca140909d71402f099",
+      "retained_file": "temporal/gold.il.gz",
+      "retained_sha256": "7f1f46955b73027b9edacbb2aa06fa90a643fc6f51ced6d05bd85688388dcbe3"
+    },
+    "temporal/gate.il": {
+      "original_sha256": "fdeb9e41a33a3810f0f7cc85a0ecf2ed2a078f2dbe34dbac0b9799b470bc1e3f",
+      "retained_file": "temporal/gate.il.gz",
+      "retained_sha256": "c8b625480af68e7eb4d8cc0476b12b857a3a2bdf86cf609e919e684ccac5263c"
+    },
+    "temporal/gold.json": {
+      "original_sha256": "3a5bc9711fc16e384ac4418ffb60f7f0f3e83b4ce9126b585592ada97f66ecf7",
+      "retained_file": "temporal/gold.json.gz",
+      "retained_sha256": "f16cfbc87eda7d57097f60aebe910558b401af1e324d528fd82b029b038cbf93"
+    },
+    "temporal/gate.json": {
+      "original_sha256": "41e16d7855dcd0e89d4e7bc6fe13b57eb9cee476326057e5730e0de42749ec22",
+      "retained_file": "temporal/gate.json.gz",
+      "retained_sha256": "be0a914e8f18aca8fd298cb464896d9a7eda5f58f29a4da68edaa0d198f9df29"
+    },
+    "temporal/gold.ys": {
+      "original_sha256": "b6cef3b8f8ae43acf282ae98a9cf139e850f65cc2b1e67cd0ce917a6875546eb",
+      "retained_file": "temporal/gold.ys.gz",
+      "retained_sha256": "f9c32d4a24afed39e0277af48d6fc3eafa02bf938f1be07e6efe7ca080b02cf7"
+    },
+    "temporal/gate.ys": {
+      "original_sha256": "eeb2ea7a93611dede0292ca7f5c3a21e6fcafd4b416d14573b55f1c3673cf2f8",
+      "retained_file": "temporal/gate.ys.gz",
+      "retained_sha256": "6c4ffb4caa49b85d94475eefe922b0ee9e9e9b1983fab511f88e42e3d8f067b6"
+    },
+    "temporal/gold.log": {
+      "original_sha256": "f15530bf266c536c12f39360b5198587d3327264abbcffcf977d4cf205456600",
+      "retained_file": "temporal/gold.log.gz",
+      "retained_sha256": "082001674aa8cc9549c1f1616d36f1ad6bc57d3c059364b7245732b8708cda70"
+    },
+    "temporal/gate.log": {
+      "original_sha256": "8291133c7d20105c4840f04fbc32c354e6f16e02ef77995bda22c497e03d1aae",
+      "retained_file": "temporal/gate.log.gz",
+      "retained_sha256": "9a19872bfce6b031b3d75f958efb24180b9ce89eba92ead34c5e84a5d2bcfa9f"
+    },
+    "temporal/blacklist.txt": {
+      "original_sha256": "550fb72a8fc682cd6fcb3880db0816aab16e5d00f5700cd832080592e5b7990e",
+      "retained_file": "temporal/blacklist.txt.gz",
+      "retained_sha256": "5e4d0a7c066a76baa308fb88b184a8b28840a7258afcf5f20ae3488f0e4fb185"
+    },
+    "temporal/before.json": {
+      "original_sha256": "a3073e39b7336f13ec00a374214a83043e3b1b84912156ab215aba1e8d6cc67a",
+      "retained_file": "temporal/before.json.gz",
+      "retained_sha256": "153b73bf3022f170947bf64531a5f99eb82a0113921fe94e3169f5b5f6326141"
+    },
+    "temporal/after.json": {
+      "original_sha256": "fdc341939553529453a737d0ce62f69d37b4627798c46f8f9a0bb7f4b1fb54b8",
+      "retained_file": "temporal/after.json.gz",
+      "retained_sha256": "530d2c5c48079af103e486cb6c006e2e40ceb6ff2dfb34c0b453115de0488287"
+    },
+    "temporal/proof.ys": {
+      "original_sha256": "6c5ca1bbb4644f4d0a916402cccfb75a1d384985154e2a107040bc100e95144d",
+      "retained_file": "temporal/proof.ys.gz",
+      "retained_sha256": "6712c376361958235e9ab2b586cdbb7c5b8524cb5af01eaf25e1140634599810"
+    },
+    "temporal/proof.log": {
+      "original_sha256": "743e719b5a44f3f44479ed0cd77985500b5b2812c7ba234d342a1aa1415843cc",
+      "retained_file": "temporal/proof.log.gz",
+      "retained_sha256": "fc5829a85f6cbd5062f238077affd8fd79a8a878c94c71850a0bd4dafb4ff881"
+    },
+    "reset-initial/proof.ys": {
+      "original_sha256": "ad9cfb90eac62fc5d5fdb3b788d644065fbf060c74fd02499d61d5fc661aea14",
+      "retained_file": "reset-initial/proof.ys.gz",
+      "retained_sha256": "4ce00feae90ea1cfa5824a6843ab8436e818215e05499dc50e0f7106b0401925"
+    },
+    "reset-initial/assertions.json": {
+      "original_sha256": "a5ceaf1238bcea459ad4c7f457594a4b1c646ac7f1ec84e3b98a954108a6749e",
+      "retained_file": "reset-initial/assertions.json.gz",
+      "retained_sha256": "261642d4d5ea06ae8c756497363c4f6fdf97d38d78255e87206513132dff6692"
+    },
+    "reset-initial/run.log": {
+      "original_sha256": "d6002dbda007394803328b94f89bccdaff7b2069e74ccc726b8ea0335b05a34e",
+      "retained_file": "reset-initial/run.log.gz",
+      "retained_sha256": "74571cf876f759d620d32f8c2bec11cf9035e0298da1d5cd9aeac1895cccc5ff"
+    },
+    "reset-initial/runner.py": {
+      "original_sha256": "4b05a83ce3e1f845cd79e642135cd849305827e7eb4cd7e154401fb21a827de3",
+      "retained_file": "reset-initial/runner.py.gz",
+      "retained_sha256": "c26dcc1b2b60be94ec86eb4589c09ad114209bd8a9d64b691d605a989a20985a"
+    },
+    "reset/result.json": {
+      "original_sha256": "cc0ae351ca0aa5e709aa13a85d066a7ede5c50c56d9fe1c1844719ce33694293",
+      "retained_file": "reset/result.json.gz",
+      "retained_sha256": "050248bd9703af94eed9bd3135e5213ca8d40d3080e4df36bad46e2d0a8e68e4"
+    },
+    "reset/proof.ys": {
+      "original_sha256": "5fbb89261019ab86c856420075ad1497f0a4e842e477e9eba3c032a2b693fa46",
+      "retained_file": "reset/proof.ys.gz",
+      "retained_sha256": "27d8b93ab6b38ac52c33047c5b980a08b68c656f6ad9f1b28811cfcd5181ec49"
+    },
+    "reset/assertions.json": {
+      "original_sha256": "a5ceaf1238bcea459ad4c7f457594a4b1c646ac7f1ec84e3b98a954108a6749e",
+      "retained_file": "reset/assertions.json.gz",
+      "retained_sha256": "261642d4d5ea06ae8c756497363c4f6fdf97d38d78255e87206513132dff6692"
+    },
+    "reset/run.log": {
+      "original_sha256": "5d655a987f92265dd9526f2de4bb87688ffab49f80a9fb0f0a9956f271a91ebc",
+      "retained_file": "reset/run.log.gz",
+      "retained_sha256": "30da25e9ea39e17898847329cc26604cc30dc0697314a9afc67915b0d5923314"
+    },
+    "reset/runner.py": {
+      "original_sha256": "288d881fa3fed318f1034df03e1752429f59c8ff2d2eeca384162533d45136c7",
+      "retained_file": "reset/runner.py.gz",
+      "retained_sha256": "eb615eca7b267b4974e975d5f760d73a244ee118162862f8461557190cdfd4fe"
+    },
+    "extra-base-timeout/result.json": {
+      "original_sha256": "44086dd9e2e0a77b447ad80523503fae405631ff1858b09d88d72be9f1b09b78",
+      "retained_file": "extra-base-timeout/result.json.gz",
+      "retained_sha256": "eddf466c839a5af8da29e5ff8ae17a2c6396314618a4d502ab400745755b21b7"
+    },
+    "extra-base-timeout/proof.ys": {
+      "original_sha256": "5fe8d6124b035ba291a8f4b4c3e00b035c1856f07bd1bc1d425e5887281b4073",
+      "retained_file": "extra-base-timeout/proof.ys.gz",
+      "retained_sha256": "841b75a00d8d029943f9e7fcfb280e1664f8aa6f7d7901b8c65b04122605f2ff"
+    },
+    "extra-base-timeout/assertions.json": {
+      "original_sha256": "a5ceaf1238bcea459ad4c7f457594a4b1c646ac7f1ec84e3b98a954108a6749e",
+      "retained_file": "extra-base-timeout/assertions.json.gz",
+      "retained_sha256": "261642d4d5ea06ae8c756497363c4f6fdf97d38d78255e87206513132dff6692"
+    },
+    "extra-base-timeout/run.log": {
+      "original_sha256": "cb7002e184cc44a8f6c44fe0384efc28e9d6be7553b04312a6fd96bb5a59098d",
+      "retained_file": "extra-base-timeout/run.log.gz",
+      "retained_sha256": "57ebd0da7b66e2e5fc0b38523472628bdf03a2b2b2087ac8e58083a1ad3509cf"
+    }
+  }
+}

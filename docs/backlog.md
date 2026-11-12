@@ -36,11 +36,15 @@ d3c340f CI gates and downloaded-evidence audits pass, including the complete
 100-task store run. D38/E0037's explicit byte-lane store passes all 652 assertions
 and both reset-reachable mutation controls. Both simulators pass all eighteen
 public groups with exact reference records; retained replay and physical
-staging preflight pass. Fresh CI is running. Physically measure the new
+staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
+archives are audited. Physical run43241097269 is running at 869ee34. Measure the
 implementation with capacity, behavior and fixed conditions preserved.
-A separate shared-read screen saves 37.64% generic cells from D38 with
-conditional store equivalence; its public/physical qualification is pending
-and it is not adopted. Production is unchanged.
+A separate shared-read screen saves 37.64% generic cells from D38; both its
+conditional store and reset-reachable complete-chip equivalence pass. Qualify
+its public behavior and negative controls before any separate physical trial.
+It is not adopted. Production is unchanged. A fresh-checkout unit-test setup
+failure is fixed in 6ec83ae, with 106 checks passing locally; replacement CI
+remains pending.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
 This prepares integration without promoting an unqualified design.

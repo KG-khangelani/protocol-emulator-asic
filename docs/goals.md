@@ -125,9 +125,11 @@ and literal capacity rejection. Integration and publication remain required.
 D38/E0037 now qualifies that rewrite locally: all 652 store assertions,
 checked controls and both simulators' eighteen public groups pass; all required
 reference records are identical. The retained evidence replay and physical
-staging preflight pass. Fresh CI and physical qualification remain pending.
-A separate shared-read cost/equivalence screen is promising but unqualified
-for public protocols or physical adoption; it does not close a G2 gate.
+staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
+archives are audited. Physical run43241097269 is running at 869ee34; physical
+qualification remains pending. A separate shared-read screen saves 37.64%
+generic cells from D38 with reset-reachable complete-chip equivalence, but
+fresh public/negative-control and physical gates remain. It closes no G2 gate.
 
 Completion checks:
 
