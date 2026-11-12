@@ -1,0 +1,475 @@
+{
+  "status": "PASS_SRAM_STORE_PORTS_AND_FOUR_CHECKED_CONTROLS",
+  "scope": "REAL_VENDOR_FUNCTIONAL_MODEL_STORE_PORTS_ONLY",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "runner_sha256": "249114966378bedc9e458046bac008d87093789b2552f95d27ff3769cf3568c9",
+  "bench_sha256": "e3aca0835a0a6b03b2cce5cf8a35aa4c51aa5d216d4eaad46b2a9514a5191a7c",
+  "simulation_defines": [
+    "FUNCTIONAL",
+    "SYNTHESIS"
+  ],
+  "model_boundary": "SYNTHESIS disables only the vendor A_DLY time-zero monitor; wrapper ties A_DLY high, BIST low. Actual functional memory and write-through model unchanged.",
+  "mutations": {
+    "reset-valid-retained": {
+      "before": "word_valid <= 128'd0;",
+      "after": "word_valid <= word_valid;",
+      "expected_check": "zero_after_reset",
+      "sha256": "8d5d915e1d5886d8414bb1e29f888b6596e13ff8a7da6e67e6c76c74769e4928"
+    },
+    "partial-write-stale-lanes": {
+      "before": "byte_mask : 32'hffffffff;",
+      "after": "byte_mask : byte_mask;",
+      "expected_check": "partial_first_write_zero_padding",
+      "sha256": "ceec7910f4b6f08d09a29ff11a6310b65edf06d1e6fb350006beeb2e2bd8a01b"
+    },
+    "fetch-current-pc": {
+      "before": ": prefetch_pc;",
+      "after": ": pc;",
+      "expected_check": "lookahead_fetch",
+      "sha256": "f4962308a1d55f1aba5c0c3992050b6cbed69dd031f624d2ed72c836089b0863"
+    },
+    "missing-word-zero-shadow": {
+      "before": "if (pc == 8'd0)",
+      "after": "if (1'b0)",
+      "expected_check": "word_zero_after_loader_read",
+      "sha256": "767d74785ca547f4b3f5838ae1b682ea9184dd4670dd5c4275b61a4b51c2a277"
+    }
+  },
+  "runs": {
+    "icarus": {
+      "baseline": {
+        "store_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2012",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "-s",
+            "sram_program_store",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/simulation",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.119,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "vvp",
+            "/workspace/build/g2-sram-store-controls-01/icarus/baseline/simulation"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.069,
+          "wall_limit": 30
+        },
+        "status": "PASS",
+        "checks": 2462,
+        "unknown_checks": 2,
+        "log_sha256": "b9799a235745d820d1ff9197a53b3b630e107bb0f595eaa25316858550456eef"
+      },
+      "reset-valid-retained": {
+        "store_sha256": "8d5d915e1d5886d8414bb1e29f888b6596e13ff8a7da6e67e6c76c74769e4928",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2012",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "-s",
+            "sram_program_store",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/simulation",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.036,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "vvp",
+            "/workspace/build/g2-sram-store-controls-01/icarus/reset-valid-retained/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.02,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "zero_after_reset pc=0 bank=0 address=0 data=xx instruction=00000000 expected=00000000 valid=0",
+        "log_sha256": "e5e3acc864ad4c1ee5dab0e97acbe39b6f56d71407b0283ba4359486f0203cc0"
+      },
+      "partial-write-stale-lanes": {
+        "store_sha256": "ceec7910f4b6f08d09a29ff11a6310b65edf06d1e6fb350006beeb2e2bd8a01b",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2012",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "-s",
+            "sram_program_store",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/simulation",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.036,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "vvp",
+            "/workspace/build/g2-sram-store-controls-01/icarus/partial-write-stale-lanes/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.036,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "partial_first_write_zero_padding pc=120 bank=0 address=1 data=72 instruction=00000000 expected=0000005b valid=0",
+        "log_sha256": "ab66ca170ab383395b421d84ea4a1e4e9bc4e08ec29caf085e2779fda7ca51e6"
+      },
+      "fetch-current-pc": {
+        "store_sha256": "f4962308a1d55f1aba5c0c3992050b6cbed69dd031f624d2ed72c836089b0863",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2012",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "-s",
+            "sram_program_store",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/simulation",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.036,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "vvp",
+            "/workspace/build/g2-sram-store-controls-01/icarus/fetch-current-pc/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.037,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "lookahead_fetch pc=1 bank=0 address=31 data=04 instruction=00000000 expected=28df964d valid=0",
+        "log_sha256": "32c3dd2803976de8751c155b52a551c207efdf5ccf992c137f5ee993a2e50a25"
+      },
+      "missing-word-zero-shadow": {
+        "store_sha256": "767d74785ca547f4b3f5838ae1b682ea9184dd4670dd5c4275b61a4b51c2a277",
+        "compile": {
+          "command": [
+            "iverilog",
+            "-g2012",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "-s",
+            "sram_program_store",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/simulation",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.068,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "vvp",
+            "/workspace/build/g2-sram-store-controls-01/icarus/missing-word-zero-shadow/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.038,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "word_zero_after_loader_read pc=0 bank=0 address=31 data=13 instruction=00000000 expected=04bb7229 valid=1",
+        "log_sha256": "8d77792f91e1ffe8a27c6568dcd18f9fb52b85eb135d2b482e65ca414a638f74"
+      }
+    },
+    "verilator": {
+      "baseline": {
+        "store_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "compile": {
+          "command": [
+            "verilator",
+            "--binary",
+            "--timing",
+            "-Wno-fatal",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "--top-module",
+            "sram_program_store",
+            "--Mdir",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/sim",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/simulation",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 10.557,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "/workspace/build/g2-sram-store-controls-01/verilator/baseline/simulation"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 0.038,
+          "wall_limit": 30
+        },
+        "status": "PASS",
+        "checks": 2460,
+        "unknown_checks": 0,
+        "log_sha256": "f06a5fdc15078796ea391663baf846397c3593e7bb86f87c4ee4cc36f02500ad"
+      },
+      "reset-valid-retained": {
+        "store_sha256": "8d5d915e1d5886d8414bb1e29f888b6596e13ff8a7da6e67e6c76c74769e4928",
+        "compile": {
+          "command": [
+            "verilator",
+            "--binary",
+            "--timing",
+            "-Wno-fatal",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "--top-module",
+            "sram_program_store",
+            "--Mdir",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/sim",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/simulation",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 10.104,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "/workspace/build/g2-sram-store-controls-01/verilator/reset-valid-retained/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.022,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "zero_after_reset pc=120 bank=0 address=0 data=29 instruction=00000000 expected=00000000 valid=0",
+        "log_sha256": "0ca1602b902daceab0ccdfd96758fda6d81725250a1a1763b10af266e7a0a63f"
+      },
+      "partial-write-stale-lanes": {
+        "store_sha256": "ceec7910f4b6f08d09a29ff11a6310b65edf06d1e6fb350006beeb2e2bd8a01b",
+        "compile": {
+          "command": [
+            "verilator",
+            "--binary",
+            "--timing",
+            "-Wno-fatal",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "--top-module",
+            "sram_program_store",
+            "--Mdir",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/sim",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/simulation",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 9.955,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "/workspace/build/g2-sram-store-controls-01/verilator/partial-write-stale-lanes/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.022,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "partial_first_write_zero_padding pc=120 bank=0 address=1 data=72 instruction=00000000 expected=0000005b valid=0",
+        "log_sha256": "5fecad883f1784b0bdcfecb9ada49e2f64af9b2101e6f9d03accb897c7bc2002"
+      },
+      "fetch-current-pc": {
+        "store_sha256": "f4962308a1d55f1aba5c0c3992050b6cbed69dd031f624d2ed72c836089b0863",
+        "compile": {
+          "command": [
+            "verilator",
+            "--binary",
+            "--timing",
+            "-Wno-fatal",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "--top-module",
+            "sram_program_store",
+            "--Mdir",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/sim",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/simulation",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 10.612,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "/workspace/build/g2-sram-store-controls-01/verilator/fetch-current-pc/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.022,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "lookahead_fetch pc=1 bank=0 address=31 data=04 instruction=00000000 expected=28df964d valid=0",
+        "log_sha256": "4cbc0503b23df380f4130c00c07aa22d069e503dee7f616e51fdced7d26c3250"
+      },
+      "missing-word-zero-shadow": {
+        "store_sha256": "767d74785ca547f4b3f5838ae1b682ea9184dd4670dd5c4275b61a4b51c2a277",
+        "compile": {
+          "command": [
+            "verilator",
+            "--binary",
+            "--timing",
+            "-Wno-fatal",
+            "-DFUNCTIONAL",
+            "-DSYNTHESIS",
+            "--top-module",
+            "sram_program_store",
+            "--Mdir",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/sim",
+            "-o",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/simulation",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/m1_program_store.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/bench.sv",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+          ],
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 10.103,
+          "wall_limit": 120
+        },
+        "simulation": {
+          "command": [
+            "/workspace/build/g2-sram-store-controls-01/verilator/missing-word-zero-shadow/simulation"
+          ],
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 0.021,
+          "wall_limit": 30
+        },
+        "status": "EXPECTED_OBSERVABLE_FAILURE",
+        "witness": "word_zero_after_loader_read pc=0 bank=0 address=31 data=13 instruction=00000000 expected=04bb7229 valid=1",
+        "log_sha256": "37beac70f653d8e803b25781cb9e95be03d7d4f6e066839ada20d1df6b3b8f33"
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ import sys
 import cocotb
 from cocotb.triggers import Timer
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from test import edge, initialise, write_data_register
+from test import edge, initialise, write_data_register, settle_program_read, G2_SRAM
 from experiments.i2c.general_programs import image, encode
 from experiments.i2c.public_bus import run_bus
 from experiments.i2c.target import Target
@@ -41,7 +41,7 @@ async def load_and_check(dut, words, data):
             await write_data_register(dut, 5, bank)
         for lane in range(4):
             dut.ui_in.value = 0x80 | (n%8)*4 | lane
-            await Timer(1, unit="ns")
+            await settle_program_read(dut)
             assert int(dut.uio_out.value) == word >> (8*lane) & 255
             assert int(dut.uio_oe.value) == 255
     await write_data_register(dut, 0, len(words))
@@ -49,7 +49,7 @@ async def load_and_check(dut, words, data):
         await write_data_register(dut, register, value)
     dut.ui_in.value = 0xA7
     await Timer(1, unit="ns")
-    assert int(dut.uio_out.value) == (0x21 if VARIANT == "od128" else 0x20)
+    assert int(dut.uio_out.value) == (0x22 if G2_SRAM else 0x21 if VARIANT == "od128" else 0x20)
     dut.ui_in.value = 0
     dut.uio_in.value = 3
     await edge(dut, ena=0)

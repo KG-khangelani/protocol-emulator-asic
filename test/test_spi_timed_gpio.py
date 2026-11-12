@@ -8,7 +8,7 @@ import sys
 import cocotb
 from cocotb.triggers import Timer
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from test import edge, initialise, write_data_register, STATE_BITS, G2_CURRENT
+from test import edge, initialise, write_data_register, STATE_BITS, G2_CURRENT, settle_program_read
 from experiments.spi_phase.timed_gpio_programs import (
     TimedInstruction as I, TimedMachine, image, encode, evaluate, public_cases, MIXED)
 from tools.m1_contract_model import State
@@ -49,7 +49,7 @@ async def load_and_check(dut,words):
             await write_data_register(dut,5,desired);bank=desired
         for lane in range(4):
             dut.ui_in.value=0x80|((index%8)*4+lane)
-            await Timer(1,unit="ns")
+            await settle_program_read(dut)
             assert int(dut.uio_out.value)==((word>>(8*lane))&255)
     await write_data_register(dut,0,len(words))
     assert int(dut.uo_out.value)&32
@@ -161,7 +161,7 @@ async def timed_instruction_and_abort_controls(dut):
             await write_data_register(dut, 5, index // 8)
             for lane in range(4):
                 dut.ui_in.value = 0x80 | (index % 8) * 4 | lane
-                await Timer(1, unit="ns")
+                await settle_program_read(dut)
                 actual = int(dut.uio_out.value)
                 assert actual == (word >> (8 * lane)) & 255
                 observations.append([index, lane, actual])

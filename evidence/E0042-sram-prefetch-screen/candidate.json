@@ -1,0 +1,55 @@
+{
+  "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+  "profile": "od128-sram",
+  "interface_id": "0x22",
+  "source_sha256": {
+    "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "model_sha256": {
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "engine_transformation": {
+    "state_registers": [
+      "gpio_oe",
+      "gpio_value",
+      "loop_active",
+      "loop_end",
+      "loop_remaining",
+      "loop_start",
+      "pc",
+      "phase_active",
+      "phase_prepared",
+      "shift_active",
+      "shift_bits_done",
+      "shift_msb_first",
+      "shift_period",
+      "shift_rx_data",
+      "shift_rx_pin",
+      "shift_tx_data",
+      "shift_tx_pin",
+      "shift_tx_slot",
+      "state",
+      "wait_failure_pc",
+      "wait_is_input",
+      "wait_left",
+      "wait_level",
+      "wait_pin",
+      "wait_timeout_jump",
+      "wait_timeout_skip"
+    ],
+    "rewritten_assignments": 163,
+    "protected_relational_guards": 2,
+    "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+  },
+  "physical_capacity_bits": 8192,
+  "logical_program_words": 128,
+  "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+  "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+  "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+}

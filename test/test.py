@@ -14,6 +14,7 @@ from tools.m1_contract_model import Instruction, Machine, State
 
 SEED = 20261002
 G2_CURRENT = os.getenv("G2_CURRENT") == "yes"
+G2_SRAM = os.getenv("G2_SRAM") == "yes"
 STATE_BITS = {State.RUN: 0, State.WAIT: 1, State.HALT: 2, State.FAULT: 3}
 
 
@@ -102,11 +103,19 @@ async def load_program(dut, words):
     assert int(dut.uo_out.value) & 0x20
 
 
+async def settle_program_read(dut):
+    """0x22 samples a program-byte read on a clock edge; older profiles do not."""
+    if G2_SRAM:
+        await edge(dut, ena=int(dut.ena.value))
+    else:
+        await Timer(1, unit="ns")
+
+
 async def check_readback(dut, words):
     for word_index, word in enumerate(words):
         for lane in range(4):
             dut.ui_in.value = 0x80 | (word_index * 4 + lane)
-            await Timer(1, unit="ns")
+            await settle_program_read(dut)
             assert int(dut.uio_oe.value) == 0xFF
             assert int(dut.uio_out.value) == ((word >> (8 * lane)) & 0xFF)
     dut.ui_in.value = 0xA0

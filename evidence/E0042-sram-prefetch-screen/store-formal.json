@@ -1,0 +1,202 @@
+{
+  "status": "PASS_ARBITRARY_LOGICAL_STORE_AND_REAL_MODEL_CONTROL",
+  "scope": "ARBITRARY_LOGICAL_WORD_WITH_COMPLETE_VENDOR_SRAM_MODEL",
+  "runner_sha256": "69ec43ef9a1cbad66a96992f485ba71a4f22ff5b72194921d6c74f407da13fe6",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "properties_sha256": "e65d9cb53c49e90e4f201741dfb623a2af745806dc24515ffdc8f8653e7fe953",
+  "instrumentation": [
+    {
+      "file": "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+      "before": "A_BIST_CLK\n                                );",
+      "after": "A_BIST_CLK, F_ADDR, F_WORD\n                                );"
+    },
+    {
+      "file": "RM_IHPSG13_1P_core_behavioral_bm_bist.v",
+      "before": "endmodule",
+      "after": "input wire [P_ADDR_WIDTH-1:0] F_ADDR;\noutput wire [P_DATA_WIDTH-1:0] F_WORD;\nassign F_WORD = memory[F_ADDR];\nendmodule"
+    },
+    {
+      "file": "RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+      "before": "    A_BIST_BM\n);",
+      "after": "    A_BIST_BM, F_ADDR, F_WORD\n);"
+    },
+    {
+      "file": "RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+      "before": "    input A_CLK;",
+      "after": "    input wire [7:0] F_ADDR;\n    output wire [31:0] F_WORD;\n    input A_CLK;"
+    },
+    {
+      "file": "RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+      "before": "                    .A_BIST_BM(A_BIST_BM)",
+      "after": "                    .A_BIST_BM(A_BIST_BM), .F_ADDR(F_ADDR), .F_WORD(F_WORD)"
+    },
+    {
+      "file": "m1_program_store.v",
+      "before": ".A_BIST_DIN(32'd0), .A_BIST_BM(32'd0)",
+      "after": ".A_BIST_DIN(32'd0), .A_BIST_BM(32'd0), .F_ADDR({1'b0, f_index}), .F_WORD(f_physical_word)"
+    },
+    {
+      "file": "m1_program_store.v",
+      "before": "endmodule",
+      "after": "/* SPDX-License-Identifier: Apache-2.0 */\n(* anyconst *) reg [6:0] f_index;\nwire [31:0] f_physical_word;\nreg [31:0] f_expected;\nreg [31:0] f_read_expected;\nreg [7:0] f_read_address;\nreg [1:0] f_read_lane;\nreg f_past_valid = 1'b0;\nreg f_reset_seen = 1'b0;\nreg f_seen_write = 1'b0;\nwire [7:0] f_program_address = {1'b0, program_bank, byte_address[4:2]};\nwire f_write = ena && load_mode && load_write;\nwire f_byte_write = f_write && !load_bank && !load_length;\nwire [7:0] f_selected_address =\n    (load_mode && !load_length && !load_bank) ? f_program_address : prefetch_pc;\n\nalways @* begin\n    if (f_reset_seen) begin\n        assert ((word_valid[f_index] ? f_physical_word : 32'd0) == f_expected);\n        if (f_index == 0) assert (word_zero == f_expected);\n        assert (read_address == f_read_address && read_lane == f_read_lane);\n        if (read_address == {1'b0, f_index}) begin\n            assert (read_word == f_read_expected);\n            if (!load_length)\n                assert (data_out == f_read_expected[8*f_read_lane +: 8]);\n        end\n        if (load_length) assert (data_out == program_length);\n        if (pc == 0 && f_index == 0) assert (instruction == f_expected);\n        if (pc != 0 && pc == {1'b0, f_index} && read_address == pc)\n            assert (instruction == f_read_expected);\n        if (pc >= 128 || (pc != 0 && read_address != pc))\n            assert (instruction == 0);\n        assert (instruction_valid == (program_ready && pc < program_length &&\n            pc < 128 && (pc == 0 || read_address == pc)));\n    end\nend\n\nalways @(posedge clk) begin\n    f_past_valid <= 1'b1;\n    if (!f_past_valid) assume (!rst_n);\n    if (!rst_n) begin\n        f_expected <= 32'd0;\n        f_read_expected <= 32'd0;\n        f_read_address <= 8'd0;\n        f_read_lane <= 2'd0;\n        f_reset_seen <= 1'b1;\n    end else begin\n        f_read_expected <= f_expected;\n        f_read_address <= f_selected_address;\n        f_read_lane <= byte_address[1:0];\n        if (f_byte_write && f_program_address == {1'b0, f_index}) begin\n            f_expected[8*byte_address[1:0] +: 8] <= data_in;\n            f_read_expected[8*byte_address[1:0] +: 8] <= data_in;\n            f_seen_write <= 1'b1;\n        end\n    end\n    if (f_past_valid) begin\n        if (!$past(rst_n)) begin\n            assert (program_length == 0 && !program_ready && program_bank == 0);\n        end else if ($past(f_write && load_bank)) begin\n            assert (program_length == 0 && !program_ready);\n            assert (program_bank == ($past(data_in) < 16 ? $past(data_in[3:0]) : 0));\n        end else if ($past(f_write && load_length)) begin\n            assert (program_bank == 0);\n            assert (program_ready == ($past(data_in) >= 1 && $past(data_in) <= 128));\n            assert (program_length == (($past(data_in) >= 1 && $past(data_in) <= 128) ? $past(data_in) : 0));\n        end else begin\n            assert (program_length == $past(program_length) && program_bank == $past(program_bank));\n            assert (program_ready == ($past(f_write) ? 0 : $past(program_ready)));\n        end\n    end\n    cover (f_reset_seen && f_index == 127 && program_ready && program_length == 128 &&\n           pc == 127 && instruction_valid && instruction != 0);\n    cover (f_reset_seen && f_index == 0 && word_zero[31:24] != 0 && instruction_valid && pc == 0);\n    cover (f_reset_seen && f_seen_write && !word_valid[f_index] && f_physical_word != 0 && f_expected == 0);\n    cover (f_reset_seen && !ena && read_address == {1'b0, f_index} && read_word != 0);\nend\n\nendmodule"
+    }
+  ],
+  "assumptions": [
+    "first sampled edge reset",
+    "arbitrary constant 7-bit logical word index; all functional inputs unrestricted"
+  ],
+  "trusted_boundary": "Exact vendor digital SRAM model; added ports only observe a selected physical word. No array replacement, initialization or clock/write/read change.",
+  "tasks": [
+    {
+      "name": "logical-store",
+      "mode": "prove",
+      "depth": 5,
+      "expected": "PASS",
+      "status": "PASS",
+      "stage": {
+        "command": [
+          "sby",
+          "-f",
+          "-d",
+          "/workspace/build/g2-sram-store-formal-02/logical-store/proof",
+          "/workspace/build/g2-sram-store-formal-02/logical-store/proof.sby"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 3.581,
+        "wall_limit": 300
+      },
+      "source_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "6e9688592e64d895fd1c68a9ad752004ee79ff417004bdf4580ae9ba9e7c7a4d",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "b148985b695c30ee5732e8ef9809bcf16ec090b4acff6bc48b613aa12167f809",
+        "m1_program_store.v": "3d27bae47db512e723bad8d53257e5d4c274412596698827bc12393f5a698161"
+      },
+      "witnesses": {},
+      "accepted": true,
+      "induction": true
+    },
+    {
+      "name": "covers",
+      "mode": "cover",
+      "depth": 10,
+      "expected": "PASS",
+      "status": "PASS",
+      "stage": {
+        "command": [
+          "sby",
+          "-f",
+          "-d",
+          "/workspace/build/g2-sram-store-formal-02/covers/proof",
+          "/workspace/build/g2-sram-store-formal-02/covers/proof.sby"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 1.022,
+        "wall_limit": 300
+      },
+      "source_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "6e9688592e64d895fd1c68a9ad752004ee79ff417004bdf4580ae9ba9e7c7a4d",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "b148985b695c30ee5732e8ef9809bcf16ec090b4acff6bc48b613aa12167f809",
+        "m1_program_store.v": "3d27bae47db512e723bad8d53257e5d4c274412596698827bc12393f5a698161"
+      },
+      "witnesses": {
+        "proof/engine_0/trace0.vcd": "3303f306c4c8e2e7de69da70063803f79d0bf5472b9c62bac65f08e19dd89af3",
+        "proof/engine_0/trace1.vcd": "f774626881e7ffa633b48f558d11bf5a2e14a78c49092717e49e4fdecd119566",
+        "proof/engine_0/trace2.vcd": "3774265f85fb8a565169b332ee833ec9b6c866a47de24386de9b7bdc31516aaf",
+        "proof/engine_0/trace3.vcd": "3e5222826490ae3c36d145c1a1820b5c3d92adc55662febc6ca0892a19bc4dd5"
+      },
+      "accepted": true
+    },
+    {
+      "name": "partial-mask",
+      "mode": "bmc",
+      "depth": 8,
+      "expected": "FAIL",
+      "status": "FAIL",
+      "stage": {
+        "command": [
+          "sby",
+          "-f",
+          "-d",
+          "/workspace/build/g2-sram-store-formal-02/partial-mask/proof",
+          "/workspace/build/g2-sram-store-formal-02/partial-mask/proof.sby"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.722,
+        "wall_limit": 300
+      },
+      "source_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "6e9688592e64d895fd1c68a9ad752004ee79ff417004bdf4580ae9ba9e7c7a4d",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "b148985b695c30ee5732e8ef9809bcf16ec090b4acff6bc48b613aa12167f809",
+        "m1_program_store.v": "867000778a3d1fffb4a33464d78e3de414386b009453dc13f0299ba5c61d076f"
+      },
+      "witnesses": {
+        "proof/engine_0/trace.vcd": "0d16e36ffb37342cc0399a1f53cdc09ee68e6fd080759aa520d39a9b71c28776"
+      },
+      "accepted": true,
+      "observed_counterexample": [
+        {
+          "time": 20,
+          "f_index": 0,
+          "f_physical_word": 4278321151,
+          "f_expected": 65536
+        }
+      ]
+    }
+  ]
+}

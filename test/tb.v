@@ -99,6 +99,9 @@ module tb ();
       .tx_payload(engine_tx_payload),
       .tx_payload_alt(engine_tx_payload_alt),
       .pc(engine_pc),
+`ifdef G2_SRAM
+      .prefetch_pc(),
+`endif
       .state(engine_state),
       .wait_left(engine_wait_left),
     .gpio_value(engine_gpio_value),

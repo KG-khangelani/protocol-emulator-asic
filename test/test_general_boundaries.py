@@ -7,7 +7,7 @@ from pathlib import Path
 import random
 import cocotb
 from cocotb.triggers import Timer
-from test import edge, initialise, write_data_register, read_data_register
+from test import edge, initialise, write_data_register, read_data_register, settle_program_read
 from test_i2c_general_public import load_and_check, VARIANT
 from experiments.i2c.general_programs import GeneralInstruction as I, encode
 
@@ -72,7 +72,7 @@ async def public_store_banks_lengths_and_reset(dut):
         await write_data_register(dut, 5, index//8)
         for lane in range(4):
             dut.ui_in.value = 0x80 | (index%8)*4 | lane
-            await Timer(1, unit="ns")
+            await settle_program_read(dut)
             actual = int(dut.uio_out.value)
             assert actual == word >> (8*lane) & 255
             observations.append(["byte", index, lane, actual])
@@ -83,11 +83,11 @@ async def public_store_banks_lengths_and_reset(dut):
             dut.uio_in.value = 255
             await edge(dut)
             dut.ui_in.value = 0x9C | lane
-            await Timer(1, unit="ns")
+            await settle_program_read(dut)
             assert int(dut.uio_out.value) == 0
         await write_data_register(dut, 5, 0)
         dut.ui_in.value = 0x80
-        await Timer(1, unit="ns")
+        await settle_program_read(dut)
         assert int(dut.uio_out.value) == words[0] & 255
     await write_data_register(dut, 0, CAPACITY)
     for selector in (6, 7):
@@ -99,7 +99,7 @@ async def public_store_banks_lengths_and_reset(dut):
         await write_data_register(dut, 5, index//8)
         for lane in range(4):
             dut.ui_in.value = 0x80 | (index%8)*4 | lane
-            await Timer(1, unit="ns")
+            await settle_program_read(dut)
             assert int(dut.uio_out.value) == 0
     retain("store-banks-lengths-reset", observations)
 

@@ -17,6 +17,17 @@ COMPILE_ARGS += -DG2_CURRENT
 COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_mode0_public,test_spi_timed_gpio,test_i2c_general_public,test_general_boundaries,test_i2c_abort_public
 endif
 
+# Isolated 0x22 candidate: real synchronous SRAM functional model and clocked
+# program-byte readback. Enable only for the separately identified SRAM candidate.
+ifeq ($(G2_SRAM),yes)
+COMPILE_ARGS += -DG2_SRAM -DFUNCTIONAL -DSYNTHESIS
+ifeq ($(SRAM_MODEL_DIR),)
+$(error G2_SRAM requires the hash-checked SRAM_MODEL_DIR)
+endif
+VERILOG_SOURCES += $(SRAM_MODEL_DIR)/RM_IHPSG13_1P_256x32_c2_bm_bist.v
+VERILOG_SOURCES += $(SRAM_MODEL_DIR)/RM_IHPSG13_1P_core_behavioral_bm_bist.v
+endif
+
 # Extended experimental candidates use only the public top-level interface.
 ifeq ($(GENERAL_IO),yes)
 COMPILE_ARGS += -DGL_TEST

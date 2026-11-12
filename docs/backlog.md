@@ -61,6 +61,14 @@ E0041 retains the first clock-spacing timeout at 1,200 seconds / iteration
 overflow / 152.09% Metal3 usage. Stop the clock-spacing-only branch. Next,
 declare and test synchronous SRAM loading/fetch semantics before a separate
 candidate and physical-flow decision. Acceptance limits remain unchanged.
+D42/E0042 now declares 0x22 clocked program reads and implements the real SRAM
+candidate. Compositional engine/reset and arbitrary-word real-memory proofs
+pass, with four coverage witnesses and a checked stale-lane fault. Both
+simulators pass store-port checks and expose four actual faulty variants.
+The historical 22-group suites and retained screen replay pass; both earlier
+whole-chip timeouts remain visible. Finish the running 30-group SRAM regression,
+audit its exact protocol records, then measure whole-chip cost and declare
+physical integration. No production or physical acceptance is claimed.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

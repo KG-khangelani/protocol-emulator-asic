@@ -67,6 +67,19 @@ branch. The pinned PDK's synchronous SRAM is the next implementation lead;
 its loading/fetch timing and reset semantics need explicit design and proof.
 Physical qualification stays open.
 
+D42/E0042 implements the isolated 0x22 SRAM candidate: 128 logical words,
+explicitly clocked program-byte reads, reset-valid bits, a word-zero shadow
+and next-PC fetch. The compositional engine proof covers all 128 state and
+128 original output bits; two whole-chip 120-second timeouts remain retained.
+The complete vendor 8,192-bit digital memory passes arbitrary-logical-word
+induction, four coverage witnesses and a checked stale-lane counterexample.
+Both simulators pass store-port checks and expose all four deliberate faults.
+The 22 historical default groups still pass in both; 114 repository checks
+pass, and the retained engine/store replay passes. The full 30-group SRAM
+protocol regression is running. No mapped or physical acceptance is claimed.
+Next, audit its exact protocol records, then measure the complete candidate
+with the actual macro and declare the physical integration inputs.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

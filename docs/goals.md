@@ -116,13 +116,13 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** finish the bounded clock-spacing diagnostic on
-D39's retained layout and select the next measured direction. Finish the source-matched production
-verification profile using the retained integration probe and specification.
-Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
-generic savings are not physical results. Preserve G1's pilot, the original
-od128 routing failure and literal capacity rejection. Integration and
-publication remain required.
+**Next executable action:** finish the complete 30-group SRAM regression and
+audit the unchanged protocol records. Then measure the complete candidate
+with its actual macro before freezing a separate physical integration decision.
+D42 declares clocked program-byte readback as interface 0x22; instruction
+timing, logical capacity and the UART/SPI/I2C expectations remain unchanged.
+Preserve the pinned 8x4 limits, G1's pilot and all rejected trials. Integration
+and publication remain required.
 
 D38/E0037 now qualifies that rewrite locally: all 652 store assertions,
 checked controls and both simulators' eighteen public groups pass; all required
@@ -165,6 +165,15 @@ follow-up changes the same sixteen assignments on a copied database and
 completes with 159,781 overflow / 152.09% Metal3 usage. Stop this branch and
 investigate the PDK's SRAM under an explicit loading/fetch contract. Subsequent
 functional/formal and physical qualification remain required before adoption.
+
+D42/E0042 now passes the isolated engine/store screen. All 128 engine state
+bits and 128 original outputs pass compositional equivalence and reset; both
+whole-chip 120-second timeouts remain retained. The complete vendor memory
+passes arbitrary-word induction, four coverage witnesses and a checked
+partial-mask fault. Both simulators pass store-port checks and all four
+deliberate fault controls; the historical 22-group suites remain passing.
+The retained replay passes. Full SRAM regression is running; no mapped,
+routed/timing, precheck or real-netlist acceptance is claimed yet.
 
 Completion checks:
 

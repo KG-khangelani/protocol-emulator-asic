@@ -44,6 +44,7 @@
 | E0039 | Source-matched current verification | All eight current-command CI stages pass and the original archive is audited; 30 current groups in both simulators, source-matched formal and fresh metadata checks. Earlier local timeout and cache counterexample remain distinct | E0039-current-verification/README.md |
 | E0040 | Banked read-network screen | Complete-store/reset equivalence and port/alias controls pass; generic count rises 2.5113%, matched mapped area rises 5.20216%; set aside without routing | E0040-banked-read-screen/README.md |
 | E0041 | Isolated clock-spacing routing diagnostic | Exact sixteen-assignment edit audited; first timeout retained, follow-up completes with 159,781 overflow / 152.09% Metal3 usage; branch stopped | E0041-clock-routing-diagnostic/README.md |
+| E0042 | Synchronous SRAM and next-PC fetch screen | Compositional engine/reset and arbitrary-word real-memory proofs pass; both simulators pass port checks and expose four faults; complete protocol regression running, physical gate open | E0042-sram-prefetch-screen/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

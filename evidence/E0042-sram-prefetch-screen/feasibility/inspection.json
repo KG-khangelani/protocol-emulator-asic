@@ -1,0 +1,95 @@
+{
+  "status": "READ_ONLY_FEASIBILITY_OBSERVATION",
+  "pdk": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "macro": "RM_IHPSG13_1P_256x32_c2_bm_bist",
+  "physical_capacity_bits": 8192,
+  "proposed_logical_words": 128,
+  "macro_inputs": {
+    "lef/RM_IHPSG13_1P_256x32_c2_bm_bist.lef": {
+      "sha256": "2f1e886f5c363d743da550c5d255b9f31dd62569dda1405a64e2c90b2278127f",
+      "bytes": 130482
+    },
+    "doc/RM_IHPSG13_1P_256x32_c2_bm_bist.txt": {
+      "sha256": "554dfdb78c5c1ea3f394858ab83314445e99c5db9f11e23aa5931933c591a70c",
+      "bytes": 18931
+    },
+    "verilog/RM_IHPSG13_1P_256x32_c2_bm_bist.v": {
+      "sha256": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "bytes": 7504
+    },
+    "verilog/RM_IHPSG13_1P_core_behavioral_bm_bist.v": {
+      "sha256": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12",
+      "bytes": 3951
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": {
+      "sha256": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27",
+      "bytes": 48997
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": {
+      "sha256": "8ab1090ecf527bc71f0c4dc8db05b833e0f9960b4bdb94f3b0351533463b79a2",
+      "bytes": 49077
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": {
+      "sha256": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6",
+      "bytes": 49064
+    }
+  },
+  "timing_libraries": {
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": {
+      "nom_voltage": [
+        "1.32 "
+      ],
+      "nom_temperature": [
+        "-55 "
+      ],
+      "nom_process": [
+        "1 "
+      ]
+    },
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": {
+      "nom_voltage": [
+        "1.08 "
+      ],
+      "nom_temperature": [
+        "125 "
+      ],
+      "nom_process": [
+        "1 "
+      ]
+    },
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": {
+      "nom_voltage": [
+        "1.20 "
+      ],
+      "nom_temperature": [
+        "25 "
+      ],
+      "nom_process": [
+        "1 "
+      ]
+    }
+  },
+  "implementation": "NOT_STARTED",
+  "limits": [
+    "Existing loader promises combinational readback; synchronous SRAM requires an explicit revised contract.",
+    "SRAM has no data-reset port; logical zero after reset needs a separately verified validity scheme.",
+    "Fast SRAM library is -55C, unlike the existing -40C standard-cell fast corner; do not relabel it silently.",
+    "Macro footprint is not complete-chip mapped/routed cost; placement, power and all signoff remain untested."
+  ],
+  "lef_footprint_um": [
+    416.64,
+    118.78
+  ],
+  "lef_area_um2": 49488.4992,
+  "normal_port_pins": [
+    "A_CLK",
+    "A_MEN",
+    "A_WEN",
+    "A_REN",
+    "A_ADDR",
+    "A_DIN",
+    "A_DLY",
+    "A_DOUT",
+    "A_BM"
+  ]
+}
