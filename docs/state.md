@@ -46,8 +46,12 @@ baseline. Both simulators now pass all eighteen public groups with identical
 reference records. The retained 1,030-file replay, ten audit-corruption controls
 and physical staging preflight pass. All nine b774915 CI jobs pass and both
 shared-candidate original ZIPs are audited. Physical run43249867361 at 426cea1
-has passed source staging and is running under the unchanged pinned 8x4 flow.
-Physical qualification, integration and publication remain pending.
+maps to 34,683 cells / 477,788.2578 square micrometres, 15.3974% less mapped
+area than original od128, but fails global routing with GRT-0228 congestion.
+E0038 retains verified original archives, runtime/source/configuration identities
+and the failure; precheck/netlist jobs are skipped. Investigate the remaining
+routing bottleneck and screen a structured banked read network while preserving
+capacity, behavior and physical gates. Integration and publication remain open.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

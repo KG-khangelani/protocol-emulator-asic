@@ -48,3 +48,14 @@ Production promotion still requires the unchanged pinned 8x4 CMOS5L flow,
 all routed metrics, ten prechecks and actual-netlist public selection with
 verified original artifacts. No capacity, timing or routing threshold is
 relaxed. G2 integration and publication remain separate required steps.
+
+## Physical result, 2026-11-12
+
+Run43249867361 maps to 34,683 cells / 477,788.2578 square micrometres, a
+15.3974% mapped-area reduction from original od128 under the same flow.
+It still fails global routing with GRT-0228 congestion. The dependent
+precheck/netlist jobs are skipped; E0038 retains verified original archive,
+source, runtime and resolved-condition identities. Keep the shared-read
+implementation as a measured functional baseline, not a production promotion.
+Investigate a structured banked read network under the same capacity,
+behavior and physical gates before another bounded trial.

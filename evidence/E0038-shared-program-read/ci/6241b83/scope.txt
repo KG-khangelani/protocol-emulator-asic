@@ -1,0 +1,1 @@
+Observed successful GitHub workflow statuses for this exact revision. This record does not claim an audit of their downloaded artifacts; the original shared-candidate ZIP audit remains ci/b774915.

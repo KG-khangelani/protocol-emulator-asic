@@ -47,6 +47,7 @@ and waive that one style rule only for the frozen generated program store.
 requires exactly those 128 unwaived warnings, then checks all other rules and
 the other four modules normally. This documented style exception preserves
 the tested source; it changes no functional property or physical limit.
+
 ## Physical result, 2026-11-12
 
 Run43241097269 at 869ee34 fails global routing with GRT-0228 congestion;

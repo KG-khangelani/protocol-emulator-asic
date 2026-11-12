@@ -49,7 +49,11 @@ mutation controls in both simulators pass. Both simulators now pass all eighteen
 public groups with identical records. The 1,030-file retained replay, ten audit
 corruption controls and physical staging preflight pass. All nine b774915 CI
 jobs pass and both shared-candidate ZIPs are audited. Physical run43249867361
-at 426cea1 passed staging and is running with unchanged conditions and gates.
+at 426cea1 maps to 34,683 cells / 477,788.2578 square micrometres, saving
+15.3974% mapped area versus original od128, but fails global routing with
+GRT-0228 congestion. E0038 retains the verified failure; dependent jobs are
+skipped. Screen a structured banked read network without changing capacity,
+public behavior or physical gates.
 The retained default-integration probe has four obsolete expectation failures;
 prepare the current verification profile under the integration specification.
 It is not adopted. Production is unchanged. A fresh-checkout unit-test setup

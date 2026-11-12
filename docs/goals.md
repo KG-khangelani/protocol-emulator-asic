@@ -116,9 +116,9 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** follow D39's physical run43249867361 and prepare the
-source-matched production verification profile
-using the retained integration probe and integration specification.
+**Next executable action:** diagnose D39's retained routing failure and screen
+a structured banked read network. Finish the source-matched production
+verification profile using the retained integration probe and specification.
 Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
 generic savings are not physical results. Preserve G1's pilot, the original
 od128 routing failure and literal capacity rejection. Integration and
@@ -138,7 +138,10 @@ proof/reset and all three read-path mutation controls pass in both simulators.
 Both simulators pass all eighteen public groups with identical reference
 records; retained replay, ten audit-corruption controls and staging preflight
 pass. All nine b774915 CI jobs pass and both new-candidate ZIPs are audited.
-Physical run43249867361 at 426cea1 passed staging and is running. The isolated
+Physical run43249867361 at 426cea1 maps to 34,683 cells / 477,788.2578 square
+micrometres, 15.3974% below original od128, but fails GRT-0228 global routing.
+The original archives, runtime/source/fixed-condition audit and failure are
+retained in E0038. Dependent precheck/netlist jobs are skipped. The isolated
 default-integration probe exposes four obsolete test expectations; those must
 be handled explicitly before production promotion and publication.
 

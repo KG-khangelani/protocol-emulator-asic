@@ -61,7 +61,7 @@ checks match both embedded `result.json` checks exactly. The audit explicitly
 allows that historical omission while local replay still requires its sidecars;
 future CI uploads include these files. No raw evidence was substituted.
 
-Fresh physical run43249867361 at 426cea1 passed source staging and is running
+Fresh physical run43249867361 at 426cea1 passed source staging, then failed global routing
 under the unchanged pinned 8x4 flow. `physical/run.json` and `jobs.json` are a
 live observation, not final qualification. D38's earlier run remains separate.
 
@@ -70,3 +70,17 @@ four failures in the unchanged default 22-group suite and three direct-engine
 width warnings. These identify old eight-word/encoding assumptions; the other
 18 groups pass. Preserve the failed result and complete the profile-aware
 integration gates in `docs/specs/g2-production-integration.md` before promotion.
+
+## Physical rejection, 2026-11-12
+
+The [final physical record](physical/final-failure/result.json) audits original
+run43249867361 archives at 426cea1. Mapped area falls to **477,788.2578 square
+micrometres across 34,683 cells**, 15.3974% below original od128 and 14.8698%
+below D38. The 4,278 sequential cells still occupy 209,574.0864 square
+micrometres. Placed cell area is 477,837 square micrometres.
+
+Global routing nevertheless fails with GRT-0228 at horizontal edge (103,97),
+usage 1,704 against the internal limit 1,700. Precheck and real-netlist jobs
+are skipped. Source, archive digests, runtime and unchanged fixed conditions
+are verified; logs and intermediate metrics are retained. This is a mapped
+saving, not routed or timing qualification. No acceptance limit is relaxed.

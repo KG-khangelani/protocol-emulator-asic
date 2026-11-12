@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/runs/wokwi/05-yosys-jsonheader/tt_um_khangelani_protocol_emulator.h.json",
+    "nl": "/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/runs/wokwi/06-yosys-synthesis/tt_um_khangelani_protocol_emulator.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 1,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 34683,
+        "design__instance__area": 477788.2578,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}
