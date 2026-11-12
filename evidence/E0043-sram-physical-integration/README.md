@@ -93,3 +93,10 @@ and zero LVS errors/illegal overlaps. The 137-file archive and native replay
 pass, including all 43 public pins checked in the finished routed database.
 This retains the original DEF/LEF and black-box macro scope; full GDS DRC and
 official qualification remain required.
+
+The [local identical-netlist simulator pair](local-netlist/README.md) now
+passes all eighteen groups in both simulators, with all 1,052 SPI, 1,160 I2C,
+four boundary and 36 abort records identical to the reference. Its 1,145-file
+replay passes and retains the diagnosed Verilator reset-alias compatibility
+failure and validated adapter. These runs use trial 03's netlist; that layout
+is physically rejected and the corrected submitted netlist remains untested.

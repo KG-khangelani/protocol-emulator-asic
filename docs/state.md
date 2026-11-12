@@ -144,8 +144,11 @@ remain required after the power fix. The local routed Icarus run passes all
 A cell-level probe identifies its unsupported delayed-reset alias and a
 separate simulation adapter matches 1,025 original-cell observations, while
 a stuck-reset control produces 249 mismatches. The identical-netlist follow-up
-is running. Manufacturing checks, complete netlist results and publication
-remain open; production is unchanged.
+passes all eighteen groups. Both simulators reproduce all 1,052 SPI, 1,160 I2C,
+four boundary and 36 abort records; the 1,145-file replay passes. This is the
+old trial 03 netlist, whose physical layout is rejected. The corrected
+submitted netlist, manufacturing checks and publication remain open;
+production is unchanged.
 
 D45 now retains and replays the original 961-file failed official archive
 pair and 342 diagnostic files. Native core-bounded stripes pass a fresh

@@ -116,10 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** correct and qualify the public-pin/power overlaps
-found after official `gds-sram` run43303867849 fails DRC and LVS; incorporate
-the tested pinned vendor SRAM import and repeat every physical gate. Finish
-and retain the actual-netlist simulator pair. Complete normal `sram-current`
+**Next executable action:** complete and audit the guarded full flow and
+official `gds-sram` run43320295442 at 2be7f5d, including full manufacturing
+checks, precheck and the actual submitted netlist. The local identical trial 03
+netlist pair now passes all eighteen groups and every reference record; its
+1,145-file replay passes while preserving that layout's physical rejection.
+Complete normal `sram-current`
 CI now passes at 13660ac/run43309369604: all eight stages, the historical
 baseline and two fresh 116-check executions. The original 1,928-file ZIP,
 295 exact inputs and producing runtime pass audit and retained Linux replay.

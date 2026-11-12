@@ -100,7 +100,10 @@ and two fresh 116-check executions. Its original 1,928-file ZIP, 295 exact
 inputs and producing runtime pass audit and retained Linux replay. Official
 run43303867849 fails DRC and LVS; diagnosis finds actual public-pin/power
 overlaps. Correct and qualify that geometry and the vendor SRAM import,
-then repeat all physical gates and finish the actual-netlist follow-up.
+then repeat all physical gates and test the corrected submitted netlist.
+The identical trial 03 netlist now passes all eighteen groups in both
+simulators, with all records matched; its 1,145-file replay passes and keeps
+the old layout's physical rejection explicit.
 Production adoption and publication remain pending.
 D45's original 961-file failure replay and 342-file diagnostic replay pass.
 E0044 also fixes the current counterexample inspector's Windows newline rewrite;
