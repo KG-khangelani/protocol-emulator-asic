@@ -1,0 +1,64 @@
+{
+  "audit_sha256": "539cb9640cbbec5145bc1d945ae69822547767f00129a7494db9fbe869ca18f1",
+  "controls": [
+    {
+      "fault": "missing_real_macro",
+      "observed_rejection": "unexpected macro set"
+    },
+    {
+      "fault": "wrong_fast_library",
+      "observed_rejection": "corner mapping changed"
+    },
+    {
+      "fault": "waived_drc",
+      "observed_rejection": "required acceptance check disabled: RUN_MAGIC_DRC"
+    },
+    {
+      "fault": "extra_source",
+      "observed_rejection": "resolved RTL paths differ from staged sources"
+    },
+    {
+      "fault": "substituted_flow",
+      "observed_rejection": "unexpected flow substitutions"
+    },
+    {
+      "fault": "relaxed_clock",
+      "observed_rejection": "resolved CLOCK_PERIOD differs"
+    }
+  ],
+  "directory_boundary": "Official configuration resolves relative to src; the earlier local trial used an explicit design root. All physical settings and resolved input identities match.",
+  "execution": {
+    "command": [
+      "/nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/bin/python",
+      "-m",
+      "librelane",
+      "--pdk-root",
+      "/pdk",
+      "--pdk",
+      "ihp-sg13cmos5l",
+      "--run-tag",
+      "portable-pilot",
+      "--force-run-dir",
+      "runs/portable-pilot",
+      "--to",
+      "Project.CheckSramPower",
+      "src/config_merged.json"
+    ],
+    "cwd": "/workspace/build/g2-sram-official-staging-02/workspace",
+    "returncode": 0,
+    "seconds": 39.324,
+    "timed_out": false,
+    "wall_limit": 300
+  },
+  "final_odb_sha256": "db9b16aa65fb52722a7de25efe81aacc2e6a4ddf7c9634ef1a5e3f8ccc916995",
+  "gate_sha256": "6b99bd454bd6261efbe1d3883aa70adeaaf60fa4f014043c404ba2ca2a0ac7d3",
+  "normalized_resolved_changes": {
+    "DESIGN_DIR": [
+      "$DESIGN",
+      "$DESIGN/src"
+    ]
+  },
+  "physical": "NOT_QUALIFIED",
+  "resolved_sha256": "7d2b821b21d9a8a72372e640af8c727cdefa2eb5cb7927514beae04bce06ac5a",
+  "status": "PASS_PORTABLE_STAGING_POWER_AND_SIX_RESOLVED_CORRUPTION_CONTROLS"
+}

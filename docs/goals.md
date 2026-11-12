@@ -116,8 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** finish and audit the fresh buffered SRAM physical run,
-then carry the exact candidate through official qualification. Clean SRAM CI
+**Next executable action:** launch and audit the official `gds-sram` qualification,
+while completing the local manufacturing and actual-netlist checks. The
+buffered run clears all extracted electrical limits and has positive setup/hold
+margins at all three declared model sets. Portable staging reproduces the exact
+power database; six corruption controls and its 742-file retained replay pass.
+Clean SRAM CI
 and its 1,359-file semantic/source/runtime replay pass. The two explicit D43
 power stages pass a fresh 31.625-second pilot with the exact repaired database;
 all 80 original stages remain in order. The

@@ -85,7 +85,11 @@ nine extracted SRAM-input slew limits; remaining checks were stopped and all
 results retained. A stricter global diagnostic fails; a nine-buffer local
 screen clears fresh typical estimated violations, preserves connectivity and
 exposes both actual wiring faults. The 1,744-file replay passes. Finish and
-audit the fresh buffered full run before official qualification. Physical
+audit the fresh buffered full run through the remaining manufacturing checks.
+Its extracted electrical limits now pass at all three declared model sets with
+positive setup/hold margins. Portable official staging reproduces the exact
+power database; six corruption controls and the 742-file replay pass. Launch
+and audit `gds-sram`; complete local netlist results are still pending. Physical
 acceptance stays open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both

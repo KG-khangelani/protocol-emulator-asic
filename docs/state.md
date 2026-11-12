@@ -107,7 +107,14 @@ their remaining checks deliberately stopped, with outcomes retained. A 0.4 ns
 diagnostic fails its stricter target. Nine local native input buffers clear
 the fresh typical estimated violations and pass full connectivity comparison;
 two actual wiring faults are detected. The 1,744-file replay passes. A third
-fresh full run with these buffers and original limits is underway.
+fresh full run with these buffers clears all extracted slew/capacitance/fanout
+limits at all three declared model sets, with positive setup/hold margins,
+zero routing DRC and zero antenna violations. Later manufacturing checks and
+the complete local actual-netlist tests remain pending. The portable official
+setup reproduces the exact power database in 39.324 seconds, rejects six
+resolved-configuration faults and passes its 742-file retained replay. Doctor
+and all 114 repository checks pass. Launch and audit the separate `gds-sram`
+workflow under the original pinned inputs and limits.
 All three 95120d8 SRAM CI jobs
 and their three original ZIPs pass the complete semantic/source/runtime audit.
 Full physical qualification remains open.

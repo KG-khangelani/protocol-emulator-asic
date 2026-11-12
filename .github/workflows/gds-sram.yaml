@@ -1,0 +1,94 @@
+name: gds-sram
+run-name: G2 SRAM complete-chip 8x4 qualification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  LIBRELANE_IMAGE_OVERRIDE: ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5
+jobs:
+  gds:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+      - name: Stage the identified SRAM chip and physical additions
+        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci
+      - name: Build GDS with every original acceptance check
+        uses: TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          pdk: ihp-sg13cmos5l
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+          librelane-version: 3.1.0.dev4
+      - name: Verify source, macro views, actual connections and routed metrics
+        run: python3 tools/physical_sram.py check-run --output build/sram-physical/resolved-inputs.json
+      - name: Retain exact qualification inputs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sram-physical-candidate
+          path: |
+            build/sram-physical
+            src
+            librelane_plugin_sram.py
+            sram_power_step.py
+            connect_sram_power.py
+            check_sram_power.tcl
+            sram_input_buffers.tcl
+            audit_sram_input_buffers.py
+          if-no-files-found: error
+          retention-days: 90
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Run the complete official precheck on the submitted GDS
+        uses: TinyTapeout/tt-gds-action/precheck@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+  gl_test:
+    needs: gds
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      G2_PHYSICAL: 'yes'
+      G2_SRAM: 'yes'
+      SRAM_MODEL_DIR: ${{ github.workspace }}/build/sram-physical/candidate/models
+      I2C_GENERAL_VARIANT: od128
+      I2C_GENERAL_RECORD_DIR: ${{ github.workspace }}/test/output/i2c
+      I2C_GENERAL_SMOKE: '0'
+      TIMED_GPIO_VARIANT: compact10
+      TIMED_GPIO_RECORD_DIR: ${{ github.workspace }}/test/output/spi
+      TIMED_GPIO_SMOKE: '0'
+      COCOTB_PLUSARGS: '+NO_DUMP'
+      COCOTB_RANDOM_SEED: '20261112'
+    steps:
+      - name: Check out workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+      - name: Stage the identical candidate and vendor simulation models
+        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci
+      - name: Run all eighteen public groups on the actual submitted netlist
+        uses: TinyTapeout/tt-gds-action/gl_test@5e7361fdc445649261c0725dc15f38242dfad330
+      - name: Check complete coverage and unchanged observations
+        run: >-
+          python3 tools/physical_sram.py check-tests --junit test/results.xml
+          --records test/output --output test/output/physical-result.json --require-netlist
+      - name: Retain public-test and source identities
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sram-netlist-check
+          path: |
+            test/output/physical-result.json
+            build/sram-physical/inputs.json
+            build/sram-physical/candidate/manifest.json
+          if-no-files-found: warn
+          retention-days: 90

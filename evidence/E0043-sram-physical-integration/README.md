@@ -61,3 +61,11 @@ rejections, a failed stricter-target diagnostic and the passing local-buffer
 connectivity screen with two checked wiring faults. Both full trials fail nine
 extracted SRAM-input slew limits; their later checks were deliberately stopped.
 The 1,744-file replay passes. A fresh full buffered run remains in progress.
+
+Its completed extracted timing stage now clears every electrical limit at all
+three declared model sets, with positive setup/hold margins and clear routing
+DRC/antenna counts. Later manufacturing checks remain pending. The
+[portable official staging](official-staging/README.md) reproduces the exact
+power database, rejects six configuration faults and passes the 742-file
+replay. The separate `gds-sram` workflow carries the exact candidate through
+the original official physical, precheck and actual-netlist gates.

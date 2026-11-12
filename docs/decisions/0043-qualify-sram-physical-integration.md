@@ -50,5 +50,15 @@ files and the actual database/negative-control replay pass. A fresh third full
 run now tests this narrower physical change under the original limits; no
 physical acceptance gate is relaxed. See [the electrical trials](../../evidence/E0043-sram-physical-integration/electrical/README.md).
 
+The third run clears all extracted electrical limits with positive setup/hold
+margins at all three declared model sets; routing DRC and antenna counts are
+zero. Its manufacturing checks remain in progress. The portable official
+staging rehearsal reproduces the exact repaired power database in 39.324
+seconds and rejects six deliberately corrupted resolved configurations. All
+114 repository checks and the 742-file replay pass. Advance this exact source
+to the separate pinned `gds-sram` workflow, retaining all original acceptance
+checks. See [the official qualification contract](../specs/g2-sram-official-qualification.md)
+and [staging evidence](../../evidence/E0043-sram-physical-integration/official-staging/README.md).
+
 G2 stays active until routed/timing, precheck, actual-netlist, integration and
 publication gates pass for the same identified candidate.
