@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--gate", choices=("od128", "literal255", "architecture", "physical-selection"), required=True)
+    p.add_argument("--gate", choices=("od128", "literal255", "architecture", "physical-selection", "store"), required=True)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     out = args.output.resolve()
@@ -33,6 +33,30 @@ def main():
     subprocess.run([sys.executable, str(ROOT/"experiments/i2c/build_general.py"),
                     "--output", str(variants)], cwd=ROOT, check=True)
     options = ("--variants", str(variants))
+    if args.gate == "store":
+        proof = out/"store"
+        result = run("run_store_local_proof.py", proof,
+                     "PASS_ALL_WORD_STORE_PROOFS_WITH_CHECKED_CONTROLS", *options)
+        manifest = json.loads((variants/"source-manifest.json").read_text())
+        audits = {}
+        for variant in ("od128", "literal255"):
+            assert result["sources"][variant] == manifest[variant]["source_sha256"]["m1_program_store.v"]
+            target = out/"audit"/(variant+".json")
+            subprocess.run([sys.executable, str(ROOT/"experiments/i2c/audit_store_proofs.py"),
+                            "--positive", str(proof), "--controls", str(proof),
+                            "--variant", variant, "--output", str(target)], cwd=ROOT, check=True)
+            audits[variant] = json.loads(target.read_text())
+            assert audits[variant]["status"] == "PASS_COMPLETE_VARIANT_STORE_PROOF"
+        target = out/"audit/auditor-controls.json"
+        subprocess.run([sys.executable, str(ROOT/"experiments/i2c/falsify_store_audit.py"),
+                        "--positive", str(proof), "--controls", str(proof),
+                        "--snapshot", str(out/"audit/od128.positive.json"),
+                        "--output", str(target)], cwd=ROOT, check=True)
+        assert json.loads(target.read_text())["status"] == "PASS_AUDITOR_NEGATIVE_CONTROLS"
+        (out/"result.json").write_text(json.dumps({"status": "PASS_AUDITED_STORE_GATE",
+            "sources": manifest, "audits": audits,
+            "scope": "Complete actual-store unit properties; protocol and physical gates are separate"}, indent=2)+"\n")
+        return
     if args.gate == "physical-selection":
         run("run_physical_selection.py", out/"selection",
             "PASS_G2_PHYSICAL_SELECTION_ON_BOTH_RTL_SIMULATORS", *options)
@@ -51,7 +75,7 @@ def main():
     assert combined["source_sha256"] == manifest["od128"]["source_sha256"]
     assert aborts["sources"]["od128"] == manifest["od128"]["source_sha256"]
     (out/"result.json").write_text(json.dumps({"status": "PASS_SCOPED_ARCHITECTURE_GATE",
-        "sources": manifest, "store_formal": "SEPARATE_PENDING_GATE",
+        "sources": manifest, "store_formal": "SEPARATE_STORE_GATE",
         "physical": "NOT_EVALUATED", "production": "UNCHANGED"}, indent=2)+"\n")
 
 

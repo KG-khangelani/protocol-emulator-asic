@@ -10,10 +10,13 @@ kernel groups, with 1,052 unchanged SPI records. Current boundary tests and
 scoped instruction proofs pass; cleanup equivalence connects the measured and
 current RTL. E0036 audits the clean 31ebf82 CI archives: both candidates now
 pass the full I2C matrix in both simulators, including literal255's previously
-missing full second run. The unbounded store proof and fresh physical
-qualification remain open. A separate G2 physical workflow preserves the G1
-lock and adds an eighteen-group public selection; its fresh CI run is pending.
-Production is unchanged.
+missing full second run. E0036 now audits all actual-store words: 652/1,287
+assertions pass unbounded induction, with checked reset-reachable mutations.
+The exact eighteen-group physical selection passes both RTL simulators at
+e2ff52e. Under the unchanged pinned 8x4 flow, literal255 fails placement with
+111.564% adjusted utilization; od128's physical run remains in progress.
+Physical qualification, integration and publication remain open; production
+is unchanged.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

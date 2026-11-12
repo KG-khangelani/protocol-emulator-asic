@@ -1,0 +1,409 @@
+{
+  "status": "PASS_COMPLETE_VARIANT_STORE_PROOF",
+  "variant": "literal255",
+  "capacity": 255,
+  "source_sha256": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+  "assertions": 1287,
+  "positive_task_count": 65,
+  "complete_read_and_transition_coverage": true,
+  "positive_assumptions": 0,
+  "actual_memory_initialization_assumptions": 0,
+  "proofs": [
+    {
+      "directory": "literal255-cover",
+      "name": "cover",
+      "config_sha256": "7a573e0eab485e8f6d5b3821ade4aa11901f575fc20ccf86cbb183942e69dac3",
+      "log_sha256": "2de54e5e0652a603ec28ce6b0d696c0436ca4246887d9e909c20774422bd4d32"
+    },
+    {
+      "directory": "literal255-read-000",
+      "name": "read",
+      "config_sha256": "8e7be2269e353219d6b298a00da28eedb5d816f863d9320d9b3105c4cbb05659",
+      "log_sha256": "b6e33c02044425402d48d6eb7d1c186e1b25f924d3de4d9ef1e13a069d43ac54"
+    },
+    {
+      "directory": "literal255-read-008",
+      "name": "read",
+      "config_sha256": "2e25529080f766b4d75e328bf29e7f507e49a2dc62d50e0d9641fb346e2c467a",
+      "log_sha256": "7cdf513b5b45ce4fe945ce468553bc72bd15dc178f15857dbf1f1b179716dd80"
+    },
+    {
+      "directory": "literal255-read-016",
+      "name": "read",
+      "config_sha256": "9450448f2f58a565726cf988ec683938b9d7b5d42a0cb81e8776d773481f5df4",
+      "log_sha256": "ca9bbb63c852d0ba46352e4a211fb60b6c881d13bb38c8ca2ca3879fa4baae96"
+    },
+    {
+      "directory": "literal255-read-024",
+      "name": "read",
+      "config_sha256": "81efa0428853ca95f78a4eebcb925c549b51328e97fbc2d6b001c891d911c1a1",
+      "log_sha256": "12e0d1fb65b2c074337a4fc650e01bfc8c6e653667d162bad2e3b1266f53780b"
+    },
+    {
+      "directory": "literal255-read-032",
+      "name": "read",
+      "config_sha256": "c0350b0af6e10ae5cab652f1cd3aca1381466ba98fb6b5afe60ac341edbf72ab",
+      "log_sha256": "68b844e4fc12189b4d95863b771616160de3980c893c63e2921cb7b0e7b00ab6"
+    },
+    {
+      "directory": "literal255-read-040",
+      "name": "read",
+      "config_sha256": "8564127f5e5b7a8191a279d421378c6fca1a6aad1fe81de06e5236ec5b51bd2e",
+      "log_sha256": "18e002ad910bb6f8756f96f54e2ea637430238a159ac7a3d7071b3b077b36908"
+    },
+    {
+      "directory": "literal255-read-048",
+      "name": "read",
+      "config_sha256": "46790c4f84f4d16c93de97118de932dedd02e84fc11f92fd438fcdb7766b5380",
+      "log_sha256": "121bea11eba34d456c9b8b50fabf211bbb890d92e40df1faeb69dbf670a0ce73"
+    },
+    {
+      "directory": "literal255-read-056",
+      "name": "read",
+      "config_sha256": "3bbdab012a730b9dc6d4f4a0e4baeff5683b716e5066e77eb73295b0f60f21b8",
+      "log_sha256": "b290023a5a4765d2e93cefc965b7ce92a48ffa231a76777f2774aef9901eb744"
+    },
+    {
+      "directory": "literal255-read-064",
+      "name": "read",
+      "config_sha256": "f5b0fd39d03e4fd8ddefeefe8f5f41f2862f77304b6d5ad3083c88d4bedc5179",
+      "log_sha256": "1e36a9559a883a08d5a3c0bbfc8e37e08cee37d98cce3b40c6697e37ff155fec"
+    },
+    {
+      "directory": "literal255-read-072",
+      "name": "read",
+      "config_sha256": "6c7fc26a8e5b05b4299d9d1dd4513f42e8d436cc182d1a7231381dd0f39b0e54",
+      "log_sha256": "e311dd7b0e55127a5d4db983aaddbad57b70c2170331ac729aaf8ce0c701113e"
+    },
+    {
+      "directory": "literal255-read-080",
+      "name": "read",
+      "config_sha256": "4ebc91c4f2ad2ff3eb762fe2170ddb3963867069f93a0922e1d82814787ae388",
+      "log_sha256": "e0d3c5f7ad725d31ed82f443ad43b4cba8f8fc21d2ccb2986c70c075e4464f79"
+    },
+    {
+      "directory": "literal255-read-088",
+      "name": "read",
+      "config_sha256": "b54ab7fcb88674503a66dbabb52652d9ad1a845f5de8b2fc5d2c2b3d45b3239f",
+      "log_sha256": "c5c4c8a2fd1ff67b65a1b84f970e2b98f0aad4eb142ff476c547d38bc84f44b5"
+    },
+    {
+      "directory": "literal255-read-096",
+      "name": "read",
+      "config_sha256": "3939c47d7e0b0c1657587e9b0dbf9e62cc3c5090fcc5fa74a5beb6b80f6a22cf",
+      "log_sha256": "149e230335352f612c29bab82cbbf023212941f5daf1b64db8c853fdc261be50"
+    },
+    {
+      "directory": "literal255-read-104",
+      "name": "read",
+      "config_sha256": "45bbd987c8f0899dd1b1a4cf67627ffc2d10003b5b1397a43a80402dd7db48cb",
+      "log_sha256": "0f0ad3368c8796222b3e94dbf31ed86405e71c9119dca7abba3c438d5caa919c"
+    },
+    {
+      "directory": "literal255-read-112",
+      "name": "read",
+      "config_sha256": "8fc5de61c3a924528aa55b51f8cd11df65bc91360c9dda64e46338c524a010ba",
+      "log_sha256": "99f5d43c016cd5f6b03594478f0c87f1e0009e7c192087ce40419085f26a7c9b"
+    },
+    {
+      "directory": "literal255-read-120",
+      "name": "read",
+      "config_sha256": "3404fb9003421d71f62222dcc7c327d74e79fa79931a1c472de048451e100fa4",
+      "log_sha256": "48b2f215f0279551488dac5a9ba616863c937d944f741d26ae056eeb8723f85d"
+    },
+    {
+      "directory": "literal255-read-128",
+      "name": "read",
+      "config_sha256": "a34a3635aad154ad44f063a514a40e7d65641e39ea61cf9b77ecda9562abb98e",
+      "log_sha256": "65add054a51700b5792c30ee6f99a26762b8afb0401a25563be0da43782637d7"
+    },
+    {
+      "directory": "literal255-read-136",
+      "name": "read",
+      "config_sha256": "d40530440e97baf144f09e1ca316046f176b8d57ebabf88c5a3d347d83ff4e48",
+      "log_sha256": "ff4cefbd14918c4b166a5517d905343a4725e619bc965cb61bd1b1b84087e594"
+    },
+    {
+      "directory": "literal255-read-144",
+      "name": "read",
+      "config_sha256": "74967d76e8133eda684cab4774db871286ab0b5e94cf8dbe76fffc46a69a3757",
+      "log_sha256": "15cf8b45d06d351e882f1cb9471e16c94dc48487983bc4de9259cc6c7f1fd51d"
+    },
+    {
+      "directory": "literal255-read-152",
+      "name": "read",
+      "config_sha256": "7ac4bc41d181dd667dba3eca581f85db2ab97128127412a07b37a54b10df99c5",
+      "log_sha256": "fee037ff0f7ca9c9a4dff7c3e86973655af75bb40d5be3413e217161135a2904"
+    },
+    {
+      "directory": "literal255-read-160",
+      "name": "read",
+      "config_sha256": "ab2985e02385683ffc8060708bd7cf1be3f157c5e9bffa7e8f477dab4662e054",
+      "log_sha256": "b49a96f273c7ed7904974400d1bf5c82b5a558ef62775ab44bdf241ad825bb17"
+    },
+    {
+      "directory": "literal255-read-168",
+      "name": "read",
+      "config_sha256": "7ccda1958d1e19957a8d700c8d33465bd60981c17f5ab46a27cd6285dc0babb9",
+      "log_sha256": "1890b92752049d52284a984063b82ceba0484eee18a0419972b3782a20ed7202"
+    },
+    {
+      "directory": "literal255-read-176",
+      "name": "read",
+      "config_sha256": "33d177b599b9f9f6e84dfd958d6a6ab27cca6fb17dfbb433ef3a65b6cf09be67",
+      "log_sha256": "56cedf05a8002adb205c331bf2e1335d77a1d026b6643ba60309fff1c132daae"
+    },
+    {
+      "directory": "literal255-read-184",
+      "name": "read",
+      "config_sha256": "524a331f7f4638898f03bf5c50c70431e4d1592ee02ac1c13c1230674cb2f012",
+      "log_sha256": "7445739442279d9d99a92b9c53a7f51278c923481f09051ffad1e561c0c16742"
+    },
+    {
+      "directory": "literal255-read-192",
+      "name": "read",
+      "config_sha256": "a970a2f18c9216fe28ce5f95d8fa5f16768c8a44633b817ee734fe348ddc89f2",
+      "log_sha256": "2d76ca9e45707776a3ca60289e494649ff17c201f39a77bf42a4b4aed00cf00c"
+    },
+    {
+      "directory": "literal255-read-200",
+      "name": "read",
+      "config_sha256": "43b0f4757c41034d502f8732c7e2301a5f020a12970933dc2a4a4edd0e856cc9",
+      "log_sha256": "031505be7eafd721fe4b6c435ff93ee60a2d967d728a038c2dec68dab877b237"
+    },
+    {
+      "directory": "literal255-read-208",
+      "name": "read",
+      "config_sha256": "720dc115573ae2db38dbc9e556dfdaa181f0ec5a1c87af591ca07280c7a80ad0",
+      "log_sha256": "25bcd47087b36eb5ab963a14397bb6c2aa127ea90c8b5e4615a951d71ef87183"
+    },
+    {
+      "directory": "literal255-read-216",
+      "name": "read",
+      "config_sha256": "406874cd45ced6b9d67ac3069fe953b7dba4c33a66e2e33d3b8b728f884e6b5b",
+      "log_sha256": "b0fc4ad5a1a2d6fb83172a3aeee57dd8ac19519cb1c65030f2feafa41be6010a"
+    },
+    {
+      "directory": "literal255-read-224",
+      "name": "read",
+      "config_sha256": "1401ad27a890b4988324398c7a7eb6c8232c9a9fb6c3624f65e7b0f059700a29",
+      "log_sha256": "55cd4fec0ca5c71e64b7aec7277475206bfe2fa748a31875faa97b6e57c22e93"
+    },
+    {
+      "directory": "literal255-read-232",
+      "name": "read",
+      "config_sha256": "7f26afb0a195371bb46d77cb609fe7048cbe1a44cc106829d93f1e84b6558ac2",
+      "log_sha256": "59bde50df7ffbf233332804c26659cb7fe87eb041d052b7074f5354b5e45f08c"
+    },
+    {
+      "directory": "literal255-read-240",
+      "name": "read",
+      "config_sha256": "ba4c6fa0a7c7d6cb2323545e7c266059cae4c9bbbea6c130e652db50e2556121",
+      "log_sha256": "94a746d6e7e4b0da0643637a69a4e5b790a9fa18c0f3a4d13ba22f737c562d57"
+    },
+    {
+      "directory": "literal255-read-248",
+      "name": "read",
+      "config_sha256": "901e3b1b60c33d149668abf678679fbdea9505ec9e91b888005199079e68b729",
+      "log_sha256": "ec02ecfb174c6b77564a2aa1e017cdfae25344d1ec68b1cac934939ef7204d94"
+    },
+    {
+      "directory": "literal255-state-000",
+      "name": "state",
+      "config_sha256": "d877e8bba811b1414fe3f7528cf4b4c48e4d9e58979b87a88329d6ce14649c59",
+      "log_sha256": "f027a15169004c181e610f50db3ac382fe4f8189a99e9cd1ad555d0e4d9e8182"
+    },
+    {
+      "directory": "literal255-state-008",
+      "name": "state",
+      "config_sha256": "e11883fc19445388545620c8859d5e9fea6610935df29a1f3463c28416ab0120",
+      "log_sha256": "2cb75e6bd7dff7975e177463a29879da9a46170625da3f8a00df422b1effe509"
+    },
+    {
+      "directory": "literal255-state-016",
+      "name": "state",
+      "config_sha256": "7d95948973b5b6cb540441031dea38aa9e8bb1183e0771810d0d955dc2e7b233",
+      "log_sha256": "fbee2488e3424a9b1632234f6945d2ff74963af9665d3782b04b3dd38cbdcb27"
+    },
+    {
+      "directory": "literal255-state-024",
+      "name": "state",
+      "config_sha256": "7c77563eb5f64493421fa9f705780d81a7cbbe41291f723446893b245f963d37",
+      "log_sha256": "8441f942443eb59dfc392a4807d5fe1a3858f96f422cd417a6e674aa5efec97c"
+    },
+    {
+      "directory": "literal255-state-032",
+      "name": "state",
+      "config_sha256": "e43911b66b098ed5cf7a3fd84b68f540bed3b0c71081793ec3cc4140b7581d92",
+      "log_sha256": "a1704767684dbb7370f9b8308d9c4007245e1094de35862c81b8e1660185567d"
+    },
+    {
+      "directory": "literal255-state-040",
+      "name": "state",
+      "config_sha256": "a2a67e8c0999d6d9f08c231adada660d95bc0b44a4e9d57b8a0c69a147f1390b",
+      "log_sha256": "7d25da6d14d30941ceee49867cb5f05337a30332805bb6bed37e445760bb55fb"
+    },
+    {
+      "directory": "literal255-state-048",
+      "name": "state",
+      "config_sha256": "49892509093a4405c5092b1aa54f9a8f948c93df854924fd75383671e82d60cc",
+      "log_sha256": "3c36b1538508752c93c4dbdb045ef5222a393efb58ff3eea0b6e0ea564059fe5"
+    },
+    {
+      "directory": "literal255-state-056",
+      "name": "state",
+      "config_sha256": "ed05279a135425695d3a897b0af0d78e17fbf143606f4d6d4d3f7b07e3b2102d",
+      "log_sha256": "e4790c5faf9bd565039efcbd04d770b1e5c9d412111d84be986870f89732b4aa"
+    },
+    {
+      "directory": "literal255-state-064",
+      "name": "state",
+      "config_sha256": "259fbeed232f89a9c403a8e3433538413ce55d5d1fd510cb04d663879ed4f9ec",
+      "log_sha256": "e04014915e2513888fe0641db844426b96b526237e6f8799b96def4166f84fb9"
+    },
+    {
+      "directory": "literal255-state-072",
+      "name": "state",
+      "config_sha256": "d3420a8429d053aac4c004aa26d84881b7d12aa560f6c2c85683d81b56342e8b",
+      "log_sha256": "b22157a5a6055fc2c5e11ccbcf6f55b8c5ea48ebac5c4a7521c4b43322da129d"
+    },
+    {
+      "directory": "literal255-state-080",
+      "name": "state",
+      "config_sha256": "0366bc839fc7e58fafd94f3bc332ff00133c5b01540bd57ce14612f552ce95b5",
+      "log_sha256": "63bc4f2e8fad43cbac29cd0562e62dd35e9cd03d52a9fb558be1c532a68ed740"
+    },
+    {
+      "directory": "literal255-state-088",
+      "name": "state",
+      "config_sha256": "8860b55d0e25d794c1827cb8b17144169e9957e37dc80c4159311ae9019a6916",
+      "log_sha256": "e566e4636a2b5cfb3df558a27c87318e3a2691cc32d2686885802afbf9a3c75b"
+    },
+    {
+      "directory": "literal255-state-096",
+      "name": "state",
+      "config_sha256": "8258ae899419e7fb30c73a4d1b8c45eff2813ef584b54e1f2edce4f9c141c377",
+      "log_sha256": "7b99fd015decbba5529ae6402135fd9787d50a5ef3eea8142412c555c0574ec2"
+    },
+    {
+      "directory": "literal255-state-104",
+      "name": "state",
+      "config_sha256": "5674745f1818585eaae729f44b161653c9247577fbc5d1a724befc10ccbc9f4e",
+      "log_sha256": "160f92e9ff5e66632c22d0b72ee9b28fae3085ad24bc68878612dcffceb7a111"
+    },
+    {
+      "directory": "literal255-state-112",
+      "name": "state",
+      "config_sha256": "4097217662b7e0270443261ae9ef207ed725f0cfb6c04bb832c7dd003fc3ab6f",
+      "log_sha256": "710c05da39f2bcd239eeca9af2aa500d413112f5750d0362bf3dddae4452b371"
+    },
+    {
+      "directory": "literal255-state-120",
+      "name": "state",
+      "config_sha256": "4b7bdec50e0cb7394ddb5da11f65dc891e45f0384ee18d8b8eab5eaf061d78f8",
+      "log_sha256": "92f41f2faf289bbacddb633c7b6df7b5f4c1c812b46da4dddff7ec12d99755d2"
+    },
+    {
+      "directory": "literal255-state-128",
+      "name": "state",
+      "config_sha256": "8c53e7a01eedee5bf8d5cd69eb9c39706d4061c79922b37cb1e942015c159c9f",
+      "log_sha256": "d31ea4914827ace8c87595c47a27705f52ca49c641f82d5bee12b69ab2e1281a"
+    },
+    {
+      "directory": "literal255-state-136",
+      "name": "state",
+      "config_sha256": "d9c4b2c94ad045787722b844c9ce34380ba774c62b5b4c68f5ba5d586457ec09",
+      "log_sha256": "0cd2446ca9452fc658858eb1e34ed9ce6a9c0a1823043b69361854caaeffde9a"
+    },
+    {
+      "directory": "literal255-state-144",
+      "name": "state",
+      "config_sha256": "e95bdebaa29d7f5eb29ea5ad4233d4712d0a46be5a09106ebf5d12ec476a2345",
+      "log_sha256": "81bf4ba06b6e4548d457e0c6b0a349f587374dd6a107ef8f4391f70d88af84ce"
+    },
+    {
+      "directory": "literal255-state-152",
+      "name": "state",
+      "config_sha256": "76a65a8f62385f745fda4d5757a9b0c882acf4e017d61a62ff51e8ec3bc1ad17",
+      "log_sha256": "6041304c9dc70b7822163f1f8a393fd6668381553b1e50ff70722d1a3254265a"
+    },
+    {
+      "directory": "literal255-state-160",
+      "name": "state",
+      "config_sha256": "25faee1f9cc5786848537660ea4a88ae295e0f5df7b5914bfe6f6d6e4b98738c",
+      "log_sha256": "c10d767ac3f6b11a36854f3630a99dd09cb4ede49911df484b566193ee010311"
+    },
+    {
+      "directory": "literal255-state-168",
+      "name": "state",
+      "config_sha256": "802e3811c1ad4c808c96abfbf83dc5135b7a2408bef0aa0b34e460637f2b0d83",
+      "log_sha256": "882a0adfe3cfa3233196f9154c09e2dafd95b4ff88bbf2ad428053482c35fb2e"
+    },
+    {
+      "directory": "literal255-state-176",
+      "name": "state",
+      "config_sha256": "c07fcccd01b116df1dd7fbdeb6e763fd746ba517c7e12e6d1de57c35f0c0d049",
+      "log_sha256": "1f66e48614b0e47202a846802ca3b997c66a9d9fca9154cafde092631abf875d"
+    },
+    {
+      "directory": "literal255-state-184",
+      "name": "state",
+      "config_sha256": "43d683021d9490a03039eabb303b502eaf4cc994b439b1c327ee43efb530a8b6",
+      "log_sha256": "dc4ebafad265f65b25a3757b0997220767f22a07f28bf3b0f2420b707210a5ad"
+    },
+    {
+      "directory": "literal255-state-192",
+      "name": "state",
+      "config_sha256": "2eea24f08984e33c4e3d7f9e18852253afb0b778f5b14f729aac6d1606ec6fbe",
+      "log_sha256": "7dbbc3ae36ba7f5dc1a8c09b4962ac01b77b01fb6890f5095eae431bb8a86b10"
+    },
+    {
+      "directory": "literal255-state-200",
+      "name": "state",
+      "config_sha256": "35a2ff546bb96fe192c75649fb663ba7317cf18926ccb3a796a5077fd66e18d7",
+      "log_sha256": "796d6e63894f1b803fc5980adcf8f0b22de4b2933a4b93ad0d31d982ddcd6b68"
+    },
+    {
+      "directory": "literal255-state-208",
+      "name": "state",
+      "config_sha256": "3796446c4da7b06a79d1963cdf98ae49e9dc216e7653df0267d2657f6e9a161c",
+      "log_sha256": "c14dab6dc703c9e31fb708041c50a21291622b7f693e0b33f85e6553d2e659ad"
+    },
+    {
+      "directory": "literal255-state-216",
+      "name": "state",
+      "config_sha256": "04343558456e6e5458c30109c76fbe132ef758929a967af6813cdb7d16b5478c",
+      "log_sha256": "f6ca0c054f2e1892ad87739480463fe9d466e1cb96dffea5484258466b5c9acc"
+    },
+    {
+      "directory": "literal255-state-224",
+      "name": "state",
+      "config_sha256": "31ee9040fc5b1268ddcbc13f33227f68738c8eae4680cbfa61d81d564bf7d202",
+      "log_sha256": "c023bc384315d38453072c3c8062618c5ac36cc0a7e5b85cf630b77e0e986817"
+    },
+    {
+      "directory": "literal255-state-232",
+      "name": "state",
+      "config_sha256": "9f45e2df892aee3bf2fbd70eab6cc047d40340485312b3a2c42fd095b27b6ea3",
+      "log_sha256": "609eb7c96d587727aa666d69b66cdd708995fcc177a47dbdff1334e3661056e8"
+    },
+    {
+      "directory": "literal255-state-240",
+      "name": "state",
+      "config_sha256": "7ffea27a3fb112de61a1b4ce6d20cc87a7ca31e7a6ae8790e45231767136e536",
+      "log_sha256": "58ab58b9ca03ce2748b7f74fb9aeaf8dbd55cf389ad4362f2c60b3439573c747"
+    },
+    {
+      "directory": "literal255-state-248",
+      "name": "state",
+      "config_sha256": "13f5410aafb820f3578194a95d2aa40c60c28f0e9f61ee7ed95f8f9853a1c38c",
+      "log_sha256": "12adfda7b1ab8023622ee23410a2483ca296eefae9aa11254e5e067e7442f1a9"
+    }
+  ],
+  "negative_controls": [],
+  "positive_checkpoint_sha256": "dc034e03962edba5300cb44be7fd2b15a06883caf3d993bd2d88dfd722433e22",
+  "control_result_sha256": null,
+  "scope": "Memory-unit properties; whole-chip protocol and physical gates remain separate",
+  "provenance": "Only successful positive tasks are reused; corrected reset-reachable controls are audited separately",
+  "positive_checkpoint": "literal255.positive.json.gz"
+}

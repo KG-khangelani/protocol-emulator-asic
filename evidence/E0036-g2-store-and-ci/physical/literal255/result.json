@@ -1,0 +1,80 @@
+{
+  "status": "FAIL_PLACEMENT_CAPACITY",
+  "variant": "literal255",
+  "run_id": 43224856998,
+  "workflow_source_commit": "e2ff52e54a69a5285cc0c9343d91088b49481307",
+  "source_sha256": {
+    "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748",
+    "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+    "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "archive_digests_verified": true,
+  "resolved_fixed_conditions_verified": true,
+  "tool_identity_evidence": "Resolved PDK paths and job log; failed flow did not emit final pdk.json",
+  "mapped_cell_area_um2": 1281967.344,
+  "mapped_instance_count": 96220,
+  "placement_total_instance_area_um2": 1282118.544,
+  "placement_pin_density_adjustment_um2": 65763.669,
+  "placement_adjusted_movable_area_um2": 1347882.213,
+  "placement_core_area_um2": 1208172.672,
+  "placement_adjusted_utilization_percent": 111.564,
+  "failure": "GPL-0301 utilization exceeds 100 percent under fixed 8x4 conditions",
+  "routed_metrics": "NOT_REACHED",
+  "precheck": "SKIPPED",
+  "netlist_protocols": "SKIPPED",
+  "retained_files": {
+    "artifacts.json": {
+      "original_sha256": "76a409f7d26e7e6af5fdebb168b1e6b2b86047cd4bf348d439ebfdd82eb9d12b",
+      "retained_file": "artifacts.json",
+      "retained_sha256": "76a409f7d26e7e6af5fdebb168b1e6b2b86047cd4bf348d439ebfdd82eb9d12b"
+    },
+    "inputs.json": {
+      "original_sha256": "44ab5ebe82cada04101927310096aa995b1bf9463a139cae1f30363143a70535",
+      "retained_file": "inputs.json",
+      "retained_sha256": "44ab5ebe82cada04101927310096aa995b1bf9463a139cae1f30363143a70535"
+    },
+    "resolved.json": {
+      "original_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+      "retained_file": "resolved.json",
+      "retained_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca"
+    },
+    "mapped-state.json": {
+      "original_sha256": "f2462704a966d6cf23eac1d2f4f247455cf0e96e4d7a26176c3d21f89320a708",
+      "retained_file": "mapped-state.json",
+      "retained_sha256": "f2462704a966d6cf23eac1d2f4f247455cf0e96e4d7a26176c3d21f89320a708"
+    },
+    "placement-metrics.json": {
+      "original_sha256": "c568345413931cea7987ffdb82179604be45b76e551cf620d5d42168e3803210",
+      "retained_file": "placement-metrics.json",
+      "retained_sha256": "c568345413931cea7987ffdb82179604be45b76e551cf620d5d42168e3803210"
+    },
+    "placement.log": {
+      "original_sha256": "c8b358e27cc920e8d6f9097ff5d3bff34a5ef581332ee1ea2a1ed9b4c78d693c",
+      "retained_file": "placement.log.gz",
+      "retained_sha256": "70dc2f9c1639fe99f23e5ad6a28839266257222cf6efd9c60929064c17ed0381"
+    },
+    "synthesis.log": {
+      "original_sha256": "5af17cbb97adf3d66f896a1d7bc27cb8a2d43da92a2f8fbaeeb7de915f4e3c4d",
+      "retained_file": "synthesis.log.gz",
+      "retained_sha256": "f59e56d3daa2edc36ce3c81e550e23dea5fbc7bd39a48c7a578d1a7f6e4b229b"
+    },
+    "gds-job.log": {
+      "original_sha256": "b01d3401d1dd60dd9b3dd3d149f34d670b89bc500b0462c384a4be027820f8fd",
+      "retained_file": "gds-job.log.gz",
+      "retained_sha256": "e1fe94538f962a36210701a83e52b0731cdb15e8e0946d50573f49e657dbeba9"
+    },
+    "flow.log": {
+      "original_sha256": "07bd2915f8cc883f8894e8bf93f59f9dd44e7f894e652de899a64f8511e91440",
+      "retained_file": "flow.log.gz",
+      "retained_sha256": "4d8e3119e0aa3c7f764ec060a0263138e2ae4b8ba65bb15fcf13d819e9f62f5e"
+    },
+    "error.log": {
+      "original_sha256": "bb5408a939f9246ca0a1b1532f6a1a3dd4df7480e2863dd58211fa714f34ebfa",
+      "retained_file": "error.log.gz",
+      "retained_sha256": "9be69aad85a5e1f27b78dcf95bea8a8c8ade1665442ccca9539b83199782a3df"
+    }
+  },
+  "scope": "Measured rejection of this literal255 implementation; no routed cost comparison or timing qualification"
+}

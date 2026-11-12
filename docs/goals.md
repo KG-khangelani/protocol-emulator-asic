@@ -103,16 +103,20 @@ D37/E0035 advances experimental od128: 96 words for combined write/read versus
 211 literal words, with actual 128/255-word stores. Both simulators agree on
 1,160 od128 I2C records and the twelve existing public kernel/UART/SPI groups;
 all 1,052 SPI records match compact10. Current boundaries, scoped instruction
-proofs and cleanup equivalence pass. The store induction timed out and remains
-inconclusive. E0036 closes the 31ebf82 CI audit with all three G2 jobs and
+proofs and cleanup equivalence pass. The initial whole-memory induction
+timeouts remain inconclusive. E0036 closes the 31ebf82 CI audit with all three G2 jobs and
 verified archive/source identities; both candidates pass the full I2C matrix
-in both simulators. The eighteen-group physical selection has a separate fresh
-CI gate. Physical qualification and the complete store proof remain open.
+in both simulators. Its complete partitioned store proofs now pass every word's
+transition/read relation and common controls (652/1,287 assertions), with
+checked reset-reachable mutations. The exact eighteen-group selection passes
+both simulators at e2ff52e. literal255 fails fixed-footprint placement at
+111.564% adjusted utilization; the od128 physical run remains in progress.
 
-**Next executable action:** finish the partitioned store proof and exact
-eighteen-group selection, then measure mapped/routed feasibility using the
-separate G2 workflow under the unchanged pinned 8x4 conditions. Preserve
-G1's pilot and failed alternatives. This experimental result does not finish G2.
+**Next executable action:** audit the fresh CI store gate and complete od128's
+routing, timing, precheck and exact netlist selection under the unchanged pinned
+8x4 conditions. Preserve G1's pilot and failed alternatives, including the
+literal capacity rejection. Integration and publication are still required;
+these experimental passes do not finish G2.
 
 Completion checks:
 

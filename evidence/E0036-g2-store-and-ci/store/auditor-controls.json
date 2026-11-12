@@ -1,0 +1,42 @@
+{
+  "status": "PASS_AUDITOR_NEGATIVE_CONTROLS",
+  "controls": [
+    {
+      "mutation": "missing_state_group",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_read_group",
+      "rejected": true
+    },
+    {
+      "mutation": "duplicate_group",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_assertion",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_cover",
+      "rejected": true
+    },
+    {
+      "mutation": "incomplete_word_coverage",
+      "rejected": true
+    },
+    {
+      "mutation": "wrong_source",
+      "rejected": true
+    },
+    {
+      "mutation": "failed_proof",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_cover_witness",
+      "rejected": true
+    }
+  ],
+  "scope": "Evidence-checker falsification, not additional RTL coverage"
+}

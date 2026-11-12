@@ -81,3 +81,18 @@ production and publish a qualified milestone only after the remaining G2 checks.
 
 Specification: [general I/O candidates](../specs/g2-general-io-candidate.md).
 Evidence: [E0035](../../evidence/E0035-general-i2c/README.md).
+
+## E0036 follow-through, 2026-11-12
+
+The historical gaps above remain recorded. E0036 subsequently closes the full
+two-simulator matrix for both candidates and the exact eighteen-group physical
+selection. Complete actual-store induction passes 652 od128 / 1,287 literal255
+assertions, with inspected reset-reachable wrong-bank/byte-lane controls.
+The original aggregate with a rejected pre-reset alias witness is preserved.
+
+The literal255 physical comparison at e2ff52e fails placement capacity under
+unchanged 8x4 conditions: 111.564% pin-density-adjusted utilization. It has no
+routed result, precheck or netlist qualification. od128 remains under physical
+evaluation. This supports continuing the smaller general serial candidate;
+it does not yet authorize production promotion or a qualified G2 release.
+See [E0036](../../evidence/E0036-g2-store-and-ci/README.md).

@@ -1,0 +1,294 @@
+{
+  "status": "PASS_COMPLETE_VARIANT_STORE_PROOF",
+  "variant": "od128",
+  "capacity": 128,
+  "source_sha256": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+  "assertions": 652,
+  "positive_task_count": 33,
+  "complete_read_and_transition_coverage": true,
+  "positive_assumptions": 0,
+  "actual_memory_initialization_assumptions": 0,
+  "proofs": [
+    {
+      "directory": "od128-cover",
+      "name": "cover",
+      "config_sha256": "20c28fcd3d2905b03e65f100e29e23978ce94d0f816daa6975fd6c7cb5eb86cc",
+      "log_sha256": "fe999e7dd2ea3c94df0d6272d9d496f7ad9b9822cddce558238894a5d4f88be1"
+    },
+    {
+      "directory": "od128-read-000",
+      "name": "read",
+      "config_sha256": "b6c55d22e5e6958af336d6c5cd496a882860bd8649e198a3e80e0449d050ef96",
+      "log_sha256": "6ed982943b8d77b36ad1dfe41637eff8b8b6ae36953573623adbfdb7af1a656c"
+    },
+    {
+      "directory": "od128-read-008",
+      "name": "read",
+      "config_sha256": "64d1b9b011666a67f5b6d748037e6703972c7858260ed39114a5fa35fa37ce13",
+      "log_sha256": "3fa41219762de398595270815bc8524e0b8cf73ae69043448fcfa262cce68419"
+    },
+    {
+      "directory": "od128-read-016",
+      "name": "read",
+      "config_sha256": "4131cc0a706875e901529a93a9cb9ef9c1e178b12021f2b8db70b30da657f12e",
+      "log_sha256": "fe86a641a29d6b3f0fdfa4694beefd14710f4013be6081c4b8dfdf8c13819c1e"
+    },
+    {
+      "directory": "od128-read-024",
+      "name": "read",
+      "config_sha256": "4477416a12809ec7694e77dc8885cc1598f56e76519294d0445a2e70bf93d425",
+      "log_sha256": "7c82ff39076f75875d868a08dffb5e7fc93adb4499fb0e494c74d6bd9324e89f"
+    },
+    {
+      "directory": "od128-read-032",
+      "name": "read",
+      "config_sha256": "5d3a90b70301724986dbeffcc83a7194e30f98edd8c10b2c5e47728cf1a37fe9",
+      "log_sha256": "b69084bd62f3b0f18fd2f87520c549cda7337416af098c6f516d36eac418c3fd"
+    },
+    {
+      "directory": "od128-read-040",
+      "name": "read",
+      "config_sha256": "41557d5d91cda634b3fb7e7724bca635b200ecd35e05082b838f2e584704ead8",
+      "log_sha256": "4a71110c96def44d5dd8c6768e28090ceff832fa42246265fc29f43fc9e23122"
+    },
+    {
+      "directory": "od128-read-048",
+      "name": "read",
+      "config_sha256": "5c7b4b95ceb02fa15a363cb64bad388dc3e0df806b41f243dd63c5202d62ebaf",
+      "log_sha256": "a55836b5f37cb824f0cbb52a1d75c89f653240a8533e62027fbff12d310ca3f3"
+    },
+    {
+      "directory": "od128-read-056",
+      "name": "read",
+      "config_sha256": "c8c9edd1e574d22ac0065a04273d30ab387adfc2e189dcadc4f819a687c5a625",
+      "log_sha256": "50e84b5cf4fbd7c64861871e0aa400e3cb6c5f00aa8e2bc12543cebd11b81ab9"
+    },
+    {
+      "directory": "od128-read-064",
+      "name": "read",
+      "config_sha256": "84b6b19c0139cb6c9b802689659c0b3e3a41f6bc501a4da0874cb5b06199b218",
+      "log_sha256": "33e2311f687f37174976906fba2a08955baddc6c21c2e23375e796abcee9742f"
+    },
+    {
+      "directory": "od128-read-072",
+      "name": "read",
+      "config_sha256": "d2bccf570db7f83d1dda7b46c31e0fe6c492fb767b26a8d4a651746b26294604",
+      "log_sha256": "3443ac5dead55530749aecf8c4cb01b1c4b47901703e5b48da19f5d795ef945c"
+    },
+    {
+      "directory": "od128-read-080",
+      "name": "read",
+      "config_sha256": "7f385069fecb9e072f01a2a61db80c691bd0afe2733d4c1ef958d3e6f2bac843",
+      "log_sha256": "204f65a4e13f1feb7c3b1239db5b5cc88126fddc64c93a8431409dee32bb8ea1"
+    },
+    {
+      "directory": "od128-read-088",
+      "name": "read",
+      "config_sha256": "f6dcde56840a2af956dcc1f9651027349618cc83deea8d954c845e0a6d2d6d50",
+      "log_sha256": "adba627cbe9d582fd63b9b8c100848c595d3d83f4f80836f81f1b19d45a57c52"
+    },
+    {
+      "directory": "od128-read-096",
+      "name": "read",
+      "config_sha256": "da37aed9cf19596ec18e7a6b84db7990cf072d02c72b3bfbe4d1d3a45e0e65e7",
+      "log_sha256": "f50d75d85be435c3b8c7219560085e4e93eb9d0655ba3f7268eceb8ed701bb94"
+    },
+    {
+      "directory": "od128-read-104",
+      "name": "read",
+      "config_sha256": "6f20c925bd64426fb36fc12bc03b5ccbae3b74c6fad6780da2cef48c68159b69",
+      "log_sha256": "d2ca636d62beaf18145cf820616282f1d02b06b015eccec3a1e2cd8970f74347"
+    },
+    {
+      "directory": "od128-read-112",
+      "name": "read",
+      "config_sha256": "66d21e5672a057a71d51224b0d78e2b1e62613f03c7ae3e487b725ff6e96baef",
+      "log_sha256": "707c067145d9994b70f85482eb92fdf490e727e6045680eeda53e67d080cf96f"
+    },
+    {
+      "directory": "od128-read-120",
+      "name": "read",
+      "config_sha256": "6d3ec1888dae94d9ff7827b4b5232ff063ef960c705e9e7ad715f1b986ff2c40",
+      "log_sha256": "c08e7cf71968496d47ab80fae56fd1f528bf8d133e38889d31beb94873250c09"
+    },
+    {
+      "directory": "od128-state-000",
+      "name": "state",
+      "config_sha256": "2cde0d1007fa92a428a448fbdacb73d26b99d4e1b097406a95f743b410276fb1",
+      "log_sha256": "d78966ac25950153414dcddc4c90da1c3017ce8b600b3058918d04d89d9ae7d4"
+    },
+    {
+      "directory": "od128-state-008",
+      "name": "state",
+      "config_sha256": "640f30efef8e37a7767bbec0029147a69322d01f99fa6da6accbd3ca2d96c6e3",
+      "log_sha256": "5a2eab1d53a703d002e9b787da959bca180ef21d9f86e989231bd117e378192a"
+    },
+    {
+      "directory": "od128-state-016",
+      "name": "state",
+      "config_sha256": "65abf4d87665948d9fee4b3d43cffbede2bb2fbde6862fe1a67ea8919b3be593",
+      "log_sha256": "bc5382fd9c448b06879aef773611d797f132da28e7bd6f9eaadf261080acdcb3"
+    },
+    {
+      "directory": "od128-state-024",
+      "name": "state",
+      "config_sha256": "650334562a03ef9d3f6ae3102acf076fe31a3c73c4117226661ba5488824f8f1",
+      "log_sha256": "e4cc7ddc946bf449e1b8fb710306fc7a888c60373899b640fd5c7ba03b8d0020"
+    },
+    {
+      "directory": "od128-state-032",
+      "name": "state",
+      "config_sha256": "ddc70803c6fda6bb5c5404aa1fb90d2fba2ae84582ce55eddd82a713ffec0f4f",
+      "log_sha256": "91842ed20d637a7b60392ad4327f55a3925169ff290fba3ee870a0724413358d"
+    },
+    {
+      "directory": "od128-state-040",
+      "name": "state",
+      "config_sha256": "c3a844126ce07972428db36c4491217c2dd4d665382e4e307f6acf6b80fdca44",
+      "log_sha256": "b5530f9c5a17684e0fc38355121255c7c44fb94c043f1dc044ac4246a154916a"
+    },
+    {
+      "directory": "od128-state-048",
+      "name": "state",
+      "config_sha256": "73d0d10eab146e898d754b9bae1aadb2ed00c4234e50ce6405a29e53b7530753",
+      "log_sha256": "272efecfb50501f0054b7ab883a4c0955b80460c72079f7e86770f9cfb7ec2a2"
+    },
+    {
+      "directory": "od128-state-056",
+      "name": "state",
+      "config_sha256": "ea94b57b0694ddccee76cc7d9e4ee4cd6ce6c5acd8a8fbe440adcaecf531faab",
+      "log_sha256": "84687a1ae644d2d06f6fb79906f711ba3dd3b2de585901b04601922132890204"
+    },
+    {
+      "directory": "od128-state-064",
+      "name": "state",
+      "config_sha256": "b69367192e37e3698a05b3bb737460a2d8a58d836083052288aae9dbe08dbd8d",
+      "log_sha256": "7ba44066b97a622b55c1322d7b3079839903b9a317088e381ddb233a6cc8406e"
+    },
+    {
+      "directory": "od128-state-072",
+      "name": "state",
+      "config_sha256": "c4f5c1b4610526fc89f73daee8f458978fae80d4272be134aaf9ad09a9ab4e45",
+      "log_sha256": "1f5f8b3fbdb46194eae8d8e527c831ec31cf88e51a6baa5ca187f75e298e0822"
+    },
+    {
+      "directory": "od128-state-080",
+      "name": "state",
+      "config_sha256": "59b8d58dc40b1d80104b1dc8d994ff4a68cfda9deb6ec81a87b04d2209dc1188",
+      "log_sha256": "1705cdb6ad0b4c23b22592f2e69421985214ac7acc8ca94364005de0dd6c92ea"
+    },
+    {
+      "directory": "od128-state-088",
+      "name": "state",
+      "config_sha256": "4089ad3b2c61ab52df695397c9a948218ec2646f554e5df6638580cbb46931f1",
+      "log_sha256": "ab3cf1c606f93240a9ae228aa20dcb7beaecfd5d57db49d2a30fbc310ded0e08"
+    },
+    {
+      "directory": "od128-state-096",
+      "name": "state",
+      "config_sha256": "9373041fbc3ec7ef4157c1252646b73a4933823e691588ea0b1038d5ffa0f285",
+      "log_sha256": "cb1de286f6956ed26d97f1b13cda911dbac1e807d55735b18f5a354b10c22875"
+    },
+    {
+      "directory": "od128-state-104",
+      "name": "state",
+      "config_sha256": "6ee68c84586f32e4231ff0d28757d05b792baa3c01fb2b36438458000dfd02ae",
+      "log_sha256": "f630fc27915d55db808d02a02a1d77741c2b1f6af9a07ad6e4fc71897e338fe2"
+    },
+    {
+      "directory": "od128-state-112",
+      "name": "state",
+      "config_sha256": "a0ebdb0cf2fc8d2cd87d025589c21f217167dac739a46af38b9be0f08f576c12",
+      "log_sha256": "bfc7766b78f5dd7e6b5c7a2e9449d9b78cd5c07f2effb6ebfeef01ce1ab2aeea"
+    },
+    {
+      "directory": "od128-state-120",
+      "name": "state",
+      "config_sha256": "ffaf358cdbe2badb3d81aff6de8d48f39cba9b1fe18474e0f0b412af4703e75d",
+      "log_sha256": "55702b9a47b2be9f26d87a2927923a28f74e92302a60b5a770acf3f367826271"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "alias",
+      "observations": {
+        "validated": true,
+        "violations": [
+          {
+            "edge": 20,
+            "bank": 8,
+            "byte_address": 16,
+            "addressed_word": 68,
+            "affected_word": 4,
+            "data": 1,
+            "before": 0,
+            "expected": 0,
+            "observed": 1
+          },
+          {
+            "edge": 20,
+            "bank": 8,
+            "byte_address": 16,
+            "addressed_word": 68,
+            "affected_word": 68,
+            "data": 1,
+            "before": 0,
+            "expected": 1,
+            "observed": 0
+          }
+        ],
+        "aliased_reads": [
+          {
+            "edge": 30,
+            "bank": 8,
+            "byte_address": 16,
+            "addressed_word": 68,
+            "aliased_word": 4,
+            "expected": 0,
+            "observed": 1
+          },
+          {
+            "edge": 40,
+            "bank": 8,
+            "byte_address": 16,
+            "addressed_word": 68,
+            "aliased_word": 4,
+            "expected": 0,
+            "observed": 1
+          }
+        ]
+      },
+      "witnesses": {
+        "proof/engine_0/trace.vcd": "a191e0140ab51f29b6d237f5ffed1b92461cbedcdf7b43b0aaa8cdb573818819"
+      }
+    },
+    {
+      "name": "lane",
+      "observations": {
+        "validated": true,
+        "violations": [
+          {
+            "edge": 10,
+            "bank": 0,
+            "byte_address": 10,
+            "addressed_word": 2,
+            "affected_word": 2,
+            "data": 64,
+            "before": 0,
+            "expected": 4194304,
+            "observed": 1073741824
+          }
+        ],
+        "aliased_reads": []
+      },
+      "witnesses": {
+        "proof/engine_0/trace.vcd": "a0e9562959083cffcbe5e4c50f6c850623d6639c020a9184cb61deac6d7706d7"
+      }
+    }
+  ],
+  "positive_checkpoint_sha256": "dc034e03962edba5300cb44be7fd2b15a06883caf3d993bd2d88dfd722433e22",
+  "control_result_sha256": "831463f57cb4c8968f6ad10a985cb341caca3a7e93c4c521333a4371408432c8",
+  "scope": "Memory-unit properties; whole-chip protocol and physical gates remain separate",
+  "provenance": "Only successful positive tasks are reused; corrected reset-reachable controls are audited separately",
+  "positive_checkpoint": "od128.positive.json.gz"
+}

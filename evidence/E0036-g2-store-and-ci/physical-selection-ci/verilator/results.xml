@@ -1,0 +1,53 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261112" />
+    <testcase name="public_pin_reload_changes_observable_program" classname="test" file="/workspace/test/test.py" lineno="180" time="0.0029964447021484375" sim_time_ns="726.0" ratio_time="242287.1343093571" />
+    <testcase name="invalid_length_never_releases_engine" classname="test" file="/workspace/test/test.py" lineno="213" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="synchronized_input_wait_event_and_timeout" classname="test" file="/workspace/test/test.py" lineno="228" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="k_input_wait_public_program_event_timeout_and_reload" classname="test" file="/workspace/test/test.py" lineno="271" time="0.003046274185180664" sim_time_ns="906.0" ratio_time="297412.49307349144" />
+    <testcase name="k_bounded_loop_public_program_counts" classname="test" file="/workspace/test/test.py" lineno="315" time="0.03171372413635254" sim_time_ns="12008.0" ratio_time="378637.3353180421" />
+    <testcase name="loop_target_overflow_faults_without_alias" classname="test" file="/workspace/test/test.py" lineno="354" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="k_shift_8_public_payload_both_orders" classname="test" file="/workspace/test/test.py" lineno="368" time="0.00466465950012207" sim_time_ns="1296.0" ratio_time="277833.7840020445" />
+    <testcase name="uart_tx_8n1_public_pin_oracle" classname="test" file="/workspace/test/test.py" lineno="431" time="2.825392723083496" sim_time_ns="1112920.0" ratio_time="393899.2236043608" />
+    <testcase name="timed_shift_burst_invalid_freeze_and_reset" classname="test" file="/workspace/test/test.py" lineno="479" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="timed_shift_burst_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="534" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="shift_trace_matches_semantic_model" classname="test" file="/workspace/test/test.py" lineno="591" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="shift_invalid_partial_and_reset_fail_closed" classname="test" file="/workspace/test/test.py" lineno="641" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="randomized_trace_matches_reviewed_model" classname="test" file="/workspace/test/test.py" lineno="703" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="invalid_encoding_and_out_of_range_fail_closed" classname="test" file="/workspace/test/test.py" lineno="733" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="uart_rx_host_service_last_safe_edge" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="147" time="5.2402424812316895" sim_time_ns="998798.048" ratio_time="190601.49441123536" />
+    <testcase name="uart_rx_host_service_fault_abort_quarantine" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="175" time="0.07676219940185547" sim_time_ns="8392.032000000123" ratio_time="109325.05927907627" />
+    <testcase name="uart_rx_host_service_late_read_counterexample" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="207" time="0.030902624130249023" sim_time_ns="5026.016000000294" ratio_time="162640.42751892324" />
+    <testcase name="uart_rx_public_bounded_last_byte_delivery" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="233" time="8.34521484375" sim_time_ns="1324403.7240000004" ratio_time="158702.17229840273" />
+    <testcase name="uart_rx_public_framing_and_bounded_timeouts" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="257" time="2.5189366340637207" sim_time_ns="377865.0780000002" ratio_time="150009.75923336446" />
+    <testcase name="uart_rx_public_disable_reset_abort_then_reload" classname="test_uart_rx_public" file="/workspace/test/test_uart_rx_public.py" lineno="281" time="0.7943549156188965" sim_time_ns="120706.04600000009" ratio_time="151954.80461772656" />
+    <testcase name="timed_public_programs" classname="test_spi_timed_gpio" file="/workspace/test/test_spi_timed_gpio.py" lineno="97" time="56.197765827178955" sim_time_ns="10048864.0" ratio_time="178812.51775920356" />
+    <testcase name="timed_instruction_and_abort_controls" classname="test_spi_timed_gpio" file="/workspace/test/test_spi_timed_gpio.py" lineno="143" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="complete_i2c_transactions" classname="test_i2c_general_public" file="/workspace/test/test_i2c_general_public.py" lineno="101" time="223.5983715057373" sim_time_ns="622415725.9200001" ratio_time="2783632.643335372" />
+    <testcase name="public_store_banks_lengths_and_reset" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="46" time="0.12980079650878906" sim_time_ns="33807.0" ratio_time="260452.94720291538" />
+    <testcase name="public_pc_branch_and_skip_boundaries" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="107" time="0.5842995643615723" sim_time_ns="175939.0" ratio_time="301110.95528924034" />
+    <testcase name="public_branch_abandons_partial_byte_and_loop" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="147" time="0.02413201332092285" sim_time_ns="7538.0" ratio_time="312365.15162472706" />
+    <testcase name="public_open_drain_and_alternate_payload" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="180" time="0.6299600601196289" sim_time_ns="188000.0" ratio_time="298431.6179732076" />
+    <testcase name="public_i2c_abort_and_reload" classname="test_i2c_abort_public" file="/workspace/test/test_i2c_abort_public.py" lineno="115" time="100.9516773223877" sim_time_ns="8125464.407999992" ratio_time="80488.6518334058" />
+  </testsuite>
+</testsuites>

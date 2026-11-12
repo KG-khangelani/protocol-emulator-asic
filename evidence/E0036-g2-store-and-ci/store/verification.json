@@ -1,0 +1,30 @@
+{
+  "status": "PASS_AUDITED_COMPLETE_STORES",
+  "source_revision": "e2ff52e54a69a5285cc0c9343d91088b49481307",
+  "source_evidence": "E0035 current generated files; actual source hashes are in each audit",
+  "variants": {
+    "od128": {
+      "status": "PASS_COMPLETE_VARIANT_STORE_PROOF",
+      "capacity": 128,
+      "source_sha256": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+      "assertions": 652,
+      "positive_task_count": 33
+    },
+    "literal255": {
+      "status": "PASS_COMPLETE_VARIANT_STORE_PROOF",
+      "capacity": 255,
+      "source_sha256": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+      "assertions": 1287,
+      "positive_task_count": 65
+    }
+  },
+  "positive_proof": "Unbounded k-induction; every word transition and read relation plus all common control assertions",
+  "assumptions": "No environment/reset assumptions or initialized actual program bits in positive models",
+  "partition": "Only other assertions are removed; all real storage/control logic remains; no assumed lemmas",
+  "negative_controls": "od128 high-bank alias and swapped byte lane; inspected reset-reachable wrong writes",
+  "auditor_controls": 9,
+  "original_combined_result": "i2c-store-local-06 remains NOT_QUALIFIED because its first alias witness was not a reset-reachable write",
+  "correction": "i2c-store-local-07 guards only negative read assertions until after reset; both controls accepted. Positive property/model bytes are unchanged",
+  "runner_provenance": "06 runner bytes retained and matched to recorded digest. 07 retains its recorded runner digest and every tested mutant input/config/log/witness; current auditor reconstructs exact mutant bytes",
+  "scope": "Memory-unit qualification only; whole-chip protocols, physical fit and production promotion are separate"
+}
