@@ -1,0 +1,184 @@
+{
+  "scope": "Current complete-chip equivalence/reset, current generic-instruction properties/controls, actual data store/synchronizer/public readout and host deadline lemma. Historical engine/store assertions are a separate baseline profile.",
+  "source_directory": "/workspace/build/g2-current-regression-01/variants/od128/src",
+  "sources": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+  },
+  "stages": [
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "/workspace/experiments/i2c/run_shared_read_proof.py",
+        "--variants",
+        "/workspace/build/g2-current-formal-01/variants",
+        "--output",
+        "/workspace/build/g2-current-formal-01/chip"
+      ],
+      "log_sha256": "b6e6f4cbae0efe7c91d686143096a7d495c208b364298cecb4d45bf3c9892c22",
+      "name": "complete-chip",
+      "returncode": 0,
+      "seconds": 193.099
+    },
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "/workspace/experiments/i2c/run_general_formal.py",
+        "--variants",
+        "/workspace/build/g2-current-formal-01/variants",
+        "--variant",
+        "od128",
+        "--output",
+        "/workspace/build/g2-current-formal-01/instructions"
+      ],
+      "log_sha256": "2f8083f18fe9d1b24f97b2558ca95fe47fe669748fae868753e0835d014d4b64",
+      "name": "instructions",
+      "returncode": 0,
+      "seconds": 31.978
+    },
+    {
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/g2-current-formal-01/m1_data_store-prove",
+        "/workspace/build/g2-current-formal-01/m1_data_store.sby",
+        "prove"
+      ],
+      "log_sha256": "ea7ebda666d426bbf7c6340b27bd1d02c9b86d23b937a42ec717cbc6a893e7ae",
+      "name": "m1_data_store-prove",
+      "returncode": 0,
+      "seconds": 0.82
+    },
+    {
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/g2-current-formal-01/m1_data_store-cover",
+        "/workspace/build/g2-current-formal-01/m1_data_store.sby",
+        "cover"
+      ],
+      "log_sha256": "a071f4593fb52f7286bfb1cba6a4e7cb41b6351c41b78cae2e86f54ce6ba4b9b",
+      "name": "m1_data_store-cover",
+      "returncode": 0,
+      "seconds": 0.769
+    },
+    {
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/g2-current-formal-01/m1_input_sync-prove",
+        "/workspace/build/g2-current-formal-01/m1_input_sync.sby",
+        "prove"
+      ],
+      "log_sha256": "075adb4b60049baf1be5a4ace27834a4f5311842742d0a07e9a0d89c78030866",
+      "name": "m1_input_sync-prove",
+      "returncode": 0,
+      "seconds": 0.57
+    },
+    {
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/g2-current-formal-01/m1_input_sync-cover",
+        "/workspace/build/g2-current-formal-01/m1_input_sync.sby",
+        "cover"
+      ],
+      "log_sha256": "6777c9b1a02adf1e73ecfa2d06097cf4a113cf7713b1570f6fcb90c6c285a06a",
+      "name": "m1_input_sync-cover",
+      "returncode": 0,
+      "seconds": 0.518
+    },
+    {
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/g2-current-formal-01/m1_public_readout",
+        "/workspace/build/g2-current-formal-01/m1_public_readout.sby"
+      ],
+      "log_sha256": "6d610c048a03a82ee15555d7742dd89762cd619824883151eb36626fd5386d14",
+      "name": "m1_public_readout",
+      "returncode": 0,
+      "seconds": 3.83
+    },
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "/workspace/tools/check_host_deadline.py"
+      ],
+      "log_sha256": "fa1f050fd73e7761c0b03217088330706d943bd4f2f598f0354abbda18550afe",
+      "name": "host-deadline",
+      "returncode": 0,
+      "seconds": 0.167
+    }
+  ],
+  "status": "PASS_CURRENT_CHIP_INSTRUCTION_AND_SUPPORT_FORMAL",
+  "units": [
+    {
+      "inputs": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_data_store_formal.sv": "873bca1eb482d58df487d90fa96ac33c1cb4d56be31722846542ae85689ae58d"
+      },
+      "name": "m1_data_store-prove",
+      "proof_sby_sha256": "cc92dd23a449d87b7c4ed6a71f315ebafa17426edc7d36a442feacdf46774339",
+      "status": "PASS",
+      "witnesses": {}
+    },
+    {
+      "inputs": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_data_store_formal.sv": "873bca1eb482d58df487d90fa96ac33c1cb4d56be31722846542ae85689ae58d"
+      },
+      "name": "m1_data_store-cover",
+      "proof_sby_sha256": "cc92dd23a449d87b7c4ed6a71f315ebafa17426edc7d36a442feacdf46774339",
+      "status": "PASS",
+      "witnesses": {
+        "engine_0/trace0.vcd": "52c2771a97993b3ecda428e723c1c6b48d7fe691fcb5661671bcc2b40366b8cb",
+        "engine_0/trace1.vcd": "63fae6abc5c9d57210749e431853483b83778038fc9aac130abdff4ba675b639",
+        "engine_0/trace2.vcd": "6f1396657e1798849e3b3eab817f2343ae4c704ddcb9c5f77ac66bb71103b6aa"
+      }
+    },
+    {
+      "inputs": {
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_input_sync_formal.sv": "7b1a1e2e44519f8d3abedc5c044e0f30a27aa1c38d9ca88f921f245162055868"
+      },
+      "name": "m1_input_sync-prove",
+      "proof_sby_sha256": "b339679291a6ee732fa3eb679d520b840710ac26b4b5bfb539fbd385ec04e4b3",
+      "status": "PASS",
+      "witnesses": {}
+    },
+    {
+      "inputs": {
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_input_sync_formal.sv": "7b1a1e2e44519f8d3abedc5c044e0f30a27aa1c38d9ca88f921f245162055868"
+      },
+      "name": "m1_input_sync-cover",
+      "proof_sby_sha256": "b339679291a6ee732fa3eb679d520b840710ac26b4b5bfb539fbd385ec04e4b3",
+      "status": "PASS",
+      "witnesses": {
+        "engine_0/trace0.vcd": "2aab16c7b7885eb4ef1de65076bd3e562d2b2b2ace646835d7bf6f3ff27ff81f"
+      }
+    },
+    {
+      "inputs": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+      },
+      "name": "m1_public_readout",
+      "proof_sby_sha256": "86c6f24eaaefd577e5bc81afe4930444c741b81a210fe98080c43d46b01f5b8c",
+      "status": "PASS",
+      "witnesses": {}
+    }
+  ]
+}

@@ -54,11 +54,16 @@ at 426cea1 maps to 34,683 cells / 477,788.2578 square micrometres, saving
 GRT-0228 congestion. E0038 retains the verified failure; dependent jobs are
 skipped. Screen a structured banked read network without changing capacity,
 public behavior or physical gates.
-The retained default-integration probe has four obsolete expectation failures;
-prepare the current verification profile under the integration specification.
-It is not adopted. Production is unchanged. A fresh-checkout unit-test setup
-failure is fixed in 6ec83ae; replacement test CI passes. All 107 current local
-checks pass, including the additional candidate-identity rejection check.
+The retained default-integration probe has four obsolete expectation failures.
+D40/E0039 adds the explicit current profile: all 30 groups pass in both
+simulators with exact records; the original source still passes all 22 groups
+in both. The initial current and complete historical formal runs pass, but a
+normal-command proof rerun reaches its 300-second limit. Seven other stages
+pass; the 1,717-file retained replay preserves both outcomes. An isolated
+metadata-cache counterexample is fixed by running repository checks fresh;
+all 114 checks pass. Current-command CI, physical closure, adoption and
+publication remain required. Production is unchanged. A fresh-checkout
+unit-test setup failure is fixed in 6ec83ae; replacement test CI passes.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
 This prepares integration without promoting an unqualified design.

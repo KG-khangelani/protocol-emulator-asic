@@ -1,18 +1,20 @@
 PYTHON ?= python3
 LEARN_SECTION ?= all
+SOURCE_DIR ?= $(CURDIR)/src
+CURRENT_ARTIFACTS ?= $(CURDIR)/build/current
 ifneq ($(wildcard .venv/bin/python),)
 PYTHON := $(CURDIR)/.venv/bin/python
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
-.PHONY: help setup doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean
+SOURCE_PROFILE := $(shell $(PYTHON) tools/current_profile.py --sources "$(SOURCE_DIR)")
+CURRENT_RUN = $(PYTHON) tools/current_run.py --sources "$(SOURCE_DIR)" --artifacts "$(CURRENT_ARTIFACTS)"
+.PHONY: help setup doctor check check-base lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean
 help:
 	@echo "setup doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
-doctor:
-	$(PYTHON) tools/doctor.py
-check:
+check-base:
 	$(PYTHON) tools/check_project.py
 	$(PYTHON) tools/learning_status.py --verify
 	$(PYTHON) tools/m0_walkthrough.py --verify
@@ -27,6 +29,36 @@ check:
 	$(PYTHON) -m unittest discover -s experiments/spi_phase -p 'test_reference.py'
 	$(PYTHON) -m unittest discover -s experiments/spi_phase -p 'test_pin_timing.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_current_profile.py'
+ifeq ($(SOURCE_PROFILE),od128-shared)
+doctor:
+	$(CURRENT_RUN) doctor
+check:
+	$(CURRENT_RUN) check
+lint:
+	$(CURRENT_RUN) lint
+test:
+	$(MAKE) test-rtl-icarus
+	$(MAKE) test-gl-harness
+	$(MAKE) test-waveform-provenance
+test-rtl-icarus:
+	$(CURRENT_RUN) rtl-icarus
+test-gl-harness:
+	$(CURRENT_RUN) smoke
+test-waveform-provenance:
+	$(CURRENT_RUN) provenance
+test-verilator:
+	$(CURRENT_RUN) rtl-verilator
+formal:
+	$(CURRENT_RUN) formal
+synth:
+	$(CURRENT_RUN) synth
+evidence:
+	$(CURRENT_RUN) evidence
+else ifeq ($(SOURCE_PROFILE),legacy8)
+doctor:
+	$(PYTHON) tools/doctor.py
+check: check-base
 lint:
 	verible-verilog-lint --rules_config_search src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v
 test:
@@ -66,6 +98,11 @@ synth:
 	yosys -Q -l build/synthesis.log -p 'read_verilog src/project.v src/m1_engine.v src/m1_program_store.v src/m1_data_store.v src/m1_input_sync.v; hierarchy -check -top tt_um_khangelani_protocol_emulator; synth -top tt_um_khangelani_protocol_emulator; check -assert; stat; write_json build/synth.json'
 evidence:
 	$(PYTHON) tools/collect_evidence.py
+else
+doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence:
+	@echo "Unsupported source profile; declare and qualify this revision before verification."
+	@exit 1
+endif
 learn-status:
 	$(PYTHON) tools/learning_status.py
 learn-m0:

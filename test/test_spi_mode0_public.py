@@ -10,7 +10,7 @@ from cocotb.triggers import Timer
 from cocotb.utils import get_sim_time
 
 from test import (check_readback, edge, encode, initialise, load_program,
-                  write_data_register)
+                  write_data_register, G2_CURRENT)
 from tools.spi_mode0_oracle import (assemble, bits, coupled_program,
                                    expected_gpio, miso_level, schedule)
 
@@ -131,9 +131,10 @@ async def spi_mode0_abort_reload_and_capacity_boundary(dut):
     assert (int(dut.uio_out.value), int(dut.uio_oe.value), int(dut.uo_out.value)) == (0, 0, 0)
     await prepare(dut, 0x69)
     await transaction(dut, 0x69, 0x96, 0x96)
-    # A ten-word phase reference cannot be committed through this real loader.
+    # Keep the original capacity rejection on the original eight-word profile.
+    # The current profile rejects 129 against its actual 128-word store.
     dut.uio_in.value = 0  # Target detached before loader ownership.
-    await write_data_register(dut, 0, 10)
+    await write_data_register(dut, 0, 129 if G2_CURRENT else 10)
     dut.ui_in.value = 0xA0
     await Timer(1, unit="ns")
     assert int(dut.uio_out.value) == 0

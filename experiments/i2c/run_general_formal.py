@@ -25,7 +25,7 @@ def inspect_control(name, task):
         source = witness.read_text()
         changed = source.replace("$scope module m1_engine $end", "$scope module public_spi $end")
         assert changed != source
-        normalized.write_text(changed)
+        normalized.write_bytes(changed.encode())
         rows = [r for r in vcd_frames(normalized) if r["time"] % 10 == 0]
         for a, b in zip(rows, rows[1:]):
             if name == "keeps_loop" and a.get("f_branch") and a.get("loop_active") and b.get("loop_active"):
@@ -44,6 +44,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--variants", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--variant", choices=("od128", "literal255"), help="Default: prove both experimental engines")
     args = p.parse_args()
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
@@ -61,7 +62,7 @@ def main():
 
     save()
     try:
-        for variant in ("od128", "literal255"):
+        for variant in ((args.variant,) if args.variant else ("od128", "literal255")):
             path = args.variants/variant/"src/m1_engine.v"
             source = path.read_text()
             result["sources"][variant] = digest(path)

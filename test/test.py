@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.m1_contract_model import Instruction, Machine, State
 
 SEED = 20261002
+G2_CURRENT = os.getenv("G2_CURRENT") == "yes"
 STATE_BITS = {State.RUN: 0, State.WAIT: 1, State.HALT: 2, State.FAULT: 3}
 
 
@@ -215,7 +216,7 @@ async def invalid_length_never_releases_engine(dut):
     initialise(dut)
     await edge(dut, rst_n=0, ena=0)
     dut.ui_in.value = 0xE0
-    dut.uio_in.value = 9
+    dut.uio_in.value = 129 if G2_CURRENT else 9
     await edge(dut)
     assert int(dut.uo_out.value) == 0
     dut.ui_in.value = 0
@@ -362,7 +363,20 @@ async def loop_target_overflow_faults_without_alias(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
     await edge(dut)
-    assert int(dut.uo_out.value) == 0xE0  # FAULT at PC0, never wrapped RUN
+    if G2_CURRENT:
+        # PC32 is representable, but outside the committed one-word image.
+        assert int(dut.uo_out.value) == 0x20
+        dut.ui_in.value = 0x66
+        await Timer(1, unit="ns")
+        assert int(dut.uo_out.value) == 32
+        dut.ui_in.value = 0
+        await edge(dut)
+        assert int(dut.uo_out.value) == 0xE0
+        dut.ui_in.value = 0x66
+        await Timer(1, unit="ns")
+        assert int(dut.uo_out.value) == 32
+    else:
+        assert int(dut.uo_out.value) == 0xE0  # Five-bit overflow faults at PC0.
 
 
 @cocotb.test()
@@ -666,7 +680,7 @@ async def shift_invalid_partial_and_reset_fail_closed(dut):
 
     for invalid_word in (
         encode(Instruction("SHIFT_STEP", tx_pin=2, rx_pin=2)),
-        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1)) | 1,
+        encode(Instruction("SHIFT_STEP", tx_pin=0, rx_pin=1)) | (4 if G2_CURRENT else 1),
     ):
         await edge(dut, rst_n=0, ena=0)
         dut.engine_instruction.value = invalid_word

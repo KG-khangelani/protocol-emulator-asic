@@ -173,6 +173,30 @@ def records(path):
     return [json.loads(line) for line in data.splitlines()]
 
 
+def check_public_records(directory):
+    """Check reference observations without labelling the simulation harness."""
+    references = {
+        "spi/cases.jsonl": ("architecture/combined/icarus/records/cases.jsonl.gz", 1052),
+        "i2c/cases.jsonl": ("od128/protocols/icarus/records/cases.jsonl.gz", 1160),
+        "i2c/boundaries.jsonl": ("architecture/boundaries/od128-icarus/records/boundaries.jsonl.gz", 4),
+        "i2c/aborts.jsonl": ("architecture/aborts/od128-icarus/records/aborts.jsonl.gz", 36),
+    }
+    checked = {}
+    for name, (reference, count) in references.items():
+        path = directory / name
+        observed = records(path)
+        # The SPI runner also retains architectural records; select wire transfers exactly as in G1.
+        if name.startswith("spi/"):
+            observed = [row for row in observed if "trace_sha256" in row]
+        expected = records(EVIDENCE / "ci" / reference)
+        if name.startswith("spi/"):
+            expected = [row for row in expected if "trace_sha256" in row]
+        require(len(observed) == len(expected) == count, f"missing or extra records: {name}")
+        require(observed == expected, f"public records differ from audited RTL: {name}")
+        checked[name] = {"count": count, "sha256": digest(path), "reference_identical": True}
+    return checked
+
+
 def check_tests(args):
     cases = ET.parse(args.junit).getroot().findall(".//testcase")
     identities = [(case.attrib.get("classname"), case.attrib["name"]) for case in cases]
@@ -188,25 +212,7 @@ def check_tests(args):
             require(identity in common.EXCLUDED_TESTS and case.find("skipped") is not None,
                     "unexpected test outside the declared public selection")
             excluded.append(".".join(identity))
-    references = {
-        "spi/cases.jsonl": ("architecture/combined/icarus/records/cases.jsonl.gz", 1052),
-        "i2c/cases.jsonl": ("od128/protocols/icarus/records/cases.jsonl.gz", 1160),
-        "i2c/boundaries.jsonl": ("architecture/boundaries/od128-icarus/records/boundaries.jsonl.gz", 4),
-        "i2c/aborts.jsonl": ("architecture/aborts/od128-icarus/records/aborts.jsonl.gz", 36),
-    }
-    checked = {}
-    for name, (reference, count) in references.items():
-        path = args.records / name
-        observed = records(path)
-        # The SPI runner also retains architectural records; select wire transfers exactly as in G1.
-        if name.startswith("spi/"):
-            observed = [row for row in observed if "trace_sha256" in row]
-        expected = records(EVIDENCE / "ci" / reference)
-        if name.startswith("spi/"):
-            expected = [row for row in expected if "trace_sha256" in row]
-        require(len(observed) == len(expected) == count, f"missing or extra records: {name}")
-        require(observed == expected, f"public records differ from audited RTL: {name}")
-        checked[name] = {"count": count, "sha256": digest(path), "reference_identical": True}
+    checked = check_public_records(args.records)
     result = {"status": "PASS", "variant": "od128", "public_test_groups": len(required),
               "excluded_discovered_tests": excluded, "records": checked,
               "junit_sha256": digest(args.junit), "netlist_sha256": None,

@@ -1,0 +1,8 @@
+{
+  "status": "PASS_PREPARED_CACHE_FIX_RECEIPT_REGRESSION",
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "collector_sha256": "efe7e7af2420d178e7f32eb65439f6abc202e12daa83e552bc21c5bcc477803c"
+}

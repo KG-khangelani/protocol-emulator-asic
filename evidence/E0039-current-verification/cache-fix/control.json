@@ -1,0 +1,7 @@
+{
+  "status": "PASS_PREPARED_CACHE_POLICY_REPAIR",
+  "old_collector_sha256": "ee631f658f2cc2477a7819ad953bf1d9f6cec367a644ed44ce1627d610511646",
+  "fixed_collector_sha256": "efe7e7af2420d178e7f32eb65439f6abc202e12daa83e552bc21c5bcc477803c",
+  "actual_completed_check_receipt_rejected_for_reuse": true,
+  "scope": "Focused policy control only; original live pipeline input bytes remain unchanged. The fixed collector still needs the committed CI command run."
+}

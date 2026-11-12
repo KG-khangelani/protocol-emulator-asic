@@ -1,0 +1,22 @@
+{
+  "status": "PASS_INSTALLED_CACHE_REPAIR_AND_REPOSITORY_CHECKS",
+  "checks": 114,
+  "unit_group_counts": [
+    33,
+    18,
+    3,
+    3,
+    6,
+    7,
+    19,
+    4,
+    4,
+    6,
+    4,
+    7
+  ],
+  "collector_sha256": "efe7e7af2420d178e7f32eb65439f6abc202e12daa83e552bc21c5bcc477803c",
+  "command": "locked workbench make check-base",
+  "clean_current_profile_ci": "PENDING",
+  "scope": "Fresh metadata checks and receipt controls; no replacement of the retained incomplete formal command run"
+}

@@ -10,6 +10,13 @@ SRC_DIR = $(CURDIR)/../src
 PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v
 COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_mode0_public
 
+# The prospective production profile includes the complete current matrix and
+# the directly driven core. It is opt-in until physical qualification/adoption.
+ifeq ($(G2_CURRENT),yes)
+COMPILE_ARGS += -DG2_CURRENT
+COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_mode0_public,test_spi_timed_gpio,test_i2c_general_public,test_general_boundaries,test_i2c_abort_public
+endif
+
 # Extended experimental candidates use only the public top-level interface.
 ifeq ($(GENERAL_IO),yes)
 COMPILE_ARGS += -DGL_TEST

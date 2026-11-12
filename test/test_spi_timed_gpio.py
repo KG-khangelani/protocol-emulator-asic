@@ -8,7 +8,7 @@ import sys
 import cocotb
 from cocotb.triggers import Timer
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from test import edge, initialise, write_data_register, STATE_BITS
+from test import edge, initialise, write_data_register, STATE_BITS, G2_CURRENT
 from experiments.spi_phase.timed_gpio_programs import (
     TimedInstruction as I, TimedMachine, image, encode, evaluate, public_cases, MIXED)
 from tools.m1_contract_model import State
@@ -18,7 +18,7 @@ VARIANT=os.environ["TIMED_GPIO_VARIANT"]
 OUT=Path(os.environ["TIMED_GPIO_RECORD_DIR"])
 SMOKE=os.getenv("TIMED_GPIO_SMOKE")=="1"
 
-def save(record,trace=None):
+def save(record,trace=None,*,control=False):
     OUT.mkdir(parents=True,exist_ok=True)
     if trace is not None:
         blob=(json.dumps(trace,separators=(",",":"))+"\n").encode()
@@ -26,7 +26,7 @@ def save(record,trace=None):
         # Retain corner/negative traces; all transaction trace hashes are recorded.
         if any(label in record["name"] for label in ("early","late","mixed","edge-only","held")):
             (OUT/(record["name"]+".json")).write_bytes(blob)
-    with (OUT/"cases.jsonl").open("a") as f:
+    with (OUT/("controls.jsonl" if control else "cases.jsonl")).open("a") as f:
         f.write(json.dumps(record,sort_keys=True)+"\n")
 
 async def load_and_check(dut,words):
@@ -142,6 +142,36 @@ async def core_program(dut,program,*,mutate=True,reset_cut=None):
 
 @cocotb.test()
 async def timed_instruction_and_abort_controls(dut):
+    if G2_CURRENT:
+        assert VARIANT == "compact10"
+        # The same compact10 software executes on a real 128-word store. A
+        # write in its final bank must not disturb the first two banks.
+        words = [0x10203040 + i * 0x01010101 for i in range(10)]
+        initialise(dut)
+        await edge(dut, rst_n=0, ena=0)
+        await load_and_check(dut, words)
+        await write_data_register(dut, 5, 15)
+        tail = 0x91827364
+        for lane in range(4):
+            dut.ui_in.value = 0xDC | lane
+            dut.uio_in.value = (tail >> (8 * lane)) & 255
+            await edge(dut)
+        observations = []
+        for index, word in [*enumerate(words), (127, tail)]:
+            await write_data_register(dut, 5, index // 8)
+            for lane in range(4):
+                dut.ui_in.value = 0x80 | (index % 8) * 4 | lane
+                await Timer(1, unit="ns")
+                actual = int(dut.uio_out.value)
+                assert actual == (word >> (8 * lane)) & 255
+                observations.append([index, lane, actual])
+        await write_data_register(dut, 5, 16)
+        dut.ui_in.value = 0xA5
+        await Timer(1, unit="ns")
+        assert int(dut.uio_out.value) == 0 and not int(dut.uo_out.value) & 32
+        save({"name": "current-banked-nonalias", "accepted": True,
+              "observations": observations, "invalid_bank": 16}, control=True)
+        return
     if VARIANT=="compact10":
         # Matched banked baseline: address32..39 work and out-of-range bank1
         # writes cannot alias the actual ten words.

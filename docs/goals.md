@@ -145,6 +145,15 @@ retained in E0038. Dependent precheck/netlist jobs are skipped. The isolated
 default-integration probe exposes four obsolete test expectations; those must
 be handled explicitly before production promotion and publication.
 
+D40/E0039 now handles those expectations through an explicit source profile:
+30 groups pass in each simulator, while all 22 original groups still pass on
+the historical source. Initial current and complete historical formal runs
+pass. The later normal-command temporal proof reaches its 300-second wall
+limit; seven other stages pass, with no aggregate PASS. The 1,717-file replay
+preserves this distinction. A reproduced metadata-cache omission is fixed by
+running repository checks fresh; all 114 checks pass. Complete current-command
+CI and a physically successful implementation remain open.
+
 Completion checks:
 
 - [x] Freeze the I2C controller contract and independent oracle before extending

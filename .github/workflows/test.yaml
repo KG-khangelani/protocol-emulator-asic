@@ -28,6 +28,45 @@ jobs:
           $status
           $rtl
 
+  current-candidate:
+    runs-on: ubuntu-24.04
+    # The complete 30-group pair takes about 30 minutes on the local host;
+    # allow the fixed formal budgets and retained-artifact upload as well.
+    timeout-minutes: 75
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build locked workbench
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: tools/workbench
+          file: tools/workbench/Dockerfile
+          load: true
+          tags: protocol-emulator-asic-workbench:2026-07-29
+          cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+          cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+      - name: Verify the current profile on the frozen candidate
+        # Explicit source selection prepares integration without promoting the RTL.
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            make SOURCE_DIR=/workspace/evidence/E0038-shared-program-read/sources/od128 \
+            CURRENT_ARTIFACTS=/workspace/build/current-candidate \
+            doctor check lint test test-verilator formal synth evidence
+      - name: Retain current candidate verification
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: current-candidate-${{ github.sha }}
+          path: |
+            build/current-candidate/
+            !build/current-candidate/**/sim/**
+          if-no-files-found: error
+          retention-days: 90
+
   test:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
@@ -132,6 +171,8 @@ jobs:
           name: verification-${{ github.sha }}
           path: |
             build/evidence/
+            build/current/
+            !build/current/**/sim/**
             build/ci/workbench-image.json
             build/i2c-oracle/
             build/i2c-baseline/ci/result.json

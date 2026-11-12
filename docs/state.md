@@ -59,10 +59,21 @@ direct-engine width warnings. E0038 retains that failed probe. Complete the
 current-profile integration gates in specs/g2-production-integration.md;
 production remains unchanged until the physical gate passes.
 
+D40/E0039 prepares that source-matched profile. Both simulators pass all 30
+current groups with exact reference records and the additional high-bank
+control. Both still pass the 22 original groups on the historical source.
+The initial source-bound current formal run and complete ten-task historical
+formal run pass. The later normal-command temporal proof times out at 300
+seconds; seven other stages pass and no aggregate PASS is written. The
+1,717-file replay retains both outcomes. An isolated metadata-cache defect is
+reproduced and fixed by always rerunning repository checks during collection.
+All 114 checks pass after repair; the complete current-command CI remains
+pending. This prepares integration without promoting the rejected layout.
+
 The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
 6ec83ae fixes it; all 106 checks pass in a fresh snapshot and replacement test
 CI run43242671340 passes. D39 adds a source-identity rejection check; all 107
-current checks pass. The D38 chip sources and running physical trial are unchanged.
+checks at that revision pass. These fixes change no chip source or physical input.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

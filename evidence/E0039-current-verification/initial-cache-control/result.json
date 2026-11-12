@@ -1,0 +1,12 @@
+{
+  "status": "COUNTEREXAMPLE_OMITTED_REPOSITORY_METADATA",
+  "metadata": "docs/learning/progress.json",
+  "original_sha256": "953e5e8102733b224147ebf13460c131d9ffdef2b30e3c535ba267d1695c065e",
+  "corrupted_sha256": "924ea2e6978b1b108231ad3cfb7ae4f20c9e06b53118fab6c3a348331aadf442",
+  "verification_fingerprint_unchanged": true,
+  "old_cached_check_accepted": true,
+  "fresh_validator_rejection": "FAIL: unexpected learning-progress schema",
+  "old_collector_sha256": "ee631f658f2cc2477a7819ad953bf1d9f6cec367a644ed44ce1627d610511646",
+  "old_input_selector_sha256": "c2200d0f7e0d0213e46a21c55ac052d4d8d92b4ef74520a45431c67b552a962b",
+  "scope": "Isolated fixture only; actual repository metadata was never changed. Fix by running repository checks fresh during collection."
+}

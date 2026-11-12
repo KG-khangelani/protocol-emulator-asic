@@ -41,7 +41,12 @@ module tb ();
   reg [7:0] engine_sampled_inputs;
   reg [7:0] engine_tx_payload;
   reg [7:0] engine_tx_payload_alt;
-  wire [4:0] engine_pc;
+`ifdef G2_CURRENT
+  localparam integer ENGINE_PC_WIDTH = 8;
+`else
+  localparam integer ENGINE_PC_WIDTH = 5;
+`endif
+  wire [ENGINE_PC_WIDTH-1:0] engine_pc;
   wire [1:0] engine_state;
   wire [15:0] engine_wait_left;
   wire [7:0] engine_gpio_value;
@@ -53,8 +58,8 @@ module tb ();
   wire engine_wait_is_shift_status;
   wire engine_loop_active_status;
   wire [7:0] engine_loop_remaining_status;
-  wire [4:0] engine_loop_start_status;
-  wire [4:0] engine_loop_end_status;
+  wire [ENGINE_PC_WIDTH-1:0] engine_loop_start_status;
+  wire [ENGINE_PC_WIDTH-1:0] engine_loop_end_status;
   wire engine_shift_active_status;
   wire [2:0] engine_shift_bits_done_status;
   wire engine_shift_msb_first_status;

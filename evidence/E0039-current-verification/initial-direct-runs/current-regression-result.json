@@ -1,0 +1,197 @@
+{
+  "implementation": "od128-shared",
+  "physical": "NOT_EVALUATED",
+  "scope": "CURRENT_RTL_PUBLIC_AND_DIRECT_CORE_30_GROUPS",
+  "source_directory": "/workspace/build/g2-current-regression-01/variants/od128/src",
+  "sources": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+  },
+  "stages": [
+    {
+      "check": {
+        "current_bank_control": {
+          "observations": 44,
+          "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959",
+          "status": "PASS"
+        },
+        "junit_sha256": "eec718b4e6fe79ac1f5fbf7563d3b6855ad764b279a3dc2a24bdfad3f36dcf5f",
+        "records": {
+          "i2c/aborts.jsonl": {
+            "count": 36,
+            "reference_identical": true,
+            "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+          },
+          "i2c/boundaries.jsonl": {
+            "count": 4,
+            "reference_identical": true,
+            "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+          },
+          "i2c/cases.jsonl": {
+            "count": 1160,
+            "reference_identical": true,
+            "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+          },
+          "spi/cases.jsonl": {
+            "count": 1052,
+            "reference_identical": true,
+            "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+          }
+        },
+        "required": [
+          "test.invalid_encoding_and_out_of_range_fail_closed",
+          "test.invalid_length_never_releases_engine",
+          "test.k_bounded_loop_public_program_counts",
+          "test.k_input_wait_public_program_event_timeout_and_reload",
+          "test.k_shift_8_public_payload_both_orders",
+          "test.loop_target_overflow_faults_without_alias",
+          "test.public_pin_reload_changes_observable_program",
+          "test.randomized_trace_matches_reviewed_model",
+          "test.shift_invalid_partial_and_reset_fail_closed",
+          "test.shift_trace_matches_semantic_model",
+          "test.synchronized_input_wait_event_and_timeout",
+          "test.timed_shift_burst_invalid_freeze_and_reset",
+          "test.timed_shift_burst_trace_matches_semantic_model",
+          "test.uart_tx_8n1_public_pin_oracle",
+          "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+          "test_general_boundaries.public_open_drain_and_alternate_payload",
+          "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+          "test_general_boundaries.public_store_banks_lengths_and_reset",
+          "test_i2c_abort_public.public_i2c_abort_and_reload",
+          "test_i2c_general_public.complete_i2c_transactions",
+          "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+          "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+          "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+          "test_spi_timed_gpio.timed_public_programs",
+          "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+          "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+          "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+          "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+          "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+          "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+        ],
+        "test_groups": 30
+      },
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/g2-current-regression-01/variants/od128/src",
+        "SIM_BUILD=/workspace/build/g2-current-regression-01/regression/icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-current-regression-01/regression/icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "seconds": 622.297,
+      "simulator": "icarus"
+    },
+    {
+      "check": {
+        "current_bank_control": {
+          "observations": 44,
+          "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959",
+          "status": "PASS"
+        },
+        "junit_sha256": "9f0aa3ade8e480adf248cf38553985c9bb49f4e6754f121e66dd51f84f4e347b",
+        "records": {
+          "i2c/aborts.jsonl": {
+            "count": 36,
+            "reference_identical": true,
+            "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+          },
+          "i2c/boundaries.jsonl": {
+            "count": 4,
+            "reference_identical": true,
+            "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+          },
+          "i2c/cases.jsonl": {
+            "count": 1160,
+            "reference_identical": true,
+            "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+          },
+          "spi/cases.jsonl": {
+            "count": 1052,
+            "reference_identical": true,
+            "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+          }
+        },
+        "required": [
+          "test.invalid_encoding_and_out_of_range_fail_closed",
+          "test.invalid_length_never_releases_engine",
+          "test.k_bounded_loop_public_program_counts",
+          "test.k_input_wait_public_program_event_timeout_and_reload",
+          "test.k_shift_8_public_payload_both_orders",
+          "test.loop_target_overflow_faults_without_alias",
+          "test.public_pin_reload_changes_observable_program",
+          "test.randomized_trace_matches_reviewed_model",
+          "test.shift_invalid_partial_and_reset_fail_closed",
+          "test.shift_trace_matches_semantic_model",
+          "test.synchronized_input_wait_event_and_timeout",
+          "test.timed_shift_burst_invalid_freeze_and_reset",
+          "test.timed_shift_burst_trace_matches_semantic_model",
+          "test.uart_tx_8n1_public_pin_oracle",
+          "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+          "test_general_boundaries.public_open_drain_and_alternate_payload",
+          "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+          "test_general_boundaries.public_store_banks_lengths_and_reset",
+          "test_i2c_abort_public.public_i2c_abort_and_reload",
+          "test_i2c_general_public.complete_i2c_transactions",
+          "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+          "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+          "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+          "test_spi_timed_gpio.timed_public_programs",
+          "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+          "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+          "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+          "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+          "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+          "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+        ],
+        "test_groups": 30
+      },
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/g2-current-regression-01/variants/od128/src",
+        "SIM_BUILD=/workspace/build/g2-current-regression-01/regression/verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-current-regression-01/regression/verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "seconds": 402.991,
+      "simulator": "verilator"
+    }
+  ],
+  "status": "PASS_CURRENT_RTL_BOTH_SIMULATORS",
+  "verification_inputs": {
+    "experiments/i2c/general_programs.py": "bc941275c348ef4c2b19967171f7f989f46f1bf7da3074719a9618bb73487907",
+    "experiments/i2c/public_bus.py": "766256aabea90003864d55874b10a1356d5f3cc3eda15f2f86ba14afcf8910bc",
+    "experiments/i2c/run_current_regression.py": "71b6f29809fbf09348a632541d76b0a7e6594e6bc624bdbd7a67228f5b286bfc",
+    "experiments/i2c/target.py": "997940d87cf83e55392fddc679d0f2afa5f559b4edb13b06aad54ceff4f6b661",
+    "experiments/spi_phase/timed_gpio_programs.py": "955a7f5309256ecdad011236aab27112fc7ae02de769bc1fe61ba610752b0cc7",
+    "test/Makefile": "3a4da5b8398f824e8c398fbcbdf04a92dfde052ee116e9f335f484dc55e7dcc7",
+    "test/tb.v": "70c8363100555591e370beeed2ea9917f20cc3bab2e8225f2825fef9a7e2f5db",
+    "test/test.py": "8e57d967e959db5a9421b83a257a7ba9202164bd646917a5d33b1c6fc7677a57",
+    "test/test_general_boundaries.py": "5d2f23a696cee056b9c653fd695c4f4f6fc62af96345b4846ece5d8e71939b08",
+    "test/test_i2c_abort_public.py": "42405d17c913bace9b2f67bab7a7b81e48e7f48d46ac85b2387333fe89b5b45d",
+    "test/test_i2c_general_public.py": "9ac28effd266171bcf08e93278bd9c69a30fe696625ad2fd4fe4bffe67b03d19",
+    "test/test_spi_mode0_public.py": "5730b03a2cadda37d45f61597b64cc73b3b90ea6266cb0cd8a90015b60a519b8",
+    "test/test_spi_timed_gpio.py": "8747faf587fbde54cce878d1b5530d7b0d4ea8ba40636ff30d2bb634bcbb6454",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/physical_candidate.py": "353f757a49e68366ec87137d7b200fff013be60f207c52b4d66a610c73c178dd",
+    "tools/physical_g2.py": "937775e9380662cc46508d1d89862fdee0253e7d5900b5a78ca19ea8d4ba8bca",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/uart_rx_oracle.py": "4d17b31259fb85fc6be8a645317d529f72ce3ad8485ae9eee340f40bc679c31d"
+  }
+}

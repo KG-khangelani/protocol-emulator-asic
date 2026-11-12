@@ -11,6 +11,14 @@ import subprocess
 import sys
 
 from check_waveform_provenance import validate_saved_manifest
+from current_profile import describe
+
+# Direct invocations obey the same source selection as make evidence.
+if describe()['profile'] == 'od128-shared':
+    from current_run import main
+    sys.argv = [sys.argv[0], 'evidence']
+    main()
+    raise SystemExit(0)
 
 ROOT = Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
