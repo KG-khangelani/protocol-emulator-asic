@@ -9,7 +9,9 @@ Latest engineering result: **D30/E0029 bounded phase1 capacity screen PASS**.
 Mode1 saves one word (nine); mode3 remains at ten in the declared family.
 No seven/eight-word schedule passed6,920 candidates. The3,072 positive paired-byte
 cases are model-only; both simulators reject108 shortened programs and four
-oversized commits each, with identical records/traces. No ISA minimum is proved.
+oversized commits each, with identical records/traces. Clean implementation
+c54a795 passes the complete SPI gate (run43126561645);
+source hashes and local/remote traces match. No ISA minimum is proved.
 Production/candidate RTL remain unchanged. E0028's held mode0/2 induction and
 checked counterexamples remain qualified at3254d25/run43120985742.
 See [E0029](../evidence/E0029-phase1-capacity-screen/README.md).
@@ -20,10 +22,11 @@ Publication maintenance: [versioned research releases and the verification workb
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
 updates publish after the locked verification ladder; version tags additionally
 run focused SPI gates and publish release notes with digest/checksum assets.
-Research release [v0.1.0-alpha.2](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.2)
-publishes D29/E0028 at3254d25; publication checks, asset hashes and anonymous
-container access pass (run43120993964). The E0029 snapshot v0.1.0-alpha.3
-is prepared; its clean remote and publication checks are pending.
+Research release [v0.1.0-alpha.3](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.3)
+publishes D30/E0029 at c54a795. Publication run43126569316 passes the locked
+ladder and all four SPI gates. All seven asset checksums, exact source hashes,
+container digest/revision and anonymous package access are verified. The release
+tag also passes the separate full regression (run43126569565).
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.

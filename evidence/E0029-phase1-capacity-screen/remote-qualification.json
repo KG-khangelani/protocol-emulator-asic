@@ -1,0 +1,22 @@
+{
+  "source": "c54a79551917007d9ab4fbc8546b75424d8a45e0",
+  "run": 43126561645,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43126561645",
+  "conclusion": "success",
+  "artifact_id": 13903538212,
+  "artifact_name": "spi-sensitivity-c54a79551917007d9ab4fbc8546b75424d8a45e0",
+  "artifact_zip_sha256": "e73da3e5b58be94d2d838e15c11cdfec83a46957a6f43bf00203e4672014bff9",
+  "zip_sha256_verified": true,
+  "all_input_hashes_match_git_blobs": true,
+  "all_compact_source_hashes_match_local": true,
+  "all_108_public_traces_and_112_case_records_match_local_and_both_simulators": true,
+  "reference_witnesses_match_local": true,
+  "search_counts_and_accepted_programs_match_local": true,
+  "prior_spi_gates": [
+    "PASS",
+    "PASS_SCOPED_SCREEN",
+    "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS"
+  ],
+  "scope": "DECLARED_PHASE1_SCHEDULE_FAMILY_AND_PUBLIC_REJECTION_CONTROLS",
+  "checked_utc": "2026-11-12T00:26:19.588827+00:00"
+}

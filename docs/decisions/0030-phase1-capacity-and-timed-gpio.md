@@ -1,7 +1,8 @@
 # D30 - Retain the mode1 saving and measure a general timed GPIO operation
 
-Date: 2026-11-12 Johannesburg. Status: local capacity study complete; remote
-qualification and research publication pending.
+Date: 2026-11-12 Johannesburg. Status: local and clean-CI capacity study complete
+(c54a795, run43126561645); v0.1.0-alpha.3 and its public package verified
+(publication run43126569316).
 
 E0029 corrects the first-CS-edge oracle boundary while preserving its full
 idle/setup/hold contract. Fixed low SCK can provide mode1's initial idle interval,

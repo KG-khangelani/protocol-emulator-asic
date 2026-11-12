@@ -1,0 +1,30 @@
+{
+  "tag": "v0.1.0-alpha.3",
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.3",
+  "source": "c54a79551917007d9ab4fbc8546b75424d8a45e0",
+  "publish_run": 43126569316,
+  "publish_run_conclusion": "success",
+  "asset_sha256_verified": {
+    "image-inspect.json": "3b5263d69337443e1b7cf08b1a215e1b291d270facf1b8eb4d770d21f7c89458",
+    "publication.json": "f783b8f71a2634f0432e476cafc8d5765503f758fd39d0de4bc102876f24d296",
+    "spi-four-mode.json": "80ef53adb70a76012c7c931dbda21d4ccc66966fb809a29cf22ebe9ad97a006a",
+    "spi-held-proof.json": "decba87282676d2c6ab4737c64b53ddaae4335b9f96885ade96b8f35d18aa318",
+    "spi-phase1-capacity.json": "3d81616a21f429c30ce6cbcc96ecdb7fbb705da6bc3300c81d905782464eb181",
+    "spi-sensitivity.json": "c365292cd0f3e1b2a70916e2fcf10a7ec2be31b2395a670f3e42ab5087b67cda",
+    "toolchain.lock.json": "73fbdfcb38bd8de81a81a29d86af8b8df04d0131c4f8de7977ac83344b157f81"
+  },
+  "anonymous_registry_manifest": "PASS",
+  "image_digest_matches_manifest": true,
+  "image_revision_matches_source": true,
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:4157fdd9a102cd9d12702d4d0cd7b01b43536627fedbe989f4f4de54de8c8825",
+  "spi_gate_results": {
+    "spi-sensitivity.json": "PASS",
+    "spi-four-mode.json": "PASS_SCOPED_SCREEN",
+    "spi-held-proof.json": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+    "spi-phase1-capacity.json": "PASS_DECLARED_PHASE1_CAPACITY_SCREEN"
+  },
+  "all_recorded_inputs_match_git_blobs": true,
+  "phase1_records_match_local": true,
+  "physical": "NOT_EVALUATED",
+  "checked_utc": "2026-11-12T00:29:46.443806+00:00"
+}

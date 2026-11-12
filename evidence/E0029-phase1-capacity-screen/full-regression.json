@@ -1,0 +1,109 @@
+{
+  "run": 43126569565,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43126569565",
+  "source": "c54a79551917007d9ab4fbc8546b75424d8a45e0",
+  "ref": "refs/tags/v0.1.0-alpha.3",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "test",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check out exact source revision",
+          "conclusion": "success"
+        },
+        {
+          "name": "Configure Docker Buildx",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build locked workbench",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run the locked fast verification ladder",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record the built image identity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect reproducibility evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Compare isolated SPI phase and program-capacity candidates",
+          "conclusion": "success"
+        },
+        {
+          "name": "Qualify isolated compact phase assertions and legacy refinement",
+          "conclusion": "success"
+        },
+        {
+          "name": "Qualify actual compact public loader, capture and abort integration",
+          "conclusion": "success"
+        },
+        {
+          "name": "Qualify compact mode-0 external pins and input transport",
+          "conclusion": "success"
+        },
+        {
+          "name": "Prove actual loaded eight-word program with loop invariants",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload verification results",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Build locked workbench",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Configure Docker Buildx",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Check out exact source revision",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "learning-windows",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check out exact source revision",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run read-only lessons without Docker",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Check out exact source revision",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

@@ -93,3 +93,32 @@ eight words. That is a hypothesis requiring encoding/legacy audit, public
 simulation, formal controls and area/state measurement, not a new instruction
 or achieved hardware result. See [D30](../../docs/decisions/0030-phase1-capacity-and-timed-gpio.md)
 and the [frozen experiment](../../docs/specs/spi-phase1-capacity-screen.md).
+
+## Clean remote qualification
+
+Implementation `c54a79551917007d9ab4fbc8546b75424d8a45e0` passes the complete
+[SPI gate](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43126561645).
+All recorded source hashes match the exact Git blobs. The downloaded artifact
+ZIP matches GitHub's SHA-256; the search counts and accepted programs, all
+reference witnesses, and all108 public traces plus112 case records match local.
+Both simulators have byte-identical records. The prior sensitivity, four-mode
+and held-program proof gates also pass with source hashes verified.
+See [remote-qualification.json](remote-qualification.json) and
+[remote-run-result.json](remote-run-result.json).
+
+## Published research snapshot
+
+[v0.1.0-alpha.3](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.3)
+publishes this study at c54a795. Publication run43126569316 passes the locked
+workbench ladder and all four focused SPI gates. All seven checksummed assets
+match, including the new capacity report. Anonymous registry access succeeds;
+the version resolves to the publication manifest's digest, and the OCI revision
+label matches the tested source. No full local image pull was needed.
+See [release-verification.json](release-verification.json).
+
+The release tag also passes the separate
+[full regression](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43126569565),
+including the existing hardware comparison, compact formal/refinement,
+public integration, pin/input transport and loaded-program invariant gates.
+See [full-regression.json](full-regression.json). This repeats existing digital
+qualification and adds no physical or full-four-mode claim.

@@ -301,6 +301,10 @@
     "eight_word_deletions_rejected": 108,
     "oversized_commits_rejected": 4
   },
-  "remote_qualification": "PENDING",
-  "release": "PENDING"
+  "remote_qualification": "PASS_VERIFIED_SOURCE_AND_TRACES",
+  "release": "v0.1.0-alpha.3",
+  "implementation": "c54a79551917007d9ab4fbc8546b75424d8a45e0",
+  "remote_run": 43126561645,
+  "publication_verification": "PASS_CHECKSUMS_SOURCE_AND_ANONYMOUS_REGISTRY",
+  "publish_run": 43126569316
 }
