@@ -1,0 +1,129 @@
+{
+  "schema": "protocol-emulator-workbench-verification-v1",
+  "observed_utc": "2026-11-12T09:15:58.333102+00:00",
+  "status": "PASS",
+  "source_commit": "19b7b16f5231424d8a0370833fd9cd66db648131",
+  "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43189091156",
+  "artifact_id": 13929938026,
+  "artifact_zip_sha256": "3c165811df14fc67f04232a36631d0ee57db4f0f85d5e573467f1ae4c6e68bfb",
+  "publication": {
+    "schema": "protocol-emulator-publication-v1",
+    "source_commit": "19b7b16f5231424d8a0370833fd9cd66db648131",
+    "ref": "refs/heads/main",
+    "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:498b9742b6a46c3b8e78b3a4a328c3e9a182799230af65a8f3e72a50ef7122eb",
+    "platform": "linux/amd64",
+    "toolchain_lock_sha256": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+    "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43189091156",
+    "checks": [
+      "doctor",
+      "check",
+      "lint",
+      "test",
+      "test-verilator",
+      "formal",
+      "synth"
+    ],
+    "physical_qualification": "NOT_EVALUATED"
+  },
+  "file_sha256": {
+    "image-inspect.json": "1c9dab1dd3c1b37428f0ccefeed43c0f6a58d12b960ee4f052678621da4e1516",
+    "publication.json": "72253923b5188894d62bed8f36b6be18e03246eb8c990d21549ac5c921901565",
+    "toolchain.lock.json": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153"
+  },
+  "anonymous_registry_access": true,
+  "verified_tag_digests": {
+    "main": "sha256:498b9742b6a46c3b8e78b3a4a328c3e9a182799230af65a8f3e72a50ef7122eb",
+    "sha-19b7b16f5231424d8a0370833fd9cd66db648131": "sha256:498b9742b6a46c3b8e78b3a4a328c3e9a182799230af65a8f3e72a50ef7122eb"
+  },
+  "manifest_digest": "sha256:498b9742b6a46c3b8e78b3a4a328c3e9a182799230af65a8f3e72a50ef7122eb",
+  "linux_amd64_manifest_digest": "sha256:498b9742b6a46c3b8e78b3a4a328c3e9a182799230af65a8f3e72a50ef7122eb",
+  "config_digest": "sha256:b7996d953690c8fe74060fa6c1726ee4ec2bd5c2c3d25ee1eb9a27c5947bfdbb",
+  "oci_revision": "19b7b16f5231424d8a0370833fd9cd66db648131",
+  "oci_source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+  "test_xml": {
+    "results.xml": {
+      "passed": 22,
+      "skipped": 0,
+      "sha256": "8c4d546bd460d063bfbeee1611c28c09f5e9b1773792fc4dab45f757f0ee7958"
+    },
+    "results-verilator.xml": {
+      "passed": 22,
+      "skipped": 0,
+      "sha256": "ae115e7f84c8e23b257c18bad68fcfacb1ead929df0a27127c2380a5e8fb9d6b"
+    },
+    "results-gl-harness.xml": {
+      "passed": 1,
+      "skipped": 0,
+      "sha256": "0ffa392dd5e6701fc7759f54458b1526edc9e095d6209805f4cba62bacb65b44"
+    }
+  },
+  "anonymous_layer_heads": [
+    {
+      "digest": "sha256:501c3e032d323c5d2ecdc2c3da91ccdf6497a1d8e69fac78ad18322540160970",
+      "size": 29153837,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:246ac8b7cadc4ee7c220a2d4e02a37a296797f40648480115ae41e083aa60b6e",
+      "size": 3533387,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:dc22b8c341d91e21b901b9eb1e414c18b487f4de1a165c539ecb32bb590acbd4",
+      "size": 16023549,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:f57cecf87087697ab89776daeb60b1b2b2149c876d4aa69ae6765ae7ad66a470",
+      "size": 249,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:a39a1252660617168f3753092e3a1eea5c3ad3b16fd43d9167c843a05f1d04c6",
+      "size": 116520185,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7",
+      "size": 741875121,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:cb3f2f1d9c26ce778add530876baa64137130c694167dad4880d00480e96d764",
+      "size": 18035222,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:353d3800ebc8cef9ad71c391faad58b2eab46b715b1cdd90e54c6535d5d0e8a3",
+      "size": 233,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:e4fb6c8b478b7c2bb697968b95bbdf6fd7d87f81e599c8ad6513a633872cc899",
+      "size": 403,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "size": 32,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:bf6e0c8d711eef42d4b7dcf48a68530de5a834d47d819a1d6693a0a14764be8a",
+      "size": 4524,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:1a251a3ff58a2ff436c2eefcb72f6d53152dea151d3a9f89524e002ef55964ba",
+      "size": 13648883,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:e8caed3e96293872412699619707bf5138b1dba83c5a387e54af803cc170163b",
+      "size": 99,
+      "anonymous_head_status": 200
+    }
+  ],
+  "registry_verification_scope": "Manifest and config bytes downloaded and hashed; all layer read permissions and declared sizes verified with HEAD, without downloading layer bodies.",
+  "scope": "Workbench publication only. No physical qualification inferred; alpha.5 tag publication is verified separately."
+}

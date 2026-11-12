@@ -2,8 +2,8 @@
 
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering goal: **G1 - current-rule physical qualification and the P/compact10 decision**,
-covering M3-T01/M3-T02/M5-T01. See [six execution goals](goals.md) and
+Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
+P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is queued next**. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
@@ -30,8 +30,9 @@ does not reduce the fixed 8x4 die or demonstrate a maximum clock frequency.
 full source/artifact identities and compatibility limits. The manual GDS
 workflow now defaults to the qualified compact10 pilot. The lock and evaluation
 contract identify its exact result; production RTL remains unchanged. G1's
-physical and comparison gates are complete; release publication and verification
-remain active.
+physical, comparison and publication gates are complete. The
+[requirement-by-requirement audit](../evidence/E0031-8x4-physical-comparison/completion-audit.json)
+records closure.
 
 D31/E0030 still selects P within its isolated functional/generic comparison:
 3,146 cells/412 state bits versus compact10 3,589/477. Its scoped instruction,
@@ -52,14 +53,20 @@ Publication maintenance: [versioned research releases and the verification workb
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
 updates publish after the locked verification ladder; version tags additionally
 run focused SPI gates and publish release notes with digest/checksum assets.
-Research release [v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4)
-publishes D31/E0030 at d707ee5. Publication run43150438669 passes the locked
-ladder, all previous SPI gates and the full timed-GPIO comparison. Both
-candidates qualify; P wins on generic cost. All 15 asset checksums, source
-identities, image digest/revision and anonymous package access are verified.
-The release tag passes the separate full regression (run43150438747), timed
-comparison (run43150438686), existing SPI gates, docs and atlas checks.
-See [publication verification](../evidence/E0030-timed-gpio-comparison/release-verification.json).
+Research release [v0.1.0-alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5)
+publishes D35/E0031 at 19b7b16. Publication run43189132115 passes the locked
+ladder, existing SPI controls and timed-GPIO comparison. All 28 asset downloads
+and checksums are verified, including nine original physical archives and
+425 curated evidence files identical to the release commit. The image digest,
+source identity, version/source tags and anonymous access are verified. The
+manifest/config bytes are hashed; layer permissions and declared sizes were
+checked without downloading layer bodies. All six tag workflows pass.
+See [publication verification](../evidence/E0031-8x4-physical-comparison/release-verification.json)
+and the [tag regression audit](../evidence/E0031-8x4-physical-comparison/ci/alpha5/verification.json).
+The main workbench update at the same source is
+[verified separately](../evidence/E0031-8x4-physical-comparison/alpha5-main-workbench-verification.json).
+Alpha.4 remains the historical functional/generic P comparison; its narrower
+selection does not override D35's physical result.
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.
@@ -430,14 +437,14 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering (G1): publish alpha.5 with D35, both candidates' original
-  physical archives and curated E0031 evidence. Verify release downloads,
-  checksums, source/image identity and public access before closing the goal.
-  Both official D34 attempts are terminal; no restart or further tuning is needed.
-- Next coverage goal (G2): freeze the I2C contract and independent oracle, then
-  qualify UART/SPI/I2C and public reload on one compact10-based candidate.
-  Combined regression and fresh physical evidence are required before production
-  promotion. G3 adds a small assembler; a larger compiler needs a demonstrated use case.
+- G1 is complete. Keep its source identities, qualified compact10 result and
+  rejected P attempts intact; no new physical run or further tuning is needed.
+- Next engineering goal (G2): reconcile the I2C draft with compact10, freeze the
+  public-pin contract and independent oracle, then qualify UART/SPI/I2C and
+  public reload on one candidate revision. Combined regression and fresh
+  physical evidence are required before production promotion.
+- Programming tools (G3): add a small assembler alongside the settled G2
+  instruction contract; a larger compiler needs a demonstrated use case.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
   is deferred if mandatory gates slip. Targets and completion checks are in

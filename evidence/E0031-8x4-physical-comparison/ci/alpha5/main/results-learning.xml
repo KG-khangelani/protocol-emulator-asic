@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794474964" />
+    <testcase name="archived_reset_wrap_hold_and_resume" classname="test_m0_archived" file="/workspace/test/test_m0_archived.py" lineno="26" time="0.02410435676574707" sim_time_ns="10720.0" ratio_time="444732.87979347387" />
+  </testsuite>
+</testsuites>

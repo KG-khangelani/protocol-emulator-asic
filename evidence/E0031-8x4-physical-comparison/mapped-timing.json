@@ -1,0 +1,77 @@
+{
+  "schema": "protocol-emulator-g1-mapped-timing-v1",
+  "observed_utc": "2026-11-12T09:23:17.914818+00:00",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "stage": "12-openroad-staprepnr",
+  "classification": "MAPPED_PRE_PLACEMENT_TIMING_SCREEN",
+  "clock_model": "ideal",
+  "scope": "Mapped netlist before placement/routing and physical hold repair. Preserve negative hold slack; final routed acceptance uses each candidate result.json. Upstream reg-to-reg setup summary is N/A here, not a measured infinite slack. The full original reports are in the published GDS_logs ZIPs.",
+  "variants": {
+    "P": {
+      "run_id": 43173112351,
+      "original_artifact_id": 13926381402,
+      "original_archive_sha256": "10713c49d30baebb35a4033f6b17914f1c6952a8457dc5a5cbe5a3ab32a65ea4",
+      "release_asset": "g1-d34-P-GDS_logs.zip",
+      "archive_stage_path": "runs/wokwi/12-openroad-staprepnr/",
+      "state_out_sha256": "2091f7edd4f7fe752acd0a2ba3245d8ace4b00736090452bdc2fa3a3a3f6157b",
+      "summary_sha256": "58145e0db15ac138c8e6b31e708725181a4f1d73e7f9860d3379273134dfd75d",
+      "corners": {
+        "nom_fast_1p32V_m40C": {
+          "setup_ws_ns": 10.685896914234936,
+          "hold_ws_ns": -0.06777373298846845,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": -14.591950283323373
+        },
+        "nom_slow_1p08V_125C": {
+          "setup_ws_ns": 9.186900389344123,
+          "hold_ws_ns": 0.15499665878371288,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": 0
+        },
+        "nom_typ_1p20V_25C": {
+          "setup_ws_ns": 10.116276991326604,
+          "hold_ws_ns": 0.017368107443834647,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": 0
+        }
+      },
+      "worst_setup_ns": 9.186900389344123,
+      "worst_hold_ns": -0.06777373298846845,
+      "hold_screen": "VIOLATED_BEFORE_PHYSICAL_REPAIR",
+      "final_routed_acceptance": "NOT_QUALIFIED"
+    },
+    "compact10": {
+      "run_id": 43173116485,
+      "original_artifact_id": 13925189443,
+      "original_archive_sha256": "349f904810d7e1d82d40ffb99bc07f854c924221677527064e6eb40a04ac9e3b",
+      "release_asset": "g1-d34-compact10-GDS_logs.zip",
+      "archive_stage_path": "runs/wokwi/12-openroad-staprepnr/",
+      "state_out_sha256": "550c599d44984dd41e421f02668b5a3aaefa917ff5af60de95e9657f34bd048c",
+      "summary_sha256": "01c235595fe80409c1c91b7c537fc6d016e80b1237486d0ba7c549c93c14db8b",
+      "corners": {
+        "nom_fast_1p32V_m40C": {
+          "setup_ws_ns": 10.429965630824855,
+          "hold_ws_ns": -0.06777373298846845,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": -3.0283383324827176
+        },
+        "nom_slow_1p08V_125C": {
+          "setup_ws_ns": 8.591845700311495,
+          "hold_ws_ns": 0.15499665878371288,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": 0
+        },
+        "nom_typ_1p20V_25C": {
+          "setup_ws_ns": 9.742922300262268,
+          "hold_ws_ns": 0.017368107443834647,
+          "setup_tns_ns": 0,
+          "hold_tns_ns": 0
+        }
+      },
+      "worst_setup_ns": 8.591845700311495,
+      "worst_hold_ns": -0.06777373298846845,
+      "hold_screen": "VIOLATED_BEFORE_PHYSICAL_REPAIR",
+      "final_routed_acceptance": "PASS_ALL_REQUIRED_PHYSICAL_GATES"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "protocol-emulator-g1-completion-audit-v1",
+  "status": "PASS_G1_COMPLETION_REQUIREMENTS",
+  "observed_utc": "2026-11-12T09:38:42.298305+00:00",
+  "release_source_commit": "19b7b16f5231424d8a0370833fd9cd66db648131",
+  "physical_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "selected_physical_pilot": "compact10",
+  "requirements": [
+    {
+      "requirement": "Reviewed current 8x4 setup with frozen flow inputs and coordinated contract; preserve historical 6x4.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "upstream-audit.json",
+          "sha256": "25bd47ee541b1ecb9145523bc732d45a2dbabfbedb4cf81e885b6229a6fc30cf"
+        }
+      ],
+      "detail": "D33/D34 inputs retained; D35 exact-result qualification added. Historical lock/evidence and production RTL unchanged."
+    },
+    {
+      "requirement": "Compare complete P and compact10 including loaders/stores under identical library, corner, pin, flow and 50 MHz conditions.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "attempts/d34/comparison.json",
+          "sha256": "4dc6c91e7077e39c7d3166fcb370d10f6e3be200a7002e9ffc970ed6e1e3b4fd"
+        },
+        {
+          "path": "attempts/d34/P/result.json",
+          "sha256": "c6bfc7b6a859f9084af5cf088f24fcd89ff54d284e11c7a48ddfe6b4e5a95f20"
+        },
+        {
+          "path": "attempts/d34/compact10/result.json",
+          "sha256": "d4b3c907d14e4cb4a7cd69dfd360b4ebb67e88963d0b849021453946a12c2c63"
+        }
+      ],
+      "detail": "Resolved configurations, final SDC and actual runtime identities match. Eight versus ten program words retained; both candidates routed."
+    },
+    {
+      "requirement": "Mapped/routed cost, storage and compatibility; selected official GDS/precheck/public-netlist pilot passes.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "mapped-timing.json",
+          "sha256": "3bb3243de746b611400367df7201459bf7e80e9d17a46bcbe11a548ede30ab87"
+        },
+        {
+          "path": "compatibility.json",
+          "sha256": "7a7dae197ab7ea8f046d4866226df40167aa3f67f97b57517109c2588e21666e"
+        },
+        {
+          "path": "ci/d34/verification.json",
+          "sha256": "16b0f213e748af965d300c3e65fc87e7ee79d8c0e5b85e811ca6aef35f65119e"
+        },
+        {
+          "path": "attempts/d34/compact10/result.json",
+          "sha256": "d4b3c907d14e4cb4a7cd69dfd360b4ebb67e88963d0b849021453946a12c2c63"
+        }
+      ],
+      "detail": "Compact10 passes all routed metrics, ten prechecks and twelve public netlist groups with 1052 SPI records. P failure/skipped jobs and earlier failed trials retained."
+    },
+    {
+      "requirement": "Publish supported adopt/reject/revise decision, source identities and artifacts; update goals/state/backlog/ledger.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "decision.json",
+          "sha256": "24b5f3a9c77f6104005d35fbf37e1e23100ba5a1e3d138c3fb2cc865617cf2ea"
+        },
+        {
+          "path": "release-verification.json",
+          "sha256": "4b1396047f0954834c7ba894eb9ade6ddd82183254cdf1719f47d2a7709ddcf8"
+        },
+        {
+          "path": "ci/alpha5/verification.json",
+          "sha256": "5c0754729459ac9cd9f9e40a601720bf4e6e70115327cc99ab374b3c189e0aed"
+        },
+        {
+          "path": "ci/alpha5/runs.json",
+          "sha256": "297afb9d144bcd81d179e2941b0438fe4bf9f18b462e472e49b107269e052164"
+        }
+      ],
+      "detail": "D35 selects compact10 pilot and rejects P under frozen conditions. Alpha.5 original archives, curated evidence, downloads/checksums and source/image/public access verified. Documentation closure is recorded in the same follow-up commit as this audit."
+    }
+  ],
+  "routed_area_saving_of_rejected_P_percent": 13.145577474544202,
+  "historical_6x4_preserved": true,
+  "production_rtl_unchanged": true,
+  "not_claimed": [
+    "G2 joint UART/SPI/I2C qualification",
+    "production promotion",
+    "unrestricted SPI inputs",
+    "continuous autonomous UART receive",
+    "maximum frequency",
+    "board electronics or fabricated silicon",
+    "owner fluency"
+  ],
+  "next_goal": "G2: freeze I2C contract and independent oracle; integrate and qualify the shared protocol matrix before production promotion."
+}

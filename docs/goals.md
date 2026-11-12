@@ -15,8 +15,8 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
-| G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **ACTIVE: publication verification** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | QUEUED after G1; specify I2C while physical jobs run | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | QUEUED NEXT; compact10 integration baseline | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -54,7 +54,7 @@ Completion checks:
   Run an official routed pilot of the selected candidate with precheck and
   appropriate gate-level public-pin tests. Report setup/hold, physical checks
   and utilization; unresolved failures remain failures.
-- [ ] Publish a supported adopt/reject/revise decision with source hashes and
+- [x] Publish a supported adopt/reject/revise decision with source hashes and
   retained artifacts. A mapped saving alone is not a routed saving; route both
   variants before claiming a routed cost comparison.
 
@@ -63,20 +63,27 @@ open until a candidate passes its gate. If P loses its advantage, retain the
 simpler viable alternative. Revisit clock or capacity through a documented,
 matched comparison instead of silently relaxing a failing condition.
 
-**Next executable action:** publish and verify alpha.5 with D35 and E0031.
-Compact10's official GDS, routed metrics, all ten prechecks and twelve-group
-public netlist selection pass; all 1,052 SPI records match E0030. P's 13.1456%
-routed standard-cell saving is retained, but its one diode-induced fanout
-failure prevents adoption. The complete matched measurements and compatibility
-limits are recorded. Both attempts are terminal. Final release downloads,
-checksums, source/image identity and public access remain to be verified before
-the publication checkbox closes. Do not rerun the archived M0 merely to report activity.
+**Completed 2026-11-12.** D35 selects compact10's qualified experimental pilot
+and rejects P under the frozen D34 flow. Both candidates were routed with
+matched conditions; their costs, capacities, compatibility and failures remain
+in E0031. Compact10 passes every required routed metric, ten official prechecks
+and twelve public netlist groups with 1,052 unchanged SPI records.
+
+[Alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5)
+publishes D35 and the original archives. All 28 release assets were downloaded
+anonymously and verified, including nine original physical archives and the
+curated evidence snapshot. The matching image/source identity and public
+access pass; all six tag workflows pass.
+[Publication verification](../evidence/E0031-8x4-physical-comparison/release-verification.json)
+and the [completion audit](../evidence/E0031-8x4-physical-comparison/completion-audit.json)
+record the evidence. The next engineering goal is G2; further P tuning remains deferred.
 
 ## G2 - Prove useful protocols on the same programmable machine
 
 An [I2C acceptance draft](specs/p-i2c-controller-100k.md) identifies the initial
 public-pin cases, timing screen and existing open-drain obstacle. The oracle
-and final acceptance freeze remain pending; this preparation qualifies no RTL.
+and final acceptance freeze remain pending. Reconcile the draft with D35's
+compact10 integration baseline at that freeze; this preparation qualifies no RTL.
 
 Completion checks:
 

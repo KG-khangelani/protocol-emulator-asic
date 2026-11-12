@@ -6,10 +6,16 @@ page contains versioned research snapshots. The linked
 contains the pinned Linux amd64 verification tools. A release is not a tapeout,
 silicon result, new physical qualification or owner fluency sign-off.
 
-Current research snapshot: [v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4),
-[E0030 timed GPIO comparison](../evidence/E0030-timed-gpio-comparison/README.md).
-The D35/E0031 physical milestone is prepared as alpha.5; its publication and
-download verification remain pending.
+Current research snapshot: [v0.1.0-alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5),
+[D35](decisions/0035-select-compact10-physical-pilot.md) and
+[E0031](../evidence/E0031-8x4-physical-comparison/README.md). Compact10 is the
+qualified experimental physical pilot; P's smaller area and fanout failure
+remain available. All 28 release asset downloads/checksums, matching image/source
+identity and public access are [verified](../evidence/E0031-8x4-physical-comparison/release-verification.json).
+The release carries nine original physical archives, a curated evidence ZIP
+and a separate G1 manifest/checksum list. These identify physical source 29f4b73;
+the release and tools package use 19b7b16. The tools publication itself does
+not perform physical qualification. Production promotion remains a later gate.
 
 ## Automatic updates
 

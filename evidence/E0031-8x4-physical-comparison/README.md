@@ -61,8 +61,8 @@ tool validation and does not mark the owner's fluency complete.
 The [updated workbench package](workbench-verification.json) also passes its
 publication ladder. The downloaded archive, manifest checksums, registry image
 digest, Linux amd64 platform and source revision were verified, including
-anonymous registry access. This verifies the tools package; alpha.4 remains
-the versioned research release. Neither result supplies physical evidence.
+anonymous registry access. This verified the tools package; at that checkpoint
+alpha.4 remained the versioned research release. Neither result supplies physical evidence.
 
 The [D34 workbench update](d34-workbench-verification.json) at 29f4b73 also
 passes publication. Its archive and asset checksums, image/config digest,
@@ -205,6 +205,14 @@ identities. Both generated designs retain every E0030 source identity.
 | Required public netlist groups | NOT RUN | 12 PASS |
 | Independent official precheck | NOT RUN | 10 PASS |
 
+The separate [mapped timing screen](mapped-timing.json) records the original
+pre-placement reports from both published GDS log archives. With ideal clocks,
+worst setup slack is +9.186900 ns for P and +8.591846 ns for compact10; both
+have -0.067774 ns worst hold slack before physical hold repair. These are
+unrouted estimates. The final routed results above have positive setup/hold
+at every frozen corner. The upstream register-to-register setup summary is
+N/A at the earlier stage; it is not claimed as an infinite measured margin.
+
 P's measured saving is 10,020.9 square micrometres, or **13.1456% of routed
 standard-cell area**, with two fewer program words on the same fixed die.
 It fails the acceptance rule. The [submitted-netlist diagnosis](attempts/d34/P/fanout-diagnosis.json)
@@ -231,7 +239,32 @@ netlist run. The GDS SHA-256 is
 
 D35 selects compact10 as the qualified experimental pilot and rejects P under
 these conditions. The lock and evaluation contract record that result; the
-manual GDS workflow defaults to compact10. Alpha.5 publication verification
-remains pending. Production promotion still requires combined protocol
+manual GDS workflow defaults to compact10. Alpha.5 publication and download
+verification pass; G1 is complete. Production promotion still requires combined protocol
 regression and fresh physical evidence. This experiment does not qualify
 I2C, continuous UART delivery, owner fluency or fabricated silicon.
+
+## Milestone publication and G1 closure
+
+[Alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5)
+publishes the decision at 19b7b16 with nine original physical artifact ZIPs,
+the curated E0031 snapshot and separate G1 provenance/checksum files. Physical
+source remains 29f4b73. [Release verification](release-verification.json)
+checks all 28 public asset downloads, their digests, the original artifact
+identities and every curated file against the release's Git blobs. The tools
+image's manifest/config, source labels and version/source tags match. All
+thirteen layer permissions and declared sizes pass anonymous HEAD requests;
+layer bodies were not downloaded.
+
+The [tag regression audit](ci/alpha5/verification.json) checks source/artifact
+identities, full regression, timed comparison and existing SPI controls.
+All six tag workflows and their six main-branch counterparts pass; their
+[terminal statuses](ci/alpha5/runs.json) are retained. The
+[main tools publication](alpha5-main-workbench-verification.json) is verified
+separately. D35's physical selection is compact10; the timed release gate still
+selects P within its narrower functional/generic experiment.
+
+The [completion audit](completion-audit.json) checks each G1 requirement.
+G2 is next: reconcile/freeze the I2C contract and oracle for compact10, then
+qualify the combined workload matrix before production promotion. Historical
+6x4 evidence and pending owner fluency are unchanged.
