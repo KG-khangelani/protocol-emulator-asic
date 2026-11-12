@@ -1,0 +1,24 @@
+test_all_bytes_all_kinds_and_target_phases (test_i2c_oracle.I2COracleTests.test_all_bytes_all_kinds_and_target_phases) ... ok
+test_all_ordinary_addresses (test_i2c_oracle.I2COracleTests.test_all_ordinary_addresses) ... ok
+test_both_drivers_must_be_open_drain (test_i2c_oracle.I2COracleTests.test_both_drivers_must_be_open_drain) ... ok
+test_deadline_observation_edge_priority (test_i2c_oracle.I2COracleTests.test_deadline_observation_edge_priority) ... ok
+test_direction_advance_during_stretch_is_visible_even_on_flat_bus (test_i2c_oracle.I2COracleTests.test_direction_advance_during_stretch_is_visible_even_on_flat_bus) ... ok
+test_hand_calculated_write (test_i2c_oracle.I2COracleTests.test_hand_calculated_write) ... ok
+test_malformed_traces_and_intents_fail_closed (test_i2c_oracle.I2COracleTests.test_malformed_traces_and_intents_fail_closed) ... ok
+test_nack_stops_at_each_permitted_boundary (test_i2c_oracle.I2COracleTests.test_nack_stops_at_each_permitted_boundary) ... ok
+test_raw_result_is_not_accepted_until_successful_halt (test_i2c_oracle.I2COracleTests.test_raw_result_is_not_accepted_until_successful_halt) ... ok
+test_reset_disable_and_loader_are_declared_aborts (test_i2c_oracle.I2COracleTests.test_reset_disable_and_loader_are_declared_aborts) ... ok
+test_sda_high_glitch_and_owner_handoff (test_i2c_oracle.I2COracleTests.test_sda_high_glitch_and_owner_handoff) ... ok
+test_stop_instead_of_repeated_start_and_incomplete_trace (test_i2c_oracle.I2COracleTests.test_stop_instead_of_repeated_start_and_incomplete_trace) ... ok
+test_stretch_at_every_release_with_reproducible_offsets (test_i2c_oracle.I2COracleTests.test_stretch_at_every_release_with_reproducible_offsets) ... ok
+test_target_cannot_supply_the_controllers_clock (test_i2c_oracle.I2COracleTests.test_target_cannot_supply_the_controllers_clock) ... ok
+test_target_data_setup_and_validity_are_separate (test_i2c_oracle.I2COracleTests.test_target_data_setup_and_validity_are_separate) ... ok
+test_timeout_controls_and_bounded_release (test_i2c_oracle.I2COracleTests.test_timeout_controls_and_bounded_release) ... ok
+test_timing_minima_and_immediately_shorter_controls (test_i2c_oracle.I2COracleTests.test_timing_minima_and_immediately_shorter_controls) ... ok
+test_wrong_ack_missing_extra_ack_and_continue_after_nack (test_i2c_oracle.I2COracleTests.test_wrong_ack_missing_extra_ack_and_continue_after_nack) ... ok
+test_wrong_program_bits_addresses_and_bit_order (test_i2c_oracle.I2COracleTests.test_wrong_program_bits_addresses_and_bit_order) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 6.578s
+
+OK

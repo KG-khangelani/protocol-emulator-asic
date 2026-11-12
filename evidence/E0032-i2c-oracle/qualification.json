@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT_DIGITAL_ORACLE_FIXTURES_ONLY",
+  "status": "PASS",
+  "parent_revision": "d5ebb6ab60c6b353a161e0f8a16d7bba4d22ba54",
+  "seed": 19669030,
+  "quantum_ns": 5,
+  "tests": 19,
+  "failures": 0,
+  "errors": 0,
+  "observations": 3902,
+  "counts": {
+    "OK": 3650,
+    "rejected": 76,
+    "TIMEOUT": 152,
+    "NACK": 6,
+    "ABORT": 18
+  },
+  "witnesses": 53,
+  "source_sha256": {
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "tools/i2c_reference.py": "697d827081d1a7906ddee40fe44a67bd661b3b2b94f4326281bdd4b039282719",
+    "test/test_i2c_oracle.py": "6ff0cfbf7556c0e1305edb5b0b242de5eb4449f82be59053d0f4f9d2aa313856",
+    "experiments/i2c/qualify_oracle.py": "e54c10a9fb7b34e22801a0a94d023b9b268d6d48891ce34eff44d3304684628e",
+    "docs/specs/p-i2c-controller-100k.md": "1cadae36c84107c64ccfbfbc8bc3fb3398bde089ee9c7f7f6280b965d08f7424"
+  },
+  "limits": [
+    "No DUT execution, ISA extension or physical qualification",
+    "Event completeness is a trace-adapter obligation",
+    "Ideal digital pull-ups; no analog pad/RC/MTBF result",
+    "Public loader isolation and two disabled flush edges required",
+    "RX provenance for equal old/new bytes also needs RTL/formal checks"
+  ]
+}

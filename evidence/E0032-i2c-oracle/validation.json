@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-12",
+  "doctor": "PASS exact locked tools",
+  "make_check": {
+    "status": "PASS",
+    "unittest_groups": 11,
+    "tests": 89,
+    "additional": "Repository metadata, learning records and archived M0 consistency checks PASS"
+  },
+  "qualified_oracle": {
+    "status": "PASS",
+    "tests": 19,
+    "observations": 3902
+  },
+  "source_hashes": "PASS against qualification.json",
+  "changed_document_local_links": "PASS",
+  "git_diff_check": "PASS",
+  "rtl_changes": false,
+  "new_physical_result": false,
+  "initial_staged_checksum_check": {
+    "status": "FAIL",
+    "file": "development.json",
+    "cause": "Host CRLF differed from Git LF normalization",
+    "resolution": "Normalize curated text to LF, regenerate checksums, then verify staged bytes"
+  }
+}

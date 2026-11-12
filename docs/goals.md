@@ -85,19 +85,18 @@ to main as work progresses. This goal includes combined protocol regression and
 fresh physical qualification before production promotion; a contract or oracle
 alone does not complete it.
 
-An [I2C acceptance draft](specs/p-i2c-controller-100k.md) identifies the initial
-public-pin cases, timing screen and existing open-drain obstacle. The oracle
-and final acceptance freeze remain pending. Reconcile the draft with D35's
-compact10 integration baseline at that freeze; this preparation qualifies no RTL.
+The [frozen I2C contract](specs/p-i2c-controller-100k.md) and D36/E0032 independent
+oracle pass 19 groups with 3,902 reference/control observations. This includes
+all bytes, ordinary addresses, stretching, final-edge priority and bounded
+cleanup. It qualifies no RTL; compact10 remains the integration baseline.
 
-**Next executable action:** freeze and independently test the public-pin I2C
-contract, then measure an existing-instruction baseline against compact10's
+**Next executable action:** measure an existing-instruction baseline against compact10's
 actual ten-word capacity. Use that evidence to choose any general instruction
 or storage change; preserve G1's qualified pilot and failed alternatives.
 
 Completion checks:
 
-- [ ] Freeze the I2C controller contract and independent oracle before extending
+- [x] Freeze the I2C controller contract and independent oracle before extending
   the ISA. Cover 100 kHz operation, 7-bit addressing, write/read, repeated START,
   ACK/NACK, open-drain release, clock stretching and bounded timeout.
 - [ ] Pass the [mandatory workload matrix](research/evaluation-contract.md) on

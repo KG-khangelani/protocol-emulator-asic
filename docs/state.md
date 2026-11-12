@@ -4,7 +4,12 @@ Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
-UART/SPI/I2C qualification, starting with the I2C contract and independent oracle.
+UART/SPI/I2C qualification. D36/E0032 freezes the I2C contract and independent
+oracle: 19 groups pass with 3,902 reference/control observations and 53 retained
+witnesses. Clock ownership, open drain, ACK/NACK, timing, stretching, final-edge
+priority, cleanup, stale results and explicit aborts are checked. This is no
+I2C DUT qualification. Next measure the existing-instruction public baseline
+and complete transaction footprint before choosing ISA/storage changes.
 The owner requested commits throughout the work. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).

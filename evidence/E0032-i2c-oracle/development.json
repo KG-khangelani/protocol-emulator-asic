@@ -1,0 +1,17 @@
+{
+  "scope": "ORACLE_FALSIFICATION_NOT_RTL",
+  "control": "Transfer SCL direction to target; retain identical resolved wires",
+  "without_clock_ownership_checks": "FALSE_PASS",
+  "with_clock_ownership_checks": "REJECTED",
+  "errors": [
+    "clock_release_count",
+    "scl_owner"
+  ],
+  "initial_test_edit_error": {
+    "test": "test_target_cannot_supply_the_controllers_clock",
+    "exception": "NameError: name 'rows' is not defined",
+    "exit_code": 1,
+    "cause": "New method initially split the preceding method before its final two lines",
+    "resolution": "Restore both mutations to their owning test; complete suite rerun"
+  }
+}

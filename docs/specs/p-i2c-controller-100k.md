@@ -1,114 +1,170 @@
-# G2 preparation - I2C controller acceptance draft
+# G2 I2C controller acceptance contract
 
-Status: **DRAFT, NOT IMPLEMENTED OR QUALIFIED**, 2026-11-12.
-Originally prepared during G1. G2 is now active; D35's qualified compact10
-pilot is the integration baseline, with ten program words and its real banked loader.
-Freeze this contract and an independently tested oracle before changing the ISA.
+Status: **acceptance frozen before ISA extension**, 2026-11-12, D36/E0032.
+The independent digital oracle is tested; no I2C RTL or physical qualification
+is claimed. D35's qualified compact10 pilot, with ten program words and its
+real banked loader, remains the integration baseline.
 
-## First workload
+## Workload and boundary
 
-Use one controller and a scripted target on the existing public pins.
-The first gate proposes three finite transactions: one-byte write, one-byte
-read, and one-byte write followed by repeated START and one-byte read.
-Include address/data ACK and NACK outcomes. Multi-byte receive and
-multi-controller arbitration require separately stated delivery/ownership rules;
-they are not implied by this first gate.
+One controller and a scripted target perform three finite transactions:
+one-byte write, one-byte read, and one-byte write followed by repeated START
+and one-byte read. Ordinary seven-bit addresses are 0x08..0x77; reserved
+addresses, ten-bit addressing, multiple controllers, arbitration, multi-byte
+receive and bus recovery require separate contracts. Transmit each byte MSB
+first, with a ninth ACK/NACK clock. Check address and write-data ACK/NACK;
+the controller ends its single received byte with NACK, then STOP. A rejected
+address/data byte takes the bounded STOP/NACK outcome without continuing data.
 
-Load and read back every program through the real loader. Change address,
-payload and transaction kind through documented program/data inputs, without
-recompiling RTL. Compare UART, SPI and I2C at one candidate revision before
-production promotion.
+Load and read back every program through the public loader. Address, payload
+and transaction kind vary through program/data inputs without recompiling RTL.
+UART, all four SPI modes in both orders and I2C must pass at one candidate
+revision before production promotion.
 
 ## External digital interface
 
-Proposed mapping: uio0 = SCL, uio1 = SDA. During bus execution, a driven line
-must have output value zero; output enable selects pull-low versus release.
-Resolve the controller and target contributions into one wire value and feed
-that value back through uio_in. The oracle must inspect both output value and
-direction: a push-pull high is a failure even when the resolved bit looks right.
+uio0 is SCL; uio1 is SDA. During bus execution a driven bus line has output
+value zero. Output enable selects pull-low versus release. Resolve controller
+and target contributions with ideal pull-ups and feed the resolved bus to
+uio_in. Inspect output value AND direction: active-high drive fails even if
+the wire value is otherwise correct. Only the controller initiates falling
+SCL edges; the target can prolong an already-low phase. The transmitter
+releases SDA for the ninth clock; the receiver pulls it low for ACK or releases
+it for NACK. Check ownership throughout each high phase as well as wire bits.
 
-The target's stimulus depends on decoded bus events, never the executor's
-private state. Timestamp raw bus transitions independently of the program
-model. Use the existing two-register input path, with its documented latency;
-do not substitute an ideal raw-pin read inside the executor.
+The RTL target stimulus must depend on decoded public bus events, never the
+executor's private state. Record every public drive, direction, wire, result
+and state transition, including target changes between core edges. The oracle
+imports no ISA interpreter, compiler, program generator or waveform reference.
+Its procedural fixtures are independent waveforms, not chip results.
 
-The loader currently shares and can actively drive all uio pins.
-The test must isolate the protocol target during loading, then connect the
-idle bus and perform the documented two-edge input flush before execution.
-This is an explicit host/board requirement. Runtime result reads use dedicated
-uo_out and must not pause clk or change bus ownership.
+Retain the existing two-register input path. For a raw input transition
+strictly after core edge B, the executor first consumes that value on B+3.
+Use a 5 ns event grid and a 20 ns core period. An event at tick t is after its
+grid edge; its first consumable core edge is `4*(floor(t/4)+3)`. This is a
+discrete synchronizer transport model, not a metastability/MTBF guarantee.
+
+The loader shares and can actively drive all uio pins. The host must isolate
+the target before entering loader ownership, reconnect an idle bus after
+loading, and give the synchronizer two disabled flush edges. Mark the beginning
+of the judged trace after the program has established released SCL/SDA and
+zero outcome markers; include a complete idle interval before START. Trace
+adapters must separately check initialization never drives a bus line high.
+Read results using the dedicated uo_out runtime selectors with clk running;
+decode execution state using the normal public status selector. No internal
+DUT handles substitute for public observations.
 
 ## Timing authority and project choices
 
 [NXP UM10204 Rev. 7.0](https://www.nxp.com/docs/en/user-guide/UM10204.pdf),
-sections 3.1 and 6.1/Table 11, remains authority S13. Checked 2026-11-12.
+sections 3.1 and 6.1/Table 11, remains authority S13; checked 2026-11-12.
 
-For the Standard-mode digital screen, enforce these minima on resolved wires:
-
-| Measurement | Minimum | Ceiling at 20 ns |
+| Resolved-wire measurement | Limit | 5 ns ticks |
 |---|---:|---:|
-| SCL low | 4.7 us | 235 clocks |
-| SCL high | 4.0 us | 200 clocks |
-| Data setup | 250 ns | 13 clocks |
-| Repeated START setup | 4.7 us | 235 clocks |
-| START hold | 4.0 us | 200 clocks |
-| STOP setup | 4.0 us | 200 clocks |
-| Bus free | 4.7 us | 235 clocks |
+| SCL low | at least 4.7 us | 940 |
+| SCL high | at least 4.0 us | 800 |
+| Data setup | at least 250 ns | 50 |
+| Repeated START setup | at least 4.7 us | 940 |
+| START hold | at least 4.0 us | 800 |
+| STOP setup | at least 4.0 us | 800 |
+| Bus free before START and before accepted terminal result | at least 4.7 us | 940 |
+| Complete clock cycle | at least 10 us | 2000 |
+| Data/ACK valid delay after falling SCL, when low is not stretched | at most 3.45 us | 690 |
 
-Clock frequency must not exceed 100 kHz. START/STOP, byte ordering,
-acknowledgement and stretch handling are checked against the referenced
-protocol, independently of decoded instructions. A target holding SCL low
-must postpone the next high phase until the resolved wire rises.
+For stretched low phases, retain the data setup limit before resolved SCL
+rises. Apply the maximum valid-delay exception only to a visibly stretched
+phase. The digital screen requires SDA changes strictly after falling SCL,
+not simultaneous with it. This extra ordering rule is a project margin for
+Table 11's threshold-ordering requirement; it does not prove analog hold time.
 
-Project reference waveforms will use 260 low clocks and 240 high clocks when
-unstretched: 500 clocks per bit at the 50 MHz target. Execution overhead must
-be measured; a slower passing transfer is reported with its actual rate.
-Ideal pull-ups and discrete levels establish no pad, RC, voltage, noise,
-metastability or electrical-compliance result.
+Reference unstretched pulses use 260 low clocks and 240 high clocks: 500 core
+clocks per bit, exactly 100 kHz at the 50 MHz target. Measure actual candidate
+overhead and rate; a slower pass must be labelled with its actual rate. Check
+both full low/high cycles and consecutive sampling-edge spacing. Ideal pull-ups
+and discrete levels establish no pad, rise/fall, RC, voltage, capacitance,
+noise, spike-filter or electrical-compliance result.
 
-Proposed bounded policy: each released-SCL wait has a 50,000-clock deadline
-(1 ms), including input-observation latency. On expiry, produce a distinct
-public failure outcome and release both lines within another 16 clocks.
-The precise public status encoding and final-observation-edge priority must
-be frozen with a program schedule before testing. This timeout is our project
-policy, not a claim that I2C imposes a 1 ms limit. Do not label a forced release
-while SCL remains low as a successful STOP.
+## Public result and bounded waiting policy
 
-## Independent oracle and falsification plan
+Firmware uses ordinary GPIO uio[4:2], with output enables asserted, for a
+three-bit result marker. uio[7:5] remain released. These markers allocate no
+protocol-specific hardware state.
 
-Before RTL experiments, generate reviewed reference traces and mutation controls.
-The oracle takes public wire/drive events and declared transaction expectations;
-it must not import the ISA interpreter, compiler or generated expected pin trace.
+| Marker | Meaning | Acceptance condition |
+|---:|---|---|
+| 0 | Running/uncommitted | No received byte accepted |
+| 1 | OK | Complete expected transaction, STOP, bus-free interval, HALT |
+| 2 | NACK | Rejection at declared address/data boundary, STOP, bus-free interval, HALT |
+| 3 | TIMEOUT | Expired SCL observation deadline, both lines released, HALT |
 
-Required controls include active-high drive, SDA changing during an ordinary
-high phase, a short low/high/setup interval, swapped data bits, missing or extra
-ACK clock, continued data after a rejecting ACK, wrong final response, repeated
-START replaced by STOP, advancement during a held-low SCL, premature timeout,
-and a stale RX value falsely presented as a fresh transaction result.
+Markers become meaningful only with HALT and the complete checked trace.
+FAULT is not an accepted cleanup outcome. For a successful read, raw RX/valid
+must expose the declared target byte at terminal HALT. The host invalidates
+raw-valid through the existing payload-load operation before each transaction.
+Intermediate address/partial/old raw results are not accepted I2C data. Test a
+distinct stale byte; identical old/new values cannot alone establish internal
+capture provenance, which also needs relevant RTL/formal checks.
 
-Exercise all 256 single-byte data values with retained deterministic seeds.
-Place stretch intervals at address, data and ACK boundaries, including
-release on either side of the declared deadline and a permanently held line.
-Check both phase offsets and discrete input-delay limits explicitly.
-Reset, disable and loader entry during a transaction must be recorded as
-abort/control cases, not accepted protocol transactions.
+Every controller SCL release at core edge R has deadline D = R + 50,000 core
+clocks, including input observation latency. A high observed on D wins; one
+first observable after D loses. The controller keeps SCL released and SDA
+unchanged until the observation or expiry. On timeout it sets TIMEOUT,
+releases both lines and reaches HALT no earlier than D and no later than
+D+16 clocks. A forced release while the target holds SCL low is cleanup, not
+a successful STOP. This 1 ms wait limit is project policy, not an I2C limit.
 
-Each proposed case needs a finite completion bound, public outcome and exact
-coverage count before the first candidate run. Pass the same oracle on both
-RTL simulators, retain counterexamples, then add relevant formal properties.
-Program capacity and real storage cost remain measurements.
+For post-edge events on the 5 ns grid, raw high at D-13 ticks is seen on D-4;
+D-9 is seen on D and wins; D-8 is first seen on D+4 and loses. Exercise all
+three and a permanently held SCL at every clock release, including ACK,
+repeated START preparation and STOP preparation. A write/read has 19 releases;
+write/read combined has 38. Rejected shorter transfers have correspondingly
+fewer clocks. The whole finite trace must end within 100,000 ticks plus
+200,000 ticks per expected release plus 64 cleanup ticks. This generous
+completion ceiling is not a throughput claim.
 
-## Existing-machine obstacle to test first
+Reset, disable and loader entry are explicitly declared abort/control cases,
+never accepted protocol transactions. Reset clears GPIO and raw result/valid;
+disable freezes architectural output/result/state and does not promise bus
+release. Loader entry requires target isolation before loader ownership.
+The abort checker checks the completed pre-intervention bus prefix and the
+declared held control's effects; a fresh resume/reload needs a separately judged
+transaction. Normal transfer/timeout bounds assume reset deasserted, ena=1,
+load=0 throughout. A truncated trace without declared intervention fails.
 
-SET can express pull-low/release with value zero and varying output enable.
-The current SHIFT_STEP and experimental DRIVE paths instead drive payload bits
-with TX output enable asserted; ordinary one bits therefore do not implement
-this draft's open-drain rule. See [K-SHIFT-8](k-shift-8.md) and
-experiments/spi_phase/build_variants.py.
+## Independent oracle and required controls
 
-First try a public-loaded SET/WAIT/WAIT_PIN baseline and measure its complete
-transaction footprint. This identifies whether the first limitation is
-capacity, data-dependent output enable, receive sequencing or timeout cleanup.
-Only then evaluate a general instruction change or a larger store, using G1's
-physical measurements. Do not assume eight words is a final memory limit, or
-add dedicated I2C RTL merely to make the workload pass.
+`tools/i2c_oracle.py` consumes complete public event records and transaction
+intent. The procedural `tools/i2c_reference.py` supplies reference fixtures;
+hand-calculated wire bits/timestamps test it separately. Qualification is
+reproducible with `python3 experiments/i2c/qualify_oracle.py`; the unit suite is
+also part of `make check`. E0032 retains source/trace hashes, inputs, seed,
+results and counterexamples.
+
+Exercise all 256 byte values for every transaction kind, all ordinary addresses,
+all four target-event phases, the data-valid/setup boundaries, each allowed
+NACK and every SCL release with stretching and deadline-adjacent responses.
+Negative controls cover active-high drive by either actor, incorrect wired-AND
+resolution, target-generated clocks, high-phase SDA/ownership changes, short
+timing intervals, late valid data, swapped/wrong bits, wrong address, missing
+or extra ACK clock, continuation after NACK, wrong final response, STOP in
+place of repeated START, direction advancement while SCL is held low,
+premature/late timeout, failed release, stale RX and absent terminal status.
+
+Pass the same oracle on both RTL simulators, with real public loading/readback,
+then relevant formal properties and fresh pinned physical qualification. The
+fixture qualification itself satisfies none of those hardware gates.
+
+## Existing-machine baseline before ISA changes
+
+SET can express pull-low/release using value zero and varying output enable.
+Current SHIFT_STEP and experimental DRIVE instead actively drive payload ones;
+they cannot directly implement this open-drain rule. See
+[K-SHIFT-8](k-shift-8.md) and experiments/spi_phase/build_variants.py.
+
+Measure a public-loaded SET/WAIT/WAIT_PIN baseline and its complete transaction
+footprint. Identify capacity, data-dependent direction, receive sequencing and
+timeout-cleanup limits before choosing a general instruction or larger store.
+WAIT_PIN's current FAULT holds GPIO; timeout skip inside a LOOP is not a cleanup
+escape. Preserve such failures. Do not claim an abstract oversized image was
+publicly loaded, infer a global ISA minimum from one schedule, assume eight or
+ten words is a final limit, or add dedicated I2C RTL to hide a flexibility failure.

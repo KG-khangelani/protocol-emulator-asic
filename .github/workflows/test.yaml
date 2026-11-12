@@ -56,6 +56,13 @@ jobs:
           mkdir -p build/ci
           docker image inspect protocol-emulator-asic-workbench:2026-07-29 > build/ci/workbench-image.json
 
+      - name: Qualify independent I2C acceptance and retain controls
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/i2c/qualify_oracle.py --output build/i2c-oracle
+
       - name: Collect reproducibility evidence
         if: success()
         run: ./tools/workbench.sh Evidence
@@ -111,6 +118,7 @@ jobs:
           path: |
             build/evidence/
             build/ci/workbench-image.json
+            build/i2c-oracle/
             test/results*.xml
             test/tb.fst
             test/tb-gl-harness.fst

@@ -12,14 +12,15 @@ Alpha.5 publishes both candidates' evidence; all 28 release assets, exact image
 identity and anonymous access are verified. All six tag workflows pass.
 
 **G2 is active**, authorized on 2026-11-12 with commits throughout the work.
-First freeze/test the independent I2C oracle, then measure the existing-instruction
-baseline on compact10 before selecting general instruction or storage changes.
+D36/E0032 freezes/tests the independent I2C oracle: 19 groups, 3,902 observations
+and 53 retained witnesses. Next measure the existing-instruction baseline on
+compact10 before selecting general instruction or storage changes.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task
 evidence below is preserved.
-The [I2C acceptance draft](specs/p-i2c-controller-100k.md) prepares G2 without
-an ISA change or qualification claim. Its oracle and acceptance freeze are pending.
+The [I2C acceptance contract](specs/p-i2c-controller-100k.md) is frozen without
+an ISA change. Public-loaded I2C RTL, combined and physical gates remain pending.
 
 ## M0-T01 — Establish RTL-to-GDS baseline (active)
 
