@@ -1,0 +1,20 @@
+{
+  "replacement_source": "e5eef5b413a9423ca6b6ea8bc463f2bb0673ee03",
+  "replacement_runs": {
+    "i2c-general": 43238830793,
+    "test": 43238831100
+  },
+  "cancelled_runs": [
+    {
+      "id": 43237051316,
+      "workflow": "i2c-general",
+      "source": "52d61d8c263ddcd9fb3e6b3780e86a16845dac16"
+    },
+    {
+      "id": 43232562590,
+      "workflow": "test",
+      "source": "9602c39e0b523e1a43087593408d7050230f9d96"
+    }
+  ],
+  "reason": "Superseded main-branch runs delayed the new revision. The replacement repeats their gates and adds both D38 gates. Cancelled jobs are not passes. Original source qualification is retained from earlier completed CI."
+}

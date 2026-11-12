@@ -78,6 +78,7 @@ jobs:
             build/g2-ci/**/src/*.v
             build/g2-ci/**/records/**
             build/g2-ci/**/run.log
+            build/g2-ci/style/*.log
             build/g2-ci/**/synthesis.log
             build/g2-ci/**/results.xml
             build/g2-ci/**/proof.sby

@@ -34,9 +34,13 @@ E0036 retains original archive identities, runtime/configuration checks and
 failure logs. All five clean
 d3c340f CI gates and downloaded-evidence audits pass, including the complete
 100-task store run. D38/E0037's explicit byte-lane store passes all 652 assertions
-and both reset-reachable mutation controls; the full public selection is
-running. Complete that gate, then physically measure the new implementation
-with capacity, behavior and fixed conditions preserved. Production is unchanged.
+and both reset-reachable mutation controls. Both simulators pass all eighteen
+public groups with exact reference records; retained replay and physical
+staging preflight pass. Fresh CI is running. Physically measure the new
+implementation with capacity, behavior and fixed conditions preserved.
+A separate shared-read screen saves 37.64% generic cells from D38 with
+conditional store equivalence; its public/physical qualification is pending
+and it is not adopted. Production is unchanged.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
 This prepares integration without promoting an unqualified design.

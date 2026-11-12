@@ -122,6 +122,13 @@ interface, protocol programs and pinned 8x4 conditions; its generic saving is
 not a physical result. Preserve G1's pilot, the original od128 routing failure
 and literal capacity rejection. Integration and publication remain required.
 
+D38/E0037 now qualifies that rewrite locally: all 652 store assertions,
+checked controls and both simulators' eighteen public groups pass; all required
+reference records are identical. The retained evidence replay and physical
+staging preflight pass. Fresh CI and physical qualification remain pending.
+A separate shared-read cost/equivalence screen is promising but unqualified
+for public protocols or physical adoption; it does not close a G2 gate.
+
 Completion checks:
 
 - [x] Freeze the I2C controller contract and independent oracle before extending

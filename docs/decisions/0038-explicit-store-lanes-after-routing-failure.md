@@ -38,3 +38,12 @@ choosing another change. No physical threshold is relaxed.
 G2 remains active through complete physical qualification, production
 integration and verified publication. G1 and the separate owner-fluency status
 remain as recorded.
+
+The existing screen's byte cases enumerate all four binary selector values,
+so an omitted default means hold only for unknown simulation inputs. Verible
+reports 128 `case-missing-default` style warnings. Preserve those observations
+and waive that one style rule only for the frozen generated program store.
+`lint_store_lanes.py` first checks every case's four exact labels and ranges,
+requires exactly those 128 unwaived warnings, then checks all other rules and
+the other four modules normally. This documented style exception preserves
+the tested source; it changes no functional property or physical limit.

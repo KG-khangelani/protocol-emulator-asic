@@ -95,10 +95,23 @@ def main():
     equivalence = read(ROOT / 'evidence/E0036-g2-store-and-ci/lane-screen/equivalence/result.json')
     eq = next(t for t in equivalence['tasks'] if t['variant'] == 'od128')
     assert eq['accepted'] and eq['before_sha256'] == old['m1_program_store.v'] and eq['after_sha256'] == sources['m1_program_store.v']
+    style = read(HERE / 'style/result.json')
+    assert style['status'] == 'PASS_SCOPED_STYLE_REVIEW' and style['sources'] == sources
+    assert [s['name'] for s in style['stages']] == ['other-modules', 'store-unwaived', 'store-scoped']
+    for stage in style['stages']:
+        raw = gzip.decompress((HERE / 'style' / (stage['name'] + '.log.gz')).read_bytes())
+        assert sha(raw) == stage['log_sha256']
+        if stage['name'] == 'store-unwaived':
+            assert stage['returncode'] == 1 and len(raw.splitlines()) == 128
+            assert all(line.endswith(b'[Style: case-statements] [case-missing-default]') for line in raw.splitlines())
+        else:
+            assert stage['returncode'] == 0
     report = {'status': 'PASS_LANES_CANDIDATE_RTL_FORMAL', 'implementation': 'od128-lanes', 'source_sha256': sources,
               'program_words': 128, 'program_bits': 4096, 'store_assertions': observed['assertions'],
               'positive_store_tasks': observed['positive_task_count'], 'checked_reset_reachable_controls': 2,
               'public_simulators': checks, 'archives': {k:v['archive_sha256'] for k,v in index.items()},
+              'style_review': {'status': style['status'], 'unwaived_warnings': 128,
+                               'exception': style['exception'], 'result_sha256': sha((HERE / 'style/result.json').read_bytes())},
               'inherited_evidence': 'Byte-identical engine/support modules retain E0035/E0036 instruction proofs; E0036 od128 complete-store equivalence links the rewritten store',
               'physical': 'NOT_YET_QUALIFIED', 'production': 'UNCHANGED',
               'scope': 'Local complete public regression and memory-unit properties; no arbitrary-firmware, analog, or physical signoff'}

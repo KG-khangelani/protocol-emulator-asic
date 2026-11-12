@@ -32,6 +32,8 @@ def main():
         (out / "result.json").write_bytes((json.dumps(result, indent=2) + "\n").encode())
     save()
     try:
+        run("lint_store_lanes.py", "--variants", out / "variants", "--output", out / "style")
+        assert read(out / "style/result.json")["status"] == "PASS_SCOPED_STYLE_REVIEW"
         if args.gate == "selection":
             run("run_physical_selection.py", "--variants", out / "variants", "--output", out / "selection",
                 "--source-revision", "explicit-lanes")

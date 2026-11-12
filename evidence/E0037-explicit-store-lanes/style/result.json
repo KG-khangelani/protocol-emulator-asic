@@ -1,0 +1,48 @@
+{
+  "status": "PASS_SCOPED_STYLE_REVIEW",
+  "sources": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "stages": [
+    {
+      "name": "other-modules",
+      "command": [
+        "verible-verilog-lint",
+        "--rules_config_search",
+        "build/g2-lanes-store-01/variants/od128/src/project.v",
+        "build/g2-lanes-store-01/variants/od128/src/m1_engine.v",
+        "build/g2-lanes-store-01/variants/od128/src/m1_data_store.v",
+        "build/g2-lanes-store-01/variants/od128/src/m1_input_sync.v"
+      ],
+      "returncode": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "store-unwaived",
+      "command": [
+        "verible-verilog-lint",
+        "--rules_config_search",
+        "build/g2-lanes-store-01/variants/od128/src/m1_program_store.v"
+      ],
+      "returncode": 1,
+      "log_sha256": "224c14a9ef46cfa583ba6198d737db05356e0f70af387a1908cc0796856d219b"
+    },
+    {
+      "name": "store-scoped",
+      "command": [
+        "verible-verilog-lint",
+        "--rules_config_search",
+        "--rules=-case-missing-default",
+        "build/g2-lanes-store-01/variants/od128/src/m1_program_store.v"
+      ],
+      "returncode": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "exception": "Only case-missing-default on the frozen program store: all four values of each two-bit byte selector are explicit and separately checked for all 128 words. An unknown simulation selector holds state. No RTL or physical threshold changes.",
+  "unwaived_status": "128 declared style warnings; all other modules/rules pass"
+}

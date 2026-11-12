@@ -18,14 +18,49 @@ task configurations, successful induction logs, status files and witnesses.
 The independent auditor reconstructs the asserted source and mutations from
 the frozen candidate. Original E0035 store audits still replay unchanged.
 
-The full eighteen-group public selection is currently running in both
-simulators. Its independent expectations, 1,052 SPI records, 1,160 I2C records,
-four architecture summaries and 36 abort/recovery records remain unchanged.
-Physical staging rejects this revision until the complete local qualification
-record exists. Clean CI adds separate store and public-selection gates.
+The full **eighteen-group public selection passes both simulators**. Each
+reproduces all 1,052 SPI records, 1,160 I2C records, four architecture summaries
+and 36 abort/recovery records exactly. UART framing/service bounds and the SPI
+held-input successes/edge-only controls remain unchanged. The independent
+retained-evidence replay verifies 1,123 archived files and every required proof,
+record set and test identity. [Qualification](qualification.json) identifies
+the exact candidate. Clean CI adds separate store and public-selection gates;
+those fresh CI jobs are still running, so no completed CI audit is claimed.
+
+Reproduce the archive/evidence audit without rerunning the solvers/simulators:
+
+```sh
+python evidence/E0037-explicit-store-lanes/verify.py --output build/g2-lanes-replay
+```
+
+The unwaived lint report contains 128 `case-missing-default` style warnings.
+D38 documents one exception for this exact generated store. A dedicated check
+requires all four labels and bit ranges for every two-bit byte selector,
+exactly those 128 warnings, and clean results for every other rule/module.
+Original and scoped logs are retained in `style/`; no RTL or physical limit
+was changed to obtain the scoped result.
 
 The earlier E0036 screen measured 24,391 versus 27,065 generic cells with
 4,278 state bits unchanged, and complete od128 store equivalence passed.
 This is not a mapped/routed saving. The next physical trial keeps D34's pinned
 8x4 conditions, every physical limit, all ten prechecks and all eighteen actual
 netlist test groups. G1's qualification and owner-fluency boundary are preserved.
+
+## Separate bounded shared-read screen
+
+The top's loading/execution ownership suggests sharing the program memory's
+read network. The [predeclared screen](../../docs/specs/g2-shared-read-screen.md)
+selects the loader address or PC before a single word read and selects the
+loader byte afterward. All 4,278 state bits and all write/control behavior stay.
+
+[Screen evidence](shared-read-screen/verification.json) measures **15,211 versus
+24,391 generic cells**, a 37.636833% reduction from D38. Sequential equivalence
+passes when comparing each read output only in its active mode, with other
+outputs compared normally from corresponding state. Raw inactive read outputs
+deliberately differ. Top-level ownership is a source-derived premise; this is
+not full-chip equivalence, public regression or physical qualification.
+
+Two initial generator assertions stopped before synthesis and are retained.
+The corrected experiment preserves length readback and selects the byte after
+evaluating the shared word. This promising alternative is not adopted, and
+does not replace D38's exact candidate or current physical trial.

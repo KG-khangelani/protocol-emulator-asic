@@ -1,0 +1,103 @@
+{
+  "status": "PROMISING_CONDITIONAL_SCREEN_NOT_ADOPTED",
+  "sources": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "parent_sources": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "primitive_cells": 15211,
+  "parent_primitive_cells": 24391,
+  "generic_reduction_percent": 37.636833,
+  "unchanged_state_bits": 4278,
+  "conditional_store_equivalence": {
+    "command": [
+      "yosys",
+      "-Q",
+      "-s",
+      "/workspace/build/g2-shared-read-03/proof.ys"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 54.796,
+    "wall_limit": 240
+  },
+  "scope": "Compare instruction only outside store load mode and data_out only inside load mode. All other outputs/state are compared normally from corresponding state; identical reset establishes correspondence. Top ownership is a source-derived premise, not a full-chip proof.",
+  "initial_failures": "01 expected a different always-block spelling. 02 matched through the combined read/fetch block and then rejected missing fetch. Both stopped before synthesis; original results and runner bytes retained. 03 preserves length readback and evaluates instruction before selecting its byte.",
+  "missing_gates": "Public regression, architecture/negative controls, mapped/routed qualification and adoption. D38 physical trial remains separate.",
+  "retained": {
+    "attempt-01/result.json": {
+      "original_sha256": "60348efc95fa3bf024ca905f47e06410861e7ca35b72a34f51d9a44bd16728bd",
+      "retained_file": "attempt-01/result.json.gz",
+      "retained_sha256": "538bcad37e928a0f9f91b2715d6787fac81f29e9fd0db0823f9b61e4ac68f892"
+    },
+    "attempt-01/runner.py": {
+      "original_sha256": "f510bd2c5e32420ed7e986539b4486f4b467f468fdca5617e1b94e23d7ed33ef",
+      "retained_file": "attempt-01/runner.py.gz",
+      "retained_sha256": "6bf809a5c09932c90e98a6bce83f689287c88d0d262551724991dc8e7f886013"
+    },
+    "attempt-02/result.json": {
+      "original_sha256": "60348efc95fa3bf024ca905f47e06410861e7ca35b72a34f51d9a44bd16728bd",
+      "retained_file": "attempt-02/result.json.gz",
+      "retained_sha256": "538bcad37e928a0f9f91b2715d6787fac81f29e9fd0db0823f9b61e4ac68f892"
+    },
+    "attempt-02/runner.py": {
+      "original_sha256": "a13b8f4f939d360387e97c270a65666e343259bd0ab583c34e02efa195879180",
+      "retained_file": "attempt-02/runner.py.gz",
+      "retained_sha256": "18496a1c3d7c4115bbb86516b088e69b711bcf3e8a46b1ee6865ef679a98109e"
+    },
+    "attempt-03/result.json": {
+      "original_sha256": "3afaeff7f8558bb7e788f469c7bb98b89a2dde597629170854ae0e9b00ea1e88",
+      "retained_file": "attempt-03/result.json.gz",
+      "retained_sha256": "fd0a1f98e5c49165e2f26b7ccd70549e79cb8e2e7a120e42e9cac7a87bd8f403"
+    },
+    "attempt-03/src/m1_program_store.v": {
+      "original_sha256": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+      "retained_file": "attempt-03/src/m1_program_store.v.gz",
+      "retained_sha256": "563485d8ba8a45c4443c8f2fbd3ed09484f082e0a6a924556b004cfdde31a48f"
+    },
+    "attempt-03/gold.v": {
+      "original_sha256": "eab7b758dccd911adf1d5b3a70096591a7213cd2fa1ca4bb85bfd64f4f765d2f",
+      "retained_file": "attempt-03/gold.v.gz",
+      "retained_sha256": "f0ce5c960402824ea47548be9804d2aaa2ec3bc316d33d407775921384d5ca94"
+    },
+    "attempt-03/gate.v": {
+      "original_sha256": "094dbb4a783cfe9509227a23137e6bfe942c16d6e87f22b769207161a1d0e9e0",
+      "retained_file": "attempt-03/gate.v.gz",
+      "retained_sha256": "578a98412a909e248786129e8962301c0832fbd9991a745c0e1bde51621f9a67"
+    },
+    "attempt-03/synth.ys": {
+      "original_sha256": "9427afe8ed7df08d41e3fad8c41dca0cbe9ba6312019278e6932a3dc17104661",
+      "retained_file": "attempt-03/synth.ys.gz",
+      "retained_sha256": "815ecc2ba834d5704dcdd8f43e009cd4a64fb503c5e45bf76f15d0d58e833e0d"
+    },
+    "attempt-03/proof.ys": {
+      "original_sha256": "4dc65003cc1dc8cff01b8332528abf2b354d904cae657001db9395c42e0cfce4",
+      "retained_file": "attempt-03/proof.ys.gz",
+      "retained_sha256": "8f6c9ecde3ba6d6cca8d4dc33883130bfc0eee5ef856a03f7da11b645b4c1c84"
+    },
+    "attempt-03/synthesis.log": {
+      "original_sha256": "f2733e1258b30b9646d7ecd7fe972cbc22f0ccd364e9600f09618cb077ca8796",
+      "retained_file": "attempt-03/synthesis.log.gz",
+      "retained_sha256": "2b70b1fcf889f181e6c4ce2da786d2613b45ecb2146770926e5da87a7bb97f6f"
+    },
+    "attempt-03/equivalence.log": {
+      "original_sha256": "035026ea7e2a9a44a053d6807510e3bcf22a14ef9bd6eb7090d0edbb3b1c479d",
+      "retained_file": "attempt-03/equivalence.log.gz",
+      "retained_sha256": "b20fbafadb6efa25964935229f642de1eb2ae8c85d8e0415dabb484346495e03"
+    },
+    "attempt-03/runner.py": {
+      "original_sha256": "7c20f4b40484395ff4485a672ce2ceb881cbabb67a1404e2760e35d6a1edfa94",
+      "retained_file": "attempt-03/runner.py.gz",
+      "retained_sha256": "8b4941f8de2d83ad79fdb2acb483ec1e356df510a0b0d861cfba122bd8bfd5bb"
+    }
+  }
+}
