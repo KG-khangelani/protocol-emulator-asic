@@ -19,7 +19,7 @@ jobs:
   workbench:
     if: github.repository == 'KG-khangelani/protocol-emulator-asic'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 120
     permissions:
       contents: write
       packages: write
@@ -92,6 +92,20 @@ jobs:
             --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
             --workdir /workspace "$LOCAL_IMAGE" \
             python3 experiments/spi_phase/run_phase1_capacity.py --output build/release-phase1-capacity
+      - name: Qualify the timed GPIO research comparison
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$LOCAL_IMAGE" \
+            python3 experiments/spi_phase/qualify_timed_gpio.py --output build/release-timed-gpio
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path("build/release-timed-gpio/result.json").read_text())
+          assert result["status"]=="QUALIFIED_COMPARISON"
+          assert result["selected_candidate"]=="P"
+          PY
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
         with:
@@ -138,11 +152,15 @@ jobs:
               "physical_qualification": "NOT_EVALUATED",
           }
           if os.environ["GITHUB_REF"].startswith("refs/tags/"):
-              manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof", "spi-phase1-capacity"]
+              manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof", "spi-phase1-capacity", "spi-timed-gpio"]
               shutil.copy2("build/release-sensitivity/result.json", output / "spi-sensitivity.json")
               shutil.copy2("build/release-four-mode/result.json", output / "spi-four-mode.json")
               shutil.copy2("build/release-held-proof/result.json", output / "spi-held-proof.json")
               shutil.copy2("build/release-phase1-capacity/result.json", output / "spi-phase1-capacity.json")
+              timed=Path("build/release-timed-gpio")
+              shutil.copy2(timed/"result.json", output/"spi-timed-gpio.json")
+              for gate in ("comparison","instruction_p","instruction_f","program_p","program_f","refinement_p","refinement_f"):
+                  shutil.copy2(timed/gate/"result.json", output/("spi-timed-"+gate+".json"))
           (output / "publication.json").write_text(json.dumps(manifest, indent=2) + "\n")
           files = sorted(p for p in output.iterdir() if p.name != "SHA256SUMS")
           (output / "SHA256SUMS").write_text("".join(
@@ -177,6 +195,8 @@ jobs:
             build/release-four-mode/result.json
             build/release-held-proof/result.json
             build/release-phase1-capacity/result.json
+            build/release-timed-gpio/result.json
+            build/release-timed-gpio/*/result.json
             test/results*.xml
           if-no-files-found: warn
           retention-days: 90

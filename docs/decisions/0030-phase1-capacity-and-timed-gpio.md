@@ -42,3 +42,11 @@ run both simulators and scoped legal-legacy refinement with falsification
 controls. Measure generic whole-chip cells/state against the existing compact
 and expanded-store references before selecting a direction. Physical fit/timing,
 full four-mode qualification and owner fluency remain separate gates.
+
+## Correction recorded 2026-11-12
+
+The high SET bits were described above as ignored. The actual compact
+set_valid requires [29:24]==0, so these bits are reserved and rejected.
+E0030 deliberately allocates formerly-invalid encodings and retains the
+original rejection-test failure. Legal-old-instruction compatibility is a
+separate refinement obligation, not a claim about all invalid words.

@@ -5,6 +5,14 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Active engineering task: **M3-T01 general timed GPIO ablation after phase1 capacity screen**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
+E0030 timed GPIO comparison is in progress. Isolated P/F eight-word mode1/3
+programs pass actual-program induction and sensitivity controls. Local P
+instruction and compact-refinement proofs pass; F refinement is inconclusive
+at the fixed limit. Preliminary matched cost: P3,146 cells/412 bits versus
+compact10 3,589/477; full comparison and clean CI are still pending. Production
+and historical compact sources are unchanged. See the
+[frozen contract](specs/spi-timed-gpio-comparison.md).
+
 Latest engineering result: **D30/E0029 bounded phase1 capacity screen PASS**.
 Mode1 saves one word (nine); mode3 remains at ten in the declared family.
 No seven/eight-word schedule passed6,920 candidates. The3,072 positive paired-byte
