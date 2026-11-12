@@ -46,6 +46,7 @@
 | E0041 | Isolated clock-spacing routing diagnostic | Exact sixteen-assignment edit audited; first timeout retained, follow-up completes with 159,781 overflow / 152.09% Metal3 usage; branch stopped | E0041-clock-routing-diagnostic/README.md |
 | E0042 | Synchronous SRAM and next-PC fetch screen | Proof/fault controls and both complete 30-group suites pass with exact records; mapped footprint falls 78.5306%; all retained replays and the 1,359-file original CI audit pass, physical gate open | E0042-sram-prefetch-screen/README.md |
 | E0043 | SRAM power/physical integration | Rejected trials retained. Nine buffers clear all extracted electrical limits with positive three-set timing margins. Portable staging reproduces the exact power database; six configuration controls and its 742-file replay pass. Manufacturing, complete actual-netlist and official qualification remain open | E0043-sram-physical-integration/README.md |
+| E0044 | Normal verification for the exact SRAM source/model profile | Three normal fast stages, all current formal stages and 116 checks pass; the 2,154-file replay retains two preparation failures and a historical 300-second timeout. Complete aggregate/CI and adoption remain open | E0044-sram-current-verification/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

@@ -49,6 +49,9 @@ def retained_files(directory):
 
 def semantic_check(action, directory, profile):
     sources = profile['source_sha256']
+    if profile['profile'] == 'od128-sram' and action in ('rtl-icarus', 'rtl-verilator', 'formal', 'lint', 'synth'):
+        from current_sram import semantic_check as check_sram
+        return check_sram(action, directory, profile)
     if action.startswith('rtl-'):
         result = read(directory / 'run/result.json')
         assert result['status'] == 'PASS_CURRENT_RTL_SIMULATOR' and result['sources'] == sources
@@ -119,6 +122,9 @@ def semantic_check(action, directory, profile):
         assert not any('latch' in name.lower() for name in counts['cell_types'])
         return {'kind': 'GENERIC_SYNTHESIS_NOT_PHYSICAL', **counts}
     if action == 'smoke':
+        if profile['profile'] == 'od128-sram':
+            from current_sram import check_candidate
+            check_candidate(directory, profile)
         root = ET.parse(directory / 'results.xml').getroot()
         for suite in root.iter('testsuite'):
             assert all(int(suite.get(key, '0')) == 0 for key in ('failures', 'errors', 'skipped'))
@@ -150,7 +156,7 @@ def load_receipt(artifacts, action, profile, inputs, runtime=None):
 
 def execute_stage(action, sources, artifacts, runtime):
     profile, inputs = describe(sources), verification_inputs()
-    assert profile['profile'] == 'od128-shared', 'current commands require the declared current candidate'
+    assert profile['profile'] in ('od128-shared', 'od128-sram'), 'current commands require a declared current candidate'
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     directory = artifacts / 'runs' / (stamp + '-' + action)
     directory.mkdir(parents=True)
@@ -172,6 +178,9 @@ def execute_stage(action, sources, artifacts, runtime):
             run([sys.executable, 'tools/doctor.py'], timeout=120)
         elif action == 'check':
             run(['make', 'check-base'], timeout=300)
+        elif profile['profile'] == 'od128-sram':
+            from current_sram import execute_stage as execute_sram
+            execute_sram(action, sources, directory, run)
         elif action == 'lint':
             target = directory / 'variants/od128/src'
             target.mkdir(parents=True)
@@ -229,7 +238,7 @@ def main():
         execute_stage(args.action, sources, artifacts, runtime)
         return
     profile, inputs = describe(sources), verification_inputs()
-    assert profile['profile'] == 'od128-shared'
+    assert profile['profile'] in ('od128-shared', 'od128-sram')
     required = STAGES if args.action == 'evidence' else ('rtl-icarus', 'smoke')
     receipts = {}
     for action in required:

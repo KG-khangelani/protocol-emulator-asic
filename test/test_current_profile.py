@@ -94,6 +94,33 @@ class CurrentEvidenceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             describe(sources)
 
+    def test_sram_sources_cannot_reuse_the_preceding_profile(self):
+        from build_sram_candidate import build
+        candidate = self.artifacts / 'sram'
+        build(candidate)
+        profile = describe(candidate / 'src')
+        self.assertEqual(profile['profile'], 'od128-sram')
+        self.assertEqual(profile['interface_id'], '0x22')
+        with self.assertRaises(AssertionError):
+            self.load(profile=profile)
+        with (candidate / 'src/m1_engine.v').open('ab') as stream:
+            stream.write(b'\n// different unqualified source\n')
+        with self.assertRaises(ValueError):
+            describe(candidate / 'src')
+
+    def test_sram_model_changes_are_not_hidden_by_a_source_match(self):
+        from build_sram_candidate import build
+        from current_sram import check_candidate
+        candidate = self.stage / 'candidate'
+        build(candidate)
+        profile = describe(candidate / 'src')
+        check_candidate(self.stage, profile)
+        model = candidate / 'models/RM_IHPSG13_1P_core_behavioral_bm_bist.v'
+        with model.open('ab') as stream:
+            stream.write(b'\n// different memory model\n')
+        with self.assertRaises(AssertionError):
+            check_candidate(self.stage, profile)
+
 
 if __name__ == '__main__':
     unittest.main()

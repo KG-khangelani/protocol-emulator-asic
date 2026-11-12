@@ -45,7 +45,10 @@ def main():
     p.add_argument("--variants", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--variant", choices=("od128", "literal255"), help="Default: prove both experimental engines")
+    p.add_argument("--engine-style", choices=("clocked", "next-state"), default="clocked",
+                   help="Use the matching actual assignment when constructing the loop-abort fault.")
     args = p.parse_args()
+    assert args.engine_style != 'next-state' or args.variant == 'od128'
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new build directory required")
@@ -55,7 +58,7 @@ def main():
               "properties_sha256": digest(properties), "runner_sha256": digest(Path(__file__)),
               "witness_parser_sha256": digest(ROOT/"experiments/spi_phase/run_program_sensitivity.py"),
               "assumptions": ["first sampled edge reset; other inputs arbitrary", "digital sampled_inputs, no analog CDC claim"],
-              "sources": {}, "tasks": []}
+              "sources": {}, "tasks": [], "engine_style": args.engine_style}
 
     def save():
         (out/"result.json").write_text(json.dumps(result, indent=2)+"\n")
@@ -65,13 +68,20 @@ def main():
         for variant in ((args.variant,) if args.variant else ("od128", "literal255")):
             path = args.variants/variant/"src/m1_engine.v"
             source = path.read_text()
+            if args.engine_style == 'next-state':
+                manifest = json.loads((ROOT / 'evidence/E0042-sram-prefetch-screen/candidate.json').read_bytes())
+                assert digest(path) == manifest['source_sha256']['m1_engine.v']
+                assert source.count('assign prefetch_pc = pc_next;') == 1
             result["sources"][variant] = digest(path)
             appendix = "\n"+properties.read_text()+"\n"
             modified = source.replace("endmodule", appendix+"endmodule")
             assert modified.replace(appendix, "") == source
             cases = [("instruction", "prove", "PASS", modified), ("covers", "cover", "PASS", modified)]
             if variant == "od128":
-                wrong = modified.replace("            loop_active <= 1'b0;", "            loop_active <= loop_active;", 1)
+                before, after = ("            loop_active <= 1'b0;", "            loop_active <= loop_active;")
+                if args.engine_style == 'next-state':
+                    before, after = ("            loop_active_next = 1'b0;", "            loop_active_next = loop_active;")
+                wrong = modified.replace(before, after, 1)
                 assert wrong != modified
                 cases.append(("keeps_loop", "bmc", "FAIL", wrong))
                 wrong = modified.replace("(selected_shift_tx_bit && !serial_open_drain) ? shift_tx_mask : 8'd0",

@@ -1,0 +1,99 @@
+{
+  "status": "PASS_RETAINED_CURRENT_SRAM_PREPARATION_AND_EXPLICIT_INCOMPLETE_GATES",
+  "files": 2154,
+  "profile": {
+    "profile": "od128-sram",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "program_words": 128,
+    "pc_bits": 8,
+    "interface_id": "0x22",
+    "physical_memory_bits": 8192,
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    }
+  },
+  "fast_stages": {
+    "lint": {
+      "kind": "SOURCE_PINNED_VERILOG_STYLE",
+      "unwaived_warnings": 2,
+      "exception": "Only always-comb on the exact next-state engine and SRAM combinational read mux; both retain standard Verilog always @*. All other rules/modules pass."
+    },
+    "synth": {
+      "kind": "GENERIC_STANDARD_LOGIC_PLUS_REAL_MACRO_BLACKBOX_NOT_PHYSICAL",
+      "primitive_cells": 3422,
+      "state_bits": 353,
+      "cell_types": {
+        "$_ANDNOT_": 288,
+        "$_AND_": 887,
+        "$_DFF_P_": 8,
+        "$_MUX_": 266,
+        "$_NAND_": 946,
+        "$_NOR_": 104,
+        "$_NOT_": 25,
+        "$_ORNOT_": 117,
+        "$_OR_": 347,
+        "$_SDFFE_PN0P_": 317,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 27,
+        "$_XNOR_": 63,
+        "$_XOR_": 26
+      },
+      "macro_count": 1,
+      "separate_physical_memory_bits": 8192,
+      "logical_words": 128
+    },
+    "smoke": {
+      "kind": "RTL_HARNESS_SMOKE_NOT_NETLIST",
+      "tests": 1,
+      "junit_sha256": "08dc666064489ca0313410c09a77777fe99edae2e7f44b085d296b425d04bf90",
+      "waveform_sha256": "5aba7668557bb55feebefd015056f29b3fd180b588a791b95cb7db7eded6478b"
+    }
+  },
+  "current_formal": {
+    "composition": {
+      "engine_compared_bits": 331,
+      "engine_reset_vectors": 69,
+      "store_assertions": 18,
+      "covers": 4,
+      "faults_per_simulator": 4
+    },
+    "prediction": {
+      "invariant": "pc equals previous prefetch_pc",
+      "assumptions": 0,
+      "proved": 1,
+      "cover": 1,
+      "checked_fault": 1
+    },
+    "instruction_tasks": 4,
+    "support_tasks": 5
+  },
+  "prefetch_prediction": {
+    "invariant": "pc equals previous prefetch_pc",
+    "assumptions": 0,
+    "proved": 1,
+    "cover": 1,
+    "checked_fault": 1
+  },
+  "repository_checks": 116,
+  "historical_timeout_seconds": 300,
+  "normal_aggregate": "NOT_PASSED",
+  "preparation_failures": 2,
+  "runtime_exit_codes": {
+    "g2-sram-current-fast-probe-01": 0,
+    "g2-sram-current-formal-probe-01": 1,
+    "g2-sram-current-formal-probe-02": 1,
+    "g2-sram-current-normal-formal-01": 2,
+    "g2-sram-current-proof-audit-01": 0,
+    "g2-sram-current-repo-check-01": 0,
+    "g2-sram-prefetch-invariant-01": 0,
+    "g2-sram-public-readout-flat-01": 0
+  },
+  "production": "NOT_PROMOTED"
+}

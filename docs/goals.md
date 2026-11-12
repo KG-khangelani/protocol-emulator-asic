@@ -116,8 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** launch and audit the official `gds-sram` qualification,
-while completing the local manufacturing and actual-netlist checks. The
+**Next executable action:** finish and audit official `gds-sram` run43303867849,
+the local manufacturing and actual-netlist checks, and the complete normal
+`sram-current` verification. D44/E0044's current formal stages and three normal
+fast stages pass, but the historical baseline times out at its unchanged
+300-second limit; the 2,154-file replay preserves that incomplete aggregate.
+The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact
 power database; six corruption controls and its 742-file retained replay pass.

@@ -119,6 +119,23 @@ All three 95120d8 SRAM CI jobs
 and their three original ZIPs pass the complete semantic/source/runtime audit.
 Full physical qualification remains open.
 
+D44/E0044 adds the exact SRAM source/model profile to normal verification.
+Lint, generic synthesis, RTL harness smoke and all 116 repository checks pass.
+All eleven current formal stages pass, including the new prefetch invariant
+and its inspected wrong-bit counterexample. Two preparation failures are
+retained and corrected. The combined formal command then times out on the
+historical engine proof at its unchanged 300-second limit; no aggregate PASS
+is written. The 2,154-file replay verifies the current results and rejects
+that incomplete aggregate. Run and audit the complete `sram-current` CI.
+Official `gds-sram` run43303867849 at 2bd2688 is in progress. The local routed
+Icarus run has completed all 1,160 I2C cases; its final abort/reload group is
+still pending. Verilator's first functional attempt fails on loader state.
+A cell-level probe identifies its unsupported delayed-reset alias and a
+separate simulation adapter matches 1,025 original-cell observations, while
+a stuck-reset control produces 249 mismatches. The identical-netlist follow-up
+is running. Manufacturing checks, complete netlist results and publication
+remain open; production is unchanged.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

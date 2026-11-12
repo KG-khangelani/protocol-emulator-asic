@@ -90,7 +90,13 @@ Its extracted electrical limits now pass at all three declared model sets with
 positive setup/hold margins. Portable official staging reproduces the exact
 power database; six corruption controls and the 742-file replay pass. Launch
 and audit `gds-sram`; complete local netlist results are still pending. Physical
-acceptance stays open.
+acceptance stays open. D44/E0044 adds the exact SRAM source/model profile to
+normal commands. All eleven current formal stages, lint, synthesis, harness
+smoke and 116 repository checks pass. The historical engine proof times out
+at the unchanged 300-second limit; the complete aggregate remains incomplete.
+The 2,154-file replay retains and rejects that timeout. Complete and audit
+`sram-current` CI alongside official `gds-sram` run43303867849, local manufacturing
+and actual-netlist follow-up. Production adoption and publication remain pending.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

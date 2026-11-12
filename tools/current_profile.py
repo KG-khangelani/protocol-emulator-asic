@@ -26,6 +26,10 @@ def describe(directory=None):
     current = json.loads(path.read_bytes())['od128']['source_sha256']
     if actual == current:
         return {'profile': 'od128-shared', 'source_sha256': actual, 'program_words': 128, 'pc_bits': 8}
+    sram = json.loads((ROOT / 'evidence/E0042-sram-prefetch-screen/candidate.json').read_bytes())
+    if actual == sram['source_sha256']:
+        return {'profile': 'od128-sram', 'source_sha256': actual, 'program_words': 128, 'pc_bits': 8,
+                'interface_id': '0x22', 'physical_memory_bits': 8192, 'model_sha256': sram['model_sha256']}
     raise ValueError('Unrecognized source profile: qualify and declare the changed source before using a production verification profile')
 
 
@@ -34,12 +38,16 @@ def verification_inputs():
     names = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT).decode().split('\0')
     prefixes = ('src/', 'test/', 'tools/', 'formal/', 'experiments/', '.github/workflows/', 'docs/specs/',
                 'evidence/E0035-general-i2c/sources/current/', 'evidence/E0037-explicit-store-lanes/sources/',
-                'evidence/E0038-shared-program-read/sources/')
+                'evidence/E0038-shared-program-read/sources/',
+                'evidence/E0042-sram-prefetch-screen/feasibility/verilog/')
     singles = {'Makefile', 'info.yaml', '.rules.verible_lint', 'requirements-dev.txt', 'tools/workbench/requirements.lock',
                'evidence/E0020-spi-mode0-feasibility/result.json',
                'evidence/E0037-explicit-store-lanes/qualification.json',
                'evidence/E0038-shared-program-read/qualification.json',
                'evidence/E0038-shared-program-read/verify.py',
+               'evidence/E0042-sram-prefetch-screen/candidate.json',
+               'evidence/E0042-sram-prefetch-screen/feasibility/inspection.json',
+               'evidence/E0042-sram-prefetch-screen/ci-95120d8/proof_checks.py',
                'evidence/E0036-g2-store-and-ci/ci/architecture/combined/icarus/records/cases.jsonl.gz',
                'evidence/E0036-g2-store-and-ci/ci/od128/protocols/icarus/records/cases.jsonl.gz',
                'evidence/E0036-g2-store-and-ci/ci/architecture/boundaries/od128-icarus/records/boundaries.jsonl.gz',
