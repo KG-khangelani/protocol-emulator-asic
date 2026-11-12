@@ -1,7 +1,8 @@
 # G2 preparation - I2C controller acceptance draft
 
 Status: **DRAFT, NOT IMPLEMENTED OR QUALIFIED**, 2026-11-12.
-Prepared while G1's physical jobs run. G1 remains the active goal.
+Originally prepared during G1. G2 is now active; D35's qualified compact10
+pilot is the integration baseline, with ten program words and its real banked loader.
 Freeze this contract and an independently tested oracle before changing the ISA.
 
 ## First workload

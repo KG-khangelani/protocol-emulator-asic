@@ -16,7 +16,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | QUEUED NEXT; compact10 integration baseline | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; compact10 integration baseline | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -80,10 +80,20 @@ record the evidence. The next engineering goal is G2; further P tuning remains d
 
 ## G2 - Prove useful protocols on the same programmable machine
 
+Activated by the owner on 2026-11-12. Commit and push cohesive verified steps
+to main as work progresses. This goal includes combined protocol regression and
+fresh physical qualification before production promotion; a contract or oracle
+alone does not complete it.
+
 An [I2C acceptance draft](specs/p-i2c-controller-100k.md) identifies the initial
 public-pin cases, timing screen and existing open-drain obstacle. The oracle
 and final acceptance freeze remain pending. Reconcile the draft with D35's
 compact10 integration baseline at that freeze; this preparation qualifies no RTL.
+
+**Next executable action:** freeze and independently test the public-pin I2C
+contract, then measure an existing-instruction baseline against compact10's
+actual ten-word capacity. Use that evidence to choose any general instruction
+or storage change; preserve G1's qualified pilot and failed alternatives.
 
 Completion checks:
 

@@ -11,6 +11,9 @@ both original archives, matched configurations and earlier unsuccessful trials.
 Alpha.5 publishes both candidates' evidence; all 28 release assets, exact image
 identity and anonymous access are verified. All six tag workflows pass.
 
+**G2 is active**, authorized on 2026-11-12 with commits throughout the work.
+First freeze/test the independent I2C oracle, then measure the existing-instruction
+baseline on compact10 before selecting general instruction or storage changes.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task

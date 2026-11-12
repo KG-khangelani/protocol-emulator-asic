@@ -3,7 +3,9 @@
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
-P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is queued next**. See [six execution goals](goals.md) and
+P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
+UART/SPI/I2C qualification, starting with the I2C contract and independent oracle.
+The owner requested commits throughout the work. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
@@ -439,7 +441,7 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - G1 is complete. Keep its source identities, qualified compact10 result and
   rejected P attempts intact; no new physical run or further tuning is needed.
-- Next engineering goal (G2): reconcile the I2C draft with compact10, freeze the
+- Active engineering goal (G2): reconcile the I2C draft with compact10, freeze the
   public-pin contract and independent oracle, then qualify UART/SPI/I2C and
   public reload on one candidate revision. Combined regression and fresh
   physical evidence are required before production promotion.
