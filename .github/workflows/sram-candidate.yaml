@@ -1,0 +1,82 @@
+name: sram-candidate
+on:
+  push:
+    paths:
+      - 'experiments/i2c/**'
+      - 'experiments/spi_phase/**'
+      - 'test/**'
+      - 'tools/*oracle.py'
+      - 'tools/physical*.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/workbench/**'
+      - 'evidence/E0038-shared-program-read/sources/**'
+      - 'evidence/E0042-sram-prefetch-screen/feasibility/**'
+      - 'docs/specs/g2-sram-prefetch-screen.md'
+      - '.github/workflows/sram-candidate.yaml'
+  pull_request:
+    paths:
+      - 'experiments/i2c/**'
+      - 'experiments/spi_phase/**'
+      - 'test/**'
+      - 'tools/*oracle.py'
+      - 'tools/physical*.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/workbench/**'
+      - 'evidence/E0038-shared-program-read/sources/**'
+      - 'evidence/E0042-sram-prefetch-screen/feasibility/**'
+      - 'docs/specs/g2-sram-prefetch-screen.md'
+      - '.github/workflows/sram-candidate.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sram-candidate-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        gate: [proof-controls, icarus, verilator]
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069
+      - name: Build locked workbench
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc
+        with:
+          context: tools/workbench
+          file: tools/workbench/Dockerfile
+          load: true
+          tags: protocol-emulator-asic-workbench:2026-07-29
+          cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+          cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+      - name: Record the actual workbench identity
+        run: |
+          mkdir -p build/sram-runtime
+          docker image inspect protocol-emulator-asic-workbench:2026-07-29 > build/sram-runtime/image.json
+          ./tools/workbench.sh Doctor > build/sram-runtime/doctor.log
+      - name: Execute the exact candidate gate
+        env:
+          GATE: ${{ matrix.gate }}
+        run: |
+          docker run --rm --pull=never --init --ulimit core=0 --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/i2c/run_sram_gate.py --gate "$GATE" --output build/sram-ci
+      - name: Retain sources, proofs, observed faults and complete records
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sram-${{ matrix.gate }}-${{ github.sha }}
+          path: |
+            build/sram-runtime/
+            build/sram-ci/
+            !build/sram-ci/**/sim/**
+            !build/sram-ci/**/__pycache__/**
+            !build/sram-ci/**/*.vvp
+          if-no-files-found: error
+          retention-days: 90

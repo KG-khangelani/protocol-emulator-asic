@@ -79,6 +79,12 @@ pass, and the retained engine/store replay passes. The full 30-group SRAM
 protocol regression is running. No mapped or physical acceptance is claimed.
 Next, audit its exact protocol records, then measure the complete candidate
 with the actual macro and declare the physical integration inputs.
+The full Icarus run now passes all 30 groups and every exact reference record
+in 922.396 seconds; Verilator is running. The new clean-checkout CI wrapper's
+engine, store-port controls and real-memory proof all pass locally. A separate
+SRAM workflow repeats those gates and each full simulator run with retained
+inputs/runtime identity. The predeclared mapped screen requires both complete
+simulator results before execution and counts the real macro footprint.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

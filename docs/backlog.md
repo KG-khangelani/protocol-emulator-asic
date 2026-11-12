@@ -69,6 +69,10 @@ The historical 22-group suites and retained screen replay pass; both earlier
 whole-chip timeouts remain visible. Finish the running 30-group SRAM regression,
 audit its exact protocol records, then measure whole-chip cost and declare
 physical integration. No production or physical acceptance is claimed.
+Icarus now passes all 30 groups and exact records; Verilator remains running.
+The new SRAM CI wrapper passes its local proof/control gate and all 114
+repository checks pass. The separate CI workflow and bounded mapped-screen
+runner are prepared; mapping requires the complete passing simulator pair.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups
