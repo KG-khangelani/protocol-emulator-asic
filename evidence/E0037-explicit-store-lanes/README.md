@@ -48,16 +48,25 @@ The standard 869ee34 CI failed because the first archive unit test assumed
 `build/` existed. The fix creates that test output parent. All 106 checks pass
 in a fresh committed snapshot with only that fix and no prior build directory;
 [failure/fix evidence](ci/clean-check-fix.json) retains the original failure.
-It changes no chip source or physical input. The replacement CI is pending.
+It changes no chip source or physical input. Replacement test CI run43242671340 passes.
 
 The physical trial is [run43241097269](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43241097269)
-at 869ee34. Candidate staging passes; final physical evidence is still pending.
+at 869ee34. Candidate staging passes, but global routing fails with GRT-0228:
+horizontal edge (91,97) uses 1,702 against the internal router limit 1,700.
+Precheck and real-netlist jobs are skipped. [Retained physical failure](physical/result.json)
+verifies both original archive hashes, source bytes, runtime identities and
+resolved pinned conditions. It retains mapped/placement metrics and logs.
 
 The earlier E0036 screen measured 24,391 versus 27,065 generic cells with
 4,278 state bits unchanged, and complete od128 store equivalence passed.
-This is not a mapped/routed saving. The next physical trial keeps D34's pinned
-8x4 conditions, every physical limit, all ten prechecks and all eighteen actual
-netlist test groups. G1's qualification and owner-fluency boundary are preserved.
+The physical run maps to **40,242 cells / 561,244.4208 square micrometres**,
+with the same 4,278 sequential cells / 209,574.0864 square micrometres.
+That is only **0.620% less mapped area** than original od128, with more mapped
+cells, despite the generic reduction. Placed cell area is 561,315 square
+micrometres. No routed or timing qualification was reached. The internal edge
+usage ratio is not an estimate of how much design reduction would ensure routing.
+D34's pinned 8x4 conditions and every acceptance limit are unchanged.
+G1's qualification and owner-fluency boundary are preserved.
 
 ## Separate bounded shared-read screen
 

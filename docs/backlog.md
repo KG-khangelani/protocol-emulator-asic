@@ -37,8 +37,10 @@ d3c340f CI gates and downloaded-evidence audits pass, including the complete
 and both reset-reachable mutation controls. Both simulators pass all eighteen
 public groups with exact reference records; retained replay and physical
 staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
-archives are audited. Physical run43241097269 is running at 869ee34. Measure the
-implementation with capacity, behavior and fixed conditions preserved.
+archives are audited. Physical run43241097269 at 869ee34 fails global routing
+with GRT-0228 congestion; precheck/netlist jobs are skipped. Verified archives
+measure 40,242 mapped cells / 561,244.4208 square micrometres, only 0.620% less
+mapped area than original od128. E0037 retains the failure and unchanged inputs.
 A separate shared-read screen saves 37.64% generic cells from D38; both its
 conditional store and reset-reachable complete-chip equivalence pass. Qualify
 its public behavior before any separate physical trial. D39/E0038 freezes the

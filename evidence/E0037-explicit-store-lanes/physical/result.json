@@ -1,0 +1,179 @@
+{
+  "status": "FAIL_GLOBAL_ROUTING_CONGESTION",
+  "variant": "od128-lanes",
+  "run_id": 43241097269,
+  "workflow_source_commit": "869ee34fa6f32d7cc5eaa269b2649e56abbb78f6",
+  "source_sha256": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "archive_digests_verified": true,
+  "resolved_fixed_conditions_verified": true,
+  "runtime_identities": {
+    "status": "PASS_RUNTIME_IDENTITIES",
+    "job_id": 131261394454,
+    "log_sha256": "b4fa7155903e30df619bdfdce047ac2d348b9e389f64499d39b6498fa1029312",
+    "workflow_source_commit": "869ee34fa6f32d7cc5eaa269b2649e56abbb78f6",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "physical_yosys": {
+      "version": "0.69",
+      "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+    },
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+      "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+      "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+    },
+    "confirmation_lines": [
+      "2026-11-12T14:51:07.7297361Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T14:51:07.7306083Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T14:51:15.9331557Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T14:51:16.9475507Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T14:51:24.7708914Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T14:51:24.9037255Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T14:52:06.4133476Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+    ],
+    "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate."
+  },
+  "tool_identity_evidence": "Runtime image/action/compiler identities and resolved PDK paths; no final pdk.json was emitted",
+  "mapped_cell_area_um2": 561244.4208,
+  "mapped_instance_count": 40242,
+  "sequential_cells": 4278,
+  "sequential_area_um2": 209574.0864,
+  "placement_total_instance_area_um2": 561315,
+  "failure": "[ERROR GRT-0228] Horizontal edge usage exceeds the maximum allowed. (91, 97) usage=1702 limit=1700",
+  "routing_edge": [
+    91,
+    97
+  ],
+  "horizontal_edge_usage": 1702,
+  "horizontal_edge_limit": 1700,
+  "routed_metrics": "NOT_REACHED",
+  "precheck": "SKIPPED",
+  "netlist_protocols": "SKIPPED",
+  "retained_files": {
+    "run.json": {
+      "original_sha256": "51e1c12dacfda021c13aaa4e46f9a93c01dff999ca5edfaa361b04598a92ab11",
+      "retained_file": "run.json",
+      "retained_sha256": "51e1c12dacfda021c13aaa4e46f9a93c01dff999ca5edfaa361b04598a92ab11",
+      "decoded_sha256": "51e1c12dacfda021c13aaa4e46f9a93c01dff999ca5edfaa361b04598a92ab11",
+      "url_query_strings_redacted": 0
+    },
+    "jobs.json": {
+      "original_sha256": "1eb757eb7eada971a135129b3ec3cb8f22f670dec9a90eae6fd94ae0c17caca6",
+      "retained_file": "jobs.json",
+      "retained_sha256": "1eb757eb7eada971a135129b3ec3cb8f22f670dec9a90eae6fd94ae0c17caca6",
+      "decoded_sha256": "1eb757eb7eada971a135129b3ec3cb8f22f670dec9a90eae6fd94ae0c17caca6",
+      "url_query_strings_redacted": 0
+    },
+    "artifacts.json": {
+      "original_sha256": "1c689b84a2fb65a9b704126d73889e3a98ed427234c3e3e843e7b383123b808e",
+      "retained_file": "artifacts.json",
+      "retained_sha256": "1c689b84a2fb65a9b704126d73889e3a98ed427234c3e3e843e7b383123b808e",
+      "decoded_sha256": "1c689b84a2fb65a9b704126d73889e3a98ed427234c3e3e843e7b383123b808e",
+      "url_query_strings_redacted": 0
+    },
+    "inputs.json": {
+      "original_sha256": "0930b16f81258e9888175a0777a69465efe63d2282bb50ab051aa83264bbefd2",
+      "retained_file": "inputs.json",
+      "retained_sha256": "0930b16f81258e9888175a0777a69465efe63d2282bb50ab051aa83264bbefd2",
+      "decoded_sha256": "0930b16f81258e9888175a0777a69465efe63d2282bb50ab051aa83264bbefd2",
+      "url_query_strings_redacted": 0
+    },
+    "resolved.json": {
+      "original_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+      "retained_file": "resolved.json",
+      "retained_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+      "decoded_sha256": "84025a5d4a1706dc4ba66b16549f69d5a384a3816acb5011ef168236d3cfb0ca",
+      "url_query_strings_redacted": 0
+    },
+    "mapped-state.json": {
+      "original_sha256": "1c553628ccbb5e8f36fcffa1ac22a823efbb148ada92b9e72f445759eb722c7b",
+      "retained_file": "mapped-state.json",
+      "retained_sha256": "1c553628ccbb5e8f36fcffa1ac22a823efbb148ada92b9e72f445759eb722c7b",
+      "decoded_sha256": "1c553628ccbb5e8f36fcffa1ac22a823efbb148ada92b9e72f445759eb722c7b",
+      "url_query_strings_redacted": 0
+    },
+    "synthesis-stats.txt": {
+      "original_sha256": "11444eb80f1d1e1762f8fb66b4c3c5a67e3a5693628bd307285b7d159458f76e",
+      "retained_file": "synthesis-stats.txt.gz",
+      "retained_sha256": "43c6def1257db0046ca01420a285526a7cbce08f45e8310b551c78594c106e94",
+      "decoded_sha256": "11444eb80f1d1e1762f8fb66b4c3c5a67e3a5693628bd307285b7d159458f76e",
+      "url_query_strings_redacted": 0
+    },
+    "placement-metrics.json": {
+      "original_sha256": "e1b0ba09580a82a82cb727b1cfe1c39240b49802f0957945afbe981138712f09",
+      "retained_file": "placement-metrics.json",
+      "retained_sha256": "e1b0ba09580a82a82cb727b1cfe1c39240b49802f0957945afbe981138712f09",
+      "decoded_sha256": "e1b0ba09580a82a82cb727b1cfe1c39240b49802f0957945afbe981138712f09",
+      "url_query_strings_redacted": 0
+    },
+    "pre-routing-metrics.json": {
+      "original_sha256": "cc4a267bd55461490b0478eef4032e9f87b3f44da98bd9775bbb7a21940cd5a3",
+      "retained_file": "pre-routing-metrics.json",
+      "retained_sha256": "cc4a267bd55461490b0478eef4032e9f87b3f44da98bd9775bbb7a21940cd5a3",
+      "decoded_sha256": "cc4a267bd55461490b0478eef4032e9f87b3f44da98bd9775bbb7a21940cd5a3",
+      "url_query_strings_redacted": 0
+    },
+    "routing-metrics.json": {
+      "original_sha256": "9f54e21a9ce289c768bd9fe737d0a4c31cc7cee6d5c7c99e8cdffefce869d740",
+      "retained_file": "routing-metrics.json",
+      "retained_sha256": "9f54e21a9ce289c768bd9fe737d0a4c31cc7cee6d5c7c99e8cdffefce869d740",
+      "decoded_sha256": "9f54e21a9ce289c768bd9fe737d0a4c31cc7cee6d5c7c99e8cdffefce869d740",
+      "url_query_strings_redacted": 0
+    },
+    "routing.log": {
+      "original_sha256": "f2592ebb7969b992d242a8ffb3b247a316a59daaef93770eccf38b9c18ddb1e9",
+      "retained_file": "routing.log.gz",
+      "retained_sha256": "9e6362f607b7ed0f33f969a16b07a0fea0d9d718edb3275ee9159682f2602190",
+      "decoded_sha256": "f2592ebb7969b992d242a8ffb3b247a316a59daaef93770eccf38b9c18ddb1e9",
+      "url_query_strings_redacted": 0
+    },
+    "placement.log": {
+      "original_sha256": "67bf3521cc8969c1fd23db479e3eb88b5e7abee8eb7020a0206fa93570956ea6",
+      "retained_file": "placement.log.gz",
+      "retained_sha256": "4c579e0c3d08dd4ce6b46bea999f845550d24e80c0aa583024e02e3ec69d67d7",
+      "decoded_sha256": "67bf3521cc8969c1fd23db479e3eb88b5e7abee8eb7020a0206fa93570956ea6",
+      "url_query_strings_redacted": 0
+    },
+    "synthesis.log": {
+      "original_sha256": "08cf1f03319d9ec8c305465d3b38fa1a64e1e7c31e5aed0f6d30ed34f6fc1f33",
+      "retained_file": "synthesis.log.gz",
+      "retained_sha256": "667e089e2d5e57425857e6dbbf256716ec81bb33a6910b7932eb07c034332db0",
+      "decoded_sha256": "08cf1f03319d9ec8c305465d3b38fa1a64e1e7c31e5aed0f6d30ed34f6fc1f33",
+      "url_query_strings_redacted": 0
+    },
+    "gds-job.log": {
+      "original_sha256": "b4fa7155903e30df619bdfdce047ac2d348b9e389f64499d39b6498fa1029312",
+      "retained_file": "gds-job.log.gz",
+      "retained_sha256": "308f5befc00be03a388342e0d16a465068edbf78334b527ae577900b5c889748",
+      "decoded_sha256": "8008575f367ddae9a741bb52bd2a8222a3548523a64b80c00872b13a2bebcb6c",
+      "url_query_strings_redacted": 2
+    },
+    "flow.log": {
+      "original_sha256": "28bebce6195cabf33a1e5a12cc831451d45bbc482ca07c1d63ad79d60290b515",
+      "retained_file": "flow.log.gz",
+      "retained_sha256": "14bc03a94da222cee8c7eba8f40ed46c65cd69c9b0745688cad40e777b17bc43",
+      "decoded_sha256": "28bebce6195cabf33a1e5a12cc831451d45bbc482ca07c1d63ad79d60290b515",
+      "url_query_strings_redacted": 0
+    },
+    "error.log": {
+      "original_sha256": "8789f981e8489820afcfba29910d3dd8ca097fe0e62c7dc1c9a2f5f57cd6f997",
+      "retained_file": "error.log.gz",
+      "retained_sha256": "d50bdc6c208b7ad991b953af91e27a06f799ff4130781430dab1ebcf68545ff6",
+      "decoded_sha256": "8789f981e8489820afcfba29910d3dd8ca097fe0e62c7dc1c9a2f5f57cd6f997",
+      "url_query_strings_redacted": 0
+    }
+  },
+  "scope": "Measured rejection under the frozen 8x4 flow. Intermediate placement/timing is not routed signoff; the internal router edge limit is not a one-percent design shortfall estimate."
+}

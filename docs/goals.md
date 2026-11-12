@@ -116,8 +116,8 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** follow D39's physical run43249867361 and D38's
-run43241097269, and prepare the source-matched production verification profile
+**Next executable action:** follow D39's physical run43249867361 and prepare the
+source-matched production verification profile
 using the retained integration probe and integration specification.
 Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
 generic savings are not physical results. Preserve G1's pilot, the original
@@ -128,8 +128,10 @@ D38/E0037 now qualifies that rewrite locally: all 652 store assertions,
 checked controls and both simulators' eighteen public groups pass; all required
 reference records are identical. The retained evidence replay and physical
 staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
-archives are audited. Physical run43241097269 is running at 869ee34; physical
-qualification remains pending. A separate shared-read screen saves 37.64%
+archives are audited. Physical run43241097269 at 869ee34 fails global routing
+with GRT-0228 congestion. Its 40,242 mapped cells / 561,244.4208 square
+micrometres save only 0.620% mapped area versus original od128; precheck and
+netlist jobs are skipped. E0037 retains the verified failure. A separate shared-read screen saves 37.64%
 generic cells from D38 with reset-reachable complete-chip equivalence, but
 the physical gate remains. D39/E0038 reproduces that source; fresh whole-chip
 proof/reset and all three read-path mutation controls pass in both simulators.

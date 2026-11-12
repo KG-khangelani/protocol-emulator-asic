@@ -29,10 +29,12 @@ all 652 assertions, both checked reset-reachable mutations and nine audit
 controls. Both simulators pass all eighteen public groups with identical
 reference records, and the retained evidence replay passes. All seven e5eef5b
 CI jobs pass and both new-candidate archives are audited. The pinned physical
-run43241097269 at 869ee34 has passed staging and is running. Measure it under the
-same conditions. Its roughly 10% generic logic reduction and store equivalence
-justify this trial but establish no mapped/routed improvement. Original
-candidates and failures stay frozen.
+run43241097269 at 869ee34 fails global routing with GRT-0228 congestion.
+The verified original archives show 40,242 mapped cells / 561,244.4208 square
+micrometres: only 0.620% less mapped area than the original od128, despite
+the roughly 10% generic cell reduction. Precheck and netlist jobs are skipped.
+E0037 retains the exact failure, runtime/source/configuration audit and logs.
+Original candidates and failures stay frozen.
 
 A separate bounded shared-read screen reduces D38's generic cells from 24,391
 to 15,211 with unchanged state. Conditional store equivalence and subsequent

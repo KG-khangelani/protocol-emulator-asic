@@ -1,6 +1,6 @@
 # D38 - Qualify explicit byte writes after G2 routing failure
 
-Date: 2026-11-12. Status: bounded candidate trial; production unchanged.
+Date: 2026-11-12. Status: physically rejected by routing congestion; production unchanged.
 
 E0036 rejects the original physical candidates under D34's unchanged 8x4 flow.
 literal255 exceeds placement capacity. od128 maps to 39,806 cells and
@@ -47,3 +47,12 @@ and waive that one style rule only for the frozen generated program store.
 requires exactly those 128 unwaived warnings, then checks all other rules and
 the other four modules normally. This documented style exception preserves
 the tested source; it changes no functional property or physical limit.
+## Physical result, 2026-11-12
+
+Run43241097269 at 869ee34 fails global routing with GRT-0228 congestion;
+precheck and actual-netlist testing are skipped. E0037/physical retains the
+verified original archive/source/runtime/configuration identities and logs.
+Mapped area is 561,244.4208 square micrometres across 40,242 cells, only 0.620%
+below original od128. The generic cell reduction did not produce a comparable
+mapped saving or close the physical gate. No limits are relaxed and this
+implementation is not promoted. Continue the separately qualified D39 trial.
