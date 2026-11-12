@@ -1,0 +1,74 @@
+{
+  "status": "NOT_QUALIFIED",
+  "scope": "ALL_ALLOCATED_WORD_TRANSITIONS_AND_ALL_READ_CONTROL_RELATIONS",
+  "runner_sha256": "28708462a691d472e34f14062d68855994305865033d759a7fd775a2d928ac00",
+  "sources": {
+    "od128": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6"
+  },
+  "tasks": [
+    {
+      "variant": "od128",
+      "name": "state",
+      "mode": "prove",
+      "proof_scope": "state",
+      "expected": "PASS",
+      "status": "MISSING",
+      "accepted": false,
+      "induction": false,
+      "unbounded_proof": false,
+      "engine": "smtbmc z3",
+      "witnesses": {},
+      "control": null,
+      "input_sha256": "65f4775f90775108bd20c2a5c0ba92624e9c7c83a52776a9335ef76fdc5f05e9",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/i2c-store-local-03/od128-state/proof",
+        "/workspace/build/i2c-store-local-03/od128-state/proof.sby"
+      ],
+      "returncode": 124,
+      "timed_out": true,
+      "seconds": 600.101,
+      "wall_limit": 600
+    },
+    {
+      "variant": "od128",
+      "name": "read",
+      "mode": "prove",
+      "proof_scope": "read",
+      "expected": "PASS",
+      "status": "PASS",
+      "accepted": true,
+      "induction": true,
+      "unbounded_proof": true,
+      "engine": "smtbmc z3",
+      "witnesses": {},
+      "control": null,
+      "input_sha256": "c8d14cecc919a52c6b0cf16f509f9e777dd920969be000485ab3e22dacf8d29a",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/i2c-store-local-03/od128-read/proof",
+        "/workspace/build/i2c-store-local-03/od128-read/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 195.772,
+      "wall_limit": 600
+    }
+  ],
+  "assumptions": {
+    "prove": "no reset or environment assumptions; arbitrary initial memory/control state",
+    "cover_and_controls": "first sampled edge reset; subsequent inputs unrestricted"
+  },
+  "variant_selection": [
+    "od128"
+  ],
+  "task_selection": [
+    "state",
+    "read"
+  ],
+  "proof_engine": "smtbmc"
+}

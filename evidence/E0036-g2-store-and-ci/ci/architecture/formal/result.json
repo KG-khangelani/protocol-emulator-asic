@@ -1,0 +1,142 @@
+{
+  "status": "PASS_SCOPED_INSTRUCTION_PROOFS",
+  "scope": "GENERAL_INSTRUCTION_SAFETY_NOT_PROTOCOL_OR_PHYSICAL",
+  "properties_sha256": "0f288c1e75dbdf3c25ef537cbd06602dd878894ab34d9f65e92f510dc8d10d90",
+  "runner_sha256": "0b0b99c99a9ad099438185ceae9b02d6775d5f38f4dafdac3d5658976fa040f7",
+  "witness_parser_sha256": "3f4c9add7eb83de85c0bc1609d69817b3933e6f9ebf2caa3b1852c378eae4e0b",
+  "assumptions": [
+    "first sampled edge reset; other inputs arbitrary",
+    "digital sampled_inputs, no analog CDC claim"
+  ],
+  "sources": {
+    "od128": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "literal255": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f"
+  },
+  "tasks": [
+    {
+      "variant": "od128",
+      "name": "instruction",
+      "mode": "prove",
+      "expected": "PASS",
+      "status": "PASS",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": true,
+      "seconds": 15.654,
+      "witnesses": {},
+      "control": null,
+      "input_sha256": "0c65702f099f47a6de5fd4dda98e148d1edc0dedfef51003a0dc3592249ca076"
+    },
+    {
+      "variant": "od128",
+      "name": "covers",
+      "mode": "cover",
+      "expected": "PASS",
+      "status": "PASS",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": false,
+      "seconds": 0.716,
+      "witnesses": {
+        "proof/engine_0/trace2.vcd": "3c88fd8afa01657ca547b0cfd75c1e2e60bc7b3f87804defcb948b798675d331",
+        "proof/engine_0/trace3.vcd": "7d436385b396059078a7b913d90167c1a11816832a04fa43b03f5e4b54add279",
+        "proof/engine_0/trace0.vcd": "19c0434f045d35cc71351de1c73373dee50221cf0e7833e03651d4c6ce937f62",
+        "proof/engine_0/trace4.vcd": "1482da2b2f8dcb028b1e3d83d1a4c75d631c9d8aa1432d14086164420bc5c734",
+        "proof/engine_0/trace1.vcd": "021575a9f83812e7225e4f40d368661524e1667c2a7ae197ee693d2e56d9c3ad"
+      },
+      "control": null,
+      "input_sha256": "0c65702f099f47a6de5fd4dda98e148d1edc0dedfef51003a0dc3592249ca076"
+    },
+    {
+      "variant": "od128",
+      "name": "keeps_loop",
+      "mode": "bmc",
+      "expected": "FAIL",
+      "status": "FAIL",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": false,
+      "seconds": 0.817,
+      "witnesses": {
+        "proof/engine_0/trace.vcd": "8dff6ff111c37dae0d8da9bbd942825bc468b708dc837b26f3764c495df957ef"
+      },
+      "control": {
+        "validated": true,
+        "observations": [
+          {
+            "edge": 20,
+            "destination": 254,
+            "observed_pc": 254,
+            "observed_loop_active": 1
+          }
+        ]
+      },
+      "input_sha256": "655cb1ce5272dbff0910ab2699ca3441a8a599072a2acf1f1b0a90fdc646bc6e"
+    },
+    {
+      "variant": "od128",
+      "name": "actively_drives_high",
+      "mode": "bmc",
+      "expected": "FAIL",
+      "status": "FAIL",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": false,
+      "seconds": 0.616,
+      "witnesses": {
+        "proof/engine_0/trace.vcd": "75790f1c11f7377d29726d3bb373f1615bb51469682e1651fa6dad9ba4e8e6c9"
+      },
+      "control": {
+        "validated": true,
+        "observations": [
+          {
+            "edge": 10,
+            "tx_mask": 1,
+            "observed_value": 5,
+            "observed_oe": 45
+          }
+        ]
+      },
+      "input_sha256": "fa13804c8955b0e3b87c9fada6618fd9a9a31945d43b9970fe092c682e0df61b"
+    },
+    {
+      "variant": "literal255",
+      "name": "instruction",
+      "mode": "prove",
+      "expected": "PASS",
+      "status": "PASS",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": true,
+      "seconds": 10.946,
+      "witnesses": {},
+      "control": null,
+      "input_sha256": "dab6c26ca7e2a12772863076566fe20bdf8990ace5cbbd8126c83f9f0941d52e"
+    },
+    {
+      "variant": "literal255",
+      "name": "covers",
+      "mode": "cover",
+      "expected": "PASS",
+      "status": "PASS",
+      "returncode": 0,
+      "timed_out": false,
+      "accepted": true,
+      "induction": false,
+      "seconds": 0.666,
+      "witnesses": {
+        "proof/engine_0/trace2.vcd": "08e1a0dcc7210674d8afd2f3f0b4f88893a9a6dd5988a4e8c0ab67ff7d5d3bd4",
+        "proof/engine_0/trace3.vcd": "5982734627dabdfdd78a8c7790e3b0c127ffd8cdbcbdc8013ab3ce9c1c1745a7",
+        "proof/engine_0/trace0.vcd": "03055c3ef2ef3168de5f65e701ec0524b9b77bae4b128770a56c855a33dcad54",
+        "proof/engine_0/trace1.vcd": "8dde5ef6034f91c0a2a0e1b096ac35b8dfcb24d003efa7dd7d04b624a0ab4189"
+      },
+      "control": null,
+      "input_sha256": "dab6c26ca7e2a12772863076566fe20bdf8990ace5cbbd8126c83f9f0941d52e"
+    }
+  ]
+}

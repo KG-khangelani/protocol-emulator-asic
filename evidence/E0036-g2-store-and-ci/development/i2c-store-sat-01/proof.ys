@@ -1,0 +1,4 @@
+read -formal -sv /workspace/build/i2c-store-sat-01/store.v
+prep -top m1_program_store
+chformal -cover -remove
+sat -seq 1 -tempinduct -maxsteps 3 -prove-asserts -verify -timeout 180

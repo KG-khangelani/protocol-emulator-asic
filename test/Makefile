@@ -22,6 +22,13 @@ COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_timed_gpio
 COCOTB_TEST_FILTER = '^(test\.(public_pin_reload_changes_observable_program|k_input_wait_public_program_event_timeout_and_reload|k_bounded_loop_public_program_counts|k_shift_8_public_payload_both_orders|uart_tx_8n1_public_pin_oracle)|test_uart_rx_public\.[a-z0-9_]+|test_spi_timed_gpio\.timed_public_programs)$$'
 endif
 
+# G2 adds complete I2C, real-store boundaries and abort/reload to G1's public matrix.
+ifeq ($(G2_PHYSICAL),yes)
+COMPILE_ARGS += -DGL_TEST
+COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_timed_gpio,test_i2c_general_public,test_general_boundaries,test_i2c_abort_public
+COCOTB_TEST_FILTER = '^(test\.(public_pin_reload_changes_observable_program|k_input_wait_public_program_event_timeout_and_reload|k_bounded_loop_public_program_counts|k_shift_8_public_payload_both_orders|uart_tx_8n1_public_pin_oracle)|test_uart_rx_public\.[a-z0-9_]+|test_spi_timed_gpio\.timed_public_programs|test_i2c_general_public\.complete_i2c_transactions|test_general_boundaries\.[a-z0-9_]+|test_i2c_abort_public\.public_i2c_abort_and_reload)$$'
+endif
+
 # Verilator requires an explicit decision about testbench delays.
 ifeq ($(SIM),verilator)
 COMPILE_ARGS += --timing

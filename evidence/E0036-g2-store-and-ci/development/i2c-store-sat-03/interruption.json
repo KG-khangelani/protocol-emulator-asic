@@ -1,0 +1,8 @@
+{
+  "status": "INTERRUPTED_NOT_QUALIFIED",
+  "observed_utc": "2026-11-12T12:26:17Z",
+  "docker_exit_code": 1,
+  "error": "error waiting for container: unexpected EOF",
+  "cause": "NOT_ESTABLISHED",
+  "final_result": "NOT_AVAILABLE; any RUNNING snapshot is partial"
+}

@@ -1,0 +1,14 @@
+[options]
+mode prove
+depth 4
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv  store.v
+prep -top m1_program_store
+
+[files]
+/workspace/build/i2c-store-local-03/od128-state/store.v

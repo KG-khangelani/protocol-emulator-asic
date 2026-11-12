@@ -1,0 +1,79 @@
+{
+  "status": "PASS_PUBLIC_ABORT_AND_RELOAD",
+  "scope": "PUBLIC_ARCHITECTURAL_BOUNDARIES",
+  "input_sha256": {
+    "test/test_general_boundaries.py": "5d2f23a696cee056b9c653fd695c4f4f6fc62af96345b4846ece5d8e71939b08",
+    "test/test_i2c_general_public.py": "9ac28effd266171bcf08e93278bd9c69a30fe696625ad2fd4fe4bffe67b03d19",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/Makefile": "1f400ab5b6760472c6273f4862825b6ec4030360a8eb4b434fdf4376b6336487",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "experiments/i2c/general_programs.py": "bc941275c348ef4c2b19967171f7f989f46f1bf7da3074719a9618bb73487907",
+    "experiments/i2c/baseline_programs.py": "7311e3501bcbb59e9ac28e32bd0cba16548a7f750b9c26529fc3bccd13390451",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "experiments/i2c/run_general_boundaries.py": "e5a7dcec64eb0f30697e011898c969be6f74a3fedb7a83dc6ecc74b1cf594b51",
+    "test/test_i2c_abort_public.py": "42405d17c913bace9b2f67bab7a7b81e48e7f48d46ac85b2387333fe89b5b45d",
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "experiments/i2c/public_bus.py": "766256aabea90003864d55874b10a1356d5f3cc3eda15f2f86ba14afcf8910bc",
+    "experiments/i2c/target.py": "997940d87cf83e55392fddc679d0f2afa5f559b4edb13b06aad54ceff4f6b661"
+  },
+  "sources": {
+    "od128": {
+      "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6"
+    }
+  },
+  "stages": [
+    {
+      "variant": "od128",
+      "simulator": "icarus",
+      "tests": 1,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/g2-ci/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_i2c_abort_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/g2-ci/aborts/od128-icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-ci/aborts/od128-icarus/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "accepted": true,
+      "seconds": 147.725
+    },
+    {
+      "variant": "od128",
+      "simulator": "verilator",
+      "tests": 1,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/g2-ci/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_i2c_abort_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/g2-ci/aborts/od128-verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-ci/aborts/od128-verilator/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "accepted": true,
+      "seconds": 99.67
+    }
+  ],
+  "suite": "aborts",
+  "cross_simulator_identical": true
+}

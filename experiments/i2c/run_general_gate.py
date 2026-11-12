@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--gate", choices=("od128", "literal255", "architecture"), required=True)
+    p.add_argument("--gate", choices=("od128", "literal255", "architecture", "physical-selection"), required=True)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     out = args.output.resolve()
@@ -26,13 +26,17 @@ def main():
         assert result["status"] == expected, (script, result["status"])
         return result
 
-    if args.gate != "architecture":
+    if args.gate in ("od128", "literal255"):
         run("run_general.py", out/"protocols", "PASS_I2C_PUBLIC_MATRIX", "--variant", args.gate)
         return
     variants = out/"variants"
     subprocess.run([sys.executable, str(ROOT/"experiments/i2c/build_general.py"),
                     "--output", str(variants)], cwd=ROOT, check=True)
     options = ("--variants", str(variants))
+    if args.gate == "physical-selection":
+        run("run_physical_selection.py", out/"selection",
+            "PASS_G2_PHYSICAL_SELECTION_ON_BOTH_RTL_SIMULATORS", *options)
+        return
     boundaries = run("run_general_boundaries.py", out/"boundaries", "PASS_PUBLIC_BOUNDARIES", *options)
     aborts = run("run_general_boundaries.py", out/"aborts", "PASS_PUBLIC_ABORT_AND_RELOAD", *options,
                  "--suite", "aborts", "--variant", "od128")

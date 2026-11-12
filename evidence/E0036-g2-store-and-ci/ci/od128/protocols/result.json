@@ -1,0 +1,116 @@
+{
+  "status": "PASS_I2C_PUBLIC_MATRIX",
+  "scope": "ISOLATED_GENERAL_CANDIDATE_PUBLIC_I2C_RTL",
+  "started_utc": "2026-11-12T12:00:39.581647+00:00",
+  "parent_revision": "31ebf8247fab05f2e6e23bc94e1d861562f0f1b5",
+  "input_sha256": {
+    "src/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "src/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "src/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/i2c/public_bus.py": "766256aabea90003864d55874b10a1356d5f3cc3eda15f2f86ba14afcf8910bc",
+    "experiments/i2c/run_general.py": "dad32f98254bab1aa3cf40009882e9a71e716232a8e2b700b73e4ebfd7bf41f9",
+    "experiments/i2c/build_general.py": "fb1066d0a5bdc58cda8b36d498bbf4a26d5486922d4306141ca127bb718e6323",
+    "experiments/i2c/general_programs.py": "bc941275c348ef4c2b19967171f7f989f46f1bf7da3074719a9618bb73487907",
+    "experiments/i2c/baseline_programs.py": "7311e3501bcbb59e9ac28e32bd0cba16548a7f750b9c26529fc3bccd13390451",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/i2c/target.py": "997940d87cf83e55392fddc679d0f2afa5f559b4edb13b06aad54ceff4f6b661",
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "test/test_i2c_general_public.py": "9ac28effd266171bcf08e93278bd9c69a30fe696625ad2fd4fe4bffe67b03d19",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/Makefile": "1f400ab5b6760472c6273f4862825b6ec4030360a8eb4b434fdf4376b6336487",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "experiments/spi_phase/build_variants.py": "f41539aa5da5ceb45078b9b5cd6e696e6b2c8085c66c7f871053001b865886de",
+    "experiments/spi_phase/build_timed_gpio.py": "4f147546f1609f821bb76c0afc9ce0c6b4deb48bb640272e2ad69807cbdd8afc",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "docs/specs/p-i2c-controller-100k.md": "1cadae36c84107c64ccfbfbc8bc3fb3398bde089ee9c7f7f6280b965d08f7424",
+    "docs/specs/g2-general-io-candidate.md": "9fa5759c7175b42690fdf73d975f0eb5042e0b9d2120d76f0a6d35a47d99fe33",
+    "tools/workbench/toolchain.lock.json": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153"
+  },
+  "sources": {
+    "literal255": {
+      "capacity": 255,
+      "program_bits": 8160,
+      "isa_id": 32,
+      "source_sha256": {
+        "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748",
+        "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+        "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "od128": {
+      "capacity": 128,
+      "program_bits": 4096,
+      "isa_id": 33,
+      "source_sha256": {
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "stages": [
+    {
+      "simulator": "icarus",
+      "observed_identity": true,
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/g2-ci/protocols/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_i2c_general_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/g2-ci/protocols/icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-ci/protocols/icarus/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP",
+        "GENERAL_IO=yes"
+      ],
+      "returncode": 0,
+      "seconds": 194.424,
+      "tests": 1,
+      "failed": [],
+      "skipped": [],
+      "status": "PASS"
+    },
+    {
+      "simulator": "verilator",
+      "observed_identity": true,
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/g2-ci/protocols/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_i2c_general_public",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/g2-ci/protocols/verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/g2-ci/protocols/verilator/results.xml",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP",
+        "GENERAL_IO=yes"
+      ],
+      "returncode": 0,
+      "seconds": 162.335,
+      "tests": 1,
+      "failed": [],
+      "skipped": [],
+      "status": "PASS"
+    }
+  ],
+  "variant": "od128",
+  "smoke": false,
+  "physical": "NO_NEW_RUN",
+  "formal": "NOT_EVALUATED",
+  "cross_simulator_records_identical": true,
+  "public_records_per_simulator": 1160,
+  "positives": 1154,
+  "expected_negative": 6,
+  "limitation": "Instruction/formal/combined-protocol/physical gates still pending"
+}

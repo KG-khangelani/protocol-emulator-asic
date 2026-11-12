@@ -23,15 +23,19 @@ D37/E0035 now advances od128: both simulators agree on 1,160 complete I2C record
 and pass twelve public kernel/UART/SPI groups with 1,052 unchanged SPI records.
 Current boundary checks, scoped instruction proofs and cleanup equivalence pass.
 The 96-word combined image uses a real 128-word store, versus 211/255 literal
-words. Store induction timed out; close that proof and current CI before the
-pinned physical comparison. Production remains unchanged.
+words. E0036 audits all three clean 31ebf82 G2 jobs and their downloaded
+archives; both candidates now pass the full I2C matrix in both simulators.
+Store induction remains open. Finish its partitioned proofs and the new
+eighteen-group selection gate before the pinned physical comparison.
+Production remains unchanged.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task
 evidence below is preserved.
 The [I2C acceptance contract](specs/p-i2c-controller-100k.md) is frozen without
 an ISA change. Experimental public-loaded I2C and combined results are retained;
-store-proof, current CI, physical and production-promotion gates remain pending.
+store-proof, exact physical-selection CI, physical and production-promotion
+gates remain pending; the original three-job G2 CI audit is complete.
 
 ## M0-T01 — Establish RTL-to-GDS baseline (active)
 

@@ -8,8 +8,12 @@ UART/SPI/I2C qualification. D37/E0035 advances experimental od128: both simulato
 agree on 1,160 complete I2C records and pass the twelve existing public UART/SPI/
 kernel groups, with 1,052 unchanged SPI records. Current boundary tests and
 scoped instruction proofs pass; cleanup equivalence connects the measured and
-current RTL. The unbounded store proof, exact-commit CI audit and fresh physical
-qualification remain open. Production is unchanged.
+current RTL. E0036 audits the clean 31ebf82 CI archives: both candidates now
+pass the full I2C matrix in both simulators, including literal255's previously
+missing full second run. The unbounded store proof and fresh physical
+qualification remain open. A separate G2 physical workflow preserves the G1
+lock and adds an eighteen-group public selection; its fresh CI run is pending.
+Production is unchanged.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

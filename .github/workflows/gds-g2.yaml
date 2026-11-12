@@ -1,0 +1,95 @@
+name: gds-g2
+run-name: G2 ${{ inputs.variant }} complete-chip 8x4 qualification
+on:
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: E0035-identical complete-chip candidate
+        type: choice
+        required: true
+        default: od128
+        options: [od128, literal255]
+permissions:
+  contents: read
+env:
+  PHYSICAL_VARIANT: ${{ inputs.variant }}
+  LIBRELANE_IMAGE_OVERRIDE: ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5
+jobs:
+  gds:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+      - name: Stage the identified G2 chip
+        run: python3 tools/physical_g2.py prepare --variant "$PHYSICAL_VARIANT" --output "build/g2-physical/$PHYSICAL_VARIANT" --stage-ci
+      - name: Build GDS
+        uses: TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          pdk: ihp-sg13cmos5l
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+          librelane-version: 3.1.0.dev4
+      - name: Verify resolved inputs and routed metrics
+        run: python3 tools/physical_g2.py check-run --variant "$PHYSICAL_VARIANT" --output "build/g2-physical/$PHYSICAL_VARIANT/resolved-inputs.json"
+      - name: Retain candidate identity
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: g2-physical-candidate
+          path: |
+            build/g2-physical/*/inputs.json
+            build/g2-physical/*/resolved-inputs.json
+            build/g2-physical/*/variants/source-manifest.json
+          if-no-files-found: warn
+          retention-days: 90
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Run Tiny Tapeout Precheck
+        uses: TinyTapeout/tt-gds-action/precheck@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+  gl_test:
+    needs: gds
+    if: inputs.variant == 'od128'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      G2_PHYSICAL: 'yes'
+      I2C_GENERAL_VARIANT: od128
+      I2C_GENERAL_RECORD_DIR: ${{ github.workspace }}/test/output/i2c
+      I2C_GENERAL_SMOKE: '0'
+      TIMED_GPIO_VARIANT: compact10
+      TIMED_GPIO_RECORD_DIR: ${{ github.workspace }}/test/output/spi
+      TIMED_GPIO_SMOKE: '0'
+      COCOTB_PLUSARGS: '+NO_DUMP'
+      COCOTB_RANDOM_SEED: '20261112'
+    steps:
+      - name: Check out workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+      - name: Stage matching public test inputs
+        run: python3 tools/physical_g2.py prepare --variant od128 --output build/g2-physical/od128 --stage-ci
+      - name: Run the full public matrix on the actual netlist
+        uses: TinyTapeout/tt-gds-action/gl_test@5e7361fdc445649261c0725dc15f38242dfad330
+      - name: Check complete coverage and unchanged public records
+        run: >-
+          python3 tools/physical_g2.py check-tests --junit test/results.xml
+          --records test/output --output test/output/physical-result.json --require-netlist
+      - name: Retain qualification identities
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: g2-netlist-check
+          path: |
+            test/output/physical-result.json
+            build/g2-physical/od128/inputs.json
+          if-no-files-found: warn
+          retention-days: 90

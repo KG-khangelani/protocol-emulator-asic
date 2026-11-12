@@ -104,10 +104,14 @@ D37/E0035 advances experimental od128: 96 words for combined write/read versus
 1,160 od128 I2C records and the twelve existing public kernel/UART/SPI groups;
 all 1,052 SPI records match compact10. Current boundaries, scoped instruction
 proofs and cleanup equivalence pass. The store induction timed out and remains
-inconclusive; physical qualification and the exact-commit CI audit are open.
+inconclusive. E0036 closes the 31ebf82 CI audit with all three G2 jobs and
+verified archive/source identities; both candidates pass the full I2C matrix
+in both simulators. The eighteen-group physical selection has a separate fresh
+CI gate. Physical qualification and the complete store proof remain open.
 
-**Next executable action:** close the store proof and current CI gates, then
-measure mapped/routed feasibility under the pinned 8x4 conditions. Preserve
+**Next executable action:** finish the partitioned store proof and exact
+eighteen-group selection, then measure mapped/routed feasibility using the
+separate G2 workflow under the unchanged pinned 8x4 conditions. Preserve
 G1's pilot and failed alternatives. This experimental result does not finish G2.
 
 Completion checks:

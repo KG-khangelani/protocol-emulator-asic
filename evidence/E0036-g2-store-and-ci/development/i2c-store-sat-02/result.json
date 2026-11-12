@@ -1,0 +1,13 @@
+{
+  "command": [
+    "yosys",
+    "-Q",
+    "-T",
+    "-s",
+    "/workspace/build/i2c-store-sat-02/proof.ys"
+  ],
+  "returncode": 1,
+  "timed_out": false,
+  "seconds": 53.134,
+  "wall_limit": 360
+}
