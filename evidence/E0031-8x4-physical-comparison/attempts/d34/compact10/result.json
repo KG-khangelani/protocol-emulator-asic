@@ -4,9 +4,9 @@
   "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
   "run_id": 43173116485,
   "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485",
-  "observed_utc": "2026-11-12T08:22:03.877042+00:00",
-  "workflow_status": "in_progress",
-  "workflow_conclusion": null,
+  "observed_utc": "2026-11-12T08:54:49.933533+00:00",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success",
   "jobs": {
     "gds": {
       "id": 131030876882,
@@ -17,10 +17,10 @@
     },
     "precheck": {
       "id": 131056658578,
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "started_at": "2026-11-12T08:12:08Z",
-      "completed_at": null
+      "completed_at": "2026-11-12T08:54:12Z"
     },
     "gl_test": {
       "id": 131056660179,
@@ -30,7 +30,7 @@
       "completed_at": "2026-11-12T08:16:33Z"
     }
   },
-  "status": "NOT_QUALIFIED",
+  "status": "PASS_ALL_REQUIRED_PHYSICAL_GATES",
   "program_words": 10,
   "program_bits": 320,
   "source_sha256": {
@@ -154,7 +154,88 @@
     }
   },
   "precheck": {
-    "status": "PENDING"
+    "status": "PASS",
+    "test_count": 10,
+    "required_set_complete": true,
+    "tests": [
+      {
+        "name": "KLayout pin label overlapping drawing",
+        "passed": true
+      },
+      {
+        "name": "KLayout SG13CMOS5L DRC",
+        "passed": true
+      },
+      {
+        "name": "KLayout zero area",
+        "passed": true
+      },
+      {
+        "name": "KLayout Checks",
+        "passed": true
+      },
+      {
+        "name": "Pin check",
+        "passed": true
+      },
+      {
+        "name": "Boundary check",
+        "passed": true
+      },
+      {
+        "name": "Layer check",
+        "passed": true
+      },
+      {
+        "name": "Cell name check",
+        "passed": true
+      },
+      {
+        "name": "Analog pin check",
+        "passed": true
+      },
+      {
+        "name": "Verilog syntax check",
+        "passed": true
+      }
+    ],
+    "junit_sha256": "1d2ad3200750354684a4f825e3f83a51dcbb4d9bebc8d4b0f803612fc22b9e1e",
+    "input_artifact_audit": {
+      "status": "PASS_CONSUMED_EXACT_SUBMISSION",
+      "job_id": 131056658578,
+      "kind": "precheck",
+      "log_sha256": "5a3b53d31350dfefa79ec871991453f0c7357f367043d7c620a0e8163a1c6a9c",
+      "submission_artifact_id": 13926615437,
+      "submission_archive_sha256": "f6900faf8fad6b2debd2be07e08f85d1e08bf57b61ff570dfa87eb46beca9905",
+      "workflow_source_commit": null,
+      "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "support_tools_scope": "checked out",
+      "resolved_actions": {
+        "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+        "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+        "actions/download-artifact@v7": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+        "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+        "TinyTapeout/ciel-action@v1": "7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6",
+        "rikhuijzer/cache-install@c46c673b14b0780c6749d7a45f26ebc07c8c7388": "c46c673b14b0780c6749d7a45f26ebc07c8c7388",
+        "test-summary/action@v2.6": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+        "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "actions/cache@v5": "caa296126883cff596d87d8935842f9db880ef25"
+      },
+      "pdk_activation_verified": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+      "pdk_activation_method": "exact_pdk_cache_restore",
+      "simulation_versions_observed": [],
+      "confirmation_lines": [
+        "2026-11-12T08:12:14.2089734Z - tt_submission (ID: 13926615437, Size: 3633820, Expected Digest: sha256:f6900faf8fad6b2debd2be07e08f85d1e08bf57b61ff570dfa87eb46beca9905)",
+        "2026-11-12T08:12:14.9267167Z SHA256 digest of downloaded artifact is f6900faf8fad6b2debd2be07e08f85d1e08bf57b61ff570dfa87eb46beca9905",
+        "2026-11-12T08:12:28.7219171Z Cache restored from key: Linux-pdk-ihp-sg13cmos5l-89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+        "2026-11-12T08:54:09.5082832Z INFO: Precheck passed for /home/runner/work/protocol-emulator-asic/protocol-emulator-asic/tt_submission/tt_um_khangelani_protocol_emulator.gds! \ud83c\udf89"
+      ],
+      "retained_log": {
+        "original_decoded_log_sha256": "5a3b53d31350dfefa79ec871991453f0c7357f367043d7c620a0e8163a1c6a9c",
+        "retained_decoded_log_sha256": "5a3b53d31350dfefa79ec871991453f0c7357f367043d7c620a0e8163a1c6a9c",
+        "url_query_strings_redacted": 0
+      }
+    }
   },
   "netlist_tests": {
     "evidence_kind": "FUNCTIONAL_ZERO_DELAY_NETLIST",
@@ -288,6 +369,25 @@
       "expires_at": "2027-02-10T07:08:55Z",
       "updated_at": "2026-11-12T08:16:31Z",
       "digest": "sha256:a0d45694912485e053e1dd6ebd4bfb574404c5ca5b45c21aeb8c0ee9adf6ccf2",
+      "workflow_run": {
+        "id": 43173116485,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8"
+      }
+    },
+    {
+      "id": 13928697133,
+      "name": "precheck_reports",
+      "size_in_bytes": 6917,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13928697133",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13928697133/zip",
+      "expired": false,
+      "created_at": "2026-11-12T08:54:10Z",
+      "expires_at": "2027-02-10T07:08:55Z",
+      "updated_at": "2026-11-12T08:54:10Z",
+      "digest": "sha256:768af36b980ccb02c96440037e434a7d673586cf0d755c270dd9eae7cebcbb7b",
       "workflow_run": {
         "id": 43173116485,
         "repository_id": 1382425950,

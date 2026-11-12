@@ -85,8 +85,11 @@
     "flow_lock_key": "official_cmos5l_8x4",
     "decision": "D34",
     "effective_date": "2026-11-12",
-    "qualification": "PENDING_E0031_REVISED_FANOUT",
+    "qualification": "PASS_EXPERIMENTAL_PILOT",
     "historical_results": "Retain the source conditions recorded with each prior experiment.",
-    "baseline_decision": "D33"
+    "baseline_decision": "D33",
+    "qualified_variant": "compact10",
+    "qualification_decision": "D35",
+    "qualification_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8"
   }
 }

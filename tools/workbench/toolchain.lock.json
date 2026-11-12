@@ -147,7 +147,7 @@
     "default_corner": "nom_typ_1p20V_25C",
     "clock_target_hz": 50000000,
     "config_sha256_lf": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
-    "state": "candidate-d34-pending-e0031",
+    "state": "compact10-pilot-qualified-e0031",
     "configuration_decision": "D34",
     "physical_constraints": {
       "CLOCK_PERIOD": 20,
@@ -157,6 +157,18 @@
       "MAX_FANOUT_CONSTRAINT": 8,
       "CTS_SINK_CLUSTERING_SIZE": 8,
       "CTS_DISTANCE_BETWEEN_BUFFERS": 100
+    },
+    "qualification": {
+      "status": "PASS_EXPERIMENTAL_PILOT",
+      "decision": "D35",
+      "variant": "compact10",
+      "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+      "run_id": 43173116485,
+      "result_path": "evidence/E0031-8x4-physical-comparison/attempts/d34/compact10/result.json",
+      "result_sha256": "d4b3c907d14e4cb4a7cd69dfd360b4ebb67e88963d0b849021453946a12c2c63",
+      "gds_sha256": "49ac637e176bbc5c3cf8daefbc4143578015466ef68e1d87c8605ca91da01ab8",
+      "netlist_sha256": "bf845f532d6c307ac6080b377e99b26fa69b58c56e260288bcdee38f8d4cdda6",
+      "production_promoted": false
     }
   }
 }

@@ -4,7 +4,7 @@
   "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
   "run_id": 43173112351,
   "run_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351",
-  "observed_utc": "2026-11-12T08:21:59.509442+00:00",
+  "observed_utc": "2026-11-12T08:54:46.131938+00:00",
   "workflow_status": "completed",
   "workflow_conclusion": "failure",
   "jobs": {

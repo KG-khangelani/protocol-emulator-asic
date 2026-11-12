@@ -86,6 +86,8 @@ generation but fails the explicit fanout gate with one eleven-load net against
 the limit of eight. Its submitted netlist confirms seven functional loads and
 four antenna diodes; dependent precheck/netlist jobs are skipped. Compact10
 passes GDS and every required routed metric, plus all twelve public netlist
-groups and 1,052 unchanged SPI records. Its precheck remains active.
+groups and 1,052 unchanged SPI records. Its subsequent official precheck passes
+all ten cases on the same submitted layout. [D35](0035-select-compact10-physical-pilot.md)
+selects this qualified experimental pilot and closes the P adoption decision.
 The revised matched P area saving is 13.1456%; it does not qualify P for adoption.
 See the [official comparison](../../evidence/E0031-8x4-physical-comparison/attempts/d34/comparison.json).

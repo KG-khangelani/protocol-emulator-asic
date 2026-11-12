@@ -15,7 +15,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
-| G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **ACTIVE** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
+| G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **ACTIVE: publication verification** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | QUEUED after G1; specify I2C while physical jobs run | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
@@ -37,8 +37,9 @@ flowchart LR
 
 The official November 9 update confirms 8x4 tiles. D33 updates the checked-in
 configuration and freezes the [comparison](specs/g1-cmos5l-physical-comparison.md);
-D34 adds a shared correction for the measured fanout violations; E0031
-physical qualification is pending. Historical evidence retains 6x4.
+D34 adds a shared correction for the measured fanout violations. D35/E0031
+qualifies compact10's experimental physical pilot and rejects P's remaining
+fanout failure. Historical evidence retains 6x4.
 See [S1](sources.md) for the rule observation. Configuration is not qualification.
 
 Completion checks:
@@ -49,7 +50,7 @@ Completion checks:
 - [x] Compare the complete P and compact10 chips with the same library, corner,
   flow, pin assumptions and 50 MHz target. Include their real loader, stores
   and support logic; retain each variant's actual capacity.
-- [ ] Record mapped area, timing, storage cost and functional/formal compatibility.
+- [x] Record mapped area, timing, storage cost and functional/formal compatibility.
   Run an official routed pilot of the selected candidate with precheck and
   appropriate gate-level public-pin tests. Report setup/hold, physical checks
   and utilization; unresolved failures remain failures.
@@ -62,15 +63,14 @@ open until a candidate passes its gate. If P loses its advantage, retain the
 simpler viable alternative. Revisit clock or capacity through a documented,
 matched comparison instead of silently relaxing a failing condition.
 
-**Next executable action:** finish compact10's active official precheck
-(run43173116485), then publish the supported physical decision. The D34
-routed comparison is verified: P saves 13.1456% standard-cell area but fails
-one diode-induced fanout limit; its dependent jobs are skipped. Compact10
-passes GDS, all required routed metrics and the twelve-group public netlist
-selection with 1,052 unchanged SPI records. Keep P's failure and the earlier
-jumper-only antenna failures. No candidate has full acceptance until precheck
-passes; do not restart the live attempt merely because observation expires.
-Do not rerun the archived M0 merely to report activity.
+**Next executable action:** publish and verify alpha.5 with D35 and E0031.
+Compact10's official GDS, routed metrics, all ten prechecks and twelve-group
+public netlist selection pass; all 1,052 SPI records match E0030. P's 13.1456%
+routed standard-cell saving is retained, but its one diode-induced fanout
+failure prevents adoption. The complete matched measurements and compatibility
+limits are recorded. Both attempts are terminal. Final release downloads,
+checksums, source/image identity and public access remain to be verified before
+the publication checkbox closes. Do not rerun the archived M0 merely to report activity.
 
 ## G2 - Prove useful protocols on the same programmable machine
 

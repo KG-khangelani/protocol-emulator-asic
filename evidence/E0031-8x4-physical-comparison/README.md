@@ -1,6 +1,6 @@
 # E0031 - Matched 8x4 physical comparison
 
-Status: **D34 routed reports verified; P fails fanout, compact10 passes GDS/netlist gates and awaits precheck**.
+Status: **D35 selects the qualified compact10 experimental pilot; P is rejected for its remaining fanout failure.**
 
 Question: does the complete timed P chip retain its advantage over compact10
 after CMOS5L mapping/routing, and does either satisfy the 20 ns target?
@@ -11,7 +11,9 @@ conditions and decision rule. [upstream-audit.json](upstream-audit.json) records
 the exact template, action, support, PDK and container identities. The existing
 original source configuration matches that template; metadata targets 8x4.
 [D34](../../docs/decisions/0034-enforce-cmos5l-fanout-limits.md) records the
-subsequent shared fanout correction and its pending qualification.
+subsequent shared fanout correction.
+[D35](../../docs/decisions/0035-select-compact10-physical-pilot.md) and
+[decision.json](decision.json) record the final matched physical decision.
 Historical M0/6x4 evidence and production RTL are unchanged.
 
 ## Local preparation
@@ -171,8 +173,8 @@ Further local tuning is deferred. The [D34 runs](d34-runs.json) are
 [P/run43173112351](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173112351)
 and [compact10/run43173116485](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485)
 at source 29f4b73. Both completed GDS generation; the additional physical gate
-rejects P. Compact10 passes that gate and its public netlist tests; its
-independent precheck remains active.
+rejects P. Compact10 passes that gate, its public netlist tests and all ten
+independent official prechecks.
 
 The physical evidence guard now requires finite nonnegative setup/hold at
 all three frozen corners and zero final electrical, routing, antenna, power-grid,
@@ -201,7 +203,7 @@ identities. Both generated designs retain every E0030 source identity.
 | Final routing / Magic DRC / LVS errors | 0 / 0 / 0 | 0 / 0 / 0 |
 | Fanout violations | **1** | 0 |
 | Required public netlist groups | NOT RUN | 12 PASS |
-| Independent official precheck | NOT RUN | PENDING |
+| Independent official precheck | NOT RUN | 10 PASS |
 
 P's measured saving is 10,020.9 square micrometres, or **13.1456% of routed
 standard-cell area**, with two fewer program words on the same fixed die.
@@ -222,6 +224,14 @@ Retained job logs redact URL query strings; original and retained log hashes
 are recorded separately. [Audit notes](attempts/d34/audit-notes.json) explain
 the corrected provenance-check assumption and observed action identities.
 
-P is ineligible for adoption under this frozen flow. The final decision and
-compact10's full qualification await its precheck. This experiment does not qualify
+Compact10's precheck report passes all ten cases, with no skipped tests.
+Its job log confirms the same submission artifact and pinned PDK as the
+netlist run. The GDS SHA-256 is
+`49ac637e176bbc5c3cf8daefbc4143578015466ef68e1d87c8605ca91da01ab8`.
+
+D35 selects compact10 as the qualified experimental pilot and rejects P under
+these conditions. The lock and evaluation contract record that result; the
+manual GDS workflow defaults to compact10. Alpha.5 publication verification
+remains pending. Production promotion still requires combined protocol
+regression and fresh physical evidence. This experiment does not qualify
 I2C, continuous UART delivery, owner fluency or fabricated silicon.

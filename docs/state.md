@@ -7,55 +7,46 @@ covering M3-T01/M3-T02/M5-T01. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
-Functional/generic candidate: **D31/E0030 selects isolated timed post-action GPIO P**;
-the revised physical experiment rejects P at the fanout gate and advances
-compact10 through GDS and netlist checks, with precheck still pending.
-In P, both phase1 modes fit eight words and preserve the ten-word reference timing.
-P measures3,146 cells/412 bits versus matched compact10 3,589/477: 443 fewer
-generic cells and65 fewer state bits. P adds39 cells and no bits to compact8.
-Instruction safety, scoped compact refinement and actual public-loaded
-symbolic-byte phase1 induction pass; all public traces agree across simulators.
-Clean19265ff CI (run43148870589) qualifies both candidates and selects P;
-source hashes, all public records and measurements match local evidence.
-Local F refinement timeouts remain retained. Historical failures
-and newly allocated invalid encodings are explicit in
-[E0030](../evidence/E0030-timed-gpio-comparison/README.md).
-D33 now freezes the [8x4 physical comparison](specs/g1-cmos5l-physical-comparison.md).
-The audited official ttihp27a action, LibreLane 3.1.0.dev4 image, support tools
-and shared PDK are pinned in a separate candidate lock. Metadata and the
-comparison contract use 8x4; existing placement/clock settings match the current
-template. The workflow stages E0030-identical P/compact10 source copies, with
-real-netlist public tests. [E0031](../evidence/E0031-8x4-physical-comparison/README.md)
-retains matched first routed results: P saves13.4968% standard-cell area,
-both meet the 20 ns setup/hold target and pass all 12 real-netlist public groups.
-The first builds still report 30/37 fanout violations despite all 10 official
-prechecks passing. [D34](decisions/0034-enforce-cmos5l-fanout-limits.md)
-records a common correction: the local routed compact10 clears the checked
-gates, while P retains one diode-induced fanout failure. Jumper-only repair
-leaves two antenna failures and is rejected. Fresh official qualification and
-the final adoption decision remain pending; compact10 is the viable fallback.
-The official D34 runs reproduce the local area, timing and fanout results: P retains
-one fanout violation (eleven loads against eight), while compact10 clears all
-required routed checks and passes all twelve real-netlist public groups plus
-1,052 unchanged SPI records. P's dependent jobs are skipped after its gate
-fails. The revised P area saving is 13.1456%, which cannot override that failure.
-Compact10's active precheck is the remaining official qualification gate.
-The same 3868ad2 implementation now passes the fresh timed comparison
-(run43158639030), with all seven gate records, candidate source identities and
-six simulator record sets verified. The full regression at the same source
-(run43158638898) also passes, with its source/artifact hashes checked.
-Its refreshed workbench package
-(run43158638955) has verified checksums, source/image identity and public access.
-D34's 29f4b73 source also has a verified workbench publication
-(run43173078690), including immutable image/source identity and public access.
-Its official P/run43173112351 is terminal with the retained fanout failure;
-compact10/run43173116485 has passed GDS/netlist tests and is in precheck.
-The fresh full regression, timed comparison and existing SPI controls now pass.
+**Physical decision: D35 selects compact10 as the experimental integration baseline.**
+At frozen source 29f4b73, official run43173116485 passes GDS, every required
+routed metric, all ten prechecks and all twelve real-netlist public groups.
+The netlist reproduces 1,052 E0030 SPI records, including four expected
+input-hold rejections. The reports and consumer logs identify the same submitted
+layout/netlist archive and pinned PDK. Compact10 uses 76,230.2 square
+micrometres of routed standard-cell area (6.30955% utilization); worst setup/hold
+slack is +4.438054/+0.122590 ns under the declared 20 ns, three-corner model.
+
+P/run43173112351 saves 13.1456% routed standard-cell area, but fails one
+fanout limit: seven functional loads plus four antenna diodes against a limit
+of eight. Its dependent jobs are skipped. The default-flow 30/37 fanout
+failures and the jumper-only diagnostic's two antenna failures are preserved.
+No threshold or clock was relaxed. Both complete chips include their loaders,
+stores and support logic; P has eight words and compact10 ten. Their resolved
+configuration, timing constraints and GDS tool/action identities match. This
+does not reduce the fixed 8x4 die or demonstrate a maximum clock frequency.
+
+[D35](decisions/0035-select-compact10-physical-pilot.md) and
+[E0031](../evidence/E0031-8x4-physical-comparison/README.md) record the decision,
+full source/artifact identities and compatibility limits. The manual GDS
+workflow now defaults to the qualified compact10 pilot. The lock and evaluation
+contract identify its exact result; production RTL remains unchanged. G1's
+physical and comparison gates are complete; release publication and verification
+remain active.
+
+D31/E0030 still selects P within its isolated functional/generic comparison:
+3,146 cells/412 state bits versus compact10 3,589/477. Its scoped instruction,
+refinement and eight-word actual-program proofs do not prove compact10's
+ten-word banked loader. Each candidate retains one declared failure in the
+old twenty-group legacy suite. Compact10's loading/protocol coverage is
+simulation evidence. SPI input-hold assumptions, historical formal timeouts
+and negative controls remain explicit.
+
 The [D34 functional audit](../evidence/E0031-8x4-physical-comparison/ci/d34/verification.json)
-verifies 257 regression source hashes, all 671 timed-comparison file checksums,
-all seven timed gates and six unchanged E0030 public record sets. Final
-physical acceptance remains pending for compact10's existing attempt.
-Production RTL and all historical 6x4/M0 evidence remain unchanged.
+verifies the frozen source's full regression, all seven timed gates, 671
+timed-comparison checksums and six unchanged E0030 public record sets. Its
+[workbench publication](../evidence/E0031-8x4-physical-comparison/d34-workbench-verification.json)
+has verified image/source identity and public access. Historical 6x4/M0
+evidence and the separate pending owner-fluency gate remain unchanged.
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
@@ -439,20 +430,18 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering (G1): both physical runs are active at implementation 3868ad2:
-  P/run43158656790 and compact10/run43158660511. Resume those exact runs;
-  their clean checkout and source-staging steps passed. Inspect resolved inputs,
-  mapping, routed setup/hold, physical checks and all 12 public netlist groups.
-  Compare retained reports only after checking matched conditions. Preserve
-  E0030 source identities and initial harness failures; no generic count is a
-  physical result. Further packing is deferred pending the measured decision.
-- Next coverage goal (G2): specify the missing I2C contract/oracle while physical
-  jobs run, then qualify UART/SPI/I2C and public reload on one candidate. G3 adds
-  a small assembler; a larger compiler needs a demonstrated use case.
+- Engineering (G1): publish alpha.5 with D35, both candidates' original
+  physical archives and curated E0031 evidence. Verify release downloads,
+  checksums, source/image identity and public access before closing the goal.
+  Both official D34 attempts are terminal; no restart or further tuning is needed.
+- Next coverage goal (G2): freeze the I2C contract and independent oracle, then
+  qualify UART/SPI/I2C and public reload on one compact10-based candidate.
+  Combined regression and fresh physical evidence are required before production
+  promotion. G3 adds a small assembler; a larger compiler needs a demonstrated use case.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
   is deferred if mandatory gates slip. Targets and completion checks are in
-  [goals](goals.md); no new release is required for this planning-only change.
+  [goals](goals.md).
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
@@ -468,6 +457,6 @@ Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified
 held-data transfers and the eight-word timed phase1 comparison are qualified
 only within their isolated experimental contracts;
 E0022 proves written executor properties/refinement under its stated assumptions;
-compiler, new physical closure, Fmax and fabricated-silicon claims remain
-absent. The original OpenKnowledge records
+D35 qualifies only the generated compact10 physical pilot. A compiler,
+production physical closure, Fmax and fabricated-silicon claims remain absent. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

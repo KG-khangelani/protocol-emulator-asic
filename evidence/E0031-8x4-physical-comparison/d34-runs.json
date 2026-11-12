@@ -1,8 +1,8 @@
 {
   "schema": "protocol-emulator-physical-runs-v1",
-  "observed_utc": "2026-11-12T08:27:14.622426+00:00",
+  "observed_utc": "2026-11-12T09:00:51.675837+00:00",
   "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
-  "status": "P_FAILED_COMPACT10_PRECHECK_PENDING",
+  "status": "COMPACT10_QUALIFIED_P_FAILED_FANOUT",
   "configuration_decision": "D34",
   "variants": {
     "P": {
@@ -19,15 +19,16 @@
     "compact10": {
       "run_id": 43173116485,
       "gds_job_id": 131030876882,
-      "status": "in_progress",
+      "status": "completed",
       "staging": "PASS",
       "url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43173116485",
       "gds": "PASS",
       "physical_gate": "PASS",
       "netlist_tests": "PASS",
-      "precheck": "in_progress",
+      "precheck": "PASS",
       "precheck_job_id": 131056658578,
-      "netlist_job_id": 131056660179
+      "netlist_job_id": 131056660179,
+      "conclusion": "success"
     }
   },
   "source_ci_runs": {
@@ -46,13 +47,15 @@
     "atlas": 43173078654,
     "docs": 43173078563
   },
-  "observation": "Official P fails the retained one-count fanout violation; its dependent jobs are skipped. Compact10 passes GDS, required physical metrics and all 12 real-netlist public groups with 1,052 unchanged SPI records. Its exact precheck job remains active; resume it without restarting. Runtime, archive, source, configuration and submitted/tested netlist identities have been verified.",
+  "observation": "Both official attempts are terminal. Compact10 passes GDS, all required physical metrics, all ten prechecks and all twelve real-netlist public groups with1,052 unchanged SPI records. Its exact submission archive/PDK, source and netlist identities are verified. P retains one fanout failure and skipped dependent jobs. D35 selects compact10 for the next integration baseline; production remains unchanged.",
   "functional_artifact_audit": "ci/d34/verification.json",
   "checkpoint_ci": {
-    "source_commit": "90428d80a18101928550838771cf781cc9511252",
-    "test_run": 43176923199,
+    "source_commit": "fd736aeadd0b447d4e4be832e046e726945870ce",
+    "test_run": 43183360146,
     "test_status": "PASS",
-    "docs_run": 43176923181,
-    "docs_status": "PASS"
+    "docs_run": 43183360025,
+    "docs_status": "PASS",
+    "atlas_run": 43183360134,
+    "atlas_status": "PASS"
   }
 }

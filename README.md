@@ -20,7 +20,7 @@ waits, LOOP and reusable shifting. Named digital UART transmit and bounded
 last-byte receive workloads have RTL/scoped-formal qualification; see
 [E0016](evidence/E0016-uart-tx-8n1/README.md) and
 [E0018](evidence/E0018-uart-rx-public/README.md). This is not continuous/full UART,
-SPI/I2C, M1 physical fit/timing or silicon evidence. The bounded
+production SPI/I2C, production physical fit/timing or silicon evidence. The bounded
 [PR8 host-service work](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8)
 is merged; its digital checks and limits are recorded in
 [E0019](evidence/E0019-uart-rx-host-service/README.md).
@@ -33,8 +33,14 @@ words and passes its scoped proof and public-pin comparison
 ([E0030](evidence/E0030-timed-gpio-comparison/README.md)). It uses 3,146 generic
 cells/412 state bits against matched compact10's 3,589/477. This is not mapped
 area or physical timing evidence, and it has not replaced production RTL.
-[G1](docs/goals.md#g1---establish-physical-feasibility-before-more-optimization)
-now prioritizes current-rule physical qualification before more optimization.
+The matched physical comparison now selects **compact10** as the experimental
+pilot: GDS, routed metrics, ten prechecks and twelve public netlist test groups
+pass under the frozen 8x4/20 ns setup. P uses 13.1456% less routed standard-cell
+area but fails a fanout limit. [D35](docs/decisions/0035-select-compact10-physical-pilot.md)
+and [E0031](evidence/E0031-8x4-physical-comparison/README.md) retain the results
+and limits. Combined UART/SPI/I2C qualification on one revision is the next
+engineering goal; production promotion still needs that regression and fresh
+physical evidence.
 
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).

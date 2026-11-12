@@ -69,6 +69,18 @@ require(physical["librelane_image"] in gds_workflow, "physical image digest diff
 require("tools/physical_candidate.py prepare" in gds_workflow, "physical staging missing")
 require("check-tests" in gds_workflow and "--require-netlist" in gds_workflow,
         "physical public-netlist verification missing")
+qualification = physical["qualification"]
+qualified_path = ROOT / qualification["result_path"]
+require(qualified_path.resolve().is_relative_to(ROOT), "qualified result must stay in the repository")
+require(hashlib.sha256(qualified_path.read_bytes()).hexdigest() == qualification["result_sha256"],
+        "qualified physical result digest differs from lock")
+qualified = json.loads(qualified_path.read_text(encoding="utf-8"))
+require(qualified["status"] == "PASS_ALL_REQUIRED_PHYSICAL_GATES", "selected physical pilot is not qualified")
+for field in ("variant", "workflow_source_commit", "run_id", "gds_sha256", "netlist_sha256"):
+    require(qualified[field] == qualification[field], f"qualified physical identity differs from lock: {field}")
+require(all(qualified["jobs"][name]["conclusion"] == "success" for name in ("gds", "precheck", "gl_test")),
+        "qualified physical jobs did not all pass")
+require(f"default: {qualification['variant']}" in gds_workflow, "manual GDS default differs from qualified pilot")
 # The non-gating canary still watches the archived M0 qualified ref.
 physical = lock["official_cmos5l_qualification"]
 canary_workflow = (ROOT / ".github/workflows/upstream-canary.yaml").read_text()
@@ -175,6 +187,10 @@ require(evaluation["clock_target_hz"] == project["clock_hz"], "evaluation clock 
 require(evaluation["physical_configuration"]["flow_lock_key"] == "official_cmos5l_8x4", "evaluation flow mismatch")
 require(evaluation["physical_configuration"]["decision"] == lock["official_cmos5l_8x4"]["configuration_decision"],
         "evaluation physical decision differs from lock")
+for field, locked in (("qualification", "status"), ("qualified_variant", "variant"),
+                      ("qualification_decision", "decision"), ("qualification_source_commit", "workflow_source_commit")):
+    require(evaluation["physical_configuration"][field] == qualification[locked],
+            f"evaluation physical qualification differs from lock: {field}")
 require(evaluation["primary_boundary"]["id"] == "CHIP_COMPLETE", "complete-chip boundary must remain primary")
 require(evaluation["secondary_boundary"]["id"] == "CORE_ATTRIBUTION", "unexpected attribution boundary")
 require(

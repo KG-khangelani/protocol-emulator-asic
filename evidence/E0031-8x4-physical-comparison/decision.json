@@ -1,0 +1,26 @@
+{
+  "schema": "protocol-emulator-g1-physical-decision-v1",
+  "decision": "D35",
+  "observed_utc": "2026-11-12T09:00:51.665815+00:00",
+  "status": "SELECT_COMPACT10_PILOT_REJECT_P_FANOUT",
+  "selected_candidate": "compact10",
+  "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+  "qualified_run_id": 43173116485,
+  "qualified_gds_sha256": "49ac637e176bbc5c3cf8daefbc4143578015466ef68e1d87c8605ca91da01ab8",
+  "qualified_netlist_sha256": "bf845f532d6c307ac6080b377e99b26fa69b58c56e260288bcdee38f8d4cdda6",
+  "matched_comparison": "attempts/d34/comparison.json",
+  "selected_result": "attempts/d34/compact10/result.json",
+  "rejected_result": "attempts/d34/P/result.json",
+  "rejection": "P retains one fanout violation: eleven loads against eight at all three corners. Its dependent jobs are skipped, not passes.",
+  "routed_standard_cell_area_saved_by_rejected_P_um2": 10020.899999999994,
+  "routed_standard_cell_area_saved_by_rejected_P_percent": 13.145577474544202,
+  "program_words": {
+    "P": 8,
+    "compact10": 10
+  },
+  "compatibility_record": "compatibility.json",
+  "production_promoted": false,
+  "joint_uart_spi_i2c_qualified": false,
+  "owner_fluency_completed": false,
+  "scope": "Qualified experimental compact10 physical pilot under the frozen D34 8x4/20ns conditions. Further P tuning is deferred. G2 combined protocol coverage and fresh physical qualification remain required before production promotion."
+}

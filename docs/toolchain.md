@@ -2,13 +2,17 @@
 
 ## Source baseline
 
-Official template: `TinyTapeout/ttihp-verilog-template`, `cmos5l`, commit
-`b86a2a781484bcab7ba522dc5de540086695a430`. See `upstream-template.json` for
-the verified file inventory. `src/config.json` is preserved byte for byte.
+The original M0 template is `TinyTapeout/ttihp-verilog-template`, `cmos5l`,
+commit `b86a2a781484bcab7ba522dc5de540086695a430`. Its verified inventory remains
+in `upstream-template.json`. D33 audits the current 8x4 template at
+`4b1204ab387b5ab94db1d57067051d8d89a2f83c`; D34 adds the documented common
+fanout/clock-tree constraints. Current `src/config.json` is therefore distinct
+from the historical M0 baseline. The separate lock entries preserve both.
 
 The upstream devcontainer had `PDK=ihp-sg13g2` while its CMOS5L workflow and
 test harness used `ihp-sg13cmos5l`. The devcontainer variable is aligned with
-the latter. That edit still requires a container/physical build to validate.
+the latter. The optional devcontainer lane remains unverified; it is separate
+from the qualified workbench and official physical runs.
 
 ## Fast local loop
 
@@ -56,7 +60,8 @@ without changing the RTL or physical acceptance flow.
 
 1. Push the intended source revision to the project repository.
 2. Wait for `test` to pass and inspect the uploaded verification artifact.
-3. Trigger **Actions → gds → Run workflow** on that revision's branch.
+3. Trigger **Actions → gds → Run workflow** on that revision's branch. Choose
+   the experimental variant explicitly; D35 makes compact10 the default.
 4. Inspect `gds`, `precheck` and `gl_test` independently; retain failure logs.
 5. Download/archive artifacts; identify the input commit and resolved action,
    LibreLane, PDK and container versions.
@@ -70,11 +75,11 @@ The Pages viewer is disabled during bootstrap and is not an acceptance gate.
 The FPGA job remains manually available; no board compatibility is claimed.
 
 For local hardening, consult the official guide in `sources.md`, but derive
-the PDK and tooling from the **CMOS5L action branch** used by this repo. The
+the PDK and tooling from the pinned **official_cmos5l_8x4** lock entry. The
 general guide still shows another IHP PDK and is not a drop-in process lock.
 Do not blindly replace `ihp-sg13cmos5l` with `ihp-sg13g2`.
 
-### Qualified physical-flow snapshot
+### Historical M0 physical-flow snapshot
 
 E0003 first resolved the CMOS5L action branch to action commit
 `3412659307918422f3f0727917cf9b499aaca588`, Tiny Tapeout support tools
@@ -88,6 +93,27 @@ support-tools/LibreLane inputs are now pinned. Clean run E0010 passes the same
 three gates, reproduces E0006's metrics, and has identical non-timestamp GDS
 records. This snapshot is qualified for M0. The official composite action
 remains a recorded transitive trust boundary.
+
+### Qualified 8x4 experimental pilot
+
+D35/E0031 qualifies compact10 at source
+`29f4b73ae66d2b955f512b5be250f6ed0afcdab8`, run43173116485. All required
+routed metrics, ten prechecks and twelve real-netlist public groups pass.
+The lock records the result digest, GDS/netlist hashes and source identity;
+the static repository check enforces their agreement with the evaluation contract.
+
+The frozen flow uses action `5e7361fdc445649261c0725dc15f38242dfad330`,
+support tools `9d13ff3e3e6202090740110438c6a10c1d62ca0f`, LibreLane
+`3.1.0.dev4` in the recorded immutable image, and IHP Open PDK
+`89d42ee6d2fd9b50b86a1aada6fee6673c3e6008`. Exact resolved inputs, timing
+constraints and actual action identities are retained in
+[E0031](../evidence/E0031-8x4-physical-comparison/README.md). The official
+composites' internally tagged dependencies remain an observed trust boundary.
+
+This qualifies the identified generated compact10 chip. The workflow stages
+experimental sources, so it does not qualify or promote the checked-in
+production core. Future integrated protocol changes need new regression and
+physical evidence; the previous 6x4/M0 qualification remains separate.
 
 ## Setup limitations
 

@@ -35,8 +35,10 @@ AI-generated explanations are not proofs. Failed or unavailable tools are not pa
 
 - Preserve the official Tiny Tapeout interface and `src/config.json` unless a
   documented, evidence-backed change is needed. `info.yaml` targets **8x4**
-  under D33. The new physical flow awaits E0031 qualification; historical M0
-  results and its separate lock entry retain their original **6x4** conditions.
+  under D33. D35/E0031 qualifies the generated compact10 experimental pilot
+  under D34; production promotion still requires G2's combined regression and
+  fresh physical evidence. Historical M0 results and their separate lock entry
+  retain the original **6x4** conditions.
 - M0 is a deterministic GPIO counter, not a protocol VM. Close the physical-flow
   gate before broadening the architecture; draft M1 semantics separately.
 - Use synthesizable Verilog, explicit widths, nonblocking clocked assignments,

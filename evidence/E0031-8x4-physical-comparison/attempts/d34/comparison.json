@@ -7,10 +7,13 @@
   "routed_standard_cell_area_saved_um2": 10020.899999999994,
   "routed_standard_cell_area_saved_percent": 13.145577474544202,
   "formula": "100*(compact10 final stdcell area - P final stdcell area)/compact10 final stdcell area",
-  "candidates_passing_all_required_gates": [],
-  "decision": "PENDING_REVIEW_OF_QUALIFIED_CANDIDATES_AND_TRADEOFFS",
+  "candidates_passing_all_required_gates": [
+    "compact10"
+  ],
+  "decision": "SELECT_COMPACT10_PILOT_REJECT_P_FANOUT",
   "variant_results": {
     "P": "P/result.json",
     "compact10": "compact10/result.json"
-  }
+  },
+  "decision_record": "../../decision.json"
 }

@@ -8,6 +8,8 @@ silicon result, new physical qualification or owner fluency sign-off.
 
 Current research snapshot: [v0.1.0-alpha.4](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.4),
 [E0030 timed GPIO comparison](../evidence/E0030-timed-gpio-comparison/README.md).
+The D35/E0031 physical milestone is prepared as alpha.5; its publication and
+download verification remain pending.
 
 ## Automatic updates
 

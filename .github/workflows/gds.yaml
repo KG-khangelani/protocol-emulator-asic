@@ -9,7 +9,7 @@ on:
         description: E0030-identical complete-chip candidate
         type: choice
         required: true
-        default: P
+        default: compact10
         options:
           - P
           - compact10
