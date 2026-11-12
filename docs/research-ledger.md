@@ -140,6 +140,8 @@ express useful digital communication protocols under hard temporal constraints?*
 
 | E0037 | D38 explicit byte-write candidate after od128 routing congestion | Exact screened store passes 652 unbounded assertions, 33 positive tasks, two inspected reset-reachable mutations and nine rejected audit corruptions. Other four modules and 128-word capacity unchanged. Both simulators pass all eighteen public groups with identical records; retained archive replay passes. All seven e5eef5b CI jobs pass and both new-candidate ZIPs are audited. Separate shared-read screen measures 15,211 versus 24,391 generic cells; reset-reachable complete-chip equivalence compares all 4,278 state bits and 24 public outputs | New implementation od128-lanes remains experimental; physical run43241097269, integration and publication pending. Shared-read public/physical gates unrun; no mapped/routed saving. ../evidence/E0037-explicit-store-lanes/README.md |
 
+| E0038 | D39 shared word read using unchanged real storage and public contract | Exact screened source reproduced; fresh complete-chip induction/reset base compares all 4,278 actual state bits and 24 public outputs. Both simulators pass the baseline and observe exact public counterexamples for high-bank read aliasing, fetch-address selection and missing length readback. Scoped style review passes; initial displaced-waiver failure retained | Full eighteen-group regression running. No physical trial, production promotion or mapped/routed saving yet. ../evidence/E0038-shared-program-read/README.md |
+
 ## Open questions
 
 - Q1: What timing quantum and external-input latency meet useful protocol rates?

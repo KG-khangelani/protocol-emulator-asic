@@ -116,11 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** qualify and physically measure the explicit
-byte-lane store rewrite already screened in E0036. Keep the same capacity,
-interface, protocol programs and pinned 8x4 conditions; its generic saving is
-not a physical result. Preserve G1's pilot, the original od128 routing failure
-and literal capacity rejection. Integration and publication remain required.
+**Next executable action:** finish D39's full public regression and qualify
+its separate physical trial while measuring the running D38 implementation.
+Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
+generic savings are not physical results. Preserve G1's pilot, the original
+od128 routing failure and literal capacity rejection. Integration and
+publication remain required.
 
 D38/E0037 now qualifies that rewrite locally: all 652 store assertions,
 checked controls and both simulators' eighteen public groups pass; all required
@@ -129,7 +130,9 @@ staging preflight pass. All seven e5eef5b CI jobs pass and both new-candidate
 archives are audited. Physical run43241097269 is running at 869ee34; physical
 qualification remains pending. A separate shared-read screen saves 37.64%
 generic cells from D38 with reset-reachable complete-chip equivalence, but
-fresh public/negative-control and physical gates remain. It closes no G2 gate.
+the full public and physical gates remain. D39/E0038 now reproduces that source;
+fresh whole-chip proof/reset and all three read-path mutation controls pass
+in both simulators. The complete eighteen-group regression is running.
 
 Completion checks:
 

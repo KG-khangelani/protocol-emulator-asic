@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "experiments/i2c"))
 from tools import physical_candidate as common
 from build_general import build
 import store_lanes
+import shared_read
 
 EVIDENCE = ROOT / "evidence/E0036-g2-store-and-ci"
 MANIFEST = ROOT / "evidence/E0035-general-i2c/sources/current/source-manifest.json"
@@ -38,6 +39,8 @@ write_json = common.write_json
 
 
 def candidate_manifest(variant):
+    if variant == "od128-shared":
+        return read_json(shared_read.MANIFEST)["od128"]
     if variant == "od128-lanes":
         return read_json(store_lanes.MANIFEST)["od128"]
     return read_json(MANIFEST)[variant]

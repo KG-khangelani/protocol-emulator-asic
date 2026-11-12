@@ -37,13 +37,16 @@ candidates and failures stay frozen.
 A separate bounded shared-read screen reduces D38's generic cells from 24,391
 to 15,211 with unchanged state. Conditional store equivalence and subsequent
 reset-reachable complete-chip equivalence pass: every actual state bit and all
-24 public output bits are compared. Fresh public regression, negative controls
-and physical measurements remain pending. Retain it as the next candidate to
-qualify, not a promoted implementation.
+24 public output bits are compared. D39/E0038 now reproduces that exact source
+as `od128-shared`. Its fresh complete-chip proof/reset base passes, and both
+simulators observe all three deliberate read-path faults against a passing
+baseline. Full public regression is running; physical qualification remains
+pending. The candidate is not promoted.
 
 The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
-6ec83ae fixes it; all 106 checks pass in a fresh snapshot. Replacement CI is
-pending. Chip sources and the running physical trial are unchanged.
+6ec83ae fixes it; all 106 checks pass in a fresh snapshot and replacement test
+CI run43242671340 passes. D39 adds a source-identity rejection check; all 107
+current checks pass. The D38 chip sources and running physical trial are unchanged.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

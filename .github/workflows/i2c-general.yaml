@@ -43,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        gate: [od128, literal255, architecture, physical-selection, store, lanes-selection, lanes-store]
+        gate: [od128, literal255, architecture, physical-selection, store, lanes-selection, lanes-store, shared-selection, shared-proof-controls]
     steps:
       - name: Check out exact source revision
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -91,5 +91,7 @@ jobs:
             build/g2-ci/store/*-model/prepared.il
             build/g2-ci/store/*-model/prepared.json
             build/g2-ci/store/*/proof/status
+            build/g2-ci/proof/**
+            build/g2-ci/controls/**/observations.json
           if-no-files-found: error
           retention-days: 90

@@ -1,0 +1,1 @@
+The initial D38-only style policy rejected D39's displaced always-comb waiver (129 warnings, expected 128). D39 explicitly restores that inherited single-block exception without changing the tested source. No simulation or proof failed in this attempt.

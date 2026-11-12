@@ -17,14 +17,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--variants", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--source-revision", choices=("e35", "explicit-lanes"), default="e35")
+    parser.add_argument("--source-revision", choices=("e35", "explicit-lanes", "shared-read"), default="e35")
     args = parser.parse_args()
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT / "build").resolve()):
         raise ValueError("new isolated output required")
     out.mkdir(parents=True)
     src = args.variants.resolve() / "od128/src"
-    implementation = "od128-lanes" if args.source_revision == "explicit-lanes" else "od128"
+    implementation = {"e35": "od128", "explicit-lanes": "od128-lanes", "shared-read": "od128-shared"}[args.source_revision]
     sources = physical.verify_sources(src, implementation)
     result = {"status": "RUNNING", "sources": sources, "stages": [],
               "scope": "EXACT_G2_PHYSICAL_SELECTION_ON_RTL", "physical": "NOT_EVALUATED"}

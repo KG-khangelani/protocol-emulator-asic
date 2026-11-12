@@ -16,6 +16,7 @@ from tools import physical_g2 as physical
 
 class G2PhysicalEvidenceTests(unittest.TestCase):
     def setUp(self):
+        (physical.ROOT / "build").mkdir(exist_ok=True)
         self.temp = tempfile.TemporaryDirectory(dir=physical.ROOT / "build")
         self.addCleanup(self.temp.cleanup)
         self.out = Path(self.temp.name)
@@ -75,6 +76,21 @@ class G2PhysicalEvidenceTests(unittest.TestCase):
         tree.write(args.junit)
         with self.assertRaisesRegex(ValueError, "missing required"):
             self.check(args)
+
+    def test_shared_read_rejects_parent_and_mutated_sources(self):
+        manifest = physical.shared_read.build(self.out / "variants")
+        revised = self.out / "variants/od128/src"
+        self.assertEqual(physical.verify_sources(revised, "od128-shared"), manifest["od128"]["source_sha256"])
+        for variant in ("od128", "od128-lanes"):
+            with self.assertRaisesRegex(ValueError, "source differs"):
+                physical.verify_sources(revised, variant)
+        parent = physical.store_lanes.EVIDENCE / "sources/od128"
+        with self.assertRaisesRegex(ValueError, "source differs"):
+            physical.verify_sources(parent, "od128-shared")
+        store = revised / "m1_program_store.v"
+        store.write_bytes(store.read_bytes().replace(b"bank_address[8:2]", b"bank_address[7:1]", 1))
+        with self.assertRaisesRegex(ValueError, "source differs"):
+            physical.verify_sources(revised, "od128-shared")
 
     def test_skipped_i2c_group_fails(self):
         args = self.fixture()
