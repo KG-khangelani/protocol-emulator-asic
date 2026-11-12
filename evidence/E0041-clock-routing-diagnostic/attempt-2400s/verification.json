@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETED_WITH_CONGESTION_NOT_QUALIFIED",
+  "source_commit": "426cea1252eb2a1f38cf32eeacda710f16e61ca0",
+  "original_physical_run": 43249867361,
+  "seconds": 867.548,
+  "wall_limit_seconds": 2400,
+  "exit_code": 0,
+  "source_odb_sha256": "580c24c257761d71f2f87891e3a3d5bc02698dc727b7f7e168ec1d9b2856ef15",
+  "modified_odb_sha256": "7305d6eb43419fec9151d7de974a863ae3f03fb3aa1a08d50d0f2c11f3f36e11",
+  "changed_ndr_assignments": 16,
+  "final_congestion": {
+    "Metal1": {
+      "resource": 0,
+      "demand": 0,
+      "usage_percent": 0.0,
+      "max_horizontal_overflow": 0,
+      "max_vertical_overflow": 0,
+      "total_overflow": 0
+    },
+    "Metal2": {
+      "resource": 212423,
+      "demand": 190589,
+      "usage_percent": 89.72,
+      "max_horizontal_overflow": 2,
+      "max_vertical_overflow": 4,
+      "total_overflow": 955
+    },
+    "Metal3": {
+      "resource": 259924,
+      "demand": 395330,
+      "usage_percent": 152.09,
+      "max_horizontal_overflow": 16,
+      "max_vertical_overflow": 1,
+      "total_overflow": 158169
+    },
+    "Metal4": {
+      "resource": 208744,
+      "demand": 121646,
+      "usage_percent": 58.28,
+      "max_horizontal_overflow": 2,
+      "max_vertical_overflow": 3,
+      "total_overflow": 657
+    },
+    "Total": {
+      "resource": 681091,
+      "demand": 707565,
+      "usage_percent": 103.89,
+      "max_horizontal_overflow": 20,
+      "max_vertical_overflow": 8,
+      "total_overflow": 159781
+    }
+  },
+  "global_wirelength_um": 6613869,
+  "global_vias": 387200,
+  "routed_nets": 39768,
+  "qualification": "NOT_QUALIFIED",
+  "decision": "STOP_CLOCK_SPACING_ONLY_BRANCH",
+  "limits": "Global routing only. GRT_ALLOW_CONGESTION was inherited true. Inherited timing metrics are not routed signoff."
+}

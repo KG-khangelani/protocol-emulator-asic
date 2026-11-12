@@ -61,9 +61,11 @@ state. The matched pinned mapped screen reproduces D39's earlier cost exactly;
 the banked candidate increases area by 5.20216% to 502,643.5722 square micrometres.
 Set it aside without a routed trial. E0041 retains a 1,200-second clock-spacing
 diagnostic timeout at extra iteration 40/50, with no final congestion result.
-One separately declared 2,400-second follow-up is running on the copied layout;
-only sixteen NDR assignments change. Diagnose it before selecting another
-implementation or a documented flow change. Physical qualification stays open.
+The separately declared 2,400-second follow-up completes in 867.548 seconds,
+but has 159,781 overflow and 152.09% Metal3 usage. Stop the clock-spacing-only
+branch. The pinned PDK's synchronous SRAM is the next implementation lead;
+its loading/fetch timing and reset semantics need explicit design and proof.
+Physical qualification stays open.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
@@ -79,8 +81,12 @@ formal run pass. The later normal-command temporal proof times out at 300
 seconds; seven other stages pass and no aggregate PASS is written. The
 1,717-file replay retains both outcomes. An isolated metadata-cache defect is
 reproduced and fixed by always rerunning repository checks during collection.
-All 114 checks pass after repair; the complete current-command CI remains
-pending. This prepares integration without promoting the rejected layout.
+All 114 checks pass after repair. The complete current-command CI now passes
+at 8488738/run43267588725: the original 1,532-file ZIP, 250 exact inputs and
+all eight stages are audited. Its current temporal proof takes 108.405 seconds
+within the unchanged 300-second limit; collection reruns all 114 checks fresh.
+The earlier local timeout stays retained. This prepares integration without
+promoting the rejected layout.
 
 The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
 6ec83ae fixes it; all 106 checks pass in a fresh snapshot and replacement test

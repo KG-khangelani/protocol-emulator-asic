@@ -1,0 +1,227 @@
+{
+  "status": "PASS_CURRENT_COMMAND_CI_ARCHIVE",
+  "source_commit": "848873898c9b02947b414a6c9211738a93b7c829",
+  "run_id": 43267588725,
+  "job_id": 131371975025,
+  "artifact_id": 13971730764,
+  "original_zip_sha256": "804dd04cbaad570b2a92d4ecb0411743a887a547297695272da3be90483e6610",
+  "original_zip_bytes": 6959083,
+  "profile": {
+    "profile": "od128-shared",
+    "source_sha256": {
+      "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+      "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "program_words": 128,
+    "pc_bits": 8
+  },
+  "verification_input_files": 250,
+  "runtime_tool_identity": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+  "built_image_id": "sha256:cc26d9e866b6dd1b3612a8c6d8e50c31cc962b9ccea4c91c66a83a88eb173b36",
+  "built_image_manifest": "sha256:a42d40adf960b437ba02214c28cab1bdec905e26a23782470a8306946f23b2b8",
+  "runtime_identity_source": "CI build output and same-job --pull=never command; exact in-container tool report",
+  "stages": {
+    "doctor": {
+      "kind": "PINNED_TOOL_IDENTITY"
+    },
+    "check": {
+      "kind": "REPOSITORY_CHECKS"
+    },
+    "lint": {
+      "kind": "SCOPED_STYLE",
+      "unwaived_warnings": 129,
+      "exception": "Only case-missing-default on the frozen program store: all four values of each two-bit byte selector are explicit and separately checked for all 128 words. An unknown simulation selector holds state. No RTL or physical threshold changes. D39 also preserves the inherited always-comb exception on its sole combinational read block; the inserted address wire separated the original line waiver from that block. The exact source and single block are checked before applying this exception."
+    },
+    "rtl-icarus": {
+      "kind": "CURRENT_RTL_PUBLIC_AND_DIRECT_CORE",
+      "test_groups": 30,
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "junit_sha256": "fb47e52b24ed1345dfe9b3aaec267e212b87d53f33db641a9793dd0bdc3cece4",
+      "records": {
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+          "reference_identical": true
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+          "reference_identical": true
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d",
+          "reference_identical": true
+        },
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728",
+          "reference_identical": true
+        }
+      },
+      "current_bank_control": {
+        "status": "PASS",
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959"
+      }
+    },
+    "rtl-verilator": {
+      "kind": "CURRENT_RTL_PUBLIC_AND_DIRECT_CORE",
+      "test_groups": 30,
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "junit_sha256": "51e2977bfdf0437ba599ebf16e6a40c40fa765ed86cfc2a029c950d8b0997d0c",
+      "records": {
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+          "reference_identical": true
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+          "reference_identical": true
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d",
+          "reference_identical": true
+        },
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728",
+          "reference_identical": true
+        }
+      },
+      "current_bank_control": {
+        "status": "PASS",
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959"
+      }
+    },
+    "formal": {
+      "kind": "CURRENT_FORMAL_WITH_SEPARATE_HISTORICAL_BASELINE",
+      "chip": {
+        "actual_state_bits_per_chip": 4278,
+        "public_output_bits": 24,
+        "proven_bit_comparisons_including_aliases": 4572,
+        "reset_base": {
+          "vector_assertions": 217,
+          "compared_bits_including_aliases": 4572
+        }
+      },
+      "current_instruction_tasks": 4,
+      "current_support_tasks": 5,
+      "historical_tasks": 10
+    },
+    "synth": {
+      "kind": "GENERIC_SYNTHESIS_NOT_PHYSICAL",
+      "primitive_cells": 15211,
+      "state_bits": 4278,
+      "cell_types": {
+        "$_ANDNOT_": 174,
+        "$_AND_": 5393,
+        "$_MUX_": 165,
+        "$_NAND_": 4751,
+        "$_NOR_": 92,
+        "$_NOT_": 20,
+        "$_ORNOT_": 124,
+        "$_OR_": 145,
+        "$_SDFFE_PN0P_": 4261,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 45,
+        "$_XOR_": 24
+      }
+    },
+    "smoke": {
+      "kind": "RTL_HARNESS_SMOKE_NOT_NETLIST",
+      "tests": 1,
+      "junit_sha256": "e4db499bf6b942fe5ccadd33a94248962419dc3113d6b251d24acdcf22ef8632",
+      "waveform_sha256": "8f3aac44fc69dcaa938355ad3d100eeff8c9ead799ee4e37674df1a1701ffabc"
+    }
+  },
+  "metadata_checks": {
+    "executions": 2,
+    "tests_each": 114,
+    "collection_reran_fresh": true
+  },
+  "current_temporal_proof": {
+    "command": [
+      "yosys",
+      "-Q",
+      "-s",
+      "/workspace/build/current-candidate/runs/20261112T180306103456Z-formal/current/chip/temporal.ys"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 108.405,
+    "wall_limit": 300
+  },
+  "physical_qualification": "NOT_EVALUATED",
+  "production": "NOT_PROMOTED"
+}

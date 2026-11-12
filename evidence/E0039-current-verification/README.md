@@ -45,12 +45,18 @@ corrupted metadata, without changing the live repository. The installed repair
 always runs repository checks fresh during collection; expensive stages still
 require exact input/artifact matches. A seventh receipt test rejects reuse of
 repository checks even with an otherwise matching receipt. All 114 repository
-checks pass after the repair. A clean command-level CI run remains pending.
+checks pass after the repair. The subsequent clean command-level CI run at
+8488738/run43267588725 passes all eight stages. Its
+[separate retained audit](ci-8488738/README.md) checks the original 1,532-file
+ZIP, 250 exact commit inputs, image/tool identity, all current/historical
+checks and collection's second fresh 114-test execution. The temporal proof
+takes 108.405 seconds within the unchanged 300-second limit.
 
 The retained input snapshot describes the initial command run and reproduces
 its cache defect. The installed collector differs by the explicit freshness
 repair in `cache-fix/`; do not present the initial snapshot as a complete
-qualification of that final collector.
+qualification of that final collector. The later `ci-8488738/` evidence binds
+the repaired collector to the successful clean run; both records stay distinct.
 
 Reproduce the retained audit without rerunning the simulators or solvers:
 

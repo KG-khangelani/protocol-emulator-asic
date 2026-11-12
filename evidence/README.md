@@ -41,9 +41,9 @@
 | E0036 | Complete G2 store proofs, CI audit and original physical trials | Both candidates pass the full I2C matrix; complete partitioned store proofs and checked mutations pass. literal255 fails placement; od128 fails global routing under fixed 8x4 conditions | E0036-g2-store-and-ci/README.md |
 | E0037 | Explicit byte-write lanes | Complete-store and public protocol checks pass; physical trial saves only 0.620% mapped area and fails global routing | E0037-explicit-store-lanes/README.md |
 | E0038 | Shared program-word read | Complete-chip/reset equivalence, public protocol matrix and checked read-path faults pass; 15.3974% mapped saving versus original od128, but global routing fails | E0038-shared-program-read/README.md |
-| E0039 | Source-matched current verification | Thirty current groups and 22 historical groups pass in both simulators; earlier formal success, later normal-command timeout and repaired metadata-cache counterexample remain distinct | E0039-current-verification/README.md |
+| E0039 | Source-matched current verification | All eight current-command CI stages pass and the original archive is audited; 30 current groups in both simulators, source-matched formal and fresh metadata checks. Earlier local timeout and cache counterexample remain distinct | E0039-current-verification/README.md |
 | E0040 | Banked read-network screen | Complete-store/reset equivalence and port/alias controls pass; generic count rises 2.5113%, matched mapped area rises 5.20216%; set aside without routing | E0040-banked-read-screen/README.md |
-| E0041 | Isolated clock-spacing routing diagnostic | Exact sixteen-assignment edit audited; first route times out at iteration 40/50 with no final congestion result; separately bounded follow-up running | E0041-clock-routing-diagnostic/README.md |
+| E0041 | Isolated clock-spacing routing diagnostic | Exact sixteen-assignment edit audited; first timeout retained, follow-up completes with 159,781 overflow / 152.09% Metal3 usage; branch stopped | E0041-clock-routing-diagnostic/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

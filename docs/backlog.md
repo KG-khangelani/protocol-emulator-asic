@@ -57,9 +57,10 @@ reset and both simulators' port/mutation checks, but adds 2.5113% generic
 cells. Matched pinned mapping reproduces D39's original cost exactly and
 shows 5.20216% more area for the banked candidate; set it aside without routing.
 E0041 retains the first clock-spacing timeout at 1,200 seconds / iteration
-40/50. Finish the separately declared 2,400-second follow-up on the same copied
-D39 layout before selecting another candidate or a documented physical-flow
-change. Acceptance limits remain unchanged.
+40/50. The separately declared 2,400-second follow-up finishes with 159,781
+overflow / 152.09% Metal3 usage. Stop the clock-spacing-only branch. Next,
+declare and test synchronous SRAM loading/fetch semantics before a separate
+candidate and physical-flow decision. Acceptance limits remain unchanged.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups
@@ -67,8 +68,9 @@ in both. The initial current and complete historical formal runs pass, but a
 normal-command proof rerun reaches its 300-second limit. Seven other stages
 pass; the 1,717-file retained replay preserves both outcomes. An isolated
 metadata-cache counterexample is fixed by running repository checks fresh;
-all 114 checks pass. Current-command CI, physical closure, adoption and
-publication remain required. Production is unchanged. A fresh-checkout
+all 114 checks pass. Current-command CI passes at 8488738/run43267588725;
+the original 1,532-file ZIP, 250 exact inputs and all eight stages are audited.
+Physical closure, adoption and publication remain required. Production is unchanged. A fresh-checkout
 unit-test setup failure is fixed in 6ec83ae; replacement test CI passes.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.

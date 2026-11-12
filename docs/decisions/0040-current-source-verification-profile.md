@@ -63,5 +63,9 @@ normal-command temporal proof times out at 300 seconds, so that command run
 remains incomplete despite seven other passing stages. Its exact retained
 replay also reproduces the first collector's metadata-cache gap. The installed
 fresh-check repair passes its focused controls and all 114 repository checks;
-complete current-command CI remains pending. D39 also fails global routing.
-No production promotion follows from this verification preparation.
+complete current-command CI subsequently passes at 8488738 in run43267588725.
+E0039's original 1,532-file current-candidate ZIP and 250 exact verification
+inputs are audited: all eight stages pass, including the temporal proof in
+108.405 seconds within the same 300-second budget, and collection reruns all
+114 metadata checks. The earlier timeout remains unchanged. D39 still fails
+physical qualification; no production promotion follows from this result.

@@ -1,0 +1,37 @@
+{
+  "sha256": "9f93677d5f85916be6cf0047d67f56554c3b743448670b535a0ad7ffeb25ac1f",
+  "bytes": 11617430,
+  "files": {
+    "ablation-result.json": "3dc3a8307a97a81da341518c539e96d64c1a43a0ee38cb7645dfcbc654989ccd",
+    "ablation.log": "1dc1d16575b446fdb61fd919bf9f340aa0d1b3e3f1405b697b7e5fabecebab50",
+    "audit_inputs.py": "e14bde2d09946c4ee939182a47a65619fe98e0cb25d099161dc122770b583a0b",
+    "config.json": "bb4abefde9e7cfd47fab4f00bbf7dd444298bc66232207721d4b65659da8f7ae",
+    "initial-state.json": "a4b8b215ee1c05910fc522833206f5b15f60515c7f75d13b3966d56e6cf32a08",
+    "input-audit.json": "28a4de8040c79acc38debe86a8bc0ea3320c800393c92075ab70309fa9b1f3bd",
+    "ndr-only.patch": "72b0b7460013172b41f183abd438eb00fcce907ea8d5cb3fcd96572dce2dce65",
+    "run_ablation.py": "4ab5c669c865495825f67258e50ecfcae902dc3641466182ad6b2cb04f9bc1c5",
+    "runs/no-clock-ndr/01-openroad-globalrouting/COMMANDS": "52f820919eeca40e5e8cf29ce5b733446e7b60aa3c9652f150e44423fa35d838",
+    "runs/no-clock-ndr/01-openroad-globalrouting/_env.tcl": "df39fdf4249f623507d3100dbf855633506d0887c4b5b1bf4ec5a808a2a52ce2",
+    "runs/no-clock-ndr/01-openroad-globalrouting/after_grt.guide": "ba14c5bd8b2c370d729a8410379ba06c88f16a843be3d3ca7336e6754f740e23",
+    "runs/no-clock-ndr/01-openroad-globalrouting/config.json": "856a0b8153f8215c9a7835334195b0f5f1539683aa070d293ad76b2b31c74a9e",
+    "runs/no-clock-ndr/01-openroad-globalrouting/openroad-globalrouting.log": "6299baeac0dcaa7a6a7a116ed068f323338f45bdc9b1ae06ed196df4746c2a5f",
+    "runs/no-clock-ndr/01-openroad-globalrouting/openroad-globalrouting.process_stats.json": "828b23fe0c8993003b30b7df736b807a5b7f11b09502a1e614401c2486adc91a",
+    "runs/no-clock-ndr/01-openroad-globalrouting/or_metrics_out.json": "f7e71643ecef0bfe430dad43ee10c6ece353dfda051a9d1a23b6bb8e4fbebd4e",
+    "runs/no-clock-ndr/01-openroad-globalrouting/runtime.txt": "ab0332c4bb50dcf7c2da3e1f73de3b7b0daff3607049c5a6a3879c56e1cb9946",
+    "runs/no-clock-ndr/01-openroad-globalrouting/state_in.json": "e995d9e995d6a03d56a0107b869bafd6d475a7adf5d542e92fe0a2628c002d84",
+    "runs/no-clock-ndr/01-openroad-globalrouting/state_out.json": "23ce11a2721c47a6fc4be4a48c3764e250a7867a7392a6393c4003467f03f6b6",
+    "runs/no-clock-ndr/01-openroad-globalrouting/tt_um_khangelani_protocol_emulator.def": "0aaf114c019bce270b7c361c6f03acb7dcb7dbb61dea7653b519c4b5fd9776db",
+    "runs/no-clock-ndr/01-openroad-globalrouting/tt_um_khangelani_protocol_emulator.odb": "e32ee560556c8a4ed12c6e09041d4ecfa793afcab6218246a365b8714f0516a2",
+    "runs/no-clock-ndr/error.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runs/no-clock-ndr/flow.log": "da2077a8fcad2fa0d30c3a6b1c25b2accd1f45c76373a73464fa6ccd4d5df4d1",
+    "runs/no-clock-ndr/resolved.json": "54026873ff32352a711f5fce58a8b1b61e04dc1c7fd5623eb0cb47a1ebcd2bb3",
+    "runs/no-clock-ndr/warning.log": "b9ee804fe395dd8d263968a9a548e4c71452eb0410cffa818899eb178e4a9610",
+    "spec-at-start.md": "cd25f3109c54eb2fbbea4d752b5602ac5e3156541f58a0e2cafd8e6834c85daf"
+  },
+  "input_aliases": {
+    "before.def": "../attempt-1200s/before.def.gz",
+    "after.def": "../attempt-1200s/after.def.gz"
+  },
+  "copied_input_odb_sha256": "7305d6eb43419fec9151d7de974a863ae3f03fb3aa1a08d50d0f2c11f3f36e11",
+  "omitted_duplicate_views": "runs/no-clock-ndr/final duplicates the retained global-routing step"
+}

@@ -35,10 +35,13 @@ isolated ablation is declared in
 [the clock-routing diagnostic](../specs/g2-clock-routing-diagnostic.md).
 It preserves all placement and connections while removing those sixteen
 assignments on a copy. E0041 retains the first 1,200-second timeout at extra
-iteration 40/50, with no final congestion result. One separately declared
-2,400-second follow-up is running. This diagnostic cannot qualify a changed
-flow. A successful direction still needs a documented physical decision and
-fresh complete G2 acceptance with unchanged signoff limits.
+iteration 40/50, with no final congestion result. The separately declared
+2,400-second follow-up finishes in 867.548 seconds without GRT-0228, but has
+159,781 total overflow and 152.09% Metal3 usage. Its zero exit status follows
+the inherited congestion allowance, not an accepted layout. Stop this branch:
+removing clock spacing alone does not resolve the bottleneck. Investigate
+the pinned PDK's synchronous SRAM as a separate implementation, with an
+explicit loading/fetch contract and fresh complete G2 acceptance before adoption.
 
 The current-source verification profile, original routing failures, G1's
 compact10 qualification and separate owner-fluency status remain intact.

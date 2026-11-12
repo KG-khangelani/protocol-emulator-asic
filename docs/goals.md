@@ -152,7 +152,8 @@ pass. The later normal-command temporal proof reaches its 300-second wall
 limit; seven other stages pass, with no aggregate PASS. The 1,717-file replay
 preserves this distinction. A reproduced metadata-cache omission is fixed by
 running repository checks fresh; all 114 checks pass. Complete current-command
-CI and a physically successful implementation remain open.
+CI passes at 8488738/run43267588725; its original 1,532-file ZIP and 250 exact
+inputs are audited with all eight stages passing. Physical acceptance remains open.
 
 D41/E0040 retains a complete-store-equivalent banked read with passing
 reset and both simulators' port/mutation controls. Generic cells increase
@@ -160,8 +161,10 @@ reset and both simulators' port/mutation controls. Generic cells increase
 parent cost exactly and finds 5.20216% more area for the banked candidate; set
 it aside without routing. E0041 retains the clock-spacing diagnostic's first
 1,200-second timeout at iteration 40/50. Its separately declared 2,400-second
-follow-up changes the same sixteen assignments on a copied database. Final
-congestion and subsequent physical qualification remain open.
+follow-up changes the same sixteen assignments on a copied database and
+completes with 159,781 overflow / 152.09% Metal3 usage. Stop this branch and
+investigate the PDK's SRAM under an explicit loading/fetch contract. Subsequent
+functional/formal and physical qualification remain required before adoption.
 
 Completion checks:
 
