@@ -2,7 +2,9 @@
 
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M3-T01 mapped comparison of selected timed-GPIO P**. Active learning task: **M0-T01**,
+Active engineering goal: **G1 - current-rule physical qualification and the P/compact10 decision**,
+covering M3-T01/M3-T02/M5-T01. See [six execution goals](goals.md) and
+[D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 Latest engineering result: **D31/E0030 selects isolated timed post-action GPIO P**.
@@ -16,8 +18,12 @@ source hashes, all public records and measurements match local evidence.
 Local F refinement timeouts remain retained. Historical failures
 and newly allocated invalid encodings are explicit in
 [E0030](../evidence/E0030-timed-gpio-comparison/README.md).
-Next compare isolated P/compact10 in the same mapped CMOS5L conditions.
-Production and the historical compact sources remain unchanged.
+Before the matched CMOS5L comparison, reconcile the current 8x4 allocation
+with the checked-in 6x4 setup; [S1](sources.md) was rechecked on 2026-11-12.
+G1 requires a reviewed, pinned configuration, matched complete-chip mapping,
+and a routed pilot before a physical decision. Historical 6x4 evidence remains
+valid for its original sources and conditions. This goal setup changes no RTL,
+physical configuration or tool pins and provides no new hardware qualification.
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
@@ -401,16 +407,20 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Next executable actions
 
-- Engineering: investigate phase1 schedule compression/capacity without assuming
-  a minimum word count. D29/E0028 closes the held mode0/2 written-program proof
-  under its actual input-hold premise; retain that proof and its controls. E0027's contract
-  and finite reference/RTL checks are complete; no new physical or all-mode
-  claim follows. E0026's cover timeout/interruption remain inconclusive; do not
-  retry deep covers without a new method and frozen budget.
-  Broad verification for0eaa54c passed (run43102775206). E0027's expanded
-  SPI gate passes at a3bfcea (run43109088096); broader CI remains separate. Keep compiler work deferred and production RTL unchanged.
-  Refresh remote history before relying on a local handoff. Retain the no-RTL
-  faster-target alternative and E0020's failed broader response envelope.
+- Engineering (G1): audit the current official template against qualified flow
+  pins and freeze an 8x4 comparison specification. Update metadata, configuration,
+  consistency checks and the evaluation contract together when qualifying the
+  migration. Compare complete P/compact10 chips under the same conditions, then
+  run the selected candidate through an official physical pilot. Preserve E0030
+  source identity and all older failures; do not substitute generic counts for
+  mapped/routed evidence. Further packing is deferred pending this decision.
+- Next coverage goal (G2): specify the missing I2C contract/oracle while physical
+  jobs run, then qualify UART/SPI/I2C and public reload on one candidate. G3 adds
+  a small assembler; a larger compiler needs a demonstrated use case.
+- Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
+  readiness. G5's optional novelty experiment has a two-working-day budget and
+  is deferred if mandatory gates slip. Targets and completion checks are in
+  [goals](goals.md); no new release is required for this planning-only change.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer
@@ -423,8 +433,8 @@ candidate is reloadable through clock-synchronous public pins and has a local
 UART-transmit firmware candidate, a bounded last-byte RX experiment and the
 bounded host-serviced pair from E0019, integrated through PR8.
 Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; scoped mode0/2
-held-data transfers and phase/capacity comparisons are measured only in isolated
-experimental RTL;
+held-data transfers and the eight-word timed phase1 comparison are qualified
+only within their isolated experimental contracts;
 E0022 proves written executor properties/refinement under its stated assumptions;
 compiler, new physical closure, Fmax and fabricated-silicon claims remain
 absent. The original OpenKnowledge records

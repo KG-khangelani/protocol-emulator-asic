@@ -1,0 +1,174 @@
+# Goals to submission readiness
+
+Updated: 2026-11-12. Decision: [D32](decisions/0032-goals-to-submission-readiness.md).
+The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
+
+Build a useful, reprogrammable chip with evidence another person can reproduce.
+The immediate bottleneck is physical feasibility and shared-core protocol coverage.
+Further instruction compression is valuable only when it improves that outcome.
+
+## Priorities and planning targets
+
+Dates below are internal planning targets, not measured completion promises.
+The external deadline is 2027-01-18; aim to have the submission package ready on
+2027-01-11, leaving a week for corrections.
+
+| Goal | Outcome | State | Target | Existing work |
+|---|---|---|---|---|
+| G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **ACTIVE** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | QUEUED after G1; specify I2C while physical jobs run | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
+| G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
+| G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
+| G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
+
+```mermaid
+flowchart LR
+    G1["G1: Physical decision"] --> G2["G2: Shared-core protocols"]
+    G1 --> G3["G3: Usable toolchain"]
+    G2 --> G4["G4: Reproducible submission package"]
+    G3 --> G4
+    G2 -. bounded optional experiment .-> G5["G5: Novel capability"]
+    G5 -. include only if qualified .-> G4
+    G6["G6: Owner understanding"] -. alongside every milestone .-> G4
+```
+
+## G1 - Establish physical feasibility before more optimization
+
+The official November 9 update confirms 8x4 tiles. Our checked-in configuration
+and historical physical evidence use 6x4. See [S1](sources.md) for the current
+rule observation. A planning update does not qualify a changed flow.
+
+Completion checks:
+
+- [ ] Record a reviewed 8x4 configuration and immutable CMOS5L flow inputs;
+  update metadata, configuration, checks and the evaluation contract together.
+  Preserve the archived 6x4 source identities and results.
+- [ ] Compare the complete P and compact10 chips with the same library, corner,
+  flow, pin assumptions and 50 MHz target. Include their real loader, stores
+  and support logic; retain each variant's actual capacity.
+- [ ] Record mapped area, timing, storage cost and functional/formal compatibility.
+  Run an official routed pilot of the selected candidate with precheck and
+  appropriate gate-level public-pin tests. Report setup/hold, physical checks
+  and utilization; unresolved failures remain failures.
+- [ ] Publish a supported adopt/reject/revise decision with source hashes and
+  retained artifacts. A mapped saving alone is not a routed saving; route both
+  variants before claiming a routed cost comparison.
+
+A negative result still resolves the P decision, but physical feasibility stays
+open until a candidate passes its gate. If P loses its advantage, retain the
+simpler viable alternative. Revisit clock or capacity through a documented,
+matched comparison instead of silently relaxing a failing condition.
+
+**First executable action:** audit the current official template against the
+qualified pins; freeze an 8x4 comparison specification before running P/compact10.
+Do not rerun the archived M0 merely to report activity.
+
+## G2 - Prove useful protocols on the same programmable machine
+
+Completion checks:
+
+- [ ] Freeze the I2C controller contract and independent oracle before extending
+  the ISA. Cover 100 kHz operation, 7-bit addressing, write/read, repeated START,
+  ACK/NACK, open-drain release, clock stretching and bounded timeout.
+- [ ] Pass the [mandatory workload matrix](research/evaluation-contract.md) on
+  one candidate revision: pin traces, input wait, shifting, bounded loops,
+  public-pin reload, UART TX/RX, four-mode SPI and I2C.
+- [ ] Retain UART framing/phase/error and host-service boundaries. State which
+  received bytes are available and when; continuous autonomous delivery remains
+  unqualified until separately implemented and tested.
+- [ ] Check both SPI bit orders and all four modes with explicit input timing
+  assumptions. Preserve held-response successes and edge-only negative controls.
+  Do not advertise broad SPI compatibility from a narrower input contract.
+- [ ] Load the different protocol programs through public pins without changing
+  the RTL. Pass both simulators, relevant formal properties and meaningful
+  wrong-program/adversarial-input controls; retain seeds and counterexamples.
+- [ ] Promote the chosen candidate only with the combined regression and fresh
+  physical evidence for that revision. Earlier isolated or M0 results do not
+  qualify the promoted chip.
+
+A protocol that needs a new dedicated RTL path falsifies the current flexibility
+hypothesis. First test whether a general instruction or a stated scope change
+resolves it, with a measured cost and an explicit decision.
+
+## G3 - Make the chip practical to program
+
+Completion checks:
+
+- [ ] Provide a small assembler with readable instructions, symbols, capacity
+  checks, deterministic encoding and useful invalid-program diagnostics.
+- [ ] Emit a cycle/schedule listing that makes timing assumptions inspectable.
+- [ ] Provide documented load, readback and run steps, plus versioned UART, SPI
+  and I2C examples for the selected ISA.
+- [ ] From a clean clone, build the examples and reproduce their public-pin
+  traces using the pinned workbench and the independent oracle.
+
+Start with an assembler. Build a larger temporal IR/compiler only if a concrete
+programming problem justifies it. Compatibility changes need an ISA version and
+migration note, not silently changed example bytes.
+
+## G4 - Close and publish the final design
+
+Completion checks:
+
+- [ ] Freeze a candidate by January 4 and run the official 8x4 CMOS5L GDS flow,
+  timing checks, precheck and real netlist simulation for the final core.
+  Gate-level tests must exercise the actual public loading/protocol paths.
+- [ ] Reproduce the result from a clean checkout with pinned tools. Retain source
+  revisions, commands, timing/area reports, checksums and relevant failures.
+- [ ] Publish the final verified release and matching workbench package; verify
+  download checksums, image/source identity and public access. Update research
+  releases after qualified milestones; a planning-only change needs no release.
+- [ ] Prepare a readable architecture/ISA guide, examples, verification and
+  AI-use account, measured tradeoffs, external host/electrical assumptions and
+  unresolved limitations. Every positive claim points to evidence.
+- [ ] Recheck submission rules and assemble the ready-to-submit repository link
+  and supporting material by January 11.
+
+This goal ends at submission readiness. Actual competition submission, hardware
+spending and fabricated-silicon results remain separate owner decisions.
+If a required gate is still failing, report that gap and revise scope explicitly.
+
+## G5 - Reserve a bounded opportunity for a useful breakthrough
+
+Default experiment: use firmware alone to replay an irregular digital waveform
+or inject a controlled timing fault. This tests whether the same substrate is
+useful beyond the protocols used to design it.
+
+- [ ] Before running, choose one use case, a control program, expected pin trace,
+  measurement and a two-working-day total investigation budget.
+- [ ] Demonstrate it through public-pin-loaded programs with zero new RTL, an
+  independent trace check, and explicit timing/input limits.
+- [ ] Keep a successful example and explain its value; retain a failed result
+  and stop if the budget expires or mandatory closure slips.
+
+Only start after G2 passes. Decide by December 18; defer if prerequisites are
+late. This experiment is optional and does not delay G4. Storage macros or a
+different substrate become candidates only if measured area/timing identifies
+the corresponding bottleneck. USB/Ethernet, extra engines and further packing
+are deferred unless new evidence materially changes the plan.
+
+## G6 - Build independent understanding alongside the chip
+
+At each milestone, use the [learning loop](goal.md) and record only demonstrated
+fluency:
+
+- [ ] The owner can trace a program from source to pin events and distinguish a
+  simulation result, a formal claim, mapped area and routed timing.
+- [ ] The owner can rerun one relevant check, predict a small change, inspect the
+  outcome and explain a retained failure or assumption.
+- [ ] The owner can explain the chosen architecture, the rejected alternative,
+  its limits and the final release's provenance in plain language.
+
+Automation may prepare lessons and validate records. Only the owner's
+explanation and follow-up reasoning can satisfy these checks. Pending fluency
+does not stop engineering under [D8](decisions/0008-decouple-engineering-learning.md).
+
+## Keeping the goals honest
+
+Keep one active engineering goal. Within it, use one bounded experiment with a
+question, frozen conditions, success/failure criteria and retained artifacts.
+After each milestone or a material failure, update this file, [state](state.md),
+the [backlog](backlog.md) and the [research ledger](research-ledger.md).
+Reassess dates and priority when evidence changes; do not convert a missed gate
+into a pass. This plan itself supplies no new hardware qualification.

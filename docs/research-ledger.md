@@ -8,7 +8,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | ID | Fact | Evidence |
 |---|---|---|
 | F1 | Competition requires an open-source reprogrammable protocol emulator, deadline 18 Jan 2027 | S1, `sources.md` |
-| F2 | Current allocation is 6x4; 8x4 is only a possibility in the brief | S1 |
+| F2 | The November 9 rule update confirms 8x4; the checked-in 6x4 setup awaits G1 migration and qualification | S1 rechecked 2026-11-12, `sources.md`, D32; historical physical results keep their original conditions |
 | F3 | CMOS5L source snapshot was imported with matching blob identities | `upstream-template.json`, initial Git commit |
 | F4 | M0 can be placed and routed in the 6x4 CMOS5L allocation with positive reported slack at the 20 ns flow target and clean recorded physical checks | E0003, E0006, E0010 |
 | F5 | The first official gate-level job cannot elaborate because its source list omits the PDK file defining `ihp_dff_r` | E0003 |
@@ -78,6 +78,7 @@ express useful digital communication protocols under hard temporal constraints?*
 | D28 | Use delayed capture only under an explicit input hold contract; keep phase1 capacity open | decisions/0028-delayed-sampling-under-explicit-hold.md, E0027; a saved WAIT funds idle setup, but edge-only inputs reject the optimization; no ISA minimum or physical promotion |
 | D30 | Retain legal first-edge mode1 saving; measure general GPIO pre/post delay before storage expansion | decisions/0030-phase1-capacity-and-timed-gpio.md, E0029; nine/ten-word references, no eight-word candidate in bounded family; no ISA lower bound or RTL promotion |
 | D31 | Select timed SET/DRIVE post-delay P for the next mapped comparison; retain F proof limits and all compatibility changes | decisions/0031-timed-post-action-gpio.md, E0030 |
+| D32 | Prioritize current-rule physical feasibility, shared-core coverage, programming tools and reproducible submission; bound novelty and keep learning parallel | decisions/0032-goals-to-submission-readiness.md, goals.md; planning targets and completion checks, no new physical/fluency claim |
 
 ## Experimental results
 

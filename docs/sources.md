@@ -2,16 +2,17 @@
 
 Checked: 2026-09-25. Recheck changeable rules before a release/submission.
 
-S1 was rechecked on 2026-11-03 for the SPI comparison: the official brief still
-requires an open-source reprogrammable emulator, targets CMOS5L with 6x4 tiles,
-and names 18 January 2027 as the deadline. The possible 8x4 allocation remains
-conditional. This observation updates S1 only, not the other source snapshots.
+S1 rechecked: **2026-11-12**. The November 9 update confirms an **8x4**
+allocation and says the template's main branch targets CMOS5L. The deadline
+remains **18 January 2027**. This supersedes the November 3 observation of 6x4
+with a possible expansion. Other source snapshots are unchanged; G1/D32 will
+qualify the migration from the checked-in historical setup.
 
 | ID | Source | Use |
 |---|---|---|
 | S1 | https://blog.janestreet.com/protocol-emulator-asic-competition/ | Official scope, deadline, allocation and process |
 | S2 | https://www.tinytapeout.com/ | Project documentation |
-| S3 | https://github.com/TinyTapeout/ttihp-verilog-template/tree/cmos5l | Required starting template |
+| S3 | https://github.com/TinyTapeout/ttihp-verilog-template | Current template entry point named by S1; the original cmos5l-branch import remains pinned by S4 |
 | S4 | https://github.com/TinyTapeout/ttihp-verilog-template/commit/b86a2a781484bcab7ba522dc5de540086695a430 | Imported immutable revision |
 | S5 | https://www.tinytapeout.com/guides/local-hardening/ | General hardening guide; does not itself lock CMOS5L inputs |
 | S6 | https://developers.openai.com/codex/guides/agents-md | Repository instructions for Codex |
@@ -27,10 +28,11 @@ conditional. This observation updates S1 only, not the other source snapshots.
 | C3 | https://github.com/sjrai007/gp_pae/tree/621f4326131681d3d76320b83e9d14375961ce3a | Contemporary competition architecture self-report; not independently reproduced |
 | U1 | `source-pack.md` | User-provided project direction and historical OpenKnowledge references |
 
-Rule snapshot: open-source and programmable after fabrication; begin with UART,
-SPI and I2C. Use IHP CMOS5L and a 6x4 tile allocation. The brief mentions 8x4 as
-a potential expansion, not an available budget. Deadline is 18 January 2027.
-Stretch protocols do not take priority over the core verification gates.
+Current rule summary: a public reprogrammable design, CMOS5L, 8x4 tiles,
+passing Tiny Tapeout GDS/precheck, architecture/ISA documentation, programming
+tools, examples and a verification write-up. There is no prescribed clock
+frequency; our 50 MHz target is a project comparison condition. The remaining
+execution priorities and completion checks are project decisions in [D32](decisions/0032-goals-to-submission-readiness.md).
 
 The template's old inline tile-size comment is not used as a physical-area
 measurement. Physical reports will be the authority for usable area and fit.

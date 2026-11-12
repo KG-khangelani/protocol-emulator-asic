@@ -10,7 +10,7 @@ reprogrammable temporal machine. Its architecture is still a hypothesis.
 
 The project has an equal learning goal: by completion, its owner should be able
 to operate, question and defend the complete RTL-to-GDS workflow. Start with
-the [project goal](docs/goal.md) and the visual
+the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and the visual
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
@@ -28,10 +28,13 @@ is merged; its digital checks and limits are recorded in
 The isolated compact SPI candidate now has a formal proof for its eight-word
 mode0/2 programs, both bit orders and symbolic payloads under an explicit
 input-hold requirement ([E0028](evidence/E0028-held-program-induction/README.md)).
-A bounded capacity screen saves one word for mode1 (nine total); mode3 remains
-at ten in that family ([E0029](evidence/E0029-phase1-capacity-screen/README.md)).
-Neither fits the eight-word hardware yet. This experimental core has not replaced
-production RTL.
+The subsequent timed post-action GPIO P candidate fits modes1/3 into eight
+words and passes its scoped proof and public-pin comparison
+([E0030](evidence/E0030-timed-gpio-comparison/README.md)). It uses 3,146 generic
+cells/412 state bits against matched compact10's 3,589/477. This is not mapped
+area or physical timing evidence, and it has not replaced production RTL.
+[G1](docs/goals.md#g1---establish-physical-feasibility-before-more-optimization)
+now prioritizes current-rule physical qualification before more optimization.
 
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).
@@ -94,7 +97,7 @@ execution-policy change, global install or port-killing is involved.
 The checked-in dataset is regenerated with `npm run data` and checked against repository source
 by `npm run data:check`. No API key, device connection or telemetry is used.
 Browser verification uses pinned Playwright/Chromium; see [web/README.md](web/README.md).
-The app is not deployed to GitHub Pages and this branch is not merged.
+The app is integrated through PR9 and is not deployed to GitHub Pages.
 
 The supported Windows path needs Docker Desktop, PowerShell and Git; chip tools
 run inside the pinned Linux workbench:
@@ -137,6 +140,7 @@ for physical fit and timing; a local generic synthesis pass cannot replace it.
 |---|---|
 | `AGENTS.md` | Codex working rules and verification boundaries |
 | `docs/goal.md` | Equal technical and fluency outcomes |
+| `docs/goals.md` | Prioritized goals, completion checks and planning targets |
 | `docs/state.md`, `docs/backlog.md` | Persistent state and next executable tasks |
 | `docs/learning/` | Practical map, glossary, labs, checkpoints and conservative fluency status |
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |

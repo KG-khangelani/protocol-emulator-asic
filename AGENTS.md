@@ -9,7 +9,7 @@ and 10 Mbit Ethernet are stretch goals. The temporal VM is a hypothesis.
 
 ## Start every session
 
-1. Read `docs/state.md`, then the active task in `docs/backlog.md`.
+1. Read `docs/state.md`, the active goal in `docs/goals.md`, then its task in `docs/backlog.md`.
 2. Read the relevant specification under `docs/specs/` before changing RTL.
 3. Inspect `git status`; preserve unrelated work.
 4. Run `make doctor` and the checks needed for the change.
@@ -34,7 +34,9 @@ AI-generated explanations are not proofs. Failed or unavailable tools are not pa
 ## Implementation constraints
 
 - Preserve the official Tiny Tapeout interface and `src/config.json` unless a
-  documented, evidence-backed change is needed. `info.yaml` uses **6x4** tiles.
+  documented, evidence-backed change is needed. `info.yaml` still uses the
+  historical **6x4** baseline. G1/D32 requires a controlled migration to the
+  current **8x4** allocation; qualify metadata, checks and flow inputs together.
 - M0 is a deterministic GPIO counter, not a protocol VM. Close the physical-flow
   gate before broadening the architecture; draft M1 semantics separately.
 - Use synthesizable Verilog, explicit widths, nonblocking clocked assignments,

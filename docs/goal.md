@@ -16,6 +16,10 @@ The learning question is equally important:
 > Can every design claim be connected to a source file, an executable command,
 > an inspectable result, and a clear explanation of what was and was not proved?
 
+The ordered milestones, completion checks and planning targets are in
+[goals to submission readiness](goals.md). G1 is the active engineering goal;
+owner fluency remains a separate, parallel outcome under D8.
+
 ## Working contract
 
 Use this loop throughout the project:
