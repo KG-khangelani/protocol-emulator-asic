@@ -78,6 +78,7 @@ jobs:
           name: i2c-general-${{ matrix.gate }}-${{ github.sha }}
           path: |
             build/g2-ci/**/result.json
+            build/g2-ci/**/check.json
             build/g2-ci/**/source-manifest.json
             build/g2-ci/**/src/*.v
             build/g2-ci/**/records/**

@@ -42,8 +42,16 @@ as `od128-shared`. Its fresh complete-chip proof/reset base passes, and both
 simulators observe all three deliberate read-path faults against a passing
 baseline. Both simulators now pass all eighteen public groups with identical
 reference records. The retained 1,030-file replay, ten audit-corruption controls
-and physical staging preflight pass. Start its separate unchanged pinned 8x4
-physical trial; qualification, integration and publication remain pending.
+and physical staging preflight pass. All nine b774915 CI jobs pass and both
+shared-candidate original ZIPs are audited. Physical run43249867361 at 426cea1
+has passed source staging and is running under the unchanged pinned 8x4 flow.
+Physical qualification, integration and publication remain pending.
+
+An isolated production-integration probe passes 18 of the unchanged default
+22 groups; four fail on obsolete eight-word/encoding assumptions, with three
+direct-engine width warnings. E0038 retains that failed probe. Complete the
+current-profile integration gates in specs/g2-production-integration.md;
+production remains unchanged until the physical gate passes.
 
 The standard 869ee34 CI exposed a missing build-folder setup in a unit test.
 6ec83ae fixes it; all 106 checks pass in a fresh snapshot and replacement test

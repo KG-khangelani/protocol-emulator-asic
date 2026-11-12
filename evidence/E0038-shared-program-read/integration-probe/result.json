@@ -1,0 +1,40 @@
+{
+  "status": "FAILED_LEGACY_DEFAULT_INTEGRATION_PROBE",
+  "base_commit": "426cea1252eb2a1f38cf32eeacda710f16e61ca0",
+  "source_manifest": "E0038 od128-shared",
+  "purpose": "Identify obsolete default harness assumptions before any production promotion",
+  "production": "UNCHANGED",
+  "source_sha256": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "tests": 22,
+  "passes": 18,
+  "failed_tests": [
+    "invalid_length_never_releases_engine",
+    "loop_target_overflow_faults_without_alias",
+    "shift_invalid_partial_and_reset_fail_closed",
+    "spi_mode0_abort_reload_and_capacity_boundary"
+  ],
+  "retained": {
+    "run.log": {
+      "sha256": "2492010aa41bd6c71f685b518f4c7cb9f9a87afeb6625f797a79e0529910ff95",
+      "retained_file": "run.log.gz"
+    },
+    "results.xml": {
+      "sha256": "4b85d23f555a03b773071df881ac8d1ff8263bbb5e606cd389a4019149fdc7dc",
+      "retained_file": "results.xml.gz"
+    }
+  },
+  "harness_sha256": {
+    "test/Makefile": "986a229bf4351bb45cb0fb91a02ccb97ed5a5ae08e891cf14b7ab5e291fe7ba8",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "test/test_spi_mode0_public.py": "09d58c11ffcfa2de0c76e8a0ac26d188a26fc940b5a96aeebd1f3561644c9707"
+  },
+  "interpretation": "Four obsolete rejection/capacity assumptions and three direct-engine width warnings. D39 full public qualification is separate; this failed default integration probe is not a hardware pass."
+}

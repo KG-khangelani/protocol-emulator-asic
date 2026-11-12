@@ -116,8 +116,9 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** run D39's now-qualified RTL through its separate
-physical trial while measuring the running D38 implementation.
+**Next executable action:** follow D39's physical run43249867361 and D38's
+run43241097269, and prepare the source-matched production verification profile
+using the retained integration probe and integration specification.
 Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
 generic savings are not physical results. Preserve G1's pilot, the original
 od128 routing failure and literal capacity rejection. Integration and
@@ -134,7 +135,10 @@ the physical gate remains. D39/E0038 reproduces that source; fresh whole-chip
 proof/reset and all three read-path mutation controls pass in both simulators.
 Both simulators pass all eighteen public groups with identical reference
 records; retained replay, ten audit-corruption controls and staging preflight
-pass. Proceed with its separate pinned physical trial.
+pass. All nine b774915 CI jobs pass and both new-candidate ZIPs are audited.
+Physical run43249867361 at 426cea1 passed staging and is running. The isolated
+default-integration probe exposes four obsolete test expectations; those must
+be handled explicitly before production promotion and publication.
 
 Completion checks:
 

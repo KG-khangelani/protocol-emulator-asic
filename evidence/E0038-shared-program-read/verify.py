@@ -116,7 +116,7 @@ def audit_controls(path, sources):
     return {'public_simulators': ['icarus', 'verilator'], 'baseline_passes': 2, 'checked_mutant_counterexamples': 6}
 
 
-def audit_selection(path, sources, output):
+def audit_selection(path, sources, output, *, require_sidecar=True):
     result = read(path / 'result.json')
     assert result['status'] == 'PASS_G2_PHYSICAL_SELECTION_ON_BOTH_RTL_SIMULATORS' and result['sources'] == sources
     assert [s['simulator'] for s in result['stages']] == ['icarus', 'verilator']
@@ -129,7 +129,11 @@ def audit_selection(path, sources, output):
         checked = output / (simulator + '-public.json')
         physical.check_tests(SimpleNamespace(junit=subdir / 'results.xml', records=subdir / 'records',
                                             output=checked, require_netlist=False))
-        assert read(checked) == stage['check'] == read(subdir / 'check.json')
+        assert read(checked) == stage['check']
+        # Original b774915 CI archives omitted this redundant sidecar. The
+        # actual JUnit/records and the identical embedded check remain required.
+        if require_sidecar or (subdir / 'check.json').exists():
+            assert read(checked) == read(subdir / 'check.json')
         checks[simulator] = {'public_test_groups': 18, 'records': stage['check']['records'],
                             'junit_sha256': sha((subdir / 'results.xml').read_bytes())}
     return checks

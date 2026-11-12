@@ -44,3 +44,29 @@ archive. Reproduce the two CI gates in the locked workbench using
 Replay retained evidence using `python evidence/E0038-shared-program-read/verify.py
 --output build/new-replay-directory`.
 Physical qualification, production integration and publication remain pending.
+
+All nine jobs in CI run43247666313 at b774915 pass. Both new-candidate original
+ZIPs are retained and audited under `ci/b774915/`: shared-selection artifact
+13957869487 (SHA256 `bf76f18a51023cf14c594e35343113acb9fe6841b6623d9232e4a3bb33d77423`)
+and shared-proof-controls artifact13957787581 (SHA256
+`6072adda71533d21101c1b8be3405c387d76840bab265c87dfa32a981ccf225e`).
+Every extracted byte matches its original ZIP. Actual proof models, reset
+assertions, source mutations, public observations and both full protocol
+selections replay. The ten audit corruptions are also replayed on the CI data.
+The seven older gates' success statuses are observed, not re-audited here.
+
+The initial CI audit stopped because the upload omitted duplicate `check.json`
+sidecars. Original JUnit and all protocol records were present, and fresh
+checks match both embedded `result.json` checks exactly. The audit explicitly
+allows that historical omission while local replay still requires its sidecars;
+future CI uploads include these files. No raw evidence was substituted.
+
+Fresh physical run43249867361 at 426cea1 passed source staging and is running
+under the unchanged pinned 8x4 flow. `physical/run.json` and `jobs.json` are a
+live observation, not final qualification. D38's earlier run remains separate.
+
+The isolated production-integration probe under `integration-probe/` records
+four failures in the unchanged default 22-group suite and three direct-engine
+width warnings. These identify old eight-word/encoding assumptions; the other
+18 groups pass. Preserve the failed result and complete the profile-aware
+integration gates in `docs/specs/g2-production-integration.md` before promotion.
