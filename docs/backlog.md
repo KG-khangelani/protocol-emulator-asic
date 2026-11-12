@@ -119,6 +119,10 @@ The 60.813-second native LVS diagnostic and 137-file replay pass, with all
 also passes. The corrected GDS passes the complete KLayout rule-deck
 diagnostic and both retained audits: 332 report categories, zero violations.
 Magic DRC and the complete official run43320295442 remain open.
+D46 explains all 32 isolated-macro contact findings and tests a precise
+two-file rule correction against the pinned references. The complete macro,
+48 boundary cases and 111-file native replay pass. Complete the matched
+whole-chip diagnostics before enabling the portable setup for a new full run.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

@@ -106,3 +106,11 @@ on corrected trial 05 GDS in 550.779 seconds. Its native report has 332 rule
 categories and zero violations; both retained audits pass. The physical image's
 KLayout 0.30.12 result is independent of the complete official precheck and
 does not replace Magic DRC or the remaining qualification gates.
+
+The [contact-rule diagnosis](contact-rules/README.md) explains all 32 remaining
+isolated-SRAM Magic findings with actual geometry and pinned reference limits.
+An explicit two-file correction clears the complete macro; 48 boundary cases
+and the 111-file native replay pass, including wrong-reference rejection.
+The foundry PDF's SRAM section remains unfinished; its 6 nm value comes from
+the pinned KLayout deck. D46's complete-layout diagnostics and fresh official
+qualification remain open.

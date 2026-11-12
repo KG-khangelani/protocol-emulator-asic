@@ -176,6 +176,17 @@ verify the original precheck command, exact GDS, report and pinned rule hashes.
 This uses the physical image's KLayout 0.30.12; the full official precheck
 environment, its other nine checks and Magic DRC remain separate gates.
 
+D46 diagnoses all 32 isolated-macro Magic contact findings against actual
+GDS geometry. The pinned references permit the twelve 60 nm DigiBnd and
+twenty 10 nm SRAM enclosures; Magic's corresponding limits disagree.
+The foundry PDF supplies the DigiBnd rule but leaves SRAM unfinished; the
+SRAM value comes from the pinned KLayout deck. An explicit two-file correction
+clears the complete macro in 450.990 seconds. All 48 boundary cases and the
+111-file native replay pass, including unchanged other-stage behavior and
+wrong-reference rejection. The first off-grid expectation and preparation
+failures remain retained. Complete-layout diagnostics are running; the
+experimental helpers are not yet enabled in official qualification.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

@@ -138,6 +138,10 @@ The bounded native LVS diagnostic and its 137-file replay pass: 4,717 nets,
 The corrected GDS also passes the complete KLayout rule-deck diagnostic,
 with 332 report categories and zero violations; both retained audits pass.
 Magic DRC and the complete official run43320295442 at 2be7f5d remain open.
+D46's scoped contact-rule correction now clears all 32 isolated-macro
+findings. Actual geometry, 48 boundary cases and the 111-file native replay
+pass; both full-layout diagnostics and fresh complete qualification remain
+required. The helpers are experimental and production is unchanged.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact

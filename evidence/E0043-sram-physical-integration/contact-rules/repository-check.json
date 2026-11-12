@@ -1,0 +1,24 @@
+{
+  "status": "PASS_DOCTOR_AND_REPOSITORY_CHECKS",
+  "tests": 116,
+  "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "configured_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-12T23:42:14.162270411Z",
+    "FinishedAt": "2026-11-12T23:43:23.227471417Z"
+  },
+  "command": [
+    "make",
+    "doctor",
+    "check"
+  ]
+}

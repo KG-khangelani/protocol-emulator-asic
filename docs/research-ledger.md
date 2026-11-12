@@ -155,6 +155,8 @@ express useful digital communication protocols under hard temporal constraints?*
 
 | E0044 | Bind normal verification to the exact SRAM source and vendor models | The 2,154-file preparation replay preserves current passes and the local historical timeout. Complete CI at 13660ac/run43309369604 passes all eight stages, both 30-group suites, eleven current formal stages, the ten-task historical baseline and two fresh 116-check executions. Original 1,928-file ZIP, 295 exact inputs and producing runtime pass audit and retained Linux replay | Preparation failures and local timeout remain retained. The first Windows audit rejects one derived VCD's newline rewrite; the original ZIP and passing Linux replay preserve all hashes. The current inspector now preserves bytes on both platforms; the real-witness comparison and old-code failure control pass. Physical qualification, adoption and publication remain open. ../evidence/E0044-sram-current-verification/README.md |
 
+| E0043-contact | Pinned SRAM contact-rule disagreement | All 32 original locations measured: twelve 60 nm DigiBnd and twenty 10 nm SRAM enclosures. The explicit two-file correction clears the complete macro; 48 boundary cases and 111-file native replay pass | The PDF supplies DigiBnd but leaves SRAM unfinished; SRAM uses the pinned KLayout reference. Failed preparation and off-grid expectation retained. Full-layout, official precheck, submitted-netlist and production gates remain open. ../evidence/E0043-sram-physical-integration/contact-rules/README.md |
+
 ## Open questions
 
 - Q1: What timing quantum and external-input latency meet useful protocol rates?

@@ -1,0 +1,10 @@
+{
+  "status": "PASS_RETAINED_CONTACT_RULE_DIAGNOSIS",
+  "files": 111,
+  "original_macro_violations": 32,
+  "aligned_macro_violations": 0,
+  "contact_cases": 48,
+  "all_original_markers_measured": 32,
+  "native_replay": "NOT_REPEATED",
+  "full_physical_qualification": "OPEN"
+}
