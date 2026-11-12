@@ -12,6 +12,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from build_variants import ROOT, FILES, once
+from legacy_baseline import baseline_inputs
 from run_formal import digest
 from run_program_invariants import prepare
 
@@ -221,7 +222,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated build/ output directory required")
     out.mkdir(parents=True)
-    inputs = [ROOT/"src"/name for name in FILES]
+    inputs = baseline_inputs()
     inputs += [ROOT/"experiments/spi_phase"/name for name in
                ("build_variants.py", "run_formal.py", "run_integration.py",
                 "run_program_invariants.py", "run_program_sensitivity.py", "pin_timing.py")]

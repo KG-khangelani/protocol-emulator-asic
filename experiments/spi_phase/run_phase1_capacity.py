@@ -9,6 +9,7 @@ import sys
 from time import monotonic
 import xml.etree.ElementTree as ET
 from build_variants import ROOT, FILES, build
+from legacy_baseline import baseline_inputs
 from run_formal import digest
 from run_program_sensitivity import execute
 sys.path.insert(0,str(ROOT))
@@ -87,7 +88,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated build/ output directory required")
     out.mkdir(parents=True)
-    paths=[ROOT/"src"/n for n in FILES]
+    paths=baseline_inputs()
     paths += [ROOT/p for p in (
         "experiments/spi_phase/build_variants.py","experiments/spi_phase/run_formal.py",
         "experiments/spi_phase/run_program_sensitivity.py",

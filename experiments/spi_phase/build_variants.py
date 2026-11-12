@@ -10,9 +10,9 @@ import difflib
 import hashlib
 import json
 from pathlib import Path
+from legacy_baseline import FILES, baseline_sources
 
 ROOT = Path(__file__).resolve().parents[2]
-FILES = ("project.v", "m1_engine.v", "m1_program_store.v", "m1_data_store.v", "m1_input_sync.v")
 
 
 def once(text, old, new):
@@ -235,14 +235,7 @@ def build(output):
     output = Path(output).resolve()
     if not output.is_relative_to((ROOT / "build").resolve()):
         raise ValueError("experimental output must remain under ignored build/")
-    record = json.loads((ROOT / "evidence/E0020-spi-mode0-feasibility/result.json").read_text())
-    original = {}
-    for name in FILES:
-        path = ROOT / "src" / name
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
-        if digest != record["unchanged_source_sha256"]["src/" + name]:
-            raise ValueError(f"production baseline drift: {name}")
-        original[name] = path.read_text()
+    original = baseline_sources()
     result = {}
     for variant in ("baseline", "compact", "banked"):
         directory = output / variant / "src"
@@ -258,7 +251,7 @@ def build(output):
             (directory / name).write_bytes(source.encode())
             hashes[name] = hashlib.sha256(source.encode()).hexdigest()
             patch.extend(difflib.unified_diff(original[name].splitlines(True), source.splitlines(True),
-                                             fromfile="src/" + name, tofile=variant + "/" + name))
+                                             fromfile="experiments/spi_phase/baseline/" + name, tofile=variant + "/" + name))
         (directory.parent / "source.patch").write_bytes("".join(patch).encode())
         result[variant] = {"directory": str(directory), "source_sha256": hashes}
     (output / "source-manifest.json").write_bytes((json.dumps(result, indent=2) + "\n").encode())

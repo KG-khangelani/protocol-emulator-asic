@@ -13,6 +13,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from build_variants import ROOT, FILES, build, once
+from legacy_baseline import baseline_inputs
 from run_formal import PORTS, DERIVED, INPUTS, digest, instrument, vector
 
 
@@ -103,7 +104,7 @@ def main():
         raise ValueError('new isolated build/ output required')
     sources=prepare(output)
     paths=list((ROOT/'experiments/spi_phase').glob('*.py'))+list((ROOT/'experiments/spi_phase/formal').glob('*'))
-    paths += [ROOT/'src'/n for n in FILES]+[ROOT/'docs/specs/spi-phase-integration.md']
+    paths += baseline_inputs()+[ROOT/'docs/specs/spi-phase-integration.md']
     paths += [ROOT/'test'/n for n in ('Makefile','tb.v','test.py','test_uart_rx_public.py',
                                     'test_spi_mode0_public.py','test_phase_integration_public.py')]
     hashes={str(x.relative_to(ROOT)):digest(x) for x in paths if x.is_file()}

@@ -8,6 +8,7 @@ from pathlib import Path
 import sys
 import xml.etree.ElementTree as ET
 from build_variants import ROOT,FILES
+from legacy_baseline import baseline_inputs
 from build_timed_gpio import build
 from run_formal import digest
 from run_program_sensitivity import execute
@@ -23,7 +24,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated build directory required")
     out.mkdir(parents=True)
-    paths=[ROOT/"src"/n for n in FILES]+[ROOT/p for p in (
+    paths=baseline_inputs()+[ROOT/p for p in (
         "experiments/spi_phase/build_timed_gpio.py","experiments/spi_phase/timed_gpio_programs.py",
         "experiments/spi_phase/run_timed_gpio.py","experiments/spi_phase/build_variants.py",
         "experiments/spi_phase/phase_programs.py","experiments/spi_phase/four_mode_programs.py",

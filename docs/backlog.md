@@ -31,6 +31,9 @@ both simulators at e2ff52e. literal255 fails pinned 8x4 placement at 111.564%
 adjusted utilization; od128's physical run remains in progress. Audit the new
 CI store gate, then finish physical qualification and integration. Production
 remains unchanged.
+Historical builders now use an explicit E0020 source archive; guarded
+regeneration reproduces every prior candidate without reading production RTL.
+This prepares integration without promoting an unqualified design.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task

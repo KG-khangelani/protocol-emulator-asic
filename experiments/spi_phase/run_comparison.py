@@ -14,6 +14,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from build_variants import ROOT, FILES, build
+from legacy_baseline import baseline_inputs
 
 TOP = "tt_um_khangelani_protocol_emulator"
 
@@ -55,6 +56,7 @@ def main():
         ROOT / "test/test_uart_rx_public.py", ROOT / "test/test_spi_mode0_public.py",
         ROOT / "test/test_spi_phase_comparison.py",
         ROOT / "tools/spi_mode0_oracle.py", ROOT / "docs/specs/spi-phase-comparison.md"]
+    inputs += baseline_inputs()
     input_hashes = {str(p.relative_to(ROOT)): sha(p) for p in inputs}
     result = {"status": "RUNNING", "rung": "EXPERIMENTAL_RTL_GENERIC_SYNTHESIS",
               "output": str(output), "production_sha256": before, "stages": [],

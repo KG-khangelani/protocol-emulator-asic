@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "experiments/spi_phase"))
 from experiments.i2c.build_general import build
 from build_variants import FILES
+from legacy_baseline import baseline_inputs
 
 
 def digest(path):
@@ -32,7 +33,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("a new build directory is required; preserve previous attempts")
     out.mkdir(parents=True)
-    paths = [ROOT/"src"/n for n in FILES] + [ROOT/p for p in (
+    paths = baseline_inputs() + [ROOT/p for p in (
         "experiments/i2c/public_bus.py", "experiments/i2c/run_general.py",
         "experiments/i2c/build_general.py", "experiments/i2c/general_programs.py",
         "experiments/i2c/baseline_programs.py", "experiments/spi_phase/phase_programs.py",

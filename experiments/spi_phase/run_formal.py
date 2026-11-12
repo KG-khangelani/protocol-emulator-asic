@@ -12,6 +12,7 @@ import subprocess
 import time
 
 from build_variants import ROOT, build, once
+from legacy_baseline import BASELINE, baseline_inputs
 
 PORTS = {
     "pc": 5, "state": 2, "wait_left": 16, "gpio_value": 8, "gpio_oe": 8,
@@ -72,7 +73,7 @@ def prepare(output):
     proof.mkdir()
     engine = instrument(candidate)
     (proof / "phase_engine.v").write_text(engine)
-    original = (ROOT / "src/m1_engine.v").read_text()
+    original = (BASELINE / "m1_engine.v").read_text()
     (proof / "legacy_engine.v").write_text(once(original, "module m1_engine (", "module legacy_engine ("))
     patch = difflib.unified_diff(candidate.splitlines(True), engine.splitlines(True),
                                  fromfile="compact/m1_engine.v", tofile="formal/phase_engine.v")
@@ -116,7 +117,7 @@ def main():
         raise ValueError("new isolated output under build/ required")
     sources = prepare(output)
     inputs = list((ROOT / "experiments/spi_phase").glob("*.py")) + list((ROOT / "experiments/spi_phase/formal").glob("*.sv"))
-    inputs += [ROOT / "docs/specs/spi-phase-formal.md", ROOT / "docs/specs/spi-phase-comparison.md", ROOT / "src/m1_engine.v"]
+    inputs += [ROOT / "docs/specs/spi-phase-formal.md", ROOT / "docs/specs/spi-phase-comparison.md"] + baseline_inputs()
     hashes = {str(p.relative_to(ROOT)): digest(p) for p in inputs}
     generated = {str(p.relative_to(output)): digest(p) for p in (output / "inputs").iterdir()}
     record = {"status": "RUNNING", "rung": "EXPERIMENTAL_EXECUTOR_FORMAL", "input_sha256": hashes,

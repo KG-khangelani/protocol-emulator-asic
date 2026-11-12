@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 from build_variants import ROOT, FILES, phase_engine, banked_store, banked_top, once
+from legacy_baseline import baseline_sources
 
 def timed_engine(compact, variant):
     if variant not in ("P", "F"):
@@ -87,10 +88,7 @@ def build(output):
     output = Path(output).resolve()
     if not output.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("isolated build/ output required")
-    expected = json.loads((ROOT/"evidence/E0020-spi-mode0-feasibility/result.json").read_text())["unchanged_source_sha256"]
-    original = {name:(ROOT/"src"/name).read_text(encoding="utf-8") for name in FILES}
-    for name in FILES:
-        assert hashlib.sha256((ROOT/"src"/name).read_bytes()).hexdigest() == expected["src/"+name]
+    original = baseline_sources()
     compact = phase_engine(original["m1_engine.v"], True)
     assert hashlib.sha256(compact.encode()).hexdigest() == "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0"
     manifests = {}
@@ -107,7 +105,7 @@ def build(output):
             (directory/name).write_bytes(source.encode())
             hashes[name] = hashlib.sha256(source.encode()).hexdigest()
             patch.extend(difflib.unified_diff(original[name].splitlines(True), source.splitlines(True),
-                                             fromfile="src/"+name, tofile=variant+"/"+name))
+                                             fromfile="experiments/spi_phase/baseline/"+name, tofile=variant+"/"+name))
         (directory.parent/"source.patch").write_text("".join(patch), encoding="utf-8", newline="\n")
         manifests[variant] = {"directory":str(directory), "source_sha256":hashes}
     (output/"source-manifest.json").write_text(json.dumps(manifests,indent=2)+"\n")

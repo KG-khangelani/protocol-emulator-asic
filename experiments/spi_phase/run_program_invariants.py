@@ -8,6 +8,7 @@ import re
 import subprocess
 import time
 from build_variants import ROOT,FILES,build,once
+from legacy_baseline import baseline_inputs
 from run_formal import PORTS,digest,instrument
 from run_integration import readouts
 
@@ -85,7 +86,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/'build').resolve()): raise ValueError('new isolated build/ directory required')
     sources=prepare(out)
     paths=list((ROOT/'experiments/spi_phase').glob('*.py'))+list((ROOT/'experiments/spi_phase/pins').glob('*'))
-    paths += [ROOT/'src'/n for n in FILES]+[ROOT/'docs/specs/spi-program-invariant-attempt.md']
+    paths += baseline_inputs()+[ROOT/'docs/specs/spi-program-invariant-attempt.md']
     hashes={str(p.relative_to(ROOT)):digest(p) for p in paths if p.is_file()}
     result={'status':'RUNNING','scope':'ACTUAL_PUBLIC_LOADED_EIGHT_WORD_PROGRAM','sources':sources,'input_sha256':hashes,
         'generated_sha256':{p.name:digest(p) for p in (out/'inputs').iterdir()},'proof_budget':{'mode':'prove','depth':12,'wall_seconds':180,'attempts':1},

@@ -12,6 +12,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from build_variants import ROOT,FILES,build
+from legacy_baseline import baseline_inputs
 from run_formal import digest
 
 
@@ -29,7 +30,7 @@ def main():
         (inputs/name).write_bytes((ROOT/'experiments/spi_phase/pins'/name).read_bytes())
     (inputs/'m1_input_sync.v').write_bytes((out/'variants/compact/src/m1_input_sync.v').read_bytes())
     paths=list((ROOT/'experiments/spi_phase').glob('*.py'))+list((ROOT/'experiments/spi_phase/pins').glob('*.sv'))
-    paths += [ROOT/'src'/n for n in FILES]
+    paths += baseline_inputs()
     paths += [ROOT/'test'/n for n in ('Makefile','tb.v','test.py','test_spi_mode0_pins.py')]
     paths += [ROOT/'Makefile',ROOT/'tools/m1_contract_model.py',ROOT/'docs/specs/spi-mode0-pin-qualification.md']
     hashes={str(p.relative_to(ROOT)):digest(p) for p in paths}

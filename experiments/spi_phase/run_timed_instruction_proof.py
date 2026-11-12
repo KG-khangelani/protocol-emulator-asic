@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 from build_variants import ROOT,FILES,once
+from legacy_baseline import baseline_inputs
 from build_timed_gpio import build
 from run_formal import PORTS,DERIVED,INPUTS,digest,instrument,vector
 from run_integration import readouts
@@ -102,7 +103,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument("--output",type=Path,required=True);p.add_argument("--variant",choices=("P","F"),required=True)
     args=p.parse_args();out=args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):raise ValueError("new isolated build output required")
-    paths=[ROOT/"src"/n for n in FILES]+[ROOT/"experiments/spi_phase"/n for n in ("build_timed_gpio.py","build_variants.py","run_formal.py","run_integration.py","run_program_sensitivity.py","run_timed_instruction_proof.py","formal/timed_properties.sv","formal/timed_gpio_properties.vh","formal/timed_refinement.sv")]+[ROOT/"docs/specs/spi-timed-gpio-comparison.md"]
+    paths=baseline_inputs()+[ROOT/"experiments/spi_phase"/n for n in ("build_timed_gpio.py","build_variants.py","run_formal.py","run_integration.py","run_program_sensitivity.py","run_timed_instruction_proof.py","formal/timed_properties.sv","formal/timed_gpio_properties.vh","formal/timed_refinement.sv")]+[ROOT/"docs/specs/spi-timed-gpio-comparison.md"]
     hashes={p.relative_to(ROOT).as_posix():digest(p) for p in paths}
     result={"status":"RUNNING","variant":args.variant,"started_utc":datetime.now(timezone.utc).isoformat(),
             "input_sha256":hashes,"sources":prepare(out,args.variant),"tasks":[],

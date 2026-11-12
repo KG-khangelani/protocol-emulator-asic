@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import re
 from build_variants import ROOT,FILES
+from legacy_baseline import baseline_inputs
 from run_formal import digest
 from run_program_sensitivity import execute
 from run_timed_instruction_proof import prepare
@@ -20,7 +21,7 @@ def main():
     args=p.parse_args();out=args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):raise ValueError("new isolated build output required")
     sources=prepare(out,args.variant);inputs=out/"inputs"
-    paths=[ROOT/"src"/n for n in FILES]+[ROOT/"experiments/spi_phase"/n for n in (
+    paths=baseline_inputs()+[ROOT/"experiments/spi_phase"/n for n in (
         "build_timed_gpio.py","build_variants.py","run_formal.py","run_integration.py",
         "run_program_sensitivity.py","run_timed_instruction_proof.py","run_timed_refinement.py",
         "formal/timed_properties.sv","formal/timed_gpio_properties.vh","formal/timed_refinement.sv")]

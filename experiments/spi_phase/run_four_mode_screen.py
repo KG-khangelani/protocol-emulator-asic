@@ -14,6 +14,7 @@ sys.path.insert(0,str(ROOT))
 from experiments.spi_phase.four_mode_programs import image,execute_reference,describe
 from tools.spi_four_mode_oracle import timing,raw_at,assess
 from build_variants import build,FILES
+from legacy_baseline import baseline_inputs
 from run_program_sensitivity import execute
 
 
@@ -55,7 +56,7 @@ def main():
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated build/ output required")
     out.mkdir(parents=True)
-    paths=[ROOT/"src"/n for n in FILES]
+    paths=baseline_inputs()
     paths += [ROOT/p for p in (
         "tools/spi_four_mode_oracle.py","tools/m1_contract_model.py","tools/spi_mode0_oracle.py",
         "tools/spi_phase_reference.py","experiments/spi_phase/phase_programs.py",

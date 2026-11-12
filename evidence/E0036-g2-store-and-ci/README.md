@@ -96,3 +96,19 @@ implementation; it provides no routed comparison or timing qualification.
 is still building at this checkpoint. Every frozen physical, precheck and
 netlist gate remains required. G2 stays active through physical qualification,
 production integration and publication; G1 and owner-fluency boundaries remain.
+
+## Preparation for production integration
+
+Historical generators now read the five explicitly archived E0020 source files
+in `experiments/spi_phase/baseline/`. Every build verifies them against E0020's
+original hashes and source commit. Experimental input manifests name these
+actual inputs; the ordinary production source list remains unchanged.
+
+[Baseline verification](frozen-baseline/verification.json) regenerates all three
+phase variants, four timed variants, both G2 candidates and the legacy formal
+inputs while an active file-open guard forbids reading production `src/`.
+All generated chip hashes match the earlier builders/results. An altered
+archived store is rejected. The first verification script incorrectly compared
+the old banked phase design with compact10; that reference mistake is retained,
+then corrected by checking the exact prior builder at d3c340f. No RTL change or
+fresh protocol qualification follows from moving the historical inputs.

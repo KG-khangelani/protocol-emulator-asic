@@ -16,7 +16,9 @@ The exact eighteen-group physical selection passes both RTL simulators at
 e2ff52e. Under the unchanged pinned 8x4 flow, literal255 fails placement with
 111.564% adjusted utilization; od128's physical run remains in progress.
 Physical qualification, integration and publication remain open; production
-is unchanged.
+is unchanged. Historical experiment generators now use a hash-checked E0020
+archive, preserving every existing candidate's source bytes before production
+integration. This input relocation changes no chip behavior.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

@@ -8,6 +8,7 @@ import re
 import sys
 
 from build_variants import ROOT, FILES, once
+from legacy_baseline import baseline_inputs
 from build_timed_gpio import timed_engine
 from run_integration import readouts
 from run_formal import digest
@@ -220,7 +221,7 @@ def main():
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated build/ output directory required")
-    paths = [ROOT/"src"/n for n in FILES]
+    paths = baseline_inputs()
     paths += [ROOT/"experiments/spi_phase"/n for n in (
         "build_variants.py", "run_formal.py", "run_integration.py", "run_program_invariants.py",
         "run_program_sensitivity.py", "run_timed_program_proof.py", "build_timed_gpio.py", "timed_gpio_programs.py", "four_mode_programs.py",
