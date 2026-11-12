@@ -28,7 +28,10 @@ is merged; its digital checks and limits are recorded in
 The isolated compact SPI candidate now has a formal proof for its eight-word
 mode0/2 programs, both bit orders and symbolic payloads under an explicit
 input-hold requirement ([E0028](evidence/E0028-held-program-induction/README.md)).
-Modes1/3 remain open, and this experimental core has not replaced production RTL.
+A bounded capacity screen saves one word for mode1 (nine total); mode3 remains
+at ten in that family ([E0029](evidence/E0029-phase1-capacity-screen/README.md)).
+Neither fits the eight-word hardware yet. This experimental core has not replaced
+production RTL.
 
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).

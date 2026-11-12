@@ -40,10 +40,10 @@ or documentation commits do not create a milestone release.
 
 The workflow validates the tag, runs `workbench.sh All` (tool versions, model
 checks, lint, both RTL simulators, formal checks and synthesis), and reruns the
-program-sensitivity and four-mode SPI screens plus the held-program proof
-and its counterexamples for releases. Publication stops on
+program-sensitivity and four-mode SPI screens, the held-program proof and
+its counterexamples, and the phase1 capacity/rejection screen for releases. Publication stops on
 a failed check. Release assets include the lock, manifest, checksums and scoped
-SPI results (including the held-program proof); source archives and the checked-in evidence come from the tag.
+SPI results (including the held-program proof and phase1 capacity screen); source archives and the checked-in evidence come from the tag.
 The separate full experimental CI and official CMOS5L flows retain their own
 evidence boundaries.
 

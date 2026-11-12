@@ -2,17 +2,19 @@
 
 Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
-Active engineering task: **M3-T01 phase1 SPI schedule/capacity research**. Active learning task: **M0-T01**,
+Active engineering task: **M3-T01 general timed GPIO ablation after phase1 capacity screen**. Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
-Latest engineering result: **D29/E0028 held mode0/2 program induction PASS**.
-The actual public-loaded eight-word images are proved for symbolic TX/RX,
-both bit orders and CPOL under the explicit input-hold band. Twelve finite
-preflights and both reachable negative controls pass locally and in clean
-implementation3254d25 SPI CI (run43120985742); artifact/source/trace hashes
-are verified. Production/candidate RTL
-remain unchanged; modes1/3 and new physical qualification remain open. See
-[E0028](../evidence/E0028-held-program-induction/README.md).
+Latest engineering result: **D30/E0029 bounded phase1 capacity screen PASS**.
+Mode1 saves one word (nine); mode3 remains at ten in the declared family.
+No seven/eight-word schedule passed6,920 candidates. The3,072 positive paired-byte
+cases are model-only; both simulators reject108 shortened programs and four
+oversized commits each, with identical records/traces. No ISA minimum is proved.
+Production/candidate RTL remain unchanged. E0028's held mode0/2 induction and
+checked counterexamples remain qualified at3254d25/run43120985742.
+See [E0029](../evidence/E0029-phase1-capacity-screen/README.md).
+Next measure a general GPIO update with pre/post delay before expanding storage;
+its proposed eight-word phase1 schedule remains an unimplemented hypothesis.
 
 Publication maintenance: [versioned research releases and the verification workbench
 package](releases.md) are built by `.github/workflows/publish.yaml`. Workbench
@@ -20,7 +22,8 @@ updates publish after the locked verification ladder; version tags additionally
 run focused SPI gates and publish release notes with digest/checksum assets.
 Research release [v0.1.0-alpha.2](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.2)
 publishes D29/E0028 at3254d25; publication checks, asset hashes and anonymous
-container access pass (run43120993964).
+container access pass (run43120993964). The E0029 snapshot v0.1.0-alpha.3
+is prepared; its clean remote and publication checks are pending.
 
 Supporting app task: **UI-T01 source-backed Protocol atlas**. Direction APPROVED
 on 2026-10-05 with dark mode, softer surface contrast and fewer borders.

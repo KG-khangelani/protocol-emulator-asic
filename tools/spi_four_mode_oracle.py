@@ -19,8 +19,8 @@ def bit(byte, index, order):
 
 def timing(mode, cs_edge, half=25):
     validate(mode, 0, half)
-    if type(cs_edge) is not int or cs_edge < 2:
-        raise ValueError("CS needs a preceding idle interval")
+    if type(cs_edge) is not int or cs_edge < 1:
+        raise ValueError("CS needs a preceding idle interval, including [0,1]")
     leading = [cs_edge+half+2*half*j for j in range(8)]
     trailing = [n+half for n in leading]
     sample = trailing if mode & 1 else leading

@@ -77,7 +77,7 @@ class FourModeOracleTests(unittest.TestCase):
     def test_invalid_parameters_and_small_half_period(self):
         for mode in (-1,4,True):
             with self.assertRaises(ValueError): timing(mode,2)
-        with self.assertRaises(ValueError): timing(0,1)
+        with self.assertRaises(ValueError): timing(0,0)
         with self.assertRaises(ValueError): raw_at(10,timing(0,2),0,0,"held",[97]*8)
         for mode in range(4):
             for family in ("exact","held"):

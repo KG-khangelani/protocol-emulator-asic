@@ -15,6 +15,7 @@ on:
       - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
       - 'docs/specs/spi-held-program-proof.md'
+      - 'docs/specs/spi-phase1-capacity-screen.md'
       - '.github/workflows/spi-sensitivity.yaml'
   pull_request:
     paths:
@@ -31,6 +32,7 @@ on:
       - 'docs/specs/p-spi-host-4mode.md'
       - 'docs/specs/spi-program-sensitivity.md'
       - 'docs/specs/spi-held-program-proof.md'
+      - 'docs/specs/spi-phase1-capacity-screen.md'
       - '.github/workflows/spi-sensitivity.yaml'
   workflow_dispatch:
 permissions:
@@ -75,12 +77,26 @@ jobs:
             --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_held_program_proof.py --output build/spi-held-proof/ci
+      - name: Screen phase-1 capacity and public rejection controls
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/spi_phase/run_phase1_capacity.py --output build/spi-phase1-capacity/ci
       - name: Retain successes and counterexamples
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: spi-sensitivity-${{ github.sha }}
           path: |
+            build/spi-phase1-capacity/ci/result.json
+            build/spi-phase1-capacity/ci/boundary-tests.log
+            build/spi-phase1-capacity/ci/reference-witnesses.json
+            build/spi-phase1-capacity/ci/variants/source-manifest.json
+            build/spi-phase1-capacity/ci/variants/compact/src/
+            build/spi-phase1-capacity/ci/*/results.xml
+            build/spi-phase1-capacity/ci/*/run.log
+            build/spi-phase1-capacity/ci/*/records/
             build/spi-held-proof/ci/result.json
             build/spi-held-proof/ci/preflight-inputs/inputs/
             build/spi-held-proof/ci/preflight-inputs/preflight.json

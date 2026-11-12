@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794442063" />
+    <testcase name="phase1_deletions_and_capacity" classname="test_spi_phase1_public" file="/workspace/test/test_spi_phase1_public.py" lineno="97" time="14.83517837524414" sim_time_ns="1018008.0" ratio_time="68621.21736930222" />
+  </testsuite>
+</testsuites>

@@ -88,6 +88,10 @@ jobs:
             --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
             --workdir /workspace "$LOCAL_IMAGE" \
             python3 experiments/spi_phase/run_held_program_proof.py --output build/release-held-proof
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$LOCAL_IMAGE" \
+            python3 experiments/spi_phase/run_phase1_capacity.py --output build/release-phase1-capacity
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
         with:
@@ -134,10 +138,11 @@ jobs:
               "physical_qualification": "NOT_EVALUATED",
           }
           if os.environ["GITHUB_REF"].startswith("refs/tags/"):
-              manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof"]
+              manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof", "spi-phase1-capacity"]
               shutil.copy2("build/release-sensitivity/result.json", output / "spi-sensitivity.json")
               shutil.copy2("build/release-four-mode/result.json", output / "spi-four-mode.json")
               shutil.copy2("build/release-held-proof/result.json", output / "spi-held-proof.json")
+              shutil.copy2("build/release-phase1-capacity/result.json", output / "spi-phase1-capacity.json")
           (output / "publication.json").write_text(json.dumps(manifest, indent=2) + "\n")
           files = sorted(p for p in output.iterdir() if p.name != "SHA256SUMS")
           (output / "SHA256SUMS").write_text("".join(
@@ -171,6 +176,7 @@ jobs:
             build/release-sensitivity/result.json
             build/release-four-mode/result.json
             build/release-held-proof/result.json
+            build/release-phase1-capacity/result.json
             test/results*.xml
           if-no-files-found: warn
           retention-days: 90

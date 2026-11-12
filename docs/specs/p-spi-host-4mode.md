@@ -113,3 +113,15 @@ edge; this is not a sub-cycle noise or electrical qualification. Check actual
 public pins, readback, status and raw/valid on every edge against the same
 independent oracle. Require36 cases per simulator and identical records.
 Do not load oversized references or change candidate/production RTL.
+
+## First-edge boundary clarification
+
+The observation at execution edge0 follows the two disabled flush intervals.
+The fixed SCK pull-down therefore supplies a complete low idle interval [0,1].
+CS may assert at edge1 for CPOL0 while preserving the full25-tick setup before
+the first clock edge. Requiring A>=2 was an oracle parameter restriction, not
+an additional timing obligation in this contract. The oracle now permits A>=1
+and still checks the resolved clock before CS and the entire waveform.
+CPOL1 cannot use this shortcut on the fixed-low-pull board: it must establish
+high SCK while CS is still high. See the bounded
+[phase1 capacity screen](spi-phase1-capacity-screen.md).
