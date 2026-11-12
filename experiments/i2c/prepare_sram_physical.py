@@ -72,6 +72,7 @@ def main():
     p.add_argument('--candidate',type=Path,required=True)
     p.add_argument('--template',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--integrated',action='store_true',help='Stage the two explicit power steps in the unchanged Classic flow.')
     args=p.parse_args()
     candidate,out=args.candidate.resolve(),args.output.resolve()
     assert not out.exists() and out.is_relative_to((ROOT/'build').resolve())
@@ -113,6 +114,14 @@ def main():
     config.update(PDN_CFG=str(out/'src/sram_pdn.tcl'),PDN_HORIZONTAL_HALO=0,PDN_VERTICAL_HALO=0,PDN_SKIPTRIM=True,
                   PDN_MACRO_CONNECTIONS=['^store\\.program_memory$ VPWR VGND VDD! VSS!',
                                          '^store\\.program_memory$ VPWR VGND VDDARRAY! VSS!'])
+    plugin_files={}
+    if args.integrated:
+        config.setdefault('meta',{})['flow']='SramClassic'
+        config['SRAM_POWER_MANIFEST']=str(out/'preparation.json')
+        for name in ('librelane_plugin_sram.py','sram_power_step.py','connect_sram_power.py','check_sram_power.tcl'):
+            body=(ROOT/'experiments/i2c'/name).read_bytes()
+            (out/name).write_bytes(body)
+            plugin_files[name]=digest(body)
     (out/'src/config_merged.json').write_bytes((json.dumps(config,indent=2)+'\n').encode())
     for path in (Path(__file__),ROOT/'experiments/i2c/run_sram_mapping.py',ROOT/'docs/specs/g2-sram-physical-integration.md'):
         (out/'inputs'/path.name).write_bytes(path.read_bytes())
@@ -123,6 +132,8 @@ def main():
             'column_centres':{n:[str(v) for v in rows] for n,rows in columns.items()},
             'source_sha256':{n:digest((out/'src'/n).read_bytes()) for n in manifest['source_sha256']},
             'physical':'NOT_EVALUATED'}
+    if args.integrated:
+        result.update(status='PREPARED_UNQUALIFIED_INTEGRATED_PDN_TRIAL',plugin_sha256=plugin_files)
     (out/'preparation.json').write_bytes((json.dumps(result,indent=2)+'\n').encode())
     print(result['status'])
 

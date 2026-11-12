@@ -127,3 +127,9 @@ python evidence/E0042-sram-prefetch-screen/mapped/verify.py --output build/sram-
 Advance to a separately declared power/layout integration trial. Mapped area
 is not routed area or timing acceptance. No routed/timing, precheck or
 real-netlist pass is claimed; production is not promoted.
+
+The [clean 95120d8 CI audit](ci-95120d8/README.md) now passes all three gates.
+It retains and replays 1,359 original ZIP members, exact source, actual proof
+models and negative witnesses, both 30-group suites, every reference record
+and each producing job's loaded workbench identity. The earlier local runtime
+receipt limitation remains documented separately.

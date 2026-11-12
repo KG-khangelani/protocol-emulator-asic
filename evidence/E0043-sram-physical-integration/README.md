@@ -41,6 +41,17 @@ at `/workspace` and the original read-only PDK volume at `/pdk`. It reconstructs
 the wire changes from the failed database, requires the exact resulting binary
 hash, and reruns both actual grid checks.
 
-This qualifies the power-grid construction only. Full flow integration,
+The two explicit integrated stages now pass a fresh 31.625-second pilot.
+They retain all 80 original Classic stages in order, add the 144 connections
+and then run both actual grid checks. Native-stage violations remain recorded;
+the fresh checked count is zero. The final database SHA256 is exactly the same
+as the separately verified repair. `integrated/` retains the staged plugin,
+inputs, stage databases, actual logs/metrics and source/runtime bindings:
+
+```console
+python evidence/E0043-sram-physical-integration/integrated/verify.py --output build/sram-integrated-power-replay
+```
+
+This qualifies the power-grid construction and its flow integration only. Full
 routed timing/electrical checks, DRC/LVS, precheck and actual-netlist protocol
 tests remain open. G2 is active and production remains unchanged.

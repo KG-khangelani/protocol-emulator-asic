@@ -86,8 +86,9 @@ library areas are audited. All 144 retained mapping files replay successfully.
 There are no latch, width, mapping or synthesis errors; the macro header's
 timescale causes 106 documented lint warnings. Next, remove that irrelevant
 header directive and declare/test physical power and layout integration.
-The clean-checkout SRAM CI proof/control and Verilator jobs pass; Icarus and
-the original-archive audit remain open. No routed/timing, precheck or actual
+All three clean-checkout SRAM CI jobs and the original-archive audit now pass:
+1,359 retained files bind actual proofs, both 30-group suites, exact source,
+unchanged records and each producing job's loaded runtime. No routed/timing, precheck or actual
 netlist qualification is claimed. Production remains unchanged.
 
 D43/E0043's native power trial fails: 104 SRAM supply rectangles have no
@@ -97,10 +98,12 @@ preserving instance/placement/net/pin identity and the internal blockages.
 All supply rectangles then overlap the correct net and both fresh power-grid
 checks pass. The 260-file replay rebuilds the exact database hash and reruns
 both checks. The header timescale cleanup also removes all lint warnings
-without changing any of the five RTL files. Next, integrate the edge connections
-and fresh grid checks into the full pinned flow. All three 95120d8 SRAM CI jobs
-have passed; their three original ZIP hashes are verified, with semantic archive
-audit still pending. Full physical qualification remains open.
+without changing any of the five RTL files. Two explicit added stages now pass
+a fresh 31.625-second pilot and reproduce the exact repaired database; all
+80 original stages remain in order. The bounded full run is underway.
+All three 95120d8 SRAM CI jobs
+and their three original ZIPs pass the complete semantic/source/runtime audit.
+Full physical qualification remains open.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

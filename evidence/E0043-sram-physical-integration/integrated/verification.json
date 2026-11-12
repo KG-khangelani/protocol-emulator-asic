@@ -1,0 +1,10 @@
+{
+  "status": "PASS_INTEGRATED_SRAM_POWER_PILOT",
+  "seconds": 31.625,
+  "added_rectangles": 144,
+  "supply_rectangles": 104,
+  "native_violations": 8037,
+  "fresh_violations": 0,
+  "output_odb_sha256": "db9b16aa65fb52722a7de25efe81aacc2e6a4ddf7c9634ef1a5e3f8ccc916995",
+  "physical_qualification": "NOT_EVALUATED"
+}

@@ -1,0 +1,118 @@
+{
+  "artifacts": [
+    {
+      "id": 13976240851,
+      "name": "sram-proof-controls-95120d87c3f09b7598f362f0bb0e66772112d3f7",
+      "size_in_bytes": 1521333,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13976240851",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13976240851/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:10:54Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:10:54Z",
+      "digest": "sha256:f0ec4696fff94cec3671bd8763d1efbdefb583a4d4bdcb6a0db05a303dbb4797",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    },
+    {
+      "id": 13975967451,
+      "name": "KG-khangelani~protocol-emulator-asic~L8K8L2.dockerbuild",
+      "size_in_bytes": 41345,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975967451",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975967451/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:17:41Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:17:41Z",
+      "digest": "sha256:ea1c0c77a22a6bddb9c314a07807cacb3539c09b2eefc3019e71f6b75b5c87e3",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    },
+    {
+      "id": 13975768522,
+      "name": "KG-khangelani~protocol-emulator-asic~VWR7KB.dockerbuild",
+      "size_in_bytes": 39638,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975768522",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975768522/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:26:08Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:26:08Z",
+      "digest": "sha256:1dfab826927348f75df2696b03b81da1ef582f2a9cac3d8e8475a1ae85651583",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    },
+    {
+      "id": 13975572452,
+      "name": "sram-verilator-95120d87c3f09b7598f362f0bb0e66772112d3f7",
+      "size_in_bytes": 1462025,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975572452",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975572452/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:17:39Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:17:39Z",
+      "digest": "sha256:7ca85cb50ed4c63e1f337b65ca6e653c233dd499bb62b59b1add5ff534167211",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    },
+    {
+      "id": 13975361617,
+      "name": "KG-khangelani~protocol-emulator-asic~O55TL0.dockerbuild",
+      "size_in_bytes": 39757,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975361617",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975361617/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:10:55Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:10:55Z",
+      "digest": "sha256:8679ca13021a76de2aca597a4d90415b2c4bd46d2ba930d056a9dab2df5ba7dd",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    },
+    {
+      "id": 13975139257,
+      "name": "sram-icarus-95120d87c3f09b7598f362f0bb0e66772112d3f7",
+      "size_in_bytes": 1458330,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975139257",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13975139257/zip",
+      "expired": false,
+      "created_at": "2026-11-12T19:26:06Z",
+      "expires_at": "2027-02-10T19:08:35Z",
+      "updated_at": "2026-11-12T19:26:06Z",
+      "digest": "sha256:b67f57d451fee4c92e6a3c29262ecb6cdd5cba93d752f27d3634a7736c3e1976",
+      "workflow_run": {
+        "id": 43287092840,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "95120d87c3f09b7598f362f0bb0e66772112d3f7"
+      }
+    }
+  ]
+}

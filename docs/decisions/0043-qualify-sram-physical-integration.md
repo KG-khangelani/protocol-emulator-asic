@@ -33,8 +33,10 @@ micrometres short. The separately declared follow-up adds 144 short outer-edge
 connections and passes all rectangle/net checks and both fresh grid checks.
 The 260-file replay reconstructs the exact after-database binary hash and
 reruns both passing checks. Candidate source, placement and signal nets stay
-unchanged. Integrate this verified construction as an explicit flow step
-before starting full hardening; no physical acceptance gate is relaxed.
+unchanged. The two explicit added steps now pass a fresh 31.625-second pilot
+and reproduce the exact repaired database. All 80 original Classic steps stay
+in order and the later power checker consumes fresh checked metrics. The
+bounded full run is underway; no physical acceptance gate is relaxed.
 
 G2 stays active until routed/timing, precheck, actual-netlist, integration and
 publication gates pass for the same identified candidate.

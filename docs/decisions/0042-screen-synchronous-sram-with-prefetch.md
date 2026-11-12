@@ -48,3 +48,9 @@ candidate, proofs, observed faults, complete regression, matched mapping and
 retained failed attempts. All three retained replays pass. No routed/timing,
 precheck or real-netlist pass is claimed yet. G1, D39, failed trials, production and owner-fluency
 status remain separate.
+
+The clean 95120d8 CI run now passes all three gates. Its three original ZIPs
+and 1,359 files pass the semantic/source/runtime replay, including the actual
+proof models, observed faulty-store behavior, both exact 30-group suites and
+unchanged records. Each job binds its loaded workbench to the tested source.
+See [the CI evidence](../../evidence/E0042-sram-prefetch-screen/ci-95120d8/README.md).

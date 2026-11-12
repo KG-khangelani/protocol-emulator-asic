@@ -92,3 +92,16 @@ rectangles overlapped by its own net, no opposite-net pin overlap, and passing
 VPWR/VGND grid checks. Retain the before/after database identities and geometry.
 A passing result only establishes this power-grid construction; it does not
 qualify routing, timing, DRC/LVS, precheck or the complete physical flow.
+
+## Integrated flow pilot
+
+The isolated edge repair and both grid checks pass. Before full hardening,
+run a fresh 300-second pilot through two explicit added stages:
+`Project.ConnectSramPower` then `Project.CheckSramPower`, immediately after
+`Odb.RemovePDNObstructions`. Keep all 80 pinned Classic stages in their original
+order. The first added stage uses the same audited connector and native ODB/DEF
+reader/writer; the second runs both actual grid checks and the pinned report
+parser. A grid-check error is fatal. The original native grid failure remains
+in its own stage; only the fresh successful checks can supply zero violations
+to the unchanged later power-grid checker. Freeze and hash the plugin, adapter,
+Tcl checker, geometry manifest and resolved configuration with each run.

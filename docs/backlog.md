@@ -71,16 +71,18 @@ and exact reference records plus the 44-byte bank control. The 994-file replay
 passes. Matched mapping reproduces D39's reference exactly and measures
 102,578.259 square micrometres including SRAM, 78.5306% lower. The actual
 netlist has one macro and 353 flip-flops; the 144-file mapped replay passes.
-The new SRAM CI proof/control and Verilator jobs pass; finish Icarus and audit
-the original archives. Next, declare/test physical power and layout integration.
+The three SRAM CI jobs and their complete original-archive audit pass, retaining
+1,359 original files and exact source/runtime bindings.
 No production or routed/timing/precheck/actual-netlist acceptance is claimed.
 D43/E0043 retains the native power-grid failure and its exact cause: 0.480
 micrometre gaps leave all 104 supply rectangles unpowered. An isolated repair
 adds 144 short outer-edge segments, preserving all placements and net/pin
 assignments. Both fresh grids pass; the 260-file replay reconstructs the exact
-database and repeats those checks. Integrate this as an explicit flow step,
-then run full hardening. All three SRAM CI jobs pass and original ZIP hashes
-are verified; finish their semantic audit. Physical acceptance stays open.
+database and repeats those checks. Two explicit added flow stages now pass a
+fresh 31.625-second pilot and reproduce that exact database. All 80 original
+stages remain in order. The bounded full run is underway; finish and audit its
+routed/timing/manufacturing results before official qualification. Physical
+acceptance stays open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups
