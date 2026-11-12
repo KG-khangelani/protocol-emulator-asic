@@ -1,6 +1,6 @@
 # G2 SRAM official qualification
 
-This is the official-workflow continuation of D42/E0042 and D43/E0043.
+This is the official-workflow continuation of D42/E0042 and D43/D45/E0043.
 The isolated five-file `od128-sram` candidate remains interface 0x22 and has
 128 logical words. Production promotion is a later decision. The physical
 construction is specified in [the integration contract](g2-sram-physical-integration.md).
@@ -12,12 +12,27 @@ files; identify their bytes against the retained matched-mapping inputs.
 The fast model set combines standard cells at -40 C and vendor SRAM at -55 C.
 It does not characterize the SRAM isothermally at -40 C.
 
-Keep every original Classic stage in order. Add only the two verified power
-stages and the nine native input buffers with fatal connectivity audit. Keep
+Keep every original Classic stage in order. Add the two verified power
+stages, the nine native input buffers with fatal connectivity audit, and the
+read-only public-pin/power guard after `Odb.ApplyDEFTemplate`. D45's guarded
+flow has 84 stages: all original 80 and those four project stages. Keep
 all original limits, the unchanged tile and clock, Magic DRC, illegal-overlap
 checks and LVS. The rejected 0.4 ns diagnostic and extra generic post-routing
 repair setting are absent. The workflow retains exact staged sources, plugin,
 generated power geometry, portable configuration and verification inputs.
+Include hidden files within these explicit artifact paths so the actual
+workflow source under `inputs/.github/` is retained.
+
+Use native core-bounded standard-cell-grid stripes; the earlier die-boundary
+extension shorts 17 fixed public pins. Preserve the macro stripes and 144
+edge bridges. After the fixed DEF template places all 43 public pin rectangles,
+require no same-layer overlap with power conductors and at least 0.42
+micrometres of Metal4 clearance. The guard must inspect the actual unchanged
+database and fail on a violation. It supplements the original full DRC/LVS.
+Use exactly the seven GDS import patterns in the pinned PDK's
+`read_sram_gds.tcl`, SHA256
+`5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7`.
+No DRC rule, checker or macro geometry is waived or changed by this import.
 
 Require all final physical counts to be zero, finite nonnegative setup/hold
 at all three declared model sets, and no slew/capacitance/fanout violations.

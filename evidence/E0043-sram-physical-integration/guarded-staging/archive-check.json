@@ -1,0 +1,9 @@
+{
+  "status": "PASS_RETAINED_PORTABLE_GUARDED_STAGING",
+  "files": 369,
+  "actual_database_sha256": "a3ffd7a270e661e4dd3f539aec977a17059ae7b6d7c169427f1cc120d91c0ac2",
+  "public_pin_rectangles": 43,
+  "recorded_configuration_controls": 8,
+  "native_configuration_replay": "REQUIRED_SEPARATELY",
+  "full_physical_qualification": "OPEN"
+}

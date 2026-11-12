@@ -1,0 +1,72 @@
+{
+  "status": "PASS_PORTABLE_GUARDED_PILOT_AND_EIGHT_CONFIGURATION_CONTROLS",
+  "execution": {
+    "command": [
+      "/nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/bin/python3",
+      "-m",
+      "librelane",
+      "--pdk-root",
+      "/pdk",
+      "--pdk",
+      "ihp-sg13cmos5l",
+      "--run-tag",
+      "guarded-pilot",
+      "--force-run-dir",
+      "runs/guarded-pilot",
+      "--to",
+      "Project.CheckPublicPinPower",
+      "src/config_merged.json"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 41.669,
+    "wall_limit": 300,
+    "cwd": "/workspace/build/g2-sram-guarded-staging-01/workspace"
+  },
+  "controls": [
+    {
+      "fault": "missing_real_macro",
+      "observed_rejection": "unexpected macro set"
+    },
+    {
+      "fault": "wrong_fast_library",
+      "observed_rejection": "corner mapping changed"
+    },
+    {
+      "fault": "waived_drc",
+      "observed_rejection": "required acceptance check disabled: RUN_MAGIC_DRC"
+    },
+    {
+      "fault": "extra_source",
+      "observed_rejection": "resolved RTL paths differ from staged sources"
+    },
+    {
+      "fault": "removed_guard",
+      "observed_rejection": "unexpected flow substitutions"
+    },
+    {
+      "fault": "relaxed_clock",
+      "observed_rejection": "resolved CLOCK_PERIOD differs"
+    },
+    {
+      "fault": "missing_vendor_import",
+      "observed_rejection": "vendor SRAM import patterns changed"
+    },
+    {
+      "fault": "broadened_vendor_import",
+      "observed_rejection": "vendor SRAM import patterns changed"
+    }
+  ],
+  "normalized_resolved_changes": {
+    "DESIGN_DIR": [
+      "$DESIGN",
+      "$DESIGN/src"
+    ]
+  },
+  "fixed_public_pin_rectangles": 43,
+  "pin_power_violations": 0,
+  "actual_odb_sha256": "a3ffd7a270e661e4dd3f539aec977a17059ae7b6d7c169427f1cc120d91c0ac2",
+  "guard_read_only": true,
+  "exact_full_trial_database_reproduced": true,
+  "physical_qualification": "SEPARATE_FULL_FLOW_GATE"
+}

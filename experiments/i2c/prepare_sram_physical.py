@@ -28,7 +28,7 @@ def power_rectangles(raw):
     return found
 
 
-def pdn_script(rectangles):
+def pdn_script(rectangles, *, core_bounded=False):
     x=Decimal('20.16')
     width=Decimal('416.64')
     columns={net:sorted({(r[0]+r[2])/2 for r in rectangles[pin]})
@@ -55,7 +55,8 @@ def pdn_script(rectangles):
         'define_pdn_grid -name stdcell_grid -starts_with POWER -voltage_domains CORE -pins Metal4',
     ]
     for net,centre in sorted(globals_,key=lambda v:v[1]):
-        lines.append(f'add_pdn_stripe -grid stdcell_grid -layer Metal4 -width 2.1 -pitch 2000 -offset [expr {{{centre} - $core_x}}] -number_of_straps 1 -nets {net} -extend_to_boundary')
+        extension = '' if core_bounded else ' -extend_to_boundary'
+        lines.append(f'add_pdn_stripe -grid stdcell_grid -layer Metal4 -width 2.1 -pitch 2000 -offset [expr {{{centre} - $core_x}}] -number_of_straps 1 -nets {net}' + extension)
     lines += [
         'add_pdn_stripe -grid stdcell_grid -layer $::env(PDN_RAIL_LAYER) -width $::env(PDN_RAIL_WIDTH) -followpins',
         'add_pdn_connect -grid stdcell_grid -layers "$::env(PDN_RAIL_LAYER) Metal4"',

@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
@@ -150,6 +150,11 @@ pair and 342 diagnostic files. Native core-bounded stripes pass a fresh
 pin rectangles. Native replay detects all 24 old clearance violations
 (17 overlaps) and passes the corrected geometry and both fresh grids.
 The complete guarded rerun is active with every original acceptance check.
+The portable guarded staging rehearsal passes in 41.669 seconds, reproduces
+the exact fixed-pin database and rejects eight actual configuration faults.
+Its 369-file archive and native replay pass; the official workflow now uses
+that setup. Complete manufacturing, official precheck and submitted-netlist
+qualification remain required.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

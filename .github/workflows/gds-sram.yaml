@@ -16,7 +16,7 @@ jobs:
         with:
           submodules: recursive
       - name: Stage the identified SRAM chip and physical additions
-        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci
+        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci --guarded
       - name: Build GDS with every original acceptance check
         uses: TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330
         with:
@@ -40,8 +40,10 @@ jobs:
             check_sram_power.tcl
             sram_input_buffers.tcl
             audit_sram_input_buffers.py
+            audit_sram_pin_power.py
           if-no-files-found: error
           retention-days: 90
+          include-hidden-files: true
   precheck:
     needs: gds
     runs-on: ubuntu-24.04
@@ -74,7 +76,7 @@ jobs:
         with:
           submodules: recursive
       - name: Stage the identical candidate and vendor simulation models
-        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci
+        run: python3 tools/physical_sram.py prepare --output build/sram-physical --stage-ci --guarded
       - name: Run all eighteen public groups on the actual submitted netlist
         uses: TinyTapeout/tt-gds-action/gl_test@5e7361fdc445649261c0725dc15f38242dfad330
       - name: Check complete coverage and unchanged observations

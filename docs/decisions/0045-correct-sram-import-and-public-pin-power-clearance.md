@@ -40,3 +40,11 @@ Require fresh routed electrical, DRC, LVS, official precheck and actual-netlist
 results before adoption. Correct the official artifact upload to include the
 otherwise omitted hidden workflow source. Publish only after the complete G2
 acceptance audit.
+
+The [portable guarded staging rehearsal](../../evidence/E0043-sram-physical-integration/guarded-staging/README.md)
+now passes in 41.669 seconds and reproduces the exact full-trial fixed-pin
+database. Its 369-file archive, source identities and native replay pass;
+eight actual bad configurations are rejected. The official workflow uses
+this guarded setup and includes the hidden workflow source in its explicit
+artifact paths. Full manufacturing, official precheck and actual submitted
+netlist results remain required.

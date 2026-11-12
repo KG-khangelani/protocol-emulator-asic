@@ -106,6 +106,9 @@ D45's original 961-file failure replay and 342-file diagnostic replay pass.
 The native core-bounded grid passes both supply checks and all 43 fixed pins;
 the old database remains a detected 24-clearance/17-overlap negative control.
 Finish the fresh guarded full run and repeat official qualification.
+Portable guarded staging passes in 41.669 seconds; its exact database,
+369-file archive, native replay and eight configuration controls pass. The
+official workflow now uses this setup with the original acceptance limits.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

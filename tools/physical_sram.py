@@ -30,6 +30,9 @@ PLUGIN_FILES = (
     "librelane_plugin_sram.py", "sram_power_step.py", "connect_sram_power.py",
     "check_sram_power.tcl", "sram_input_buffers.tcl", "audit_sram_input_buffers.py",
 )
+GUARDED_PLUGIN_FILES = (*PLUGIN_FILES, "audit_sram_pin_power.py")
+SRAM_IMPORT_PATTERNS = ["lvsres_*", "*_CELL_SUB", "VIA_M1_*", "VIA_M2_*", "RSC_*", "*_CELL_CORNER", "*_BITKIT_CORNER"]
+SRAM_IMPORT_SETUP_SHA256 = "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7"
 MODEL_SETS = {
     "nom_typ_1p20V_25C": "typ_1p20V_25C",
     "nom_fast_1p32V_m40C": "fast_1p32V_m55C",
@@ -62,7 +65,7 @@ def mapped_macro_views():
             for name, metadata in observation["macro_views"].items()}
 
 
-def portable_config(header_name):
+def portable_config(header_name, *, guarded=False):
     config = read(ROOT / "src/config.json")
     config.pop("//", None)
     base = "pdk_dir::libs.ref/sg13cmos5l_sram/"
@@ -82,10 +85,15 @@ def portable_config(header_name):
         PDN_MACRO_CONNECTIONS=["^store\\.program_memory$ VPWR VGND VDD! VSS!",
                                "^store\\.program_memory$ VPWR VGND VDDARRAY! VSS!"],
     )
+    if guarded:
+        config["meta"]["flow"] = "SramGuardedClassic"
+        config["MAGIC_GDS_FLATGLOB"] = SRAM_IMPORT_PATTERNS.copy()
     return config
 
 
 def prepare(args):
+    guarded = getattr(args, "guarded", False)
+    plugin_files = GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(),
             "new output under build/ required; preserve previous attempts")
@@ -125,7 +133,7 @@ def prepare(args):
     lef = gzip.decompress((EVIDENCE / "feasibility/lef" / (MACRO + ".lef.gz")).read_bytes())
     require(sha(lef) == views["lef/" + MACRO + ".lef"]["sha256"], "macro LEF changed")
     rectangles = power_rectangles(lef)
-    script, columns = pdn_script(rectangles)
+    script, columns = pdn_script(rectangles, core_bounded=guarded)
     (workspace / "src/sram_pdn.tcl").write_bytes(script)
     geometry = {
         "candidate": manifest,
@@ -138,15 +146,17 @@ def prepare(args):
     # exactly as in the retained trial, rather than sorting this geometry map.
     (workspace / "src/sram-preparation.json").write_text(
         json.dumps(geometry, indent=2) + "\n", encoding="utf-8", newline="\n")
-    for name in PLUGIN_FILES:
+    for name in plugin_files:
         shutil.copyfile(ROOT / "experiments/i2c" / name, workspace / name)
-    write(workspace / "src/config.json", portable_config(MACRO + ".vh"))
+    write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded))
     names = set(INPUTS) | {"tools/physical_sram.py", ".github/workflows/gds-sram.yaml",
                            "tools/workbench/toolchain.lock.json", "experiments/i2c/prepare_sram_physical.py",
                            "experiments/i2c/run_sram_mapping.py", "experiments/i2c/build_sram_candidate.py",
                            "experiments/i2c/sram_prefetch.py", "experiments/i2c/sram_program_store.v",
                            "docs/specs/g2-sram-official-qualification.md"}
-    names.update("experiments/i2c/" + name for name in PLUGIN_FILES)
+    names.update("experiments/i2c/" + name for name in plugin_files)
+    if guarded:
+        names.add("docs/decisions/0045-correct-sram-import-and-public-pin-power-clearance.md")
     provenance = {}
     for name in sorted(names):
         target = out / "inputs" / name
@@ -156,7 +166,7 @@ def prepare(args):
         provenance[name] = sha(raw)
     staged_names = ["src/" + name for name in manifest["source_sha256"]]
     staged_names += ["src/config.json", "src/sram_pdn.tcl", "src/sram-preparation.json",
-                     "src/" + MACRO + ".vh", *PLUGIN_FILES]
+                     "src/" + MACRO + ".vh", *plugin_files]
     record = {
         "status": "PREPARED_UNQUALIFIED_SRAM_PHYSICAL_CANDIDATE",
         "created_utc": datetime.now(timezone.utc).isoformat(), "variant": "od128-sram",
@@ -170,6 +180,11 @@ def prepare(args):
         "fast_model_boundary": FAST_BOUNDARY, "public_test_names": sorted(physical_g2.PUBLIC_TEST_MODULES),
         "physical": "NOT_EVALUATED", "production": "NOT_PROMOTED",
     }
+    if guarded:
+        record["guarded_flow"] = {"core_bounded_stripes": True, "fixed_public_pin_rectangles": 43,
+                                  "metal4_minimum_spacing_um": 0.42,
+                                  "vendor_import_setup_sha256": SRAM_IMPORT_SETUP_SHA256,
+                                  "vendor_import_patterns": SRAM_IMPORT_PATTERNS.copy()}
     write(out / "inputs.json", record)
     print("PASS: exact audited SRAM candidate staged; physical qualification pending")
 
@@ -186,8 +201,13 @@ def one_stage(run, step):
 def inspect_resolved(resolved, inputs, workspace):
     """Check the actual resolved files, rather than only the staged copies."""
     common.verify_run_configuration(resolved, common.candidate_lock())
-    require(resolved["meta"]["flow"] == "SramBufferedClassic" and
+    guarded = "guarded_flow" in inputs
+    require(resolved["meta"]["flow"] == ("SramGuardedClassic" if guarded else "SramBufferedClassic") and
             resolved["meta"].get("substituting_steps") is None, "unexpected flow substitutions")
+    if guarded:
+        require(resolved["MAGIC_GDS_FLATGLOB"] == SRAM_IMPORT_PATTERNS, "vendor SRAM import patterns changed")
+        setup = Path(resolved["PDK_ROOT"]) / resolved["PDK"] / "libs.tech/magic/read_sram_gds.tcl"
+        require(digest(setup) == SRAM_IMPORT_SETUP_SHA256, "vendor SRAM import setup changed")
     for name in ("RUN_MAGIC_DRC", "MAGIC_DRC_USE_GDS", "ERROR_ON_MAGIC_DRC", "ERROR_ON_ILLEGAL_OVERLAPS",
                  "ERROR_ON_LVS_ERROR", "ERROR_ON_PDN_VIOLATIONS", "ERROR_ON_TR_DRC"):
         require(resolved[name] is True, "required acceptance check disabled: " + name)
@@ -258,6 +278,17 @@ def check_run(args):
     for side in ("before", "after"):
         state = read(buffer / ("state_in.json" if side == "before" else "state_out.json"))
         require(audit[side + "_odb_sha256"] == digest(Path(state["odb"])), "buffer audit database differs")
+    pin_guard = None
+    if "guarded_flow" in inputs:
+        guard = one_stage(run, "Project.CheckPublicPinPower")
+        pin_guard = guard / "pin-power-audit/result.json"
+        checked = read(pin_guard)
+        require(checked["status"] == "PASS_PUBLIC_PIN_POWER_GEOMETRY" and not checked["violations"] and
+                len(checked["pins"]) == 43 and checked["metal4_minimum_spacing_dbu"] == 420,
+                "fixed public pin/power geometry did not pass")
+        before, after = read(guard / "state_in.json"), read(guard / "state_out.json")
+        require(checked["odb_sha256"] == digest(Path(before["odb"])) and before["odb"] == after["odb"],
+                "pin guard did not inspect the unchanged actual database")
     metrics = read(run / "final/metrics.json")
     review = common.inspect_physical_metrics(metrics)
     require(metrics.get("magic__illegal_overlap__count") == 0, "illegal overlaps not cleared")
@@ -276,6 +307,8 @@ def check_run(args):
         "buffer_connectivity_audit_sha256": digest(buffer / "connectivity-audit.json"),
         "production": "NOT_PROMOTED",
     }
+    if pin_guard:
+        result["public_pin_power_audit_sha256"] = digest(pin_guard)
     write(args.output, result)
     require(review["status"] == "PASS", "physical metrics failed: " + "; ".join(review["errors"]))
     print("PASS: identified SRAM physical metrics; independent precheck and netlist gates remain")
@@ -312,6 +345,7 @@ def main():
         sub.set_defaults(function=function)
         if action == "prepare":
             sub.add_argument("--stage-ci", action="store_true")
+            sub.add_argument("--guarded", action="store_true", help="D45 core-bounded power stripes, vendor SRAM import and mandatory fixed-pin guard.")
         else:
             sub.add_argument("--staging", type=Path, default=STAGING)
         if action == "check-run":

@@ -1,6 +1,6 @@
 # Goals to submission readiness
 
-Updated: 2026-11-12. Decision: [D32](decisions/0032-goals-to-submission-readiness.md).
+Updated: 2026-11-13. Decision: [D32](decisions/0032-goals-to-submission-readiness.md).
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
@@ -128,6 +128,9 @@ limit remains incomplete in the 2,154-file preparation replay. D45's original
 961-file failure replay and 342-file diagnostic replay pass; native replay
 rejects the old pin geometry and passes all 43 corrected pins and both grids.
 The fresh guarded full run retains every original physical gate.
+Portable guarded staging reproduces the same database in 41.669 seconds;
+its 369-file archive, native replay and eight bad-configuration controls pass.
+The official workflow now stages this setup for fresh complete qualification.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact

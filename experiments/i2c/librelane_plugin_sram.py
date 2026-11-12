@@ -83,3 +83,28 @@ class SramBufferedClassic(SramClassic):
 
 assert len(SramBufferedClassic.Steps) == 83
 assert [s for s in SramBufferedClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps
+
+
+@Step.factory.register()
+class CheckPublicPinPower(Step):
+    id = 'Project.CheckPublicPinPower'
+    name = 'Check public pins against power geometry'
+    long_name = 'Reject public signal pin shorts and insufficient Metal4 clearance'
+    inputs = [DesignFormat.ODB]
+    outputs = []
+
+    def run(self, state_in, **kwargs):
+        self.run_subprocess([
+            'openroad', '-no_init', '-exit', '-python', str(HERE / 'audit_sram_pin_power.py'),
+            '--odb', str(state_in[DesignFormat.ODB]), '--output', str(Path(self.step_dir) / 'pin-power-audit'),
+        ], log_to=Path(self.step_dir) / 'pin-power-audit.log')
+        return {}, {'design__public_pin_power__violations': 0}
+
+
+@Flow.factory.register()
+class SramGuardedClassic(SramBufferedClassic):
+    Substitutions = [('+Odb.ApplyDEFTemplate', CheckPublicPinPower)]
+
+
+assert len(SramGuardedClassic.Steps) == 84
+assert [s for s in SramGuardedClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps

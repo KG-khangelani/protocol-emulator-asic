@@ -80,3 +80,9 @@ also clears the subcell diagnostic while retaining an injected metal error.
 The 342-file archive and native database replay pass. D45 requires a fresh
 complete flow before any physical acceptance; prior continuity passes did
 not establish isolation between public pins and power.
+
+The [portable guarded staging rehearsal](guarded-staging/README.md) passes
+in 41.669 seconds and reproduces the exact corrected fixed-pin database.
+Its 369-file archive, native replay and eight actual configuration controls
+pass. The official workflow now stages this guarded setup; all complete
+physical gates remain required.
