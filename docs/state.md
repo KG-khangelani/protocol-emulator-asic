@@ -50,8 +50,17 @@ maps to 34,683 cells / 477,788.2578 square micrometres, 15.3974% less mapped
 area than original od128, but fails global routing with GRT-0228 congestion.
 E0038 retains verified original archives, runtime/source/configuration identities
 and the failure; precheck/netlist jobs are skipped. Investigate the remaining
-routing bottleneck and screen a structured banked read network while preserving
-capacity, behavior and physical gates. Integration and publication remain open.
+routing bottleneck while preserving capacity, behavior and physical gates.
+Integration and publication remain open.
+
+D41/E0040 completes the bounded banked-read screen. All 4,109 store state
+bits and 54 outputs pass temporal equivalence and an independent reset base;
+both simulators pass port-driven checks and expose the deliberate high-bank
+alias. Whole-chip generic cells rise from 15,211 to 15,593, with unchanged
+state. Retain it as an alternative without a physical-benefit claim. A bounded
+clock-spacing ablation on a copy of D39's existing layout is running; it changes
+only sixteen NDR assignments and is not physical qualification. Diagnose that
+result before selecting another implementation or a documented flow change.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "command": "make check-base",
+  "tests": 114,
+  "log_sha256": "8c2afb29c4c8eee21262a3728a8009c4e84d2f288043e9514a278633067abb2a"
+}

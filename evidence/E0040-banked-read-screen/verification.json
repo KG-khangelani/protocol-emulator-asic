@@ -1,0 +1,13 @@
+{
+  "status": "PASS_RETAINED_BANKED_READ_SCREEN",
+  "files": 63,
+  "store_state_bits": 4109,
+  "store_output_bits": 54,
+  "proven_comparison_bits": 4150,
+  "parent_generic_cells": 15211,
+  "candidate_generic_cells": 15593,
+  "whole_chip_state_bits": 4278,
+  "port_controls": "PASS_BOTH_SIMULATORS",
+  "physical": "NOT_EVALUATED",
+  "production": "NOT_PROMOTED"
+}

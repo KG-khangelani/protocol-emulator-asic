@@ -116,8 +116,8 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** diagnose D39's retained routing failure and screen
-a structured banked read network. Finish the source-matched production
+**Next executable action:** finish the bounded clock-spacing diagnostic on
+D39's retained layout and select the next measured direction. Finish the source-matched production
 verification profile using the retained integration probe and specification.
 Keep the same capacity, interface, protocol programs and pinned 8x4 conditions;
 generic savings are not physical results. Preserve G1's pilot, the original
@@ -153,6 +153,12 @@ limit; seven other stages pass, with no aggregate PASS. The 1,717-file replay
 preserves this distinction. A reproduced metadata-cache omission is fixed by
 running repository checks fresh; all 114 checks pass. Complete current-command
 CI and a physically successful implementation remain open.
+
+D41/E0040 retains a complete-store-equivalent banked read with passing
+reset and both simulators' port/mutation controls. Generic cells increase
+2.5113% with the same real storage; no physical benefit is claimed. The
+clock-spacing diagnostic changes only sixteen assignments on a copied
+database. Its outcome and any subsequent physical qualification remain open.
 
 Completion checks:
 

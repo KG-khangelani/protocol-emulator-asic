@@ -52,8 +52,12 @@ jobs pass and both shared-candidate ZIPs are audited. Physical run43249867361
 at 426cea1 maps to 34,683 cells / 477,788.2578 square micrometres, saving
 15.3974% mapped area versus original od128, but fails global routing with
 GRT-0228 congestion. E0038 retains the verified failure; dependent jobs are
-skipped. Screen a structured banked read network without changing capacity,
-public behavior or physical gates.
+skipped. D41/E0040's banked-read screen passes complete-store equivalence,
+reset and both simulators' port/mutation checks, but adds 2.5113% generic
+cells. Retain the alternative; no mapped/routed benefit is measured. Next,
+finish the bounded clock-spacing diagnostic on the copied D39 layout before
+selecting another candidate or a documented physical-flow change. Acceptance
+limits remain unchanged.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups
