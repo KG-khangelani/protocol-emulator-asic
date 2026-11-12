@@ -56,3 +56,10 @@ supplies match. Illegal overlaps and LVS errors are zero. Its 137-file archive
 and corrected native replay pass; the final routed database also passes all
 43 public pin checks. Preserve the original native DEF/LEF and black-box macro
 scope. Full GDS DRC and the official run at 2be7f5d/run43320295442 remain open.
+
+The [complete KLayout rule-deck diagnostic](../../evidence/E0043-sram-physical-integration/guarded-klayout/README.md)
+on the corrected GDS now passes in 550.779 seconds, with 332 report categories
+and zero violations. Its command matches the pinned precheck check apart from
+output paths. Windows and native Linux artifact audits pass, including actual
+GDS identity and rule hashes. This uses KLayout 0.30.12 from the physical image;
+the official precheck environment and all other original gates remain required.

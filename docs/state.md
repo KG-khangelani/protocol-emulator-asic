@@ -169,6 +169,13 @@ public pins also remain clear of power in the final routed database. This is
 the original DEF/LEF and black-box macro comparison; full GDS DRC and official
 run43320295442 at 2be7f5d remain open.
 
+The corrected trial 05 GDS also passes the pinned complete KLayout CMOS5L
+rule-deck diagnostic in 550.779 seconds: the native report has 332 rule
+categories and zero violations. Retained Windows and native Linux audits
+verify the original precheck command, exact GDS, report and pinned rule hashes.
+This uses the physical image's KLayout 0.30.12; the full official precheck
+environment, its other nine checks and Magic DRC remain separate gates.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

@@ -116,7 +116,9 @@ Portable guarded staging passes in 41.669 seconds; its exact database,
 official workflow now uses this setup with the original acceptance limits.
 The 60.813-second native LVS diagnostic and 137-file replay pass, with all
 4,717 nets, 4,684 devices and 45 top-level pins matched. Routed pin geometry
-also passes. Full GDS DRC and official run43320295442 remain open.
+also passes. The corrected GDS passes the complete KLayout rule-deck
+diagnostic and both retained audits: 332 report categories, zero violations.
+Magic DRC and the complete official run43320295442 remain open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

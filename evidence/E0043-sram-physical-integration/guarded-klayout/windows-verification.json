@@ -1,0 +1,10 @@
+{
+  "status": "PASS_RETAINED_KLAYOUT_DIAGNOSTIC",
+  "rule_categories": 332,
+  "violations": 0,
+  "gds_sha256": "b2a09ed14fd1676e954e494c03e7d5d5ef74468d269a5b81bfb0ebe0c8382c3f",
+  "seconds": 550.779,
+  "original_precheck_command": "PASS_EXACT_ARGUMENTS_EXCEPT_OUTPUT_PATHS",
+  "native_report_reader_and_pinned_rule_hashes": "NOT_REPEATED",
+  "full_physical_qualification": "OPEN"
+}

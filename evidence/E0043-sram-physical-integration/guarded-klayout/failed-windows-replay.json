@@ -1,0 +1,5 @@
+{
+  "status": "REPLAY_PREPARATION_FAILED",
+  "output": "build/g2-sram-guarded-klayout-replay-01",
+  "reason": "The command comparison passed the recorded Linux rule path through Windows Path string conversion; its backslashes changed the derived PDK_ROOT. The strict argument check rejected the replay. Native Linux replay 02 passed; actual DRC result unchanged."
+}

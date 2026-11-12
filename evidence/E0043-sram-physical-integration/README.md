@@ -100,3 +100,9 @@ four boundary and 36 abort records identical to the reference. Its 1,145-file
 replay passes and retains the diagnosed Verilator reset-alias compatibility
 failure and validated adapter. These runs use trial 03's netlist; that layout
 is physically rejected and the corrected submitted netlist remains untested.
+
+The [complete KLayout rule-deck diagnostic](guarded-klayout/README.md) passes
+on corrected trial 05 GDS in 550.779 seconds. Its native report has 332 rule
+categories and zero violations; both retained audits pass. The physical image's
+KLayout 0.30.12 result is independent of the complete official precheck and
+does not replace Magic DRC or the remaining qualification gates.

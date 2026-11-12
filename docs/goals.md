@@ -135,7 +135,9 @@ its 369-file archive, native replay and eight bad-configuration controls pass.
 The official workflow now stages this setup for fresh complete qualification.
 The bounded native LVS diagnostic and its 137-file replay pass: 4,717 nets,
 4,684 devices and all 45 top-level pins match; routed pin geometry also passes.
-Full GDS DRC and official run43320295442 at 2be7f5d remain open.
+The corrected GDS also passes the complete KLayout rule-deck diagnostic,
+with 332 report categories and zero violations; both retained audits pass.
+Magic DRC and the complete official run43320295442 at 2be7f5d remain open.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact

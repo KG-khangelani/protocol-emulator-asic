@@ -1,0 +1,41 @@
+{
+  "image_id": "sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+  "configured_image": "sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+  "command": [
+    "python3",
+    "build/probe_sram_guarded_klayout.py"
+  ],
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-12T22:47:01.967692011Z",
+    "FinishedAt": "2026-11-12T22:56:13.819696787Z"
+  },
+  "mounts": [
+    {
+      "Type": "volume",
+      "Name": "protocol-emulator-g1-pdk-89d42ee6",
+      "Source": "/var/lib/docker/volumes/protocol-emulator-g1-pdk-89d42ee6/_data",
+      "Destination": "/pdk",
+      "Driver": "local",
+      "Mode": "z",
+      "RW": false,
+      "Propagation": ""
+    },
+    {
+      "Type": "bind",
+      "Source": "H:\\hikrepos\\protocol-emulator-asic",
+      "Destination": "/workspace",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ]
+}
