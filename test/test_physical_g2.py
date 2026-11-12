@@ -53,6 +53,21 @@ class G2PhysicalEvidenceTests(unittest.TestCase):
         self.assertEqual(result["evidence_kind"], "RTL_WITHOUT_DIRECT_ENGINE")
         self.assertIsNone(result["netlist_sha256"])
 
+    def test_explicit_lanes_preserve_identity_and_reject_mixed_revisions(self):
+        sources = physical.store_lanes.build(self.out / "variants")
+        revised = self.out / "variants/od128/src"
+        original = physical.ROOT / "evidence/E0035-general-i2c/sources/current/od128"
+        self.assertEqual(physical.verify_sources(revised, "od128-lanes"), sources["od128"]["source_sha256"])
+        physical.verify_sources(original, "od128")
+        for directory, variant in ((revised, "od128"), (original, "od128-lanes")):
+            with self.subTest(variant=variant):
+                with self.assertRaisesRegex(ValueError, "source differs"):
+                    physical.verify_sources(directory, variant)
+        store = revised / "m1_program_store.v"
+        store.write_bytes(store.read_bytes().replace(b"word127[31:24]", b"word126[31:24]", 1))
+        with self.assertRaisesRegex(ValueError, "source differs"):
+            physical.verify_sources(revised, "od128-lanes")
+
     def test_missing_required_group_fails(self):
         args = self.fixture()
         tree = ET.parse(args.junit)

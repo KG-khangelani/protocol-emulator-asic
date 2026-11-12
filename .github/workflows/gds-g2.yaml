@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       variant:
-        description: E0035-identical complete-chip candidate
+        description: Identified complete-chip candidate (E0035 or D38/E0037)
         type: choice
         required: true
         default: od128
-        options: [od128, literal255]
+        options: [od128, literal255, od128-lanes]
 permissions:
   contents: read
 env:
@@ -57,7 +57,7 @@ jobs:
           tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
   gl_test:
     needs: gds
-    if: inputs.variant == 'od128'
+    if: inputs.variant == 'od128' || inputs.variant == 'od128-lanes'
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     env:
@@ -76,7 +76,7 @@ jobs:
         with:
           submodules: recursive
       - name: Stage matching public test inputs
-        run: python3 tools/physical_g2.py prepare --variant od128 --output build/g2-physical/od128 --stage-ci
+        run: python3 tools/physical_g2.py prepare --variant "$PHYSICAL_VARIANT" --output "build/g2-physical/$PHYSICAL_VARIANT" --stage-ci
       - name: Run the full public matrix on the actual netlist
         uses: TinyTapeout/tt-gds-action/gl_test@5e7361fdc445649261c0725dc15f38242dfad330
       - name: Check complete coverage and unchanged public records
@@ -90,6 +90,6 @@ jobs:
           name: g2-netlist-check
           path: |
             test/output/physical-result.json
-            build/g2-physical/od128/inputs.json
+            build/g2-physical/*/inputs.json
           if-no-files-found: warn
           retention-days: 90

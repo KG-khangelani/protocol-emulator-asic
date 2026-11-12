@@ -13,6 +13,15 @@ literal255 has 255 words / 8,160 bits. No constant program preload or tied
 public input is permitted. Copy into `src/` only in a clean CI checkout.
 The workflow revision and staged file hashes together identify each chip.
 
+D38 adds `od128-lanes` as a separate implementation after the original od128
+global-routing failure. E0037 fixes its source manifest: the constant byte-write
+rewrite measured in E0036, with all other module bytes, 128-word capacity and
+software-visible behavior unchanged. Require its exact eighteen-group RTL
+selection in both simulators and all 652 store assertions with inspected
+reset-reachable controls before staging. Retain the original source and failed
+physical results. All physical conditions, limits and tests below apply equally
+to `od128-lanes`; no threshold or footprint changes accompany this trial.
+
 Run the two variants separately through `gds-g2`, avoiding collisions in the
 official action's artifact names. Preserve `gds` as the historical G1 workflow.
 Use the unchanged `official_cmos5l_8x4` lock and `src/config.json`: 8x4,

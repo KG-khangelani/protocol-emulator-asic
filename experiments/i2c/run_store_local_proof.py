@@ -170,6 +170,7 @@ def main():
     p.add_argument("--variants", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--variant", action="append", choices=("od128", "literal255"))
+    p.add_argument("--lane-style", choices=("indexed", "explicit"), default="indexed")
     p.add_argument("--proof-engine", choices=("abc", "smtbmc"), default="smtbmc")
     p.add_argument("--words-per-task", type=int, default=8)
     p.add_argument("--jobs", type=int, choices=(1, 2, 3, 4), default=2)
@@ -223,9 +224,14 @@ def main():
                     assert rtl.count("{program_bank, byte_address}") == 1
                     rtl = rtl.replace("{program_bank, byte_address}", "{1'b0, program_bank[2:0], byte_address}")
                 elif name == "lane":
-                    old = "[8*byte_address[1:0] +: 8] <= data_in;"
-                    assert rtl.count(old) == capacity
-                    rtl = rtl.replace(old, "[8*(byte_address[1:0] ^ 2'b01) +: 8] <= data_in;")
+                    if args.lane_style == "explicit":
+                        old = "case (byte_address[1:0])"
+                        assert rtl.count(old) == capacity
+                        rtl = rtl.replace(old, "case (byte_address[1:0] ^ 2'b01)")
+                    else:
+                        old = "[8*byte_address[1:0] +: 8] <= data_in;"
+                        assert rtl.count(old) == capacity
+                        rtl = rtl.replace(old, "[8*(byte_address[1:0] ^ 2'b01) +: 8] <= data_in;")
                 mode = "prove" if name in ("state", "read") else "cover" if name == "cover" else "bmc"
                 expected = "PASS" if mode != "bmc" else "FAIL"
                 flags = "" if mode == "prove" else "-D REACHABLE"

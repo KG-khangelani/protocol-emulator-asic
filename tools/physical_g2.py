@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "experiments/i2c"))
 from tools import physical_candidate as common
 from build_general import build
+import store_lanes
 
 EVIDENCE = ROOT / "evidence/E0036-g2-store-and-ci"
 MANIFEST = ROOT / "evidence/E0035-general-i2c/sources/current/source-manifest.json"
@@ -36,10 +37,16 @@ read_json = common.read_json
 write_json = common.write_json
 
 
+def candidate_manifest(variant):
+    if variant == "od128-lanes":
+        return read_json(store_lanes.MANIFEST)["od128"]
+    return read_json(MANIFEST)[variant]
+
+
 def verify_sources(directory, variant):
-    expected = read_json(MANIFEST)[variant]["source_sha256"]
+    expected = candidate_manifest(variant)["source_sha256"]
     actual = {name: digest(Path(directory) / name) for name in expected}
-    require(actual == expected, "G2 source differs from the retained E0035 candidate")
+    require(actual == expected, "G2 source differs from the retained candidate: " + variant)
     return actual
 
 
@@ -55,6 +62,13 @@ def prepare(args):
             "shared physical configuration drift")
     ci = read_json(EVIDENCE / "ci/verification.json")
     require(ci["status"] == "PASS_AUDITED_G2_CI", "current candidate CI audit missing")
+    explicit_lanes = args.variant == "od128-lanes"
+    qualification = store_lanes.EVIDENCE / "qualification.json"
+    if explicit_lanes:
+        qualified = read_json(qualification)
+        require(qualified["status"] == "PASS_LANES_CANDIDATE_RTL_FORMAL", "D38 RTL/formal qualification missing")
+        require(qualified["source_sha256"] == candidate_manifest(args.variant)["source_sha256"],
+                "D38 qualification source mismatch")
     if args.stage_ci:
         require(os.getenv("GITHUB_ACTIONS") == "true", "in-place staging is CI-only")
         require(Path(os.environ["GITHUB_WORKSPACE"]).resolve() == ROOT,
@@ -62,16 +76,16 @@ def prepare(args):
         dirty = subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=no"],
                                         cwd=ROOT, text=True)
         require(not dirty, "tracked checkout must be clean before CI staging")
-    build(out / "variants")
-    sources = out / "variants" / args.variant / "src"
+    (store_lanes.build if explicit_lanes else build)(out / "variants")
+    sources = out / "variants" / ("od128" if explicit_lanes else args.variant) / "src"
     hashes = verify_sources(sources, args.variant)
     record = {
         "schema": "protocol-emulator-g2-physical-v1",
         "created_utc": datetime.now(timezone.utc).isoformat(), "variant": args.variant,
         "workflow_source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"],
                                                             cwd=ROOT, text=True).strip(),
-        "source_evidence": "E0035", "ci_audit_sha256": digest(EVIDENCE / "ci/verification.json"),
-        "program_words": read_json(MANIFEST)[args.variant]["capacity"],
+        "source_evidence": "E0037" if explicit_lanes else "E0035", "ci_audit_sha256": digest(EVIDENCE / "ci/verification.json"),
+        "program_words": candidate_manifest(args.variant)["capacity"],
         "source_sha256": hashes, "flow_lock": lock,
         "config_sha256_lf": common.text_digest(ROOT / "src/config.json"),
         "metadata_sha256_lf": common.text_digest(ROOT / "info.yaml"),
@@ -85,15 +99,21 @@ def prepare(args):
             "tools/i2c_oracle.py", "tools/spi_four_mode_oracle.py",
             "docs/specs/g2-cmos5l-qualification.md")},
         "staged_in_ci": bool(args.stage_ci),
-        "public_test_names": sorted(PUBLIC_TEST_MODULES) if args.variant == "od128" else [],
+        "public_test_names": sorted(PUBLIC_TEST_MODULES) if args.variant in ("od128", "od128-lanes") else [],
         "scope": "Experimental complete chip; production promotion remains a separate decision",
     }
+    if explicit_lanes:
+        record["implementation_qualification_sha256"] = digest(qualification)
+        for path in (store_lanes.MANIFEST, qualification, ROOT / "experiments/i2c/store_lanes.py",
+                     ROOT / "experiments/i2c/run_store_lanes_gate.py",
+                     ROOT / "docs/decisions/0038-explicit-store-lanes-after-routing-failure.md"):
+            record["provenance_sha256_lf"][path.relative_to(ROOT).as_posix()] = common.text_digest(path)
     write_json(out / "inputs.json", record)
     if args.stage_ci:
         for name in hashes:
             shutil.copyfile(sources / name, ROOT / "src" / name)
         verify_sources(ROOT / "src", args.variant)
-    print(f"PASS: {args.variant} generated identities match E0035")
+    print(f"PASS: {args.variant} generated identities match {record['source_evidence']}")
 
 
 def check_run(args):
@@ -194,7 +214,7 @@ def main():
         sub = actions.add_parser(action)
         sub.add_argument("--output", type=Path, required=True)
         if action != "check-tests":
-            sub.add_argument("--variant", choices=("od128", "literal255"), required=True)
+            sub.add_argument("--variant", choices=("od128", "literal255", "od128-lanes"), required=True)
         if action == "prepare":
             sub.add_argument("--stage-ci", action="store_true")
         elif action == "check-run":

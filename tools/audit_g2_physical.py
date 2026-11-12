@@ -102,7 +102,7 @@ def require_finished(run, jobs):
     return {j["name"]: j for j in selected}
 
 
-def audit(directory, output):
+def audit(directory, output, variant="od128"):
     run = read(directory / "run.json")
     jobs = require_finished(run, read(directory / "jobs.json")["jobs"])
     source = run["head_sha"]
@@ -114,15 +114,23 @@ def audit(directory, output):
     try:
         lock = common.candidate_lock()
         logs, submission = archives["GDS_logs"], archives["tt_submission"]
-        inputs = archives["g2-physical-candidate"].json("od128/inputs.json")
-        expected = read(physical_g2.MANIFEST)["od128"]["source_sha256"]
-        require(inputs["variant"] == "od128" and inputs["program_words"] == 128, "wrong physical candidate")
+        require(variant in ("od128", "od128-lanes"), "unsupported physical qualification candidate")
+        inputs = archives["g2-physical-candidate"].json(variant + "/inputs.json")
+        expected = physical_g2.candidate_manifest(variant)["source_sha256"]
+        require(inputs["variant"] == variant and inputs["program_words"] == 128, "wrong physical candidate")
         require(inputs["workflow_source_commit"] == source and inputs["source_sha256"] == expected, "staged source identity mismatch")
         require(inputs["flow_lock"] == lock, "staged flow lock mismatch")
         require(inputs["public_test_names"] == sorted(physical_g2.PUBLIC_TEST_MODULES), "staged public selection mismatch")
         require(inputs["staged_in_ci"], "candidate was not staged in CI")
         for name, digest in inputs["provenance_sha256_lf"].items():
             require(sha(frozen(source, name)) == digest, "workflow input digest mismatch: " + name)
+        if variant == "od128-lanes":
+            evidence = "evidence/E0037-explicit-store-lanes/qualification.json"
+            qualification = frozen(source, evidence)
+            require(inputs["implementation_qualification_sha256"] == sha(qualification), "D38 qualification identity mismatch")
+            qualified = json.loads(qualification)
+            require(qualified["status"] == "PASS_LANES_CANDIDATE_RTL_FORMAL" and
+                    qualified["source_sha256"] == expected, "D38 source qualification mismatch")
         require(sha(frozen(source, "info.yaml")) == inputs["metadata_sha256_lf"], "metadata identity mismatch")
         require(sha(frozen(source, "src/config.json")) == inputs["config_sha256_lf"] == lock["config_sha256_lf"], "physical configuration mismatch")
         for archive in (logs, submission):
@@ -152,7 +160,7 @@ def audit(directory, output):
         check = archives["g2-netlist-check"].json("test/output/physical-result.json")
         require(check["status"] == "PASS" and check["evidence_kind"] == "FUNCTIONAL_ZERO_DELAY_NETLIST"
                 and check["netlist_sha256"] == sha(netlist), "CI did not bind the tested netlist to the submission")
-        test_inputs = archives["g2-netlist-check"].json("build/g2-physical/od128/inputs.json")
+        test_inputs = archives["g2-netlist-check"].json("build/g2-physical/" + variant + "/inputs.json")
         require({k:v for k,v in test_inputs.items() if k != "created_utc"} ==
                 {k:v for k,v in inputs.items() if k != "created_utc"}, "netlist-test source/selection differs from GDS stage")
         test = archives["gatelevel_test_results"]
@@ -167,7 +175,7 @@ def audit(directory, output):
         checked = read(public)
         require({k:v for k,v in checked.items() if k not in ("evidence_kind", "netlist_sha256")} ==
                 {k:v for k,v in check.items() if k not in ("evidence_kind", "netlist_sha256")}, "offline public audit and CI checker differ")
-        routed = archives["g2-physical-candidate"].json("od128/resolved-inputs.json")
+        routed = archives["g2-physical-candidate"].json(variant + "/resolved-inputs.json")
         require(routed["status"] == "PASS_PHYSICAL_METRICS_PRECHECK_AND_NETLIST_PENDING", "CI routed checker did not pass")
         require(routed["netlist_sha256"] == sha(netlist) and routed["source_sha256"] == expected
                 and routed["physical_metrics"] == review, "routed checker differs from original outputs")
@@ -175,7 +183,7 @@ def audit(directory, output):
                 and routed["resolved_config_sha256"] == sha(logs.bytes("runs/wokwi/resolved.json"))
                 and routed["pdk"] == pdk, "routed output digests or PDK differ")
         return {"schema": "protocol-emulator-g2-physical-audit-v1", "status": "PASS_ALL_G2_PHYSICAL_GATES",
-                "run_id": run["id"], "workflow_source_commit": source, "variant": "od128",
+                "run_id": run["id"], "workflow_source_commit": source, "variant": variant,
                 "source_sha256": expected, "gds_sha256": sha(layout), "netlist_sha256": sha(netlist),
                 "gds_bytes": len(layout), "program_words": 128, "program_bits": 4096,
                 "pdk": pdk, "physical_metrics": review, "area": area, "runtime": runtime, "consumer_artifacts": consumers,
@@ -191,12 +199,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifacts", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--variant", choices=("od128", "od128-lanes"), default="od128")
     args = parser.parse_args()
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(), "use a new output directory under build/")
     out.mkdir(parents=True)
     try:
-        report = audit(args.artifacts.resolve(), out)
+        report = audit(args.artifacts.resolve(), out, args.variant)
     except (AssertionError, ValueError, KeyError, FileNotFoundError, ET.ParseError, zipfile.BadZipFile) as error:
         common.write_json(out / "result.json", {"status": "NOT_QUALIFIED", "error": str(error)})
         raise

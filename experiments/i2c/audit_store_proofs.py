@@ -25,10 +25,16 @@ def sections(path):
             re.findall(r"\[(\w+)\]\n(.*?)(?=\n\[|\Z)", path.read_text(), re.S)}
 
 
-def audit(positive, controls, variant, positive_bytes):
+def audit(positive, controls, variant, positive_bytes, source_revision="e35"):
     capacity = 128 if variant == "od128" else 255
     pos = json.loads(positive_bytes)
     original = ROOT / "evidence/E0035-general-i2c/sources/current" / variant / "m1_program_store.v"
+    assert source_revision in ("e35", "explicit-lanes")
+    if source_revision == "explicit-lanes":
+        assert variant == "od128"
+        original = ROOT / "evidence/E0037-explicit-store-lanes/sources/od128/m1_program_store.v"
+        manifest = read(original.parent.parent / "source-manifest.json")
+        assert digest(original) == manifest[variant]["source_sha256"]["m1_program_store.v"]
     assert pos["sources"][variant] == digest(original)
     source = original.read_text()
     full = source.replace("endmodule", properties(capacity) + "endmodule")
@@ -109,6 +115,9 @@ def audit(positive, controls, variant, positive_bytes):
             if task["name"] == "alias":
                 assert rtl.count("{program_bank, byte_address}") == 1
                 rtl = rtl.replace("{program_bank, byte_address}", "{1'b0, program_bank[2:0], byte_address}")
+            elif source_revision == "explicit-lanes":
+                assert rtl.count("case (byte_address[1:0])") == capacity
+                rtl = rtl.replace("case (byte_address[1:0])", "case (byte_address[1:0] ^ 2'b01)")
             else:
                 before = "[8*byte_address[1:0] +: 8] <= data_in;"
                 assert rtl.count(before) == capacity
@@ -142,11 +151,12 @@ def main():
     parser.add_argument("--positive-snapshot", type=Path)
     parser.add_argument("--controls", type=Path, required=True)
     parser.add_argument("--variant", choices=("od128", "literal255"), required=True)
+    parser.add_argument("--source-revision", choices=("e35", "explicit-lanes"), default="e35")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     assert not args.output.exists(), "preserve earlier audits"
     positive_bytes = (args.positive_snapshot or args.positive / "result.json").read_bytes()
-    result = audit(args.positive, args.controls, args.variant, positive_bytes)
+    result = audit(args.positive, args.controls, args.variant, positive_bytes, args.source_revision)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     snapshot = args.output.with_suffix(".positive.json")
     assert not snapshot.exists(), "preserve earlier snapshots"

@@ -33,9 +33,10 @@ but fails global routing with GRT-0228 congestion; dependent jobs are skipped.
 E0036 retains original archive identities, runtime/configuration checks and
 failure logs. All five clean
 d3c340f CI gates and downloaded-evidence audits pass, including the complete
-100-task store run. Next qualify and physically measure the explicit byte-lane
-store rewrite, preserving capacity, behavior and fixed conditions. Finish
-physical qualification and integration. Production remains unchanged.
+100-task store run. D38/E0037's explicit byte-lane store passes all 652 assertions
+and both reset-reachable mutation controls; the full public selection is
+running. Complete that gate, then physically measure the new implementation
+with capacity, behavior and fixed conditions preserved. Production is unchanged.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
 This prepares integration without promoting an unqualified design.

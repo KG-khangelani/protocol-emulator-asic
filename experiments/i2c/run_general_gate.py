@@ -11,12 +11,17 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--gate", choices=("od128", "literal255", "architecture", "physical-selection", "store"), required=True)
+    p.add_argument("--gate", choices=("od128", "literal255", "architecture", "physical-selection", "store",
+                                     "lanes-selection", "lanes-store"), required=True)
     p.add_argument("--output", type=Path, required=True)
     args = p.parse_args()
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT/"build").resolve()):
         raise ValueError("new isolated output required")
+    if args.gate.startswith("lanes-"):
+        subprocess.run([sys.executable, str(ROOT / "experiments/i2c/run_store_lanes_gate.py"),
+                        "--gate", args.gate.removeprefix("lanes-"), "--output", str(out)], cwd=ROOT, check=True)
+        return
     out.mkdir(parents=True)
 
     def run(script, target, expected, *options):

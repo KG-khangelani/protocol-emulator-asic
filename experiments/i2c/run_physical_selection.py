@@ -17,13 +17,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--variants", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--source-revision", choices=("e35", "explicit-lanes"), default="e35")
     args = parser.parse_args()
     out = args.output.resolve()
     if out.exists() or not out.is_relative_to((ROOT / "build").resolve()):
         raise ValueError("new isolated output required")
     out.mkdir(parents=True)
     src = args.variants.resolve() / "od128/src"
-    sources = physical.verify_sources(src, "od128")
+    implementation = "od128-lanes" if args.source_revision == "explicit-lanes" else "od128"
+    sources = physical.verify_sources(src, implementation)
     result = {"status": "RUNNING", "sources": sources, "stages": [],
               "scope": "EXACT_G2_PHYSICAL_SELECTION_ON_RTL", "physical": "NOT_EVALUATED"}
     physical.write_json(out / "result.json", result)
@@ -51,7 +53,7 @@ def main():
                                      "returncode": proc.returncode, "seconds": round(time.monotonic() - start, 3),
                                      "check": physical.read_json(stage / "check.json")})
             physical.write_json(out / "result.json", result)
-        assert physical.verify_sources(src, "od128") == sources
+        assert physical.verify_sources(src, implementation) == sources
         result["status"] = "PASS_G2_PHYSICAL_SELECTION_ON_BOTH_RTL_SIMULATORS"
     except Exception as error:
         result.update(status="FAILED_OR_INCOMPLETE", error=str(error))

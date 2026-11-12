@@ -14,10 +14,11 @@ def main():
     parser.add_argument("--controls", type=Path, required=True)
     parser.add_argument("--snapshot", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--source-revision", choices=("e35", "explicit-lanes"), default="e35")
     args = parser.parse_args()
     assert not args.output.exists(), "preserve earlier controls"
     original = json.loads(args.snapshot.read_bytes())
-    assert audit(args.positive, args.controls, "od128", args.snapshot.read_bytes())["status"] == "PASS_COMPLETE_VARIANT_STORE_PROOF"
+    assert audit(args.positive, args.controls, "od128", args.snapshot.read_bytes(), args.source_revision)["status"] == "PASS_COMPLETE_VARIANT_STORE_PROOF"
     results = []
     for mutation in ("missing_state_group", "missing_read_group", "duplicate_group", "missing_assertion",
                      "missing_cover", "incomplete_word_coverage", "wrong_source", "failed_proof", "missing_cover_witness"):
@@ -45,7 +46,7 @@ def main():
         elif mutation == "missing_cover_witness":
             cover["witnesses"].pop(next(iter(cover["witnesses"])))
         try:
-            audit(args.positive, args.controls, "od128", json.dumps(changed).encode())
+            audit(args.positive, args.controls, "od128", json.dumps(changed).encode(), args.source_revision)
         except AssertionError:
             results.append({"mutation": mutation, "rejected": True})
         else:
