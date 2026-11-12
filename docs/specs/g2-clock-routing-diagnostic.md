@@ -32,3 +32,20 @@ overflow would establish only a direction to test. Any proposed adoption must
 first document the physical change and then pass fresh complete routing,
 all-corner timing/electrical limits, antenna/DRC/LVS, precheck and actual-netlist
 protocol tests under the approved configuration. No acceptance limit is relaxed.
+
+## One bounded follow-up after the timeout
+
+The first routing attempt reached extra iteration 40/50 and timed out after
+1,200.029 seconds. It produced no routed result; preserve it as incomplete.
+Its input audit confirms exactly sixteen NDR assignments removed and no
+other layout change. The parent mapped-cost replay now reproduces D39's
+34,683 cells and 477,788.2578 square micrometres under the installed pinned
+runtime and PDK.
+
+Allow one new 2,400-second routing attempt on the identical copied layout,
+after both mapped-cost jobs finish. Keep four threads, all 50 iterations,
+every routing/physical limit and the exact NDR-only edit unchanged. This
+extends only the diagnostic wall budget, not a timing/area acceptance limit.
+Retain both attempts and stop this branch if the follow-up is still incomplete
+or fails. Any completed route needs a separate overflow/identity audit before
+it can motivate a full physical qualification.

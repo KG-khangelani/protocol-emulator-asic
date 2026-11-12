@@ -11,6 +11,9 @@ words, the interface and the other four source files stay identical.
 |---|---:|---:|
 | Whole-chip generic cells | 15,211 | 15,593 |
 | Whole-chip state bits | 4,278 | 4,278 |
+| Mapped standard cells | 34,683 | 32,160 |
+| Mapped area, square micrometres | 477,788.2578 | 502,643.5722 |
+| Mapped buffers | 5,020 | 8,233 |
 | Icarus store-port checks | 1,178 | 1,178 |
 | Verilator store-port checks | 1,176 | 1,176 |
 
@@ -25,10 +28,14 @@ compilation, the exact mismatch and nonzero simulation exit are retained.
 Icarus also checks unknown low/high selector bits; Verilator's two-state
 simulation is not credited with those checks.
 
-The generic count rises 2.5113%; mapped and routed effects are **not
-evaluated**. This is a retained alternative, not a promoted candidate or
-complete-chip protocol qualification. A separate clock-routing diagnostic is
-investigating the original layout before another implementation is selected.
+The generic count rises 2.5113%. The separately declared
+[mapped comparison](../../docs/specs/g2-banked-mapped-screen.md) uses the actual
+pinned physical runtime and library: the parent reproduces its earlier area
+and cell count exactly, while the banked alternative costs **5.20216% more
+mapped area**. Both preserve 4,278 sequential cells / 209,574.0864 square
+micrometres and have zero inferred latches, unmapped cells or synthesis errors.
+The candidate is set aside without a routed trial. No routed/timing or
+complete-chip protocol qualification is inferred for this alternative.
 
 `screen.tar.gz` contains 63 exact source, script, log, model and result files.
 `archive.json` hashes every member; `SHA256SUMS` indexes the curated files.
@@ -41,3 +48,15 @@ python evidence/E0040-banked-read-screen/verify.py --output build/banked-screen-
 
 The solver and simulator runs use the locked workbench. Replay audits retained
 evidence; it does not rerun a solver or imply physical acceptance.
+
+`mapped/mapping.tar.gz` retains 123 exact files, including both actual mapped
+netlists, logs, resolved settings, source bytes and runtime identity. Its replay
+also compares the original D39 settings after documented path relocation and
+the explicit four-thread setting used by the original command:
+
+```text
+python evidence/E0040-banked-read-screen/mapped/verify.py --output build/banked-mapped-replay
+```
+
+E0041 separately diagnoses D39's clock-routing failure; this evidence does
+not replace that original failed physical result.

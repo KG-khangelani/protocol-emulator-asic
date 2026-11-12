@@ -1,0 +1,598 @@
+{
+  "scope": "READ_ONLY_PRE_ROUTING_DATABASE_INSPECTION",
+  "source": "/workspace/build/g2-physical-shared/13966350208/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_khangelani_protocol_emulator.odb",
+  "source_sha256": "580c24c257761d71f2f87891e3a3d5bc02698dc727b7f7e168ec1d9b2856ef15",
+  "instances": 39944,
+  "nets": 39770,
+  "ndr_rules": [
+    {
+      "name": "CTS_NDR_0"
+    }
+  ],
+  "ndr_nets": [
+    {
+      "name": "clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_0_clk",
+          "cell": "sg13cmos5l_buf_16",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            866.16,
+            357.21
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "name": "clk",
+          "boxes_um": [
+            [
+              187.05,
+              709.64,
+              187.35,
+              710.64
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clknet_0_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_1_1_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            901.2,
+            357.21
+          ]
+        },
+        {
+          "instance": "clkbuf_1_0_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            825.36,
+            357.21
+          ]
+        },
+        {
+          "instance": "clkbuf_0_clk",
+          "cell": "sg13cmos5l_buf_16",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            866.16,
+            357.21
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_1_0_2_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_2_1_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            449.52,
+            315.63
+          ]
+        },
+        {
+          "instance": "clkbuf_2_0_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            484.08,
+            281.61
+          ]
+        },
+        {
+          "instance": "clkbuf_1_0_2_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            487.44,
+            311.85
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_1_1_2_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_2_3_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1316.4,
+            357.21
+          ]
+        },
+        {
+          "instance": "clkbuf_2_2_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1302.0,
+            342.09
+          ]
+        },
+        {
+          "instance": "clkbuf_1_1_2_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1278.48,
+            353.43
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_2_0_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_3_1_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            520.08,
+            130.41
+          ]
+        },
+        {
+          "instance": "clkbuf_3_0_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            446.16,
+            126.63
+          ]
+        },
+        {
+          "instance": "clkbuf_2_0_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            484.08,
+            92.61
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_2_1_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_3_3_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            426.48,
+            406.35
+          ]
+        },
+        {
+          "instance": "clkbuf_3_2_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            351.12,
+            406.35
+          ]
+        },
+        {
+          "instance": "clkbuf_2_1_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            388.56,
+            444.15
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_2_2_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_3_5_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1339.92,
+            190.89
+          ]
+        },
+        {
+          "instance": "clkbuf_3_4_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1264.56,
+            190.89
+          ]
+        },
+        {
+          "instance": "clkbuf_2_2_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1302.0,
+            153.09
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_2_3_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_3_7_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1389.36,
+            470.61
+          ]
+        },
+        {
+          "instance": "clkbuf_3_6_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1313.52,
+            470.61
+          ]
+        },
+        {
+          "instance": "clkbuf_2_3_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1351.44,
+            508.41
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_0_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_1_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            234.48,
+            134.19
+          ]
+        },
+        {
+          "instance": "clkbuf_4_0_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            293.04,
+            119.07
+          ]
+        },
+        {
+          "instance": "clkbuf_3_0_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            262.8,
+            126.63
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_1_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_3_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            689.04,
+            194.67
+          ]
+        },
+        {
+          "instance": "clkbuf_4_2_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            708.72,
+            153.09
+          ]
+        },
+        {
+          "instance": "clkbuf_3_1_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            679.44,
+            164.43
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_2_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_5_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            155.28,
+            440.37
+          ]
+        },
+        {
+          "instance": "clkbuf_4_4_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            166.8,
+            406.35
+          ]
+        },
+        {
+          "instance": "clkbuf_3_2_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            180.72,
+            425.25
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_3_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_7_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            505.2,
+            546.21
+          ]
+        },
+        {
+          "instance": "clkbuf_4_6_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            509.04,
+            474.39
+          ]
+        },
+        {
+          "instance": "clkbuf_3_3_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            509.52,
+            512.19
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_4_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_9_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1111.44,
+            194.67
+          ]
+        },
+        {
+          "instance": "clkbuf_4_8_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1104.72,
+            137.97
+          ]
+        },
+        {
+          "instance": "clkbuf_3_4_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1095.6,
+            171.99
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_5_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_11_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1496.88,
+            198.45
+          ]
+        },
+        {
+          "instance": "clkbuf_4_10_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1509.84,
+            134.19
+          ]
+        },
+        {
+          "instance": "clkbuf_3_5_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1509.36,
+            171.99
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_6_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_13_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1200.72,
+            587.79
+          ]
+        },
+        {
+          "instance": "clkbuf_4_12_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1276.08,
+            587.79
+          ]
+        },
+        {
+          "instance": "clkbuf_3_6_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1235.76,
+            587.79
+          ]
+        }
+      ],
+      "ports": []
+    },
+    {
+      "name": "clknet_3_7_1_clk",
+      "rule": "CTS_NDR_0",
+      "pins": [
+        {
+          "instance": "clkbuf_4_15_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1582.32,
+            504.63
+          ]
+        },
+        {
+          "instance": "clkbuf_4_14_0_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "A",
+          "direction": "INPUT",
+          "center_um": [
+            1552.08,
+            463.05
+          ]
+        },
+        {
+          "instance": "clkbuf_3_7_1_clk",
+          "cell": "sg13cmos5l_buf_8",
+          "pin": "X",
+          "direction": "OUTPUT",
+          "center_um": [
+            1566.48,
+            485.73
+          ]
+        }
+      ],
+      "ports": []
+    }
+  ]
+}

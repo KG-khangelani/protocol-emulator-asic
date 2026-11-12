@@ -1,0 +1,27 @@
+{
+  "status": "PASS_ISOLATED_ROUTING_INPUTS",
+  "differences_after_path_relocation": {
+    "DESIGN_DIR": [
+      "<design>/src",
+      "/workspace/build/g2-routing-diagnostic-02"
+    ],
+    "OPENROAD_THREADS": [
+      null,
+      4
+    ],
+    "FP_DEF_TEMPLATE": [
+      "<design>/tt/tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def",
+      "/workspace/build/g1-upstream/support/tt_block_8x4_pgvdd.def"
+    ]
+  },
+  "scope": "16 net NDR assignments only; four threads explicit instead of auto, matching original actual command; unused DEF template path relocated",
+  "source_sha256": {
+    "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+    "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+    "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "original_def_sha256": "27ed2bda317cb1204309b1f8c34fb546b213c1cedeb59cc99045401d70481620",
+  "ablated_def_sha256": "ae7d30bc92be3d8d55f5566b1e3ae3e4e19231b08c7f4a3b8a5270d97c1ebf9e"
+}

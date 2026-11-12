@@ -1,0 +1,20 @@
+{
+  "status": "PASS_RETAINED_MATCHED_MAPPING",
+  "files": 123,
+  "mapped_area_change_percent": 5.202160997938199,
+  "configuration_differences_from_original_after_path_relocation": {
+    "OPENROAD_THREADS": [
+      null,
+      4
+    ],
+    "DESIGN_DIR": [
+      "<design>/src",
+      "<design>"
+    ],
+    "FP_DEF_TEMPLATE": [
+      "<design>/tt/tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def",
+      "/workspace/build/g1-upstream/support/tt_block_8x4_pgvdd.def"
+    ]
+  },
+  "routed_or_timing_qualification": "NOT_EVALUATED"
+}

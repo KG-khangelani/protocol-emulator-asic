@@ -57,10 +57,13 @@ D41/E0040 completes the bounded banked-read screen. All 4,109 store state
 bits and 54 outputs pass temporal equivalence and an independent reset base;
 both simulators pass port-driven checks and expose the deliberate high-bank
 alias. Whole-chip generic cells rise from 15,211 to 15,593, with unchanged
-state. Retain it as an alternative without a physical-benefit claim. A bounded
-clock-spacing ablation on a copy of D39's existing layout is running; it changes
-only sixteen NDR assignments and is not physical qualification. Diagnose that
-result before selecting another implementation or a documented flow change.
+state. The matched pinned mapped screen reproduces D39's earlier cost exactly;
+the banked candidate increases area by 5.20216% to 502,643.5722 square micrometres.
+Set it aside without a routed trial. E0041 retains a 1,200-second clock-spacing
+diagnostic timeout at extra iteration 40/50, with no final congestion result.
+One separately declared 2,400-second follow-up is running on the copied layout;
+only sixteen NDR assignments change. Diagnose it before selecting another
+implementation or a documented flow change. Physical qualification stays open.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

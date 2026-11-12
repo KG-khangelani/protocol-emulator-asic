@@ -1,0 +1,16 @@
+{
+  "status": "INCOMPLETE_CLOCK_NDR_ABLATION",
+  "original_physical_run": 43249867361,
+  "source_commit": "426cea1252eb2a1f38cf32eeacda710f16e61ca0",
+  "source_odb_sha256": "580c24c257761d71f2f87891e3a3d5bc02698dc727b7f7e168ec1d9b2856ef15",
+  "changed_assignments": 16,
+  "before_def_sha256": "27ed2bda317cb1204309b1f8c34fb546b213c1cedeb59cc99045401d70481620",
+  "after_def_sha256": "ae7d30bc92be3d8d55f5566b1e3ae3e4e19231b08c7f4a3b8a5270d97c1ebf9e",
+  "last_observed_extra_iteration": 40,
+  "requested_extra_iterations": 50,
+  "seconds": 1200.029,
+  "wall_limit": 1200,
+  "exit_code": 124,
+  "qualification": "NOT_QUALIFIED",
+  "follow_up": "SEPARATE_2400_SECOND_ATTEMPT_DECLARED"
+}

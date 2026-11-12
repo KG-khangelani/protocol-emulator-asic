@@ -156,9 +156,12 @@ CI and a physically successful implementation remain open.
 
 D41/E0040 retains a complete-store-equivalent banked read with passing
 reset and both simulators' port/mutation controls. Generic cells increase
-2.5113% with the same real storage; no physical benefit is claimed. The
-clock-spacing diagnostic changes only sixteen assignments on a copied
-database. Its outcome and any subsequent physical qualification remain open.
+2.5113% with the same real storage. A matched pinned mapping reproduces D39's
+parent cost exactly and finds 5.20216% more area for the banked candidate; set
+it aside without routing. E0041 retains the clock-spacing diagnostic's first
+1,200-second timeout at iteration 40/50. Its separately declared 2,400-second
+follow-up changes the same sixteen assignments on a copied database. Final
+congestion and subsequent physical qualification remain open.
 
 Completion checks:
 

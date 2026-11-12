@@ -1,0 +1,1 @@
+openroad -exit -threads 4 -no_splash -metrics /workspace/build/g2-routing-diagnostic-02/runs/no-clock-ndr/01-openroad-globalrouting/or_metrics_out.json /nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/openroad/grt.tcl

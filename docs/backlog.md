@@ -54,10 +54,12 @@ at 426cea1 maps to 34,683 cells / 477,788.2578 square micrometres, saving
 GRT-0228 congestion. E0038 retains the verified failure; dependent jobs are
 skipped. D41/E0040's banked-read screen passes complete-store equivalence,
 reset and both simulators' port/mutation checks, but adds 2.5113% generic
-cells. Retain the alternative; no mapped/routed benefit is measured. Next,
-finish the bounded clock-spacing diagnostic on the copied D39 layout before
-selecting another candidate or a documented physical-flow change. Acceptance
-limits remain unchanged.
+cells. Matched pinned mapping reproduces D39's original cost exactly and
+shows 5.20216% more area for the banked candidate; set it aside without routing.
+E0041 retains the first clock-spacing timeout at 1,200 seconds / iteration
+40/50. Finish the separately declared 2,400-second follow-up on the same copied
+D39 layout before selecting another candidate or a documented physical-flow
+change. Acceptance limits remain unchanged.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

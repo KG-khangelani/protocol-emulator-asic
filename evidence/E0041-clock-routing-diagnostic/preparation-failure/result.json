@@ -1,0 +1,10 @@
+{
+  "status": "FAILED_OR_INCOMPLETE",
+  "scope": "CLOCK_NDR_ABLATION_GLOBAL_ROUTING_ONLY",
+  "source_odb_sha256": "580c24c257761d71f2f87891e3a3d5bc02698dc727b7f7e168ec1d9b2856ef15",
+  "runner_sha256": "f6775e2c5a564b84251da3b80a2e49a458a5e7e4aecdc8a580351546d35c687c",
+  "spec_sha256": "f5266ee759faa236197a9b2b54fc0318a23facac6d09f4d733ca603dda26c0db",
+  "wall_limit_seconds": 1200,
+  "physical_qualification": "NOT_EVALUATED",
+  "error": ""
+}
