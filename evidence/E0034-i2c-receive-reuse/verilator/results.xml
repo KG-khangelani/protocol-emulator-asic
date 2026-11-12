@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794480318" />
+    <testcase name="same_pin_clock_capture_with_public_reload" classname="test_i2c_receive_public" file="/workspace/test/test_i2c_receive_public.py" lineno="115" time="24.079970359802246" sim_time_ns="24007270.68" ratio_time="996980.9065909978" />
+  </testsuite>
+</testsuites>

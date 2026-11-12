@@ -1,0 +1,26 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/i2c-receive-01/icarus/results.xml
+"make" -f Makefile /workspace/build/i2c-receive-01/icarus/results.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/i2c-receive-01/icarus/sim
+/usr/local/bin/iverilog -o /workspace/build/i2c-receive-01/icarus/sim/sim.vvp -s tb -g2012 -I/workspace/build/i2c-receive-01/variants/compact10/src -f /workspace/build/i2c-receive-01/icarus/sim/cmds.f  /workspace/build/i2c-receive-01/variants/compact10/src/project.v /workspace/build/i2c-receive-01/variants/compact10/src/m1_engine.v /workspace/build/i2c-receive-01/variants/compact10/src/m1_program_store.v /workspace/build/i2c-receive-01/variants/compact10/src/m1_data_store.v /workspace/build/i2c-receive-01/variants/compact10/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/i2c-receive-01/icarus/results.xml
+COCOTB_TEST_MODULES=test_i2c_receive_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/i2c-receive-01/icarus/sim/sim.vvp  +NO_DUMP 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1794480242
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_i2c_receive_public.same_pin_clock_capture_with_public_reload (1/1)
+24007270.68ns INFO     cocotb.regression                  test_i2c_receive_public.same_pin_clock_capture_with_public_reload passed
+24007270.68ns INFO     cocotb.regression                  ***************************************************************************************************************************
+                                                          ** TEST                                                               STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                          ***************************************************************************************************************************
+                                                          ** test_i2c_receive_public.same_pin_clock_capture_with_public_reload   PASS    24007270.68          30.27     793011.15  **
+                                                          ***************************************************************************************************************************
+                                                          ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                                24007270.68          30.31     792180.64  **
+                                                          ***************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

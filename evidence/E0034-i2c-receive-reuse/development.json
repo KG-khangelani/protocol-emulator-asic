@@ -1,0 +1,8 @@
+{
+  "first_launch": "FAIL before runner execution",
+  "exception": "SyntaxError: unmatched ')'",
+  "cause": "Copied runner retained an extra closing parenthesis",
+  "resolution": "Correct syntax; complete dual-simulator run passed",
+  "source_and_g1_candidate_identity": "PASS",
+  "qualification_scope": "RECEIVE_KERNEL_ONLY"
+}

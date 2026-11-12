@@ -36,6 +36,7 @@
 | E0031 | Does the timed P complete-chip advantage survive the current 8x4 CMOS5L flow? | D35 selects compact10: routed metrics, 10 prechecks and 12 real-netlist groups PASS; P saves 13.1456% routed standard-cell area but fails fanout; alpha.5 publication verified | E0031-8x4-physical-comparison/README.md |
 | E0032 | Can an independent public-event oracle distinguish compliant bounded I2C fixtures from meaningful counterexamples? | 19 groups and 3,902 observations pass; 53 witnesses; contract frozen before ISA change; no DUT qualification | E0032-i2c-oracle/README.md |
 | E0033 | What do existing compact10 instructions and real capacity permit for I2C? | Two simulators agree on ten scoped public records: bounded cleanup fits ten words; held-SDA faults and 122-word literal capacity limit retained; full I2C pending | E0033-i2c-existing-instructions/README.md |
+| E0034 | Can existing SHIFT_STEP receive SDA while generating a legal low SCL edge? | Nine-word unchanged-RTL kernel; 268 identical records per simulator, 264 positives/4 controls, 98,619.329 Hz; no full I2C qualification | E0034-i2c-receive-reuse/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

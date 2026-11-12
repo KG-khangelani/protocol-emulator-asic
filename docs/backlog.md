@@ -16,8 +16,10 @@ D36/E0032 freezes/tests the independent I2C oracle: 19 groups, 3,902 observation
 and 53 retained witnesses. E0033 measures unchanged compact10: ten identical
 records per simulator, ten-word bounded cleanup, expected held-SDA faults and
 122-word literal write footprint versus a real ten-word store. Next test
-existing SHIFT_STEP receive reuse and complete schedule costs before selecting
-general instruction or storage changes.
+complete general branching/storage schedules, with and without open-drain
+serial output. E0034 confirms existing SHIFT_STEP receive reuse: nine words,
+268 identical records per simulator, all bytes and four rejected controls;
+98,619.329 Hz, no full I2C framing or cleanup qualification.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task

@@ -81,6 +81,14 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 experiments/spi_phase/run_comparison.py --output build/spi-phase-comparison/ci
 
+      - name: Measure existing-shift I2C receive reuse
+        # This scoped kernel does not qualify a complete I2C transaction.
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/i2c/run_receive.py --output build/i2c-receive/ci
+
       - name: Qualify isolated compact phase assertions and legacy refinement
         run: |
           docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
@@ -134,6 +142,13 @@ jobs:
             build/i2c-baseline/ci/verilator/run.log
             build/i2c-baseline/ci/verilator/results.xml
             build/i2c-baseline/ci/verilator/records/
+            build/i2c-receive/ci/result.json
+            build/i2c-receive/ci/icarus/run.log
+            build/i2c-receive/ci/icarus/results.xml
+            build/i2c-receive/ci/icarus/records/
+            build/i2c-receive/ci/verilator/run.log
+            build/i2c-receive/ci/verilator/results.xml
+            build/i2c-receive/ci/verilator/records/
             test/results*.xml
             test/tb.fst
             test/tb-gl-harness.fst

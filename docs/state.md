@@ -13,8 +13,12 @@ records per simulator, with identical traces: a ten-word inline cleanup kernel
 releases/HALTs within two clocks of expiry, while waits inside LOOP or without
 timeout skip fault holding SDA. A literal write-wire list uses 122 words; the
 real store rejects length eleven. No complete I2C transaction is qualified.
-Next test existing SHIFT_STEP receive reuse and complete schedule costs before
-choosing ISA/storage changes.
+E0034 reuses SHIFT_STEP for receive in nine words, with zero TX pulling SCL
+low while capturing SDA. Both simulators agree on 268 records: all bytes,
+eight stretch positions and four rejected controls. Rate is 98,619.329 Hz;
+this still omits a complete I2C transaction and timeout cleanup. Next compare
+complete general branching/storage schedules, with and without open-drain
+serial output, before selecting changes.
 The owner requested commits throughout the work. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).

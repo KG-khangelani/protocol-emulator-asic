@@ -95,9 +95,13 @@ bounded inline cleanup fits ten words, waits inside LOOP retain held-SDA faults,
 and a literal write-wire list needs 122 words against a real ten-word store.
 These are scoped kernels and a capacity screen, not complete I2C transactions.
 
-**Next executable action:** test existing SHIFT_STEP receive reuse, then measure
-complete branching/cleanup schedule costs. Use the evidence to choose any
-general instruction or storage change; preserve G1's pilot and failed alternatives.
+E0034 confirms nine-word existing SHIFT_STEP receive reuse, with 268 identical
+records per simulator (all bytes, eight stretch positions, four negatives).
+The measured 98,619.329 Hz kernel has no full I2C framing/cleanup qualification.
+
+**Next executable action:** compare complete general branching/storage schedules,
+with and without open-drain serial output, against the independent oracle and
+complete-chip cost. Preserve G1's pilot and failed alternatives.
 
 Completion checks:
 
