@@ -35,6 +35,7 @@
 | E0030 | Can general timed GPIO avoid expanding program storage? | P fits phase1 in8words and saves443generic cells/65bits against matched compact10; both clean-CI candidates qualify and P wins; local timeouts retained, alpha.4 assets/public package and full tag regression verified | E0030-timed-gpio-comparison/README.md |
 | E0031 | Does the timed P complete-chip advantage survive the current 8x4 CMOS5L flow? | D35 selects compact10: routed metrics, 10 prechecks and 12 real-netlist groups PASS; P saves 13.1456% routed standard-cell area but fails fanout; alpha.5 publication verified | E0031-8x4-physical-comparison/README.md |
 | E0032 | Can an independent public-event oracle distinguish compliant bounded I2C fixtures from meaningful counterexamples? | 19 groups and 3,902 observations pass; 53 witnesses; contract frozen before ISA change; no DUT qualification | E0032-i2c-oracle/README.md |
+| E0033 | What do existing compact10 instructions and real capacity permit for I2C? | Two simulators agree on ten scoped public records: bounded cleanup fits ten words; held-SDA faults and 122-word literal capacity limit retained; full I2C pending | E0033-i2c-existing-instructions/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

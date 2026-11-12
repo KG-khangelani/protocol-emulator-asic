@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794479111" />
+    <testcase name="existing_wait_cleanup_and_final_observation_edge" classname="test_i2c_baseline_public" file="/workspace/test/test_i2c_baseline_public.py" lineno="131" time="67.59292936325073" sim_time_ns="2670295.005" ratio_time="39505.537489721515">
+      <failure error_type="SimFailure" error_msg="Simulator shut down prematurely" />
+    </testcase>
+    <testcase name="oversized_literal_transaction_is_not_public_capacity" classname="test_i2c_baseline_public" file="/workspace/test/test_i2c_baseline_public.py" lineno="142" time="0" sim_time_ns="0" ratio_time="nan">
+      <failure error_type="SimFailure" error_msg="Simulator shut down prematurely" />
+    </testcase>
+  </testsuite>
+</testsuites>

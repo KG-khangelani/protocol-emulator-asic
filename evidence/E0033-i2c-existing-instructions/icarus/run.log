@@ -1,0 +1,29 @@
+make: Entering directory '/workspace/test'
+rm -f /workspace/build/i2c-baseline-02/icarus/results.xml
+"make" -f Makefile /workspace/build/i2c-baseline-02/icarus/results.xml
+make[1]: Entering directory '/workspace/test'
+mkdir -p /workspace/build/i2c-baseline-02/icarus/sim
+/usr/local/bin/iverilog -o /workspace/build/i2c-baseline-02/icarus/sim/sim.vvp -s tb -g2012 -I/workspace/build/i2c-baseline-02/variants/compact10/src -f /workspace/build/i2c-baseline-02/icarus/sim/cmds.f  /workspace/build/i2c-baseline-02/variants/compact10/src/project.v /workspace/build/i2c-baseline-02/variants/compact10/src/m1_engine.v /workspace/build/i2c-baseline-02/variants/compact10/src/m1_program_store.v /workspace/build/i2c-baseline-02/variants/compact10/src/m1_data_store.v /workspace/build/i2c-baseline-02/variants/compact10/src/m1_input_sync.v /workspace/test/tb.v
+rm -f /workspace/build/i2c-baseline-02/icarus/results.xml
+COCOTB_TEST_MODULES=test_i2c_baseline_public COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib/python3.11/site-packages/cocotb/libs -m libcocotbvpi_icarus   /workspace/build/i2c-baseline-02/icarus/sim/sim.vvp  +NO_DUMP 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1794479291
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_i2c_baseline_public.existing_wait_cleanup_and_final_observation_edge (1/2)
+6046536.01ns INFO     cocotb.regression                  test_i2c_baseline_public.existing_wait_cleanup_and_final_observation_edge passed
+6046536.01ns INFO     cocotb.regression                  running test_i2c_baseline_public.oversized_literal_transaction_is_not_public_capacity (2/2)
+6047576.01ns INFO     cocotb.regression                  test_i2c_baseline_public.oversized_literal_transaction_is_not_public_capacity passed
+6047576.01ns INFO     cocotb.regression                  ***************************************************************************************************************************************
+                                                         ** TEST                                                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ***************************************************************************************************************************************
+                                                         ** test_i2c_baseline_public.existing_wait_cleanup_and_final_observation_edge       PASS     6046536.01          65.48      92338.41  **
+                                                         ** test_i2c_baseline_public.oversized_literal_transaction_is_not_public_capacity   PASS        1040.00           0.02      50227.14  **
+                                                         ***************************************************************************************************************************************
+                                                         ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                             6047576.01          65.53      92283.91  **
+                                                         ***************************************************************************************************************************************
+make[1]: Leaving directory '/workspace/test'
+make: Leaving directory '/workspace/test'

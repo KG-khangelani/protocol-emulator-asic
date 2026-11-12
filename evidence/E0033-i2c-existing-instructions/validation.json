@@ -1,0 +1,13 @@
+{
+  "status": "PASS_SCOPED_BASELINE",
+  "candidate_identity": "All five generated RTL source hashes exactly equal D35/G1 compact10",
+  "source_stability": "PASS",
+  "actual_simulator_identities": "Icarus and Verilator confirmed in logs",
+  "groups_per_simulator": 2,
+  "records_per_simulator": 10,
+  "records_and_trace_hashes_identical": true,
+  "static_check": "PASS",
+  "full_i2c_transaction": "NOT_QUALIFIED",
+  "literal_image_execution": "NOT_RUN; oversized",
+  "rtl_changes": false
+}

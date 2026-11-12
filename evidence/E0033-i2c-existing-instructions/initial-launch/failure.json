@@ -1,0 +1,19 @@
+{
+  "status": "INVALID_COMPARISON_STOPPED",
+  "actual_simulators": [
+    "Icarus Verilog 14.0",
+    "Icarus Verilog 14.0"
+  ],
+  "incorrect_options": [
+    "icarus=icarus",
+    "icarus_BUILD=/workspace/build/i2c-baseline-01/sim-icarus",
+    "verilator=verilator",
+    "verilator_BUILD=/workspace/build/i2c-baseline-01/sim-verilator"
+  ],
+  "cause": "Global replacement of SIM changed make option names as well as values",
+  "effect": "Both used default Icarus and shared test/sim_build/icarus-rtl",
+  "disposition": "Confirmed live containers stopped intentionally; both process handles returned exit 1",
+  "retained": "Partial public records and terminated JUnit; full launcher logs were not written to files",
+  "qualification": "NONE",
+  "correction": "Structured argument list, distinct build directories, actual simulator identity checks"
+}

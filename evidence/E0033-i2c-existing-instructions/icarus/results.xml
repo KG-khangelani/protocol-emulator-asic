@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794479291" />
+    <testcase name="existing_wait_cleanup_and_final_observation_edge" classname="test_i2c_baseline_public" file="/workspace/test/test_i2c_baseline_public.py" lineno="137" time="65.48234868049622" sim_time_ns="6046536.009" ratio_time="92338.41074489358" />
+    <testcase name="oversized_literal_transaction_is_not_public_capacity" classname="test_i2c_baseline_public" file="/workspace/test/test_i2c_baseline_public.py" lineno="148" time="0.0207059383392334" sim_time_ns="1040.0" ratio_time="50227.136918949414" />
+  </testsuite>
+</testsuites>

@@ -90,9 +90,14 @@ oracle pass 19 groups with 3,902 reference/control observations. This includes
 all bytes, ordinary addresses, stretching, final-edge priority and bounded
 cleanup. It qualifies no RTL; compact10 remains the integration baseline.
 
-**Next executable action:** measure an existing-instruction baseline against compact10's
-actual ten-word capacity. Use that evidence to choose any general instruction
-or storage change; preserve G1's qualified pilot and failed alternatives.
+E0033 measures ten identical public records per simulator on unchanged compact10:
+bounded inline cleanup fits ten words, waits inside LOOP retain held-SDA faults,
+and a literal write-wire list needs 122 words against a real ten-word store.
+These are scoped kernels and a capacity screen, not complete I2C transactions.
+
+**Next executable action:** test existing SHIFT_STEP receive reuse, then measure
+complete branching/cleanup schedule costs. Use the evidence to choose any
+general instruction or storage change; preserve G1's pilot and failed alternatives.
 
 Completion checks:
 

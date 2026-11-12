@@ -67,6 +67,13 @@ jobs:
         if: success()
         run: ./tools/workbench.sh Evidence
 
+      - name: Measure existing-instruction I2C kernels and capacity limits
+        run: |
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/i2c/run_baseline.py --output build/i2c-baseline/ci
+
       - name: Compare isolated SPI phase and program-capacity candidates
         run: |
           docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
@@ -119,6 +126,14 @@ jobs:
             build/evidence/
             build/ci/workbench-image.json
             build/i2c-oracle/
+            build/i2c-baseline/ci/result.json
+            build/i2c-baseline/ci/variants/source-manifest.json
+            build/i2c-baseline/ci/icarus/run.log
+            build/i2c-baseline/ci/icarus/results.xml
+            build/i2c-baseline/ci/icarus/records/
+            build/i2c-baseline/ci/verilator/run.log
+            build/i2c-baseline/ci/verilator/results.xml
+            build/i2c-baseline/ci/verilator/records/
             test/results*.xml
             test/tb.fst
             test/tb-gl-harness.fst

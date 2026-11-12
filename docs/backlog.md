@@ -13,8 +13,11 @@ identity and anonymous access are verified. All six tag workflows pass.
 
 **G2 is active**, authorized on 2026-11-12 with commits throughout the work.
 D36/E0032 freezes/tests the independent I2C oracle: 19 groups, 3,902 observations
-and 53 retained witnesses. Next measure the existing-instruction baseline on
-compact10 before selecting general instruction or storage changes.
+and 53 retained witnesses. E0033 measures unchanged compact10: ten identical
+records per simulator, ten-word bounded cleanup, expected held-SDA faults and
+122-word literal write footprint versus a real ten-word store. Next test
+existing SHIFT_STEP receive reuse and complete schedule costs before selecting
+general instruction or storage changes.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task

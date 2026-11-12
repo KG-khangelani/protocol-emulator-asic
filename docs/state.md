@@ -8,8 +8,13 @@ UART/SPI/I2C qualification. D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained
 witnesses. Clock ownership, open drain, ACK/NACK, timing, stretching, final-edge
 priority, cleanup, stale results and explicit aborts are checked. This is no
-I2C DUT qualification. Next measure the existing-instruction public baseline
-and complete transaction footprint before choosing ISA/storage changes.
+I2C DUT qualification. E0033's unchanged compact10 passes ten scoped public
+records per simulator, with identical traces: a ten-word inline cleanup kernel
+releases/HALTs within two clocks of expiry, while waits inside LOOP or without
+timeout skip fault holding SDA. A literal write-wire list uses 122 words; the
+real store rejects length eleven. No complete I2C transaction is qualified.
+Next test existing SHIFT_STEP receive reuse and complete schedule costs before
+choosing ISA/storage changes.
 The owner requested commits throughout the work. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
