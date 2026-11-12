@@ -62,3 +62,12 @@ and [staging evidence](../../evidence/E0043-sram-physical-integration/official-s
 
 G2 stays active until routed/timing, precheck, actual-netlist, integration and
 publication gates pass for the same identified candidate.
+
+The first official run subsequently fails manufacturing and LVS. D45 records
+the actual public-pin/power shorts, the tested native endpoint correction and
+the pinned vendor SRAM import diagnostic. The original 961-file archive pair
+and the separate 342-file diagnostic archive both replay successfully; native
+replay catches the old geometry and passes the corrected pins and both grids.
+See [D45](0045-correct-sram-import-and-public-pin-power-clearance.md). These
+results supersede the earlier pending status without changing any acceptance
+gate or treating the original power-continuity pass as complete isolation.

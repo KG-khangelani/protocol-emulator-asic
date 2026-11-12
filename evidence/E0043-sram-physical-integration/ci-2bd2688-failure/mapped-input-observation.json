@@ -1,0 +1,181 @@
+{
+  "status": "MAPPING_COMMANDS_SUCCEEDED_REQUIRES_AUDIT",
+  "scope": "MATCHED_SYNTHESIS_ONLY_WITH_REAL_MACRO",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "runner_sha256": "a944fe81b4a6a2f28776c8569165af48d084aa23189d8946bcb43dd60358db7b",
+  "spec_sha256": "bea1d6934788061c7dec57862c9117f3103d79cafdd3e735beca3c47703ea60c",
+  "physical": "NOT_EVALUATED",
+  "runs": {
+    "gold": {
+      "sources": {
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      },
+      "config_sha256": "946eddbe69eace3e624316b1d96205438ee54361804b8052a581f45bd152d548",
+      "execution": {
+        "command": [
+          "librelane",
+          "--pdk-root",
+          "/pdk",
+          "--pdk",
+          "ihp-sg13cmos5l",
+          "--to",
+          "Yosys.Synthesis",
+          "--run-tag",
+          "mapped-screen",
+          "--design-dir",
+          "/workspace/build/g2-sram-mapped-01/gold",
+          "/workspace/build/g2-sram-mapped-01/gold/src/config_merged.json"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 95.967,
+        "wall_limit": 300
+      }
+    },
+    "sram": {
+      "sources": {
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      },
+      "config_sha256": "5aa5ab116fe6dc1188ec92a08840e523dc7bbc403b2e4d7700cff18d7df71c14",
+      "execution": {
+        "command": [
+          "librelane",
+          "--pdk-root",
+          "/pdk",
+          "--pdk",
+          "ihp-sg13cmos5l",
+          "--to",
+          "Yosys.Synthesis",
+          "--run-tag",
+          "mapped-screen",
+          "--design-dir",
+          "/workspace/build/g2-sram-mapped-01/sram",
+          "/workspace/build/g2-sram-mapped-01/sram/src/config_merged.json"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 19.591,
+        "wall_limit": 300
+      }
+    }
+  },
+  "macro_views": {
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_256x32_c2_bm_bist.gds": {
+      "sha256": "e77a4d177e02541fe6c58351008455f9a05a715b504f8e318599f3d41bf5f959",
+      "bytes": 473832
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_256x32_c2_bm_bist.lef": {
+      "sha256": "2f1e886f5c363d743da550c5d255b9f31dd62569dda1405a64e2c90b2278127f",
+      "bytes": 130482
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_256x32_c2_bm_bist.cdl": {
+      "sha256": "f8989b3a4cc392c57cfafdf82985e27b1e6626b0948b6a926ca6ace2fe01531f",
+      "bytes": 406333
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": {
+      "sha256": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6",
+      "bytes": 49064
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": {
+      "sha256": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27",
+      "bytes": 48997
+    },
+    "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": {
+      "sha256": "8ab1090ecf527bc71f0c4dc8db05b833e0f9960b4bdb94f3b0351533463b79a2",
+      "bytes": 49077
+    }
+  },
+  "macro_corner_sets": {
+    "nom_typ_1p20V_25C": {
+      "path": "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib",
+      "nominal_temperature": [
+        "25 "
+      ],
+      "nominal_voltage": [
+        "1.20 "
+      ]
+    },
+    "nom_fast_1p32V_m40C": {
+      "path": "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib",
+      "nominal_temperature": [
+        "-55 "
+      ],
+      "nominal_voltage": [
+        "1.32 "
+      ]
+    },
+    "nom_slow_1p08V_125C": {
+      "path": "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib",
+      "nominal_temperature": [
+        "125 "
+      ],
+      "nominal_voltage": [
+        "1.08 "
+      ]
+    }
+  },
+  "fast_boundary": "Standard-cell -40 C with vendor SRAM -55 C; not an isothermal SRAM characterization.",
+  "template_sha256": "64b52f2150f699edc7fb500c2f486a51eca66fd91d3efb7347200bd2cf83a2ee"
+}

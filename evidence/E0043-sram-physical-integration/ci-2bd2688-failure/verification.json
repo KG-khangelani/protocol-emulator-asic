@@ -1,0 +1,148 @@
+{
+  "status": "PASS_AUDIT_OF_REJECTED_SRAM_PHYSICAL_RUN",
+  "physical_qualification": "REJECTED",
+  "run_id": 43303867849,
+  "source_commit": "2bd2688ee0128e2d1a8d47f187ee7420cbd4d41d",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "runtime": {
+    "status": "PASS_RUNTIME_IDENTITIES",
+    "job_id": 131481864326,
+    "log_sha256": "74c16c421c48f8172f00c1284a25198cc7d71ed4bf2f53bb79fcb1e2b6975475",
+    "workflow_source_commit": "2bd2688ee0128e2d1a8d47f187ee7420cbd4d41d",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "physical_yosys": {
+      "version": "0.69",
+      "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+    },
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+      "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+      "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+    },
+    "confirmation_lines": [
+      "2026-11-12T20:50:44.6272703Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T20:50:44.6279881Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-12T20:50:54.9658080Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T20:50:55.5926670Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-12T20:50:58.7591317Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T20:50:58.8270096Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-12T20:51:05.2512824Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+    ],
+    "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate."
+  },
+  "pdk": {
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "evidence": "Actually resolved configuration and same-job runtime log. No successful-submission metadata exists for this rejected run."
+  },
+  "artifact_files": {
+    "sram-physical-candidate": 61,
+    "GDS_logs": 900
+  },
+  "archives": {
+    "sram-physical-candidate": {
+      "id": 13986867590,
+      "bytes": 130191,
+      "sha256": "6c825f28188d3b4133c8bcd3471e82cbde566bc1f13d1831eb8e9eda34985a17"
+    },
+    "GDS_logs": {
+      "id": 13985889229,
+      "bytes": 66428173,
+      "sha256": "c029ca1e0541af4c34ea346992203f9d8249f98db265e3940d8e66979bc10847"
+    }
+  },
+  "drc_count": 58327,
+  "drc_categories": {
+    "N-Diffusion spacing to N-well in SRAM < 54 (NW.d exception)": 116,
+    "This layer can't abut or partially overlap between subcells": 688,
+    "Metal4 spacing < 42 (M4.b)": 22,
+    "N-diffusion overlap of N-diffusion contact < 14 (Cnt.c)": 12,
+    "Can't overlap those layers": 26095,
+    "Metal2 minimum area < 5760 (M2.d)": 30720,
+    "N-diffusion overlap of contact in SRAM < 4 (Cnt.c SRAM exception)": 24,
+    "Extension of tie diffusion beyond tie contact < 6.0um (LU.d, LU.d1)": 650
+  },
+  "lvs": {
+    "status": "TOP_LEVEL_PIN_MISMATCH",
+    "layout_nets": 4700,
+    "reference_nets": 4717,
+    "json_parser_error": {
+      "message": "Invalid \\escape",
+      "line": 1679,
+      "column": 53
+    },
+    "raw_report_sha256": "d31760836edef2905118bdcd7137dc1322f122a77c5b274cb7774681b8143519"
+  },
+  "power_checks": "Both grid-continuity checks passed but do not prove absence of public-pin shorts.",
+  "native_input_buffer_connectivity": "PASS_NINE_NATIVE_BUFFERS",
+  "precheck": "SKIPPED",
+  "official_netlist_test": "SKIPPED",
+  "submission": "NOT_PRODUCED",
+  "missing_uploaded_input": [
+    ".github/workflows/gds-sram.yaml"
+  ],
+  "missing_input_boundary": "Original workflow artifact upload excluded hidden files. The manifest hash matches the exact producing Git commit, but this input is absent from the ZIP. Correct include-hidden-files before the next official qualification.",
+  "production": "NOT_PROMOTED"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS_RETAINED_MANUFACTURING_DIAGNOSIS",
+  "files": 342,
+  "subcell_original_errors": 232,
+  "subcell_vendor_import_errors": 0,
+  "injected_metal_errors": 1,
+  "original_pin_overlaps": 17,
+  "original_clearance_violations": 24,
+  "corrected_pin_rectangles": 43,
+  "corrected_geometry_violations": 0,
+  "power_pilot_seconds": 38.405,
+  "native_replay": "REQUIRED_SEPARATELY",
+  "full_physical_acceptance": "OPEN"
+}

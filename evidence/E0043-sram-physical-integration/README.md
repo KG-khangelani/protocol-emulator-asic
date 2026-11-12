@@ -69,3 +69,14 @@ DRC/antenna counts. Later manufacturing checks remain pending. The
 power database, rejects six configuration faults and passes the 742-file
 replay. The separate `gds-sram` workflow carries the exact candidate through
 the original official physical, precheck and actual-netlist gates.
+
+The [first official run is rejected](ci-2bd2688-failure/README.md): 58,327
+Magic reports, an actual LVS pin mismatch and a separate JSON-escaping error.
+Precheck and netlist jobs are skipped. Both original ZIPs and the 961-file
+source/runtime replay are retained. The [manufacturing diagnosis](manufacturing-diagnostics/README.md)
+finds 17 real pin/power overlaps and validates native core-bounded stripes
+with both power checks and all 43 fixed pins. The pinned vendor SRAM import
+also clears the subcell diagnostic while retaining an injected metal error.
+The 342-file archive and native database replay pass. D45 requires a fresh
+complete flow before any physical acceptance; prior continuity passes did
+not establish isolation between public pins and power.

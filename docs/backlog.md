@@ -102,6 +102,10 @@ run43303867849 fails DRC and LVS; diagnosis finds actual public-pin/power
 overlaps. Correct and qualify that geometry and the vendor SRAM import,
 then repeat all physical gates and finish the actual-netlist follow-up.
 Production adoption and publication remain pending.
+D45's original 961-file failure replay and 342-file diagnostic replay pass.
+The native core-bounded grid passes both supply checks and all 43 fixed pins;
+the old database remains a detected 24-clearance/17-overlap negative control.
+Finish the fresh guarded full run and repeat official qualification.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

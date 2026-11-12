@@ -144,6 +144,13 @@ a stuck-reset control produces 249 mismatches. The identical-netlist follow-up
 is running. Manufacturing checks, complete netlist results and publication
 remain open; production is unchanged.
 
+D45 now retains and replays the original 961-file failed official archive
+pair and 342 diagnostic files. Native core-bounded stripes pass a fresh
+38.405-second power pilot, both grid checks and all 43 unchanged fixed public
+pin rectangles. Native replay detects all 24 old clearance violations
+(17 overlaps) and passes the corrected geometry and both fresh grids.
+The complete guarded rerun is active with every original acceptance check.
+
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three
 direct-engine width warnings. E0038 retains that failed probe. Complete the

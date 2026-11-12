@@ -1,0 +1,14 @@
+{
+  "status": "PASS_NATIVE_PUBLIC_PIN_AND_POWER_GRID_REPLAY",
+  "original_pin_overlaps": 17,
+  "original_clearance_violations": 24,
+  "corrected_pin_rectangles": 43,
+  "corrected_geometry_violations": 0,
+  "corrected_database_sha256": "a3ffd7a270e661e4dd3f539aec977a17059ae7b6d7c169427f1cc120d91c0ac2",
+  "fresh_grid_checks": [
+    "VPWR",
+    "VGND"
+  ],
+  "grid_seconds": 1.096,
+  "full_physical_acceptance": "OPEN"
+}

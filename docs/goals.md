@@ -124,7 +124,10 @@ CI now passes at 13660ac/run43309369604: all eight stages, the historical
 baseline and two fresh 116-check executions. The original 1,928-file ZIP,
 295 exact inputs and producing runtime pass audit and retained Linux replay.
 D44/E0044's earlier local historical timeout at its unchanged 300-second
-limit remains incomplete in the 2,154-file preparation replay.
+limit remains incomplete in the 2,154-file preparation replay. D45's original
+961-file failure replay and 342-file diagnostic replay pass; native replay
+rejects the old pin geometry and passes all 43 corrected pins and both grids.
+The fresh guarded full run retains every original physical gate.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact
