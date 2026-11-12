@@ -100,7 +100,14 @@ checks pass. The 260-file replay rebuilds the exact database hash and reruns
 both checks. The header timescale cleanup also removes all lint warnings
 without changing any of the five RTL files. Two explicit added stages now pass
 a fresh 31.625-second pilot and reproduce the exact repaired database; all
-80 original stages remain in order. The bounded full run is underway.
+80 original stages remain in order. The first full run clears routing but has
+nine extracted SRAM-input slew violations. Enabling the existing post-route
+repair changes no cells and leaves the same failure. Both are rejected and
+their remaining checks deliberately stopped, with outcomes retained. A 0.4 ns
+diagnostic fails its stricter target. Nine local native input buffers clear
+the fresh typical estimated violations and pass full connectivity comparison;
+two actual wiring faults are detected. The 1,744-file replay passes. A third
+fresh full run with these buffers and original limits is underway.
 All three 95120d8 SRAM CI jobs
 and their three original ZIPs pass the complete semantic/source/runtime audit.
 Full physical qualification remains open.

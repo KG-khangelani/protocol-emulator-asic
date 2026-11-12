@@ -80,8 +80,12 @@ adds 144 short outer-edge segments, preserving all placements and net/pin
 assignments. Both fresh grids pass; the 260-file replay reconstructs the exact
 database and repeats those checks. Two explicit added flow stages now pass a
 fresh 31.625-second pilot and reproduce that exact database. All 80 original
-stages remain in order. The bounded full run is underway; finish and audit its
-routed/timing/manufacturing results before official qualification. Physical
+stages remain in order. The first two full runs clear routing but fail the same
+nine extracted SRAM-input slew limits; remaining checks were stopped and all
+results retained. A stricter global diagnostic fails; a nine-buffer local
+screen clears fresh typical estimated violations, preserves connectivity and
+exposes both actual wiring faults. The 1,744-file replay passes. Finish and
+audit the fresh buffered full run before official qualification. Physical
 acceptance stays open.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both

@@ -105,3 +105,60 @@ parser. A grid-check error is fatal. The original native grid failure remains
 in its own stage; only the fresh successful checks can supply zero violations
 to the unchanged later power-grid checker. Freeze and hash the plugin, adapter,
 Tcl checker, geometry manifest and resolved configuration with each run.
+
+## First routed result and bounded electrical repair
+
+The first integrated full run clears global routing, detailed-routing DRC and
+antenna checks. Its extracted timing has positive setup/hold margins at all
+three declared model sets, but it fails the unchanged electrical gate: nine
+slow-corner SRAM input slews exceed the 0.5952 ns library limit. Seven address
+inputs, A_WEN and A_DIN[15] are affected; the worst is A_ADDR[2] at 1.385473 ns.
+Retain this result and the eventual full-flow outcome as a failed qualification.
+
+The pinned Classic flow contains a post-global-routing design-repair stage,
+but `RUN_POST_GRT_DESIGN_REPAIR` defaults to false. For one separately named
+fresh run, enable only this existing stage. Keep its existing 10% slew/capacitance
+repair margins, all other resizer/CTS settings, the exact five RTL files,
+placement, library values and every acceptance limit. This is an explicit
+physical implementation change, not a timing-limit change. Bound the complete
+fresh run to the original 180 minutes. Require all original final checks,
+including zero actual extracted slew violations; preserve the failed first
+run and do not infer a pass from successful routing alone.
+
+If that existing repair stage changes no cells, screen a stricter 0.4 ns design
+transition constraint on an isolated copy of the same post-global-routing
+state, through the existing repair and mid-route timing stages. The original
+stage reports five slew violations yet inserts/resizes zero cells. The 0.4 ns
+trial gives the implementation tools headroom below the SRAM's 0.5952 ns
+limit; it never increases a library limit. Bound this diagnostic to 300 seconds,
+retain the exact input state/configuration and actual cell/netlist changes,
+and report estimated timing only. A full fresh routed run is still required
+before considering this additional implementation constraint for adoption.
+
+The 0.4 ns screen finishes in 20.879 seconds, resizes seven cells and inserts
+16 buffers, but still reports 82 typical-corner violations of its stricter
+target. Do not claim closure. Actual extracted-database inspection identifies
+weak inv_1/buf_1 drivers on the seven address inputs and A_WEN, with 220--370
+micrometre driver-to-pin Manhattan distances; A_DIN[15] uses nor2_1 over about
+168 micrometres. Test a more local repair on an isolated copy of the original
+post-global-routing state: insert one native sg13cmos5l_buf_4 at each of these
+nine macro input loads, initially 15 micrometres above its exact pin coordinate,
+then use the existing detailed placement/global routing and timing steps.
+Retain all original library/constraint values. Bound this screen to 300 seconds.
+Require exactly nine added combinational buffers, the specified load on each
+new net and identical original connectivity after collapsing those buffers.
+No changed logic, state, clock connection or skipped physical gate is allowed.
+Estimated timing is diagnostic; a full fresh routed run remains required.
+
+The local-buffer screen finishes in 16.838 seconds and reports zero fresh
+typical-corner estimated slew violations. Actual OpenDB comparison confirms
+exactly nine added buf_4 instances and nine new nets. Collapsing those buffers
+recovers every original connection and cell master, including clock/state
+connections; public pin geometry and the SRAM placement are unchanged. Native
+insertion appends unique numeric suffixes to the requested instance/net name
+prefixes; the audit binds each actual load and driver, rather than guessing
+those suffixes. Run a fresh full 180-minute trial with this added stage after
+global routing and an immediate fatal connectivity audit. Retain all 80
+original stages and the two verified power stages, the original transition
+limits and disabled post-GRT repair setting. Do not carry the 0.4 ns diagnostic
+constraint into this separate trial.

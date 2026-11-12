@@ -36,7 +36,19 @@ reruns both passing checks. Candidate source, placement and signal nets stay
 unchanged. The two explicit added steps now pass a fresh 31.625-second pilot
 and reproduce the exact repaired database. All 80 original Classic steps stay
 in order and the later power checker consumes fresh checked metrics. The
-bounded full run is underway; no physical acceptance gate is relaxed.
+first full run clears routing but fails nine extracted SRAM-input slew limits.
+Enabling the existing post-route repair changes no cells and leaves the same
+failure. Both rejected runs are retained; their remaining manufacturing checks
+were stopped after that decisive result. The 0.4 ns diagnostic also fails its
+stricter target and is not adopted.
+
+A separately declared local-buffer screen adds nine native buf_4 cells at the
+affected SRAM inputs and reports zero fresh typical estimated slew violations.
+The actual database audit recovers all original connectivity after collapsing
+those buffers and rejects two deliberately rewired databases. All 1,744 retained
+files and the actual database/negative-control replay pass. A fresh third full
+run now tests this narrower physical change under the original limits; no
+physical acceptance gate is relaxed. See [the electrical trials](../../evidence/E0043-sram-physical-integration/electrical/README.md).
 
 G2 stays active until routed/timing, precheck, actual-netlist, integration and
 publication gates pass for the same identified candidate.

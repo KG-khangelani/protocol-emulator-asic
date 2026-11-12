@@ -7,6 +7,7 @@ from librelane.common import Path as ConfigPath
 from librelane.flows import Flow
 from librelane.steps import Step
 from librelane.steps.odb import OdbpyStep
+from librelane.state import DesignFormat
 
 HERE = Path(__file__).resolve().parent
 
@@ -52,3 +53,33 @@ class SramClassic(Classic):
 assert len(Classic.Steps) == 80
 assert [s for s in SramClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps
 assert len(SramClassic.Steps) == 82
+
+
+@Step.factory.register()
+class BufferSramInputs(Step.factory.get('OpenROAD.RepairDesignPostGRT')):
+    id = 'Project.BufferSramInputs'
+    name = 'Buffer the identified SRAM inputs'
+    long_name = 'Insert nine native buffers at the identified SRAM input loads'
+
+    def get_script_path(self):
+        return str(HERE / 'sram_input_buffers.tcl')
+
+    def run(self, state_in, **kwargs):
+        views, metrics = super().run(state_in, **kwargs)
+        self.run_subprocess([
+            self.get_openroad_path(), '-no_init', '-exit', '-python',
+            str(HERE / 'audit_sram_input_buffers.py'),
+            '--before', str(state_in[DesignFormat.ODB]),
+            '--after', str(views[DesignFormat.ODB]),
+            '--output', str(Path(self.step_dir) / 'connectivity-audit.json'),
+        ], log_to=Path(self.step_dir) / 'connectivity-audit.log')
+        return views, metrics
+
+
+@Flow.factory.register()
+class SramBufferedClassic(SramClassic):
+    Substitutions = [('+OpenROAD.GlobalRouting', BufferSramInputs)]
+
+
+assert len(SramBufferedClassic.Steps) == 83
+assert [s for s in SramBufferedClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps

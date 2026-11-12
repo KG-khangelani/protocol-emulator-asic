@@ -55,3 +55,9 @@ python evidence/E0043-sram-physical-integration/integrated/verify.py --output bu
 This qualifies the power-grid construction and its flow integration only. Full
 routed timing/electrical checks, DRC/LVS, precheck and actual-netlist protocol
 tests remain open. G2 is active and production remains unchanged.
+
+The [electrical trials](electrical/README.md) retain the first two routed
+rejections, a failed stricter-target diagnostic and the passing local-buffer
+connectivity screen with two checked wiring faults. Both full trials fail nine
+extracted SRAM-input slew limits; their later checks were deliberately stopped.
+The 1,744-file replay passes. A fresh full buffered run remains in progress.

@@ -73,7 +73,11 @@ def main():
     p.add_argument('--template',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--integrated',action='store_true',help='Stage the two explicit power steps in the unchanged Classic flow.')
+    p.add_argument('--post-route-repair',action='store_true',help='Enable the separately declared existing post-GRT electrical repair stage.')
+    p.add_argument('--input-buffers',action='store_true',help='Insert and audit nine native buffers at the identified SRAM inputs.')
     args=p.parse_args()
+    assert not args.post_route_repair or args.integrated
+    assert not args.input_buffers or (args.integrated and not args.post_route_repair)
     candidate,out=args.candidate.resolve(),args.output.resolve()
     assert not out.exists() and out.is_relative_to((ROOT/'build').resolve())
     manifest=read(candidate/'manifest.json')
@@ -116,12 +120,17 @@ def main():
                                          '^store\\.program_memory$ VPWR VGND VDDARRAY! VSS!'])
     plugin_files={}
     if args.integrated:
-        config.setdefault('meta',{})['flow']='SramClassic'
+        config.setdefault('meta',{})['flow']='SramBufferedClassic' if args.input_buffers else 'SramClassic'
         config['SRAM_POWER_MANIFEST']=str(out/'preparation.json')
-        for name in ('librelane_plugin_sram.py','sram_power_step.py','connect_sram_power.py','check_sram_power.tcl'):
+        names=['librelane_plugin_sram.py','sram_power_step.py','connect_sram_power.py','check_sram_power.tcl']
+        if args.input_buffers:
+            names+=['sram_input_buffers.tcl','audit_sram_input_buffers.py']
+        for name in names:
             body=(ROOT/'experiments/i2c'/name).read_bytes()
             (out/name).write_bytes(body)
             plugin_files[name]=digest(body)
+    if args.post_route_repair:
+        config['RUN_POST_GRT_DESIGN_REPAIR']=True
     (out/'src/config_merged.json').write_bytes((json.dumps(config,indent=2)+'\n').encode())
     for path in (Path(__file__),ROOT/'experiments/i2c/run_sram_mapping.py',ROOT/'docs/specs/g2-sram-physical-integration.md'):
         (out/'inputs'/path.name).write_bytes(path.read_bytes())
@@ -134,6 +143,10 @@ def main():
             'physical':'NOT_EVALUATED'}
     if args.integrated:
         result.update(status='PREPARED_UNQUALIFIED_INTEGRATED_PDN_TRIAL',plugin_sha256=plugin_files)
+    if args.post_route_repair:
+        result['physical_change']='ENABLE_EXISTING_POST_GRT_DESIGN_REPAIR_ONLY'
+    if args.input_buffers:
+        result['physical_change']='NINE_NATIVE_SRAM_INPUT_BUFFERS_WITH_CONNECTIVITY_AUDIT'
     (out/'preparation.json').write_bytes((json.dumps(result,indent=2)+'\n').encode())
     print(result['status'])
 
