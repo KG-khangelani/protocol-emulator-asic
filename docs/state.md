@@ -16,11 +16,18 @@ All five clean d3c340f CI gates now pass and their downloaded artifacts are
 audited, including one complete 100-task store run. The exact eighteen-group
 physical selection passes both RTL simulators. Under the unchanged pinned
 8x4 flow, literal255 fails placement with
-111.564% adjusted utilization; od128's physical run remains in progress.
+111.564% adjusted utilization. od128 maps to 39,806 cells / 564,744.3984 square
+micrometres, then fails global routing with GRT-0228 congestion. Its precheck
+and netlist jobs are skipped; E0036 retains the verified archives and logs.
 Physical qualification, integration and publication remain open; production
 is unchanged. Historical experiment generators now use a hash-checked E0020
 archive, preserving every existing candidate's source bytes before production
 integration. This input relocation changes no chip behavior.
+
+Next: qualify the explicit byte-lane store rewrite already screened in E0036,
+then measure it under the same physical conditions. Its roughly 10% generic
+logic reduction and od128 store equivalence justify this trial, but establish
+no mapped/routed improvement. The original candidate and failures stay frozen.
 
 Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained

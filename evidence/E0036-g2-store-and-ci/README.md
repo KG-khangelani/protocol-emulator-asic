@@ -105,9 +105,24 @@ retains mapping/placement metrics and full logs. This rejects the measured
 implementation; it provides no routed comparison or timing qualification.
 
 [od128/run43224847282](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43224847282)
-is still building at this checkpoint. Every frozen physical, precheck and
-netlist gate remains required. G2 stays active through physical qualification,
-production integration and publication; G1 and owner-fluency boundaries remain.
+**fails global routing** with `GRT-0228`: horizontal edge usage 1,717 exceeds
+the router's internal limit of 1,700 at (92, 97). This is not an estimate that
+the chip needs only one percent improvement. Mapping produced 39,806 cells /
+564,744.3984 square micrometres, including 4,278 sequential cells. Placement
+completed; there is no final routed timing/area result, precheck or netlist pass.
+[Failure evidence](physical/od128/result.json) verifies both original ZIPs,
+source/configuration identities and actual action/image/compiler observations.
+It retains intermediate metrics and complete failure logs; temporary URL query
+strings are redacted with original/retained hashes recorded.
+
+`tools/audit_g2_physical.py` now binds completed physical jobs, original archive
+digests, source/layout/netlist identity, all routed limits, all ten prechecks,
+actual consumer downloads and all eighteen public test groups. Eight focused
+test groups replay retained G1 observations and reject corrupted controls.
+The real failed od128 run is rejected as `NOT_QUALIFIED`. A complete positive
+G2 archive bundle does not yet exist, so its end-to-end acceptance path remains
+unexercised. Every gate remains required. G2 stays active through qualification,
+integration and publication; G1 and owner-fluency boundaries remain.
 
 ## Preparation for production integration
 
@@ -144,5 +159,6 @@ inspected differing write. The first control parser failed on escaped VCD
 names; its inputs/logs/witness remain retained alongside the corrected audit.
 
 This is roughly 10% less generic logic, **not a mapped or routed saving**.
-Adoption is deferred until physical feedback warrants another candidate run.
-Current G2 physical runs retain the original, fully tested E0035 store bytes.
+The original od128 routing failure now warrants qualifying this rewrite as a
+separate candidate, followed by a matched physical trial. It has not been
+adopted into production. The failed physical runs retain original E0035 bytes.

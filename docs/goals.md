@@ -110,15 +110,17 @@ in both simulators. Its complete partitioned store proofs now pass every word's
 transition/read relation and common controls (652/1,287 assertions), with
 checked reset-reachable mutations. The exact eighteen-group selection passes
 both simulators at e2ff52e. literal255 fails fixed-footprint placement at
-111.564% adjusted utilization; the od128 physical run remains in progress.
+111.564% adjusted utilization. od128 maps to 39,806 cells / 564,744.3984 square
+micrometres, then fails global routing with GRT-0228 congestion; dependent
+precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** complete od128's
-routing, timing, precheck and exact netlist selection under the unchanged pinned
-8x4 conditions. Preserve G1's pilot and failed alternatives, including the
-literal capacity rejection. Integration and publication are still required;
-these experimental passes do not finish G2.
+**Next executable action:** qualify and physically measure the explicit
+byte-lane store rewrite already screened in E0036. Keep the same capacity,
+interface, protocol programs and pinned 8x4 conditions; its generic saving is
+not a physical result. Preserve G1's pilot, the original od128 routing failure
+and literal capacity rejection. Integration and publication remain required.
 
 Completion checks:
 

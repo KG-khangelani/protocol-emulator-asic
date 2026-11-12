@@ -28,10 +28,14 @@ archives; both candidates now pass the full I2C matrix in both simulators.
 Complete partitioned store induction now passes 652/1,287 assertions with
 checked reset-reachable mutations. The exact eighteen-group selection passes
 both simulators at e2ff52e. literal255 fails pinned 8x4 placement at 111.564%
-adjusted utilization; od128's physical run remains in progress. All five clean
+adjusted utilization. od128 maps to 39,806 cells / 564,744.3984 square micrometres
+but fails global routing with GRT-0228 congestion; dependent jobs are skipped.
+E0036 retains original archive identities, runtime/configuration checks and
+failure logs. All five clean
 d3c340f CI gates and downloaded-evidence audits pass, including the complete
-100-task store run. Finish physical qualification and integration. Production
-remains unchanged.
+100-task store run. Next qualify and physically measure the explicit byte-lane
+store rewrite, preserving capacity, behavior and fixed conditions. Finish
+physical qualification and integration. Production remains unchanged.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
 This prepares integration without promoting an unqualified design.
