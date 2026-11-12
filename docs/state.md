@@ -12,8 +12,10 @@ current RTL. E0036 audits the clean 31ebf82 CI archives: both candidates now
 pass the full I2C matrix in both simulators, including literal255's previously
 missing full second run. E0036 now audits all actual-store words: 652/1,287
 assertions pass unbounded induction, with checked reset-reachable mutations.
-The exact eighteen-group physical selection passes both RTL simulators at
-e2ff52e. Under the unchanged pinned 8x4 flow, literal255 fails placement with
+All five clean d3c340f CI gates now pass and their downloaded artifacts are
+audited, including one complete 100-task store run. The exact eighteen-group
+physical selection passes both RTL simulators. Under the unchanged pinned
+8x4 flow, literal255 fails placement with
 111.564% adjusted utilization; od128's physical run remains in progress.
 Physical qualification, integration and publication remain open; production
 is unchanged. Historical experiment generators now use a hash-checked E0020

@@ -1,0 +1,64 @@
+{
+  "status": "PASS_GENERIC_SCREEN_ONLY",
+  "scope": "GENERIC_SCREEN_ONLY_NOT_MAPPED_OR_FUNCTIONALLY_QUALIFIED",
+  "measurements": {
+    "od128": {
+      "counts": {
+        "primitive_cells": 24391,
+        "state_bits": 4278,
+        "cell_types": {
+          "$_ANDNOT_": 173,
+          "$_AND_": 8427,
+          "$_MUX_": 157,
+          "$_NAND_": 10908,
+          "$_NOR_": 102,
+          "$_NOT_": 17,
+          "$_ORNOT_": 126,
+          "$_OR_": 130,
+          "$_SDFFE_PN0P_": 4261,
+          "$_SDFFE_PP0P_": 1,
+          "$_SDFF_PN0_": 16,
+          "$_XNOR_": 48,
+          "$_XOR_": 25
+        }
+      },
+      "seconds": 6.774,
+      "source_sha256": {
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "literal255": {
+      "counts": {
+        "primitive_cells": 46390,
+        "state_bits": 8343,
+        "cell_types": {
+          "$_ANDNOT_": 165,
+          "$_AND_": 16325,
+          "$_MUX_": 169,
+          "$_NAND_": 20976,
+          "$_NOR_": 84,
+          "$_NOT_": 18,
+          "$_ORNOT_": 96,
+          "$_OR_": 141,
+          "$_SDFFE_PN0P_": 8326,
+          "$_SDFFE_PP0P_": 1,
+          "$_SDFF_PN0_": 16,
+          "$_XNOR_": 45,
+          "$_XOR_": 28
+        }
+      },
+      "seconds": 13.099,
+      "source_sha256": {
+        "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748",
+        "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+        "m1_program_store.v": "3636779a54cd6153d8e224b8ecd34f7ca19d2222030d67c0295070c656ad1cb2",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  }
+}

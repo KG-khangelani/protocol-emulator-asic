@@ -1,0 +1,62 @@
+{
+  "status": "PASS_LOCAL_REWRITE_AND_CHECKED_CONTROL",
+  "tasks": [
+    {
+      "mutant": false,
+      "accepted": true,
+      "source_sha256": "9c1dd59baf3da42e0550671efae43313daa0a71b4e55e5b1e022330d4adc7515",
+      "control": null,
+      "command": [
+        "yosys",
+        "-Q",
+        "-s",
+        "/workspace/build/g2-lane-rewrite-proof-02/correct/proof.ys"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.068,
+      "wall_limit": 30
+    },
+    {
+      "mutant": true,
+      "accepted": true,
+      "source_sha256": "11fc6046683a17da131c448fe466f00cf43532a2de1576f870b0f6b12dda8f92",
+      "control": {
+        "time": -1,
+        "_0_bitselwrite_pos_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_1[31_0]_3": 0,
+        "_and_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_9_Y": 1074824960,
+        "_auto_opt_reduce.cc_137_opt_pmux_30": 1,
+        "_auto_opt_reduce.cc_137_opt_pmux_32": 1,
+        "_auto_opt_reduce.cc_137_opt_pmux_34": 1,
+        "_auto_opt_reduce.cc_137_opt_pmux_36": 0,
+        "_auto_wreduce.cc_514_run_37": 0,
+        "_neg_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_10_Y": 0,
+        "_not_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_8_Y": 4294967040,
+        "_procmux_15_CMP": 0,
+        "_procmux_16_CMP": 0,
+        "_procmux_17_CMP": 0,
+        "_procmux_18_CMP": 1,
+        "_shift_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_11_Y": 64,
+        "_shift_/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/theorem.v_5_7_Y": 255,
+        "data_in": 64,
+        "equal": 0,
+        "explicit_next": 1074806975,
+        "lane": 0,
+        "old_word": 1074825151,
+        "variable_next": 1074825024,
+        "expected": 1074825024
+      },
+      "command": [
+        "yosys",
+        "-Q",
+        "-s",
+        "/workspace/build/g2-lane-rewrite-proof-02/wrong_lane/proof.ys"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 0.067,
+      "wall_limit": 30
+    }
+  ],
+  "scope": "All values of a 32-bit word, eight-bit write data and two-bit lane; combinational local rewrite only"
+}

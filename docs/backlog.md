@@ -28,8 +28,9 @@ archives; both candidates now pass the full I2C matrix in both simulators.
 Complete partitioned store induction now passes 652/1,287 assertions with
 checked reset-reachable mutations. The exact eighteen-group selection passes
 both simulators at e2ff52e. literal255 fails pinned 8x4 placement at 111.564%
-adjusted utilization; od128's physical run remains in progress. Audit the new
-CI store gate, then finish physical qualification and integration. Production
+adjusted utilization; od128's physical run remains in progress. All five clean
+d3c340f CI gates and downloaded-evidence audits pass, including the complete
+100-task store run. Finish physical qualification and integration. Production
 remains unchanged.
 Historical builders now use an explicit E0020 source archive; guarded
 regeneration reproduces every prior candidate without reading production RTL.
@@ -40,8 +41,8 @@ requires combined regression and fresh physical evidence. Historical task
 evidence below is preserved.
 The [I2C acceptance contract](specs/p-i2c-controller-100k.md) is frozen without
 an ISA change. Experimental public-loaded I2C and combined results are retained;
-the local complete-store and exact physical-selection gates pass. The new CI
-store run, physical qualification and production promotion remain pending.
+the complete-store and exact physical-selection gates pass locally and in CI.
+Physical qualification and production promotion remain pending.
 
 ## M0-T01 — Establish RTL-to-GDS baseline (active)
 

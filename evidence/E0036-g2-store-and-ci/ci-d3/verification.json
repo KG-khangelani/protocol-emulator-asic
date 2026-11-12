@@ -1,0 +1,78 @@
+{
+  "status": "PASS_ALL_FIVE_G2_CI_GATES_AUDITED",
+  "run_id": 43229238795,
+  "source_revision": "d3c340fc28166201e8c1085ae4f8b729e8c4b9d2",
+  "artifacts": [
+    {
+      "name": "architecture",
+      "artifact_id": 13950551021,
+      "zip_sha256": "05f6763be787c8d5e38c94f84d46ee4006ee6c68714f0cf219300951dbe1917b",
+      "status": "PASS_SCOPED_ARCHITECTURE_GATE"
+    },
+    {
+      "name": "physical-selection",
+      "artifact_id": 13950536142,
+      "zip_sha256": "d8f4eb57b6ff381a5d69ac6efeda6a19223a2d49586c95761a8ec1f6e250f8b2",
+      "status": "PASS_G2_PHYSICAL_SELECTION_ON_BOTH_RTL_SIMULATORS",
+      "groups": 18,
+      "unchanged_records": true
+    },
+    {
+      "name": "od128",
+      "artifact_id": 13950385582,
+      "zip_sha256": "3834ccecfc33c37cb30584122219ad483a800aec2427bba2bc578f906f41622d",
+      "status": "PASS_I2C_PUBLIC_MATRIX",
+      "public_records": 1160,
+      "equal_to_previous": true
+    },
+    {
+      "name": "store",
+      "artifact_id": 13949912069,
+      "zip_sha256": "7483150562aac66311afc50c4bb514568ae232a0753e1e6043851d4ef145f99e",
+      "status": "PASS_AUDITED_STORE_GATE",
+      "assertions": {
+        "od128": 652,
+        "literal255": 1287
+      },
+      "task_count": 100,
+      "full_combined_run": "PASS_ALL_WORD_STORE_PROOFS_WITH_CHECKED_CONTROLS",
+      "checker_controls": 9
+    },
+    {
+      "name": "literal255",
+      "artifact_id": 13949258356,
+      "zip_sha256": "92c4c6fdea1c0244fe7a07e7577c0939292bb1531301ead785961604e8331fa4",
+      "status": "PASS_I2C_PUBLIC_MATRIX",
+      "public_records": 1160,
+      "equal_to_previous": true
+    }
+  ],
+  "source_sha256": {
+    "literal255": {
+      "capacity": 255,
+      "program_bits": 8160,
+      "isa_id": 32,
+      "source_sha256": {
+        "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748",
+        "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+        "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "od128": {
+      "capacity": 128,
+      "program_bits": 4096,
+      "isa_id": 33,
+      "source_sha256": {
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "scope": "All five clean G2 gates; no physical or production promotion",
+  "store_proof_replay": "Actual models/configurations/status/logs/witnesses audited again after download; duplicated source copies restored from hashed inputs"
+}

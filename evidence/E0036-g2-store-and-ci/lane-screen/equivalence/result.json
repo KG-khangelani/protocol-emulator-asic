@@ -1,0 +1,38 @@
+{
+  "status": "NOT_QUALIFIED",
+  "tasks": [
+    {
+      "variant": "od128",
+      "accepted": true,
+      "before_sha256": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+      "after_sha256": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+      "command": [
+        "yosys",
+        "-Q",
+        "-s",
+        "/workspace/build/g2-store-lanes-equivalence-01/od128/proof.ys"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 124.001,
+      "wall_limit": 240
+    },
+    {
+      "variant": "literal255",
+      "accepted": false,
+      "before_sha256": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+      "after_sha256": "3636779a54cd6153d8e224b8ecd34f7ca19d2222030d67c0295070c656ad1cb2",
+      "command": [
+        "yosys",
+        "-Q",
+        "-s",
+        "/workspace/build/g2-store-lanes-equivalence-01/literal255/proof.ys"
+      ],
+      "returncode": 124,
+      "timed_out": true,
+      "seconds": 240.021,
+      "wall_limit": 240
+    }
+  ],
+  "scope": "Store sequential equivalence from corresponding state, reset establishes equality; other four chip modules byte-identical"
+}

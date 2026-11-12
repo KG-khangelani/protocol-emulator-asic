@@ -76,6 +76,18 @@ proofs. It does not turn the original failed aggregate into a pass. A separate
 CI store gate runs the corrected complete proof, both audits and all nine
 checker controls from scratch.
 
+That clean run now passes: [run43229238795](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43229238795)
+at d3c340f completes **all five gates**, including all 100 store tasks and both
+store audits in one successful aggregate. [Downloaded-evidence audit](ci-d3/verification.json)
+checks every named archive digest, generated source bytes, full protocol and
+selection records, immutable protocol inputs, and replays the store auditor
+against the actual CI models/configurations/logs/witnesses. All nine corrupted
+summary controls are rejected. The original store ZIP is retained byte for
+byte as `ci-d3/store-original.zip`; other unchanged protocol witnesses already
+have durable copies in this evidence record. The compressed verification
+runner reproduces the five-archive audit after extracting it into `build/` and
+downloading/extracting the identified ZIPs into `build/g2-ci-d3c340f/`.
+
 Earlier whole-memory timeouts, superseded partial runs and interrupted SAT
 attempts remain in `development/`. The large SAT attempt had the same Docker
 connection error; its cause was not established. None is a successful proof.
@@ -112,3 +124,25 @@ archived store is rejected. The first verification script incorrectly compared
 the old banked phase design with compact10; that reference mistake is retained,
 then corrected by checking the exact prior builder at d3c340f. No RTL change or
 fresh protocol qualification follows from moving the historical inputs.
+
+## Bounded memory-write simplification screen
+
+An isolated rewrite spells each byte write as four constant lane assignments.
+The other four chip files, capacities and interface remain byte-identical.
+[Screen evidence](lane-screen/verification.json) records these generic results:
+
+| Candidate | Original primitive cells | Explicit lanes | State bits |
+|---|---:|---:|---:|
+| od128 | 27,065 | 24,391 | 4,278, unchanged |
+| literal255 | 51,723 | 46,390 | 8,343, unchanged |
+
+od128's complete store equivalence passes in 124.001 seconds from corresponding
+state, which reset establishes. literal255's comparison times out at 240.021
+seconds and remains inconclusive. A separate local SAT theorem proves the byte
+replacement for all word/data/lane values; a wrong-lane control produces an
+inspected differing write. The first control parser failed on escaped VCD
+names; its inputs/logs/witness remain retained alongside the corrected audit.
+
+This is roughly 10% less generic logic, **not a mapped or routed saving**.
+Adoption is deferred until physical feedback warrants another candidate run.
+Current G2 physical runs retain the original, fully tested E0035 store bytes.

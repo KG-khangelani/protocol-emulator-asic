@@ -96,3 +96,9 @@ routed result, precheck or netlist qualification. od128 remains under physical
 evaluation. This supports continuing the smaller general serial candidate;
 it does not yet authorize production promotion or a qualified G2 release.
 See [E0036](../../evidence/E0036-g2-store-and-ci/README.md).
+
+All five clean d3c340f CI gates subsequently pass, including a complete
+100-task store run and independently replayed downloaded-artifact audit.
+Historical generators now use the verified E0020 archive so future production
+integration preserves earlier comparisons. Every generated candidate remains
+byte-identical. Physical qualification and production adoption remain pending.

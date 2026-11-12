@@ -16,7 +16,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; compact10 integration baseline | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; od128 functional/formal gates pass, physical gate open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -111,8 +111,10 @@ transition/read relation and common controls (652/1,287 assertions), with
 checked reset-reachable mutations. The exact eighteen-group selection passes
 both simulators at e2ff52e. literal255 fails fixed-footprint placement at
 111.564% adjusted utilization; the od128 physical run remains in progress.
+All five d3c340f CI gates and their downloaded artifacts are now audited,
+including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** audit the fresh CI store gate and complete od128's
+**Next executable action:** complete od128's
 routing, timing, precheck and exact netlist selection under the unchanged pinned
 8x4 conditions. Preserve G1's pilot and failed alternatives, including the
 literal capacity rejection. Integration and publication are still required;
@@ -123,21 +125,25 @@ Completion checks:
 - [x] Freeze the I2C controller contract and independent oracle before extending
   the ISA. Cover 100 kHz operation, 7-bit addressing, write/read, repeated START,
   ACK/NACK, open-drain release, clock stretching and bounded timeout.
-- [ ] Pass the [mandatory workload matrix](research/evaluation-contract.md) on
+- [x] Pass the [mandatory workload matrix](research/evaluation-contract.md) on
   one candidate revision: pin traces, input wait, shifting, bounded loops,
   public-pin reload, UART TX/RX, four-mode SPI and I2C.
-- [ ] Retain UART framing/phase/error and host-service boundaries. State which
+- [x] Retain UART framing/phase/error and host-service boundaries. State which
   received bytes are available and when; continuous autonomous delivery remains
   unqualified until separately implemented and tested.
-- [ ] Check both SPI bit orders and all four modes with explicit input timing
+- [x] Check both SPI bit orders and all four modes with explicit input timing
   assumptions. Preserve held-response successes and edge-only negative controls.
   Do not advertise broad SPI compatibility from a narrower input contract.
-- [ ] Load the different protocol programs through public pins without changing
+- [x] Load the different protocol programs through public pins without changing
   the RTL. Pass both simulators, relevant formal properties and meaningful
   wrong-program/adversarial-input controls; retain seeds and counterexamples.
 - [ ] Promote the chosen candidate only with the combined regression and fresh
   physical evidence for that revision. Earlier isolated or M0 results do not
   qualify the promoted chip.
+
+The checked functional/formal requirements above refer to the exact E0035
+od128 source hashes, with E0036's clean combined audit and the stated protocol
+limits. The final production-promotion check remains open and G2 stays active.
 
 A protocol that needs a new dedicated RTL path falsifies the current flexibility
 hypothesis. First test whether a general instruction or a stated scope change

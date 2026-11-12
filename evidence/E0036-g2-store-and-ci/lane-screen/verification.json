@@ -1,0 +1,151 @@
+{
+  "status": "PROMISING_ISOLATED_SCREEN_NOT_ADOPTED",
+  "source_commit_at_execution": "d3c340fc28166201e8c1085ae4f8b729e8c4b9d2",
+  "change": "Replace each variable byte-write part select with four explicit constant byte-lane assignments; all other source bytes unchanged",
+  "comparison": {
+    "od128": {
+      "before_primitive_cells": 27065,
+      "after_primitive_cells": 24391,
+      "generic_cell_reduction_percent": 9.879919,
+      "unchanged_state_bits": 4278
+    },
+    "literal255": {
+      "before_primitive_cells": 51723,
+      "after_primitive_cells": 46390,
+      "generic_cell_reduction_percent": 10.310694,
+      "unchanged_state_bits": 8343
+    }
+  },
+  "od128_whole_store_equivalence": "PASS, 124.001 seconds; reset establishes corresponding state",
+  "literal255_whole_store_equivalence": "INCONCLUSIVE, 240.021-second timeout; raw combined result stays NOT_QUALIFIED",
+  "local_rewrite": "Combinational SAT proves all word/data/lane values; wrong-lane control has inspected differing write result",
+  "initial_rewrite_attempt": "Solver results completed but escaped VCD identifier parsing raised StopIteration. Original inputs/logs/witness and runner retained; corrected parser passes in rewrite/",
+  "adoption": "DEFERRED until measured physical feedback warrants another candidate run",
+  "physical": "NOT_MEASURED for this rewrite; current physical runs still use original E0035 stores",
+  "retained": {
+    "generic/result.json": {
+      "sha256": "114acc7971d9333ea3656f5c2f4e17276767461a13b19c2acd19fa1bdc8b31f7",
+      "retained_file": "generic/result.json"
+    },
+    "generic/literal255/synth.ys": {
+      "sha256": "ad2ec8ac3835d5f1243cadca3d551436e3c8028274de0df8cf8778cace6208ae",
+      "retained_file": "generic/literal255/synth.ys.gz"
+    },
+    "generic/literal255/synthesis.log": {
+      "sha256": "30d06da02136f23ae1eae37c0cd17f7f8184ff353996b883447c2576dbfbf32e",
+      "retained_file": "generic/literal255/synthesis.log.gz"
+    },
+    "generic/od128/synth.ys": {
+      "sha256": "ff2265d15f0a60156ae2a9d96838019c6aa7b36fdd1624ef90804d2a347db73b",
+      "retained_file": "generic/od128/synth.ys.gz"
+    },
+    "generic/od128/synthesis.log": {
+      "sha256": "7c24e03074de84c863df0b40c7969efb051030f0c3d1e37824d888bff39cfb71",
+      "retained_file": "generic/od128/synthesis.log.gz"
+    },
+    "generic/od128/src/m1_program_store.v": {
+      "sha256": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+      "retained_file": "generic/od128/src/m1_program_store.v.gz"
+    },
+    "generic/literal255/src/m1_program_store.v": {
+      "sha256": "3636779a54cd6153d8e224b8ecd34f7ca19d2222030d67c0295070c656ad1cb2",
+      "retained_file": "generic/literal255/src/m1_program_store.v.gz"
+    },
+    "equivalence/result.json": {
+      "sha256": "82ba4eee6371e1b87bfcafb0dfc82396fb0591d051a343260f2d64d2642f5b79",
+      "retained_file": "equivalence/result.json"
+    },
+    "equivalence/literal255/proof.ys": {
+      "sha256": "3dab76fe1a757a166f3da148ae5581567dc4c27bd5092c0b72afbc697c22eac3",
+      "retained_file": "equivalence/literal255/proof.ys.gz"
+    },
+    "equivalence/literal255/run.log": {
+      "sha256": "f017cd7cd08163671d21b4a7b82f1d7c5e05d9ab71c32f839d8084d81c266215",
+      "retained_file": "equivalence/literal255/run.log.gz"
+    },
+    "equivalence/od128/proof.ys": {
+      "sha256": "e6447b57cbeaf2b32c450fa7ce7a814503215df6cda945755c0a6b4b6d889ae9",
+      "retained_file": "equivalence/od128/proof.ys.gz"
+    },
+    "equivalence/od128/run.log": {
+      "sha256": "98c66cb0c6a37c4e0c44c7381770d65dba9cd3a2cdb45f251344826404970ece",
+      "retained_file": "equivalence/od128/run.log.gz"
+    },
+    "rewrite-initial/runner-before-parser-fix.py": {
+      "sha256": "ee55e8e1bbf5040b5dc6a3c7804932b14c954cc620ce00d89527f9c92c0e3bf2",
+      "retained_file": "rewrite-initial/runner-before-parser-fix.py.gz"
+    },
+    "rewrite-initial/correct/proof.ys": {
+      "sha256": "d453f49cc4684c6558ada6814a8f23025cce38c57bb77fd51921d13ebc6b39e3",
+      "retained_file": "rewrite-initial/correct/proof.ys.gz"
+    },
+    "rewrite-initial/correct/run.log": {
+      "sha256": "d9bf6542327eabaacfd6f7679628f214c805193e7704d98598c6bcddfbe80e49",
+      "retained_file": "rewrite-initial/correct/run.log.gz"
+    },
+    "rewrite-initial/correct/theorem.v": {
+      "sha256": "9c1dd59baf3da42e0550671efae43313daa0a71b4e55e5b1e022330d4adc7515",
+      "retained_file": "rewrite-initial/correct/theorem.v.gz"
+    },
+    "rewrite-initial/wrong_lane/proof.ys": {
+      "sha256": "a8842c2d235ad68e224ab035d8a9ed379a0248f0d3a791392c8061e7c32d7f6c",
+      "retained_file": "rewrite-initial/wrong_lane/proof.ys.gz"
+    },
+    "rewrite-initial/wrong_lane/run.log": {
+      "sha256": "3fa1e95574796d0d233c373fb0ce04c35824eae4e21c13bfb10e8561a2f000f8",
+      "retained_file": "rewrite-initial/wrong_lane/run.log.gz"
+    },
+    "rewrite-initial/wrong_lane/theorem.v": {
+      "sha256": "11fc6046683a17da131c448fe466f00cf43532a2de1576f870b0f6b12dda8f92",
+      "retained_file": "rewrite-initial/wrong_lane/theorem.v.gz"
+    },
+    "rewrite-initial/wrong_lane/witness.vcd": {
+      "sha256": "fd1e32a01c1166113cc929bf2ced15b2b9ee0f448d6fe7fb27f187ec7d615a0f",
+      "retained_file": "rewrite-initial/wrong_lane/witness.vcd.gz"
+    },
+    "rewrite/result.json": {
+      "sha256": "88ed09e82fb656747b363682474b7de81b3f54ae3755e9dd414150f0b8de6cc1",
+      "retained_file": "rewrite/result.json"
+    },
+    "rewrite/correct/proof.ys": {
+      "sha256": "7c804452d8c25d4931dfa160f64107af5b89b8d67b4d2e34ebaf8811da32956d",
+      "retained_file": "rewrite/correct/proof.ys.gz"
+    },
+    "rewrite/correct/run.log": {
+      "sha256": "4ff6e09a79aa95c2502ade2f9d881e9f5e1b347bfa94bd34a398d5a37c9026fe",
+      "retained_file": "rewrite/correct/run.log.gz"
+    },
+    "rewrite/correct/theorem.v": {
+      "sha256": "9c1dd59baf3da42e0550671efae43313daa0a71b4e55e5b1e022330d4adc7515",
+      "retained_file": "rewrite/correct/theorem.v.gz"
+    },
+    "rewrite/wrong_lane/proof.ys": {
+      "sha256": "d74919d14e245935d30420cbbeac41f5a7a2acbd48b05c3fa8aaf62d7c5d9680",
+      "retained_file": "rewrite/wrong_lane/proof.ys.gz"
+    },
+    "rewrite/wrong_lane/run.log": {
+      "sha256": "93afeb796a5ec51f97c66d2ddfb41fafda72fa49c754fb57d58ce4b0b03a1068",
+      "retained_file": "rewrite/wrong_lane/run.log.gz"
+    },
+    "rewrite/wrong_lane/theorem.v": {
+      "sha256": "11fc6046683a17da131c448fe466f00cf43532a2de1576f870b0f6b12dda8f92",
+      "retained_file": "rewrite/wrong_lane/theorem.v.gz"
+    },
+    "rewrite/wrong_lane/witness.vcd": {
+      "sha256": "6ba307d9d144d4abd81376b0abd3cfcd5082e972cf4c3dd75df5623cd0563cf7",
+      "retained_file": "rewrite/wrong_lane/witness.vcd.gz"
+    },
+    "screen_store_lanes.py": {
+      "sha256": "3400803b59c722fe8b0be5b7ff9ebb129ccf459d338f3881040262041c7ca31f",
+      "retained_file": "screen_store_lanes.py.gz"
+    },
+    "prove_store_lanes.py": {
+      "sha256": "2dfba158fad1bddfd2745765c0f42cbaa2f52ef6f9d7a6b7d294a9a23f8c6faf",
+      "retained_file": "prove_store_lanes.py.gz"
+    },
+    "prove_lane_rewrite.py": {
+      "sha256": "f5bb04ca7d12a914ed0934143518b381dfffe5051d32dbf2f947ea2263175525",
+      "retained_file": "prove_lane_rewrite.py.gz"
+    }
+  }
+}
