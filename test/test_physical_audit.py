@@ -18,6 +18,7 @@ from tools import physical_runtime as runtime
 class FinalPhysicalAuditTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        (audit.ROOT / "build").mkdir(exist_ok=True)
         cls.historical = audit.ROOT / "evidence/E0031-8x4-physical-comparison/attempts/d34/compact10"
         cls.record = json.loads((cls.historical / "result.json").read_bytes())
         cls.lock = audit.common.candidate_lock()

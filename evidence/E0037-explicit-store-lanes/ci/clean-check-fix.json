@@ -1,0 +1,12 @@
+{
+  "status": "FIX_VERIFIED_IN_FRESH_SNAPSHOT_CI_PENDING",
+  "failed_run_id": 43241074197,
+  "failed_job_id": 131261299604,
+  "failed_source": "869ee34fa6f32d7cc5eaa269b2649e56abbb78f6",
+  "cause": "First physical archive unit test created a temporary folder under build/ before that parent existed in a clean checkout.",
+  "fix": "Create the isolated output parent in the test class setup.",
+  "validation": "git archive of 869ee34 with only the test setup fix; asserted build/ absent before running make check in the locked container. All 106 tests plus metadata/learning checks pass.",
+  "hardware_change": false,
+  "physical_run_43241097269": "Unaffected; its exact source remains 869ee34 and its candidate staging passed.",
+  "failure_log_sha256": "1727952a87705f8b63c89de33ba9b332c1fd93c9e733ee2b64d14c726ea2d4db"
+}
