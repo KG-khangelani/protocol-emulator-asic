@@ -1,0 +1,127 @@
+{
+  "status": "FAILED_OR_INCOMPLETE",
+  "scope": "PUBLIC_ARCHITECTURAL_BOUNDARIES",
+  "input_sha256": {
+    "test/test_general_boundaries.py": "2931829c78999705d6925a3dadcbf11511f20d1e569d9610d7f463cf704a6c51",
+    "test/test_i2c_general_public.py": "9ac28effd266171bcf08e93278bd9c69a30fe696625ad2fd4fe4bffe67b03d19",
+    "test/test.py": "916f54f66aa51426daf2755d0598415053a046fe18842402ddbd8df9967ef24c",
+    "test/Makefile": "1f400ab5b6760472c6273f4862825b6ec4030360a8eb4b434fdf4376b6336487",
+    "test/tb.v": "f6bccd40fc478398a49d44207d88a3ed8e914ebe269ac2db3b35e8269e35bdb7",
+    "experiments/i2c/general_programs.py": "bc941275c348ef4c2b19967171f7f989f46f1bf7da3074719a9618bb73487907",
+    "experiments/i2c/baseline_programs.py": "7311e3501bcbb59e9ac28e32bd0cba16548a7f750b9c26529fc3bccd13390451",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "experiments/i2c/run_general_boundaries.py": "92185433fc413aa33d4af07b71c3d22a608526e8374981c9883ea62352264272"
+  },
+  "sources": {
+    "od128": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "67fafc960a1750ff51a8d6c69619042384ede86dd1932880860284a87a3a7f1f",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+      "project.v": "9a8ff7f4175030eb69a985d04035275682848f4b6150104efed404468ac5f40b"
+    },
+    "literal255": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "e6004d64f44999c54089092b06ce6898cbf8120571ee647b789fa35825adedf2",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "a8942530246b0e1a51148e30181658ce57f9b9036c9297433970ed52378e5ed3",
+      "project.v": "eb42865b02060b87b77506eac754a5ee9f7b029d9d2daf1e30b03d5d8e7c2d35"
+    }
+  },
+  "stages": [
+    {
+      "variant": "od128",
+      "simulator": "icarus",
+      "tests": 4,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/i2c-general-04/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_general_boundaries",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/i2c-general-boundaries-02/od128-icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/i2c-general-boundaries-02/od128-icarus/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "accepted": true,
+      "seconds": 9.231
+    },
+    {
+      "variant": "od128",
+      "simulator": "verilator",
+      "tests": 4,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/i2c-general-04/variants/od128/src",
+        "COCOTB_TEST_MODULES=test_general_boundaries",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/i2c-general-boundaries-02/od128-verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/i2c-general-boundaries-02/od128-verilator/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "accepted": true,
+      "seconds": 63.316
+    },
+    {
+      "variant": "literal255",
+      "simulator": "icarus",
+      "tests": 4,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=icarus",
+        "SRC_DIR=/workspace/build/i2c-general-04/variants/literal255/src",
+        "COCOTB_TEST_MODULES=test_general_boundaries",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/i2c-general-boundaries-02/literal255-icarus/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/i2c-general-boundaries-02/literal255-icarus/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 0,
+      "accepted": true,
+      "seconds": 13.98
+    },
+    {
+      "variant": "literal255",
+      "simulator": "verilator",
+      "tests": 0,
+      "failed": [],
+      "command": [
+        "make",
+        "-C",
+        "test",
+        "SIM=verilator",
+        "SRC_DIR=/workspace/build/i2c-general-04/variants/literal255/src",
+        "COCOTB_TEST_MODULES=test_general_boundaries",
+        "COCOTB_TEST_FILTER=",
+        "SIM_BUILD=/workspace/build/i2c-general-boundaries-02/literal255-verilator/sim",
+        "COCOTB_RESULTS_FILE=/workspace/build/i2c-general-boundaries-02/literal255-verilator/results.xml",
+        "GENERAL_IO=yes",
+        "FST=",
+        "COCOTB_PLUSARGS=+NO_DUMP"
+      ],
+      "returncode": 2,
+      "accepted": false,
+      "seconds": 5.612
+    }
+  ],
+  "error": "literal255 verilator boundaries failed"
+}

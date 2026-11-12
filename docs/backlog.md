@@ -15,17 +15,23 @@ identity and anonymous access are verified. All six tag workflows pass.
 D36/E0032 freezes/tests the independent I2C oracle: 19 groups, 3,902 observations
 and 53 retained witnesses. E0033 measures unchanged compact10: ten identical
 records per simulator, ten-word bounded cleanup, expected held-SDA faults and
-122-word literal write footprint versus a real ten-word store. Next test
-complete general branching/storage schedules, with and without open-drain
-serial output. E0034 confirms existing SHIFT_STEP receive reuse: nine words,
+122-word literal write footprint versus a real ten-word store.
+E0034 confirms existing SHIFT_STEP receive reuse: nine words,
 268 identical records per simulator, all bytes and four rejected controls;
 98,619.329 Hz, no full I2C framing or cleanup qualification.
+D37/E0035 now advances od128: both simulators agree on 1,160 complete I2C records
+and pass twelve public kernel/UART/SPI groups with 1,052 unchanged SPI records.
+Current boundary checks, scoped instruction proofs and cleanup equivalence pass.
+The 96-word combined image uses a real 128-word store, versus 211/255 literal
+words. Store induction timed out; close that proof and current CI before the
+pinned physical comparison. Production remains unchanged.
 G2 covers the shared-core protocol set, G3 the assembler, G4 final publication,
 G5 bounded optional novelty, and G6 owner fluency. Production promotion still
 requires combined regression and fresh physical evidence. Historical task
 evidence below is preserved.
 The [I2C acceptance contract](specs/p-i2c-controller-100k.md) is frozen without
-an ISA change. Public-loaded I2C RTL, combined and physical gates remain pending.
+an ISA change. Experimental public-loaded I2C and combined results are retained;
+store-proof, current CI, physical and production-promotion gates remain pending.
 
 ## M0-T01 — Establish RTL-to-GDS baseline (active)
 
@@ -98,7 +104,7 @@ owner learning. Publishing a proposal does not satisfy an implementation gate.
 | M1-T07 | Execute K-BOUNDED-LOOP as a public-pin-loaded kernel | Counts 0, 1, 2 and 255 produce exact bounded traces and HALT | Qualified by exact-head CI and independent review; PR 2 merged at `b3b73e6` |
 | M1-T08 | Preserve simulation waveform provenance | Full RTL and GL-shaped smoke FST/JUnit pairs retain distinct paths, stage labels and verified checksums | Qualified by exact-head CI and independent review; PR 3 merged at `2326022` |
 | M1-T09 | Execute K-SHIFT-8 as a public-pin-loaded kernel | Both bit orders, exact ten-edge bound, RX readback, data-register and partial/error behavior match independent expectations | Qualified at `d1ddc8a`; exact-head CI/re-review passed and PR 4 merged at `081a8b1` |
-| M1-T03 | Add GET and BRANCH only as needed; bounded LOOP was evaluated by M1-T07 | Bounded behavior; cost delta recorded | Queued |
+| M1-T03 | Add GET and BRANCH only as needed; bounded LOOP was evaluated by M1-T07 | Bounded behavior; cost delta recorded | D37/E0035 evaluates general WAIT_PIN failure branching with full-width destination and partial-operation cleanup; scoped induction, public boundaries and complete I2C programs pass. Real program-store proof and physical cost gates remain open; no GET opcode needed |
 | M2-T01 | UART waveform oracle and VM transmit/receive | Randomized payloads, framing/error cases and timing checks | TX PR5 merged at `80975ed` (E0016); RX semantic PR6 merged at `3797c5a` (E0017); bounded last-byte PR7 merged at `155e130` (E0018); D19 host-serviced pair H+L<=10P and unsafe-overwrite counterexample pass local/clean CI and independent review at `9379d68` (E0019), PR8 merged at `7b2f746` after complete corrected-head PR CI at `996b967`; historical E0019 results preserved; no RTL/storage delta; continuous/autonomous delivery open |
 | M3-T01 | SPI and I2C on shared core | Direction, sampling, stretching and contention cases | Active compact qualification. D22/E0021 cost/legacy limits, D23/E0022 core rules, D24/E0023 actual integration safety and D25/E0024 pin simulation retained. D26/E0025: actual public-loaded eight-word written-program induction PASS at step9 with configured depth12/180s; complete loading/per-loop state facts are proved assertions, original driver/assumptions unchanged. Four finite preflights PASS; initial generated-declaration failure retained. E0024 direct444-step timeouts remain INCONCLUSIVE, not overwritten. D27/E0026: baseline induction and two checked formal negatives qualified; six public cases per simulator PASS with identical records; clean implementation0eaa54c sensitivity CI PASS with verified artifact/source hashes. Terminal covers inconclusive (timeout/interruption); initial harness failures retained. D28/E0027: four-mode contract/oracle and6,176 reference positives pass; delayed SAMPLE saves one word under input hold, yielding8-word modes0/2 and10-word phase1 references. Both simulators pass36 scoped public cases each with identical records; clean a3bfcea expanded SPI CI PASS, artifact/source hashes verified. D29/E0028: actual held mode0/2 program induction PASS at step9 with symbolic bytes/order/CPOL;12 finite preflights and2 checked reachable negative controls pass. D30/E0029: bounded6,920-schedule screen finds nine-word mode1 and ten-word mode3 references, with3,072 model positives; both simulators reject108 shortened images plus four oversized commits with identical records. Clean c54a795 SPI CI passes with verified source/trace identity; alpha.3 assets and public image verified. No eight-word fit in this family; no ISA minimum. D31/E0030: P fits both phase1 modes in8words, uses3,146cells/412bits versus matched compact10 3,589/477, and passes instruction/compact-refinement/actual-program proofs. Each simulator agrees on1,052 transfers per P/F/compact10. Clean19265ff CI qualifies both and selects P; all source/trace/cost identities verified. Alpha.4 assets/public package and full tag regression verified. F local timeouts and old encoding rejections retained. D34 official routed P saves 13.1456% standard-cell area but fails one fanout limit; compact10 clears GDS/routed metrics and passes 12 real-netlist groups with 1,052 unchanged records. All ten official prechecks pass; D35 selects compact10 as the experimental physical pilot. No combined production protocol qualification is claimed. Candidate/production unchanged; PR11 merged at `1383158`; PR8 merged at `7b2f746`; compiler deferred; production SPI/I2C/physical unqualified |
 | M3-T02 | Compare architecture and instruction ablations | Program bytes, cycles, mapped area and verification cost | E0021 measures encodings, store/loader capacity and complete-chip generic cost. E0031 now records matched P/compact10 mapped and routed cost, timing and actual storage; P fails fanout; compact10 passes all required physical gates and is selected by D35. Broader architecture comparisons remain queued |

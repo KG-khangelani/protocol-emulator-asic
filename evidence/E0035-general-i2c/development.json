@@ -1,0 +1,13 @@
+{
+  "real_rtl_failure": "Legacy two-word skip at PC 254 wrapped to zero; immediate/delayed paths now fault; witness retained.",
+  "initial_verilator_launch": "Command-line COMPILE_ARGS replaced simulator defaults; GENERAL_IO make option preserves them.",
+  "literal_full_launch": "Verilator rejected a constant length<=255 comparison; universal length-predicate theorem and corrected smoke retained.",
+  "combined_shell_filter": "The Make recipe required quoting around the filter expression.",
+  "combined_junit_parser": "The parser now requires all selected public groups and only the declared excluded skipped discoveries. Completed Icarus simulation reused with checked input identities.",
+  "boundary_record_count": "Interim skip witnesses are recorded only on a failure; the final normal suite has four groups.",
+  "initial_abort_observation": "Initial loader-abort rows carried prior raw fields; the final runner reads actual public loader registers and passes both simulators.",
+  "formal_negative_refinement": "Initial high-output mutation changed the latch while released; final control also enables the pin and the witness verifies active-high drive.",
+  "store_symbolic": "Both induction attempts timed out at 240s; reachable covers passed.",
+  "store_behavioral": "Smaller whole-store equivalence timed out at 360s; larger attempt was interrupted to revise the proof strategy.",
+  "physical": "No new run; generic cost and RTL/proofs are not routed or silicon qualification."
+}

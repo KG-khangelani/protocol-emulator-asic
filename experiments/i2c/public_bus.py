@@ -12,7 +12,7 @@ from cocotb.triggers import First, Timer, ValueChange
 from cocotb.utils import get_sim_time
 
 
-async def public_snapshot(dut):
+async def public_snapshot(dut, *, extended_pc=False):
     status = int(dut.uo_out.value)
     row = {"out": int(dut.uio_out.value), "oe": int(dut.uio_oe.value),
            "state": ("RUN", "WAIT", "HALT", "FAULT")[status >> 6], "pc": status & 31}
@@ -22,12 +22,16 @@ async def public_snapshot(dut):
     dut.ui_in.value = 0x63
     await Timer(1, unit="ps")
     row["rx_valid"] = int(dut.uo_out.value)
+    if extended_pc:
+        dut.ui_in.value = 0x66
+        await Timer(1, unit="ps")
+        row["pc"] = int(dut.uo_out.value)
     dut.ui_in.value = 0
     await Timer(1, unit="ps")
     return row
 
 
-async def run_bus(dut, target, *, bound_ticks, terminal_hold=800):
+async def run_bus(dut, target, *, bound_ticks, terminal_hold=800, extended_pc=False):
     """Run from ena=0/clk=0 after public loading and two input flush edges.
 
     A tick is 5 ns; timestamps denote the post-edge grid interval. Runtime
@@ -40,7 +44,7 @@ async def run_bus(dut, target, *, bound_ticks, terminal_hold=800):
     terminal = None
     dut.ui_in.value = 0
     await Timer(1, unit="ps")
-    current = await public_snapshot(dut)
+    current = await public_snapshot(dut, extended_pc=extended_pc)
     bus = 3 & ~current["oe"]
     dut.uio_in.value = bus
     rows.append(dict(current, t=0, target_out=0, target_oe=0, bus=bus))
@@ -69,7 +73,7 @@ async def run_bus(dut, target, *, bound_ticks, terminal_hold=800):
             await Timer(1, unit="ps")
             tick = (int(get_sim_time(unit="ps"))-origin)//5000
             previous = current
-            current = await public_snapshot(dut)
+            current = await public_snapshot(dut, extended_pc=extended_pc)
             schedule(target.controller(tick, previous, current), tick)
             while queue and queue[0][0] <= tick:
                 _, mask, value = heapq.heappop(queue)

@@ -1,0 +1,85 @@
+name: i2c-general
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'experiments/i2c/**'
+      - 'experiments/spi_phase/**'
+      - 'test/test*.py'
+      - 'test/Makefile'
+      - 'test/tb.v'
+      - 'tools/*oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/workbench/**'
+      - 'docs/specs/g2-general-io-candidate.md'
+      - 'docs/specs/p-i2c-controller-100k.md'
+      - '.github/workflows/i2c-general.yaml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'experiments/i2c/**'
+      - 'experiments/spi_phase/**'
+      - 'test/test*.py'
+      - 'test/Makefile'
+      - 'test/tb.v'
+      - 'tools/*oracle.py'
+      - 'tools/m1_contract_model.py'
+      - 'tools/workbench/**'
+      - 'docs/specs/g2-general-io-candidate.md'
+      - 'docs/specs/p-i2c-controller-100k.md'
+      - '.github/workflows/i2c-general.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: i2c-general-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        gate: [od128, literal255, architecture]
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069
+      - name: Build locked workbench
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc
+        with:
+          context: tools/workbench
+          file: tools/workbench/Dockerfile
+          load: true
+          tags: protocol-emulator-asic-workbench:2026-07-29
+          cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+          cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+      - name: Verify locked tools and execute the selected gate
+        env:
+          GATE: ${{ matrix.gate }}
+        run: |
+          ./tools/workbench.sh Doctor
+          docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
+            python3 experiments/i2c/run_general_gate.py --gate "$GATE" --output build/g2-ci
+      - name: Retain results, public records, exact generated RTL and witnesses
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: i2c-general-${{ matrix.gate }}-${{ github.sha }}
+          path: |
+            build/g2-ci/**/result.json
+            build/g2-ci/**/source-manifest.json
+            build/g2-ci/**/src/*.v
+            build/g2-ci/**/records/**
+            build/g2-ci/**/run.log
+            build/g2-ci/**/synthesis.log
+            build/g2-ci/**/results.xml
+            build/g2-ci/**/proof.sby
+            build/g2-ci/**/engine.v
+            build/g2-ci/**/trace*.vcd
+          if-no-files-found: error
+          retention-days: 90

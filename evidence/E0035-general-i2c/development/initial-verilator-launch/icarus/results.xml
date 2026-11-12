@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794481548" />
+    <testcase name="complete_i2c_transactions" classname="test_i2c_general_public" file="/workspace/test/test_i2c_general_public.py" lineno="101" time="18.677178859710693" sim_time_ns="19909192.384" ratio_time="1065963.5769161547" />
+  </testsuite>
+</testsuites>

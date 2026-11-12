@@ -37,6 +37,7 @@
 | E0032 | Can an independent public-event oracle distinguish compliant bounded I2C fixtures from meaningful counterexamples? | 19 groups and 3,902 observations pass; 53 witnesses; contract frozen before ISA change; no DUT qualification | E0032-i2c-oracle/README.md |
 | E0033 | What do existing compact10 instructions and real capacity permit for I2C? | Two simulators agree on ten scoped public records: bounded cleanup fits ten words; held-SDA faults and 122-word literal capacity limit retained; full I2C pending | E0033-i2c-existing-instructions/README.md |
 | E0034 | Can existing SHIFT_STEP receive SDA while generating a legal low SCL edge? | Nine-word unchanged-RTL kernel; 268 identical records per simulator, 264 positives/4 controls, 98,619.329 Hz; no full I2C qualification | E0034-i2c-receive-reuse/README.md |
+| E0035 | Can general branching, real storage and optional open-drain shifting execute complete I2C alongside UART/SPI? | Both simulators agree on 1,160 od128 I2C records and twelve legacy public groups; current boundaries, explicit abort/reload and scoped instruction proofs pass. Literal control, overflow failure, cleanup equivalence and inconclusive store proof retained; no physical/production promotion | E0035-general-i2c/README.md |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is

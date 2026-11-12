@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794482325" />
+    <testcase name="public_store_banks_lengths_and_reset" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="46" time="1.0164203643798828" sim_time_ns="51336.0" ratio_time="50506.66220301484" />
+    <testcase name="public_pc_branch_and_skip_boundaries" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="107" time="6.54004693031311" sim_time_ns="394059.0" ratio_time="60253.23735423625" />
+    <testcase name="public_branch_abandons_partial_byte_and_loop" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="146" time="0.1017770767211914" sim_time_ns="7538.0" ratio_time="74063.82893713514" />
+    <testcase name="public_open_drain_and_alternate_payload" classname="test_general_boundaries" file="/workspace/test/test_general_boundaries.py" lineno="179" time="0.019926786422729492" sim_time_ns="0.0" ratio_time="0.0" />
+  </testsuite>
+</testsuites>

@@ -4,7 +4,14 @@ Updated: 2026-11-12. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
-UART/SPI/I2C qualification. D36/E0032 freezes the I2C contract and independent
+UART/SPI/I2C qualification. D37/E0035 advances experimental od128: both simulators
+agree on 1,160 complete I2C records and pass the twelve existing public UART/SPI/
+kernel groups, with 1,052 unchanged SPI records. Current boundary tests and
+scoped instruction proofs pass; cleanup equivalence connects the measured and
+current RTL. The unbounded store proof, exact-commit CI audit and fresh physical
+qualification remain open. Production is unchanged.
+
+Earlier G2 evidence: D36/E0032 freezes the I2C contract and independent
 oracle: 19 groups pass with 3,902 reference/control observations and 53 retained
 witnesses. Clock ownership, open drain, ACK/NACK, timing, stretching, final-edge
 priority, cleanup, stale results and explicit aborts are checked. This is no
@@ -12,13 +19,13 @@ I2C DUT qualification. E0033's unchanged compact10 passes ten scoped public
 records per simulator, with identical traces: a ten-word inline cleanup kernel
 releases/HALTs within two clocks of expiry, while waits inside LOOP or without
 timeout skip fault holding SDA. A literal write-wire list uses 122 words; the
-real store rejects length eleven. No complete I2C transaction is qualified.
+real store rejects length eleven. That baseline qualified no complete transaction.
 E0034 reuses SHIFT_STEP for receive in nine words, with zero TX pulling SCL
 low while capturing SDA. Both simulators agree on 268 records: all bytes,
 eight stretch positions and four rejected controls. Rate is 98,619.329 Hz;
-this still omits a complete I2C transaction and timeout cleanup. Next compare
-complete general branching/storage schedules, with and without open-drain
-serial output, before selecting changes.
+that kernel omitted complete I2C framing and timeout cleanup. E0035 now compares
+complete general branching/storage schedules and advances the smaller serial
+option for the remaining store-proof and physical gates.
 The owner requested commits throughout the work. See [six execution goals](goals.md) and
 [D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).

@@ -1,0 +1,13 @@
+[options]
+mode cover
+depth 8
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv store.v
+prep -top m1_program_store
+
+[files]
+/workspace/build/i2c-general-store-formal-01/literal255-cover/store.v

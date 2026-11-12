@@ -99,9 +99,16 @@ E0034 confirms nine-word existing SHIFT_STEP receive reuse, with 268 identical
 records per simulator (all bytes, eight stretch positions, four negatives).
 The measured 98,619.329 Hz kernel has no full I2C framing/cleanup qualification.
 
-**Next executable action:** compare complete general branching/storage schedules,
-with and without open-drain serial output, against the independent oracle and
-complete-chip cost. Preserve G1's pilot and failed alternatives.
+D37/E0035 advances experimental od128: 96 words for combined write/read versus
+211 literal words, with actual 128/255-word stores. Both simulators agree on
+1,160 od128 I2C records and the twelve existing public kernel/UART/SPI groups;
+all 1,052 SPI records match compact10. Current boundaries, scoped instruction
+proofs and cleanup equivalence pass. The store induction timed out and remains
+inconclusive; physical qualification and the exact-commit CI audit are open.
+
+**Next executable action:** close the store proof and current CI gates, then
+measure mapped/routed feasibility under the pinned 8x4 conditions. Preserve
+G1's pilot and failed alternatives. This experimental result does not finish G2.
 
 Completion checks:
 

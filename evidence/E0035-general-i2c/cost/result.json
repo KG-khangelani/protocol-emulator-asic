@@ -1,0 +1,93 @@
+{
+  "status": "PASS_GENERIC_COST_ONLY",
+  "scope": "GENERIC_WHOLE_CHIP_NOT_MAPPED_OR_ROUTED",
+  "runner_sha256": "e28b58dc5f59574421586a0b153fe4b669c26c9ad194db533d5e0d41894ec7db",
+  "measurements": {
+    "compact10": {
+      "primitive_cells": 3589,
+      "state_bits": 477,
+      "cell_types": {
+        "$_ANDNOT_": 114,
+        "$_AND_": 913,
+        "$_MUX_": 469,
+        "$_NAND_": 1242,
+        "$_NOR_": 77,
+        "$_NOT_": 18,
+        "$_ORNOT_": 85,
+        "$_OR_": 136,
+        "$_SDFFE_PN0P_": 460,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 43,
+        "$_XOR_": 15
+      },
+      "seconds": 3.653,
+      "netlist_sha256": "a02bda704c66a21c7c2b37d01483bd397139bddbb1f906f8e2104ac201071983"
+    },
+    "literal255": {
+      "primitive_cells": 51723,
+      "state_bits": 8343,
+      "cell_types": {
+        "$_ANDNOT_": 170,
+        "$_AND_": 13504,
+        "$_MUX_": 10355,
+        "$_NAND_": 18914,
+        "$_NOR_": 88,
+        "$_NOT_": 15,
+        "$_ORNOT_": 111,
+        "$_OR_": 146,
+        "$_SDFFE_PN0P_": 8326,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 53,
+        "$_XOR_": 24
+      },
+      "seconds": 187.699,
+      "netlist_sha256": "9d6c0c3acd3b976e8d17ac453ed56afdb53655ea389ff92bc769e36acad6ef3a"
+    },
+    "od128": {
+      "primitive_cells": 27065,
+      "state_bits": 4278,
+      "cell_types": {
+        "$_ANDNOT_": 169,
+        "$_AND_": 7028,
+        "$_MUX_": 5282,
+        "$_NAND_": 9840,
+        "$_NOR_": 91,
+        "$_NOT_": 15,
+        "$_ORNOT_": 139,
+        "$_OR_": 150,
+        "$_SDFFE_PN0P_": 4261,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 16,
+        "$_XNOR_": 49,
+        "$_XOR_": 24
+      },
+      "seconds": 48.597,
+      "netlist_sha256": "75768520c794cbfca16ddacea5ebc24e0bedb41ad65e5493a106f71453471301"
+    }
+  },
+  "sources": {
+    "compact10": {
+      "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+      "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+      "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "literal255": {
+      "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748",
+      "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+      "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "od128": {
+      "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a",
+      "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    }
+  }
+}

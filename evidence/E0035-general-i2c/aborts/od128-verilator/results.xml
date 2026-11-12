@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1794484044" />
+    <testcase name="public_i2c_abort_and_reload" classname="test_i2c_abort_public" file="/workspace/test/test_i2c_abort_public.py" lineno="115" time="156.36066150665283" sim_time_ns="8125464.408" ratio_time="51966.16802273043" />
+  </testsuite>
+</testsuites>

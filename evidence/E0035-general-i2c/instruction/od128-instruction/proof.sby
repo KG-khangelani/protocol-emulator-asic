@@ -1,0 +1,14 @@
+[options]
+mode prove
+depth 12
+expect pass
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal -sv -D SERIAL_OPTIONS engine.v
+prep -top m1_engine
+
+[files]
+/workspace/build/i2c-general-formal-03/od128-instruction/engine.v

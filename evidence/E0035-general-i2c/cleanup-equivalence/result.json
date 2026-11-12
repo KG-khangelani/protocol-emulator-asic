@@ -1,0 +1,49 @@
+{
+  "status": "PASS_FUNCTIONALLY_EQUIVALENT_CLEANUP",
+  "scope": "COMPLETE_CANDIDATE_FUNCTIONAL_CLEANUP_EQUIVALENCE",
+  "runner_sha256": "8682ca023df9c92a2eca5f7b84f2040992df95e7e6689beb7f70623fc42a7500",
+  "variants": {
+    "od128": {
+      "before": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "67fafc960a1750ff51a8d6c69619042384ede86dd1932880860284a87a3a7f1f",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+        "project.v": "9a8ff7f4175030eb69a985d04035275682848f4b6150104efed404468ac5f40b"
+      },
+      "after": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+      },
+      "engine_equivalence": "PASS",
+      "unchanged_data_and_sync": true,
+      "top_whitespace_only": true,
+      "store_change": "NONE"
+    },
+    "literal255": {
+      "before": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "e6004d64f44999c54089092b06ce6898cbf8120571ee647b789fa35825adedf2",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "a8942530246b0e1a51148e30181658ce57f9b9036c9297433970ed52378e5ed3",
+        "project.v": "eb42865b02060b87b77506eac754a5ee9f7b029d9d2daf1e30b03d5d8e7c2d35"
+      },
+      "after": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+        "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748"
+      },
+      "engine_equivalence": "PASS",
+      "unchanged_data_and_sync": true,
+      "top_whitespace_only": true,
+      "store_change": "8-bit constant ceiling removal"
+    }
+  },
+  "length_predicate": "PASS_ALL_256_VALUES",
+  "limitation": "No equivalence to G1 compact10 and no physical inference; only before/after cleanup of the G2 candidate"
+}

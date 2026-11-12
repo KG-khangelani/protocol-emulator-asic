@@ -1,0 +1,88 @@
+{
+  "status": "QUALIFIED_EXPERIMENTAL_PROTOCOL_PROGRESS_NOT_G2_COMPLETE",
+  "production": "UNCHANGED",
+  "physical": "NO_NEW_RUN",
+  "gates": {
+    "full-od128": {
+      "status": "PASS_I2C_PUBLIC_MATRIX",
+      "run": "build/i2c-general-04",
+      "result_sha256": "822b94aeee40035df104e61afeed40a505e3fb72ca835ab2613fcea0c7e11ec4"
+    },
+    "full-literal255-incomplete": {
+      "status": "FAILED_OR_INCOMPLETE",
+      "run": "build/i2c-general-05",
+      "result_sha256": "b84defe0c2f9fbb6af3fdcd24a814fd0960b90611b7d654c75d6cf67d5973b13"
+    },
+    "literal255-smoke": {
+      "status": "PASS_I2C_SMOKE_ONLY",
+      "run": "build/i2c-general-06",
+      "result_sha256": "365765ecc9b3a854f09181d515ab8b5f1d191384909d9159dedfc7348fc25b19"
+    },
+    "od128-smoke": {
+      "status": "PASS_I2C_SMOKE_ONLY",
+      "run": "build/i2c-general-09",
+      "result_sha256": "df332efb930721840bb6e79098db4440ccc4ddd114f2ea69b934525fde896d66"
+    },
+    "boundaries": {
+      "status": "PASS_PUBLIC_BOUNDARIES",
+      "run": "build/i2c-general-boundaries-04",
+      "result_sha256": "60d39491e72cdb370c5b697ecf9c65913ec79c3990030fac4d9692ed83f48c32"
+    },
+    "instruction": {
+      "status": "PASS_SCOPED_INSTRUCTION_PROOFS",
+      "run": "build/i2c-general-formal-03",
+      "result_sha256": "b8dc44f8203d31efe3db1c19a275652249d7cd9ac9fb6b3635743eeb4e233aab"
+    },
+    "combined": {
+      "status": "PASS_LEGACY_PUBLIC_MATRIX",
+      "run": "build/i2c-general-combined-03",
+      "result_sha256": "9ad9d0b60ce9a5fa34a597b90066383223846f8a1adfb9821c6692ab7e23960b"
+    },
+    "cost": {
+      "status": "PASS_GENERIC_COST_ONLY",
+      "run": "build/i2c-general-cost-03",
+      "result_sha256": "4965eeb99f3b58cf5dcf8ca2e8154c28590a191aa35b226e9ec17479fcc2d357"
+    },
+    "cleanup-equivalence": {
+      "status": "PASS_FUNCTIONALLY_EQUIVALENT_CLEANUP",
+      "run": "build/i2c-general-cleanup-equivalence-02",
+      "result_sha256": "47911e59216c120469e45727bab02a961f1d0d42a86b75e18663a787066fac7e"
+    },
+    "store-symbolic-inconclusive": {
+      "status": "NOT_QUALIFIED",
+      "run": "build/i2c-general-store-formal-01",
+      "result_sha256": "fb551a9d2b06a9918dd1665d40b5a475fc9166387b2bb4dcaa2041b659a26db8"
+    },
+    "aborts": {
+      "status": "PASS_PUBLIC_ABORT_AND_RELOAD",
+      "run": "build/i2c-general-aborts-02",
+      "result_sha256": "9895ec81f5896f10b6a4d6fc76ef73d235600a8d297716515051eba100283a99"
+    }
+  },
+  "pending": [
+    "unbounded program-store proof",
+    "mapped and routed feasibility",
+    "exact-commit CI audit and qualified milestone publication"
+  ],
+  "formal_and_literal_smoke_to_current": "EXACT_CHARACTER_IDENTITY_EXCLUDING_WHITESPACE",
+  "current_source_manifest_sha256": "18afcde9c9df8b47210d9d4c77971dcbf9eb09ea043581707c9eba9cefe93270",
+  "accepted_i2c_outcomes": {
+    "OK": 996,
+    "NACK": 6,
+    "TIMEOUT": 152
+  },
+  "current_generic_counts": {
+    "compact10": {
+      "primitive_cells": 3589,
+      "state_bits": 477
+    },
+    "literal255": {
+      "primitive_cells": 51723,
+      "state_bits": 8343
+    },
+    "od128": {
+      "primitive_cells": 27065,
+      "state_bits": 4278
+    }
+  }
+}

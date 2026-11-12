@@ -1,0 +1,24 @@
+{
+  "status": "RUNNING",
+  "scope": "ALL_WORD_STATE_AND_PUBLIC_STORE_REFINEMENT",
+  "runner_sha256": "bd1a60bf5fd9c0b22cebcab1ea5516ea891db53a6eec41585b9336f0938f6d16",
+  "tasks": [
+    {
+      "variant": "od128",
+      "accepted": false,
+      "source_sha256": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+      "reference_sha256": "c99b73a290422e6d2758f311060ed0b3658b057a3927e2e668b298ec8dc29252",
+      "command": [
+        "yosys",
+        "-Q",
+        "-s",
+        "/workspace/build/i2c-general-store-equivalence-01/od128/proof.ys"
+      ],
+      "returncode": 124,
+      "timed_out": true,
+      "seconds": 360.16,
+      "wall_limit": 360
+    }
+  ],
+  "assumptions": "same inputs and corresponding state; synchronous reset establishes matching all-zero store/control state"
+}

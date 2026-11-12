@@ -1,0 +1,7 @@
+{
+  "status": "NOT_QUALIFIED",
+  "od128": "360-second whole-store equivalence timeout; exact command/result retained",
+  "literal255": "deliberately stopped during frontend after the smaller proof timed out",
+  "action": "stopped only the identified owned experiment container; original result snapshot remains unmodified",
+  "next": "decompose the word-state invariant instead of repeating the whole-store solver attempt"
+}

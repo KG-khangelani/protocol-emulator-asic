@@ -10,6 +10,11 @@ SRC_DIR = $(CURDIR)/../src
 PROJECT_SOURCES = project.v m1_engine.v m1_program_store.v m1_data_store.v m1_input_sync.v
 COCOTB_TEST_MODULES = test,test_uart_rx_public,test_spi_mode0_public
 
+# Extended experimental candidates use only the public top-level interface.
+ifeq ($(GENERAL_IO),yes)
+COMPILE_ARGS += -DGL_TEST
+endif
+
 # G1 reuses public expectations without instantiating the directly driven engine.
 ifeq ($(G1_PHYSICAL),yes)
 COMPILE_ARGS += -DGL_TEST

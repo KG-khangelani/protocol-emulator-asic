@@ -1,0 +1,69 @@
+{
+  "status": "NOT_QUALIFIED",
+  "scope": "ARBITRARY_WORD_NONALIAS_AND_PUBLIC_STORE_CONTROL",
+  "runner_sha256": "e726e79cccd39aff41d71adcdc7a28aa0c6fd8e28233f454f76eac82a7474aa2",
+  "sources": {
+    "od128": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+    "literal255": "a8942530246b0e1a51148e30181658ce57f9b9036c9297433970ed52378e5ed3"
+  },
+  "tasks": [
+    {
+      "variant": "od128",
+      "mode": "prove",
+      "status": "MISSING",
+      "accepted": false,
+      "returncode": 124,
+      "timed_out": true,
+      "induction": false,
+      "witnesses": {},
+      "seconds": 240.111,
+      "input_sha256": "c2799094c77847fa175a9b04344b2a84c64f12633f6e2a5dbc23a994eaa4b0de"
+    },
+    {
+      "variant": "od128",
+      "mode": "cover",
+      "status": "PASS",
+      "accepted": true,
+      "returncode": 0,
+      "timed_out": false,
+      "induction": false,
+      "witnesses": {
+        "proof/engine_0/trace0.vcd": "614a1f4457f7a59e88f34f607a9c1f6fda6abdec402016f8390c173d9a4433bc",
+        "proof/engine_0/trace1.vcd": "0b6568001192ceec73524dc87554ba624db65069c9bbb78dc068a96328c0d9f6"
+      },
+      "seconds": 75.832,
+      "input_sha256": "c2799094c77847fa175a9b04344b2a84c64f12633f6e2a5dbc23a994eaa4b0de"
+    },
+    {
+      "variant": "literal255",
+      "mode": "prove",
+      "status": "MISSING",
+      "accepted": false,
+      "returncode": 124,
+      "timed_out": true,
+      "induction": false,
+      "witnesses": {},
+      "seconds": 240.129,
+      "input_sha256": "429df878bea513648667e4971468b6573b0fc37348a139b154055d9f445ddcc4"
+    },
+    {
+      "variant": "literal255",
+      "mode": "cover",
+      "status": "PASS",
+      "accepted": true,
+      "returncode": 0,
+      "timed_out": false,
+      "induction": false,
+      "witnesses": {
+        "proof/engine_0/trace0.vcd": "96001db2ad646ac1ea3c6feaadfe54e15299520aa4e7a3e024b42e84cd54d70f",
+        "proof/engine_0/trace1.vcd": "e48bee9bc604ec977b437afe3cf788d72019e0a687eba2217c9cb2a15be0cef9"
+      },
+      "seconds": 201.382,
+      "input_sha256": "429df878bea513648667e4971468b6573b0fc37348a139b154055d9f445ddcc4"
+    }
+  ],
+  "assumptions": [
+    "first sampled edge reset",
+    "arbitrary constant allocated word index; all other inputs unrestricted"
+  ]
+}

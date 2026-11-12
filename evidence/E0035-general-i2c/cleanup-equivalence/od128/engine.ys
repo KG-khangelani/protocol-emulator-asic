@@ -1,0 +1,1 @@
+read_verilog /workspace/build/i2c-general-04/variants/od128/src/m1_engine.v; rename m1_engine old_engine; read_verilog /workspace/build/i2c-general-08/variants/od128/src/m1_engine.v; rename m1_engine new_engine; proc; opt; equiv_make old_engine new_engine equivalence; hierarchy -top equivalence; equiv_simple; equiv_induct -seq 3; equiv_status -assert
