@@ -1,0 +1,13 @@
+{
+  "status": "REPLAY_REJECTED_MUTATED_EXTRACTED_ARTIFACTS",
+  "changes": [
+    {
+      "file": "current-sram/runs/20261112T213455703577Z-formal/current/prediction/wrong-low-bit/parsed-trace.vcd",
+      "original_sha256": "dd6615b9a078efb37055e0964a15167dfdf1005dd05aa6b2fcf08aaf4269ebbe",
+      "replayed_sha256": "f322f768c11f0a1e5d067cfd8a5e66509aff6e504c364c36ec1fcaf3ee908ca1",
+      "sole_change_lf_to_crlf": true
+    }
+  ],
+  "original_archive_unchanged": true,
+  "failure": "Audit assertion after semantic_check: audit changed retained proof data"
+}

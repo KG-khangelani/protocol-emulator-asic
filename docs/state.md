@@ -126,10 +126,18 @@ and its inspected wrong-bit counterexample. Two preparation failures are
 retained and corrected. The combined formal command then times out on the
 historical engine proof at its unchanged 300-second limit; no aggregate PASS
 is written. The 2,154-file replay verifies the current results and rejects
-that incomplete aggregate. Run and audit the complete `sram-current` CI.
-Official `gds-sram` run43303867849 at 2bd2688 is in progress. The local routed
-Icarus run has completed all 1,160 I2C cases; its final abort/reload group is
-still pending. Verilator's first functional attempt fails on loader state.
+that incomplete aggregate. Complete `sram-current` CI passes at
+13660ac/run43309369604: all eight stages, the separate historical baseline
+and both fresh 116-check executions pass. The original 1,928-file ZIP,
+295 exact inputs and actual runtime pass audit and retained Linux replay.
+Official `gds-sram` run43303867849 at 2bd2688 fails with 58,327 Magic DRC
+reports and an LVS pin mismatch followed by a JSON-escaping error; precheck
+and netlist jobs are skipped. Diagnosis identifies 17 real public-pin/power
+overlaps, so the local full trials are rejected and deliberately stopped.
+The pinned vendor SRAM import settings also remove 232 false subcell reports
+while preserving detection of an injected Metal2 defect; full-chip checks
+remain required after the power fix. The local routed Icarus run passes all
+18 groups and exact public records. Verilator's first functional attempt fails on loader state.
 A cell-level probe identifies its unsupported delayed-reset alias and a
 separate simulation adapter matches 1,025 original-cell observations, while
 a stuck-reset control produces 249 mismatches. The identical-netlist follow-up

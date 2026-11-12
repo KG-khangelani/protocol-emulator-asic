@@ -1,0 +1,45 @@
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 13986941634,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk4Njk0MTYzNA==",
+      "name": "current-sram-13660ace269c7b0746d8197fe824f76a5f896934",
+      "size_in_bytes": 7316407,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13986941634",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13986941634/zip",
+      "expired": false,
+      "digest": "sha256:658c32f8474f1fd1afa3a245e1cbb3be6affdb8dcfdd31c4a4345aac6f456108",
+      "created_at": "2026-11-12T21:38:23Z",
+      "updated_at": "2026-11-12T21:38:23Z",
+      "expires_at": "2027-02-10T21:20:58Z",
+      "workflow_run": {
+        "id": 43309369604,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "13660ace269c7b0746d8197fe824f76a5f896934"
+      }
+    },
+    {
+      "id": 13985309488,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk4NTMwOTQ4OA==",
+      "name": "KG-khangelani~protocol-emulator-asic~4QMWUO.dockerbuild",
+      "size_in_bytes": 39342,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13985309488",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13985309488/zip",
+      "expired": false,
+      "digest": "sha256:3d8158e564cc13bd5c2cb578ea50b3a0f8ad95c718f01ee4454e44628298beee",
+      "created_at": "2026-11-12T21:38:25Z",
+      "updated_at": "2026-11-12T21:38:25Z",
+      "expires_at": "2027-02-10T21:20:58Z",
+      "workflow_run": {
+        "id": 43309369604,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "13660ace269c7b0746d8197fe824f76a5f896934"
+      }
+    }
+  ]
+}

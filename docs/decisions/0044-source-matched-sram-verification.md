@@ -40,5 +40,13 @@ subsequent historical engine proof hits its unchanged 300-second wall limit;
 the combined normal formal stage is incomplete and no aggregate PASS exists.
 E0044 retains both preparation failures, that timeout, the exact launch inputs
 and later audit code. Its 2,154-file replay passes without accepting the timeout.
-Run the complete normal-command CI on this exact source profile. Official
-physical qualification, production promotion and publication remain separate gates.
+The complete normal-command CI now passes at 13660ac/run43309369604. Its
+original 1,928-file ZIP and 295 source-matched verification inputs pass audit
+and retained Linux replay. All eight stages pass, including 30 groups in each
+simulator, all eleven current formal stages and the ten-task historical
+baseline under unchanged bounds. Both fresh repository-check executions pass
+116 tests. Actual same-job build, container and tool identities are retained.
+The first Windows replay rejects a derived VCD's LF-to-CRLF rewrite; the
+original archive stays unchanged and the Linux replay preserves every hash.
+Official physical qualification, production promotion and publication remain
+separate gates.

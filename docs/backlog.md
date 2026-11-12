@@ -94,9 +94,14 @@ acceptance stays open. D44/E0044 adds the exact SRAM source/model profile to
 normal commands. All eleven current formal stages, lint, synthesis, harness
 smoke and 116 repository checks pass. The historical engine proof times out
 at the unchanged 300-second limit; the complete aggregate remains incomplete.
-The 2,154-file replay retains and rejects that timeout. Complete and audit
-`sram-current` CI alongside official `gds-sram` run43303867849, local manufacturing
-and actual-netlist follow-up. Production adoption and publication remain pending.
+The 2,154-file replay retains and rejects that timeout. Complete `sram-current`
+CI at 13660ac/run43309369604 passes all eight stages, the historical baseline
+and two fresh 116-check executions. Its original 1,928-file ZIP, 295 exact
+inputs and producing runtime pass audit and retained Linux replay. Official
+run43303867849 fails DRC and LVS; diagnosis finds actual public-pin/power
+overlaps. Correct and qualify that geometry and the vendor SRAM import,
+then repeat all physical gates and finish the actual-netlist follow-up.
+Production adoption and publication remain pending.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

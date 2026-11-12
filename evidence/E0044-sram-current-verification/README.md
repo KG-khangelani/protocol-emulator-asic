@@ -34,8 +34,12 @@ The complete normal formal command then passes every current SRAM stage but
 times out on the first historical engine proof after its unchanged 300-second
 wall limit. Its receipt stays `FAILED_OR_INCOMPLETE`; no aggregate PASS exists.
 The later semantic audit verifies the successful current results and explicitly
-rejects the incomplete combined result. Complete normal-command CI, official
-physical qualification, production promotion and publication remain required.
+rejects the incomplete combined result. The later [complete normal-command
+CI](ci-13660ac/README.md) passes at 13660ac/run43309369604, including the
+historical baseline under its original bounds. Its original 1,928-file ZIP,
+295 exact inputs, actual producing image, all eight stages and two fresh
+116-check executions pass audit and retained Linux replay. Official physical
+qualification, production promotion and publication remain required.
 
 `verification.tar.gz` retains 2,154 files, with per-file hashes in `archive.json`.
 It includes proof inputs/models/logs/witnesses, the failures and timeout, three
