@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETED_REJECTED_GUARDED_FLOW",
+  "physical_qualification": "REJECTED",
+  "execution": {
+    "command": [
+      "librelane",
+      "--pdk-root",
+      "/pdk",
+      "--pdk",
+      "ihp-sg13cmos5l",
+      "--run-tag",
+      "integrated",
+      "--design-dir",
+      "/workspace/build/g2-sram-full-05",
+      "/workspace/build/g2-sram-full-05/src/config_merged.json"
+    ],
+    "returncode": 2,
+    "timed_out": false,
+    "seconds": 9381.393,
+    "wall_limit": 10800
+  },
+  "final_physical_metrics": {
+    "status": "FAIL",
+    "checked": {
+      "route__drc_errors": 0,
+      "route__antenna_violation__count": 0,
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "magic__drc_error__count": 36,
+      "design__lvs_error__count": 0,
+      "design__power_grid_violation__count": 0,
+      "design__max_fanout_violation__count": 0,
+      "design__max_cap_violation__count": 0,
+      "design__max_slew_violation__count": 0,
+      "timing__setup__ws": 5.5958856909900625,
+      "timing__hold__ws": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 9.893064425466784,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 5.5958856909900625,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.6680285402820566,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 8.886068132834636,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.3232766368323826
+    },
+    "errors": [
+      "magic__drc_error__count: 36 violates zero requirement"
+    ]
+  },
+  "original_report_identical_to_official": true,
+  "official_run_id": 43320295442,
+  "drc_report_sha256": "ea94e5d699b96e92a01ec0ece18a1b3a9888858e93271d02c535149e3ddf5089",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "lvs": "CIRCUITS_MATCH_UNIQUELY",
+  "all_84_stages_reached": true,
+  "retention_scope": "Complete native text reports/configurations/states/inputs. Large generated views are indexed by digest; the exact checked GDS is retained in ci-2be7f5d-failure/geometry-inputs.tar.gz and routed database/netlist in guarded-lvs/diagnostic.tar.gz.",
+  "production": "NOT_PROMOTED"
+}

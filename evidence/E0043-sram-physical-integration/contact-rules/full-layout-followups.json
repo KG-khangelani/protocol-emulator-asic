@@ -1,0 +1,75 @@
+{
+  "sha256": "4b97c4af64c723bc1438ab147a65cb6847673abbd6e850084fcc988bd584abf2",
+  "bytes": 15528,
+  "files": {
+    "aligned/_env.tcl": "92ad96255a39abeb038063b42ae8fa7712f79a8e6f7e19785c6ecfa55b8d1393",
+    "aligned/declared-decision.json": "a033fa549e46f9956fecd7cd20dbb2bfc59c92633a2149dca0c75af8f3bc7c69",
+    "aligned/drc-original.tcl": "815c0ada08d55bb0b3b5c84cd80e0620590897b7f3e8e3c7c3d3f117bbe1f74b",
+    "aligned/drc-scheduled.tcl": "b596b5bb84fe1149357067524a9b44dbc6c5ca0ec2847daa7df034a49f556352",
+    "aligned/reports/drc.magic.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "aligned/result.json": "e10cb14f260bb32dcb61f1c6c5121c4b47ece368b4fede1c707a197dcd78628e",
+    "aligned/run.log": "2279907e95a7f19271b16d55cecb1df6c09a3642be9b93bec26cfbb3756ef8a8",
+    "aligned/runner.py": "615a98e9543a7a3c1a946931db54d8ca2c4d6232c26766b6508f0dc8bf570ae7",
+    "original/_env.tcl": "11d797b93a3964c48a78dd36ed5b6d515ae2ce87de73c4e1adad1d65c258ceca",
+    "original/declared-decision.json": "826982f5f462f1e3521308f4cc2bc380ca315fea52d74fda9cb083c64682f07b",
+    "original/drc-original.tcl": "815c0ada08d55bb0b3b5c84cd80e0620590897b7f3e8e3c7c3d3f117bbe1f74b",
+    "original/drc-scheduled.tcl": "b596b5bb84fe1149357067524a9b44dbc6c5ca0ec2847daa7df034a49f556352",
+    "original/reports/drc.magic.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original/result.json": "b91bd9c753e8d18ac0cbf0168d92529a3021de374c11064be906c40da092e579",
+    "original/run.log": "2279907e95a7f19271b16d55cecb1df6c09a3642be9b93bec26cfbb3756ef8a8",
+    "original/runner.py": "8af654ba5d8121dd79948b24704ddb6f9168c8064f4ae05cb0ef82d5153e8a9c",
+    "retention-runner.py": "1bf38f58aec9242ede8bd17670a022dc444ead8cf4cfe6cf4aa04dc31c241645"
+  },
+  "outcomes": {
+    "original": {
+      "status": "INCONCLUSIVE_TIMEOUT",
+      "gds_sha256": "b2a09ed14fd1676e954e494c03e7d5d5ef74468d269a5b81bfb0ebe0c8382c3f",
+      "full_physical_qualification": "OPEN",
+      "execution": {
+        "command": [
+          "sh",
+          "-c",
+          "cd \"$1\" && shift && exec \"$@\"",
+          "import-schedule-probe",
+          "/workspace/build/g2-sram-import-schedule-probe-04",
+          "magic",
+          "-dnull",
+          "-noconsole",
+          "-rcfile",
+          "/pdk/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.magicrc",
+          "/nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/magic/wrapper.tcl"
+        ],
+        "returncode": 124,
+        "timed_out": true,
+        "seconds": 3600.025,
+        "wall_limit": 3600
+      }
+    },
+    "aligned": {
+      "status": "INCONCLUSIVE_TIMEOUT",
+      "gds_sha256": "b2a09ed14fd1676e954e494c03e7d5d5ef74468d269a5b81bfb0ebe0c8382c3f",
+      "full_physical_qualification": "OPEN",
+      "execution": {
+        "command": [
+          "sh",
+          "-c",
+          "cd \"$1\" && shift && exec \"$@\"",
+          "import-schedule-probe",
+          "/workspace/build/g2-sram-contact-full-probe-02",
+          "magic",
+          "-dnull",
+          "-noconsole",
+          "-rcfile",
+          "/workspace/build/g2-sram-contact-rule-probe-04/magic/ihp-sg13cmos5l.magicrc",
+          "/nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/lib/python3.13/site-packages/librelane/scripts/magic/wrapper.tcl"
+        ],
+        "returncode": 124,
+        "timed_out": true,
+        "seconds": 3600.083,
+        "wall_limit": 3600
+      }
+    }
+  },
+  "qualification": "NO_MANUFACTURING_RESULT",
+  "next": "Do not extend these attempts. Complete the already running corrected official workflow under its original 180-minute GDS limit."
+}

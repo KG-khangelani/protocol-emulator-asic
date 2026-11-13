@@ -68,3 +68,13 @@ the original full DRC script, all 84 stages, every other Magic step and all
 zero-error thresholds. Retain original and changed rule identities in the
 actual run. Do not extend or relabel the local diagnostic attempts, and do
 not promote production before all G2 gates pass.
+
+Both one-hour follow-ups now reach their declared limits after entering full
+DRC, without completed reports. Their 17-file replay records actual timeout
+receipts. Do not extend them while official run43337581691 is executing the
+rehearsed correction from clean source 232ee20 under the original GDS bound.
+Native full trial 05 separately completes all 84 original/added stages in
+9,381.393 seconds: its 36-finding report is byte-identical to the official
+reference, and every other final physical condition matches. The 927-file
+completion replay passes. This supplies no corrected full-layout pass and
+does not establish a complete-flow speed improvement from import scheduling.

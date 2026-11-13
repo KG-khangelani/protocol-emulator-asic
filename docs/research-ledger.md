@@ -171,6 +171,12 @@ The two new controls reject archived-clock drift and prevent incompatible
 production settings from changing old comparisons. Physical acceptance is
 unchanged; official run43337581691 uses its earlier clean 232ee20 source.
 
+E0043 native guarded full trial 05 completes all 84 stages in 9,381.393
+seconds and reproduces the official 36-contact-finding rejection exactly;
+its 927-file completion replay passes. Both one-hour scheduling/rule
+diagnostics time out with no report; their 17-file replay preserves the
+inconclusive outcomes. Fresh corrected official qualification remains open.
+
 ## Open questions
 
 - Q1: What timing quantum and external-input latency meet useful protocol rates?

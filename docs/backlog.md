@@ -130,8 +130,13 @@ official run now supplies the whole-chip reference; qualify the rehearsed
 portable correction in a fresh official run while the local follow-ups finish.
 The optional setup now passes a native 78.771-second pilot and its 396-file
 replay, with twelve configuration and three changed-input controls. The two
-initial whole-layout diagnostics are incomplete; their one-hour follow-ups
-retain the exact geometry and complete checks.
+initial whole-layout diagnostics and their one-hour follow-ups are incomplete;
+the latter's 17-file replay preserves both actual timeout receipts. Do not
+extend them while fresh official qualification is executing. Native full
+trial 05 completes in 9,381.393 seconds with the same 36-finding report as the
+official reference; its 927-file completion replay passes. Both simulators
+are now testing its corrected routed netlist with frozen inputs and the
+previously validated model setup, under unchanged 10,800-second bounds.
 Fresh official run43337581691 uses clean source 232ee20 and has passed staging.
 E0044 separately preserves the physical baseline for future adoption: all nine
 profiles keep exact source/configuration bytes, the 358-file replay passes,

@@ -120,8 +120,9 @@ The [optional aligned staging](aligned-staging/README.md) passes its native
 input controls. The 396-file archive and native replay reproduce exact pin
 geometry and both Magic startup scopes. D46 now enables this setup for fresh
 official qualification on the completed original-rule evidence below; the
-initial full-layout diagnostics are incomplete and their separately bounded
-follow-ups are running.
+initial full-layout diagnostics and their one-hour follow-ups are incomplete.
+The latter's 17-file replay preserves both timeout receipts without a
+manufacturing result. Do not extend these attempts during official qualification.
 
 The [guarded official failure](ci-2be7f5d-failure/README.md) retains run43320295442
 at 2be7f5d: 36 Magic contact findings, with every other final physical condition
@@ -129,3 +130,10 @@ passing and dependent jobs skipped. Its 1,027 original files and 42 producing
 inputs pass replay. Native geometry maps all findings to the same 32 isolated
 contact locations and proves identical shape geometry to local trial 05 on
 all 28 layers. Full corrected qualification remains required.
+
+The [native guarded completion](guarded-completion/README.md) reaches all 84
+stages in 9,381.393 seconds, within the original 10,800-second limit. It has
+the same byte-identical 36-finding report and other passing final conditions
+as the official reference. Its 927-file report replay passes; the rejected
+status remains. Both simulators are now testing the corrected trial 05
+netlist in a frozen workspace, separately from manufacturing qualification.

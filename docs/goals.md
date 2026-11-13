@@ -148,8 +148,12 @@ pass; complete corrected full-layout checks and fresh qualification remain
 required. The original official result and geometric match now justify the
 rehearsed correction's use in a new official run. Production is unchanged.
 Portable alignment passes its 396-file native replay, twelve configuration
-controls and three changed-input controls. Complete the separately bounded
-whole-layout follow-ups; the original 20-minute attempts remain incomplete.
+controls and three changed-input controls. Both one-hour whole-layout
+follow-ups time out without a report; their 17-file replay preserves this.
+The original 20-minute attempts remain incomplete. Native full trial 05
+completes within its 10,800-second limit with the same 36-finding failure;
+its 927-file replay passes. Both simulators are testing the corrected routed
+netlist with frozen inputs and the previously qualified model setup.
 Fresh official run43337581691 is executing from clean 232ee20. E0044's later
 physical-baseline relocation preserves all nine configuration/source profiles;
 its 358-file replay and 118 repository tests pass. Production stays unchanged.

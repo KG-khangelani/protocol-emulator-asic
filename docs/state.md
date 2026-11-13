@@ -161,7 +161,7 @@ pair and 342 diagnostic files. Native core-bounded stripes pass a fresh
 38.405-second power pilot, both grid checks and all 43 unchanged fixed public
 pin rectangles. Native replay detects all 24 old clearance violations
 (17 overlaps) and passes the corrected geometry and both fresh grids.
-The complete guarded rerun is active with every original acceptance check.
+The complete guarded rerun preserves every original acceptance check.
 The portable guarded staging rehearsal passes in 41.669 seconds, reproduces
 the exact fixed-pin database and rejects eight actual configuration faults.
 Its 369-file archive and native replay pass; the official workflow now uses
@@ -202,8 +202,18 @@ The optional portable alignment now passes a 78.771-second rehearsal with the
 exact original corrected pin database. Twelve bad configurations, three
 changed checker inputs and the 396-file native replay pass. Both initial
 20-minute full-layout diagnostics remain incomplete; separately declared
-one-hour diagnostics are running with the same GDS and rules. Original
-qualification limits remain unchanged.
+one-hour follow-ups also time out after reaching full DRC, with no report.
+Their receipts and 17-file replay preserve the inconclusive outcomes. Do not
+extend these attempts; finish the already running corrected official flow.
+Original qualification limits remain unchanged.
+
+Native full trial 05 now completes all 84 stages in 9,381.393 seconds within
+its original 10,800-second bound. It is rejected with the same byte-identical
+36-finding report as the earlier official run; every other final physical
+metric matches. Its 927-file completion replay passes without changing the
+original generic failure receipt. The corrected routed netlist is now under
+both simulators in a frozen 194-file workspace, each with a 10,800-second
+limit and the previously validated Verilator reset-model adapter.
 
 The official workflow now stages `--guarded --align-magic`, preserves all
 84 stages and retains the actual startup/helper and rule identities. The

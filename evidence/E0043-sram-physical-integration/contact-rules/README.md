@@ -60,6 +60,10 @@ python evidence/E0043-sram-physical-integration/contact-rules/verify.py --output
 python evidence/E0043-sram-physical-integration/contact-rules/verify.py --output build/sram-contact-native --native
 ```
 
-This is a scoped diagnostic. Separate complete-layout trials are running;
-fresh full-flow qualification, official precheck and the corrected submitted
+This is a scoped diagnostic. Both initial 20-minute and separately declared
+one-hour complete-layout trials remain incomplete. The one-hour runs reach
+full DRC but time out without reports; their original receipts are retained
+in `full-layout-followups.tar.gz` and pass `verify_followups.py`. Do not extend
+these attempts while the corrected official workflow is already running.
+Fresh full-flow qualification, official precheck and the corrected submitted
 netlist tests remain required. Production is unchanged and G2 remains active.
