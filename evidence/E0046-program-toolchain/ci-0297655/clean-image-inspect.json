@@ -1,0 +1,75 @@
+[
+    {
+        "Id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+        "RepoTags": [
+            "protocol-emulator-asic-workbench:2026-07-29"
+        ],
+        "RepoDigests": [
+            "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-09-26T05:49:55.387850965Z",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/verible/bin:/opt/oss-cad-suite/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+                "PYTHON_VERSION=3.11.16",
+                "PYTHON_SHA256=91bcdebfdde239a003ae93738a7fce0f9230fee5c4bc2b86f6e6e8c6f98aabe8",
+                "DEBIAN_FRONTEND=noninteractive",
+                "PIP_DISABLE_PIP_VERSION_CHECK=1",
+                "PYTHONNOUSERSITE=1",
+                "PROTOCOL_EMULATOR_LOCKED_WORKBENCH=1"
+            ],
+            "Cmd": [
+                "make",
+                "doctor"
+            ],
+            "WorkingDir": "/workspace",
+            "Labels": {
+                "io.protocol-emulator-asic.oss-cad-suite": "2026-07-29",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+                "org.opencontainers.image.title": "Protocol Emulator ASIC verification workbench"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 4089094570,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:34467cc93912af891dfee8a3902adf9b4f355a9bca4eaa46f658d1181a21de0d",
+                "sha256:b3445de4503d21b3ebc42db2f284bc6c8ad96184ea91ce55fb57f5e87910e1f2",
+                "sha256:546c86e4df2dc808fcf1953c346bfeef32f4c953933634d57c1d38730b750e9c",
+                "sha256:6b6ff8eb9da6c277f4b33452c77d59f8b5ff04e0bcca1a3054570b9db343da79",
+                "sha256:ab5f4a59453f75164c695a916ede46aacf76d1d26e36ef1f839d3c0f8fd2b3fb",
+                "sha256:d85383054b6d7314af222f28c858927d8ddea0da2f53d929fbeb7128d213de17",
+                "sha256:c67a3866aee7f98823469b992ec283353b92b791daa2dd59e347bd3dc52a145d",
+                "sha256:19c6371db9ed32e3deba780e86a8cd5a4d2088667af489f262788ae255817c63",
+                "sha256:b8191d8391cac8f971b1d9bab76f4ca51a32272a1c1cd33e3a824dbc1dfdbeac",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:ff8bb6e49b91fde88320505c8bba32a1be6bc30c156d4605099290386d02c523",
+                "sha256:77179d369ed5b5636bd597b3558e5bf47c848fd9bc0b0b7186ac8d0da9b07831",
+                "sha256:77380bccca2d82477287cefad4fde52b031340626a6708dcc82be5468b007193"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-09-26T05:51:13.844650672Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "w81wkdyzcqhcy3gay3kxm65tf",
+                    "CreatedAt": "2026-09-26T05:51:24.950573152Z"
+                }
+            ]
+        }
+    }
+]

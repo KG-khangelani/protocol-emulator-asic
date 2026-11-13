@@ -9,7 +9,9 @@ unchanged qualified instruction contract. [E0046](../evidence/E0046-program-tool
 retains thirteen byte-compatible examples, 55 identical public cases in each
 simulator (15 expected rejections), 53 identical Windows/Linux artifacts and
 147 passing repository tests. The [guide](programming.md) provides the actual
-commands and pin-level plan. Clean committed checkout/CI qualification is next.
+commands and pin-level plan. Clean clone and run43393826878 at `0297655` now
+pass the same checks; all 351 producing inputs and the original CI archives
+pass audit. Alpha.7 milestone packaging and public download verification remain.
 
 E0045 retains complete
 run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public

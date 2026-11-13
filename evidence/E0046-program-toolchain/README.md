@@ -22,8 +22,7 @@ cleanup and the last accepted/first rejected timeout boundary.
 
 These are local working-tree checks retained with the implementation commit;
 their original raw input hashes and source baseline are inside the archive.
-Clean committed checkout and CI qualification remain the next G3 gate. The
-hardware guard passes all twenty unchanged physical inputs. G2's physical
+The hardware guard passes all twenty unchanged physical inputs. G2's physical
 evidence, UART/SPI/I2C scope limits and separate owner-fluency status remain.
 
 Reproduce with `tools/workbench.ps1 ProgramTest` on Windows or
@@ -31,3 +30,18 @@ Reproduce with `tools/workbench.ps1 ProgramTest` on Windows or
 for building a source file, reading its schedule and following the public
 load/readback/run plan. No hardware transport adapter or fabricated-chip
 result is claimed.
+
+## Clean checkout and CI qualification
+
+[`ci-0297655/`](ci-0297655/README.md) retains original Windows/Linux
+run43393826878 at committed source `0297655e22ded931baae483b6deff81b7c9ccffd`.
+Both jobs pass. A separate `git clone --no-hardlinks` on H: starts and ends
+clean and passes the same pinned-workbench command. All 55 public cases,
+15 expected rejections, normalized traces and 53 generated artifacts agree.
+The frozen audit verifies every original archive member, all 351 committed
+producing inputs, actual image identity, job logs and independent clone records.
+Its replay exactly reproduces the retained verification report.
+
+All four G3 engineering checks are satisfied. The [release tools](release-tools/README.md)
+prepare alpha.7's standalone assembler/examples package and untouched original
+CI ZIPs. Public release download and image verification remain before closure.

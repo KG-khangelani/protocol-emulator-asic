@@ -55,8 +55,10 @@ against the preserved hand-encoded programs and independent public-pin oracles.
 E0046 now retains local implementation results: thirteen examples match their
 independent G2 encodings, both simulators agree on 55 public cases including 15
 expected rejections, and 53 Windows/Linux artifacts match byte for byte. All
-147 repository tests pass. The qualified hardware is unchanged; clean committed
-checkout and CI qualification remain pending.
+147 repository tests pass. Clean clone and Windows/Linux CI run43393826878 at
+`0297655` pass the same acceptance suite with identical artifacts and traces;
+the original archives, actual runtime and all 351 producing inputs pass audit.
+The qualified hardware is unchanged. Alpha.7 packaging/publication is pending.
 
 ## Verified upstream observations (not project measurements)
 

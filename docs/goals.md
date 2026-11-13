@@ -100,7 +100,7 @@ identity and all eight tag workflows passing.
 
 **Completed 2026-11-13.** The [completion audit](../evidence/E0045-g2-sram-qualification/completion-audit.json)
 maps every requirement and all nine mandatory workloads to retained evidence.
-G3 remains queued; the owner-learning gate remains separate.
+G3 is now active; the owner-learning gate remains separate.
 
 The following paragraphs retain earlier checkpoints and their then-open gates;
 the latest checkpoint above gives the current status.
@@ -310,7 +310,10 @@ Local implementation passes: thirteen examples match the frozen G2 words,
 both simulators agree on all 55 public cases (15 expected rejections), and 53
 generated files match between Windows and Linux. [E0046](../evidence/E0046-program-toolchain/README.md)
 retains the original outputs and all 147 passing repository tests. Clean
-committed checkout/CI qualification remains open.
+clone and Windows/Linux CI at `0297655` now pass; their original records,
+351 producing inputs and all artifact/trace identities pass the retained audit.
+The four engineering checks below are satisfied. Alpha.7 milestone packaging
+and public download verification remain before closing the active goal.
 
 Completion checks:
 
@@ -319,7 +322,7 @@ Completion checks:
 - [x] Emit a cycle/schedule listing that makes timing assumptions inspectable.
 - [x] Provide documented load, readback and run steps, plus versioned UART, SPI
   and I2C examples for the selected ISA.
-- [ ] From a clean clone, build the examples and reproduce their public-pin
+- [x] From a clean clone, build the examples and reproduce their public-pin
   traces using the pinned workbench and the independent oracle.
 
 Start with an assembler. Build a larger temporal IR/compiler only if a concrete
