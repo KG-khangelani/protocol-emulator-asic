@@ -132,6 +132,10 @@ The optional setup now passes a native 78.771-second pilot and its 396-file
 replay, with twelve configuration and three changed-input controls. The two
 initial whole-layout diagnostics are incomplete; their one-hour follow-ups
 retain the exact geometry and complete checks.
+Fresh official run43337581691 uses clean source 232ee20 and has passed staging.
+E0044 separately preserves the physical baseline for future adoption: all nine
+profiles keep exact source/configuration bytes, the 358-file replay passes,
+and 118 repository tests pass including two archive/production-drift controls.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

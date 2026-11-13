@@ -150,6 +150,9 @@ rehearsed correction's use in a new official run. Production is unchanged.
 Portable alignment passes its 396-file native replay, twelve configuration
 controls and three changed-input controls. Complete the separately bounded
 whole-layout follow-ups; the original 20-minute attempts remain incomplete.
+Fresh official run43337581691 is executing from clean 232ee20. E0044's later
+physical-baseline relocation preserves all nine configuration/source profiles;
+its 358-file replay and 118 repository tests pass. Production stays unchanged.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact

@@ -47,6 +47,9 @@ for workflow in (ROOT / ".github/workflows").glob("*.yaml"):
         if not action_ref.startswith("./"):
             require(re.search(r"@[0-9a-f]{40}$", action_ref), f"mutable action ref in {workflow.name}: {action_ref}")
 physical = lock["official_cmos5l_8x4"]
+baseline_config = ROOT / "experiments/physical/d34-config.json"
+require(hashlib.sha256(baseline_config.read_bytes()).hexdigest() == physical["config_sha256_lf"],
+        "archived D34 physical configuration differs from lock")
 config_lf = (ROOT / "src/config.json").read_text(encoding="utf-8").encode()
 require(hashlib.sha256(config_lf).hexdigest() == physical["config_sha256_lf"],
         "physical configuration hash differs from lock")

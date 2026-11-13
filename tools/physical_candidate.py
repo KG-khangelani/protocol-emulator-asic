@@ -18,6 +18,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 E0030 = ROOT / "evidence/E0030-timed-gpio-comparison/comparison"
+BASE_CONFIG_PATH = "experiments/physical/d34-config.json"
 sys.path.insert(0, str(ROOT / "experiments/spi_phase"))
 from build_timed_gpio import build
 from build_variants import FILES
@@ -81,6 +82,14 @@ def candidate_lock():
     return read_json(ROOT / "tools/workbench/toolchain.lock.json")["official_cmos5l_8x4"]
 
 
+def baseline_config():
+    """Return the immutable D34 input independently of future production setup."""
+    path = ROOT / BASE_CONFIG_PATH
+    require(digest(path) == candidate_lock()["config_sha256_lf"],
+            "archived D34 physical configuration changed")
+    return path
+
+
 def expected_sources(variant):
     return read_json(E0030 / "variants/source-manifest.json")[variant]["source_sha256"]
 
@@ -99,8 +108,7 @@ def prepare(args):
     info = (ROOT / "info.yaml").read_text(encoding="utf-8")
     require(re.search(r'^\s{2}tiles: "8x4"\s', info, re.M), "metadata is not 8x4")
     require(re.search(r"^\s{2}clock_hz:\s+50000000\s", info, re.M), "metadata clock drift")
-    require(text_digest(ROOT / "src/config.json") == lock["config_sha256_lf"],
-            "shared physical configuration drift")
+    config = baseline_config()
     if args.stage_ci:
         require(os.getenv("GITHUB_ACTIONS") == "true", "in-place staging is CI-only")
         require(Path(os.environ["GITHUB_WORKSPACE"]).resolve() == ROOT,
@@ -112,6 +120,7 @@ def prepare(args):
     build(out / "variants")
     sources = out / "variants" / args.variant / "src"
     hashes = verify_sources(sources, args.variant)
+    shutil.copyfile(config, out / "config.json")
     record = {
         "schema": "protocol-emulator-physical-candidate-v1",
         "created_utc": datetime.now(timezone.utc).isoformat(),
@@ -121,11 +130,12 @@ def prepare(args):
         "source_evidence": "E0030",
         "program_words": 8 if args.variant == "P" else 10,
         "source_sha256": hashes,
-        "config_sha256_lf": text_digest(ROOT / "src/config.json"),
+        "config_sha256_lf": digest(config),
+        "config_source_path": BASE_CONFIG_PATH,
         "metadata_sha256_lf": text_digest(ROOT / "info.yaml"),
         "flow_lock": lock,
         "provenance_sha256_lf": {name: text_digest(ROOT / name) for name in (
-            "tools/physical_candidate.py", ".github/workflows/gds.yaml",
+            "tools/physical_candidate.py", BASE_CONFIG_PATH, ".github/workflows/gds.yaml",
             "test/Makefile", "test/tb.v", "test/test.py", "test/test_uart_rx_public.py",
             "test/test_spi_timed_gpio.py", "experiments/spi_phase/build_timed_gpio.py",
             "experiments/spi_phase/build_variants.py", "experiments/spi_phase/timed_gpio_programs.py",
@@ -136,6 +146,7 @@ def prepare(args):
     }
     write_json(out / "inputs.json", record)
     if args.stage_ci:
+        shutil.copyfile(out / "config.json", ROOT / "src/config.json")
         for name in FILES:
             shutil.copyfile(sources / name, ROOT / "src" / name)
         verify_sources(ROOT / "src", args.variant)

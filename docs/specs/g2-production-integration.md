@@ -27,6 +27,11 @@ Required integration work:
 1. Declare the current source/ISA/capacity profile and verify its exact source
    hashes. Keep historical tests/builders tied to their archived source and
    contract. A changed rejection domain is an explicit interface extension.
+   Preserve D34's exact physical base in `experiments/physical/d34-config.json`;
+   historical G1/G2 staging must copy that checked archive explicitly. Derive
+   SRAM additions from the same input. Do not make historical generation
+   depend on the future production `src/config.json`. The production profile
+   still needs its own qualified configuration, workflow and metadata checks.
 2. Make normal test, formal, lint, synthesis and evidence commands evaluate the
    current production files. Require the complete public UART/SPI/I2C matrix,
    both simulators and source-matched formal evidence. Preserve all meaningful

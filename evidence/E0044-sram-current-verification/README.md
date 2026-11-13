@@ -66,3 +66,9 @@ The replay checks archive membership/hashes, source/model identity, actual
 proofs and inspected controls, normal fast-stage receipts, the exact flatten
 change, all 116 checks and runtime outcomes. Its success validates this retained
 preparation record; it does not turn the historical timeout into a pass.
+
+The [physical baseline preservation](physical-baseline/README.md) separates
+the exact qualified D34 input from future production configuration. All nine
+staged source/configuration profiles remain byte-identical; the 358-file replay
+and 118 repository tests pass, including incompatible-production and changed-
+archive controls. It adds no new physical qualification or production promotion.

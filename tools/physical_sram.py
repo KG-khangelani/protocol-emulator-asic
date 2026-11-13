@@ -78,7 +78,7 @@ def mapped_macro_views():
 
 def portable_config(header_name, *, guarded=False, aligned=False):
     require(not aligned or guarded, "Magic alignment requires the guarded construction")
-    config = read(ROOT / "src/config.json")
+    config = read(common.baseline_config())
     config.pop("//", None)
     base = "pdk_dir::libs.ref/sg13cmos5l_sram/"
     macro = {key: [base + folder + "/" + MACRO + "." + extension]
@@ -114,8 +114,7 @@ def prepare(args):
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(),
             "new output under build/ required; preserve previous attempts")
     lock = common.candidate_lock()
-    require(common.text_digest(ROOT / "src/config.json") == lock["config_sha256_lf"],
-            "original shared physical configuration changed")
+    common.baseline_config()
     info = (ROOT / "info.yaml").read_text(encoding="utf-8")
     require(re.search(r'^\s{2}tiles: "8x4"\s', info, re.M), "metadata is not 8x4")
     require(re.search(r"^\s{2}clock_hz:\s+50000000\s", info, re.M), "metadata clock drift")
@@ -165,7 +164,7 @@ def prepare(args):
     for name in plugin_files:
         shutil.copyfile(ROOT / "experiments/i2c" / name, workspace / name)
     write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded, aligned=aligned))
-    names = set(INPUTS) | {"tools/physical_sram.py", ".github/workflows/gds-sram.yaml",
+    names = set(INPUTS) | {common.BASE_CONFIG_PATH, "tools/physical_sram.py", ".github/workflows/gds-sram.yaml",
                            "experiments/i2c/align_sram_magic.py",
                            "tools/workbench/toolchain.lock.json", "experiments/i2c/prepare_sram_physical.py",
                            "experiments/i2c/run_sram_mapping.py", "experiments/i2c/build_sram_candidate.py",
@@ -193,6 +192,7 @@ def prepare(args):
         "tracked_changes_before_staging": tracked, "candidate": manifest, "flow_lock": lock,
         "ci_audit_sha256": digest(ci), "template_sha256": TEMPLATE_SHA256,
         "original_config_sha256_lf": lock["config_sha256_lf"],
+        "config_source_path": common.BASE_CONFIG_PATH,
         "metadata_sha256_lf": common.text_digest(ROOT / "info.yaml"),
         "staged_sha256": {name: digest(workspace / name) for name in staged_names},
         "provenance_sha256": provenance, "macro_views": views,

@@ -5,6 +5,7 @@ import gzip
 import io
 import json
 from pathlib import Path
+import shutil
 from types import SimpleNamespace
 import tempfile
 import unittest
@@ -183,6 +184,44 @@ class PhysicalEvidenceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "CI-only"):
                 physical.prepare(SimpleNamespace(output=out, variant="P", stage_ci=True))
         self.assertFalse(out.exists())
+
+
+    def baseline_fixture(self):
+        archive = physical.baseline_config()
+        destination = self.out / physical.BASE_CONFIG_PATH
+        destination.parent.mkdir(parents=True)
+        shutil.copyfile(archive, destination)
+        lock = self.out / "tools/workbench/toolchain.lock.json"
+        lock.parent.mkdir(parents=True)
+        shutil.copyfile(physical.ROOT / "tools/workbench/toolchain.lock.json", lock)
+        production = self.out / "src/config.json"
+        production.parent.mkdir()
+        production.write_text("deliberately incompatible future production setup", encoding="utf-8")
+        return destination
+
+    def test_historical_and_sram_setup_ignore_future_production_configuration(self):
+        from tools import physical_sram
+        modes = [(False, False), (True, False), (True, True)]
+        expected = [physical_sram.portable_config("memory.vh", guarded=g, aligned=a) for g, a in modes]
+        original = physical.baseline_config().read_bytes()
+        self.baseline_fixture()
+        with patch.object(physical, "ROOT", self.out), patch.object(physical_sram, "ROOT", self.out):
+            self.assertEqual(physical.baseline_config().read_bytes(), original)
+            actual = [physical_sram.portable_config("memory.vh", guarded=g, aligned=a) for g, a in modes]
+        self.assertEqual(actual, expected)
+
+    def test_altered_archived_clock_cannot_be_staged(self):
+        from tools import physical_sram
+        archive = self.baseline_fixture()
+        raw = archive.read_bytes()
+        changed = raw.replace(b'"CLOCK_PERIOD": 20', b'"CLOCK_PERIOD": 25')
+        self.assertNotEqual(changed, raw)
+        archive.write_bytes(changed)
+        with patch.object(physical, "ROOT", self.out):
+            with self.assertRaisesRegex(ValueError, "archived D34"):
+                physical.baseline_config()
+            with self.assertRaisesRegex(ValueError, "archived D34"):
+                physical_sram.portable_config("memory.vh", guarded=True, aligned=True)
 
 
 if __name__ == "__main__":

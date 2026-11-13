@@ -61,8 +61,7 @@ def prepare(args):
     info = (ROOT / "info.yaml").read_text(encoding="utf-8")
     require(re.search(r'^\s{2}tiles: "8x4"\s', info, re.M), "metadata is not 8x4")
     require(re.search(r"^\s{2}clock_hz:\s+50000000\s", info, re.M), "metadata clock drift")
-    require(common.text_digest(ROOT / "src/config.json") == lock["config_sha256_lf"],
-            "shared physical configuration drift")
+    config = common.baseline_config()
     ci = read_json(EVIDENCE / "ci/verification.json")
     require(ci["status"] == "PASS_AUDITED_G2_CI", "current candidate CI audit missing")
     explicit_lanes = args.variant == "od128-lanes"
@@ -85,6 +84,7 @@ def prepare(args):
     (implementation.build if explicit_lanes or shared else build)(out / "variants")
     sources = out / "variants" / ("od128" if explicit_lanes or shared else args.variant) / "src"
     hashes = verify_sources(sources, args.variant)
+    shutil.copyfile(config, out / "config.json")
     record = {
         "schema": "protocol-emulator-g2-physical-v1",
         "created_utc": datetime.now(timezone.utc).isoformat(), "variant": args.variant,
@@ -94,10 +94,10 @@ def prepare(args):
         "ci_audit_sha256": digest(EVIDENCE / "ci/verification.json"),
         "program_words": candidate_manifest(args.variant)["capacity"],
         "source_sha256": hashes, "flow_lock": lock,
-        "config_sha256_lf": common.text_digest(ROOT / "src/config.json"),
+        "config_sha256_lf": digest(config), "config_source_path": common.BASE_CONFIG_PATH,
         "metadata_sha256_lf": common.text_digest(ROOT / "info.yaml"),
         "provenance_sha256_lf": {name: common.text_digest(ROOT / name) for name in (
-            "tools/physical_g2.py", "tools/physical_candidate.py", ".github/workflows/gds-g2.yaml",
+            "tools/physical_g2.py", "tools/physical_candidate.py", common.BASE_CONFIG_PATH, ".github/workflows/gds-g2.yaml",
             "test/Makefile", "test/tb.v", "test/test.py", "test/test_uart_rx_public.py",
             "test/test_spi_timed_gpio.py", "test/test_i2c_general_public.py",
             "test/test_general_boundaries.py", "test/test_i2c_abort_public.py",
@@ -124,6 +124,7 @@ def prepare(args):
             record["provenance_sha256_lf"][path.relative_to(ROOT).as_posix()] = common.text_digest(path)
     write_json(out / "inputs.json", record)
     if args.stage_ci:
+        shutil.copyfile(out / "config.json", ROOT / "src/config.json")
         for name in hashes:
             shutil.copyfile(sources / name, ROOT / "src" / name)
         verify_sources(ROOT / "src", args.variant)

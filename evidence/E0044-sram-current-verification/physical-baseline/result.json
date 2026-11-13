@@ -1,0 +1,175 @@
+{
+  "status": "PASS_NINE_PHYSICAL_PROFILES_IDENTICAL_CONFIGURATIONS_AND_RTL",
+  "started_utc": "2026-11-13T00:35:22.249291+00:00",
+  "finished_utc": "2026-11-13T00:35:25.114999+00:00",
+  "reference_source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+  "baseline_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+  "profiles": {
+    "g1-P": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f"
+      },
+      "program_words": 8
+    },
+    "g1-compact10": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7"
+      },
+      "program_words": 10
+    },
+    "g2-od128": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "ffc4f654c48feaf4535cdb36c8d1e3235e675745c92f1c27e38ae6061a42cfa6",
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+      },
+      "program_words": 128
+    },
+    "g2-literal255": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "1d203bc7854d99ad25e1010ad80e4876a8a83f9e02269d7af87931b578f1137f",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "86ed0c0280de4d8492b9f57cd1eec0c388490a23b5fc2de2a81aead04d1a968d",
+        "project.v": "a19c380c870bddb453d23055e2d4bcca9a4ef172c526b040301454657129e748"
+      },
+      "program_words": 255
+    },
+    "g2-lanes": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "f88b5b0d9a906925ed9b3825dfbe989c12be7e7d9dd30b9e4f8c3675eec18a75",
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+      },
+      "program_words": 128
+    },
+    "g2-shared": {
+      "config_sha256": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "d844a1eed97a72bda57edc3344a97020202fef5539a4782945c18bc7551384bf",
+        "project.v": "75e9a701a01f2be34a81cc64829621a8a6f99b7fdec2af798118405c194fdc0a"
+      },
+      "program_words": 128
+    },
+    "sram-buffered": {
+      "config_sha256": "6d8b9b1359ab5e598701152881eee775715d64a44f5fd2f084391921ba7969af",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+      },
+      "model_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+      },
+      "staged_sha256": {
+        "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+        "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+        "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+        "librelane_plugin_sram.py": "9871b5d895599a1c8310aac3204ac82e9f5dcf6fd97b9ead8fccd2417da1203d",
+        "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+        "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+        "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "src/config.json": "6d8b9b1359ab5e598701152881eee775715d64a44f5fd2f084391921ba7969af",
+        "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+        "src/sram_pdn.tcl": "39c8751c1ec859606e1656beaa5e2b35eea6ae56e3fb13740675b36e1c89d4f0"
+      }
+    },
+    "sram-guarded": {
+      "config_sha256": "d9790473871c0fa164a6477e06f3efa2fe11ccf2bd79d8d3d1188e02be8e965e",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+      },
+      "model_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+      },
+      "staged_sha256": {
+        "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+        "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+        "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+        "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+        "librelane_plugin_sram.py": "9871b5d895599a1c8310aac3204ac82e9f5dcf6fd97b9ead8fccd2417da1203d",
+        "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+        "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+        "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "src/config.json": "d9790473871c0fa164a6477e06f3efa2fe11ccf2bd79d8d3d1188e02be8e965e",
+        "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+        "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+      }
+    },
+    "sram-aligned": {
+      "config_sha256": "be49cb11c42b2b38b0b71fb9b07dbe0e3c971370260eedf0c8c4db8279f1528c",
+      "source_sha256": {
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+      },
+      "model_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+      },
+      "staged_sha256": {
+        "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+        "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+        "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+        "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+        "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+        "librelane_plugin_sram.py": "9871b5d895599a1c8310aac3204ac82e9f5dcf6fd97b9ead8fccd2417da1203d",
+        "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+        "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+        "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+        "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "src/config.json": "be49cb11c42b2b38b0b71fb9b07dbe0e3c971370260eedf0c8c4db8279f1528c",
+        "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+        "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+      }
+    }
+  },
+  "input_relocation_only": true,
+  "physical_qualification": "UNCHANGED_OPEN_FOR_SRAM",
+  "production": "NOT_PROMOTED"
+}

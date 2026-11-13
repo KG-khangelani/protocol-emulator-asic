@@ -24,6 +24,12 @@ is unchanged. Historical experiment generators now use a hash-checked E0020
 archive, preserving every existing candidate's source bytes before production
 integration. This input relocation changes no chip behavior.
 
+E0044 now also freezes D34's physical base from qualified G1 source 29f4b73.
+All nine physical profiles retain identical source/configuration bytes; the
+358-file replay and all 118 repository tests pass. Two controls prove future
+production settings cannot change the comparisons and changed archive bytes
+are rejected. Current production configuration and physical locks are unchanged.
+
 D38/E0037 starts the separate `od128-lanes` trial. Its exact store now passes
 all 652 assertions, both checked reset-reachable mutations and nine audit
 controls. Both simulators pass all eighteen public groups with identical
@@ -203,6 +209,8 @@ The official workflow now stages `--guarded --align-magic`, preserves all
 84 stages and retains the actual startup/helper and rule identities. The
 original guarded run remains rejected. A complete corrected run, all ten
 official prechecks and the actual submitted-netlist tests remain required.
+Fresh official run43337581691 is executing from clean source 232ee20; staging
+passes. Later baseline-preservation changes do not alter that producing source.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

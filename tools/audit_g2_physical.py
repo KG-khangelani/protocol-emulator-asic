@@ -135,7 +135,9 @@ def audit(directory, output, variant="od128"):
             require(qualified["status"] == status and
                     qualified["source_sha256"] == expected, "implementation source qualification mismatch")
         require(sha(frozen(source, "info.yaml")) == inputs["metadata_sha256_lf"], "metadata identity mismatch")
-        require(sha(frozen(source, "src/config.json")) == inputs["config_sha256_lf"] == lock["config_sha256_lf"], "physical configuration mismatch")
+        config_source = inputs.get("config_source_path", "src/config.json")
+        require(config_source in ("src/config.json", common.BASE_CONFIG_PATH), "unexpected physical configuration source")
+        require(sha(frozen(source, config_source)) == inputs["config_sha256_lf"] == lock["config_sha256_lf"], "physical configuration mismatch")
         for archive in (logs, submission):
             for name, digest in expected.items():
                 require(sha(archive.bytes("src/" + name)) == digest, "actual hardened source mismatch: " + name)

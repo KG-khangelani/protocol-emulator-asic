@@ -164,6 +164,13 @@ resolves the findings to the same 32 isolated contacts and matches local
 trial 05 on all 28 layers. This supports the D46 correction experiment; it
 does not qualify the failed run or its skipped precheck/netlist jobs.
 
+E0044 preserves the qualified D34 physical configuration independently of
+future production setup. All nine historical/SRAM profiles keep identical
+source/configuration bytes; the 358-file replay and 118 repository tests pass.
+The two new controls reject archived-clock drift and prevent incompatible
+production settings from changing old comparisons. Physical acceptance is
+unchanged; official run43337581691 uses its earlier clean 232ee20 source.
+
 ## Open questions
 
 - Q1: What timing quantum and external-input latency meet useful protocol rates?
