@@ -1,0 +1,33 @@
+{
+  "schema": "protocol-emulator-g3-publication-audit-runtime-v1",
+  "started_utc": "2026-11-13T09:26:37.744999+00:00",
+  "completed_utc": "2026-11-13T09:30:20.852199+00:00",
+  "elapsed_seconds": 223.1029997000005,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--init",
+    "--env",
+    "HOME=/tmp",
+    "--mount",
+    "type=bind,source=H:\\hikrepos\\protocol-emulator-asic,target=/workspace",
+    "--workdir",
+    "/workspace",
+    "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "python3",
+    "evidence/E0046-program-toolchain/release-tools/verify_publication.py",
+    "--directory",
+    "build/g3-publication-33e5e9b"
+  ],
+  "returncode": 0,
+  "image": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "os": "linux",
+  "architecture": "amd64",
+  "repo_digests": [
+    "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+  ],
+  "log_sha256": "2d515d82a81fcfa8d20c2d7bd8cf94d75c4eabdb98b10c45175a40a3a0c487b2"
+}

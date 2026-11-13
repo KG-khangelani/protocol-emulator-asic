@@ -20,3 +20,26 @@ build as new physical evidence. Publication uses the existing locked release
 workflow and matching image. After upload, audit actual anonymous downloads,
 original CI/member identities, all release-tag jobs and registry identities
 before closing G3.
+
+`verify_publication.py` performs that post-publication check in the pinned Linux
+workbench. It verifies the original publication archive, all eight normal
+production stages and historical release gates, all 351 source inputs, actual
+anonymous asset downloads, bundle members, annotated tag/commit identity,
+all nine tag workflows and the public registry's manifest/configuration and
+layer access. It refuses an existing extraction or download directory.
+
+The [retained record](../publication/README.md) includes the five exact prepared
+G3 files, original publication ZIP, API responses and compressed job log.
+Copy its five `g3-*` assets to `build/g3-release-assets/33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad/`;
+copy the API files and original publication ZIP into a new build directory and
+decompress `current-job.log.gz` there. From a checkout containing the auditor
+and release Git history, run:
+
+```sh
+python3 evidence/E0046-program-toolchain/release-tools/verify_publication.py --directory build/g3-publication-replay
+```
+
+To recreate the prepared package instead, run `package.py` from a clean checkout
+of the immutable alpha.7 tag. The recorded Windows and Linux five-file packages
+are byte-identical. A later checkout's changed release identity must not be
+presented as the original package.

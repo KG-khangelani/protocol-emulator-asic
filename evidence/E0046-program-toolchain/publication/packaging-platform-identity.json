@@ -1,0 +1,26 @@
+{
+  "status": "PASS_WINDOWS_LINUX_PACKAGE_IDENTITY",
+  "source_commit": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+  "files": {
+    "g3-program-toolchain.zip": {
+      "bytes": 804993,
+      "sha256": "a7d340d5cff6aee28ad9181fdd0a888c54efcbb7b1d90dfc10c7c223cec24f7e"
+    },
+    "g3-public-programs.zip": {
+      "bytes": 261357,
+      "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+    },
+    "g3-SHA256SUMS": {
+      "bytes": 354,
+      "sha256": "e036f1b6db92a08bb25fc322bd2d8785224a634aa69e741c57150246d825d20a"
+    },
+    "g3-toolchain.json": {
+      "bytes": 19924,
+      "sha256": "22c61b74f8e3313808b288e32ba47206a273b08610c8323c07aa6f76c59dc923"
+    },
+    "g3-windows-programs.zip": {
+      "bytes": 60759,
+      "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+    }
+  }
+}

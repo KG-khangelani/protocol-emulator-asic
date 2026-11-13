@@ -14,7 +14,7 @@ the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and t
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Engineering: G2 complete, G3 active; learning: M0 teach-back pending.**
+**Engineering: G1-G3 complete, G4 queued; learning: M0 teach-back pending.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical
 program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
 loaded programs implement UART TX and bounded RX, both bit orders of all four
@@ -35,6 +35,10 @@ The [programming guide](docs/programming.md) explains G3's readable assembler,
 timing listings and public load/readback plans. `workbench.ps1 Programs` builds
 the versioned examples; `workbench.ps1 ProgramTest` checks their public-pin
 execution in both simulators using the independent protocol oracles.
+[Alpha.7](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.7)
+publishes the standalone assembler and thirteen examples with verified public
+downloads and a matching workbench image. [E0046](evidence/E0046-program-toolchain/README.md)
+retains clean-checkout qualification and the completed publication audit.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its

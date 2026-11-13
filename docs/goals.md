@@ -4,8 +4,9 @@ Updated: 2026-11-13. Decision: [D32](decisions/0032-goals-to-submission-readines
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
-G1 and G2 are complete. The active engineering goal is G3: make the qualified
-shared-protocol core practical to assemble, load, inspect and reproduce.
+G1, G2 and G3 are complete. The qualified shared-protocol core now has a
+verified assembler, loading plans and reproducible examples. G4 is next and
+remains queued: prepare the final chip release and submission package.
 Further instruction compression is valuable only when it improves that outcome.
 
 ## Priorities and planning targets
@@ -18,7 +19,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **COMPLETE 2026-11-13**; qualified SRAM adopted, default CI and publication audited | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
-| G3 | Make programs easy to assemble, load, inspect and reproduce | ACTIVE; assembler, public loading and independently checked examples | 2026-12-18 | M4-T01 |
+| G3 | Make programs easy to assemble, load, inspect and reproduce | **COMPLETE 2026-11-13**; clean-clone/CI qualification and alpha.7 publication verified | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
 | G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
@@ -100,7 +101,7 @@ identity and all eight tag workflows passing.
 
 **Completed 2026-11-13.** The [completion audit](../evidence/E0045-g2-sram-qualification/completion-audit.json)
 maps every requirement and all nine mandatory workloads to retained evidence.
-G3 is now active; the owner-learning gate remains separate.
+G3 is now complete in E0046; the owner-learning gate remains separate.
 
 The following paragraphs retain earlier checkpoints and their then-open gates;
 the latest checkpoint above gives the current status.
@@ -136,7 +137,7 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next engineering goal:** G3, the usable assembler/program toolchain.
+That checkpoint led to G3's usable program toolchain, completed below.
 The historical checkpoints below retain their original conditions and failures.
 Run43348171110 at clean 94a3082 now passes the complete physical audit.
 D47's earlier 191-file report/native/pin-checker replays,
@@ -312,8 +313,14 @@ generated files match between Windows and Linux. [E0046](../evidence/E0046-progr
 retains the original outputs and all 147 passing repository tests. Clean
 clone and Windows/Linux CI at `0297655` now pass; their original records,
 351 producing inputs and all artifact/trace identities pass the retained audit.
-The four engineering checks below are satisfied. Alpha.7 milestone packaging
-and public download verification remain before closing the active goal.
+**Completed 2026-11-13.** All four engineering checks below pass.
+[Alpha.7](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.7)
+has 23 anonymously verified assets, 73 verified toolchain bundle members and a
+matching public image; all nine tag workflows and their 22 jobs pass. Windows
+and Linux produce identical packages, and the standalone distribution rebuilds
+all thirteen examples. The [completion audit](../evidence/E0046-program-toolchain/completion-audit.json)
+maps every requirement to retained evidence. G4 remains queued; owner fluency
+and all original hardware/protocol limits are unchanged.
 
 Completion checks:
 

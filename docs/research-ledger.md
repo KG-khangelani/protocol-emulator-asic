@@ -58,7 +58,13 @@ expected rejections, and 53 Windows/Linux artifacts match byte for byte. All
 147 repository tests pass. Clean clone and Windows/Linux CI run43393826878 at
 `0297655` pass the same acceptance suite with identical artifacts and traces;
 the original archives, actual runtime and all 351 producing inputs pass audit.
-The qualified hardware is unchanged. Alpha.7 packaging/publication is pending.
+The qualified hardware is unchanged. Alpha.7 publication is verified: 23
+anonymous downloads, 73 bundle members, both original G3 CI ZIPs, identical
+Windows/Linux packages and a successful standalone rebuild of all thirteen
+examples. The public image/source/version identities match; all nine tag
+workflows and 22 jobs pass. The original 1,948-file publication archive passes
+all eight production stages, two fresh 147-test executions and the historical
+SPI gates. E0046/completion-audit.json closes G3. G4 and owner fluency remain separate.
 
 ## Verified upstream observations (not project measurements)
 

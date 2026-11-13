@@ -1,0 +1,186 @@
+{
+  "schema": "protocol-emulator-g3-completion-audit-v1",
+  "status": "PASS_G3_COMPLETION_REQUIREMENTS",
+  "observed_utc": "2026-11-13T09:31:32.816821+00:00",
+  "qualification_source_commit": "0297655e22ded931baae483b6deff81b7c9ccffd",
+  "release_source_commit": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+  "closure_baseline_commit": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+  "producing_inputs_unchanged": 351,
+  "production": {
+    "files_sha256": {
+      "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+      "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+      "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+      "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+      "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+      "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+      "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+      "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+      "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+      "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+      "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+      "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+      "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+      "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+      "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+    },
+    "metadata_sha256": "81bacf39188db2a2938e41d920789cc326da95be4799930e6eff1840058c39f8",
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "profile": "od128-sram",
+    "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "qualified_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "qualified_run_id": 43348171110,
+    "qualified_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "source_sha256": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+    },
+    "status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM"
+  },
+  "requirements": [
+    {
+      "requirement": "Small versioned assembler: readable instructions, symbols, capacity checks, deterministic encoding and useful diagnostics.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "tools/assembler.py",
+          "sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9"
+        },
+        {
+          "path": "test/test_program_tools.py",
+          "sha256": "fedd64548612eca068d4d875cee5385fb42bec87511d805d47c1c4a5b2a411df"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/ci-0297655/verification.json",
+          "sha256": "5c8cb385015a3481aaf20413717e190b66c93cddee8c7206a93100d497adc8d1"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/publication/distribution-smoke.json",
+          "sha256": "eb441babd909526bea1eacda81a4de87ec0481199c44b01f218623ff24ae03bc"
+        }
+      ],
+      "detail": "20 acceptance tests cover fixed words, invalid input, CLI behavior and boundary cases. 13 independent reference programs match; 53 generated files agree across Windows, Linux CI and a clean clone. Standalone distribution rebuild matches all 52 per-example files and rejects an invalid target."
+    },
+    {
+      "requirement": "Inspectable cycle/schedule listing with explicit timing assumptions.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "docs/programming.md",
+          "sha256": "c0aff09e8c06d45f2406dd56767c659d7376924e2e4841bbbba3b61c5337241b"
+        },
+        {
+          "path": "docs/specs/g3-program-toolchain.md",
+          "sha256": "4edc237fb408d3d14a1f20d18f960183a7084cfe00dbab1172ba7e6516aed699"
+        },
+        {
+          "path": "test/test_program_tools.py",
+          "sha256": "fedd64548612eca068d4d875cee5385fb42bec87511d805d47c1c4a5b2a411df"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/publication/g3-toolchain.json",
+          "sha256": "22c61b74f8e3313808b288e32ba47206a273b08610c8323c07aa6f76c59dc923"
+        }
+      ],
+      "detail": "Named operand/source listings expose instruction spacing, fixed loop dispatch positions, loaded destinations and conditional waits. Independent UART/SPI timing checks pass. Input-dependent and backward branches do not invent a finite total; host-service, input-hold and digital I2C assumptions remain explicit."
+    },
+    {
+      "requirement": "Documented public-pin loading, readback and execution plus versioned UART, SPI and I2C examples.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "docs/programming.md",
+          "sha256": "c0aff09e8c06d45f2406dd56767c659d7376924e2e4841bbbba3b61c5337241b"
+        },
+        {
+          "path": "programs/od128-sram-v1/README.md",
+          "sha256": "e955db9908fa5ab618b7a787cf47cede29c8188d0044b38741cc45bb4329df0d"
+        },
+        {
+          "path": "programs/od128-sram-v1/examples.json",
+          "sha256": "ffe263efdf8ed9518273e815728b016ba07e430c177e3dfaab4d4c6d43272c12"
+        },
+        {
+          "path": "test/test_program_examples_public.py",
+          "sha256": "888ddc0033f77c7412e5a1ac8b375cea9b68d0e01104930102535a254ab231be"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/ci-0297655/verification.json",
+          "sha256": "5c8cb385015a3481aaf20413717e190b66c93cddee8c7206a93100d497adc8d1"
+        }
+      ],
+      "detail": "Actual interface 0x22 loading/readback covers bank boundaries and 128 words, expected interface/readback rejection before run, payloads, disabled flush and reload. Thirteen examples preserve G2 words: UART TX/bounded RX, four SPI modes in both orders and three I2C transaction types."
+    },
+    {
+      "requirement": "From a clean clone, build examples and reproduce public-pin traces with pinned tools and independent oracles.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0046-program-toolchain/ci-0297655/clean-checkout.json",
+          "sha256": "13e7182a1ab187ea3e2dd8d3946e59206a76c00ef1e4508521037fbe0e4fbd30"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/ci-0297655/verification.json",
+          "sha256": "5c8cb385015a3481aaf20413717e190b66c93cddee8c7206a93100d497adc8d1"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/ci-0297655/verify.py",
+          "sha256": "59a2658425d61add08638c27b4e73817235a42c8da473ece0c9001825bad6869"
+        },
+        {
+          "path": ".github/workflows/program-tools.yaml",
+          "sha256": "79d3c925bcdc69e6bf53bfba298f2b37f7adb8d76b93ffa6f3ac87055fbff62f"
+        }
+      ],
+      "detail": "Independent no-hardlinks clone starts and ends clean. Both local clone simulators and clean committed-source CI reproduce 55 cases each with 15 expected rejections and identical normalized observations. Original archives, JUnit/logs, all 351 inputs and actual image identities pass retained audit."
+    },
+    {
+      "requirement": "Publish the warranted milestone, verify public downloads and image identity, preserve qualified hardware and history.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0046-program-toolchain/publication/release-verification.json",
+          "sha256": "4cf4255ee8c19823e5a75fd67601d3ba30a3ff9db634fd720fa4643e2a3bdb9d"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/publication/retention.json",
+          "sha256": "f09e77fa6745a220bf4b6f7151de964f6101bd273f0197029aad148c90bb7958"
+        },
+        {
+          "path": "evidence/E0046-program-toolchain/publication/packaging-platform-identity.json",
+          "sha256": "3549a6f81814322c41f9f93ffd35edfe159ad5c6a56b0bcfafbd5bdd69ec7324"
+        },
+        {
+          "path": "tools/production-profile.json",
+          "sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+        }
+      ],
+      "detail": "Alpha.7: 23 anonymous downloads, 73 verified bundle members, both original G3 CI ZIPs, byte-identical Windows/Linux packages, all nine tag workflows, complete production stages and immutable public image/source/version identity. Twenty G2 physical inputs and original alpha.6 hardware adoption remain unchanged."
+    }
+  ],
+  "release": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.7",
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+  "qualified_protocol_scope": "UART TX and bounded RX, held-input SPI in four modes/both orders, digital Standard-mode I2C write/read/repeated-START with declared cleanup and input conditions.",
+  "explicit_nonclaims": [
+    "No new physical qualification",
+    "No hardware transport adapter",
+    "No analog or fabricated-silicon validation",
+    "No maximum-frequency or minimum-ISA proof",
+    "No unrestricted protocol interoperability",
+    "No owner-fluency sign-off",
+    "No G4 final-submission readiness"
+  ],
+  "next_engineering_goal": "G4 remains queued; G5 is a separate optional bounded experiment.",
+  "owner_learning": "M0 teach-back remains pending; no inferred progress."
+}

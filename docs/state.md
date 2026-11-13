@@ -3,7 +3,7 @@
 Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**G2 COMPLETE 2026-11-13; G3 ACTIVE.** G3 now builds a versioned assembler,
+**G1-G3 COMPLETE; G4 QUEUED.** G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the
 unchanged qualified instruction contract. [E0046](../evidence/E0046-program-toolchain/README.md)
 retains thirteen byte-compatible examples, 55 identical public cases in each
@@ -11,7 +11,11 @@ simulator (15 expected rejections), 53 identical Windows/Linux artifacts and
 147 passing repository tests. The [guide](programming.md) provides the actual
 commands and pin-level plan. Clean clone and run43393826878 at `0297655` now
 pass the same checks; all 351 producing inputs and the original CI archives
-pass audit. Alpha.7 milestone packaging and public download verification remain.
+pass audit. Alpha.7 publishes 23 anonymously verified assets and the matching
+workbench image. All 73 toolchain bundle members, both original CI archives,
+platform-independent packaging and standalone example rebuilds pass. All nine
+tag workflows / 22 jobs pass. The [completion audit](../evidence/E0046-program-toolchain/completion-audit.json)
+closes G3 on 2026-11-13. Final submission readiness and owner fluency remain separate.
 
 E0045 retains complete
 run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public
@@ -722,7 +726,7 @@ efficiently express useful digital communication protocols under hard temporal c
   workflow: all three retries now pass completely on the same merge source.
   The E0019 recovery record retains their identities and the earlier failures.
   These are separate from pre-merge CI and from D48/E0045's current production
-  qualification. Programming tools remain queued under G3.
+  qualification. E0046 now qualifies the programming tools under G3.
 - E0021's earlier coupled-shift schedules fail the declared SPI response
   envelope; their recorded failures remain. Current production instead uses
   D48's qualified 128-word SRAM source and the frozen four-mode SPI/I2C contracts.
@@ -744,8 +748,9 @@ efficiently express useful digital communication protocols under hard temporal c
   rejected P attempts intact; no new physical run or further tuning is needed.
 - G2 is complete. Preserve the qualified SRAM source, original archives,
   alpha.6 publication and all rejected trials; requalify material design changes.
-- Active engineering goal (G3): add a small assembler alongside the settled G2
-  instruction contract; a larger compiler needs a demonstrated use case.
+- G3 is complete. Preserve the versioned assembler, public loading plans,
+  independent examples and alpha.7 evidence; a larger compiler still needs a
+  demonstrated use case. G4 is the next engineering goal and remains queued.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
   is deferred if mandatory gates slip. Targets and completion checks are in
@@ -763,7 +768,9 @@ Publicly loaded UART TX/bounded RX, all four SPI modes in both bit orders and
 Standard-mode I2C share the same RTL. UART framing/delivery/host-service limits,
 SPI input hold and I2C electrical/cleanup assumptions remain explicit. Continuous
 autonomous UART, unrestricted protocol interoperability, analog-bus validation,
-Fmax and fabricated-silicon results remain absent. G3's assembler is now active;
+Fmax and fabricated-silicon results remain absent. G3's assembler is complete:
+clean clone and CI, standalone packaging, all 23 public downloads, image identity
+and all nine alpha.7 tag workflows are verified in E0046.
 G2 is complete: clean default-command CI, retained replay and alpha.6 publication
 are verified. G1, rejected
 experiments and historical formal evidence remain frozen. The original OpenKnowledge records

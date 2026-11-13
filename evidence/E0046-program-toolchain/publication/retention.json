@@ -1,0 +1,14 @@
+{
+  "schema": "protocol-emulator-g3-publication-retention-v1",
+  "status": "PASS_RETAINED_PUBLICATION",
+  "observed_utc": "2026-11-13T09:31:31.852822+00:00",
+  "release_source_commit": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+  "publication_verification_sha256": "4cf4255ee8c19823e5a75fd67601d3ba30a3ff9db634fd720fa4643e2a3bdb9d",
+  "auditor_sha256": "78f76c30a92ca48ecf2403ad26399b800a843bc24b29cbdb7412f5eb55026de0",
+  "packager_sha256": "c7dd19524262aa116fae1e713e6db429c26252bbf171faf2e98580b2d9c694d8",
+  "tag_workflows": 9,
+  "tag_jobs": 22,
+  "assets_verified": 23,
+  "bundle_members_verified": 73,
+  "scope": "Post-publication verification; separate from the immutable release commit."
+}
