@@ -1,0 +1,278 @@
+{
+  "status": "PASS_SRAM_GDS_CHECKS_REMAINING_GATES_PENDING",
+  "physical_qualification": "NOT_COMPLETE",
+  "production": "NOT_PROMOTED",
+  "run_id": 43337581691,
+  "source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "gds_sha256": "bd43a014bb1ea65a3ee6bf392316e3c6acf061ee987f48c9b1a286c08f4c1a3c",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "physical_metrics": {
+    "status": "PASS",
+    "checked": {
+      "route__drc_errors": 0,
+      "route__antenna_violation__count": 0,
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "magic__drc_error__count": 0,
+      "design__lvs_error__count": 0,
+      "design__power_grid_violation__count": 0,
+      "design__max_fanout_violation__count": 0,
+      "design__max_cap_violation__count": 0,
+      "design__max_slew_violation__count": 0,
+      "timing__setup__ws": 5.5958856909900625,
+      "timing__hold__ws": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 9.893064425466784,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 5.5958856909900625,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.6680285402820566,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 8.886068132834636,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.3232766368323826
+    },
+    "errors": []
+  },
+  "area": {
+    "mapped": {
+      "cells": 4201,
+      "area_um2": 53089.7598,
+      "sequential_area_um2": 17293.0464,
+      "sequential_cells": 353
+    },
+    "routed": {
+      "design__instance__count__stdcell": 4679,
+      "design__instance__area__stdcell": 61294.1,
+      "design__instance__utilization": 0.0916943
+    }
+  },
+  "runtime": {
+    "status": "PASS_RUNTIME_IDENTITIES",
+    "job_id": 131597595922,
+    "log_sha256": "a92803cdc6b1b18a8282e7b837721a1a9da3c77c02387401b17047d798620d59",
+    "workflow_source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "physical_yosys": {
+      "version": "0.69",
+      "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+    },
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+      "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+      "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+    },
+    "confirmation_lines": [
+      "2026-11-13T00:32:42.9290556Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-13T00:32:42.9308043Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-13T00:32:49.6307807Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-13T00:32:50.2856093Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-13T00:32:53.2839557Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-13T00:32:53.3412481Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-13T00:32:58.8909430Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+    ],
+    "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate."
+  },
+  "magic_contact_alignment": {
+    "status": "STAGED_EXACT_CONTACT_RULE_ALIGNMENT",
+    "source_technology": "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.tech",
+    "references": {
+      "libs.tech/magic/ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "libs.tech/magic/ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "libs.tech/magic/ihp-sg13cmos5l-cifin.tech": "f3c452eec8ad396a033e507cbd61ed2d67246255b1bee753b816b717e2fc8094",
+      "libs.tech/magic/ihp-sg13cmos5l-drc.tech": "c220917168371ea6bfc572164e840095ae82db336add21c2e69d8691f8d159e4",
+      "libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json": "3ff702c5bde8d01d027f30cdc6f5c08c0eff6b3e8fd7e709a6f40dcc73b1ca83",
+      "libs.tech/klayout/tech/drc/rule_decks/feol/5_14_cont.drc": "a7d9bdd00aa46e44bb4e38d45afa8afa5ec2ad94c10638881d41cfe36d04b506"
+    },
+    "original_files": {
+      "RELEASE_NOTES.md": "f0d990b552aa1edac79b8a6dbd3b09ce6cb62cfff5143e84bcf5f3afa7099331",
+      "ihp-sg13cmos5l.tcl": "08d3940a911505b67343af5b3e9bcc053aa5eaa13b499774e94f80df5b6a70b6",
+      "check_density.py": "c202b4221861270a62bc7059421722b950b377bdfebe35bd9c63015175695609",
+      "ihp-sg13cmos5l-res.tcl": "8ce60e983250491d2008b618acb1b76e412ad9b1b70719766b2f75a438b702e4",
+      "ihp-sg13cmos5l-cifin.tech": "f3c452eec8ad396a033e507cbd61ed2d67246255b1bee753b816b717e2fc8094",
+      "ihp-sg13cmos5l-util.tcl": "d803b0e3894408fe8a3b05a8d4b9e42a4099708de9c555af4505af23e208c16a",
+      "sealring_corner.tcl": "c878f76282d4482622c7bce465c8aa5e528f0b38e99a1eb6f44ac3c21bb820a2",
+      "diodevdd_4kv.tcl": "b29bea598e9e16a93693fb72f07c82b758de880ff9ba810d916b145a65677d62",
+      "ihp-sg13cmos5l-var.tcl": "5d0e8f408a63cd33070af24e91cf0c2c8931f7199fdb14f5fd537007f9fdc2d6",
+      "generate_fill.py": "c04e3c59aeab4c890bb6348ff0f53c7113a00f11ef18ef28549bb47b598897c1",
+      "ihp-sg13cmos5l-misc.tcl": "ef130634466e95d2dc0410737d2db0a884deb2126560ec0808a6b0d447c416a8",
+      "nmoscl_2.tcl": "2ed3e12cd0d88c81f52b1b0f5f890361893927c87245b26a21d930e0dc36b824",
+      "sealring_side.tcl": "ada2ffecf7e557c61175411b3a6879ede1f93e988bf2e90e9f44d461a5623982",
+      "ihp-sg13cmos5l-bjt.tcl": "befbce6ec40c8066606f84c5191c86618647cec78228d52a1e7017766d3ef517",
+      "ihp-sg13cmos5l-drc.tech": "c220917168371ea6bfc572164e840095ae82db336add21c2e69d8691f8d159e4",
+      "nmoscl_4.tcl": "1f2acbf399b82c67634d5abffe4680ce5be6ca372383ef836c3b1999d74addcd",
+      "README.md": "0462e7f1aa8261b15eedc4fdbea4f67a6baf7a30caab00d35df5bffe8921b5e4",
+      "ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "ihp-sg13cmos5l-via.tcl": "c108b532263925313ca3cc0b87050f3606e9ed4f26d2ba3cb419147d0c1c8056",
+      "generate_seal.py": "4078e2ac589af1a49556afd329153c8951e866072b874a2e43bc554172a97212",
+      "ihp-sg13cmos5l-GDS.tech": "6e952ff2bd219ad4abc8c7d365808c81f3acaf424c9eef720606969925773881",
+      "ihp-sg13cmos5l-pad.tcl": "c82204a78fd64eeb1b95908ed598d1d92b2c9f989332ed298748f61b4e602571",
+      "test_bondpad_lef.sh": "fb243af2bc258e4b6cdfa777c7148c482127e06177b4739ca20f3711aaa53254",
+      "ihp-sg13cmos5l-extract.tech": "58e141c6c85e6b92dcfacc1f530e1ffcd06cb749607d07fcfd411931a8f0edb3",
+      "read_sram_gds.tcl": "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7",
+      "diodevss_2kv.tcl": "6a3baf719f45629b848061f432cad2ba29749c2834ce74668c3f324046938350",
+      "ihp-sg13cmos5l-ind.tcl": "52c4051e6a595ba1c8e87f4bde69955aa00557d16428fce26df79e97c2a082eb",
+      "diodevdd_2kv.tcl": "f6b800d373a76fa78e3bfe4e1f761ded47dbaa6cab68ede24afc987260b66d5a",
+      "diodevss_4kv.tcl": "e35f866875ffb51ae751d95d72c9310e7306ee68a64a3a3c49efe71123bc6b51",
+      "ihp-sg13cmos5l-cap.tcl": "7545fb7c93b5610887bf271cd12cf32e4d02c34f96ce51bf60be3c5cf3c00f3d",
+      "ihp-sg13cmos5l-fix.tcl": "c96f41d5a6d552c74d48ecaefe0bafd4df9f6c2670e19c9b8900dc9c825e1824",
+      "ihp-sg13cmos5l-dio.tcl": "9a11497bcc3df9d91164f9f5a956737b87a5610ca42db234fdb127a1b2e716cb",
+      "ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "ihp-sg13cmos5l-cifout.tech": "828159a81f311f8d6ebcac97827224e3c6743a946cb0f4a80ab2d2dcd0bf5899",
+      "ihp-sg13cmos5l-fet.tcl": "630e989adc15866287191b9fdb86745e0267f617ba355b59aa87ad681e90abd6"
+    },
+    "staged_files": {
+      "RELEASE_NOTES.md": "f0d990b552aa1edac79b8a6dbd3b09ce6cb62cfff5143e84bcf5f3afa7099331",
+      "ihp-sg13cmos5l.tcl": "08d3940a911505b67343af5b3e9bcc053aa5eaa13b499774e94f80df5b6a70b6",
+      "check_density.py": "c202b4221861270a62bc7059421722b950b377bdfebe35bd9c63015175695609",
+      "ihp-sg13cmos5l-res.tcl": "8ce60e983250491d2008b618acb1b76e412ad9b1b70719766b2f75a438b702e4",
+      "ihp-sg13cmos5l-cifin.tech": "57c9061f41b3a3bb77039233f7349f9866f4fabfcdbf2a8efdb26d7738a696bb",
+      "ihp-sg13cmos5l-util.tcl": "d803b0e3894408fe8a3b05a8d4b9e42a4099708de9c555af4505af23e208c16a",
+      "sealring_corner.tcl": "c878f76282d4482622c7bce465c8aa5e528f0b38e99a1eb6f44ac3c21bb820a2",
+      "diodevdd_4kv.tcl": "b29bea598e9e16a93693fb72f07c82b758de880ff9ba810d916b145a65677d62",
+      "ihp-sg13cmos5l-var.tcl": "5d0e8f408a63cd33070af24e91cf0c2c8931f7199fdb14f5fd537007f9fdc2d6",
+      "generate_fill.py": "c04e3c59aeab4c890bb6348ff0f53c7113a00f11ef18ef28549bb47b598897c1",
+      "ihp-sg13cmos5l-misc.tcl": "ef130634466e95d2dc0410737d2db0a884deb2126560ec0808a6b0d447c416a8",
+      "nmoscl_2.tcl": "2ed3e12cd0d88c81f52b1b0f5f890361893927c87245b26a21d930e0dc36b824",
+      "sealring_side.tcl": "ada2ffecf7e557c61175411b3a6879ede1f93e988bf2e90e9f44d461a5623982",
+      "ihp-sg13cmos5l-bjt.tcl": "befbce6ec40c8066606f84c5191c86618647cec78228d52a1e7017766d3ef517",
+      "ihp-sg13cmos5l-drc.tech": "b45438706028a7a8a85374a672cb78fdc49dd4897c12735fb88bd637bde072ec",
+      "nmoscl_4.tcl": "1f2acbf399b82c67634d5abffe4680ce5be6ca372383ef836c3b1999d74addcd",
+      "README.md": "0462e7f1aa8261b15eedc4fdbea4f67a6baf7a30caab00d35df5bffe8921b5e4",
+      "ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "ihp-sg13cmos5l-via.tcl": "c108b532263925313ca3cc0b87050f3606e9ed4f26d2ba3cb419147d0c1c8056",
+      "generate_seal.py": "4078e2ac589af1a49556afd329153c8951e866072b874a2e43bc554172a97212",
+      "ihp-sg13cmos5l-GDS.tech": "6e952ff2bd219ad4abc8c7d365808c81f3acaf424c9eef720606969925773881",
+      "ihp-sg13cmos5l-pad.tcl": "c82204a78fd64eeb1b95908ed598d1d92b2c9f989332ed298748f61b4e602571",
+      "test_bondpad_lef.sh": "fb243af2bc258e4b6cdfa777c7148c482127e06177b4739ca20f3711aaa53254",
+      "ihp-sg13cmos5l-extract.tech": "58e141c6c85e6b92dcfacc1f530e1ffcd06cb749607d07fcfd411931a8f0edb3",
+      "read_sram_gds.tcl": "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7",
+      "diodevss_2kv.tcl": "6a3baf719f45629b848061f432cad2ba29749c2834ce74668c3f324046938350",
+      "ihp-sg13cmos5l-ind.tcl": "52c4051e6a595ba1c8e87f4bde69955aa00557d16428fce26df79e97c2a082eb",
+      "diodevdd_2kv.tcl": "f6b800d373a76fa78e3bfe4e1f761ded47dbaa6cab68ede24afc987260b66d5a",
+      "diodevss_4kv.tcl": "e35f866875ffb51ae751d95d72c9310e7306ee68a64a3a3c49efe71123bc6b51",
+      "ihp-sg13cmos5l-cap.tcl": "7545fb7c93b5610887bf271cd12cf32e4d02c34f96ce51bf60be3c5cf3c00f3d",
+      "ihp-sg13cmos5l-fix.tcl": "c96f41d5a6d552c74d48ecaefe0bafd4df9f6c2670e19c9b8900dc9c825e1824",
+      "ihp-sg13cmos5l-dio.tcl": "9a11497bcc3df9d91164f9f5a956737b87a5610ca42db234fdb127a1b2e716cb",
+      "ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "ihp-sg13cmos5l-cifout.tech": "828159a81f311f8d6ebcac97827224e3c6743a946cb0f4a80ab2d2dcd0bf5899",
+      "ihp-sg13cmos5l-fet.tcl": "630e989adc15866287191b9fdb86745e0267f617ba355b59aa87ad681e90abd6"
+    },
+    "changed_files": {
+      "ihp-sg13cmos5l-cifin.tech": "57c9061f41b3a3bb77039233f7349f9866f4fabfcdbf2a8efdb26d7738a696bb",
+      "ihp-sg13cmos5l-drc.tech": "b45438706028a7a8a85374a672cb78fdc49dd4897c12735fb88bd637bde072ec"
+    },
+    "original_tree_sha256": "a579c23b6048c41b2a327317a2f1c845c8d4b93e946dc43c3d148790111ee6a9",
+    "native_drc_script_sha256": "815c0ada08d55bb0b3b5c84cd80e0620590897b7f3e8e3c7c3d3f117bbe1f74b",
+    "helper_sha256": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "startup_sha256": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+    "contact_enclosure_nm": {
+      "general": 70,
+      "digital_outside_sram": 50,
+      "sram_rule": 6,
+      "sram_on_5nm_grid": 10,
+      "sram_directional_unchanged": 70
+    },
+    "scope": "Only the three original low-voltage contact types. Markers are derived from actual GDS. No geometry edit, cell exclusion, report filter or waived rule. All other rules remain unchanged."
+  },
+  "audit_helpers_sha256": {
+    "tools/physical_candidate.py": "353f757a49e68366ec87137d7b200fff013be60f207c52b4d66a610c73c178dd",
+    "tools/physical_g2.py": "937775e9380662cc46508d1d89862fdee0253e7d5900b5a78ca19ea8d4ba8bca",
+    "experiments/i2c/align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "tools/physical_sram.py": "7a575c5918d4cdf79176598151fa2402a2b6d103febe5c4b1cb8fe083042d645",
+    "tools/audit_g2_physical.py": "1507dcd1b151678cbac04143ac2e91e25121cc07b1bf7f46c67df570f47179b1",
+    "tools/physical_runtime.py": "c26f7a1a63670056cde33cf2d70bde097b2fb671f80fd4130aec872f5c85a39b"
+  },
+  "archives": {
+    "GDS_logs": {
+      "id": 14000880025,
+      "sha256": "600d201c57c2719a97254c5a85e13ad0705d496b10c1e131d72fd8e5acadabc0",
+      "bytes": 89249241
+    },
+    "tt_submission": {
+      "id": 14000422018,
+      "sha256": "a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34",
+      "bytes": 3695260
+    },
+    "sram-physical-candidate": {
+      "id": 13999644128,
+      "sha256": "676f6ba47e7d7731a65e6602612f0a4696ce9aac5cdfa3fa38b7283d1c3cfadd",
+      "bytes": 152699
+    }
+  },
+  "scope": "Completed GDS job only; independent precheck and submitted-netlist gates remain required."
+}

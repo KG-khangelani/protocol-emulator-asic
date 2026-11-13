@@ -78,3 +78,15 @@ Native full trial 05 separately completes all 84 original/added stages in
 reference, and every other final physical condition matches. The 927-file
 completion replay passes. This supplies no corrected full-layout pass and
 does not establish a complete-flow speed improvement from import scheduling.
+
+The fresh official build at 232ee20 now completes with zero original full
+Magic DRC findings in 30:49.940 and passes all other required manufacturing,
+LVS, power, electrical and timing conditions. The copied 35-file tree,
+precise two changed files and unmodified full check script pass the frozen
+producing-source audit. This establishes the corrected complete-layout result.
+
+Independent precheck passes its complete KLayout deck and eight other checks,
+but rejects external power-port spans with 148 LEF errors. The
+[1,216-file failure replay](../../evidence/E0043-sram-physical-integration/ci-232ee20-pin-failure/README.md)
+retains that separate interface defect and rejects aggregate acceptance.
+Correct power-port export before renewed qualification; D46 does not waive it.

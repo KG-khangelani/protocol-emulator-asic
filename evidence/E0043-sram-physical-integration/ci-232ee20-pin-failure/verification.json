@@ -1,0 +1,67 @@
+{
+  "status": "REJECTED_OFFICIAL_POWER_PORT_PRECHECK",
+  "source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+  "run_id": 43337581691,
+  "physical_job": "PASS",
+  "precheck": [
+    {
+      "name": "KLayout pin label overlapping drawing",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "KLayout SG13CMOS5L DRC",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "KLayout zero area",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "KLayout Checks",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "Pin check",
+      "failed": true,
+      "message": [
+        "Some ports are missing or have wrong dimensions, see 148 LEF errors above"
+      ]
+    },
+    {
+      "name": "Boundary check",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "Layer check",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "Cell name check",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "Analog pin check",
+      "failed": false,
+      "message": []
+    },
+    {
+      "name": "Verilog syntax check",
+      "failed": false,
+      "message": []
+    }
+  ],
+  "pin_lef_errors": 148,
+  "consumed_submission_sha256": "a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34",
+  "precheck_log_sha256": "54ae740b55c75c06937b42e3b048a1499b0573f322d1467ae6cce2369d986012",
+  "original_archive_members": 1216,
+  "netlist_testing": "IN_PROGRESS_AT_THIS_SNAPSHOT",
+  "production": "NOT_PROMOTED",
+  "scope": "Original physical build passes all required metrics, original complete Magic DRC and LVS. Independent precheck rejects exported supply-port spans; nine other checks pass. This candidate remains rejected."
+}

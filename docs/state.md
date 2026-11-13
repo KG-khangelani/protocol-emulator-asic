@@ -2,6 +2,17 @@
 
 Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
+
+**Current G2 gate:** corrected official run43337581691 at 232ee20 passes the
+complete manufacturing build, including zero Magic DRC/LVS and every required
+electrical/timing condition. Independent precheck passes nine checks but rejects
+external power-port spans with 148 LEF errors. Its 1,216 original files and 52
+producing inputs pass Windows and native Linux replay; aggregate acceptance
+correctly rejects the run. Preserve this failure and correct the exported
+power-port membership before another complete qualification. The submitted
+netlist exactly matches corrected native trial 05. Official/local functional
+tests remain running; production adoption and publication remain open.
+
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
 UART/SPI/I2C qualification. D37/E0035 advances experimental od128: both simulators
@@ -178,7 +189,8 @@ timing, power, pin-clearance and LVS conditions pass. Precheck/netlist jobs
 are skipped. Its 1,027 original files and 42 frozen inputs pass audit. Native
 geometry shows exactly the same 32 contact locations as the isolated diagnosis,
 with four split report rectangles, and matches local trial 05 on all 28 layers.
-Complete corrected manufacturing checks and official qualification remain open.
+The subsequent corrected manufacturing build passes; its independent
+power-port precheck rejection is recorded at the top of this document.
 
 The corrected trial 05 GDS also passes the pinned complete KLayout CMOS5L
 rule-deck diagnostic in 550.779 seconds: the native report has 332 rule

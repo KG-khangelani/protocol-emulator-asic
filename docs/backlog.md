@@ -137,7 +137,12 @@ trial 05 completes in 9,381.393 seconds with the same 36-finding report as the
 official reference; its 927-file completion replay passes. Both simulators
 are now testing its corrected routed netlist with frozen inputs and the
 previously validated model setup, under unchanged 10,800-second bounds.
-Fresh official run43337581691 uses clean source 232ee20 and has passed staging.
+Fresh official run43337581691 at clean 232ee20 passes the complete GDS build,
+including zero Magic DRC/LVS and every required electrical/timing condition.
+Independent precheck passes nine checks but rejects exported supply-port spans
+with 148 LEF errors. Its 1,216 original files and 52 producing inputs pass both
+retained replays; aggregate qualification rejects the run. Correct power-port
+membership and repeat official qualification; functional tests remain running.
 E0044 separately preserves the physical baseline for future adoption: all nine
 profiles keep exact source/configuration bytes, the 358-file replay passes,
 and 118 repository tests pass including two archive/production-drift controls.

@@ -116,8 +116,13 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** complete corrected full manufacturing checks,
-fresh official precheck and the actual submitted-netlist tests. Guarded
+**Next executable action:** correct the exported supply-port membership and
+repeat complete official qualification. Run43337581691 at 232ee20 passes
+the full corrected manufacturing build and nine prechecks, but fails the
+power-port check with 148 LEF errors. Its 1,216 original files and 52 producing
+inputs pass Windows/native replay; aggregate qualification rejects the run.
+The submitted netlist matches corrected native trial 05, with official/local
+functional tests still running. Production remains unchanged. Earlier guarded
 run43320295442 at 2be7f5d is rejected with 36 Magic contact findings; all other
 final physical conditions pass. Its 1,027 original files and 42 frozen inputs
 pass audit. Geometry resolves the findings to the same 32 isolated contact
@@ -154,7 +159,8 @@ The original 20-minute attempts remain incomplete. Native full trial 05
 completes within its 10,800-second limit with the same 36-finding failure;
 its 927-file replay passes. Both simulators are testing the corrected routed
 netlist with frozen inputs and the previously qualified model setup.
-Fresh official run43337581691 is executing from clean 232ee20. E0044's later
+Fresh official run43337581691's manufacturing pass and power-port rejection
+are described above. E0044's later
 physical-baseline relocation preserves all nine configuration/source profiles;
 its 358-file replay and 118 repository tests pass. Production stays unchanged.
 The

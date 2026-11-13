@@ -195,3 +195,12 @@ standalone artifact and is not physical evidence. Protocol-specific fixed
 blocks remain a useful cost baseline but are not the intended reprogrammable
 competition solution. Do not retrospectively label unexplored alternatives as
 experimentally rejected.
+
+E0043 update, 2026-11-13: official run43337581691 at 232ee20 completes every
+required manufacturing/electrical/timing check, including zero full Magic DRC
+and LVS. Independent precheck passes nine checks but rejects power-port spans
+with 148 LEF errors. Its 1,216 original files and 52 producing inputs pass
+Windows/native replay, and aggregate qualification correctly rejects the run.
+The actual submitted netlist equals corrected trial 05; functional tests remain
+running. Correct the exported supply interface before renewed qualification.
+See [the retained failure](../evidence/E0043-sram-physical-integration/ci-232ee20-pin-failure/README.md).

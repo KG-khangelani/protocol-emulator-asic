@@ -137,3 +137,11 @@ the same byte-identical 36-finding report and other passing final conditions
 as the official reference. Its 927-file report replay passes; the rejected
 status remains. Both simulators are now testing the corrected trial 05
 netlist in a frozen workspace, separately from manufacturing qualification.
+
+The [aligned official run and pin-precheck rejection](ci-232ee20-pin-failure/README.md)
+now retain a complete manufacturing pass at 232ee20: zero full Magic DRC/LVS,
+all original electrical/timing limits and exact source/runtime identities.
+Independent precheck passes nine checks but rejects exported supply-port spans
+with 148 LEF errors. Four unchanged ZIPs retain 1,216 files and 52 producing
+inputs; Windows and native Linux replay pass and reject aggregate qualification.
+Correct the exported port membership before another complete official run.

@@ -1,0 +1,257 @@
+{
+  "total_count": 3,
+  "jobs": [
+    {
+      "id": 131597595922,
+      "run_id": 43337581691,
+      "workflow_name": "G2 SRAM complete-chip 8x4 qualification",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUmYlXs8AAAAeo9P1Eg",
+      "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/jobs/131597595922",
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691/job/131597595922",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T00:30:22Z",
+      "started_at": "2026-11-13T00:30:24Z",
+      "completed_at": "2026-11-13T01:12:29Z",
+      "name": "gds",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T00:30:25Z",
+          "completed_at": "2026-11-13T00:30:27Z"
+        },
+        {
+          "name": "Check out workflow source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T00:30:27Z",
+          "completed_at": "2026-11-13T00:30:39Z"
+        },
+        {
+          "name": "Stage the identified SRAM chip and physical additions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T00:30:39Z",
+          "completed_at": "2026-11-13T00:30:39Z"
+        },
+        {
+          "name": "Build GDS with every original acceptance check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T00:30:39Z",
+          "completed_at": "2026-11-13T01:12:26Z"
+        },
+        {
+          "name": "Verify source, macro views, actual connections and routed metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T01:12:26Z",
+          "completed_at": "2026-11-13T01:12:26Z"
+        },
+        {
+          "name": "Retain exact qualification inputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T01:12:26Z",
+          "completed_at": "2026-11-13T01:12:27Z"
+        },
+        {
+          "name": "Post Build GDS with every original acceptance check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-13T01:12:27Z",
+          "completed_at": "2026-11-13T01:12:27Z"
+        },
+        {
+          "name": "Post Check out workflow source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-13T01:12:27Z",
+          "completed_at": "2026-11-13T01:12:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-13T01:12:28Z",
+          "completed_at": "2026-11-13T01:12:28Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/check-runs/131597595922",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000002168,
+      "runner_name": "GitHub Actions 1000002168",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 131616005256,
+      "run_id": 43337581691,
+      "workflow_name": "G2 SRAM complete-chip 8x4 qualification",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUmYlXs8AAAAepOzciA",
+      "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/jobs/131616005256",
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691/job/131616005256",
+      "status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-11-13T01:12:29Z",
+      "started_at": "2026-11-13T01:12:32Z",
+      "completed_at": null,
+      "name": "gl_test",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T01:12:32Z",
+          "completed_at": "2026-11-13T01:12:35Z"
+        },
+        {
+          "name": "Check out workflow source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T01:12:35Z",
+          "completed_at": "2026-11-13T01:12:48Z"
+        },
+        {
+          "name": "Stage the identical candidate and vendor simulation models",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T01:12:48Z",
+          "completed_at": "2026-11-13T01:12:49Z"
+        },
+        {
+          "name": "Run all eighteen public groups on the actual submitted netlist",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 4,
+          "started_at": "2026-11-13T01:12:49Z",
+          "completed_at": null
+        },
+        {
+          "name": "Check complete coverage and unchanged observations",
+          "status": "pending",
+          "conclusion": null,
+          "number": 5,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Retain public-test and source identities",
+          "status": "pending",
+          "conclusion": null,
+          "number": 6,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Post Run all eighteen public groups on the actual submitted netlist",
+          "status": "pending",
+          "conclusion": null,
+          "number": 11,
+          "started_at": null,
+          "completed_at": null
+        },
+        {
+          "name": "Post Check out workflow source",
+          "status": "pending",
+          "conclusion": null,
+          "number": 12,
+          "started_at": null,
+          "completed_at": null
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/check-runs/131616005256",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000002191,
+      "runner_name": "GitHub Actions 1000002191",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 131616005345,
+      "run_id": 43337581691,
+      "workflow_name": "G2 SRAM complete-chip 8x4 qualification",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOUmYlXs8AAAAepOzc4Q",
+      "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/jobs/131616005345",
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43337581691/job/131616005345",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-13T01:12:29Z",
+      "started_at": "2026-11-13T01:12:32Z",
+      "completed_at": "2026-11-13T01:19:38Z",
+      "name": "precheck",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T01:12:33Z",
+          "completed_at": "2026-11-13T01:12:36Z"
+        },
+        {
+          "name": "Run the complete official precheck on the submitted GDS",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 2,
+          "started_at": "2026-11-13T01:12:36Z",
+          "completed_at": "2026-11-13T01:19:35Z"
+        },
+        {
+          "name": "Post Run the complete official precheck on the submitted GDS",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T01:19:35Z",
+          "completed_at": "2026-11-13T01:19:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T01:19:35Z",
+          "completed_at": "2026-11-13T01:19:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/check-runs/131616005345",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000002192,
+      "runner_name": "GitHub Actions 1000002192",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}
