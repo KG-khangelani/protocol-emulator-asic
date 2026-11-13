@@ -49,6 +49,11 @@ matching source/image/version identity and all eight tag workflows pass.
 E0045/completion-audit.json closes G2 within the declared digital protocol,
 physical-model and timing limits; it proves no ISA minimum or owner fluency.
 
+G3 begins on 2026-11-13 with the versioned program-toolchain contract in
+`specs/g3-program-toolchain.md`. It will compare readable assembled examples
+against the preserved hand-encoded programs and independent public-pin oracles.
+The qualified hardware is unchanged; G3 results remain pending.
+
 ## Verified upstream observations (not project measurements)
 
 | ID | Observation | Evidence and boundary |

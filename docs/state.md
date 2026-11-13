@@ -3,7 +3,12 @@
 Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**G2 COMPLETE 2026-11-13; G3 queued.** E0045 retains complete
+**G2 COMPLETE 2026-11-13; G3 ACTIVE.** G3 now builds a versioned assembler,
+inspectable timing listings and public load/readback/run examples around the
+unchanged qualified instruction contract. The [toolchain contract](specs/g3-program-toolchain.md)
+defines its acceptance checks; no G3 implementation result is claimed yet.
+
+E0045 retains complete
 run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public
 netlist groups pass. Its six original ZIPs contain 1,713 files; the audit retains
 55 exact producing inputs and passes on Windows and pinned Linux. Five deliberate
@@ -734,7 +739,7 @@ efficiently express useful digital communication protocols under hard temporal c
   rejected P attempts intact; no new physical run or further tuning is needed.
 - G2 is complete. Preserve the qualified SRAM source, original archives,
   alpha.6 publication and all rejected trials; requalify material design changes.
-- Next engineering goal (G3, queued): add a small assembler alongside the settled G2
+- Active engineering goal (G3): add a small assembler alongside the settled G2
   instruction contract; a larger compiler needs a demonstrated use case.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
@@ -753,7 +758,7 @@ Publicly loaded UART TX/bounded RX, all four SPI modes in both bit orders and
 Standard-mode I2C share the same RTL. UART framing/delivery/host-service limits,
 SPI input hold and I2C electrical/cleanup assumptions remain explicit. Continuous
 autonomous UART, unrestricted protocol interoperability, analog-bus validation,
-Fmax and fabricated-silicon results remain absent. G3's assembler remains queued;
+Fmax and fabricated-silicon results remain absent. G3's assembler is now active;
 G2 is complete: clean default-command CI, retained replay and alpha.6 publication
 are verified. G1, rejected
 experiments and historical formal evidence remain frozen. The original OpenKnowledge records

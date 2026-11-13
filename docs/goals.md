@@ -4,7 +4,7 @@ Updated: 2026-11-13. Decision: [D32](decisions/0032-goals-to-submission-readines
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
-G1 and G2 are complete. The next engineering goal is G3: make the qualified
+G1 and G2 are complete. The active engineering goal is G3: make the qualified
 shared-protocol core practical to assemble, load, inspect and reproduce.
 Further instruction compression is valuable only when it improves that outcome.
 
@@ -18,7 +18,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **COMPLETE 2026-11-13**; qualified SRAM adopted, default CI and publication audited | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
-| G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; qualified G2 instruction/readback contract ready | 2026-12-18 | M4-T01 |
+| G3 | Make programs easy to assemble, load, inspect and reproduce | ACTIVE; assembler, public loading and independently checked examples | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
 | G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
@@ -300,6 +300,11 @@ hypothesis. First test whether a general instruction or a stated scope change
 resolves it, with a measured cost and an explicit decision.
 
 ## G3 - Make the chip practical to program
+
+Activated 2026-11-13 after G2 completion. The [toolchain contract](specs/g3-program-toolchain.md)
+targets the unchanged qualified `od128-sram` core and interface 0x22. Preserve
+all twenty physical inputs and historical program bytes. Commit verified steps
+to main; the first deliverable is a versioned assembler and inspectable listing.
 
 Completion checks:
 
