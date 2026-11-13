@@ -118,9 +118,10 @@ qualification remain open.
 The [optional aligned staging](aligned-staging/README.md) passes its native
 78.771-second rehearsal, twelve bad-configuration controls and three changed
 input controls. The 396-file archive and native replay reproduce exact pin
-geometry and both Magic startup scopes. The official workflow has not enabled
-it; the initial full-layout diagnostics are incomplete and their separately
-bounded follow-ups are running.
+geometry and both Magic startup scopes. D46 now enables this setup for fresh
+official qualification on the completed original-rule evidence below; the
+initial full-layout diagnostics are incomplete and their separately bounded
+follow-ups are running.
 
 The [guarded official failure](ci-2be7f5d-failure/README.md) retains run43320295442
 at 2be7f5d: 36 Magic contact findings, with every other final physical condition

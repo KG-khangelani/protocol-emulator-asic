@@ -1,6 +1,6 @@
 # G2 SRAM official qualification
 
-This is the official-workflow continuation of D42/E0042 and D43/D45/E0043.
+This is the official-workflow continuation of D42/E0042 and D43-D46/E0043.
 The isolated five-file `od128-sram` candidate remains interface 0x22 and has
 128 logical words. Production promotion is a later decision. The physical
 construction is specified in [the integration contract](g2-sram-physical-integration.md).
@@ -33,6 +33,27 @@ Use exactly the seven GDS import patterns in the pinned PDK's
 `read_sram_gds.tcl`, SHA256
 `5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7`.
 No DRC rule, checker or macro geometry is waived or changed by this import.
+
+D46 explicitly aligns only the low-voltage contact-enclosure implementation
+with its pinned references: 70 nm outside special regions, 50 nm inside
+DigiBnd outside SRAM, and 6 nm inside SRAM. The original 70 nm directional
+SRAM check and all other rules remain. The 5 nm manufacturing grid makes
+10 nm the first legal SRAM enclosure meeting the latter limit. Attribute
+50 nm to the pinned foundry document and 6 nm to the pinned KLayout deck;
+the PDF's SRAM section is unfinished. Derive coverage from actual marker
+polygons and require the exact two tested technology-file hashes. The
+reference identities and output hashes are fixed in `align_sram_magic.py`.
+
+Stage this as `--guarded --align-magic`. Keep the pinned PDK unchanged and
+reject changes to its complete 35-file Magic tree, six reference files or
+the original full DRC script. Only the `Magic.DRC` startup uses the local
+copy. Suspend background DRC during GDS import and restore it immediately
+afterwards, including on import error; execute the original complete
+synchronous rule check and unmodified report/count handling. Other Magic
+steps keep their original setup. Retain the actual executed startup/helper,
+original full script, copied rule files and alignment receipt; verify these
+against the staged manifest before accepting final results. No cell is
+excluded, no report is filtered, and the required final count remains zero.
 
 Require all final physical counts to be zero, finite nonnegative setup/hold
 at all three declared model sets, and no slew/capacitance/fanout violations.

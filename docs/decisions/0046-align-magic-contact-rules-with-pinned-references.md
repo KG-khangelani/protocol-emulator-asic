@@ -32,20 +32,19 @@ check. The separate scheduling diagnostic gets past the import phase where
 the original guarded trial has spent over an hour. Its complete result is
 still pending, so this is not yet a measured complete-flow speedup.
 
-The helpers are experimental and are not yet enabled in the official
-workflow. First complete the matched whole-chip diagnostics with the original
-and corrected rules. Then rehearse the portable setup and qualify a fresh
-complete flow, every official precheck and the actual submitted netlist under
-the existing 180/45/180-minute limits. Preserve the original guarded attempts
-and all failures. Adoption and publication require the complete G2 audit.
+At the initial checkpoint the helpers were experimental and disabled in the
+official workflow. The plan was to complete matched whole-chip diagnostics,
+rehearse the portable setup, then qualify a fresh complete flow, every official
+precheck and the submitted netlist under the existing 180/45/180-minute limits.
+Preserve the original guarded attempts and all failures. Adoption and
+publication require the complete G2 audit.
 
 The [portable rehearsal](../../evidence/E0043-sram-physical-integration/aligned-staging/README.md)
 now passes in 78.771 seconds, reproduces the exact fixed-pin database and
 rejects twelve configurations plus three changed checker/staging inputs.
 Its 396-file archive and native replay pass. The optional setup verifies the
 entire original Magic source tree, original full-check script and actual
-executed helpers before accepting a completed result. It remains disabled in
-the official workflow pending the complete-layout diagnostics.
+executed helpers before accepting a completed result.
 
 Both initial full-layout diagnostics are incomplete at their declared
 1,200-second bounds. A report-parser failure on the empty files obscured their
@@ -53,3 +52,19 @@ execution receipts; separate completion reviews preserve that limitation.
 Fix reporting before starting separately declared 3,600-second follow-ups.
 Do not change the original qualification limits or reinterpret these attempts
 as manufacturing passes.
+
+The completed unmodified official run43320295442 now supplies a full-layout
+reference: it is rejected with 36 contact markers and all other final physical
+conditions passing. The [1,027-file retained audit and native geometry replay](../../evidence/E0043-sram-physical-integration/ci-2be7f5d-failure/README.md)
+show that these are exactly the original 32 isolated contact locations, with
+four split rectangles. All 28 shape layers match the local diagnostic GDS.
+The earlier plan's missing complete original-rule result is therefore present.
+
+Revise the execution order on this evidence: enable the already rehearsed
+`--guarded --align-magic` setup for a fresh official run while the bounded
+local follow-ups finish. The complete macro check and boundary controls
+justify this experiment; only completed fresh checks can qualify it. Keep
+the original full DRC script, all 84 stages, every other Magic step and all
+zero-error thresholds. Retain original and changed rule identities in the
+actual run. Do not extend or relabel the local diagnostic attempts, and do
+not promote production before all G2 gates pass.

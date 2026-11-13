@@ -125,8 +125,9 @@ matches the isolated 32 contact locations and local trial 05 on all 28 layers.
 Complete corrected Magic DRC and fresh official qualification remain open.
 D46 explains all 32 isolated-macro contact findings and tests a precise
 two-file rule correction against the pinned references. The complete macro,
-48 boundary cases and 111-file native replay pass. Complete the matched
-whole-chip diagnostics before enabling the portable setup for a new full run.
+48 boundary cases and 111-file native replay pass. The completed original-rule
+official run now supplies the whole-chip reference; qualify the rehearsed
+portable correction in a fresh official run while the local follow-ups finish.
 The optional setup now passes a native 78.771-second pilot and its 396-file
 replay, with twelve configuration and three changed-input controls. The two
 initial whole-layout diagnostics are incomplete; their one-hour follow-ups
