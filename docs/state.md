@@ -12,10 +12,13 @@ two-simulator pair; every SPI/I2C/boundary/abort record is unchanged. All requir
 physical conditions pass, with 5.5958856909900625 ns setup and
 0.12079138031701087 ns hold slack at the 20 ns target.
 
-D48 now adopts all 20 qualified physical input files byte for byte. Actual
-default-source Doctor, 127 repository tests, style and generic synthesis pass;
-physical regeneration reproduces the exact adopted files. Clean full default-
-command CI and publication remain open. D47 exposes
+D48 now adopts all 20 qualified physical input files byte for byte. Clean
+actual-default-command run43361418837 at 75c1e7d passes all eight stages,
+both thirty-group RTL suites, current and historical formal checks, and two
+fresh 127-test executions. Its original 1,922-file ZIP, 329 producing inputs
+and actual immutable container identity pass audit; the retained Linux replay
+reproduces every result and member hash. Physical regeneration reproduces the
+exact adopted files. Alpha.6 publication and download/tag audits remain open. D47 exposes
 54 existing full-height supply rectangles and preserves every conductor,
 instance and public signal pin. D46's exact two-file rule alignment and original
 complete checker remain explicit. Earlier run43337581691 still fails its 148
@@ -725,8 +728,8 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - G1 is complete. Keep its source identities, qualified compact10 result and
   rejected P attempts intact; no new physical run or further tuning is needed.
-- Active engineering goal (G2): audit clean full default-command verification
-  on the D48-adopted source, publish alpha.6 with its matching workbench and
+- Active engineering goal (G2): publish alpha.6 from the clean, audited
+  D48-adopted source with its matching workbench and
   original evidence, then verify downloads, image identity and all tag checks.
 - Programming tools (G3): add a small assembler alongside the settled G2
   instruction contract; a larger compiler needs a demonstrated use case.
@@ -748,6 +751,7 @@ Standard-mode I2C share the same RTL. UART framing/delivery/host-service limits,
 SPI input hold and I2C electrical/cleanup assumptions remain explicit. Continuous
 autonomous UART, unrestricted protocol interoperability, analog-bus validation,
 Fmax and fabricated-silicon results remain absent. G3's assembler remains queued;
-G2 still needs its clean default-command audit and publication. G1, rejected
+G2 still needs verified milestone publication; clean default-command CI and its
+retained replay pass. G1, rejected
 experiments and historical formal evidence remain frozen. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

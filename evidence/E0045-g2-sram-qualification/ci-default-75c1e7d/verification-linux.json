@@ -1,0 +1,19 @@
+{
+  "status": "PASS_RETAINED_DEFAULT_PRODUCTION_CI",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "python": "3.11.16",
+  "command": [
+    "/usr/local/bin/python3",
+    "/workspace/evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verify.py",
+    "--output",
+    "/workspace/build/g2-default-native-01/replay"
+  ],
+  "returncode": 0,
+  "local_workbench": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "original_files": 1922,
+  "producing_inputs": 329,
+  "all_eight_stages": true,
+  "report_sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f",
+  "member_hashes_sha256": "63c546e918a06dd4e5c7b64baf04e4dc4b62d125e4d9a269847762a941294146",
+  "scope": "Fresh replay of the retained original ZIP and frozen producing inputs in Linux tmpfs; exact result and member hashes reproduced. No simulations or solvers rerun."
+}

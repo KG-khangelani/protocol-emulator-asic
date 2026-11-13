@@ -4,6 +4,8 @@ Dockerfile text eol=lf
 tools/workbench/requirements.lock text eol=lf
 *.sby text eol=lf
 *.sv text eol=lf
+# Preserve the exact qualified vendor header, including its comment whitespace.
+src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh whitespace=-blank-at-eol
 evidence/**/*.csv text eol=lf
 evidence/**/*.json text eol=lf
 evidence/**/*.log text eol=lf

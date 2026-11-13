@@ -34,5 +34,13 @@ D48 now adopts all twenty physical inputs byte for byte and binds the decision,
 metadata and supporting evidence in the production profile. The
 [local adoption screens](adoption/README.md) pass 127 repository tests, style,
 generic synthesis, exact physical regeneration and the complete atlas checks.
-Fresh clean actual-default-command CI and the milestone release/package remain
-required before G2 is complete.
+[Clean actual-default-command CI](ci-default-75c1e7d/README.md) now passes all
+eight stages at 75c1e7d/run43361418837, with thirty groups per simulator and two
+fresh 127-test executions. Its original 1,922-file ZIP, 329 producing inputs,
+actual immutable image identity and complete semantic results pass audit; a
+fresh frozen Linux replay reproduces every result and member hash.
+
+The [release tools](release-tools/README.md) preserve the complete research
+trail and check publication against these exact inputs. The milestone release,
+matching public image, downloads and all tag checks remain required before G2
+is complete.

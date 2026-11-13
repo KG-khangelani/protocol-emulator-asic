@@ -39,8 +39,11 @@ five rehashed/incomplete-evidence controls are rejected. The submitted netlist
 matches the corrected local two-simulator pair exactly. D46/D47's explicit
 construction/rule changes and earlier rejected original results remain retained.
 D48 now adopts all twenty physical inputs with exact identity checks. Local
-default-source consistency/style/synthesis and atlas checks pass; clean full
-default-command CI and verified publication remain required.
+default-source consistency/style/synthesis and atlas checks pass. Clean
+actual-default-command run43361418837 at 75c1e7d passes all eight stages, both
+thirty-group suites and two fresh 127-test executions. Its original 1,922 files,
+329 producing inputs and immutable image identity pass audit; the retained
+Linux replay reproduces all results/member hashes. Verified publication remains.
 
 ## Verified upstream observations (not project measurements)
 
@@ -108,7 +111,7 @@ default-command CI and verified publication remain required.
 | D45 | Correct SRAM import and prevent fixed public pins from overlapping power | decisions/0045-correct-sram-import-and-public-pin-power-clearance.md, E0043; original official failure and 17 actual shorts retained; native core-bounded pilot and 43 fixed-pin clearance checks pass; vendor import resolves the scoped subcell diagnostic without disabling DRC |
 | D46 | Align the exact two Magic contact rules with the pinned references and control import scheduling | decisions/0046-align-magic-contact-rules-with-pinned-references.md; original findings retained, full checker and every acceptance condition preserved |
 | D47 | Export the existing full-height supply ports without changing conductors or signal pins | decisions/0047-export-existing-full-height-supply-ports.md; 146 internal rectangles removed, 54 existing external rectangles retained; complete E0045 precheck passes |
-| D48 | Adopt the exact qualified SRAM core with source/evidence guards and actual-default-command verification | decisions/0048-adopt-qualified-sram-production.md, E0045; combined and complete physical qualification pass, local adoption screens pass, clean default CI and publication remain required |
+| D48 | Adopt the exact qualified SRAM core with source/evidence guards and actual-default-command verification | decisions/0048-adopt-qualified-sram-production.md, E0045; combined and complete physical qualification pass, local adoption screens pass, clean default CI passes; verified publication remains required |
 
 ## Experimental results
 

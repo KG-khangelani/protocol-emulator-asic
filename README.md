@@ -24,8 +24,9 @@ and [E0044](evidence/E0044-sram-current-verification/ci-13660ac/README.md).
 [E0045](evidence/E0045-g2-sram-qualification/README.md) verifies the fresh pinned
 8x4 GDS, timing, ten prechecks and eighteen actual-netlist public test groups.
 [D48](docs/decisions/0048-adopt-qualified-sram-production.md) binds adoption to
-the exact qualified files; actual-default-command CI and publication are tracked
-in [state](docs/state.md).
+the exact qualified files. [Clean default-command CI](evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/README.md)
+passes all eight stages on the actual production source; its original archive
+and frozen replay pass. Milestone publication is tracked in [state](docs/state.md).
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its
