@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SRAM_STATE_ACCOUNTING_WITHOUT_QUALIFICATION",
+  "source_sha256": {
+    "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+  },
+  "register_bits": 353,
+  "memory_bits": 8192,
+  "logical_words": 128,
+  "controls": [
+    "wrong-prefetch-wire-rejected",
+    "invalid-profile-cannot-borrow-old-qualification"
+  ],
+  "scope": "Actual retained candidate sources, data export only; not production adoption."
+}

@@ -1,0 +1,67 @@
+{
+  "status": "PASS_ATLAS_SRAM_PREPARATION_WITHOUT_PRODUCTION_ADOPTION",
+  "base_commit": "6af11d4fa5b385090978e5e56a0c9848d50adee8",
+  "implementation_sha256": {
+    ".github/workflows/atlas.yaml": "0c2b15a0a7b56b5ad3da2e567ddcf89c87ea0520795e78b44c5dcdcd7ec5aaad",
+    "test/atlas_qualification_controls.mjs": "d1a5fdb6dc26a8cde9db2761d49817aff69fcbf8fea7a381e65633a1666f9852",
+    "test/test_atlas_data.mjs": "ed86f9a20061fb7f7ffa50d1db985a9a45604f994e0e9470637bc29a448806f6",
+    "tools/atlas_production.mjs": "88302c6d717ac85fce9921945fd2c34e807018885513addad86e16f242e21f3c",
+    "tools/export_atlas.mjs": "44c8c11a9e454f8d094f1f1ca36b15e234775c869c4e61053af03e7a25de02f6",
+    "web/package-lock.json": "c0fb1d9127e61be1b83c490b10f2350d30f5b86f68a7c7b71c08f1fa4c041f7f",
+    "web/playwright.config.mjs": "2d604cb1220d120378499252df0a701272a15068c346d516e231cace72c87159",
+    "web/src/App.tsx": "d14f98c720f39dd84525a26382de95e343e5e93c2b4b17dc797ba44220e672a6",
+    "web/src/Architecture.tsx": "7f28060e6850e3c1e1d7e11161880dc54273ccb467507f0f8ea91b94161dfbd0",
+    "web/src/Evidence.tsx": "e9912655679fecd08533f7c894e00417fb3d73a4f4dce057ab931eff28570397",
+    "web/src/data.ts": "0811373098603c906d1de0634d7577776d2d5b0c0c76cad140cb891c93c3a083",
+    "web/src/data/atlas.json": "8bd914ac64505a7e98c54953ea72fafbd14bf6488461e2dd1de2223ae71f4580",
+    "web/src/navigation.ts": "c1055193d83faca468779a2fe57215ced49d6205e8c32f7a65fa9f934cc57c35",
+    "web/tests/atlas.spec.mjs": "a27d45313ba961ac160673daf6d926b1d0a3d433c5ef25f8ca3e8795b4509fe6"
+  },
+  "source_check": {
+    "status": "PASS_SRAM_STATE_ACCOUNTING_WITHOUT_QUALIFICATION",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "register_bits": 353,
+    "memory_bits": 8192,
+    "logical_words": 128,
+    "controls": [
+      "wrong-prefetch-wire-rejected",
+      "invalid-profile-cannot-borrow-old-qualification"
+    ],
+    "scope": "Actual retained candidate sources, data export only; not production adoption."
+  },
+  "unit_tests": 22,
+  "browser_tests": {
+    "startTime": "2026-11-13T02:56:01.764Z",
+    "duration": 19650.019,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "candidate_browser_tests": 1,
+  "candidate_browser": "Chromium 153.0.8010.12",
+  "node": "v24.18.0",
+  "build": "PASS",
+  "scope": "Legacy production behavior and actual retained SRAM preview; no production promotion or new chip qualification.",
+  "original_browser_failure": "Missing required local browser prevented launch; all 15 checks passed after installing the locked browser on H:.",
+  "files_sha256": {
+    "browser-missing.json.gz": "121dc3fcc5d01184fc1b65e2a643335e97d870850d12a7f0495384c8f80cec6b",
+    "build.log.gz": "78805a58282c4fe28eda7c2f2b44d3cd85e71bb88ab85485bd1bb3b5395aeece",
+    "candidate-browser.log.gz": "36c2cd0a4f3c4fb29b1909342782c013edb7f732fbedd0fda2ab6e52f87e4389",
+    "candidate-data.json": "74af9a92b6fb00c6a11e6e8e06979b950412297c7dea1b3474ed6c5a8ec3d834",
+    "candidate-desktop.png": "e364b47b967480db8d933cbe3b66b2b08976c961bf8838f45618e3edec6cc813",
+    "candidate-mobile.png": "03bd9e0494b242d6b4e88cfc124712e5f78ef454309a550581b11925c10fe7f7",
+    "final-browser.json.gz": "504f56fd3d533680da6ad8ae1e4750f4b2bfc13b15beacbb8a5d9e7353a59ea8",
+    "preparation.mjs": "6264f5b0f0e0edf857cf66eef994cc471bdc37abacf113b26c647c469b706fee",
+    "preview.config.mjs": "e8965b7aa2e2c72d2fbf052b241b3773dbb2ff3a381d73a9e2a0e8d7ff827a29",
+    "preview.spec.mjs": "c2b9f39abf0e1f8cb588e5af430634d00c384c58f94a1f0426e3d1ae225ac040",
+    "source-check.json": "91f7ad455adbda7aef73c89c88c0b2559fa5213fd0f29ca12852307107e3f780",
+    "unit-tests.tap.gz": "824c67a407d6c915e319565eebd9a78444293526ec258cc466921ee9e0066bed"
+  }
+}

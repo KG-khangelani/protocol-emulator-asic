@@ -4,6 +4,7 @@ import { mkdir } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildAtlas, repoRoot } from '../../tools/export_atlas.mjs';
+import { failedActiveQualification, missingQualificationOverrides } from '../../test/atlas_qualification_controls.mjs';
 
 async function syntheticDataset(page, overrides) {
   const fixture = buildAtlas(repoRoot, overrides);
@@ -21,12 +22,12 @@ test('architecture is real source-backed UI; search, layers, zoom and source lin
   await expect(page).toHaveTitle('Protocol atlas');
   await expect(page.locator('vite-error-overlay')).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Chip architecture' })).toBeVisible();
-  await expect(page.getByText('5/5 source hashes match E0018')).toBeVisible();
+  await expect(page.getByText(`5/5 source hashes match ${buildAtlas().source.qualification}`)).toBeVisible();
   await page.getByRole('searchbox').fill('synchronizer');
   await expect(page.locator('.outline [aria-pressed]')).toHaveCount(1);
   await page.locator('.outline').getByRole('button', { name: 'Input synchronizer 16 declared state bits', exact: true }).click();
   await expect(page.locator('.inspector').getByRole('heading', { name: 'Input synchronizer', exact: true })).toBeVisible();
-  await expect(page.locator('.inspector a').first()).toHaveAttribute('href', /181cfa19.*m1_input_sync.v/);
+  await expect(page.locator('.inspector a').first()).toHaveAttribute('href', buildAtlas().modules.find((item) => item.id === 'sync').sourceUrl);
   await page.getByRole('searchbox').fill('');
   await page.getByRole('checkbox', { name: 'Signal labels' }).uncheck();
   await expect(page.locator('.signal-label')).toHaveCount(0);
@@ -167,13 +168,17 @@ test('evidence and progress keep physical, fluency and host-service boundaries s
   await page.goto('/#view=evidence&evidence=E0018');
   await expect(page).toHaveTitle('Protocol atlas');
   await expect(page.locator('vite-error-overlay')).toHaveCount(0);
-  await expect(page.getByText('5/5 chip source hashes match E0018')).toBeVisible();
+  if (buildAtlas().source.qualification === 'E0018') {
+    await expect(page.getByText('5/5 chip source hashes match E0018')).toBeVisible();
+  } else {
+    await expect(page.locator('.evidence-facts')).toContainText('Historical source; current qualification is separate');
+  }
   await expect(page.locator('.evidence-facts')).toContainText('No FIFO/continuous receive');
   await expect(page.locator('.tool-list')).toContainText('Icarus Verilog version 14.0');
   await page.locator('.outline').getByRole('button', { name: 'E0016 UART TX 8N1' }).click();
   await expect(page.getByText('Recorded PASS', { exact: false })).toBeVisible();
   await page.locator('.outline').getByRole('button', { name: 'E0010 Archived M0 GPIO baseline' }).click();
-  await expect(page.locator('.evidence-facts')).toContainText('Historical GPIO source, not current M1');
+  await expect(page.locator('.evidence-facts')).toContainText('Historical source; current qualification is separate');
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'M0 owner fluency: PENDING' })).toBeVisible();
   await expect(page.getByRole('table')).toContainText('E0019 · MODEL NOT VISUALIZED');
@@ -320,11 +325,9 @@ test('desktop review captures: soft neutral regions in both themes, cycles and p
 });
 
 test('synthetic failed CI blocks PASS claims and measured metrics in the rendered app', async ({ page }, testInfo) => {
-  const path = 'evidence/E0018-uart-rx-public/qualification.json';
-  const qualification = JSON.parse(readFileSync(resolve(repoRoot, path), 'utf8'));
-  qualification.runs.push_test.conclusion = 'failure';
-  await syntheticDataset(page, { [path]: JSON.stringify(qualification) });
-  await page.goto('/#view=evidence&evidence=E0018');
+  const control = failedActiveQualification();
+  await syntheticDataset(page, control.overrides);
+  await page.goto('/#view=evidence&evidence=' + control.id);
   await page.screenshot({ path: testInfo.outputPath('failed-ci-evidence.png'), fullPage: true });
   await expect(page.locator('.result')).toContainText('Recorded NOT_VERIFIED');
   await expect(page.getByRole('heading', { name: 'Unverified record', exact: true })).toBeVisible();
@@ -341,14 +344,10 @@ test('synthetic failed CI blocks PASS claims and measured metrics in the rendere
 
 test('synthetic missing records do not assert completed or passed workloads', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await syntheticDataset(page, {
-    'evidence/E0010-pinned-cmos5l-run/result.json': null,
-    'evidence/E0016-uart-tx-8n1/ci-manifest.json': null,
-    'evidence/E0018-uart-rx-public/ci-manifest.json': null,
-  });
+  await syntheticDataset(page, missingQualificationOverrides());
   await page.goto('/#view=evidence&evidence=E0010');
   await page.screenshot({ path: testInfo.outputPath('missing-evidence.png'), fullPage: true });
-  for (const label of ['E0010 Archived M0 GPIO baseline', 'E0016 UART TX 8N1', 'E0018 Bounded last-byte UART RX']) {
+  for (const label of buildAtlas().evidence.map((item) => item.id + ' ' + item.title)) {
     await page.locator('.outline').getByRole('button', { name: label }).click();
     await expect(page.locator('.result')).toContainText('Recorded NOT_VERIFIED');
     await expect(page.getByRole('heading', { name: 'Unverified record', exact: true })).toBeVisible();

@@ -6,4 +6,4 @@ export type Relation = typeof data.relations[number];
 export type Evidence = typeof data.evidence[number];
 export const moduleById = (id: string) => atlas.modules.find((item) => item.id === id)!;
 export const relationById = (id: string) => atlas.relations.find((item) => item.id === id);
-export const short = (hash: string) => hash.slice(0, 8);
+export const short = (hash: string) => hash.startsWith('v') ? hash : hash.slice(0, 8);

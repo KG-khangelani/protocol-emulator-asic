@@ -13,7 +13,7 @@ export function readLocation(): Location {
   const view = params.get('view') ?? 'architecture';
   const module = params.get('module') ?? 'engine';
   const relation = params.get('relation') ?? '';
-  const evidence = params.get('evidence') ?? 'E0018';
+  const evidence = params.get('evidence') ?? atlas.source.qualification;
   const scenario = params.get('scenario') ?? 'example';
   const stimulus = params.get('stimulus') ?? '';
   return {
@@ -21,7 +21,7 @@ export function readLocation(): Location {
     module: atlas.modules.some((item) => item.id === module) ? module : 'engine',
     relation: atlas.relations.some((item) => item.id === relation) ? relation : '',
     signals: params.get('signals') !== '0', zoom: number('zoom', 1, .8, 1.4),
-    evidence: atlas.evidence.some((item) => item.id === evidence) ? evidence : 'E0018',
+    evidence: atlas.evidence.some((item) => item.id === evidence) ? evidence : atlas.source.qualification,
     edge: Math.floor(number('edge', 0, 0, 256)),
     count: Math.floor(number('count', 1, 0, 65535)),
     scenario: ['example', 'invalid', 'fallthrough'].includes(scenario) ? scenario : 'example',

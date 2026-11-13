@@ -10,6 +10,17 @@
     "qualification": "E0018",
     "matchCount": 5
   },
+  "storage": {
+    "logicalWords": 8,
+    "memoryBits": 0,
+    "interfaceId": "legacy"
+  },
+  "physical": {
+    "status": "NOT_EVALUATED",
+    "qualification": "",
+    "setupNs": null,
+    "holdNs": null
+  },
   "clockTargetHz": 50000000,
   "tileAllocation": "8x4",
   "modules": [
@@ -24,7 +35,8 @@
       "fields": [],
       "sourceHash": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
       "evidenceSourceMatches": true,
-      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/project.v"
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/project.v",
+      "memoryBits": 0
     },
     {
       "id": "program",
@@ -107,7 +119,8 @@
       ],
       "sourceHash": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
       "evidenceSourceMatches": true,
-      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_program_store.v"
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_program_store.v",
+      "memoryBits": 0
     },
     {
       "id": "engine",
@@ -268,7 +281,8 @@
       ],
       "sourceHash": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
       "evidenceSourceMatches": true,
-      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_engine.v"
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_engine.v",
+      "memoryBits": 0
     },
     {
       "id": "data",
@@ -327,7 +341,8 @@
       ],
       "sourceHash": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
       "evidenceSourceMatches": true,
-      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_data_store.v"
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_data_store.v",
+      "memoryBits": 0
     },
     {
       "id": "sync",
@@ -364,7 +379,8 @@
       ],
       "sourceHash": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
       "evidenceSourceMatches": true,
-      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_input_sync.v"
+      "sourceUrl": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/181cfa19b2d05f0892bfb8e6ebb5e234b9a18f03/src/m1_input_sync.v",
+      "memoryBits": 0
     }
   ],
   "relations": [
@@ -671,13 +687,13 @@
     "reportStatus": "RETAINED REPORT AVAILABLE",
     "reportHash": "182fb4e61cdd05633f485b6597f58ba735ad7e6643af89e8bcade5e22c98e48d",
     "url": "https://github.com/KG-khangelani/protocol-emulator-asic/blob/b19a718e25b2f6e3343a15a1632aaed7da14c05f/evidence/E0019-uart-rx-host-service/README.md",
-    "scope": "E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. The chip evidence view remains scoped to E0018 bounded last-byte RX."
+    "scope": "E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. Host-service delivery remains separate from the bounded last-byte receive contract."
   },
   "limits": [
     "Logical geometry is schematic, not physical area.",
     "Reference playback is not measured RTL or a hardware capture.",
     "50 MHz is a target, not measured Fmax.",
-    "M1 physical closure and silicon: NOT EVALUATED.",
+    "Current physical closure is not qualified by this view.",
     "M0 owner fluency is not promoted by engineering."
   ]
 }

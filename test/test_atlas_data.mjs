@@ -3,12 +3,32 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { buildAtlas, repoRoot } from '../tools/export_atlas.mjs';
+import { buildAtlas, repoRoot, sequentialRegisters } from '../tools/export_atlas.mjs';
+import { failedActiveQualification } from './atlas_qualification_controls.mjs';
+
+test('state accounting distinguishes comparisons from assignments and includes indexed writes', () => {
+  const source = `input [7:0] data_in;
+reg [7:0] count;
+reg [127:0] valid;
+reg [7:0] condition_only;
+wire in_range = (data_in <= 8'd128);
+always @(posedge clk) begin
+  if (condition_only <= 8'd10) count <= data_in;
+  valid[address[6:0]] <= 1'b1;
+end`;
+  assert.deepEqual(sequentialRegisters(source), [{ name: 'count', bits: 8 }, { name: 'valid', bits: 128 }]);
+});
 
 test('actual nonblocking state totals and grouping match the qualified source', () => {
   const data = buildAtlas();
-  assert.equal(data.totalStateBits, 410);
-  assert.deepEqual(data.modules.map((module) => module.stateBits), [0, 261, 108, 25, 16]);
+  assert.equal(data.totalStateBits, data.storage.memoryBits ? 353 : 410);
+  assert.deepEqual(data.modules.map((module) => module.stateBits), data.storage.memoryBits ? [0, 184, 128, 25, 16] : [0, 261, 108, 25, 16]);
+  if (data.storage.memoryBits) {
+    assert.deepEqual(data.storage, { logicalWords: 128, memoryBits: 8192, interfaceId: '0x22' });
+    assert.equal(data.source.qualification, 'E0045');
+    assert.equal(data.physical.status, 'PASS');
+    assert.equal(data.relations.find((item) => item.id === 'engine-program').wire, 'prefetch_pc');
+  }
   assert.equal(data.source.allSourceMatches, true);
   assert.equal(data.source.matchCount, 5);
   assert.equal(data.clockTargetHz, 50_000_000);
@@ -37,7 +57,7 @@ test('incorrect wiring is rejected rather than drawn as a fabricated relation', 
 test('missing or corrupted evidence cannot assert verified qualification', () => {
   for (const replacement of [null, '{}']) {
     const data = buildAtlas(repoRoot, { 'evidence/E0018-uart-rx-public/ci-manifest.json': replacement });
-    assert.equal(data.source.evidenceIntegrity, false);
+    if (data.source.qualification === 'E0018') assert.equal(data.source.evidenceIntegrity, false);
     assert.equal(data.evidence.find((item) => item.id === 'E0018').status, 'NOT_VERIFIED');
   }
 });
@@ -98,6 +118,24 @@ test('unverified RX evidence cannot retain measured generic metrics', () => {
     assert.equal(data.genericScreen.cells, null);
     assert.equal(data.genericScreen.stateBits, null);
     assert.equal(data.genericScreen.provenance, 'NOT_VERIFIED');
-    assert.equal(data.totalStateBits, 410, 'source-derived declarations remain independently inspectable');
+    assert.equal(data.totalStateBits, data.storage.memoryBits ? 353 : 410, 'source-derived declarations remain independently inspectable');
   }
+});
+
+test('an invalid production profile cannot borrow a historical qualification', () => {
+  const data = buildAtlas(repoRoot, { 'tools/production-profile.json': '{}' });
+  assert.equal(data.source.allSourceMatches, false);
+  assert.equal(data.source.evidenceIntegrity, false);
+  assert.equal(data.physical.status, 'NOT_VERIFIED');
+  assert.equal(data.evidence.find((item) => item.id === 'E0045').status, 'NOT_VERIFIED');
+  assert.equal(data.genericScreen.cells, null);
+});
+
+test('a failed job in the active qualification cannot produce current-source PASS', () => {
+  const control = failedActiveQualification();
+  const data = buildAtlas(repoRoot, control.overrides);
+  assert.equal(data.source.allSourceMatches, false);
+  assert.equal(data.source.evidenceIntegrity, false);
+  assert.equal(data.evidence.find((item) => item.id === control.id).status, 'NOT_VERIFIED');
+  assert.equal(data.genericScreen.cells, null);
 });

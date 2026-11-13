@@ -85,6 +85,12 @@ to main as work progresses. This goal includes combined protocol regression and
 fresh physical qualification before production promotion; a contract or oracle
 alone does not complete it.
 
+Latest checkpoint: the D47 run at `94a3082` passes GDS and all ten prechecks;
+its final public-netlist job remains live. UI0002 prepares accurate SRAM state,
+capacity and source-qualified evidence views with passing data/browser checks.
+Complete original-archive acceptance, production adoption, default-command
+verification and publication remain required.
+
 The [frozen I2C contract](specs/p-i2c-controller-100k.md) and D36/E0032 independent
 oracle pass 19 groups with 3,902 reference/control observations. This includes
 all bytes, ordinary addresses, stretching, final-edge priority and bounded

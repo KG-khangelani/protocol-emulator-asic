@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { productionRecord } from './atlas_production.mjs';
 
 export const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 const repository = 'https://github.com/KG-khangelani/protocol-emulator-asic';
@@ -35,7 +36,10 @@ export function sequentialRegisters(source) {
     const bits = match[1] === undefined ? 1 : Math.abs(Number(match[1]) - Number(match[2])) + 1;
     for (const name of match[3].split(',').map((part) => part.trim())) declarations.set(name, bits);
   }
-  const clocked = [...new Set([...text.matchAll(/\b([A-Za-z_]\w*)\s*<=/g)].map((match) => match[1]))];
+  // Match statement-shaped assignments, including indexed writes. A <= in
+  // an input bound or an if condition is a comparison, not sequential state.
+  const assignments = /(?:^|;|\bbegin\b|\belse\b)\s*(?:if\s*\([^\n]*\)\s*)?([A-Za-z_]\w*)(?:\s*\[[^;\n]*\])?\s*<=/gm;
+  const clocked = [...new Set([...text.matchAll(assignments)].map((match) => match[1]))];
   return clocked.map((name) => {
     if (!declarations.has(name)) throw new Error(`Unsupported sequential declaration: ${name}`);
     return { name, bits: declarations.get(name) };
@@ -68,6 +72,8 @@ function json(text) { try { return text === null ? null : JSON.parse(text); } ca
 
 export function buildAtlas(root = repoRoot, overrides = {}) {
   const read = reader(root, overrides);
+  const production = productionRecord(read);
+  const snapshot = production?.version ?? mainSnapshot;
   const definitions = [
     ['top', 'Top-level routing', 'tt_um_khangelani_protocol_emulator', 'src/project.v', 'Public pins, loader ownership and runtime readback', []],
     ['program', 'Program store', 'm1_program_store', 'src/m1_program_store.v', 'Writable through clock-synchronous public pins', [
@@ -88,6 +94,15 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     ]],
   ];
   const sourceText = Object.fromEntries(definitions.map((item) => [item[0], read(item[3])]));
+  const sram = /\bRM_IHPSG13_1P_256x32_c2_bm_bist\s+program_memory\b/.test(sourceText.program);
+  if (sram) {
+    definitions[1][4] = 'Writable through clock-synchronous public pins; 128 logical words in a 256-word SRAM';
+    definitions[1][5] = [['Valid-word flags', ['word_valid']], ['Word-zero shadow', ['word_zero']],
+      ['Loader control', ['program_length', 'program_ready', 'program_bank']],
+      ['Read pipeline', ['read_address', 'read_lane', 'read_present']]];
+    definitions[2][5][2][1].push('wait_timeout_jump', 'wait_failure_pc');
+    definitions[2][5].splice(5, 0, ['Timed GPIO phase', ['phase_active', 'phase_prepared']]);
+  }
   const qualificationText = read('evidence/E0018-uart-rx-public/qualification.json', false);
   const qualification = json(qualificationText);
   const manifestText = read('evidence/E0018-uart-rx-public/ci-manifest.json', false);
@@ -102,14 +117,18 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     Array.isArray(collected.stages) && collected.stages.length === requiredStages.length &&
     requiredStages.every((name) => collected.stages.some((stage) => stage.name === name && stage.status === 'PASS' && stage.returncode === 0)));
   const evidenceIntegrity = qualifies(qualification, manifest, manifestText);
+  const activeIntegrity = production ? production.qualified : evidenceIntegrity;
+  const activeQualification = production ? 'E0045' : 'E0018';
+  const activeRevision = production ? production.version : qualification?.implementation_head ?? mainSnapshot;
   const modules = definitions.map(([id, label, name, file, note, groups]) => {
     const registers = sequentialRegisters(sourceText[id]);
     const sourceHash = sha(sourceText[id]);
     return { id, label, name, file, note,
       stateBits: registers.reduce((sum, register) => sum + register.bits, 0),
       registers, fields: groups.length ? fields(registers, groups) : [], sourceHash,
-      evidenceSourceMatches: evidenceIntegrity && manifest.source_sha256?.[file] === sourceHash,
-      sourceUrl: `${repository}/blob/${qualification?.implementation_head ?? mainSnapshot}/${file}`,
+      evidenceSourceMatches: production ? production.qualified && production.sourceHashes[file.replace('src/', '')] === sourceHash : evidenceIntegrity && manifest.source_sha256?.[file] === sourceHash,
+      sourceUrl: `${repository}/blob/${activeRevision}/${file}`,
+      memoryBits: id === 'program' && sram ? 8192 : 0,
     };
   });
   const allSourceMatches = modules.every((module) => module.evidenceSourceMatches);
@@ -123,6 +142,8 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
     ['engine-data', 'engine', 'data', 'shift_result_data', 'shift_result_data', 'Raw result capture', ['shift_result_data[7:0]', 'shift_result_write'], 'Result and write strobe; capture does not imply frame acceptance.'],
     ['engine-output', 'engine', 'top', 'gpio_value', 'gpio_value', 'Runtime GPIO', ['gpio_value[7:0]', 'gpio_oe[7:0]'], 'Runtime uio_out/uio_oe; uo_out is status or selected register readback.'],
   ];
+  if (sram) relationDefinitions[3] = ['engine-program', 'engine', 'program', 'prefetch_pc', 'prefetch_pc',
+    'Fetch address', ['pc[7:0]', 'prefetch_pc[7:0]'], 'Current PC validates the instruction; the next-PC address clocks the synchronous SRAM fetch.'];
   const relations = relationDefinitions.map(([id, from, to, sourcePort, targetPort, label, signals, note]) => {
     const sourceWire = from === 'top' ? sourcePort : ports[from]?.[sourcePort];
     const targetWire = to === 'top' ? targetPort : ports[to]?.[targetPort];
@@ -133,6 +154,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
   for (const [from, to, port] of [['program', 'engine', 'instruction_valid'], ['data', 'engine', 'tx_payload_alt'], ['engine', 'data', 'shift_result_write']]) {
     if (ports[from]?.[port] !== ports[to]?.[port]) throw new Error(`Source wiring mismatch for ${port}`);
   }
+  if (sram && ports.engine.pc !== ports.program.pc) throw new Error('Source wiring mismatch for pc');
   if (!/engine_rst_n\s*=\s*rst_n\s*&&\s*program_ready\s*&&\s*!load_mode/.test(sourceText.top)) throw new Error('Unrecognized engine reset predicate');
   if (!/uio_out\s*=\s*load_mode\s*\?\s*loader_data_out\s*:\s*gpio_value/.test(sourceText.top)) throw new Error('Unrecognized runtime GPIO ownership');
   const learning = json(read('docs/learning/progress.json'));
@@ -152,7 +174,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
   const tools = (manifest) => Object.entries(manifest?.tools ?? {}).map(([name, version]) => ({ name, version: String(version).replace(/\s+/g, ' ') }));
   const physicalTools = ['flow', 'flow_version', 'pdk', 'pdk_commit', 'physical_yosys', 'gate_level_iverilog', 'gate_level_cocotb'].map((name) => ({ name, version: physical?.resolved_environment?.[name] ?? 'Unavailable' }));
   const record = (id, title, revision, status, rung, scope, path, extra = {}) => ({
-    id, title, revision, status, rung, scope, evidenceUrl: `${repository}/blob/${mainSnapshot}/${path}`, ...extra,
+    id, title, revision, status, rung, scope, evidenceUrl: `${repository}/blob/${snapshot}/${path}`, ...extra,
   });
   const evidence = [
     record('E0010', 'Archived M0 GPIO baseline', physical?.source_commit ?? '', physicalPass ? 'PASS' : 'NOT_VERIFIED', 'CMOS5L + gate-level + clean rerun',
@@ -161,23 +183,31 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
       'Named firmware workload, not complete UART or current M1 physical evidence.', 'evidence/E0016-uart-tx-8n1/README.md', { archived: false, currentSourceMatches: false, tools: tools(txManifest) }),
     record('E0018', 'Bounded last-byte UART RX', qualification?.implementation_head ?? '', evidenceIntegrity ? 'PASS' : 'NOT_VERIFIED', 'Digital RTL / scoped formal',
       'Both frames validate; only final byte delivered after known-image HALT. Raw valid is capture, not acceptance. No FIFO/continuous receive.', 'evidence/E0018-uart-rx-public/README.md',
-      { archived: false, currentSourceMatches: allSourceMatches, manifestIntegrity: evidenceIntegrity, tools: tools(manifest), runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
+      { archived: Boolean(production), currentSourceMatches: !production && allSourceMatches, manifestIntegrity: evidenceIntegrity, tools: tools(manifest), runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
   ];
+  if (production) evidence.push(record('E0045', 'Shared-core UART / SPI / I2C', production.version,
+    production.qualified ? 'PASS' : 'NOT_VERIFIED', 'CMOS5L + complete precheck + public netlist',
+    'One programmable SRAM core: UART TX and bounded last-byte RX, four SPI modes in both bit orders, and 100 kHz I2C. Input-hold and host-service limits remain; no fabricated-silicon claim.',
+    'evidence/E0045-g2-sram-qualification/README.md', { archived: false, currentSourceMatches: allSourceMatches,
+      manifestIntegrity: production.qualified, tools: production.tools, runUrl: `${repository}/actions/runs/${production.runId ?? ''}` }));
   const metadata = read('info.yaml');
   const hostServiceReport = read('evidence/E0019-uart-rx-host-service/README.md', false);
   return {
     schema: 'protocol-atlas-source-v1', repository,
-    source: { revision: qualification?.implementation_head ?? mainSnapshot, mainSnapshot, allSourceMatches, evidenceIntegrity,
-      fingerprint: sha(modules.map((module) => `${module.file}:${module.sourceHash}`).join('\n')), qualification: 'E0018', matchCount: modules.filter((module) => module.evidenceSourceMatches).length },
+    source: { revision: activeRevision, mainSnapshot: snapshot, allSourceMatches, evidenceIntegrity: activeIntegrity,
+      fingerprint: sha(modules.map((module) => `${module.file}:${module.sourceHash}`).join('\n')), qualification: activeQualification, matchCount: modules.filter((module) => module.evidenceSourceMatches).length },
+    storage: { logicalWords: sram ? 128 : 8, memoryBits: sram ? 8192 : 0, interfaceId: sram ? '0x22' : 'legacy' },
+    physical: { status: production?.qualified ? 'PASS' : production ? 'NOT_VERIFIED' : 'NOT_EVALUATED',
+      qualification: production ? 'E0045' : '', setupNs: production?.setupNs ?? null, holdNs: production?.holdNs ?? null },
     clockTargetHz: Number(metadata.match(/clock_hz:\s*(\d+)/)?.[1] ?? 0),
     tileAllocation: metadata.match(/tiles:\s*["']?([0-9]+x[0-9]+)/)?.[1] ?? 'Unknown',
     modules, relations, totalStateBits: modules.reduce((sum, module) => sum + module.stateBits, 0),
     evidence,
-    genericScreen: { cells: evidenceIntegrity ? qualification.clean_collector.generic_cells ?? null : null, stateBits: evidenceIntegrity ? qualification.clean_collector.state_bits ?? null : null, qualification: 'E0018', provenance: evidenceIntegrity ? 'MEASURED' : 'NOT_VERIFIED', scope: 'Generic synthesis only; not CMOS5L area/fit/timing.' },
+    genericScreen: { cells: !production && evidenceIntegrity ? qualification.clean_collector.generic_cells ?? null : null, stateBits: !production && evidenceIntegrity ? qualification.clean_collector.state_bits ?? null : null, qualification: 'E0018', provenance: !production && evidenceIntegrity ? 'MEASURED' : 'NOT_VERIFIED', scope: production ? 'Earlier generic cell counts are not reused for the SRAM chip. Current physical results are in E0045.' : 'Generic synthesis only; not CMOS5L area/fit/timing.' },
     learning: { activeMilestone: learning?.active_milestone ?? 'Unknown', m0Technical: ownerM0?.technical_gate?.status ?? 'Unknown', m0Fluency: ownerM0?.fluency_gate?.status ?? 'Unknown' },
     hypotheses,
-    deferred: { id: 'E0019', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-11-11', status: 'MODEL NOT VISUALIZED', reportStatus: hostServiceReport === null ? 'RETAINED REPORT UNAVAILABLE' : 'RETAINED REPORT AVAILABLE', reportHash: hostServiceReport === null ? null : sha(hostServiceReport), url: `${repository}/blob/b19a718e25b2f6e3343a15a1632aaed7da14c05f/evidence/E0019-uart-rx-host-service/README.md`, scope: 'E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. The chip evidence view remains scoped to E0018 bounded last-byte RX.' },
-    limits: ['Logical geometry is schematic, not physical area.', 'Reference playback is not measured RTL or a hardware capture.', '50 MHz is a target, not measured Fmax.', 'M1 physical closure and silicon: NOT EVALUATED.', 'M0 owner fluency is not promoted by engineering.'],
+    deferred: { id: 'E0019', branch: 'feat/bounded-uart-rx-host-service', head: 'b19a718e25b2f6e3343a15a1632aaed7da14c05f', snapshotDate: '2026-11-11', status: 'MODEL NOT VISUALIZED', reportStatus: hostServiceReport === null ? 'RETAINED REPORT UNAVAILABLE' : 'RETAINED REPORT AVAILABLE', reportHash: hostServiceReport === null ? null : sha(hostServiceReport), url: `${repository}/blob/b19a718e25b2f6e3343a15a1632aaed7da14c05f/evidence/E0019-uart-rx-host-service/README.md`, scope: 'E0019 describes bounded two-byte host service with a cache outside CHIP_COMPLETE. This app models neither the host service nor its cache and does not qualify that report. Host-service delivery remains separate from the bounded last-byte receive contract.' },
+    limits: ['Logical geometry is schematic, not physical area.', 'Reference playback is not measured RTL or a hardware capture.', '50 MHz is a target, not measured Fmax.', production?.qualified ? 'Pinned CMOS5L physical checks pass; fabricated silicon is not evaluated.' : 'Current physical closure is not qualified by this view.', 'M0 owner fluency is not promoted by engineering.'],
   };
 }
 

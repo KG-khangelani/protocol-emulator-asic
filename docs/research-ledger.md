@@ -25,6 +25,13 @@ express useful digital communication protocols under hard temporal constraints?*
 | F16 | A clean Windows checkout runs the read-only M0 status and RTL lessons through host Python without invoking Docker, while the complete locked Linux verification ladder remains green | E0014 |
 | F17 | With Docker Desktop opened, the Windows host runs signed version 4.92.0 with a healthy Linux/amd64 engine and passes all nine locked local M0 evidence stages at a clean source revision | E0015 |
 
+UI0002 records a separate browser/data checkpoint: the actual E0042 candidate
+exports 353 register bits, 8,192 macro bits and 128 logical program words.
+All 22 data/model tests, 15 browser checks and one desktop/phone candidate
+preview pass. Missing or failed qualification cannot inherit the historical
+production PASS. This adds no chip qualification; source adoption remains gated
+by the full G2 evidence.
+
 ## Verified upstream observations (not project measurements)
 
 | ID | Observation | Evidence and boundary |

@@ -17,7 +17,7 @@ const paths: Record<string, { d: string; x: number; y: number; label: string; ve
   'raw-sync': { d: 'M 272 102 L 272 524 L 314 524', x: 264, y: 487, label: 'uio_in · raw input', vertical: true },
   'sync-engine': { d: 'M 448 474 L 448 418', x: 458, y: 451, label: 'sampled_inputs[7:0]' },
   'program-engine': { d: 'M 242 238 L 314 238', x: 278, y: 229, label: 'instruction' },
-  'engine-program': { d: 'M 314 328 L 242 328', x: 278, y: 319, label: 'pc[4:0]' },
+  'engine-program': { d: 'M 314 328 L 242 328', x: 278, y: 319, label: atlas.storage.memoryBits ? 'next PC [7:0]' : 'pc[4:0]' },
   'data-engine': { d: 'M 650 224 L 584 224', x: 617, y: 210, label: 'TX A / B' },
   'engine-data': { d: 'M 584 330 L 650 330', x: 617, y: 316, label: 'raw RX' },
   'engine-output': { d: 'M 532 148 L 532 102', x: 542, y: 126, label: 'GPIO + OE' },
@@ -25,7 +25,7 @@ const paths: Record<string, { d: string; x: number; y: number; label: string; ve
 const hex = (hash: string) => hash.match(/.{1,16}/g)?.join(' ') ?? hash;
 
 function ModuleFields({ module }: { module: Module }) {
-  return <dl className="field-list">{module.fields.length ? module.fields.map((field) => <div key={field.label}><dt>{field.label}</dt><dd>{field.bits} bits</dd></div>) : <div><dt>Routing only</dt><dd>0 state bits</dd></div>}</dl>;
+  return <dl className="field-list">{module.fields.length ? module.fields.map((field) => <div key={field.label}><dt>{field.label}</dt><dd>{field.bits} bits</dd></div>) : <div><dt>Routing only</dt><dd>0 state bits</dd></div>}{module.memoryBits > 0 && <div><dt>SRAM macro</dt><dd>{module.memoryBits} bits</dd></div>}</dl>;
 }
 
 export function Architecture({ location, navigate }: Props) {
@@ -71,7 +71,7 @@ export function Architecture({ location, navigate }: Props) {
     </aside></Disclosure>
 
     <div className="canvas-region">
-      <div className="region-heading"><div><h1>Chip architecture</h1><p>CHIP_COMPLETE · logical wiring, not a floorplan</p></div><span className="metric">{atlas.totalStateBits} <small>state bits · DERIVED</small></span></div>
+      <div className="region-heading"><div><h1>Chip architecture</h1><p>CHIP_COMPLETE · logical wiring, not a floorplan{atlas.storage.memoryBits > 0 && ` · ${atlas.storage.logicalWords} program words, ${atlas.storage.memoryBits} SRAM bits`}</p></div><span className="metric">{atlas.totalStateBits} <small>register bits · DERIVED</small></span></div>
       <div className="toolbar" aria-label="Graph controls">
         <label><input type="checkbox" checked={location.signals} onChange={(event) => navigate({ signals: event.target.checked })} /> Signal labels</label>
         <div className="zoom-control"><button aria-label="Zoom out" disabled={location.zoom <= .8} onClick={() => navigate({ zoom: Math.max(.8, +(location.zoom - .1).toFixed(1)) })}>−</button><output aria-label="Zoom">{Math.round(location.zoom * 100)}%</output><button aria-label="Zoom in" disabled={location.zoom >= 1.4} onClick={() => navigate({ zoom: Math.min(1.4, +(location.zoom + .1).toFixed(1)) })}>+</button><button onClick={fit}>Fit</button></div>
@@ -98,9 +98,9 @@ export function Architecture({ location, navigate }: Props) {
               {selected.id === item.id && <path d={`M ${box.x} ${box.y + 8} V ${box.y + box.h - 8}`} className="selection-rule" />}
               <text x={box.x + 10} y={box.y + 24} className="module-title">{item.label}</text>
               <text x={box.x + 10} y={box.y + 43} className="module-subtitle">{item.stateBits} declared state bits</text>
-              {item.id === 'top' ? <><text x={box.x + 252} y={box.y + 24} className="module-subtitle">Shared pins · loader / runtime ownership</text><text x={box.x + 252} y={box.y + 47} className="module-subtitle">uo_out = status / selected register readback</text><text x={box.x + 10} y={box.y + 70} className="module-subtitle">engine reset: rst_n &amp;&amp; program_ready &amp;&amp; !load_mode</text></> : item.fields.map((field, index) => <g key={field.label}><text x={box.x + 10} y={box.y + 70 + 25 * index} className="module-field">{field.label}</text><text x={box.x + box.w - 10} y={box.y + 70 + 25 * index} textAnchor="end" className="module-number">{field.bits}</text></g>)}
+              {item.id === 'top' ? <><text x={box.x + 252} y={box.y + 24} className="module-subtitle">Shared pins · loader / runtime ownership</text><text x={box.x + 252} y={box.y + 47} className="module-subtitle">uo_out = status / selected register readback</text><text x={box.x + 10} y={box.y + 70} className="module-subtitle">engine reset: rst_n &amp;&amp; program_ready &amp;&amp; !load_mode</text></> : item.fields.map((field, index) => <g key={field.label}><text x={box.x + 10} y={box.y + 70 + (item.id === 'engine' ? 22 : 25) * index} className="module-field">{field.label}</text><text x={box.x + box.w - 10} y={box.y + 70 + (item.id === 'engine' ? 22 : 25) * index} textAnchor="end" className="module-number">{field.bits}</text></g>)}
               {item.id === 'engine' && <><text x={box.x + 10} y={box.y + 225} className="module-subtitle">RUN · WAIT · HALT · FAULT</text><text x={box.x + 10} y={box.y + 246} className="module-subtitle">ena freezes execution, not input sync</text></>}
-              {item.id === 'program' && <text x={box.x + 10} y={box.y + 168} className="module-subtitle">8 × 32-bit writable words</text>}
+              {item.id === 'program' && <><text x={box.x + 10} y={box.y + 168} className="module-subtitle">{atlas.storage.logicalWords} × 32-bit writable words</text>{item.memoryBits > 0 && <text x={box.x + 10} y={box.y + 189} className="module-subtitle">{item.memoryBits}-bit SRAM macro</text>}</>}
               {item.id === 'data' && <text x={box.x + 10} y={box.y + 188} className="module-subtitle">Capture ≠ accept</text>}
             </g>;
           })}
@@ -112,7 +112,7 @@ export function Architecture({ location, navigate }: Props) {
 
     <Disclosure kind="inspector" label={`Source details · ${active?.label ?? selected.label}`}><aside className="inspector" aria-label="Source inspector"><span className="eyebrow">{active ? 'Relationship' : 'Selected module'}</span><h2>{active?.label ?? selected.label}</h2>
       {active ? <><p>{moduleById(active.from).name}<br /><span className="muted">→</span> {moduleById(active.to).name}</p><dl className="field-list"><div><dt>From port</dt><dd><code>{active.sourcePort}</code></dd></div><div><dt>To port</dt><dd><code>{active.targetPort}</code></dd></div><div><dt>Top-level wire</dt><dd><code>{active.wire}</code></dd></div></dl><p>{active.note}</p><a href={moduleById('top').sourceUrl} target="_blank" rel="noreferrer">Inspect named connections ↗</a></> : <><p>{selected.note}</p><ModuleFields module={selected} /><code className="source-file">{selected.file}</code><a href={selected.sourceUrl} target="_blank" rel="noreferrer">{selected.evidenceSourceMatches ? 'Open qualified source' : 'Open source record'} ↗</a><h3>Declared sequential state</h3>{selected.registers.length ? <ul className="register-list">{selected.registers.map((item) => <li key={item.name}><code>{item.name}</code><span>{item.bits}</span></li>)}</ul> : <p>Combinational routing; no declared clocked state.</p>}<h3>Source fingerprint</h3><code className="hash">{hex(selected.sourceHash)}</code></>}
-      <div className="inspector-note"><h3>Claim boundary</h3><p>{selected.evidenceSourceMatches ? `Source SHA-256 matches retained E0018 (${short(atlas.source.revision)}).` : 'Source does not match qualified evidence. No current-source PASS.'}</p><p>State attribution is DERIVED. Geometry is schematic, not area. Loader writes and raw capture do not imply protocol acceptance.</p><button onClick={() => navigate({ view: 'evidence', evidence: 'E0018' })}>Inspect qualification →</button></div>
+      <div className="inspector-note"><h3>Claim boundary</h3><p>{selected.evidenceSourceMatches ? `Source SHA-256 matches retained ${atlas.source.qualification} (${short(atlas.source.revision)}).` : 'Source does not match qualified evidence. No current-source PASS.'}</p><p>State attribution is DERIVED. Geometry is schematic, not area. Loader writes and raw capture do not imply protocol acceptance.</p><button onClick={() => navigate({ view: 'evidence', evidence: atlas.source.qualification })}>Inspect qualification →</button></div>
     </aside></Disclosure>
   </section>;
 }

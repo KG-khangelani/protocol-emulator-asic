@@ -27,6 +27,14 @@ the exact repaired database. The official workflow now includes the additional
 port-selection stage. Fresh complete run43348171110 is active at clean 94a3082;
 all original acceptance gates remain required.
 
+That fresh run now passes GDS and all ten official prechecks. The submitted
+netlist exactly matches the corrected two-simulator result; its official
+public-program job is still running. UI0002 prepares the atlas for the real
+353-register-bit/8,192-SRAM-bit candidate and 128 logical words. All 22 data/model
+tests, 15 browser tests, one actual-candidate desktop/phone preview and the
+application build pass. The atlas withholds new qualification until the complete
+production evidence is present. Production source remains unchanged.
+
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
 UART/SPI/I2C qualification. D37/E0035 advances experimental od128: both simulators
