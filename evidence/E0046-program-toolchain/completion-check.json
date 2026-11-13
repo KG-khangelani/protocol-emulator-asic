@@ -1,13 +1,13 @@
 {
   "schema": "protocol-emulator-g3-completion-check-v1",
   "status": "PASS_G3_FINAL_RECORD_CHECK",
-  "observed_utc": "2026-11-13T09:34:59.538570+00:00",
-  "completion_audit_sha256": "df6bb5d2eda0ed5e4488efee4e28945dac81e49697eaf745e7445d0414c72f4d",
+  "observed_utc": "2026-11-13T09:39:22.547767+00:00",
+  "completion_audit_sha256": "d17750ab036baabd808a638f7c6027075e0be9cea12ca55ea1f99e4c300bf124",
   "references": {
     "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
     "test/test_program_tools.py": "fedd64548612eca068d4d875cee5385fb42bec87511d805d47c1c4a5b2a411df",
     "evidence/E0046-program-toolchain/ci-0297655/verification.json": "5c8cb385015a3481aaf20413717e190b66c93cddee8c7206a93100d497adc8d1",
-    "evidence/E0046-program-toolchain/publication/distribution-smoke.json": "eb441babd909526bea1eacda81a4de87ec0481199c44b01f218623ff24ae03bc",
+    "evidence/E0046-program-toolchain/publication/distribution-smoke.json": "19495d783017b8a042054d4c3795fb4148d17e09b29b7acd94a1bf52b5d9dbaa",
     "docs/programming.md": "c0aff09e8c06d45f2406dd56767c659d7376924e2e4841bbbba3b61c5337241b",
     "docs/specs/g3-program-toolchain.md": "4edc237fb408d3d14a1f20d18f960183a7084cfe00dbab1172ba7e6516aed699",
     "evidence/E0046-program-toolchain/publication/g3-toolchain.json": "22c61b74f8e3313808b288e32ba47206a273b08610c8323c07aa6f76c59dc923",
@@ -18,8 +18,8 @@
     "evidence/E0046-program-toolchain/ci-0297655/verify.py": "59a2658425d61add08638c27b4e73817235a42c8da473ece0c9001825bad6869",
     ".github/workflows/program-tools.yaml": "79d3c925bcdc69e6bf53bfba298f2b37f7adb8d76b93ffa6f3ac87055fbff62f",
     "evidence/E0046-program-toolchain/publication/release-verification.json": "4cf4255ee8c19823e5a75fd67601d3ba30a3ff9db634fd720fa4643e2a3bdb9d",
-    "evidence/E0046-program-toolchain/publication/retention.json": "f09e77fa6745a220bf4b6f7151de964f6101bd273f0197029aad148c90bb7958",
-    "evidence/E0046-program-toolchain/publication/packaging-platform-identity.json": "3549a6f81814322c41f9f93ffd35edfe159ad5c6a56b0bcfafbd5bdd69ec7324",
+    "evidence/E0046-program-toolchain/publication/retention.json": "e9ce02219771077f93c5b72ab1056093cfb9c3bc0d98616667c9daedaf227964",
+    "evidence/E0046-program-toolchain/publication/packaging-platform-identity.json": "8b916426184a0eb8bc01e0ba32b4e29dbddb59ac0d226593fdc08f5f4b6d1bfa",
     "tools/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
   },
   "sealed_qualification_and_publication_files": 47,

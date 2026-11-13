@@ -1,0 +1,35 @@
+{
+  "schema": "protocol-emulator-g3-evidence-newline-correction-v1",
+  "status": "CORRECTED_BEFORE_PUSH",
+  "observed_utc": "2026-11-13T09:38:39.740029+00:00",
+  "affected_local_commit": "7393167aa41256825dc3da9ff8c9d2975ec776f7",
+  "records": [
+    {
+      "path": "evidence/E0046-program-toolchain/publication/audit-runtime.json",
+      "old_working_bytes_sha256": "1eb17c91af2d59c5fd2bca006e4b575b9028c36ef384d6ed72f75deb9576160b",
+      "canonical_git_bytes_sha256": "91df3873e7aaafd3ad6f0e7ee3b4680ddff27d35cfe4a2da64d4acad35ab5f79",
+      "json_data_unchanged": true
+    },
+    {
+      "path": "evidence/E0046-program-toolchain/publication/distribution-smoke.json",
+      "old_working_bytes_sha256": "eb441babd909526bea1eacda81a4de87ec0481199c44b01f218623ff24ae03bc",
+      "canonical_git_bytes_sha256": "19495d783017b8a042054d4c3795fb4148d17e09b29b7acd94a1bf52b5d9dbaa",
+      "json_data_unchanged": true
+    },
+    {
+      "path": "evidence/E0046-program-toolchain/publication/packaging-platform-identity.json",
+      "old_working_bytes_sha256": "3549a6f81814322c41f9f93ffd35edfe159ad5c6a56b0bcfafbd5bdd69ec7324",
+      "canonical_git_bytes_sha256": "8b916426184a0eb8bc01e0ba32b4e29dbddb59ac0d226593fdc08f5f4b6d1bfa",
+      "json_data_unchanged": true
+    },
+    {
+      "path": "evidence/E0046-program-toolchain/publication/retention.json",
+      "old_working_bytes_sha256": "f09e77fa6745a220bf4b6f7151de964f6101bd273f0197029aad148c90bb7958",
+      "canonical_git_bytes_sha256": "e9ce02219771077f93c5b72ab1056093cfb9c3bc0d98616667c9daedaf227964",
+      "json_data_unchanged": true
+    }
+  ],
+  "cause": "Windows text-mode JSON output used CRLF; Git normalized it to LF after working-tree checksum checks.",
+  "repair": "Normalize only repository-generated metadata to LF, update dependent checksums/references and verify committed Git bytes.",
+  "original_ci_and_published_assets_unchanged": true
+}

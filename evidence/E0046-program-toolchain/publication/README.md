@@ -37,3 +37,8 @@ This is a separate follow-up to the immutable release, which cannot contain its
 own completed publication proof. G2's twenty physical inputs, alpha.6 archives,
 G1/P/M0 history and protocol/electrical/owner-learning limits remain unchanged.
 G4 submission readiness is separate.
+
+Four repository-only Windows JSON records are normalized to LF before sealing.
+Their data is unchanged; original CI ZIPs, release assets and registry bodies
+retain their original bytes. The pre-push Git normalization issue and repair
+are recorded in ../completion-newline-correction.json.

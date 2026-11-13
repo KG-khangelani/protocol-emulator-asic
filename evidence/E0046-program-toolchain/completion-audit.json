@@ -67,7 +67,7 @@
         },
         {
           "path": "evidence/E0046-program-toolchain/publication/distribution-smoke.json",
-          "sha256": "eb441babd909526bea1eacda81a4de87ec0481199c44b01f218623ff24ae03bc"
+          "sha256": "19495d783017b8a042054d4c3795fb4148d17e09b29b7acd94a1bf52b5d9dbaa"
         }
       ],
       "detail": "20 acceptance tests cover fixed words, invalid input, CLI behavior and boundary cases. 13 independent reference programs match; 53 generated files agree across Windows, Linux CI and a clean clone. Standalone distribution rebuild matches all 52 per-example files and rejects an invalid target."
@@ -155,11 +155,11 @@
         },
         {
           "path": "evidence/E0046-program-toolchain/publication/retention.json",
-          "sha256": "f09e77fa6745a220bf4b6f7151de964f6101bd273f0197029aad148c90bb7958"
+          "sha256": "e9ce02219771077f93c5b72ab1056093cfb9c3bc0d98616667c9daedaf227964"
         },
         {
           "path": "evidence/E0046-program-toolchain/publication/packaging-platform-identity.json",
-          "sha256": "3549a6f81814322c41f9f93ffd35edfe159ad5c6a56b0bcfafbd5bdd69ec7324"
+          "sha256": "8b916426184a0eb8bc01e0ba32b4e29dbddb59ac0d226593fdc08f5f4b6d1bfa"
         },
         {
           "path": "tools/production-profile.json",
