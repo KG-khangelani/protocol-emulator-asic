@@ -51,8 +51,13 @@ baseline_config = ROOT / "experiments/physical/d34-config.json"
 require(hashlib.sha256(baseline_config.read_bytes()).hexdigest() == physical["config_sha256_lf"],
         "archived D34 physical configuration differs from lock")
 config_lf = (ROOT / "src/config.json").read_text(encoding="utf-8").encode()
-require(hashlib.sha256(config_lf).hexdigest() == physical["config_sha256_lf"],
-        "physical configuration hash differs from lock")
+production_active = (ROOT / "tools/production-profile.json").is_file()
+if production_active:
+    from production_sram import verify as verify_production
+    verify_production(ROOT)
+else:
+    require(hashlib.sha256(config_lf).hexdigest() == physical["config_sha256_lf"],
+            "physical configuration hash differs from lock")
 for name, value in physical["physical_constraints"].items():
     require(config.get(name) == value, f"physical constraint differs from lock: {name}")
 gds_workflow = (ROOT / ".github/workflows/gds.yaml").read_text()
@@ -69,7 +74,16 @@ for expected in (
 ):
     require(expected in gds_workflow, f"physical workflow input differs from lock: {expected}")
 require(physical["librelane_image"] in gds_workflow, "physical image digest differs from lock")
-require("tools/physical_candidate.py prepare" in gds_workflow, "physical staging missing")
+if production_active:
+    require(gds_workflow.count("tools/physical_sram.py prepare") == 2 and
+            gds_workflow.count("--stage-ci --guarded --align-magic --power-ports --production") == 2,
+            "production physical workflow must verify actual source before staging")
+    historical_gds_workflow = (ROOT / ".github/workflows/gds-g1.yaml").read_text()
+    require("tools/physical_candidate.py prepare" in historical_gds_workflow,
+            "historical physical staging missing")
+else:
+    historical_gds_workflow = gds_workflow
+    require("tools/physical_candidate.py prepare" in gds_workflow, "physical staging missing")
 require("check-tests" in gds_workflow and "--require-netlist" in gds_workflow,
         "physical public-netlist verification missing")
 qualification = physical["qualification"]
@@ -83,7 +97,7 @@ for field in ("variant", "workflow_source_commit", "run_id", "gds_sha256", "netl
     require(qualified[field] == qualification[field], f"qualified physical identity differs from lock: {field}")
 require(all(qualified["jobs"][name]["conclusion"] == "success" for name in ("gds", "precheck", "gl_test")),
         "qualified physical jobs did not all pass")
-require(f"default: {qualification['variant']}" in gds_workflow, "manual GDS default differs from qualified pilot")
+require(f"default: {qualification['variant']}" in historical_gds_workflow, "historical GDS default differs from qualified pilot")
 # The non-gating canary still watches the archived M0 qualified ref.
 physical = lock["official_cmos5l_qualification"]
 canary_workflow = (ROOT / ".github/workflows/upstream-canary.yaml").read_text()

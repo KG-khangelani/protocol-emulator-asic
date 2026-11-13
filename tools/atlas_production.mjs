@@ -28,6 +28,7 @@ export function productionRecord(read) {
   });
   const qualified = Boolean(profile?.schema === 'protocol-emulator-production-profile-v1' && profile.profile === 'od128-sram' &&
     physical?.status === 'PASS_ALL_SRAM_OFFICIAL_PHYSICAL_GATES' && physical.physical_metrics?.status === 'PASS' &&
+    physical.precheck?.status === 'PASS' && physical.precheck.test_count === 10 && new Set(physical.precheck.tests).size === 10 &&
     Object.keys(physical.jobs ?? {}).length === 3 && ['gds', 'precheck', 'gl_test'].every((name) => physical.jobs?.[name]?.conclusion === 'success') &&
     ['source_commit', 'run_id', 'gds_sha256', 'netlist_sha256'].every((name) => physical[name] === profile.qualification[name]) &&
     sameMap(files, physical.staged_sha256) && actualFilesMatch && sha(read('info.yaml')) === profile.metadata_sha256 &&

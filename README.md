@@ -14,18 +14,28 @@ the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and t
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Engineering: M1 reloadable sequencer; learning: M0 teach-back pending.** The
-repo implements a public-pin-loaded temporal engine, synchronized bounded input
-waits, LOOP and reusable shifting. Named digital UART transmit and bounded
-last-byte receive workloads have RTL/scoped-formal qualification; see
-[E0016](evidence/E0016-uart-tx-8n1/README.md) and
-[E0018](evidence/E0018-uart-rx-public/README.md). This is not continuous/full UART,
-production SPI/I2C, production physical fit/timing or silicon evidence. The bounded
-[PR8 host-service work](https://github.com/KG-khangelani/protocol-emulator-asic/pull/8)
-is merged; its digital checks and limits are recorded in
-[E0019](evidence/E0019-uart-rx-host-service/README.md).
+**Engineering: G2 shared protocol core; learning: M0 teach-back pending.**
+Production now uses the qualified `od128-sram` temporal engine: 128 logical
+program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
+loaded programs implement UART TX and bounded RX, both bit orders of all four
+SPI modes, and Standard-mode 100 kHz I2C on this same core. Both complete RTL
+suites and source-matched formal gates pass in [E0042](evidence/E0042-sram-prefetch-screen/README.md)
+and [E0044](evidence/E0044-sram-current-verification/ci-13660ac/README.md).
+[E0045](evidence/E0045-g2-sram-qualification/README.md) verifies the fresh pinned
+8x4 GDS, timing, ten prechecks and eighteen actual-netlist public test groups.
+[D48](docs/decisions/0048-adopt-qualified-sram-production.md) binds adoption to
+the exact qualified files; actual-default-command CI and publication are tracked
+in [state](docs/state.md).
 
-The isolated compact SPI candidate now has a formal proof for its eight-word
+Interface **0x22** requires one rising edge for program-byte readback; see the
+[production profile](docs/specs/g2-production-profile.md). UART retains its
+framing, phase and bounded host-service/delivery limits. SPI requires its
+declared input hold; edge-only failures remain expected controls. I2C retains
+external pull-up/resolved-bus assumptions, stretching and bounded cleanup.
+Continuous autonomous UART, broad peripheral interoperability, analog bus
+qualification and fabricated-silicon results remain open.
+
+The earlier isolated compact SPI candidate has a formal proof for its eight-word
 mode0/2 programs, both bit orders and symbolic payloads under an explicit
 input-hold requirement ([E0028](evidence/E0028-held-program-induction/README.md)).
 The subsequent timed post-action GPIO P candidate fits modes1/3 into eight
@@ -38,9 +48,9 @@ pilot: GDS, routed metrics, ten prechecks and twelve public netlist test groups
 pass under the frozen 8x4/20 ns setup. P uses 13.1456% less routed standard-cell
 area but fails a fanout limit. [D35](docs/decisions/0035-select-compact10-physical-pilot.md)
 and [E0031](evidence/E0031-8x4-physical-comparison/README.md) retain the results
-and limits. Combined UART/SPI/I2C qualification on one revision is the next
-engineering goal; production promotion still needs that regression and fresh
-physical evidence.
+and limits. G2's later SRAM adoption preserves this G1 qualification and the
+rejected P result; the production source and physical setup are separately
+bound to E0045.
 
 The archived deterministic GPIO M0 has passed its pinned CMOS5L GDS,
 gate-level, precheck and clean-rerun gate ([E0010](evidence/E0010-pinned-cmos5l-run/README.md)).
@@ -129,11 +139,13 @@ evidence-backed tour; add `Physical` as its second argument to focus on
 synthesis-to-GDS. `LearnWaveform` reruns the M0 Icarus test in readable VCD mode
 and prints the reset, count, wrap, hold, resume and reset-priority edges.
 
-`make evidence` reruns the verification stages, including conservative learning-
-status validation and the readable waveform walkthrough, and writes logs plus a
-machine-readable manifest under
-`build/evidence/<timestamp>/`. Missing tools produce **BLOCKED** and a nonzero
-exit code. A generic Yosys result does not establish IHP area or timing.
+`make evidence` checks the current source, models, runtime and retained stage
+files before reusing completed results. It runs missing/invalid stages, reruns
+repository consistency checks, and writes `build/current/evidence.json` with
+the source-bound receipts and logs. The historical eight-word profile retains
+its separate `build/evidence/<timestamp>/` collector. M0 learning commands stay
+on their archived source. Missing required tools produce a nonzero exit;
+generic Yosys synthesis does not establish IHP area or timing.
 
 Linux/WSL users can run equivalent commands with `./tools/workbench.sh`. Native
 tools remain useful for exploration, but the locked workbench is the reproducible
@@ -151,7 +163,7 @@ for physical fit and timing; a local generic synthesis pass cannot replace it.
 | `docs/learning/` | Practical map, glossary, labs, checkpoints and conservative fluency status |
 | `docs/specs/m0-gpio.md` | Exact pin-level baseline behavior |
 | `docs/specs/protocol-atlas.md` | Approved UI direction and source/interaction/verification contract; implementation tracked separately |
-| `src/` | Synthesizable Verilog and preserved physical configuration |
+| `src/` | Qualified production RTL, memory declaration and physical configuration |
 | `web/` | Local source-backed interactive atlas, not device control |
 | `test/` | cocotb RTL and gate-level harness |
 | `tools/` | Consistency checks and evidence capture |

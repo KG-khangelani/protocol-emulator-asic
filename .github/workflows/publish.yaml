@@ -73,6 +73,8 @@ jobs:
           cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
       - name: Verify tools, models, both RTL simulators, formal checks and synthesis
         run: ./tools/workbench.sh All
+      - name: Collect source-bound normal-command evidence
+        run: ./tools/workbench.sh Evidence
       - name: Verify research release claims with the focused SPI gates
         if: startsWith(github.ref, 'refs/tags/')
         run: |
@@ -148,9 +150,16 @@ jobs:
               "platform": "linux/amd64",
               "toolchain_lock_sha256": hashlib.sha256(lock.read_bytes()).hexdigest(),
               "verification_run": f'{os.environ["GITHUB_SERVER_URL"]}/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}',
-              "checks": ["doctor", "check", "lint", "test", "test-verilator", "formal", "synth"],
+              "checks": ["doctor", "check", "lint", "test", "test-verilator", "formal", "synth", "evidence"],
               "physical_qualification": "NOT_EVALUATED",
           }
+          production = Path("tools/production-profile.json")
+          if production.is_file():
+              from tools.production_sram import verify
+              manifest["production_qualification"] = verify()
+              manifest["physical_qualification_scope"] = "This publication job does not rerun physical checks; production_qualification binds the retained qualified inputs."
+              shutil.copy2(production, output / production.name)
+              shutil.copy2("build/current/evidence.json", output / "production-verification.json")
           if os.environ["GITHUB_REF"].startswith("refs/tags/"):
               manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof", "spi-phase1-capacity", "spi-timed-gpio"]
               shutil.copy2("build/release-sensitivity/result.json", output / "spi-sensitivity.json")
@@ -198,5 +207,7 @@ jobs:
             build/release-timed-gpio/result.json
             build/release-timed-gpio/*/result.json
             test/results*.xml
+            build/current/
+            !build/current/**/sim/**
           if-no-files-found: warn
           retention-days: 90

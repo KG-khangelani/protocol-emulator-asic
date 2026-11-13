@@ -1,0 +1,109 @@
+# G1 experimental chips; the staged source manifest identifies the built RTL.
+name: gds-g1
+run-name: G1 ${{ inputs.variant }} 8x4 physical comparison
+
+on:
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: E0030-identical complete-chip candidate
+        type: choice
+        required: true
+        default: compact10
+        options:
+          - P
+          - compact10
+
+permissions:
+  contents: read
+
+env:
+  PHYSICAL_VARIANT: ${{ inputs.variant }}
+  LIBRELANE_IMAGE_OVERRIDE: ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5
+
+jobs:
+  gds:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out the workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+
+      - name: Stage the identified experimental chip
+        run: python3 tools/physical_candidate.py prepare --variant "$PHYSICAL_VARIANT" --output "build/g1/$PHYSICAL_VARIANT" --stage-ci
+
+      - name: Build GDS
+        uses: TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          pdk: ihp-sg13cmos5l
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+          librelane-version: 3.1.0.dev4
+
+      - name: Verify resolved physical input identities
+        run: python3 tools/physical_candidate.py check-run --variant "$PHYSICAL_VARIANT" --output "build/g1/$PHYSICAL_VARIANT/resolved-inputs.json"
+
+      - name: Retain candidate identity
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: physical-candidate
+          path: |
+            build/g1/*/inputs.json
+            build/g1/*/resolved-inputs.json
+            build/g1/*/variants/source-manifest.json
+          if-no-files-found: warn
+          retention-days: 90
+
+  precheck:
+    needs: gds
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Run Tiny Tapeout Precheck
+        uses: TinyTapeout/tt-gds-action/precheck@5e7361fdc445649261c0725dc15f38242dfad330
+        with:
+          tools-repo: TinyTapeout/tt-support-tools
+          tools-ref: 9d13ff3e3e6202090740110438c6a10c1d62ca0f
+
+  gl_test:
+    needs: gds
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      G1_PHYSICAL: 'yes'
+      TIMED_GPIO_VARIANT: ${{ inputs.variant }}
+      TIMED_GPIO_RECORD_DIR: ${{ github.workspace }}/test/output/spi
+      TIMED_GPIO_SMOKE: '0'
+      COCOTB_PLUSARGS: '+NO_DUMP'
+      COCOTB_RANDOM_SEED: '20261112'
+    steps:
+      - name: Check out the workflow source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          submodules: recursive
+
+      - name: Stage matching experimental test inputs
+        run: python3 tools/physical_candidate.py prepare --variant "$PHYSICAL_VARIANT" --output "build/g1/$PHYSICAL_VARIANT" --stage-ci
+
+      - name: Run public programs on the actual mapped netlist
+        uses: TinyTapeout/tt-gds-action/gl_test@5e7361fdc445649261c0725dc15f38242dfad330
+
+      - name: Check complete public coverage and unchanged SPI records
+        run: >-
+          python3 tools/physical_candidate.py check-tests --variant "$PHYSICAL_VARIANT"
+          --junit test/results.xml --records test/output/spi/cases.jsonl
+          --output test/output/physical-result.json --require-netlist
+
+      - name: Retain netlist qualification
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: physical-netlist-check
+          path: |
+            test/output/physical-result.json
+            build/g1/*/inputs.json
+          if-no-files-found: warn
+          retention-days: 90

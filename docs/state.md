@@ -12,20 +12,23 @@ two-simulator pair; every SPI/I2C/boundary/abort record is unchanged. All requir
 physical conditions pass, with 5.5958856909900625 ns setup and
 0.12079138031701087 ns hold slack at the 20 ns target.
 
-Production adoption, actual-default-command verification and publication remain
-open. Preserve all 20 qualified physical input files during adoption. D47 exposes
+D48 now adopts all 20 qualified physical input files byte for byte. Actual
+default-source Doctor, 127 repository tests, style and generic synthesis pass;
+physical regeneration reproduces the exact adopted files. Clean full default-
+command CI and publication remain open. D47 exposes
 54 existing full-height supply rectangles and preserves every conductor,
 instance and public signal pin. D46's exact two-file rule alignment and original
 complete checker remain explicit. Earlier run43337581691 still fails its 148
 pin-span checks, and run43320295442 still fails its 36 original Magic findings;
 their complete original records are unchanged.
 
-UI0002 prepares the atlas for the real
-353-register-bit/8,192-SRAM-bit candidate and 128 logical words. All 22 data/model
-tests, 15 browser tests, one actual-candidate desktop/phone preview and the
-application build pass. The atlas withholds new qualification until the complete
-production evidence is present. Production source remains unchanged at this
-qualification checkpoint.
+The atlas now displays the qualified 353-register-bit/8,192-SRAM-bit production
+source and 128 logical words. All 23 data/model tests, fifteen desktop/mobile
+browser tests and the application build pass. Missing/changed qualification
+records and raw source-byte changes are rejected. E0045/adoption retains the
+local results; UI0002 preserves the preceding unqualified preview.
+
+## Retained progression (historical checkpoints)
 
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
@@ -701,17 +704,14 @@ efficiently express useful digital communication protocols under hard temporal c
   during GitHub's 11 November Actions outage. One retry was queued per failed
   workflow: all three retries now pass completely on the same merge source.
   The E0019 recovery record retains their identities and the earlier failures.
-  These are separate from pre-merge CI. Compiler,
-  production SPI promotion and physical qualification remain separate.
-- The tested production coupled-shift SPI schedules do not cover the declared
-  response envelope. E0021's experimental compact and banked candidates are
-  publicly loadable in simulation and have measured generic complete-chip
-  costs, but production still has the original eight-word store/ISA. Technology-
-  mapped costs and physical timing remain NOT_EVALUATED; E0022 supplies partial
-  core properties/refinement and E0023 written actual-top integration safety.
-  See [E0022](../evidence/E0022-compact-phase-formal/README.md). Four-mode SPI and
-  I2C remain unqualified. The open M0 issue still has stale technical checklist
-  items; archived physical closure is not rerun or owner-fluency evidence.
+  These are separate from pre-merge CI and from D48/E0045's current production
+  qualification. Programming tools remain queued under G3.
+- E0021's earlier coupled-shift schedules fail the declared SPI response
+  envelope; their recorded failures remain. Current production instead uses
+  D48's qualified 128-word SRAM source and the frozen four-mode SPI/I2C contracts.
+  Broader input timing, analog signaling and unrestricted peripheral
+  compatibility remain unqualified. The open M0 issue still has stale technical
+  checklist items; archived closure does not prove owner fluency.
 
 - The M0 owner fluency checkpoint has not yet been completed; technical closure
   alone does not satisfy the project's equal learning goal.
@@ -725,10 +725,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - G1 is complete. Keep its source identities, qualified compact10 result and
   rejected P attempts intact; no new physical run or further tuning is needed.
-- Active engineering goal (G2): reconcile the I2C draft with compact10, freeze the
-  public-pin contract and independent oracle, then qualify UART/SPI/I2C and
-  public reload on one candidate revision. Combined regression and fresh
-  physical evidence are required before production promotion.
+- Active engineering goal (G2): audit clean full default-command verification
+  on the D48-adopted source, publish alpha.6 with its matching workbench and
+  original evidence, then verify downloads, image identity and all tag checks.
 - Programming tools (G3): add a small assembler alongside the settled G2
   instruction contract; a larger compiler needs a demonstrated use case.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
@@ -742,14 +741,13 @@ efficiently express useful digital communication protocols under hard temporal c
 
 ## Handoff boundaries
 
-M0's technical gate has passed and its fluency gate remains pending. The M1
-candidate is reloadable through clock-synchronous public pins and has a local
-UART-transmit firmware candidate, a bounded last-byte RX experiment and the
-bounded host-serviced pair from E0019, integrated through PR8.
-Continuous/autonomous UART receive delivery, full SPI and I2C remain unqualified; scoped mode0/2
-held-data transfers and the eight-word timed phase1 comparison are qualified
-only within their isolated experimental contracts;
-E0022 proves written executor properties/refinement under its stated assumptions;
-D35 qualifies only the generated compact10 physical pilot. A compiler,
-production physical closure, Fmax and fabricated-silicon claims remain absent. The original OpenKnowledge records
+M0's technical gate has passed and owner fluency remains pending. Production is
+the exact D48/E0045-qualified SRAM core, interface 0x22 and 128 logical words.
+Publicly loaded UART TX/bounded RX, all four SPI modes in both bit orders and
+Standard-mode I2C share the same RTL. UART framing/delivery/host-service limits,
+SPI input hold and I2C electrical/cleanup assumptions remain explicit. Continuous
+autonomous UART, unrestricted protocol interoperability, analog-bus validation,
+Fmax and fabricated-silicon results remain absent. G3's assembler remains queued;
+G2 still needs its clean default-command audit and publication. G1, rejected
+experiments and historical formal evidence remain frozen. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

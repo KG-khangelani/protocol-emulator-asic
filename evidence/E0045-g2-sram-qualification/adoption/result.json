@@ -1,0 +1,135 @@
+{
+  "status": "PASS_LOCAL_PRODUCTION_ADOPTION_SCREENS_CLEAN_CI_PENDING",
+  "production": {
+    "status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM",
+    "profile": "od128-sram",
+    "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "qualified_run_id": 43348171110,
+    "qualified_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "qualified_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "files_sha256": {
+      "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+      "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+      "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+      "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+      "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+      "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+      "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+      "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+      "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+      "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+      "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+      "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+      "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+      "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+      "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+    },
+    "metadata_sha256": "81bacf39188db2a2938e41d920789cc326da95be4799930e6eff1840058c39f8"
+  },
+  "staging_files_sha256": {
+    "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+    "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+    "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+    "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+    "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+    "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+    "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+    "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+    "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+    "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+    "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+    "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+    "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+  },
+  "local_stage_summaries": {
+    "doctor": {
+      "kind": "PINNED_TOOL_IDENTITY"
+    },
+    "check": {
+      "kind": "REPOSITORY_CHECKS"
+    },
+    "lint": {
+      "kind": "SOURCE_PINNED_VERILOG_STYLE",
+      "unwaived_warnings": 2,
+      "exception": "Only always-comb on the exact next-state engine and SRAM combinational read mux; both retain standard Verilog always @*. All other rules/modules pass."
+    },
+    "synth": {
+      "kind": "GENERIC_STANDARD_LOGIC_PLUS_REAL_MACRO_BLACKBOX_NOT_PHYSICAL",
+      "primitive_cells": 3422,
+      "state_bits": 353,
+      "cell_types": {
+        "$_ANDNOT_": 288,
+        "$_AND_": 887,
+        "$_DFF_P_": 8,
+        "$_MUX_": 266,
+        "$_NAND_": 946,
+        "$_NOR_": 104,
+        "$_NOT_": 25,
+        "$_ORNOT_": 117,
+        "$_OR_": 347,
+        "$_SDFFE_PN0P_": 317,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 27,
+        "$_XNOR_": 63,
+        "$_XOR_": 26
+      },
+      "macro_count": 1,
+      "separate_physical_memory_bits": 8192,
+      "logical_words": 128
+    }
+  },
+  "repository_tests": 127,
+  "atlas_tests": 23,
+  "atlas_browser_tests": {
+    "startTime": "2026-11-13T03:42:35.375Z",
+    "duration": 21751.318,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "atlas_build": "PASS",
+  "source_checkpoint": "Pre-commit adopted working tree; source inputs are recorded in each receipt. Full clean default-command CI remains required.",
+  "files_sha256": {
+    "adoption.json": "e24572db823120e5d1964fe67449dd4a75eb4d064956308a3418702d8453c140",
+    "atlas-browser-final.json.gz": "59aa911d2a1bc6a9f814b498f7a63edf08eace970adab8d8552f858c933e56eb",
+    "atlas-browser-final.log.gz": "ac2591a248a669684a3504d7b0d75a7de3988047507b63234f288f7a67a4f4e8",
+    "atlas-build-final.log.gz": "caf2f8f1526140186f6cf3fc75fa232c16c9455784fa25ef1efe2af76e6533a1",
+    "atlas-unit.tap.gz": "525303aeb34cfae955d43625d7749406b64580ee450650121ae74861f323f61e",
+    "check-receipt.json.gz": "9b91cd8529025600527eef1d2bcb4a914a79d91b86cd7ce21a893705e203d251",
+    "check.log.gz": "92050401749de719e98ed2fed3f4f8947b9c603895e50e13f96b36047e013593",
+    "desktop-architecture-light.png": "4fe87b5788d4f1bf6ac002735ae6740ec3cb812864aba9769a9fb78ca92353b8",
+    "doctor-receipt.json.gz": "0a3298ee1b50be528a7f07a8165acef9db80d2c672876bbe6107c58b67f47cf0",
+    "doctor.log.gz": "cda3d777b304e12b8bfdd10cd45adf3a45bf3fc1fa0c004ac5692231082d67aa",
+    "lint-receipt.json.gz": "06d21fe1c182d64a63f0ec1f85778ef58fdacbf899cb0ef872fb1f4dfc083451",
+    "lint.log.gz": "e0f5c191864040ecb5349b1ebf84b4a85679fedd93d0ca9881b6b597ba9f889d",
+    "mobile-portrait-evidence-dark.png": "b5461f5e0858221a83748501c5bb72c758d950b493b0b7d6cc0432c3ada4feb1",
+    "production-verification.json": "26479d54f721e1453c79295c272850deeb4105e202a2e0cf61d6a2b3ec420709",
+    "staging.json": "9fd440be0a08d380509fa643dde35c2ca21c61a9c3f109a88607a0b8f7c62683",
+    "synth-receipt.json.gz": "058832a3794ecce5ffe6f49cda69cb0b157b8f5221403fede8b11cfe93a5d941",
+    "synth.log.gz": "92290aa0961526e42b692a4fefe9df3da0d5f75e789ce01f4d03812caf847c32"
+  }
+}

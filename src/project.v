@@ -10,15 +10,21 @@ module tt_um_khangelani_protocol_emulator (
     wire load_write = ui_in[6];
     wire load_register = ui_in[5];
     wire [4:0] byte_address = ui_in[4:0];
-    wire [4:0] pc;
+    wire [7:0] pc;
+    wire [7:0] prefetch_pc;
     wire [1:0] state;
     wire [15:0] wait_left;
     wire [7:0] gpio_value;
     wire [7:0] gpio_oe;
     wire [7:0] program_loader_data_out;
     wire [7:0] register_data_out;
+    wire [7:0] register_data_out_raw;
+    wire [3:0] program_bank;
+    assign register_data_out = (byte_address == 5'd5) ? {4'd0, program_bank} :
+                               (byte_address == 5'd6) ? pc :
+                               (byte_address == 5'd7) ? 8'h22 : register_data_out_raw;
     wire [7:0] loader_data_out;
-    wire [3:0] program_length;
+    wire [7:0] program_length;
     wire program_ready;
     wire [31:0] instruction;
     wire instruction_valid;
@@ -30,8 +36,8 @@ module tt_um_khangelani_protocol_emulator (
     wire wait_is_shift_status;
     wire loop_active_status;
     wire [7:0] loop_remaining_status;
-    wire [4:0] loop_start_status;
-    wire [4:0] loop_end_status;
+    wire [7:0] loop_start_status;
+    wire [7:0] loop_end_status;
     wire [7:0] tx_payload;
     wire [7:0] tx_payload_alt;
     wire [7:0] rx_result;
@@ -50,15 +56,17 @@ module tt_um_khangelani_protocol_emulator (
     wire [7:0] shift_result_data;
     wire engine_rst_n = rst_n && program_ready && !load_mode;
     wire program_store_selected = load_mode &&
-                                  (!load_register || (byte_address == 5'd0));
+                                  (!load_register || (byte_address == 5'd0) ||
+                                   (byte_address == 5'd5));
     wire data_store_selected = load_mode && load_register;
     wire runtime_read = !load_mode && load_write && load_register;
 
     m1_program_store store (
         .clk(clk), .rst_n(rst_n), .ena(ena),
         .load_mode(program_store_selected), .load_write(load_write),
-        .load_length(load_register),
-        .byte_address(byte_address), .data_in(uio_in), .pc(pc),
+        .load_length(load_register), .load_bank(load_register && (byte_address == 5'd5)),
+        .program_bank(program_bank),
+        .byte_address(byte_address), .data_in(uio_in), .pc(pc), .prefetch_pc(prefetch_pc),
         .data_out(program_loader_data_out), .program_length(program_length),
         .program_ready(program_ready), .instruction(instruction),
         .instruction_valid(instruction_valid)
@@ -69,7 +77,7 @@ module tt_um_khangelani_protocol_emulator (
         .register_select(data_store_selected),
         .register_write(load_write), .register_address(byte_address),
         .data_in(uio_in), .shift_result_write(shift_result_write),
-        .shift_result_data(shift_result_data), .data_out(register_data_out),
+        .shift_result_data(shift_result_data), .data_out(register_data_out_raw),
         .tx_payload(tx_payload), .tx_payload_alt(tx_payload_alt),
         .rx_result(rx_result), .rx_valid(rx_valid)
     );
@@ -83,7 +91,7 @@ module tt_um_khangelani_protocol_emulator (
         .instruction(instruction), .instruction_valid(instruction_valid),
         .sampled_inputs(sampled_inputs), .tx_payload(tx_payload),
         .tx_payload_alt(tx_payload_alt),
-        .pc(pc), .state(state), .wait_left(wait_left),
+        .pc(pc), .prefetch_pc(prefetch_pc), .state(state), .wait_left(wait_left),
         .gpio_value(gpio_value), .gpio_oe(gpio_oe),
         .wait_is_input_status(wait_is_input_status),
         .wait_pin_status(wait_pin_status), .wait_level_status(wait_level_status),
@@ -110,7 +118,7 @@ module tt_um_khangelani_protocol_emulator (
                              register_data_out : program_loader_data_out;
     assign uio_out = load_mode ? loader_data_out : gpio_value;
     assign uio_oe = load_mode ? (load_write ? 8'h00 : 8'hff) : gpio_oe;
-    assign uo_out = runtime_read ? register_data_out : {state, program_ready, pc};
+    assign uo_out = runtime_read ? register_data_out : {state, program_ready, pc[4:0]};
 `ifdef FORMAL
     // Check public decode/ownership against pins, not the runtime_read alias.
     always_comb begin
@@ -120,10 +128,13 @@ module tt_um_khangelani_protocol_emulator (
                 5'd2: assert (uo_out == rx_result);
                 5'd3: assert (uo_out == {7'b0, rx_valid});
                 5'd4: assert (uo_out == tx_payload_alt);
+                5'd5: assert (uo_out == {4'd0, program_bank});
+                5'd6: assert (uo_out == pc);
+                5'd7: assert (uo_out == 8'h22);
                 default: assert (uo_out == 8'b0);
             endcase
         end else begin
-            assert (uo_out == {state, program_ready, pc});
+            assert (uo_out == {state, program_ready, pc[4:0]});
         end
         if (!ui_in[7]) begin
             assert (uio_out == gpio_value);

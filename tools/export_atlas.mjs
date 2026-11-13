@@ -13,14 +13,15 @@ const sha = (text) => createHash('sha256').update(text).digest('hex');
 const canonical = (text) => text.replaceAll('\r\n', '\n');
 const stripComments = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
 
-function reader(root, overrides) {
+function reader(root, overrides, normalize = true) {
   return (path, required = true) => {
     try {
       if (Object.hasOwn(overrides, path)) {
         if (overrides[path] === null) throw new Error('missing fixture');
-        return canonical(overrides[path]);
+        return normalize ? canonical(overrides[path]) : overrides[path];
       }
-      return canonical(readFileSync(resolve(root, path), 'utf8'));
+      const value = readFileSync(resolve(root, path), 'utf8');
+      return normalize ? canonical(value) : value;
     } catch (error) {
       if (required) throw new Error(`Cannot inspect ${path}: ${error.message}`);
       return null;
@@ -72,7 +73,7 @@ function json(text) { try { return text === null ? null : JSON.parse(text); } ca
 
 export function buildAtlas(root = repoRoot, overrides = {}) {
   const read = reader(root, overrides);
-  const production = productionRecord(read);
+  const production = productionRecord(reader(root, overrides, false));
   const snapshot = production?.version ?? mainSnapshot;
   const definitions = [
     ['top', 'Top-level routing', 'tt_um_khangelani_protocol_emulator', 'src/project.v', 'Public pins, loader ownership and runtime readback', []],
@@ -185,7 +186,7 @@ export function buildAtlas(root = repoRoot, overrides = {}) {
       'Both frames validate; only final byte delivered after known-image HALT. Raw valid is capture, not acceptance. No FIFO/continuous receive.', 'evidence/E0018-uart-rx-public/README.md',
       { archived: Boolean(production), currentSourceMatches: !production && allSourceMatches, manifestIntegrity: evidenceIntegrity, tools: tools(manifest), runUrl: `${repository}/actions/runs/${qualification?.runs?.push_test?.id ?? ''}` }),
   ];
-  if (production) evidence.push(record('E0045', 'Shared-core UART / SPI / I2C', production.version,
+  if (production) evidence.push(record('E0045', 'Shared-core UART / SPI / I2C', production.physicalSource,
     production.qualified ? 'PASS' : 'NOT_VERIFIED', 'CMOS5L + complete precheck + public netlist',
     'One programmable SRAM core: UART TX and bounded last-byte RX, four SPI modes in both bit orders, and 100 kHz I2C. Input-hold and host-service limits remain; no fabricated-silicon claim.',
     'evidence/E0045-g2-sram-qualification/README.md', { archived: false, currentSourceMatches: allSourceMatches,

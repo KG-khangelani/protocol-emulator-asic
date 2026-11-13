@@ -122,6 +122,12 @@ def prepare(args):
     power_ports = getattr(args, "power_ports", False)
     require(not aligned or guarded, "Magic alignment requires --guarded")
     require(not power_ports or (guarded and aligned), "power-port selection requires --guarded --align-magic")
+    production_audit = None
+    if getattr(args, "production", False):
+        require(guarded and aligned and power_ports, "production requires every qualified physical addition")
+        from tools.production_sram import verify as verify_production
+        # Check the actual selected files before generation or any in-place copy.
+        production_audit = verify_production(ROOT)
     plugin_files = PORT_PLUGIN_FILES if power_ports else ALIGNED_PLUGIN_FILES if aligned else GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(),
@@ -190,6 +196,12 @@ def prepare(args):
         names.add("docs/decisions/0046-align-magic-contact-rules-with-pinned-references.md")
     if power_ports:
         names.add("docs/decisions/0047-export-existing-full-height-supply-ports.md")
+    if production_audit:
+        profile = read(ROOT / "tools/production-profile.json")
+        names.update({"tools/production_sram.py", "tools/production-profile.json",
+                      ".github/workflows/gds.yaml", profile["decision"]})
+        names.update(profile[key]["path"] for key in
+                     ("qualification", "combined_regression", "normal_command_verification", "corrected_netlist_pair"))
     provenance = {}
     for name in sorted(names):
         target = out / "inputs" / name
@@ -214,6 +226,11 @@ def prepare(args):
         "fast_model_boundary": FAST_BOUNDARY, "public_test_names": sorted(physical_g2.PUBLIC_TEST_MODULES),
         "physical": "NOT_EVALUATED", "production": "NOT_PROMOTED",
     }
+    if production_audit:
+        require(record["staged_sha256"] == production_audit["files_sha256"],
+                "regenerated physical files differ from actual qualified production")
+        record["production"] = production_audit
+        record["status"] = "PREPARED_MATCHING_QUALIFIED_PRODUCTION"
     if guarded:
         record["guarded_flow"] = {"core_bounded_stripes": True, "fixed_public_pin_rectangles": 43,
                                   "metal4_minimum_spacing_um": 0.42,
@@ -224,7 +241,8 @@ def prepare(args):
     if power_ports:
         record["power_port_selection"] = POWER_PORT_CONTRACT.copy()
     write(out / "inputs.json", record)
-    print("PASS: exact audited SRAM candidate staged; physical qualification pending")
+    print("PASS: actual production and staged inputs match qualified SRAM" if production_audit else
+          "PASS: exact audited SRAM candidate staged; physical qualification pending")
 
 
 def one_stage(run, step):
@@ -359,7 +377,7 @@ def check_run(args):
         "macro_views": actual_views, "fast_model_boundary": FAST_BOUNDARY,
         "power_connections_sha256": digest(power / "power-connections.json"),
         "buffer_connectivity_audit_sha256": digest(buffer / "connectivity-audit.json"),
-        "production": "NOT_PROMOTED",
+        "production": inputs.get("production", "NOT_PROMOTED"),
     }
     if pin_guard:
         result["public_pin_power_audit_sha256"] = digest(pin_guard)
@@ -429,6 +447,7 @@ def main():
         sub.set_defaults(function=function)
         if action == "prepare":
             sub.add_argument("--stage-ci", action="store_true")
+            sub.add_argument("--production", action="store_true", help="Verify actual qualified production before staging; require identical generated files.")
             sub.add_argument("--guarded", action="store_true", help="D45 core-bounded power stripes, vendor SRAM import and mandatory fixed-pin guard.")
             sub.add_argument("--align-magic", action="store_true", help="D46 exact contact-rule alignment and import scheduling; requires --guarded.")
             sub.add_argument("--power-ports", action="store_true", help="D47 existing full-height supply ports only; requires --guarded --align-magic.")

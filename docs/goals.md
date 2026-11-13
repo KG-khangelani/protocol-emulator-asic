@@ -4,7 +4,8 @@ Updated: 2026-11-13. Decision: [D32](decisions/0032-goals-to-submission-readines
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
-The immediate bottleneck is physical feasibility and shared-core protocol coverage.
+The immediate work is clean default-command verification and publication of
+the adopted shared-protocol SRAM core.
 Further instruction compression is valuable only when it improves that outcome.
 
 ## Priorities and planning targets
@@ -16,7 +17,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; functional/formal and complete physical gates pass; adoption, default verification and publication open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; qualified SRAM adopted; clean default verification and publication open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -88,8 +89,10 @@ alone does not complete it.
 Latest checkpoint: E0045's D47 run at `94a3082` passes GDS, all ten prechecks
 and all eighteen public-netlist groups. Windows/native replays verify 1,713
 original files and 55 producing inputs; five corruption controls are rejected.
-UI0002 prepares accurate SRAM state/capacity/evidence views. Production adoption,
-actual-default-command verification and publication remain required.
+UI0002 preserves the pre-adoption atlas checks. D48 now adopts all twenty exact
+physical inputs; 127 repository tests, style, generic synthesis, exact physical
+regeneration and 23 data/fifteen browser tests pass locally. Clean full actual-
+default-command CI and publication remain required.
 
 The [frozen I2C contract](specs/p-i2c-controller-100k.md) and D36/E0032 independent
 oracle pass 19 groups with 3,902 reference/control observations. This includes
@@ -122,8 +125,8 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** adopt the exact E0045-qualified SRAM files, verify
-the default production commands and publish the qualified milestone.
+**Next executable action:** audit clean full default-command CI for the adopted
+source, then publish and verify the qualified milestone.
 Run43348171110 at clean 94a3082 now passes the complete physical audit.
 D47's earlier 191-file report/native/pin-checker replays,
 four native fault controls, two staging controls and 118 repository tests pass.
@@ -277,7 +280,8 @@ Completion checks:
 The checked functional/formal requirements began with E0035/E0036 and are now
 reproduced on the exact E0042 SRAM source, with E0044's complete normal-command
 audit and E0045's fresh physical qualification. The stated protocol limits
-remain. Production adoption and publication are still open; G2 stays active.
+remain. D48 adopts the exact qualified files; clean full default-command CI and
+publication are still open, so G2 stays active.
 
 A protocol that needs a new dedicated RTL path falsifies the current flexibility
 hypothesis. First test whether a general instruction or a stated scope change

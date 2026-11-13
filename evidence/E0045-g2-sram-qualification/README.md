@@ -30,7 +30,9 @@ Earlier original-rule, pin-span, timing, congestion and proof-timeout failures
 remain in their original evidence directories. G1's compact10 qualification,
 P rejection, M0's 6x4 results and owner-fluency status are unchanged.
 
-At this checkpoint, production adoption, fresh actual-default-command
-verification and the milestone release/package remain required before G2 is
-complete. The prepared adoption must preserve all 20 physical input files
-byte for byte and bind its decision and evidence in a production profile.
+D48 now adopts all twenty physical inputs byte for byte and binds the decision,
+metadata and supporting evidence in the production profile. The
+[local adoption screens](adoption/README.md) pass 127 repository tests, style,
+generic synthesis, exact physical regeneration and the complete atlas checks.
+Fresh clean actual-default-command CI and the milestone release/package remain
+required before G2 is complete.

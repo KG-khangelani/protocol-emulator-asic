@@ -30,6 +30,7 @@ check-base:
 	$(PYTHON) -m unittest discover -s experiments/spi_phase -p 'test_pin_timing.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_current_profile.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_production_sram.py'
 ifneq ($(filter $(SOURCE_PROFILE),od128-shared od128-sram),)
 doctor:
 	$(CURRENT_RUN) doctor

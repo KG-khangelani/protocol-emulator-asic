@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / 'experiments/spi_phase'))
 from legacy_baseline import FILES, baseline_sources
 
@@ -52,6 +53,15 @@ def verification_inputs():
                'evidence/E0036-g2-store-and-ci/ci/od128/protocols/icarus/records/cases.jsonl.gz',
                'evidence/E0036-g2-store-and-ci/ci/architecture/boundaries/od128-icarus/records/boundaries.jsonl.gz',
                'evidence/E0036-g2-store-and-ci/ci/architecture/aborts/od128-icarus/records/aborts.jsonl.gz'}
+    profile_path = ROOT / 'tools/production-profile.json'
+    if profile_path.is_file():
+        from tools.production_sram import verify as verify_production
+        verify_production(ROOT)
+        production = json.loads(profile_path.read_bytes())
+        singles.update(production['files_sha256'])
+        singles.add(production['decision'])
+        singles.update(production[key]['path'] for key in
+                       ('qualification', 'combined_regression', 'normal_command_verification', 'corrected_netlist_pair'))
     selected = {n for n in names if n and (n.startswith(prefixes) or n in singles) and (ROOT / n).is_file()}
     assert singles <= selected, 'missing required verification input'
     return {n: digest(ROOT / n) for n in sorted(selected)}

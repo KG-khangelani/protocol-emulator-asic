@@ -69,7 +69,8 @@ jobs:
 
   test:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    # Full production pair, fixed formal budgets and historical comparisons.
+    timeout-minutes: 90
     steps:
       - name: Check out exact source revision
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6

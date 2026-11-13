@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildAtlas, repoRoot, sequentialRegisters } from '../tools/export_atlas.mjs';
 import { failedActiveQualification } from './atlas_qualification_controls.mjs';
@@ -138,4 +138,17 @@ test('a failed job in the active qualification cannot produce current-source PAS
   assert.equal(data.source.evidenceIntegrity, false);
   assert.equal(data.evidence.find((item) => item.id === control.id).status, 'NOT_VERIFIED');
   assert.equal(data.genericScreen.cells, null);
+});
+
+test('production qualification checks actual file bytes before newline normalization', (t) => {
+  if (!existsSync(resolve(repoRoot, 'tools/production-profile.json'))) return t.skip('historical production profile');
+  const baseline = buildAtlas();
+  assert.equal(baseline.source.allSourceMatches, true);
+  const profile = JSON.parse(readFileSync(resolve(repoRoot, 'tools/production-profile.json'), 'utf8'));
+  assert.equal(baseline.evidence.find((item) => item.id === 'E0045').revision, profile.qualification.source_commit);
+  const source = readFileSync(resolve(repoRoot, 'src/project.v'), 'utf8');
+  assert.ok(!source.includes('\r'));
+  const changed = buildAtlas(repoRoot, { 'src/project.v': source.replaceAll('\n', '\r\n') });
+  assert.equal(changed.source.allSourceMatches, false);
+  assert.equal(changed.physical.status, 'NOT_VERIFIED');
 });

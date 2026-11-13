@@ -135,7 +135,7 @@ def prepare(args):
         "metadata_sha256_lf": text_digest(ROOT / "info.yaml"),
         "flow_lock": lock,
         "provenance_sha256_lf": {name: text_digest(ROOT / name) for name in (
-            "tools/physical_candidate.py", BASE_CONFIG_PATH, ".github/workflows/gds.yaml",
+            "tools/physical_candidate.py", BASE_CONFIG_PATH, ".github/workflows/gds-g1.yaml",
             "test/Makefile", "test/tb.v", "test/test.py", "test/test_uart_rx_public.py",
             "test/test_spi_timed_gpio.py", "experiments/spi_phase/build_timed_gpio.py",
             "experiments/spi_phase/build_variants.py", "experiments/spi_phase/timed_gpio_programs.py",

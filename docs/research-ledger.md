@@ -38,7 +38,9 @@ original ZIPs, 1,713 members and 55 producing inputs pass Windows/native audit;
 five rehashed/incomplete-evidence controls are rejected. The submitted netlist
 matches the corrected local two-simulator pair exactly. D46/D47's explicit
 construction/rule changes and earlier rejected original results remain retained.
-Production adoption and publication remain separate requirements.
+D48 now adopts all twenty physical inputs with exact identity checks. Local
+default-source consistency/style/synthesis and atlas checks pass; clean full
+default-command CI and verified publication remain required.
 
 ## Verified upstream observations (not project measurements)
 
@@ -104,6 +106,9 @@ Production adoption and publication remain separate requirements.
 | D42 | Advance the pinned synchronous SRAM to physical integration after preserving instruction cadence and lowering mapped footprint | decisions/0042-screen-synchronous-sram-with-prefetch.md, E0042; 0x22 explicitly clocks loader reads; complete regression/proof/control gates pass; complete mapped footprint is 78.5306% lower, physical gate open |
 | D43 | Integrate and qualify the exact SRAM's power/physical views without relaxing acceptance limits | decisions/0043-qualify-sram-physical-integration.md, E0043; native grid failure retained; 144 short outer-edge connections power all 104 supply rectangles and pass both actual grids; full physical flow remains open |
 | D45 | Correct SRAM import and prevent fixed public pins from overlapping power | decisions/0045-correct-sram-import-and-public-pin-power-clearance.md, E0043; original official failure and 17 actual shorts retained; native core-bounded pilot and 43 fixed-pin clearance checks pass; vendor import resolves the scoped subcell diagnostic without disabling DRC |
+| D46 | Align the exact two Magic contact rules with the pinned references and control import scheduling | decisions/0046-align-magic-contact-rules-with-pinned-references.md; original findings retained, full checker and every acceptance condition preserved |
+| D47 | Export the existing full-height supply ports without changing conductors or signal pins | decisions/0047-export-existing-full-height-supply-ports.md; 146 internal rectangles removed, 54 existing external rectangles retained; complete E0045 precheck passes |
+| D48 | Adopt the exact qualified SRAM core with source/evidence guards and actual-default-command verification | decisions/0048-adopt-qualified-sram-production.md, E0045; combined and complete physical qualification pass, local adoption screens pass, clean default CI and publication remain required |
 
 ## Experimental results
 
