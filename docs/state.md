@@ -13,8 +13,10 @@ power-port membership before another complete qualification. The submitted
 netlist exactly matches corrected native trial 05. The final official netlist
 job now passes all eighteen groups and every reference record. Its additional
 477 original files pass Windows/native replay while aggregate qualification
-still rejects the failed precheck. Local Verilator testing continues; Icarus
-passes. Production adoption and publication remain open.
+still rejects the failed precheck. Both local simulators now pass all eighteen
+groups and every reference record on the corrected netlist. The 1,246-file
+replay preserves 194 frozen inputs and the explicit reset-model probe.
+Production adoption and publication remain open.
 
 D47's bounded repair now selects existing full-height supply ports while
 preserving all conductors and signal pins. Original pin checking reproduces

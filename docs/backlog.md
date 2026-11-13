@@ -135,8 +135,9 @@ the latter's 17-file replay preserves both actual timeout receipts. Do not
 extend them while fresh official qualification is executing. Native full
 trial 05 completes in 9,381.393 seconds with the same 36-finding report as the
 official reference; its 927-file completion replay passes. Both simulators
-are now testing its corrected routed netlist with frozen inputs and the
-previously validated model setup, under unchanged 10,800-second bounds.
+now pass all eighteen corrected-netlist groups and every reference record
+in 3,682.630/5,393.933 seconds under unchanged 10,800-second bounds. Its
+1,246-file replay preserves 194 frozen inputs and the explicit reset-model probe.
 Fresh official run43337581691 at clean 232ee20 passes the complete GDS build,
 including zero Magic DRC/LVS and every required electrical/timing condition.
 Independent precheck passes nine checks but rejects exported supply-port spans
@@ -151,7 +152,7 @@ and 43 signal pins unchanged. Both fresh grids and the original pin checker
 pass. Its 191-file report/native/pin replays, four native faults, two staging
 controls and 118 repository tests pass. The official workflow enables this
 additional stage; complete run43348171110 is active at clean 94a3082 before
-production adoption. Local corrected-netlist Icarus passes; Verilator continues.
+production adoption. Both local corrected-netlist simulators pass.
 E0044 separately preserves the physical baseline for future adoption: all nine
 profiles keep exact source/configuration bytes, the 358-file replay passes,
 and 118 repository tests pass including two archive/production-drift controls.

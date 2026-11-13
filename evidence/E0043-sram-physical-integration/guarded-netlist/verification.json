@@ -1,0 +1,72 @@
+{
+  "status": "PASS_RETAINED_CORRECTED_NETLIST_PAIR_WITH_FROZEN_INPUTS",
+  "files": 1246,
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "simulators": {
+    "icarus": {
+      "groups": 18,
+      "seconds": 3682.63,
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      }
+    },
+    "verilator": {
+      "groups": 18,
+      "seconds": 5393.933,
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      }
+    }
+  },
+  "cell_observations": 1025,
+  "original_and_stuck_reset_mismatches": 249,
+  "frozen_source_files": 194,
+  "adapter_sha256": "93b53f09c96fce8be74581c195c9ef505196013be2ab1590b2e0c78a811afd2e",
+  "physical_scope": {
+    "status": "PASS_IDENTICAL_SUBMITTED_NETLIST",
+    "run_id": 43337581691,
+    "source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+    "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "physical_qualification": "REJECTED_POWER_PORT_PRECHECK; fresh D47 qualification remains separate",
+    "scope": "The corrected physical netlist, unchanged in both simulators; zero-delay functional results do not qualify the earlier layout."
+  },
+  "boundary": "Pinned zero-delay digital model compatibility; not four-state equivalence, extracted timing, manufacturing or official precheck acceptance."
+}

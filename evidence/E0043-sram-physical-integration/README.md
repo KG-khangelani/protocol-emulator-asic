@@ -11,6 +11,11 @@ run43337581691. Its 477 additional original files replay on Windows/Linux;
 the earlier power-port rejection is preserved. Fresh D47 run43348171110 at
 94a3082 remains in progress before production adoption and publication.
 
+The [corrected-netlist pair](guarded-netlist/README.md) also passes all eighteen
+groups and every reference record in both local simulators. Its 1,246-file
+replay retains 194 frozen inputs and the explicit reset-model compatibility
+probe; physical rejections remain unchanged.
+
 The first native power-grid run completes in 32.640 seconds but fails power
 acceptance. All 104 macro supply rectangles have no routed same-net overlap;
 the generator removes 72 floating macro stripes and both grid checks fail.

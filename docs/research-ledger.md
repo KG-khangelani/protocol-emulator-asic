@@ -214,3 +214,10 @@ identical. Original pin checking reproduces 148 errors on the old export and
 passes the new one; both fresh power grids pass. The 191-file report/native/pin
 replays, four malformed-port controls, two staging controls and 118 repository
 tests pass. Enable the extra stage for renewed complete qualification.
+
+The [corrected routed-netlist pair](../evidence/E0043-sram-physical-integration/guarded-netlist/README.md)
+now passes all eighteen groups in Icarus/Verilator in 3,682.630/5,393.933
+seconds. Every SPI/I2C/boundary/abort record matches. The 1,246-file replay
+binds 194 frozen inputs, unmodified models/netlist and the four-way reset
+probe. The circuit equals official 232ee20's submission; both earlier physical
+rejections remain preserved. D47's fresh run43348171110 remains in progress.
