@@ -1,0 +1,45 @@
+{
+  "after_def_sha256": "d648f325cbf58cfa76f2e7c9fd52b8f8c879217d8afcbc52968cb820f607d6c5",
+  "configuration_controls": [
+    {
+      "fault": "missing-selection-step",
+      "rejection": "unexpected flow substitutions"
+    },
+    {
+      "fault": "wrong-port-contract",
+      "rejection": "power-port selection contract differs"
+    }
+  ],
+  "execution": {
+    "command": [
+      "/nix/store/qs4izsy8n6gxz4zr31bjpwcq83nq2422-python3-3.13.13-env/bin/python",
+      "-m",
+      "librelane",
+      "--pdk-root",
+      "/pdk",
+      "--pdk",
+      "ihp-sg13cmos5l",
+      "--run-tag",
+      "port-step",
+      "--force-run-dir",
+      "runs/port-step",
+      "--with-initial-state",
+      "/workspace/build/g2-sram-full-05/runs/integrated/57-odb-cellfrequencytables/state_out.json",
+      "--from",
+      "Project.SelectSramPowerPorts",
+      "--to",
+      "Project.SelectSramPowerPorts",
+      "src/config_merged.json"
+    ],
+    "returncode": 0,
+    "seconds": 9.402,
+    "timed_out": false,
+    "wall_limit": 120
+  },
+  "input_odb_sha256": "97e65b674230e713f313aa17a27702590eff0aa12b023f34a41b53b8f1729bab",
+  "matches_passing_original_pin_checker_probe": true,
+  "output_odb_sha256": "77bb30a71ccc0ea6c0fc2f32fa4f724ea702b03266a0f53fddc71a09beb413e1",
+  "physical_qualification": "OPEN",
+  "stage": "runs/port-step/01-project-selectsrampowerports",
+  "status": "PASS_PORTABLE_NATIVE_POWER_PORT_STEP"
+}

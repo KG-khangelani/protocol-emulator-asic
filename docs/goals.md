@@ -116,8 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** correct the exported supply-port membership and
-repeat complete official qualification. Run43337581691 at 232ee20 passes
+**Next executable action:** run complete official qualification with D47's
+tested supply-port selection. Its 191-file report/native/pin-checker replays,
+four native fault controls, two staging controls and 118 repository tests pass.
+The original checker rejects the old export and accepts the repaired one;
+all wires and signal pins remain identical and both grids pass. Production
+promotion still waits for complete acceptance. Run43337581691 at 232ee20 passes
 the full corrected manufacturing build and nine prechecks, but fails the
 power-port check with 148 LEF errors. Its 1,216 original files and 52 producing
 inputs pass Windows/native replay; aggregate qualification rejects the run.

@@ -13,6 +13,14 @@ power-port membership before another complete qualification. The submitted
 netlist exactly matches corrected native trial 05. Official/local functional
 tests remain running; production adoption and publication remain open.
 
+D47's bounded repair now selects existing full-height supply ports while
+preserving all conductors and signal pins. Original pin checking reproduces
+the 148 errors and passes the repaired export; both fresh power grids pass.
+The 191-file report/native/pin-checker replays, four native fault controls,
+two staging controls and 118 repository tests pass. Portable staging reproduces
+the exact repaired database. The official workflow now includes the additional
+port-selection stage; next run all complete qualification gates on this source.
+
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core
 UART/SPI/I2C qualification. D37/E0035 advances experimental od128: both simulators

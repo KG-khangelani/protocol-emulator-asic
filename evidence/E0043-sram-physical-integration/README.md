@@ -145,3 +145,11 @@ Independent precheck passes nine checks but rejects exported supply-port spans
 with 148 LEF errors. Four unchanged ZIPs retain 1,216 files and 52 producing
 inputs; Windows and native Linux replay pass and reject aggregate qualification.
 Correct the exported port membership before another complete official run.
+
+The [D47 power-port repair](power-ports/README.md) retains 54 existing full-height
+contacts while removing 146 internal port rectangles; every conductor and all
+43 signal pins remain unchanged. Native LEF generation, original pin checking,
+both grids and exact portable staging pass. The 191-file report/native/checker
+replays, four native fault controls, two staging controls and 118 repository
+tests pass. The official workflow now enables this additional explicit stage;
+complete renewed qualification remains required.

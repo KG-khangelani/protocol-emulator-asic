@@ -143,6 +143,12 @@ Independent precheck passes nine checks but rejects exported supply-port spans
 with 148 LEF errors. Its 1,216 original files and 52 producing inputs pass both
 retained replays; aggregate qualification rejects the run. Correct power-port
 membership and repeat official qualification; functional tests remain running.
+D47 now passes the bounded supply-port repair: 146 internal rectangles removed
+from the port list, 54 existing full-height rectangles retained, all conductors
+and 43 signal pins unchanged. Both fresh grids and the original pin checker
+pass. Its 191-file report/native/pin replays, four native faults, two staging
+controls and 118 repository tests pass. The official workflow enables this
+additional stage; run complete qualification before production adoption.
 E0044 separately preserves the physical baseline for future adoption: all nine
 profiles keep exact source/configuration bytes, the 358-file replay passes,
 and 118 repository tests pass including two archive/production-drift controls.

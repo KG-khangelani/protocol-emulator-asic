@@ -1,0 +1,25 @@
+{
+  "status": "PASS_FOUR_NATIVE_PORT_CONTROLS_WITHOUT_PARTIAL_EDIT",
+  "cases": [
+    {
+      "case": "narrow",
+      "rejection": "undersized supply port",
+      "unchanged_input_sha256": "f979cbc748ff4c4ac6a012c22f16dae340a0cfb7d92f6d6d735a514d4a9e2f66"
+    },
+    {
+      "case": "wrong-layer",
+      "rejection": "wrong supply port layer",
+      "unchanged_input_sha256": "32d2ffa1f27e294678098a22cccdbe7d9ed2cdfbc24bc9e95519ea0cd3d10807"
+    },
+    {
+      "case": "missing-conductor",
+      "rejection": "supply port lacks its real conductor",
+      "unchanged_input_sha256": "d9e1a89fdc440d11b35e33716622443ab2322d30147c864d83de28975e0249b3"
+    },
+    {
+      "case": "missing-external-straps",
+      "rejection": "expected 27 full-height straps for each supply",
+      "unchanged_input_sha256": "ca61914c946565ee556d1e59cc237eeb3a29a63bf43ba710a0d87e85a9a36119"
+    }
+  ]
+}

@@ -108,3 +108,25 @@ class SramGuardedClassic(SramBufferedClassic):
 
 assert len(SramGuardedClassic.Steps) == 84
 assert [s for s in SramGuardedClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps
+
+
+@Step.factory.register()
+class SelectSramPowerPorts(OdbpyStep):
+    id = 'Project.SelectSramPowerPorts'
+    name = 'Select external SRAM-chip supply ports'
+    long_name = 'Keep existing full-height supply ports without changing any conductor'
+
+    def get_script_path(self):
+        return str(HERE / 'sram_power_ports_step.py')
+
+    def get_subcommand(self):
+        return ['--audit-directory', str(Path(self.step_dir) / 'power-port-audit')]
+
+
+@Flow.factory.register()
+class SramPortsClassic(SramGuardedClassic):
+    Substitutions = [('+Odb.CellFrequencyTables', SelectSramPowerPorts)]
+
+
+assert len(SramPortsClassic.Steps) == 85
+assert [s for s in SramPortsClassic.Steps if not s.id.startswith('Project.')] == Classic.Steps

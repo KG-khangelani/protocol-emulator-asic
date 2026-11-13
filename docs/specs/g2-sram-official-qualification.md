@@ -70,3 +70,15 @@ Bound GDS to 180 minutes, precheck to 45 minutes and public netlist testing to
 result. Download and verify the original workflow archives, source/runtime
 identities and consumed submission digests before claiming qualification.
 Current production-profile integration and publication remain separate G2 gates.
+
+D47 adds optional `--power-ports`, requiring both guarded and aligned setup.
+`SramPortsClassic` has 85 stages: the same 84 plus supply-port selection after
+`Odb.CellFrequencyTables`. Select 54 existing full-height Metal4 power-port
+rectangles from the original 200; remove only the other 146 BPin rectangles.
+Require the actual conductor to cover every original rectangle, at least
+2.1 micrometres width, in-die bounds, and 27 retained rectangles per supply
+within 10 micrometres of both vertical die edges. Reject unexpected geometry
+before editing. Preserve all non-pin DEF bytes and each public signal pin.
+Bind both actual stage DEFs and the input database to the selection receipt.
+Keep the native LEF generator, complete manufacturing rules and all ten
+prechecks, including the previously failed pin check.

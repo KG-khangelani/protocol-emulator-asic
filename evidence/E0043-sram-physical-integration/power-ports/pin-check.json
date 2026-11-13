@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ORIGINAL_REJECTION_AND_SELECTED_POWER_PORTS",
+  "records": [
+    {
+      "case": "original",
+      "outcome": "EXPECTED_REJECTION",
+      "error": "Some ports are missing or have wrong dimensions, see 148 LEF errors above"
+    },
+    {
+      "case": "selected",
+      "outcome": "PASS"
+    }
+  ],
+  "gdstk": "0.9.52",
+  "numpy": "1.26.4",
+  "checker_sha256": {
+    "pin_check.py": "890647b9b8a3fe861004c91450ac343e4ce4d9938df8d3de394220c0ff3449ce",
+    "tech_data.py": "cc3e86c1ff3e13de2335ca7554ba0b961ef039bdaff8a634e96522481b164734",
+    "precheck_failure.py": "da88e75a22052948f4d8bd3abba4f6f2a608acd232ccea94df1a1b6728c45990"
+  },
+  "scope": "Unchanged pinned pin checker on the exact submitted GDS; only native regenerated LEF power-port membership differs. Complete new official qualification remains required."
+}

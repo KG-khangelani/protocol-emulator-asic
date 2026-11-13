@@ -204,3 +204,11 @@ Windows/native replay, and aggregate qualification correctly rejects the run.
 The actual submitted netlist equals corrected trial 05; functional tests remain
 running. Correct the exported supply interface before renewed qualification.
 See [the retained failure](../evidence/E0043-sram-physical-integration/ci-232ee20-pin-failure/README.md).
+
+D47's [bounded port repair](../evidence/E0043-sram-physical-integration/power-ports/README.md)
+selects the 54 existing full-height supply rectangles, removing only 146
+internal BPin rectangles. Non-pin DEF bytes and all 43 public signal pins are
+identical. Original pin checking reproduces 148 errors on the old export and
+passes the new one; both fresh power grids pass. The 191-file report/native/pin
+replays, four malformed-port controls, two staging controls and 118 repository
+tests pass. Enable the extra stage for renewed complete qualification.

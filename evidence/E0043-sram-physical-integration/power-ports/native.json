@@ -1,0 +1,2117 @@
+{
+  "status": "PASS_NATIVE_POWER_PORT_SELECTION_AND_GRID_PIN_DIAGNOSTICS",
+  "declared_utc": "2026-11-13T01:30:45.561767+00:00",
+  "native_wall_limit_seconds": 600,
+  "input_sha256": {
+    "original/resolved.json": "62f2d2a4f1416d0932fb48fee2821b645823652c19705dd2d84d2212201b664c",
+    "original/tt_um_khangelani_protocol_emulator.def": "73c3b7f0d89c856b470e0c435887dd71eda2a8f12b3ab74dec3c11d86ff0c649",
+    "original/tt_um_khangelani_protocol_emulator.gds": "bd43a014bb1ea65a3ee6bf392316e3c6acf061ee987f48c9b1a286c08f4c1a3c",
+    "original/tt_um_khangelani_protocol_emulator.lef": "19856cd2f62cc490edb6be2e352a8558118b0b8b4017fa523eefd4908c42fb71",
+    "original/tt_um_khangelani_protocol_emulator.odb": "97e65b674230e713f313aa17a27702590eff0aa12b023f34a41b53b8f1729bab",
+    "original/tt_um_khangelani_protocol_emulator.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e"
+  },
+  "stages": [
+    {
+      "name": "select-existing-power-ports",
+      "command": [
+        "openroad",
+        "-no_init",
+        "-exit",
+        "-python",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/selector.py",
+        "--odb",
+        "/workspace/build/g2-sram-power-port-probe-01/original/tt_um_khangelani_protocol_emulator.odb",
+        "--output",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/selection"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 3.831,
+      "wall_limit": 120
+    },
+    {
+      "name": "original-magic-lef",
+      "command": [
+        "librelane",
+        "--pdk-root",
+        "/pdk",
+        "--pdk",
+        "ihp-sg13cmos5l",
+        "--run-tag",
+        "power-port-lef",
+        "--force-run-dir",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/lef",
+        "--design-dir",
+        "/workspace/build/g2-sram-full-05",
+        "--with-initial-state",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/initial-state.json",
+        "--from",
+        "Magic.WriteLEF",
+        "--to",
+        "Magic.WriteLEF",
+        "/workspace/build/g2-sram-full-05/src/config_merged.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 123.026,
+      "wall_limit": 600
+    },
+    {
+      "name": "unchanged-public-pin-clearance",
+      "command": [
+        "openroad",
+        "-no_init",
+        "-exit",
+        "-python",
+        "/workspace/experiments/i2c/audit_sram_pin_power.py",
+        "--odb",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/selection/selected.odb",
+        "--output",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/signal-pin-audit"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 2.127,
+      "wall_limit": 120
+    },
+    {
+      "name": "fresh-both-power-grid-checks",
+      "command": [
+        "librelane",
+        "--pdk-root",
+        "/pdk",
+        "--pdk",
+        "ihp-sg13cmos5l",
+        "--run-tag",
+        "power-port-grid",
+        "--force-run-dir",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/grid",
+        "--design-dir",
+        "/workspace/build/g2-sram-full-05",
+        "--with-initial-state",
+        "/workspace/build/g2-sram-power-port-probe-01/native-02/initial-state.json",
+        "--from",
+        "Project.CheckSramPower",
+        "--to",
+        "Project.CheckSramPower",
+        "/workspace/build/g2-sram-full-05/src/config_merged.json"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 80.228,
+      "wall_limit": 120
+    }
+  ],
+  "selection": {
+    "status": "PASS_EXISTING_FULL_HEIGHT_POWER_PORT_SELECTION",
+    "removed_internal_rectangles": 146,
+    "remaining_external_rectangles": 54,
+    "ports": [
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          4230,
+          287060,
+          6330,
+          438700
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1711830,
+          3560,
+          1713930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1661830,
+          3560,
+          1663930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1611830,
+          3560,
+          1613930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1561830,
+          3560,
+          1563930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1511830,
+          3560,
+          1513930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1461830,
+          3560,
+          1463930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1411830,
+          3560,
+          1413930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1361830,
+          3560,
+          1363930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1311830,
+          3560,
+          1313930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1261830,
+          3560,
+          1263930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1211830,
+          3560,
+          1213930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1161830,
+          3560,
+          1163930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1111830,
+          3560,
+          1113930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1061830,
+          3560,
+          1063930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1011830,
+          3560,
+          1013930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          961830,
+          3560,
+          963930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          911830,
+          3560,
+          913930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          861830,
+          3560,
+          863930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          811830,
+          3560,
+          813930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          761830,
+          3560,
+          763930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          711830,
+          3560,
+          713930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          661830,
+          3560,
+          663930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          611830,
+          3560,
+          613930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          561830,
+          3560,
+          563930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          511830,
+          3560,
+          513930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          461830,
+          3560,
+          463930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          430085,
+          421660,
+          432185,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          430085,
+          3560,
+          432185,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          418845,
+          421660,
+          420945,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          418845,
+          3560,
+          420945,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          407605,
+          421660,
+          409705,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          407605,
+          3560,
+          409705,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          396365,
+          421660,
+          398465,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          396365,
+          3560,
+          398465,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          385125,
+          421660,
+          387225,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          385125,
+          3560,
+          387225,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          373885,
+          421660,
+          375985,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          373885,
+          3560,
+          375985,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          362645,
+          421660,
+          364745,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          362645,
+          3560,
+          364745,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          351405,
+          421660,
+          353505,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          351405,
+          3560,
+          353505,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          340165,
+          421660,
+          342265,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          340165,
+          3560,
+          342265,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          328925,
+          421660,
+          331025,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          328925,
+          3560,
+          331025,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          317685,
+          421660,
+          319785,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          317685,
+          3560,
+          319785,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          306445,
+          421660,
+          308545,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          306445,
+          3560,
+          308545,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          295205,
+          421660,
+          297305,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          295205,
+          3560,
+          297305,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          283965,
+          421660,
+          286065,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          283965,
+          3560,
+          286065,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          272725,
+          421660,
+          274825,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          272725,
+          3560,
+          274825,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          261485,
+          421660,
+          263585,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          261485,
+          3560,
+          263585,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          240305,
+          421660,
+          242405,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          240305,
+          3560,
+          242405,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          230005,
+          421660,
+          232105,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          230005,
+          3560,
+          232105,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          224855,
+          421660,
+          226955,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          224855,
+          3560,
+          226955,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          214555,
+          421660,
+          216655,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          214555,
+          3560,
+          216655,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          193375,
+          421660,
+          195475,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          193375,
+          3560,
+          195475,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          182135,
+          421660,
+          184235,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          182135,
+          3560,
+          184235,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          170895,
+          421660,
+          172995,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          170895,
+          3560,
+          172995,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          159655,
+          421660,
+          161755,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          159655,
+          3560,
+          161755,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          148415,
+          421660,
+          150515,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          148415,
+          3560,
+          150515,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          137175,
+          421660,
+          139275,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          137175,
+          3560,
+          139275,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          125935,
+          421660,
+          128035,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          125935,
+          3560,
+          128035,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          114695,
+          421660,
+          116795,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          114695,
+          3560,
+          116795,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          103455,
+          421660,
+          105555,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          103455,
+          3560,
+          105555,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          92215,
+          421660,
+          94315,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          92215,
+          3560,
+          94315,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          80975,
+          421660,
+          83075,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          80975,
+          3560,
+          83075,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          69735,
+          421660,
+          71835,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          69735,
+          3560,
+          71835,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          58495,
+          421660,
+          60595,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          58495,
+          3560,
+          60595,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          47255,
+          421660,
+          49355,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          47255,
+          3560,
+          49355,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          36015,
+          421660,
+          38115,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          36015,
+          3560,
+          38115,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          24775,
+          421660,
+          26875,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          24775,
+          3560,
+          26875,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          11830,
+          3560,
+          13930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          6630,
+          287060,
+          8730,
+          438700
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1715930,
+          3560,
+          1718030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1665930,
+          3560,
+          1668030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1615930,
+          3560,
+          1618030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1565930,
+          3560,
+          1568030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1515930,
+          3560,
+          1518030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1465930,
+          3560,
+          1468030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1415930,
+          3560,
+          1418030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1365930,
+          3560,
+          1368030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1315930,
+          3560,
+          1318030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1265930,
+          3560,
+          1268030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1215930,
+          3560,
+          1218030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1165930,
+          3560,
+          1168030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1115930,
+          3560,
+          1118030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1065930,
+          3560,
+          1068030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1015930,
+          3560,
+          1018030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          965930,
+          3560,
+          968030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          915930,
+          3560,
+          918030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          865930,
+          3560,
+          868030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          815930,
+          3560,
+          818030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          765930,
+          3560,
+          768030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          715930,
+          3560,
+          718030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          665930,
+          3560,
+          668030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          615930,
+          3560,
+          618030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          565930,
+          3560,
+          568030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          515930,
+          3560,
+          518030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          465930,
+          3560,
+          468030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          424465,
+          421660,
+          426565,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          424465,
+          3560,
+          426565,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          413225,
+          421660,
+          415325,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          413225,
+          3560,
+          415325,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          401985,
+          421660,
+          404085,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          401985,
+          3560,
+          404085,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          390745,
+          421660,
+          392845,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          390745,
+          3560,
+          392845,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          379505,
+          421660,
+          381605,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          379505,
+          3560,
+          381605,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          368265,
+          421660,
+          370365,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          368265,
+          3560,
+          370365,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          357025,
+          421660,
+          359125,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          357025,
+          3560,
+          359125,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          345785,
+          421660,
+          347885,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          345785,
+          3560,
+          347885,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          334545,
+          421660,
+          336645,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          334545,
+          3560,
+          336645,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          323305,
+          421660,
+          325405,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          323305,
+          3560,
+          325405,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          312065,
+          421660,
+          314165,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          312065,
+          3560,
+          314165,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          300825,
+          421660,
+          302925,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          300825,
+          3560,
+          302925,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          289585,
+          421660,
+          291685,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          289585,
+          3560,
+          291685,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          278345,
+          421660,
+          280445,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          278345,
+          3560,
+          280445,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          267105,
+          421660,
+          269205,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          267105,
+          3560,
+          269205,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          255865,
+          421660,
+          257965,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          255865,
+          3560,
+          257965,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          245455,
+          421660,
+          247555,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          245455,
+          3560,
+          247555,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          235155,
+          421660,
+          237255,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          235155,
+          3560,
+          237255,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          219705,
+          421660,
+          221805,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          219705,
+          3560,
+          221805,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          209405,
+          421660,
+          211505,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          209405,
+          3560,
+          211505,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          198995,
+          421660,
+          201095,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          198995,
+          3560,
+          201095,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          187755,
+          421660,
+          189855,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          187755,
+          3560,
+          189855,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          176515,
+          421660,
+          178615,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          176515,
+          3560,
+          178615,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          165275,
+          421660,
+          167375,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          165275,
+          3560,
+          167375,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          154035,
+          421660,
+          156135,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          154035,
+          3560,
+          156135,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          142795,
+          421660,
+          144895,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          142795,
+          3560,
+          144895,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          131555,
+          421660,
+          133655,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          131555,
+          3560,
+          133655,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          120315,
+          421660,
+          122415,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          120315,
+          3560,
+          122415,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          109075,
+          421660,
+          111175,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          109075,
+          3560,
+          111175,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          97835,
+          421660,
+          99935,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          97835,
+          3560,
+          99935,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          86595,
+          421660,
+          88695,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          86595,
+          3560,
+          88695,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          75355,
+          421660,
+          77455,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          75355,
+          3560,
+          77455,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          64115,
+          421660,
+          66215,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          64115,
+          3560,
+          66215,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          52875,
+          421660,
+          54975,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          52875,
+          3560,
+          54975,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          41635,
+          421660,
+          43735,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          41635,
+          3560,
+          43735,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          30395,
+          421660,
+          32495,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          30395,
+          3560,
+          32495,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          15930,
+          3560,
+          18030,
+          707080
+        ],
+        "external": true
+      }
+    ],
+    "unchanged_non_pin_def_sha256": "a2610501f6b7386615bc23241eb926b4cb1d395aebe0505e82602b97032b0ef6",
+    "before_def_sha256": "73c3b7f0d89c856b470e0c435887dd71eda2a8f12b3ab74dec3c11d86ff0c649",
+    "after_def_sha256": "d648f325cbf58cfa76f2e7c9fd52b8f8c879217d8afcbc52968cb820f607d6c5",
+    "scope": "Only power BPin membership changed; all non-pin DEF bytes and all public signal-pin entries are identical."
+  },
+  "physical_qualification": "OPEN"
+}

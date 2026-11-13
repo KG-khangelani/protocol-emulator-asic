@@ -33,6 +33,14 @@ PLUGIN_FILES = (
 )
 GUARDED_PLUGIN_FILES = (*PLUGIN_FILES, "audit_sram_pin_power.py")
 ALIGNED_PLUGIN_FILES = (*GUARDED_PLUGIN_FILES, "align_sram_magic.py", "sram_magicrc.tcl")
+PORT_PLUGIN_FILES = (*ALIGNED_PLUGIN_FILES, "select_sram_power_ports.py", "sram_power_ports_step.py")
+POWER_PORT_CONTRACT = {
+    "step": "Project.SelectSramPowerPorts", "after": "Odb.CellFrequencyTables",
+    "original_rectangles": 200, "removed_internal_rectangles": 146,
+    "remaining_external_rectangles": 54, "minimum_width_dbu": 2100,
+    "maximum_vertical_edge_distance_dbu": 10000,
+    "preserve_all_non_pin_def_bytes_and_signal_pins": True,
+}
 SRAM_IMPORT_PATTERNS = ["lvsres_*", "*_CELL_SUB", "VIA_M1_*", "VIA_M2_*", "RSC_*", "*_CELL_CORNER", "*_BITKIT_CORNER"]
 SRAM_IMPORT_SETUP_SHA256 = "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7"
 MODEL_SETS = {
@@ -76,8 +84,9 @@ def mapped_macro_views():
             for name, metadata in observation["macro_views"].items()}
 
 
-def portable_config(header_name, *, guarded=False, aligned=False):
+def portable_config(header_name, *, guarded=False, aligned=False, power_ports=False):
     require(not aligned or guarded, "Magic alignment requires the guarded construction")
+    require(not power_ports or (guarded and aligned), "power-port selection requires guarded aligned construction")
     config = read(common.baseline_config())
     config.pop("//", None)
     base = "pdk_dir::libs.ref/sg13cmos5l_sram/"
@@ -102,14 +111,18 @@ def portable_config(header_name, *, guarded=False, aligned=False):
         config["MAGIC_GDS_FLATGLOB"] = SRAM_IMPORT_PATTERNS.copy()
     if aligned:
         config["MAGICRC"] = "dir::../sram_magicrc.tcl"
+    if power_ports:
+        config["meta"]["flow"] = "SramPortsClassic"
     return config
 
 
 def prepare(args):
     guarded = getattr(args, "guarded", False)
     aligned = getattr(args, "align_magic", False)
+    power_ports = getattr(args, "power_ports", False)
     require(not aligned or guarded, "Magic alignment requires --guarded")
-    plugin_files = ALIGNED_PLUGIN_FILES if aligned else GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
+    require(not power_ports or (guarded and aligned), "power-port selection requires --guarded --align-magic")
+    plugin_files = PORT_PLUGIN_FILES if power_ports else ALIGNED_PLUGIN_FILES if aligned else GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(),
             "new output under build/ required; preserve previous attempts")
@@ -163,7 +176,7 @@ def prepare(args):
         json.dumps(geometry, indent=2) + "\n", encoding="utf-8", newline="\n")
     for name in plugin_files:
         shutil.copyfile(ROOT / "experiments/i2c" / name, workspace / name)
-    write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded, aligned=aligned))
+    write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded, aligned=aligned, power_ports=power_ports))
     names = set(INPUTS) | {common.BASE_CONFIG_PATH, "tools/physical_sram.py", ".github/workflows/gds-sram.yaml",
                            "experiments/i2c/align_sram_magic.py",
                            "tools/workbench/toolchain.lock.json", "experiments/i2c/prepare_sram_physical.py",
@@ -175,6 +188,8 @@ def prepare(args):
         names.add("docs/decisions/0045-correct-sram-import-and-public-pin-power-clearance.md")
     if aligned:
         names.add("docs/decisions/0046-align-magic-contact-rules-with-pinned-references.md")
+    if power_ports:
+        names.add("docs/decisions/0047-export-existing-full-height-supply-ports.md")
     provenance = {}
     for name in sorted(names):
         target = out / "inputs" / name
@@ -206,6 +221,8 @@ def prepare(args):
                                   "vendor_import_patterns": SRAM_IMPORT_PATTERNS.copy()}
     if aligned:
         record["magic_contact_alignment"] = magic_alignment_contract()
+    if power_ports:
+        record["power_port_selection"] = POWER_PORT_CONTRACT.copy()
     write(out / "inputs.json", record)
     print("PASS: exact audited SRAM candidate staged; physical qualification pending")
 
@@ -223,8 +240,13 @@ def inspect_resolved(resolved, inputs, workspace):
     """Check the actual resolved files, rather than only the staged copies."""
     common.verify_run_configuration(resolved, common.candidate_lock())
     guarded = "guarded_flow" in inputs
-    require(resolved["meta"]["flow"] == ("SramGuardedClassic" if guarded else "SramBufferedClassic") and
+    ports = "power_port_selection" in inputs
+    flow = "SramPortsClassic" if ports else "SramGuardedClassic" if guarded else "SramBufferedClassic"
+    require(resolved["meta"]["flow"] == flow and
             resolved["meta"].get("substituting_steps") is None, "unexpected flow substitutions")
+    if ports:
+        require(guarded and "magic_contact_alignment" in inputs and
+                inputs["power_port_selection"] == POWER_PORT_CONTRACT, "power-port selection contract differs")
     if guarded:
         require(resolved["MAGIC_GDS_FLATGLOB"] == SRAM_IMPORT_PATTERNS, "vendor SRAM import patterns changed")
         setup = Path(resolved["PDK_ROOT"]) / resolved["PDK"] / "libs.tech/magic/read_sram_gds.tcl"
@@ -341,6 +363,19 @@ def check_run(args):
     }
     if pin_guard:
         result["public_pin_power_audit_sha256"] = digest(pin_guard)
+    if "power_port_selection" in inputs:
+        selection = one_stage(run, "Project.SelectSramPowerPorts")
+        receipt = read(selection / "power-port-audit/selection.json")
+        require(receipt["status"] == "PASS_EXISTING_FULL_HEIGHT_POWER_PORT_SELECTION" and
+                receipt["removed_internal_rectangles"] == 146 and receipt["remaining_external_rectangles"] == 54 and
+                len(receipt["ports"]) == 200, "power-port selection differs")
+        before, after = read(selection / "state_in.json"), read(selection / "state_out.json")
+        require(receipt["input_odb_sha256"] == digest(Path(before["odb"])), "power-port input database differs")
+        for side, state in (("before", before), ("after", after)):
+            path = selection / "power-port-audit" / (side + ".def")
+            require(digest(path) == receipt[side + "_def_sha256"] == digest(Path(state["def"])),
+                    "power-port DEF differs: " + side)
+        result["power_port_selection_sha256"] = digest(selection / "power-port-audit/selection.json")
     if "magic_contact_alignment" in inputs:
         drc = one_stage(run, "Magic.DRC")
         directory = drc / "sram-magic-aligned"
@@ -396,6 +431,7 @@ def main():
             sub.add_argument("--stage-ci", action="store_true")
             sub.add_argument("--guarded", action="store_true", help="D45 core-bounded power stripes, vendor SRAM import and mandatory fixed-pin guard.")
             sub.add_argument("--align-magic", action="store_true", help="D46 exact contact-rule alignment and import scheduling; requires --guarded.")
+            sub.add_argument("--power-ports", action="store_true", help="D47 existing full-height supply ports only; requires --guarded --align-magic.")
         else:
             sub.add_argument("--staging", type=Path, default=STAGING)
         if action == "check-run":
