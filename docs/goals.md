@@ -16,7 +16,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | Goal | Outcome | State | Target | Existing work |
 |---|---|---|---|---|
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
-| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; SRAM functional/formal gates pass, mapped footprint down 78.5306%, physical gate open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
+| G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **ACTIVE**; functional/formal and complete physical gates pass; adoption, default verification and publication open | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | QUEUED; develop with G2 after the instruction decision | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
@@ -85,11 +85,11 @@ to main as work progresses. This goal includes combined protocol regression and
 fresh physical qualification before production promotion; a contract or oracle
 alone does not complete it.
 
-Latest checkpoint: the D47 run at `94a3082` passes GDS and all ten prechecks;
-its final public-netlist job remains live. UI0002 prepares accurate SRAM state,
-capacity and source-qualified evidence views with passing data/browser checks.
-Complete original-archive acceptance, production adoption, default-command
-verification and publication remain required.
+Latest checkpoint: E0045's D47 run at `94a3082` passes GDS, all ten prechecks
+and all eighteen public-netlist groups. Windows/native replays verify 1,713
+original files and 55 producing inputs; five corruption controls are rejected.
+UI0002 prepares accurate SRAM state/capacity/evidence views. Production adoption,
+actual-default-command verification and publication remain required.
 
 The [frozen I2C contract](specs/p-i2c-controller-100k.md) and D36/E0032 independent
 oracle pass 19 groups with 3,902 reference/control observations. This includes
@@ -122,12 +122,13 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** finish run43348171110 at clean 94a3082 with D47's
-tested supply-port selection. Its 191-file report/native/pin-checker replays,
+**Next executable action:** adopt the exact E0045-qualified SRAM files, verify
+the default production commands and publish the qualified milestone.
+Run43348171110 at clean 94a3082 now passes the complete physical audit.
+D47's earlier 191-file report/native/pin-checker replays,
 four native fault controls, two staging controls and 118 repository tests pass.
 The original checker rejects the old export and accepts the repaired one;
-all wires and signal pins remain identical and both grids pass. Production
-promotion still waits for complete acceptance. Run43337581691 at 232ee20 passes
+all wires and signal pins remain identical and both grids pass. Run43337581691 at 232ee20 passes
 the full corrected manufacturing build and nine prechecks, but fails the
 power-port check with 148 LEF errors. Its 1,216 original files and 52 producing
 inputs pass Windows/native replay; aggregate qualification rejects the run.
@@ -273,9 +274,10 @@ Completion checks:
   physical evidence for that revision. Earlier isolated or M0 results do not
   qualify the promoted chip.
 
-The checked functional/formal requirements above refer to the exact E0035
-od128 source hashes, with E0036's clean combined audit and the stated protocol
-limits. The final production-promotion check remains open and G2 stays active.
+The checked functional/formal requirements began with E0035/E0036 and are now
+reproduced on the exact E0042 SRAM source, with E0044's complete normal-command
+audit and E0045's fresh physical qualification. The stated protocol limits
+remain. Production adoption and publication are still open; G2 stays active.
 
 A protocol that needs a new dedicated RTL path falsifies the current flexibility
 hypothesis. First test whether a general instruction or a stated scope change

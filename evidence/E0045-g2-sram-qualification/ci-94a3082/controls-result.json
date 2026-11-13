@@ -1,0 +1,91 @@
+{
+  "status": "PASS_FIVE_COMPLETE_QUALIFICATION_FAULT_CONTROLS",
+  "baseline_result_sha256": "af34f8debf3693461626d45782e6b74ca0390d2c6e8bc2106751a4c1ba1e1532",
+  "audit_sha256": "40315b1045fc4fae5a5e3ecc5535f9107bd15c89a307258f0a3d6238d9d4d39b",
+  "runner_sha256": "76366d0022e6b6c01e5e932b8eb6f67d199544d98eb0623f43a1bd9241be00c1",
+  "run_id": 43348171110,
+  "source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+  "cases": [
+    {
+      "name": "pending-workflow",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "physical workflow is not successfully complete",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "physical workflow is not successfully complete"
+      },
+      "mutation": null,
+      "log_sha256": "ad1c376d4ed927d30e97844bc63dd978a38f0e8fccfce3032ae467d1825a16cf"
+    },
+    {
+      "name": "wrong-archive-digest",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "archive digest mismatch",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "archive digest mismatch"
+      },
+      "mutation": null,
+      "log_sha256": "2bb385c76f07ab3c6f19486a756a4a12cd29126c04ee6e96546a11687e9f328e"
+    },
+    {
+      "name": "rehashed-port-count",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "power-port selection differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "power-port selection differs"
+      },
+      "mutation": {
+        "archive": "GDS_logs",
+        "member": "runs/wokwi/58-project-selectsrampowerports/power-port-audit/selection.json",
+        "before_sha256": "5c806eda3593618c642838b0f076e301fbc64b8221512a804af47cea49eb080d",
+        "after_sha256": "37a09800109cf177e401919741265e3ced1e06ca6544ecb694adf378b710c404",
+        "rehashed_archive_sha256": "sha256:605829f67f59f39b5c71ec7e8938556dca8cf75268202dec7e4f2be3336a2056",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "ccf02d97cd0da265de7a3497e14a2ee688fa275272aa4f7c5527b4d16f6689ea"
+    },
+    {
+      "name": "rehashed-skipped-test",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "required public test skipped",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "required public test skipped"
+      },
+      "mutation": {
+        "archive": "gatelevel_test_results",
+        "member": "results.xml",
+        "before_sha256": "2c9ad832acca3d15a5c74b47ad14e84407024d7b0d1de6df0c9f11ad25c0bd77",
+        "after_sha256": "6f111739ff97ae9f534d06d74695966ef09cfa409b8ed62f41a46116eb68e1c2",
+        "rehashed_archive_sha256": "sha256:9eecabcae0392eb9468a69e004e408da061172e1dd54d55d371044f22619e72c",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "97116470b1650648f2b6a06f944a7e92e7af625bbb3df7bab3b477c4dcd71e75"
+    },
+    {
+      "name": "rehashed-netlist",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "submitted netlist differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "submitted netlist differs"
+      },
+      "mutation": {
+        "archive": "tt_submission",
+        "member": "tt_submission/tt_um_khangelani_protocol_emulator.v",
+        "before_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "after_sha256": "4baf155446b90c0aeadda80a735132cee3770e6d6be56ce6ca1b3c2dc047e2e8",
+        "rehashed_archive_sha256": "sha256:9b734871c486281b8e0bcff8a86c286731dada64943e6ef7ad807a18719ecb7b",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "7b74fd893010a71cd0f382ce38da2046895f42594c3674f63ec4ca08fda35a8f"
+    }
+  ]
+}

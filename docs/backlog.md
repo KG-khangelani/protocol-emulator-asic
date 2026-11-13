@@ -12,11 +12,11 @@ Alpha.5 publishes both candidates' evidence; all 28 release assets, exact image
 identity and anonymous access are verified. All six tag workflows pass.
 
 **G2 is active**, authorized on 2026-11-12 with commits throughout the work.
-Current checkpoint: run43348171110 passes GDS and all ten prechecks; final
-public-netlist testing remains live. UI0002 passes the source-derived SRAM atlas
-checks and desktop/phone preview, with missing/failed qualification controls.
-Finish the original-archive physical audit before production adoption; then
-verify default commands and publish the qualified milestone.
+Current checkpoint: E0045's run43348171110 passes GDS, all ten prechecks and
+all eighteen public-netlist groups. Windows/native replays verify 1,713 original
+files and 55 producing inputs; all five corruption controls are rejected.
+Adopt the exact qualified source/physical inputs, verify default commands and
+publish the qualified milestone. UI0002's SRAM atlas checks also pass.
 D36/E0032 freezes/tests the independent I2C oracle: 19 groups, 3,902 observations
 and 53 retained witnesses. E0033 measures unchanged compact10: ten identical
 records per simulator, ten-word bounded cleanup, expected held-SDA faults and

@@ -3,37 +3,29 @@
 Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**Current G2 gate:** corrected official run43337581691 at 232ee20 passes the
-complete manufacturing build, including zero Magic DRC/LVS and every required
-electrical/timing condition. Independent precheck passes nine checks but rejects
-external power-port spans with 148 LEF errors. Its 1,216 original files and 52
-producing inputs pass Windows and native Linux replay; aggregate acceptance
-correctly rejects the run. Preserve this failure and correct the exported
-power-port membership before another complete qualification. The submitted
-netlist exactly matches corrected native trial 05. The final official netlist
-job now passes all eighteen groups and every reference record. Its additional
-477 original files pass Windows/native replay while aggregate qualification
-still rejects the failed precheck. Both local simulators now pass all eighteen
-groups and every reference record on the corrected netlist. The 1,246-file
-replay preserves 194 frozen inputs and the explicit reset-model probe.
-Production adoption and publication remain open.
+**Current G2 gate: physical qualification passed.** E0045 retains complete
+run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public
+netlist groups pass. Its six original ZIPs contain 1,713 files; the audit retains
+55 exact producing inputs and passes on Windows and pinned Linux. Five deliberate
+corruptions are rejected. The submitted netlist exactly matches the corrected
+two-simulator pair; every SPI/I2C/boundary/abort record is unchanged. All required
+physical conditions pass, with 5.5958856909900625 ns setup and
+0.12079138031701087 ns hold slack at the 20 ns target.
 
-D47's bounded repair now selects existing full-height supply ports while
-preserving all conductors and signal pins. Original pin checking reproduces
-the 148 errors and passes the repaired export; both fresh power grids pass.
-The 191-file report/native/pin-checker replays, four native fault controls,
-two staging controls and 118 repository tests pass. Portable staging reproduces
-the exact repaired database. The official workflow now includes the additional
-port-selection stage. Fresh complete run43348171110 is active at clean 94a3082;
-all original acceptance gates remain required.
+Production adoption, actual-default-command verification and publication remain
+open. Preserve all 20 qualified physical input files during adoption. D47 exposes
+54 existing full-height supply rectangles and preserves every conductor,
+instance and public signal pin. D46's exact two-file rule alignment and original
+complete checker remain explicit. Earlier run43337581691 still fails its 148
+pin-span checks, and run43320295442 still fails its 36 original Magic findings;
+their complete original records are unchanged.
 
-That fresh run now passes GDS and all ten official prechecks. The submitted
-netlist exactly matches the corrected two-simulator result; its official
-public-program job is still running. UI0002 prepares the atlas for the real
+UI0002 prepares the atlas for the real
 353-register-bit/8,192-SRAM-bit candidate and 128 logical words. All 22 data/model
 tests, 15 browser tests, one actual-candidate desktop/phone preview and the
 application build pass. The atlas withholds new qualification until the complete
-production evidence is present. Production source remains unchanged.
+production evidence is present. Production source remains unchanged at this
+qualification checkpoint.
 
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core

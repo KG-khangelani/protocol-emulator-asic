@@ -1,0 +1,2519 @@
+{
+  "status": "PASS_ALL_SRAM_OFFICIAL_PHYSICAL_GATES",
+  "run_id": 43348171110,
+  "source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+  "candidate": {
+    "status": "BUILT_UNQUALIFIED_SRAM_CANDIDATE",
+    "profile": "od128-sram",
+    "interface_id": "0x22",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "engine_transformation": {
+      "state_registers": [
+        "gpio_oe",
+        "gpio_value",
+        "loop_active",
+        "loop_end",
+        "loop_remaining",
+        "loop_start",
+        "pc",
+        "phase_active",
+        "phase_prepared",
+        "shift_active",
+        "shift_bits_done",
+        "shift_msb_first",
+        "shift_period",
+        "shift_rx_data",
+        "shift_rx_pin",
+        "shift_tx_data",
+        "shift_tx_pin",
+        "shift_tx_slot",
+        "state",
+        "wait_failure_pc",
+        "wait_is_input",
+        "wait_left",
+        "wait_level",
+        "wait_pin",
+        "wait_timeout_jump",
+        "wait_timeout_skip"
+      ],
+      "rewritten_assignments": 163,
+      "protected_relational_guards": 2,
+      "source_sha256": "93d474e39bd9613cafd47beea3e556715f309f55e88f6b43697a29cca3dda7f5",
+      "result_sha256": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365"
+    },
+    "physical_capacity_bits": 8192,
+    "logical_program_words": 128,
+    "builder_sha256": "5367ab9e89e97ffd3d74745081467becce301129a9612d117e7de2e79393bb10",
+    "store_template_sha256": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "prefetch_builder_sha256": "3a7cca4c619ce629f35dbedfe6b17ccb69b32909d861c8994dd5df0689a38cd7"
+  },
+  "gds_sha256": "51ac3c1005fd0d811a3e26fddf81fd996a2d57b45172a68670df05e4c57dbbf4",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "workflow_path": ".github/workflows/gds-sram.yaml",
+  "jobs": {
+    "gds": {
+      "id": 131632467366,
+      "conclusion": "success"
+    },
+    "precheck": {
+      "id": 131649560313,
+      "conclusion": "success"
+    },
+    "gl_test": {
+      "id": 131649560385,
+      "conclusion": "success"
+    }
+  },
+  "staged_sha256": {
+    "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+    "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+    "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+    "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+    "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+    "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+    "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+    "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+    "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+    "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+    "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+    "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+    "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+  },
+  "metadata_sha256_lf": "f898a576505aae229af98253a361bc9f934aaf3f604f0b02abcaaebfb336db33",
+  "staging_manifest_sha256": "c8936b7afad756f941cf0fe2f86eb3ec9a6bc8e95f43975a6be077c1bf87a957",
+  "pdk": {
+    "FLOW_NAME": "LibreLane",
+    "FLOW_VERSION": "3.1.0.dev4",
+    "PDK": "ihp-sg13cmos5l",
+    "PDK_SOURCE": "IHP-Open-PDK",
+    "PDK_VERSION": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+  },
+  "physical_metrics": {
+    "status": "PASS",
+    "checked": {
+      "route__drc_errors": 0,
+      "route__antenna_violation__count": 0,
+      "antenna__violating__nets": 0,
+      "antenna__violating__pins": 0,
+      "magic__drc_error__count": 0,
+      "design__lvs_error__count": 0,
+      "design__power_grid_violation__count": 0,
+      "design__max_fanout_violation__count": 0,
+      "design__max_cap_violation__count": 0,
+      "design__max_slew_violation__count": 0,
+      "timing__setup__ws": 5.5958856909900625,
+      "timing__hold__ws": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+      "timing__setup__ws__corner:nom_fast_1p32V_m40C": 9.893064425466784,
+      "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12079138031701087,
+      "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+      "timing__setup__ws__corner:nom_slow_1p08V_125C": 5.5958856909900625,
+      "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.6680285402820566,
+      "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+      "timing__setup__ws__corner:nom_typ_1p20V_25C": 8.886068132834636,
+      "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.3232766368323826
+    },
+    "errors": []
+  },
+  "area": {
+    "mapped": {
+      "cells": 4201,
+      "area_um2": 53089.7598,
+      "sequential_area_um2": 17293.0464,
+      "sequential_cells": 353
+    },
+    "routed": {
+      "design__instance__count__stdcell": 4679,
+      "design__instance__area__stdcell": 61294.1,
+      "design__instance__utilization": 0.0916943
+    }
+  },
+  "runtime": {
+    "status": "PASS_RUNTIME_IDENTITIES",
+    "job_id": 131632467366,
+    "log_sha256": "4a767d67b3553cff0c902d821592460e41b642fda598474d603f828c60a25609",
+    "workflow_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane_image_pull_verified": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "physical_yosys": {
+      "version": "0.69",
+      "commit": "9f75ca1f9834a39a863915b5dae0c7b1e33533bc"
+    },
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "awalsh128/cache-apt-pkgs-action@553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9": "553a35bb8ebd9fcabcb1c9451aa4c98e1b4ca8a9",
+      "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9": "55cc8345863c7cc4c66a329aec7e433d2d1c52a9",
+      "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f"
+    },
+    "confirmation_lines": [
+      "2026-11-13T01:55:30.2690223Z Digest: sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-13T01:55:30.2698143Z Status: Downloaded newer image for ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+      "2026-11-13T01:55:41.3573953Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-13T01:55:41.9779907Z  Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang",
+      "2026-11-13T01:55:44.7735804Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-13T01:55:44.8289946Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,",
+      "2026-11-13T01:55:50.1795790Z    \"creator\": \"Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc,"
+    ],
+    "scope": "Completed GDS log observations. Tagged transitive actions are observed identities, not new repository pins; PDK/resolved configuration and artifact checks are separate."
+  },
+  "power_connections": 144,
+  "native_input_buffers": 9,
+  "fixed_public_pin_rectangles": 43,
+  "public_pin_power_violations": 0,
+  "vendor_import_patterns": [
+    "lvsres_*",
+    "*_CELL_SUB",
+    "VIA_M1_*",
+    "VIA_M2_*",
+    "RSC_*",
+    "*_CELL_CORNER",
+    "*_BITKIT_CORNER"
+  ],
+  "consumer_artifacts": {
+    "precheck": {
+      "status": "PASS_CONSUMED_EXACT_SUBMISSION",
+      "job_id": 131649560313,
+      "kind": "precheck",
+      "log_sha256": "d4304f6be4a69b342c4dc6e643244cf63a1999a3e969038c8debed5bb8b50b3e",
+      "submission_artifact_id": 14004891901,
+      "submission_archive_sha256": "aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+      "workflow_source_commit": null,
+      "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+      "support_tools_scope": "checked out",
+      "resolved_actions": {
+        "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+        "actions/checkout@v6": "d23441a48e516b6c34aea4fa41551a30e30af803",
+        "actions/download-artifact@v7": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+        "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+        "TinyTapeout/ciel-action@v1": "7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6",
+        "rikhuijzer/cache-install@c46c673b14b0780c6749d7a45f26ebc07c8c7388": "c46c673b14b0780c6749d7a45f26ebc07c8c7388",
+        "test-summary/action@v2.6": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+        "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "actions/cache@v5": "caa296126883cff596d87d8935842f9db880ef25"
+      },
+      "pdk_activation_verified": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+      "pdk_activation_method": "exact_pdk_cache_restore",
+      "simulation_versions_observed": [],
+      "confirmation_lines": [
+        "2026-11-13T02:37:01.0809524Z - tt_submission (ID: 14004891901, Size: 3693490, Expected Digest: sha256:aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54)",
+        "2026-11-13T02:37:02.5021751Z SHA256 digest of downloaded artifact is aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+        "2026-11-13T02:37:17.7759941Z Cache restored from key: Linux-pdk-ihp-sg13cmos5l-89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+        "2026-11-13T02:43:36.4854827Z INFO: Precheck passed for /home/runner/work/protocol-emulator-asic/protocol-emulator-asic/tt_submission/tt_um_khangelani_protocol_emulator.gds! \ud83c\udf89"
+      ]
+    },
+    "gl_test": {
+      "status": "PASS_CONSUMED_EXACT_SUBMISSION",
+      "job_id": 131649560385,
+      "kind": "gl_test",
+      "log_sha256": "e60c60133edef650b1614a3931c72f6bbcbc667efc8a02e39c2d691c6bb90cd8",
+      "submission_artifact_id": 14004891901,
+      "submission_archive_sha256": "aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+      "workflow_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+      "support_tools_commit": null,
+      "support_tools_scope": "not used by the official GL action",
+      "resolved_actions": {
+        "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+        "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+        "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+        "actions/download-artifact@v7": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+        "TinyTapeout/ciel-action@v1": "7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6",
+        "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+        "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+        "test-summary/action@v2.6": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+        "actions/cache@v5": "caa296126883cff596d87d8935842f9db880ef25"
+      },
+      "pdk_activation_verified": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+      "pdk_activation_method": "exact_pdk_cache_restore",
+      "simulation_versions_observed": [
+        "2026-11-13T02:37:46.3699462Z      0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)",
+        "2026-11-13T02:37:46.3703059Z      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/cocotb"
+      ],
+      "confirmation_lines": [
+        "2026-11-13T02:37:23.2705270Z - tt_submission (ID: 14004891901, Size: 3693490, Expected Digest: sha256:aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54)",
+        "2026-11-13T02:37:23.7018167Z SHA256 digest of downloaded artifact is aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+        "2026-11-13T02:37:28.2905673Z Cache restored from key: Linux-pdk-ihp-sg13cmos5l-89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+      ]
+    }
+  },
+  "power_port_selection": {
+    "status": "PASS_EXISTING_FULL_HEIGHT_POWER_PORT_SELECTION",
+    "removed_internal_rectangles": 146,
+    "remaining_external_rectangles": 54,
+    "ports": [
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          4230,
+          287060,
+          6330,
+          438700
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1711830,
+          3560,
+          1713930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1661830,
+          3560,
+          1663930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1611830,
+          3560,
+          1613930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1561830,
+          3560,
+          1563930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1511830,
+          3560,
+          1513930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1461830,
+          3560,
+          1463930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1411830,
+          3560,
+          1413930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1361830,
+          3560,
+          1363930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1311830,
+          3560,
+          1313930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1261830,
+          3560,
+          1263930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1211830,
+          3560,
+          1213930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1161830,
+          3560,
+          1163930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1111830,
+          3560,
+          1113930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1061830,
+          3560,
+          1063930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          1011830,
+          3560,
+          1013930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          961830,
+          3560,
+          963930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          911830,
+          3560,
+          913930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          861830,
+          3560,
+          863930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          811830,
+          3560,
+          813930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          761830,
+          3560,
+          763930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          711830,
+          3560,
+          713930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          661830,
+          3560,
+          663930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          611830,
+          3560,
+          613930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          561830,
+          3560,
+          563930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          511830,
+          3560,
+          513930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          461830,
+          3560,
+          463930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          430085,
+          421660,
+          432185,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          430085,
+          3560,
+          432185,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          418845,
+          421660,
+          420945,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          418845,
+          3560,
+          420945,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          407605,
+          421660,
+          409705,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          407605,
+          3560,
+          409705,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          396365,
+          421660,
+          398465,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          396365,
+          3560,
+          398465,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          385125,
+          421660,
+          387225,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          385125,
+          3560,
+          387225,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          373885,
+          421660,
+          375985,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          373885,
+          3560,
+          375985,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          362645,
+          421660,
+          364745,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          362645,
+          3560,
+          364745,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          351405,
+          421660,
+          353505,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          351405,
+          3560,
+          353505,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          340165,
+          421660,
+          342265,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          340165,
+          3560,
+          342265,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          328925,
+          421660,
+          331025,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          328925,
+          3560,
+          331025,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          317685,
+          421660,
+          319785,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          317685,
+          3560,
+          319785,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          306445,
+          421660,
+          308545,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          306445,
+          3560,
+          308545,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          295205,
+          421660,
+          297305,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          295205,
+          3560,
+          297305,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          283965,
+          421660,
+          286065,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          283965,
+          3560,
+          286065,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          272725,
+          421660,
+          274825,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          272725,
+          3560,
+          274825,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          261485,
+          421660,
+          263585,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          261485,
+          3560,
+          263585,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          240305,
+          421660,
+          242405,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          240305,
+          3560,
+          242405,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          230005,
+          421660,
+          232105,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          230005,
+          3560,
+          232105,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          224855,
+          421660,
+          226955,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          224855,
+          3560,
+          226955,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          214555,
+          421660,
+          216655,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          214555,
+          3560,
+          216655,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          193375,
+          421660,
+          195475,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          193375,
+          3560,
+          195475,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          182135,
+          421660,
+          184235,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          182135,
+          3560,
+          184235,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          170895,
+          421660,
+          172995,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          170895,
+          3560,
+          172995,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          159655,
+          421660,
+          161755,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          159655,
+          3560,
+          161755,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          148415,
+          421660,
+          150515,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          148415,
+          3560,
+          150515,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          137175,
+          421660,
+          139275,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          137175,
+          3560,
+          139275,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          125935,
+          421660,
+          128035,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          125935,
+          3560,
+          128035,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          114695,
+          421660,
+          116795,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          114695,
+          3560,
+          116795,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          103455,
+          421660,
+          105555,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          103455,
+          3560,
+          105555,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          92215,
+          421660,
+          94315,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          92215,
+          3560,
+          94315,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          80975,
+          421660,
+          83075,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          80975,
+          3560,
+          83075,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          69735,
+          421660,
+          71835,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          69735,
+          3560,
+          71835,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          58495,
+          421660,
+          60595,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          58495,
+          3560,
+          60595,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          47255,
+          421660,
+          49355,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          47255,
+          3560,
+          49355,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          36015,
+          421660,
+          38115,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          36015,
+          3560,
+          38115,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          24775,
+          421660,
+          26875,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          24775,
+          3560,
+          26875,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VPWR",
+        "rectangle_dbu": [
+          11830,
+          3560,
+          13930,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          6630,
+          287060,
+          8730,
+          438700
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1715930,
+          3560,
+          1718030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1665930,
+          3560,
+          1668030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1615930,
+          3560,
+          1618030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1565930,
+          3560,
+          1568030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1515930,
+          3560,
+          1518030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1465930,
+          3560,
+          1468030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1415930,
+          3560,
+          1418030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1365930,
+          3560,
+          1368030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1315930,
+          3560,
+          1318030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1265930,
+          3560,
+          1268030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1215930,
+          3560,
+          1218030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1165930,
+          3560,
+          1168030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1115930,
+          3560,
+          1118030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1065930,
+          3560,
+          1068030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          1015930,
+          3560,
+          1018030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          965930,
+          3560,
+          968030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          915930,
+          3560,
+          918030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          865930,
+          3560,
+          868030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          815930,
+          3560,
+          818030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          765930,
+          3560,
+          768030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          715930,
+          3560,
+          718030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          665930,
+          3560,
+          668030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          615930,
+          3560,
+          618030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          565930,
+          3560,
+          568030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          515930,
+          3560,
+          518030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          465930,
+          3560,
+          468030,
+          707080
+        ],
+        "external": true
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          424465,
+          421660,
+          426565,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          424465,
+          3560,
+          426565,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          413225,
+          421660,
+          415325,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          413225,
+          3560,
+          415325,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          401985,
+          421660,
+          404085,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          401985,
+          3560,
+          404085,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          390745,
+          421660,
+          392845,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          390745,
+          3560,
+          392845,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          379505,
+          421660,
+          381605,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          379505,
+          3560,
+          381605,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          368265,
+          421660,
+          370365,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          368265,
+          3560,
+          370365,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          357025,
+          421660,
+          359125,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          357025,
+          3560,
+          359125,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          345785,
+          421660,
+          347885,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          345785,
+          3560,
+          347885,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          334545,
+          421660,
+          336645,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          334545,
+          3560,
+          336645,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          323305,
+          421660,
+          325405,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          323305,
+          3560,
+          325405,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          312065,
+          421660,
+          314165,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          312065,
+          3560,
+          314165,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          300825,
+          421660,
+          302925,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          300825,
+          3560,
+          302925,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          289585,
+          421660,
+          291685,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          289585,
+          3560,
+          291685,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          278345,
+          421660,
+          280445,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          278345,
+          3560,
+          280445,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          267105,
+          421660,
+          269205,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          267105,
+          3560,
+          269205,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          255865,
+          421660,
+          257965,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          255865,
+          3560,
+          257965,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          245455,
+          421660,
+          247555,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          245455,
+          3560,
+          247555,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          235155,
+          421660,
+          237255,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          235155,
+          3560,
+          237255,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          219705,
+          421660,
+          221805,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          219705,
+          3560,
+          221805,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          209405,
+          421660,
+          211505,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          209405,
+          3560,
+          211505,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          198995,
+          421660,
+          201095,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          198995,
+          3560,
+          201095,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          187755,
+          421660,
+          189855,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          187755,
+          3560,
+          189855,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          176515,
+          421660,
+          178615,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          176515,
+          3560,
+          178615,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          165275,
+          421660,
+          167375,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          165275,
+          3560,
+          167375,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          154035,
+          421660,
+          156135,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          154035,
+          3560,
+          156135,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          142795,
+          421660,
+          144895,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          142795,
+          3560,
+          144895,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          131555,
+          421660,
+          133655,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          131555,
+          3560,
+          133655,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          120315,
+          421660,
+          122415,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          120315,
+          3560,
+          122415,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          109075,
+          421660,
+          111175,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          109075,
+          3560,
+          111175,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          97835,
+          421660,
+          99935,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          97835,
+          3560,
+          99935,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          86595,
+          421660,
+          88695,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          86595,
+          3560,
+          88695,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          75355,
+          421660,
+          77455,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          75355,
+          3560,
+          77455,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          64115,
+          421660,
+          66215,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          64115,
+          3560,
+          66215,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          52875,
+          421660,
+          54975,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          52875,
+          3560,
+          54975,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          41635,
+          421660,
+          43735,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          41635,
+          3560,
+          43735,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          30395,
+          421660,
+          32495,
+          707080
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          30395,
+          3560,
+          32495,
+          301920
+        ],
+        "external": false
+      },
+      {
+        "net": "VGND",
+        "rectangle_dbu": [
+          15930,
+          3560,
+          18030,
+          707080
+        ],
+        "external": true
+      }
+    ],
+    "unchanged_non_pin_def_sha256": "a2610501f6b7386615bc23241eb926b4cb1d395aebe0505e82602b97032b0ef6",
+    "before_def_sha256": "73c3b7f0d89c856b470e0c435887dd71eda2a8f12b3ab74dec3c11d86ff0c649",
+    "after_def_sha256": "d648f325cbf58cfa76f2e7c9fd52b8f8c879217d8afcbc52968cb820f607d6c5",
+    "scope": "Only power BPin membership changed; all non-pin DEF bytes and all public signal-pin entries are identical.",
+    "input_odb_sha256": "97e65b674230e713f313aa17a27702590eff0aa12b023f34a41b53b8f1729bab"
+  },
+  "audit_helpers_sha256": {
+    "tools/physical_candidate.py": "eb0ccbc2d946372754277e4b290dc1bac7f0a05e3ecd3301ff0c2ccc73340b60",
+    "tools/physical_g2.py": "0d98b5d79c44edde0dbef7502a598b2fb0b79c9cfacf028e6a137dfeb3f8388f",
+    "experiments/i2c/align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "tools/physical_sram.py": "97bb80f53f31e3f59902f2d647d995a41abff70cda677140041f7f64ecf8f4bf",
+    "tools/audit_g2_physical.py": "92177c35b02f21865be275ec20c33406f7126380c7cea3abc72800d12d917e01",
+    "tools/physical_runtime.py": "c26f7a1a63670056cde33cf2d70bde097b2fb671f80fd4130aec872f5c85a39b"
+  },
+  "magic_contact_alignment": {
+    "status": "STAGED_EXACT_CONTACT_RULE_ALIGNMENT",
+    "source_technology": "/home/runner/.ciel/ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.tech",
+    "references": {
+      "libs.tech/magic/ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "libs.tech/magic/ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "libs.tech/magic/ihp-sg13cmos5l-cifin.tech": "f3c452eec8ad396a033e507cbd61ed2d67246255b1bee753b816b717e2fc8094",
+      "libs.tech/magic/ihp-sg13cmos5l-drc.tech": "c220917168371ea6bfc572164e840095ae82db336add21c2e69d8691f8d159e4",
+      "libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json": "3ff702c5bde8d01d027f30cdc6f5c08c0eff6b3e8fd7e709a6f40dcc73b1ca83",
+      "libs.tech/klayout/tech/drc/rule_decks/feol/5_14_cont.drc": "a7d9bdd00aa46e44bb4e38d45afa8afa5ec2ad94c10638881d41cfe36d04b506"
+    },
+    "original_files": {
+      "RELEASE_NOTES.md": "f0d990b552aa1edac79b8a6dbd3b09ce6cb62cfff5143e84bcf5f3afa7099331",
+      "ihp-sg13cmos5l.tcl": "08d3940a911505b67343af5b3e9bcc053aa5eaa13b499774e94f80df5b6a70b6",
+      "check_density.py": "c202b4221861270a62bc7059421722b950b377bdfebe35bd9c63015175695609",
+      "ihp-sg13cmos5l-res.tcl": "8ce60e983250491d2008b618acb1b76e412ad9b1b70719766b2f75a438b702e4",
+      "ihp-sg13cmos5l-cifin.tech": "f3c452eec8ad396a033e507cbd61ed2d67246255b1bee753b816b717e2fc8094",
+      "ihp-sg13cmos5l-util.tcl": "d803b0e3894408fe8a3b05a8d4b9e42a4099708de9c555af4505af23e208c16a",
+      "sealring_corner.tcl": "c878f76282d4482622c7bce465c8aa5e528f0b38e99a1eb6f44ac3c21bb820a2",
+      "diodevdd_4kv.tcl": "b29bea598e9e16a93693fb72f07c82b758de880ff9ba810d916b145a65677d62",
+      "ihp-sg13cmos5l-var.tcl": "5d0e8f408a63cd33070af24e91cf0c2c8931f7199fdb14f5fd537007f9fdc2d6",
+      "generate_fill.py": "c04e3c59aeab4c890bb6348ff0f53c7113a00f11ef18ef28549bb47b598897c1",
+      "ihp-sg13cmos5l-misc.tcl": "ef130634466e95d2dc0410737d2db0a884deb2126560ec0808a6b0d447c416a8",
+      "nmoscl_2.tcl": "2ed3e12cd0d88c81f52b1b0f5f890361893927c87245b26a21d930e0dc36b824",
+      "sealring_side.tcl": "ada2ffecf7e557c61175411b3a6879ede1f93e988bf2e90e9f44d461a5623982",
+      "ihp-sg13cmos5l-bjt.tcl": "befbce6ec40c8066606f84c5191c86618647cec78228d52a1e7017766d3ef517",
+      "ihp-sg13cmos5l-drc.tech": "c220917168371ea6bfc572164e840095ae82db336add21c2e69d8691f8d159e4",
+      "nmoscl_4.tcl": "1f2acbf399b82c67634d5abffe4680ce5be6ca372383ef836c3b1999d74addcd",
+      "README.md": "0462e7f1aa8261b15eedc4fdbea4f67a6baf7a30caab00d35df5bffe8921b5e4",
+      "ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "ihp-sg13cmos5l-via.tcl": "c108b532263925313ca3cc0b87050f3606e9ed4f26d2ba3cb419147d0c1c8056",
+      "generate_seal.py": "4078e2ac589af1a49556afd329153c8951e866072b874a2e43bc554172a97212",
+      "ihp-sg13cmos5l-GDS.tech": "6e952ff2bd219ad4abc8c7d365808c81f3acaf424c9eef720606969925773881",
+      "ihp-sg13cmos5l-pad.tcl": "c82204a78fd64eeb1b95908ed598d1d92b2c9f989332ed298748f61b4e602571",
+      "test_bondpad_lef.sh": "fb243af2bc258e4b6cdfa777c7148c482127e06177b4739ca20f3711aaa53254",
+      "ihp-sg13cmos5l-extract.tech": "58e141c6c85e6b92dcfacc1f530e1ffcd06cb749607d07fcfd411931a8f0edb3",
+      "read_sram_gds.tcl": "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7",
+      "diodevss_2kv.tcl": "6a3baf719f45629b848061f432cad2ba29749c2834ce74668c3f324046938350",
+      "ihp-sg13cmos5l-ind.tcl": "52c4051e6a595ba1c8e87f4bde69955aa00557d16428fce26df79e97c2a082eb",
+      "diodevdd_2kv.tcl": "f6b800d373a76fa78e3bfe4e1f761ded47dbaa6cab68ede24afc987260b66d5a",
+      "diodevss_4kv.tcl": "e35f866875ffb51ae751d95d72c9310e7306ee68a64a3a3c49efe71123bc6b51",
+      "ihp-sg13cmos5l-cap.tcl": "7545fb7c93b5610887bf271cd12cf32e4d02c34f96ce51bf60be3c5cf3c00f3d",
+      "ihp-sg13cmos5l-fix.tcl": "c96f41d5a6d552c74d48ecaefe0bafd4df9f6c2670e19c9b8900dc9c825e1824",
+      "ihp-sg13cmos5l-dio.tcl": "9a11497bcc3df9d91164f9f5a956737b87a5610ca42db234fdb127a1b2e716cb",
+      "ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "ihp-sg13cmos5l-cifout.tech": "828159a81f311f8d6ebcac97827224e3c6743a946cb0f4a80ab2d2dcd0bf5899",
+      "ihp-sg13cmos5l-fet.tcl": "630e989adc15866287191b9fdb86745e0267f617ba355b59aa87ad681e90abd6"
+    },
+    "staged_files": {
+      "RELEASE_NOTES.md": "f0d990b552aa1edac79b8a6dbd3b09ce6cb62cfff5143e84bcf5f3afa7099331",
+      "ihp-sg13cmos5l.tcl": "08d3940a911505b67343af5b3e9bcc053aa5eaa13b499774e94f80df5b6a70b6",
+      "check_density.py": "c202b4221861270a62bc7059421722b950b377bdfebe35bd9c63015175695609",
+      "ihp-sg13cmos5l-res.tcl": "8ce60e983250491d2008b618acb1b76e412ad9b1b70719766b2f75a438b702e4",
+      "ihp-sg13cmos5l-cifin.tech": "57c9061f41b3a3bb77039233f7349f9866f4fabfcdbf2a8efdb26d7738a696bb",
+      "ihp-sg13cmos5l-util.tcl": "d803b0e3894408fe8a3b05a8d4b9e42a4099708de9c555af4505af23e208c16a",
+      "sealring_corner.tcl": "c878f76282d4482622c7bce465c8aa5e528f0b38e99a1eb6f44ac3c21bb820a2",
+      "diodevdd_4kv.tcl": "b29bea598e9e16a93693fb72f07c82b758de880ff9ba810d916b145a65677d62",
+      "ihp-sg13cmos5l-var.tcl": "5d0e8f408a63cd33070af24e91cf0c2c8931f7199fdb14f5fd537007f9fdc2d6",
+      "generate_fill.py": "c04e3c59aeab4c890bb6348ff0f53c7113a00f11ef18ef28549bb47b598897c1",
+      "ihp-sg13cmos5l-misc.tcl": "ef130634466e95d2dc0410737d2db0a884deb2126560ec0808a6b0d447c416a8",
+      "nmoscl_2.tcl": "2ed3e12cd0d88c81f52b1b0f5f890361893927c87245b26a21d930e0dc36b824",
+      "sealring_side.tcl": "ada2ffecf7e557c61175411b3a6879ede1f93e988bf2e90e9f44d461a5623982",
+      "ihp-sg13cmos5l-bjt.tcl": "befbce6ec40c8066606f84c5191c86618647cec78228d52a1e7017766d3ef517",
+      "ihp-sg13cmos5l-drc.tech": "b45438706028a7a8a85374a672cb78fdc49dd4897c12735fb88bd637bde072ec",
+      "nmoscl_4.tcl": "1f2acbf399b82c67634d5abffe4680ce5be6ca372383ef836c3b1999d74addcd",
+      "README.md": "0462e7f1aa8261b15eedc4fdbea4f67a6baf7a30caab00d35df5bffe8921b5e4",
+      "ihp-sg13cmos5l.magicrc": "55c49b71d2bcd6e7d3dccbbbe1d6a246070bebf514b48df32d1a1394cab02b26",
+      "ihp-sg13cmos5l-via.tcl": "c108b532263925313ca3cc0b87050f3606e9ed4f26d2ba3cb419147d0c1c8056",
+      "generate_seal.py": "4078e2ac589af1a49556afd329153c8951e866072b874a2e43bc554172a97212",
+      "ihp-sg13cmos5l-GDS.tech": "6e952ff2bd219ad4abc8c7d365808c81f3acaf424c9eef720606969925773881",
+      "ihp-sg13cmos5l-pad.tcl": "c82204a78fd64eeb1b95908ed598d1d92b2c9f989332ed298748f61b4e602571",
+      "test_bondpad_lef.sh": "fb243af2bc258e4b6cdfa777c7148c482127e06177b4739ca20f3711aaa53254",
+      "ihp-sg13cmos5l-extract.tech": "58e141c6c85e6b92dcfacc1f530e1ffcd06cb749607d07fcfd411931a8f0edb3",
+      "read_sram_gds.tcl": "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7",
+      "diodevss_2kv.tcl": "6a3baf719f45629b848061f432cad2ba29749c2834ce74668c3f324046938350",
+      "ihp-sg13cmos5l-ind.tcl": "52c4051e6a595ba1c8e87f4bde69955aa00557d16428fce26df79e97c2a082eb",
+      "diodevdd_2kv.tcl": "f6b800d373a76fa78e3bfe4e1f761ded47dbaa6cab68ede24afc987260b66d5a",
+      "diodevss_4kv.tcl": "e35f866875ffb51ae751d95d72c9310e7306ee68a64a3a3c49efe71123bc6b51",
+      "ihp-sg13cmos5l-cap.tcl": "7545fb7c93b5610887bf271cd12cf32e4d02c34f96ce51bf60be3c5cf3c00f3d",
+      "ihp-sg13cmos5l-fix.tcl": "c96f41d5a6d552c74d48ecaefe0bafd4df9f6c2670e19c9b8900dc9c825e1824",
+      "ihp-sg13cmos5l-dio.tcl": "9a11497bcc3df9d91164f9f5a956737b87a5610ca42db234fdb127a1b2e716cb",
+      "ihp-sg13cmos5l.tech": "c7d8b4b716f5602e20905a1250a2d7d924fc8aff0a10a9b910535a6eb46c6404",
+      "ihp-sg13cmos5l-cifout.tech": "828159a81f311f8d6ebcac97827224e3c6743a946cb0f4a80ab2d2dcd0bf5899",
+      "ihp-sg13cmos5l-fet.tcl": "630e989adc15866287191b9fdb86745e0267f617ba355b59aa87ad681e90abd6"
+    },
+    "changed_files": {
+      "ihp-sg13cmos5l-cifin.tech": "57c9061f41b3a3bb77039233f7349f9866f4fabfcdbf2a8efdb26d7738a696bb",
+      "ihp-sg13cmos5l-drc.tech": "b45438706028a7a8a85374a672cb78fdc49dd4897c12735fb88bd637bde072ec"
+    },
+    "original_tree_sha256": "a579c23b6048c41b2a327317a2f1c845c8d4b93e946dc43c3d148790111ee6a9",
+    "native_drc_script_sha256": "815c0ada08d55bb0b3b5c84cd80e0620590897b7f3e8e3c7c3d3f117bbe1f74b",
+    "helper_sha256": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+    "startup_sha256": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+    "contact_enclosure_nm": {
+      "general": 70,
+      "digital_outside_sram": 50,
+      "sram_rule": 6,
+      "sram_on_5nm_grid": 10,
+      "sram_directional_unchanged": 70
+    },
+    "scope": "Only the three original low-voltage contact types. Markers are derived from actual GDS. No geometry edit, cell exclusion, report filter or waived rule. All other rules remain unchanged."
+  },
+  "precheck": {
+    "status": "PASS",
+    "test_count": 10,
+    "tests": [
+      "Analog pin check",
+      "Boundary check",
+      "Cell name check",
+      "KLayout Checks",
+      "KLayout SG13CMOS5L DRC",
+      "KLayout pin label overlapping drawing",
+      "KLayout zero area",
+      "Layer check",
+      "Pin check",
+      "Verilog syntax check"
+    ],
+    "junit_sha256": "cfce0627790c66e359a43182915d682de537db2041436cdaf17689791c6eb123"
+  },
+  "netlist_tests": {
+    "evidence_kind": "FUNCTIONAL_ZERO_DELAY_NETLIST",
+    "excluded_discovered_tests": [
+      "test.invalid_length_never_releases_engine",
+      "test.synchronized_input_wait_event_and_timeout",
+      "test.loop_target_overflow_faults_without_alias",
+      "test.timed_shift_burst_invalid_freeze_and_reset",
+      "test.timed_shift_burst_trace_matches_semantic_model",
+      "test.shift_trace_matches_semantic_model",
+      "test.shift_invalid_partial_and_reset_fail_closed",
+      "test.randomized_trace_matches_reviewed_model",
+      "test.invalid_encoding_and_out_of_range_fail_closed",
+      "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+    ],
+    "fast_model_boundary": "Standard cells -40 C with vendor SRAM -55 C; not an isothermal SRAM characterization.",
+    "junit_sha256": "2c9ad832acca3d15a5c74b47ad14e84407024d7b0d1de6df0c9f11ad25c0bd77",
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "public_test_groups": 18,
+    "records": {
+      "i2c/aborts.jsonl": {
+        "count": 36,
+        "reference_identical": true,
+        "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+      },
+      "i2c/boundaries.jsonl": {
+        "count": 4,
+        "reference_identical": true,
+        "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+      },
+      "i2c/cases.jsonl": {
+        "count": 1160,
+        "reference_identical": true,
+        "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+      },
+      "spi/cases.jsonl": {
+        "count": 1052,
+        "reference_identical": true,
+        "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+      }
+    },
+    "source_sha256": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+    },
+    "status": "PASS",
+    "variant": "od128-sram"
+  },
+  "macro_views": {
+    "cdl/RM_IHPSG13_1P_256x32_c2_bm_bist.cdl": {
+      "bytes": 406333,
+      "sha256": "f8989b3a4cc392c57cfafdf82985e27b1e6626b0948b6a926ca6ace2fe01531f"
+    },
+    "gds/RM_IHPSG13_1P_256x32_c2_bm_bist.gds": {
+      "bytes": 473832,
+      "sha256": "e77a4d177e02541fe6c58351008455f9a05a715b504f8e318599f3d41bf5f959"
+    },
+    "lef/RM_IHPSG13_1P_256x32_c2_bm_bist.lef": {
+      "bytes": 130482,
+      "sha256": "2f1e886f5c363d743da550c5d255b9f31dd62569dda1405a64e2c90b2278127f"
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": {
+      "bytes": 48997,
+      "sha256": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27"
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": {
+      "bytes": 49077,
+      "sha256": "8ab1090ecf527bc71f0c4dc8db05b833e0f9960b4bdb94f3b0351533463b79a2"
+    },
+    "lib/RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": {
+      "bytes": 49064,
+      "sha256": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6"
+    }
+  },
+  "fast_model_boundary": "Standard cells -40 C with vendor SRAM -55 C; not an isothermal SRAM characterization.",
+  "archives": {
+    "gatelevel_test_results": {
+      "id": 14006797992,
+      "sha256": "ceb5d0087c6f4a2a8c677979ed89184509baedaef98f933b6ca2ce3e0c6ebcfb",
+      "bytes": 1232229
+    },
+    "sram-netlist-check": {
+      "id": 14006758227,
+      "sha256": "0484cf8d096f54a76acc1ba00fec7e86f7030d47636e805c862fc60d987de3e9",
+      "bytes": 9205
+    },
+    "GDS_logs": {
+      "id": 14005061594,
+      "sha256": "319194dd2eda5a4a085ca8aff54f52b2a6df91b85f183ead2abc8c3bd93837b8",
+      "bytes": 98355378
+    },
+    "precheck_reports": {
+      "id": 14004927530,
+      "sha256": "c5c3c052adae052291b652dba6703abb36a6abd16f9dfc565ed905c96c538bac",
+      "bytes": 6915
+    },
+    "tt_submission": {
+      "id": 14004891901,
+      "sha256": "aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+      "bytes": 3693490
+    },
+    "sram-physical-candidate": {
+      "id": 14004717461,
+      "sha256": "d6933cca4fbcf9bb8d78b6e2fb736971223509940e6fb5606404e922d03c795d",
+      "bytes": 163393
+    }
+  },
+  "scope": "Exact pinned CMOS5L digital physical flow, official precheck and functional zero-delay public netlist tests. Production adoption/publication remain separate."
+}

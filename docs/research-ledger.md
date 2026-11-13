@@ -32,6 +32,14 @@ preview pass. Missing or failed qualification cannot inherit the historical
 production PASS. This adds no chip qualification; source adoption remains gated
 by the full G2 evidence.
 
+E0045 closes the exact SRAM candidate's physical gate: run43348171110 at
+94a3082 passes GDS, all ten prechecks and eighteen public netlist groups. Six
+original ZIPs, 1,713 members and 55 producing inputs pass Windows/native audit;
+five rehashed/incomplete-evidence controls are rejected. The submitted netlist
+matches the corrected local two-simulator pair exactly. D46/D47's explicit
+construction/rule changes and earlier rejected original results remain retained.
+Production adoption and publication remain separate requirements.
+
 ## Verified upstream observations (not project measurements)
 
 | ID | Observation | Evidence and boundary |
