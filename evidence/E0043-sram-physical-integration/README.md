@@ -5,6 +5,12 @@
 the exact five-file SRAM candidate, pinned tools/PDK, 8x4 footprint, 20 ns
 target and all existing physical acceptance limits.
 
+The [final netlist completion](ci-232ee20-pin-failure/completion/README.md)
+adds all eighteen passing public groups and exact reference records to rejected
+run43337581691. Its 477 additional original files replay on Windows/Linux;
+the earlier power-port rejection is preserved. Fresh D47 run43348171110 at
+94a3082 remains in progress before production adoption and publication.
+
 The first native power-grid run completes in 32.640 seconds but fails power
 acceptance. All 104 macro supply rectangles have no routed same-net overlap;
 the generator removes 72 floating macro stripes and both grid checks fail.

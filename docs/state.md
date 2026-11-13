@@ -10,8 +10,11 @@ external power-port spans with 148 LEF errors. Its 1,216 original files and 52
 producing inputs pass Windows and native Linux replay; aggregate acceptance
 correctly rejects the run. Preserve this failure and correct the exported
 power-port membership before another complete qualification. The submitted
-netlist exactly matches corrected native trial 05. Official/local functional
-tests remain running; production adoption and publication remain open.
+netlist exactly matches corrected native trial 05. The final official netlist
+job now passes all eighteen groups and every reference record. Its additional
+477 original files pass Windows/native replay while aggregate qualification
+still rejects the failed precheck. Local Verilator testing continues; Icarus
+passes. Production adoption and publication remain open.
 
 D47's bounded repair now selects existing full-height supply ports while
 preserving all conductors and signal pins. Original pin checking reproduces
@@ -19,7 +22,8 @@ the 148 errors and passes the repaired export; both fresh power grids pass.
 The 191-file report/native/pin-checker replays, four native fault controls,
 two staging controls and 118 repository tests pass. Portable staging reproduces
 the exact repaired database. The official workflow now includes the additional
-port-selection stage; next run all complete qualification gates on this source.
+port-selection stage. Fresh complete run43348171110 is active at clean 94a3082;
+all original acceptance gates remain required.
 
 Engineering goal **G1 COMPLETE**: current-rule physical qualification and the
 P/compact10 decision, covering M3-T01/M3-T02/M5-T01. **G2 is active**: shared-core

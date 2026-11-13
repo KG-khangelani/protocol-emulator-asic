@@ -142,13 +142,16 @@ including zero Magic DRC/LVS and every required electrical/timing condition.
 Independent precheck passes nine checks but rejects exported supply-port spans
 with 148 LEF errors. Its 1,216 original files and 52 producing inputs pass both
 retained replays; aggregate qualification rejects the run. Correct power-port
-membership and repeat official qualification; functional tests remain running.
+membership and repeat official qualification. The completed official netlist
+job passes all eighteen groups and exact records; its additional 477 original
+files replay on Windows/Linux while aggregate qualification remains rejected.
 D47 now passes the bounded supply-port repair: 146 internal rectangles removed
 from the port list, 54 existing full-height rectangles retained, all conductors
 and 43 signal pins unchanged. Both fresh grids and the original pin checker
 pass. Its 191-file report/native/pin replays, four native faults, two staging
 controls and 118 repository tests pass. The official workflow enables this
-additional stage; run complete qualification before production adoption.
+additional stage; complete run43348171110 is active at clean 94a3082 before
+production adoption. Local corrected-netlist Icarus passes; Verilator continues.
 E0044 separately preserves the physical baseline for future adoption: all nine
 profiles keep exact source/configuration bytes, the 358-file replay passes,
 and 118 repository tests pass including two archive/production-drift controls.

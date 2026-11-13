@@ -1,0 +1,145 @@
+{
+  "total_count": 7,
+  "artifacts": [
+    {
+      "id": 14002882154,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwMjg4MjE1NA==",
+      "name": "sram-netlist-check",
+      "size_in_bytes": 8837,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14002882154",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14002882154/zip",
+      "expired": false,
+      "digest": "sha256:07c84854821341207bcaf98211aa51bdf703ce42ced4d812cc78c2f3ca79e3c1",
+      "created_at": "2026-11-13T01:59:12Z",
+      "updated_at": "2026-11-13T01:59:12Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 14001984449,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwMTk4NDQ0OQ==",
+      "name": "gatelevel_test_results",
+      "size_in_bytes": 1232232,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14001984449",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14001984449/zip",
+      "expired": false,
+      "digest": "sha256:8e892f1f8ffb92437ef0a883dfa00b5b13f5d699b055fabcafe63e288a23f7e8",
+      "created_at": "2026-11-13T01:59:10Z",
+      "updated_at": "2026-11-13T01:59:10Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 14000880025,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwMDg4MDAyNQ==",
+      "name": "GDS_logs",
+      "size_in_bytes": 89249241,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14000880025",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14000880025/zip",
+      "expired": false,
+      "digest": "sha256:600d201c57c2719a97254c5a85e13ad0705d496b10c1e131d72fd8e5acadabc0",
+      "created_at": "2026-11-13T01:11:42Z",
+      "updated_at": "2026-11-13T01:11:42Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 14000422018,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwMDQyMjAxOA==",
+      "name": "tt_submission",
+      "size_in_bytes": 3695260,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14000422018",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/14000422018/zip",
+      "expired": false,
+      "digest": "sha256:a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34",
+      "created_at": "2026-11-13T01:11:44Z",
+      "updated_at": "2026-11-13T01:11:44Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 13999872452,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk5OTg3MjQ1Mg==",
+      "name": "gds_render",
+      "size_in_bytes": 6541644,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999872452",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999872452/zip",
+      "expired": false,
+      "digest": "sha256:d28da6a973ad50dbcff6094996ef027a964cb3977972e63953d6bedf64bd9024",
+      "created_at": "2026-11-13T01:12:25Z",
+      "updated_at": "2026-11-13T01:12:25Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 13999644128,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk5OTY0NDEyOA==",
+      "name": "sram-physical-candidate",
+      "size_in_bytes": 152699,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999644128",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999644128/zip",
+      "expired": false,
+      "digest": "sha256:676f6ba47e7d7731a65e6602612f0a4696ce9aac5cdfa3fa38b7283d1c3cfadd",
+      "created_at": "2026-11-13T01:12:27Z",
+      "updated_at": "2026-11-13T01:12:27Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    },
+    {
+      "id": 13999164903,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk5OTE2NDkwMw==",
+      "name": "precheck_reports",
+      "size_in_bytes": 7227,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999164903",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13999164903/zip",
+      "expired": false,
+      "digest": "sha256:6d8d00e765130d4fe369fa78632335126d26bba6757481f1dac515222d6bf806",
+      "created_at": "2026-11-13T01:19:34Z",
+      "updated_at": "2026-11-13T01:19:34Z",
+      "expires_at": "2027-02-11T00:30:22Z",
+      "workflow_run": {
+        "id": 43337581691,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "232ee20e1eb35726f785225ecfc1a2641e10af33"
+      }
+    }
+  ]
+}

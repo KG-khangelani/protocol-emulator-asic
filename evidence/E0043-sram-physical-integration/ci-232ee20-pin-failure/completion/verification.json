@@ -1,0 +1,102 @@
+{
+  "status": "PASS_FINAL_NETLIST_TESTS_WITH_PHYSICAL_REJECTION_PRESERVED",
+  "run_id": 43337581691,
+  "source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+  "jobs": {
+    "gds": "success",
+    "gl_test": "success",
+    "precheck": "failure"
+  },
+  "physical_qualification": "REJECTED_POWER_PORT_PRECHECK",
+  "aggregate_rejection_checked": true,
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "consumer": {
+    "status": "PASS_CONSUMED_EXACT_SUBMISSION",
+    "job_id": 131616005256,
+    "kind": "gl_test",
+    "log_sha256": "5aa0105f80a9ba926473c06ba8d4d0e4534ce4f1fbd58ff52395d1dc94a6d49f",
+    "submission_artifact_id": 14000422018,
+    "submission_archive_sha256": "a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34",
+    "workflow_source_commit": "232ee20e1eb35726f785225ecfc1a2641e10af33",
+    "support_tools_commit": null,
+    "support_tools_scope": "not used by the official GL action",
+    "resolved_actions": {
+      "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "TinyTapeout/tt-gds-action@5e7361fdc445649261c0725dc15f38242dfad330": "5e7361fdc445649261c0725dc15f38242dfad330",
+      "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "actions/download-artifact@v7": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+      "TinyTapeout/ciel-action@v1": "7ac3e42cf2e1a080f1fc6d7b56d732a2ad17d9f6",
+      "actions/setup-python@v6": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/upload-artifact@v7": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "test-summary/action@v2.6": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+      "actions/cache@v5": "caa296126883cff596d87d8935842f9db880ef25"
+    },
+    "pdk_activation_verified": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "pdk_activation_method": "exact_pdk_cache_restore",
+    "simulation_versions_observed": [
+      "2026-11-13T01:13:23.8822699Z      0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)",
+      "2026-11-13T01:13:23.8826391Z      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/cocotb"
+    ],
+    "confirmation_lines": [
+      "2026-11-13T01:12:49.7892244Z - tt_submission (ID: 14000422018, Size: 3695260, Expected Digest: sha256:a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34)",
+      "2026-11-13T01:12:50.9370599Z SHA256 digest of downloaded artifact is a3e5ff3b6e23c4e44a4b6c676cca47749b0b53f12d47d61df0ec1ce339703c34",
+      "2026-11-13T01:12:57.5659396Z Cache restored from key: Linux-pdk-ihp-sg13cmos5l-89d42ee6d2fd9b50b86a1aada6fee6673c3e6008"
+    ]
+  },
+  "public_checks": {
+    "evidence_kind": "FUNCTIONAL_ZERO_DELAY_NETLIST",
+    "excluded_discovered_tests": [
+      "test.invalid_length_never_releases_engine",
+      "test.synchronized_input_wait_event_and_timeout",
+      "test.loop_target_overflow_faults_without_alias",
+      "test.timed_shift_burst_invalid_freeze_and_reset",
+      "test.timed_shift_burst_trace_matches_semantic_model",
+      "test.shift_trace_matches_semantic_model",
+      "test.shift_invalid_partial_and_reset_fail_closed",
+      "test.randomized_trace_matches_reviewed_model",
+      "test.invalid_encoding_and_out_of_range_fail_closed",
+      "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+    ],
+    "fast_model_boundary": "Standard cells -40 C with vendor SRAM -55 C; not an isothermal SRAM characterization.",
+    "junit_sha256": "2262c35440e0fec387976b1641433540bbe2f72601ab99a0e1c9a1a32a1e17a1",
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "public_test_groups": 18,
+    "records": {
+      "i2c/aborts.jsonl": {
+        "count": 36,
+        "reference_identical": true,
+        "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+      },
+      "i2c/boundaries.jsonl": {
+        "count": 4,
+        "reference_identical": true,
+        "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+      },
+      "i2c/cases.jsonl": {
+        "count": 1160,
+        "reference_identical": true,
+        "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+      },
+      "spi/cases.jsonl": {
+        "count": 1052,
+        "reference_identical": true,
+        "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+      }
+    },
+    "source_sha256": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+    },
+    "status": "PASS",
+    "variant": "od128-sram"
+  },
+  "additional_original_archive_files": 477,
+  "scope": "All eighteen public groups pass on the actual submitted netlist. Earlier nine-of-ten precheck and its 148 pin errors are unchanged; no production promotion."
+}

@@ -201,8 +201,10 @@ required manufacturing/electrical/timing check, including zero full Magic DRC
 and LVS. Independent precheck passes nine checks but rejects power-port spans
 with 148 LEF errors. Its 1,216 original files and 52 producing inputs pass
 Windows/native replay, and aggregate qualification correctly rejects the run.
-The actual submitted netlist equals corrected trial 05; functional tests remain
-running. Correct the exported supply interface before renewed qualification.
+The actual submitted netlist equals corrected trial 05. Its completed official
+netlist job passes all eighteen groups and exact records; 477 additional
+original files pass Windows/native replay. Aggregate qualification still
+rejects the failed precheck. Correct the exported supply interface before renewed qualification.
 See [the retained failure](../evidence/E0043-sram-physical-integration/ci-232ee20-pin-failure/README.md).
 
 D47's [bounded port repair](../evidence/E0043-sram-physical-integration/power-ports/README.md)
