@@ -186,6 +186,12 @@ clears the complete macro in 450.990 seconds. All 48 boundary cases and the
 wrong-reference rejection. The first off-grid expectation and preparation
 failures remain retained. Complete-layout diagnostics are running; the
 experimental helpers are not yet enabled in official qualification.
+The optional portable alignment now passes a 78.771-second rehearsal with the
+exact original corrected pin database. Twelve bad configurations, three
+changed checker inputs and the 396-file native replay pass. Both initial
+20-minute full-layout diagnostics remain incomplete; separately declared
+one-hour diagnostics are running with the same GDS and rules. Original
+qualification limits remain unchanged.
 
 An isolated production-integration probe passes 18 of the unchanged default
 22 groups; four fail on obsolete eight-word/encoding assumptions, with three

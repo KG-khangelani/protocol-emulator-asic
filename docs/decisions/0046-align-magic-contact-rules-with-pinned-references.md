@@ -38,3 +38,18 @@ and corrected rules. Then rehearse the portable setup and qualify a fresh
 complete flow, every official precheck and the actual submitted netlist under
 the existing 180/45/180-minute limits. Preserve the original guarded attempts
 and all failures. Adoption and publication require the complete G2 audit.
+
+The [portable rehearsal](../../evidence/E0043-sram-physical-integration/aligned-staging/README.md)
+now passes in 78.771 seconds, reproduces the exact fixed-pin database and
+rejects twelve configurations plus three changed checker/staging inputs.
+Its 396-file archive and native replay pass. The optional setup verifies the
+entire original Magic source tree, original full-check script and actual
+executed helpers before accepting a completed result. It remains disabled in
+the official workflow pending the complete-layout diagnostics.
+
+Both initial full-layout diagnostics are incomplete at their declared
+1,200-second bounds. A report-parser failure on the empty files obscured their
+execution receipts; separate completion reviews preserve that limitation.
+Fix reporting before starting separately declared 3,600-second follow-ups.
+Do not change the original qualification limits or reinterpret these attempts
+as manufacturing passes.

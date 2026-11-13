@@ -114,3 +114,10 @@ and the 111-file native replay pass, including wrong-reference rejection.
 The foundry PDF's SRAM section remains unfinished; its 6 nm value comes from
 the pinned KLayout deck. D46's complete-layout diagnostics and fresh official
 qualification remain open.
+
+The [optional aligned staging](aligned-staging/README.md) passes its native
+78.771-second rehearsal, twelve bad-configuration controls and three changed
+input controls. The 396-file archive and native replay reproduce exact pin
+geometry and both Magic startup scopes. The official workflow has not enabled
+it; the initial full-layout diagnostics are incomplete and their separately
+bounded follow-ups are running.

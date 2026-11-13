@@ -123,6 +123,10 @@ D46 explains all 32 isolated-macro contact findings and tests a precise
 two-file rule correction against the pinned references. The complete macro,
 48 boundary cases and 111-file native replay pass. Complete the matched
 whole-chip diagnostics before enabling the portable setup for a new full run.
+The optional setup now passes a native 78.771-second pilot and its 396-file
+replay, with twelve configuration and three changed-input controls. The two
+initial whole-layout diagnostics are incomplete; their one-hour follow-ups
+retain the exact geometry and complete checks.
 The retained default-integration probe has four obsolete expectation failures.
 D40/E0039 adds the explicit current profile: all 30 groups pass in both
 simulators with exact records; the original source still passes all 22 groups

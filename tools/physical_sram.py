@@ -23,6 +23,7 @@ from build_sram_candidate import build
 from prepare_sram_physical import power_rectangles, pdn_script
 from run_sram_mapping import blackbox, MACRO
 from run_current_regression import INPUTS
+from align_sram_magic import ALIGNED_SHA256, MAGIC_TREE_SHA256, NATIVE_DRC_SHA256, REFERENCE_SHA256
 
 EVIDENCE = ROOT / "evidence/E0042-sram-prefetch-screen"
 STAGING = ROOT / "build/sram-physical"
@@ -31,6 +32,7 @@ PLUGIN_FILES = (
     "check_sram_power.tcl", "sram_input_buffers.tcl", "audit_sram_input_buffers.py",
 )
 GUARDED_PLUGIN_FILES = (*PLUGIN_FILES, "audit_sram_pin_power.py")
+ALIGNED_PLUGIN_FILES = (*GUARDED_PLUGIN_FILES, "align_sram_magic.py", "sram_magicrc.tcl")
 SRAM_IMPORT_PATTERNS = ["lvsres_*", "*_CELL_SUB", "VIA_M1_*", "VIA_M2_*", "RSC_*", "*_CELL_CORNER", "*_BITKIT_CORNER"]
 SRAM_IMPORT_SETUP_SHA256 = "5a818473a3ffad96d84e1f72331fbb94c46cc1df24a01bc9d8367ac3a7211cd7"
 MODEL_SETS = {
@@ -45,6 +47,15 @@ require, digest, read, write = common.require, common.digest, common.read_json, 
 
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
+
+
+def magic_alignment_contract():
+    return {
+        "step": "Magic.DRC", "original_tree_sha256": MAGIC_TREE_SHA256,
+        "native_drc_script_sha256": NATIVE_DRC_SHA256,
+        "changed_files": ALIGNED_SHA256.copy(), "reference_sha256": REFERENCE_SHA256.copy(),
+        "background_checking_suspended_during_import_only": True,
+    }
 
 
 def candidate():
@@ -65,7 +76,8 @@ def mapped_macro_views():
             for name, metadata in observation["macro_views"].items()}
 
 
-def portable_config(header_name, *, guarded=False):
+def portable_config(header_name, *, guarded=False, aligned=False):
+    require(not aligned or guarded, "Magic alignment requires the guarded construction")
     config = read(ROOT / "src/config.json")
     config.pop("//", None)
     base = "pdk_dir::libs.ref/sg13cmos5l_sram/"
@@ -88,12 +100,16 @@ def portable_config(header_name, *, guarded=False):
     if guarded:
         config["meta"]["flow"] = "SramGuardedClassic"
         config["MAGIC_GDS_FLATGLOB"] = SRAM_IMPORT_PATTERNS.copy()
+    if aligned:
+        config["MAGICRC"] = "dir::../sram_magicrc.tcl"
     return config
 
 
 def prepare(args):
     guarded = getattr(args, "guarded", False)
-    plugin_files = GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
+    aligned = getattr(args, "align_magic", False)
+    require(not aligned or guarded, "Magic alignment requires --guarded")
+    plugin_files = ALIGNED_PLUGIN_FILES if aligned else GUARDED_PLUGIN_FILES if guarded else PLUGIN_FILES
     out = args.output.resolve()
     require(out.is_relative_to((ROOT / "build").resolve()) and not out.exists(),
             "new output under build/ required; preserve previous attempts")
@@ -148,8 +164,9 @@ def prepare(args):
         json.dumps(geometry, indent=2) + "\n", encoding="utf-8", newline="\n")
     for name in plugin_files:
         shutil.copyfile(ROOT / "experiments/i2c" / name, workspace / name)
-    write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded))
+    write(workspace / "src/config.json", portable_config(MACRO + ".vh", guarded=guarded, aligned=aligned))
     names = set(INPUTS) | {"tools/physical_sram.py", ".github/workflows/gds-sram.yaml",
+                           "experiments/i2c/align_sram_magic.py",
                            "tools/workbench/toolchain.lock.json", "experiments/i2c/prepare_sram_physical.py",
                            "experiments/i2c/run_sram_mapping.py", "experiments/i2c/build_sram_candidate.py",
                            "experiments/i2c/sram_prefetch.py", "experiments/i2c/sram_program_store.v",
@@ -157,6 +174,8 @@ def prepare(args):
     names.update("experiments/i2c/" + name for name in plugin_files)
     if guarded:
         names.add("docs/decisions/0045-correct-sram-import-and-public-pin-power-clearance.md")
+    if aligned:
+        names.add("docs/decisions/0046-align-magic-contact-rules-with-pinned-references.md")
     provenance = {}
     for name in sorted(names):
         target = out / "inputs" / name
@@ -185,6 +204,8 @@ def prepare(args):
                                   "metal4_minimum_spacing_um": 0.42,
                                   "vendor_import_setup_sha256": SRAM_IMPORT_SETUP_SHA256,
                                   "vendor_import_patterns": SRAM_IMPORT_PATTERNS.copy()}
+    if aligned:
+        record["magic_contact_alignment"] = magic_alignment_contract()
     write(out / "inputs.json", record)
     print("PASS: exact audited SRAM candidate staged; physical qualification pending")
 
@@ -208,6 +229,17 @@ def inspect_resolved(resolved, inputs, workspace):
         require(resolved["MAGIC_GDS_FLATGLOB"] == SRAM_IMPORT_PATTERNS, "vendor SRAM import patterns changed")
         setup = Path(resolved["PDK_ROOT"]) / resolved["PDK"] / "libs.tech/magic/read_sram_gds.tcl"
         require(digest(setup) == SRAM_IMPORT_SETUP_SHA256, "vendor SRAM import setup changed")
+        require(not resolved.get("MAGIC_DRC_MAGLEFS"), "abstract macro views cannot replace complete GDS DRC")
+    if "magic_contact_alignment" in inputs:
+        require(guarded, "Magic alignment requires guarded construction")
+        require(inputs["magic_contact_alignment"] == magic_alignment_contract(), "Magic alignment contract differs")
+        path = Path(resolved["MAGICRC"])
+        require(path.resolve() == (workspace / "sram_magicrc.tcl").resolve() and
+                digest(path) == inputs["staged_sha256"]["sram_magicrc.tcl"], "resolved Magic startup differs")
+        tech = Path(resolved["PDK_ROOT"]) / resolved["PDK"] / "libs.tech/magic/ihp-sg13cmos5l.tech"
+        require(Path(resolved["MAGIC_TECH"]).resolve() == tech.resolve() and
+                digest(tech) == REFERENCE_SHA256["libs.tech/magic/ihp-sg13cmos5l.tech"],
+                "original Magic technology differs")
     for name in ("RUN_MAGIC_DRC", "MAGIC_DRC_USE_GDS", "ERROR_ON_MAGIC_DRC", "ERROR_ON_ILLEGAL_OVERLAPS",
                  "ERROR_ON_LVS_ERROR", "ERROR_ON_PDN_VIOLATIONS", "ERROR_ON_TR_DRC"):
         require(resolved[name] is True, "required acceptance check disabled: " + name)
@@ -309,6 +341,23 @@ def check_run(args):
     }
     if pin_guard:
         result["public_pin_power_audit_sha256"] = digest(pin_guard)
+    if "magic_contact_alignment" in inputs:
+        drc = one_stage(run, "Magic.DRC")
+        directory = drc / "sram-magic-aligned"
+        alignment = read(directory / "alignment.json")
+        require(alignment["status"] == "STAGED_EXACT_CONTACT_RULE_ALIGNMENT" and
+                alignment["original_tree_sha256"] == MAGIC_TREE_SHA256 and
+                alignment["references"] == REFERENCE_SHA256 and
+                alignment["changed_files"] == ALIGNED_SHA256, "Magic rule alignment differs")
+        require(alignment["native_drc_script_sha256"] == digest(directory / "native-drc.tcl") == NATIVE_DRC_SHA256,
+                "original complete DRC script differs")
+        for key, name in (("helper_sha256", "align_sram_magic.py"), ("startup_sha256", "sram_magicrc.tcl")):
+            require(alignment[key] == inputs["staged_sha256"][name], "executed Magic setup differs")
+        require({n: digest(directory / n) for n in alignment["staged_files"]} == alignment["staged_files"],
+                "actual aligned Magic files changed")
+        require({n: h for n, h in alignment["staged_files"].items() if h != alignment["original_files"][n]} == ALIGNED_SHA256,
+                "unexpected additional Magic changes")
+        result["magic_contact_alignment_sha256"] = digest(directory / "alignment.json")
     write(args.output, result)
     require(review["status"] == "PASS", "physical metrics failed: " + "; ".join(review["errors"]))
     print("PASS: identified SRAM physical metrics; independent precheck and netlist gates remain")
@@ -346,6 +395,7 @@ def main():
         if action == "prepare":
             sub.add_argument("--stage-ci", action="store_true")
             sub.add_argument("--guarded", action="store_true", help="D45 core-bounded power stripes, vendor SRAM import and mandatory fixed-pin guard.")
+            sub.add_argument("--align-magic", action="store_true", help="D46 exact contact-rule alignment and import scheduling; requires --guarded.")
         else:
             sub.add_argument("--staging", type=Path, default=STAGING)
         if action == "check-run":

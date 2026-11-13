@@ -142,6 +142,9 @@ D46's scoped contact-rule correction now clears all 32 isolated-macro
 findings. Actual geometry, 48 boundary cases and the 111-file native replay
 pass; both full-layout diagnostics and fresh complete qualification remain
 required. The helpers are experimental and production is unchanged.
+Portable alignment passes its 396-file native replay, twelve configuration
+controls and three changed-input controls. Complete the separately bounded
+whole-layout follow-ups; the original 20-minute attempts remain incomplete.
 The
 buffered run clears all extracted electrical limits and has positive setup/hold
 margins at all three declared model sets. Portable staging reproduces the exact

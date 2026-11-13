@@ -20,6 +20,8 @@ ALIGNED_SHA256 = {
     "ihp-sg13cmos5l-cifin.tech": "57c9061f41b3a3bb77039233f7349f9866f4fabfcdbf2a8efdb26d7738a696bb",
     "ihp-sg13cmos5l-drc.tech": "b45438706028a7a8a85374a672cb78fdc49dd4897c12735fb88bd637bde072ec",
 }
+MAGIC_TREE_SHA256 = "a579c23b6048c41b2a327317a2f1c845c8d4b93e946dc43c3d148790111ee6a9"
+NATIVE_DRC_SHA256 = "815c0ada08d55bb0b3b5c84cd80e0620590897b7f3e8e3c7c3d3f117bbe1f74b"
 
 
 def digest(path):
@@ -31,7 +33,7 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def align(source_tech, output):
+def align(source_tech, output, drc_script):
     source_tech, output = source_tech.resolve(), output.resolve()
     source = source_tech.parent
     pdk = source.parents[1]
@@ -41,6 +43,9 @@ def align(source_tech, output):
     for name, expected in REFERENCE_SHA256.items():
         require(digest(pdk / name) == expected, "pinned contact-rule input changed: " + name)
     originals = {p.relative_to(source).as_posix(): digest(p) for p in source.rglob("*") if p.is_file()}
+    tree_digest = hashlib.sha256(json.dumps(originals, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    require(tree_digest == MAGIC_TREE_SHA256, "pinned Magic source tree changed")
+    require(digest(drc_script) == NATIVE_DRC_SHA256, "original complete DRC script changed")
     shutil.copytree(source, output)
 
     rules = output / "ihp-sg13cmos5l-drc.tech"
@@ -86,10 +91,14 @@ def align(source_tech, output):
         "status": "STAGED_EXACT_CONTACT_RULE_ALIGNMENT", "source_technology": str(source_tech),
         "references": REFERENCE_SHA256, "original_files": originals, "staged_files": staged,
         "changed_files": changed_files,
+        "original_tree_sha256": tree_digest, "native_drc_script_sha256": digest(drc_script),
+        "helper_sha256": digest(Path(__file__)),
+        "startup_sha256": digest(Path(__file__).with_name("sram_magicrc.tcl")),
         "contact_enclosure_nm": {"general": 70, "digital_outside_sram": 50, "sram_rule": 6,
                                  "sram_on_5nm_grid": 10, "sram_directional_unchanged": 70},
         "scope": "Only the three original low-voltage contact types. Markers are derived from actual GDS. No geometry edit, cell exclusion, report filter or waived rule. All other rules remain unchanged.",
     }
+    (output / "native-drc.tcl").write_bytes(drc_script.read_bytes())
     (output / "alignment.json").write_bytes((json.dumps(record, indent=2) + "\n").encode())
     return record
 
@@ -98,8 +107,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-tech", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--drc-script", type=Path, required=True)
     args = parser.parse_args()
-    print(align(args.source_tech, args.output)["status"])
+    print(align(args.source_tech, args.output, args.drc_script)["status"])
 
 
 if __name__ == "__main__":

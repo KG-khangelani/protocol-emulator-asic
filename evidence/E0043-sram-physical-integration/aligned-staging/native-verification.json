@@ -1,0 +1,71 @@
+{
+  "status": "PASS_NATIVE_ALIGNED_STAGING_AND_STARTUP_REPLAY",
+  "configuration_controls": [
+    {
+      "fault": "missing_real_macro",
+      "observed_rejection": "unexpected macro set"
+    },
+    {
+      "fault": "wrong_fast_library",
+      "observed_rejection": "corner mapping changed"
+    },
+    {
+      "fault": "waived_drc",
+      "observed_rejection": "required acceptance check disabled: RUN_MAGIC_DRC"
+    },
+    {
+      "fault": "extra_source",
+      "observed_rejection": "resolved RTL paths differ from staged sources"
+    },
+    {
+      "fault": "removed_guard",
+      "observed_rejection": "unexpected flow substitutions"
+    },
+    {
+      "fault": "relaxed_clock",
+      "observed_rejection": "resolved CLOCK_PERIOD differs"
+    },
+    {
+      "fault": "missing_vendor_import",
+      "observed_rejection": "vendor SRAM import patterns changed"
+    },
+    {
+      "fault": "broadened_vendor_import",
+      "observed_rejection": "vendor SRAM import patterns changed"
+    },
+    {
+      "fault": "abstract_macro_drc",
+      "observed_rejection": "abstract macro views cannot replace complete GDS DRC"
+    },
+    {
+      "fault": "wrong_magic_startup",
+      "observed_rejection": "resolved Magic startup differs"
+    },
+    {
+      "fault": "wrong_original_technology",
+      "observed_rejection": "original Magic technology differs"
+    },
+    {
+      "fault": "changed_rule_contract",
+      "observed_rejection": "Magic alignment contract differs"
+    }
+  ],
+  "input_rejection_controls": [
+    {
+      "fault": "unguarded_alignment",
+      "rejection": "Magic alignment requires the guarded construction"
+    },
+    {
+      "fault": "changed_complete_drc_script",
+      "rejection": "original complete DRC script changed"
+    },
+    {
+      "fault": "changed_other_magic_file",
+      "rejection": "pinned Magic source tree changed"
+    }
+  ],
+  "startup_scope_and_all_contact_findings": "PASS",
+  "actual_complete_drc_script_and_magic_tree": "PASS_EXACT_PINNED_IDENTITIES",
+  "fresh_actual_pin_geometry": "PASS_43_PINS_ZERO_VIOLATIONS",
+  "full_physical_qualification": "OPEN"
+}

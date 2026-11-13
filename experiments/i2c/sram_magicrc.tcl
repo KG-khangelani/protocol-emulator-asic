@@ -8,7 +8,7 @@ set sram_native_magic_dir [file dirname $::env(MAGIC_TECH)]
 if {$::env(STEP_ID) eq "Magic.DRC"} {
     set sram_aligned_dir [file join $::env(STEP_DIR) sram-magic-aligned]
     set sram_helper [file join [file dirname [file normalize [info script]]] align_sram_magic.py]
-    puts stdout [exec python3 $sram_helper --source-tech $::env(MAGIC_TECH) --output $sram_aligned_dir]
+    puts stdout [exec python3 $sram_helper --source-tech $::env(MAGIC_TECH) --output $sram_aligned_dir --drc-script $::env(_MAGIC_SCRIPT)]
     source [file join $sram_aligned_dir ihp-sg13cmos5l.magicrc]
 
     # The original drc.tcl still executes its complete synchronous rule check.
