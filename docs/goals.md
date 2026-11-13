@@ -306,12 +306,18 @@ targets the unchanged qualified `od128-sram` core and interface 0x22. Preserve
 all twenty physical inputs and historical program bytes. Commit verified steps
 to main; the first deliverable is a versioned assembler and inspectable listing.
 
+Local implementation passes: thirteen examples match the frozen G2 words,
+both simulators agree on all 55 public cases (15 expected rejections), and 53
+generated files match between Windows and Linux. [E0046](../evidence/E0046-program-toolchain/README.md)
+retains the original outputs and all 147 passing repository tests. Clean
+committed checkout/CI qualification remains open.
+
 Completion checks:
 
-- [ ] Provide a small assembler with readable instructions, symbols, capacity
+- [x] Provide a small assembler with readable instructions, symbols, capacity
   checks, deterministic encoding and useful invalid-program diagnostics.
-- [ ] Emit a cycle/schedule listing that makes timing assumptions inspectable.
-- [ ] Provide documented load, readback and run steps, plus versioned UART, SPI
+- [x] Emit a cycle/schedule listing that makes timing assumptions inspectable.
+- [x] Provide documented load, readback and run steps, plus versioned UART, SPI
   and I2C examples for the selected ISA.
 - [ ] From a clean clone, build the examples and reproduce their public-pin
   traces using the pinned workbench and the independent oracle.

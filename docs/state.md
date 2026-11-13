@@ -5,8 +5,11 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
 **G2 COMPLETE 2026-11-13; G3 ACTIVE.** G3 now builds a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the
-unchanged qualified instruction contract. The [toolchain contract](specs/g3-program-toolchain.md)
-defines its acceptance checks; no G3 implementation result is claimed yet.
+unchanged qualified instruction contract. [E0046](../evidence/E0046-program-toolchain/README.md)
+retains thirteen byte-compatible examples, 55 identical public cases in each
+simulator (15 expected rejections), 53 identical Windows/Linux artifacts and
+147 passing repository tests. The [guide](programming.md) provides the actual
+commands and pin-level plan. Clean committed checkout/CI qualification is next.
 
 E0045 retains complete
 run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public

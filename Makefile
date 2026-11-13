@@ -8,9 +8,9 @@ export PATH := $(CURDIR)/.venv/bin:$(PATH)
 endif
 SOURCE_PROFILE := $(shell $(PYTHON) tools/current_profile.py --sources "$(SOURCE_DIR)")
 CURRENT_RUN = $(PYTHON) tools/current_run.py --sources "$(SOURCE_DIR)" --artifacts "$(CURRENT_ARTIFACTS)"
-.PHONY: help setup doctor check check-base lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean
+.PHONY: help setup doctor check check-base lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence programs program-test learn-status learn-m0 learn-m0-verify learn-waveform clean
 help:
-	@echo "setup doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence learn-status learn-m0 learn-m0-verify learn-waveform clean"
+	@echo "setup doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance test-verilator formal synth evidence programs program-test learn-status learn-m0 learn-m0-verify learn-waveform clean"
 setup:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install -r requirements-dev.txt
@@ -31,6 +31,7 @@ check-base:
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_provenance.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_current_profile.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_production_sram.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_program_tools.py'
 ifneq ($(filter $(SOURCE_PROFILE),od128-shared od128-sram),)
 doctor:
 	$(CURRENT_RUN) doctor
@@ -104,6 +105,10 @@ doctor check lint test test-rtl-icarus test-gl-harness test-waveform-provenance 
 	@echo "Unsupported source profile; declare and qualify this revision before verification."
 	@exit 1
 endif
+programs:
+	$(PYTHON) tools/run_program_examples.py --build-only
+program-test:
+	$(PYTHON) tools/run_program_examples.py
 learn-status:
 	$(PYTHON) tools/learning_status.py
 learn-m0:

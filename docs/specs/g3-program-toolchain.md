@@ -10,7 +10,9 @@ instruction semantics, G1/G2 evidence and owner-learning gates remain intact.
 A source begins with `.target od128-sram-v1`. Instructions use named operands;
 labels denote word addresses. `.const NAME expression` defines integer symbols;
 `.data TX0 expression` and `.data TX1 expression` initialize the two payload
-registers (public addresses 1 and 4). Semicolon comments and blank lines are
+registers (public addresses 1 and 4). `.idle expression` declares the byte of
+external idle input levels for the two disabled synchronizer-flush edges.
+Semicolon comments and blank lines are
 ignored. Constants may reference earlier constants; instruction operands may
 reference forward labels. Integer expressions support parentheses, addition,
 subtraction, multiplication, floor division, shifts and bitwise operations.

@@ -37,7 +37,7 @@ def describe(directory=None):
 def verification_inputs():
     """Bind code/configuration, frozen proof inputs and the reference observations."""
     names = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT).decode().split('\0')
-    prefixes = ('src/', 'test/', 'tools/', 'formal/', 'experiments/', '.github/workflows/', 'docs/specs/',
+    prefixes = ('src/', 'test/', 'tools/', 'formal/', 'experiments/', 'programs/', '.github/workflows/', 'docs/specs/',
                 'evidence/E0035-general-i2c/sources/current/', 'evidence/E0037-explicit-store-lanes/sources/',
                 'evidence/E0038-shared-program-read/sources/',
                 'evidence/E0042-sram-prefetch-screen/feasibility/verilog/')

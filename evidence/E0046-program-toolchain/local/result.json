@@ -1,0 +1,12 @@
+{
+  "status": "PASS_LOCAL_G3_TOOLCHAIN",
+  "repository_tests": 147,
+  "assembler_tests": 20,
+  "examples": 13,
+  "public_cases_per_simulator": 55,
+  "expected_rejections_per_simulator": 15,
+  "all_simulator_records_identical": true,
+  "windows_linux_identical_artifact_files": 53,
+  "production_guard_status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM",
+  "scope": "Local working-tree implementation before its cohesive commit. Original byte-bound inputs and complete outputs retained; clean committed checkout/CI qualification is a separate required gate."
+}

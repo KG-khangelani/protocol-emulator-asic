@@ -31,6 +31,11 @@ publishes the qualified milestone with verified downloads, matching tools image
 and all eight tag workflows passing. The [completion audit](evidence/E0045-g2-sram-qualification/completion-audit.json)
 closes G2; [state](docs/state.md) identifies the next work.
 
+The [programming guide](docs/programming.md) explains G3's readable assembler,
+timing listings and public load/readback plans. `workbench.ps1 Programs` builds
+the versioned examples; `workbench.ps1 ProgramTest` checks their public-pin
+execution in both simulators using the independent protocol oracles.
+
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its
 framing, phase and bounded host-service/delivery limits. SPI requires its

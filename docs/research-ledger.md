@@ -52,7 +52,11 @@ physical-model and timing limits; it proves no ISA minimum or owner fluency.
 G3 begins on 2026-11-13 with the versioned program-toolchain contract in
 `specs/g3-program-toolchain.md`. It will compare readable assembled examples
 against the preserved hand-encoded programs and independent public-pin oracles.
-The qualified hardware is unchanged; G3 results remain pending.
+E0046 now retains local implementation results: thirteen examples match their
+independent G2 encodings, both simulators agree on 55 public cases including 15
+expected rejections, and 53 Windows/Linux artifacts match byte for byte. All
+147 repository tests pass. The qualified hardware is unchanged; clean committed
+checkout and CI qualification remain pending.
 
 ## Verified upstream observations (not project measurements)
 
