@@ -121,3 +121,10 @@ input controls. The 396-file archive and native replay reproduce exact pin
 geometry and both Magic startup scopes. The official workflow has not enabled
 it; the initial full-layout diagnostics are incomplete and their separately
 bounded follow-ups are running.
+
+The [guarded official failure](ci-2be7f5d-failure/README.md) retains run43320295442
+at 2be7f5d: 36 Magic contact findings, with every other final physical condition
+passing and dependent jobs skipped. Its 1,027 original files and 42 producing
+inputs pass replay. Native geometry maps all findings to the same 32 isolated
+contact locations and proves identical shape geometry to local trial 05 on
+all 28 layers. Full corrected qualification remains required.

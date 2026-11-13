@@ -157,6 +157,13 @@ express useful digital communication protocols under hard temporal constraints?*
 
 | E0043-contact | Pinned SRAM contact-rule disagreement | All 32 original locations measured: twelve 60 nm DigiBnd and twenty 10 nm SRAM enclosures. The explicit two-file correction clears the complete macro; 48 boundary cases and 111-file native replay pass. Portable staging and its 396-file replay pass twelve configuration and three changed-input controls | The PDF supplies DigiBnd but leaves SRAM unfinished; SRAM uses the pinned KLayout reference. Failed preparation and off-grid expectation retained. Full-layout, official precheck, submitted-netlist and production gates remain open. ../evidence/E0043-sram-physical-integration/contact-rules/README.md |
 
+E0043 now retains guarded official run43320295442 at 2be7f5d as rejected: 36
+Magic contact findings, with every other final physical condition passing.
+Its 1,027 original files and 42 producing inputs pass audit. Actual geometry
+resolves the findings to the same 32 isolated contacts and matches local
+trial 05 on all 28 layers. This supports the D46 correction experiment; it
+does not qualify the failed run or its skipped precheck/netlist jobs.
+
 ## Open questions
 
 - Q1: What timing quantum and external-input latency meet useful protocol rates?

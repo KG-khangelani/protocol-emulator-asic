@@ -1,0 +1,46 @@
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 13994632526,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk5NDYzMjUyNg==",
+      "name": "GDS_logs",
+      "size_in_bytes": 89094740,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13994632526",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13994632526/zip",
+      "expired": false,
+      "digest": "sha256:f354d606e32873e75531e13de6509791c004f943906e4849f6c896adc8c519d5",
+      "created_at": "2026-11-12T23:39:08Z",
+      "updated_at": "2026-11-12T23:39:08Z",
+      "expires_at": "2027-02-10T22:28:59Z",
+      "workflow_run": {
+        "id": 43320295442,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "2be7f5dcc48fb58c42e27645f2ffe14ab751b9a5"
+      }
+    },
+    {
+      "id": 13994288135,
+      "node_id": "MDg6QXJ0aWZhY3QxMzk5NDI4ODEzNQ==",
+      "name": "sram-physical-candidate",
+      "size_in_bytes": 138815,
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13994288135",
+      "archive_download_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/artifacts/13994288135/zip",
+      "expired": false,
+      "digest": "sha256:6f5118d7f7a81cacef92f37113cc17aa8354ee04c69ec2b24ccfcc1ca1113654",
+      "created_at": "2026-11-12T23:39:09Z",
+      "updated_at": "2026-11-12T23:39:09Z",
+      "expires_at": "2027-02-10T22:28:59Z",
+      "workflow_run": {
+        "id": 43320295442,
+        "repository_id": 1382425950,
+        "head_repository_id": 1382425950,
+        "head_branch": "main",
+        "head_sha": "2be7f5dcc48fb58c42e27645f2ffe14ab751b9a5"
+      }
+    }
+  ]
+}
+

@@ -166,8 +166,13 @@ Trial 05's separate native LVS diagnostic passes in 60.813 seconds: 4,717
 matching nets, 4,684 matching devices, all 45 top-level pins and zero LVS
 errors/illegal overlaps. Its 137-file archive and native replay pass; all 43
 public pins also remain clear of power in the final routed database. This is
-the original DEF/LEF and black-box macro comparison; full GDS DRC and official
-run43320295442 at 2be7f5d remain open.
+the original DEF/LEF and black-box macro comparison. Official run43320295442
+at 2be7f5d is now rejected with 36 Magic contact findings; its electrical,
+timing, power, pin-clearance and LVS conditions pass. Precheck/netlist jobs
+are skipped. Its 1,027 original files and 42 frozen inputs pass audit. Native
+geometry shows exactly the same 32 contact locations as the isolated diagnosis,
+with four split report rectangles, and matches local trial 05 on all 28 layers.
+Complete corrected manufacturing checks and official qualification remain open.
 
 The corrected trial 05 GDS also passes the pinned complete KLayout CMOS5L
 rule-deck diagnostic in 550.779 seconds: the native report has 332 rule

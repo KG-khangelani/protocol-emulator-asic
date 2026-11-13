@@ -1,0 +1,8 @@
+{
+  "archive_replay": "PASS",
+  "native_geometry_replay": "PASS",
+  "archive_output": "build/g2-sram-guarded-failure-retained-windows-01",
+  "native_output": "build/g2-sram-guarded-failure-retained-native-01",
+  "physical_image": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+  "physical_qualification": "REJECTED"
+}

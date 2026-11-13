@@ -116,9 +116,12 @@ precheck/netlist jobs are skipped. E0036 retains the verified failure.
 All five d3c340f CI gates and their downloaded artifacts are now audited,
 including a complete 100-task store run with both variants and checked controls.
 
-**Next executable action:** complete and audit the guarded full flow and
-official `gds-sram` run43320295442 at 2be7f5d, including full manufacturing
-checks, precheck and the actual submitted netlist. The local identical trial 03
+**Next executable action:** complete corrected full manufacturing checks,
+fresh official precheck and the actual submitted-netlist tests. Guarded
+run43320295442 at 2be7f5d is rejected with 36 Magic contact findings; all other
+final physical conditions pass. Its 1,027 original files and 42 frozen inputs
+pass audit. Geometry resolves the findings to the same 32 isolated contact
+locations and matches local trial 05 on all 28 layers. The local identical trial 03
 netlist pair now passes all eighteen groups and every reference record; its
 1,145-file replay passes while preserving that layout's physical rejection.
 Complete normal `sram-current`
@@ -137,7 +140,8 @@ The bounded native LVS diagnostic and its 137-file replay pass: 4,717 nets,
 4,684 devices and all 45 top-level pins match; routed pin geometry also passes.
 The corrected GDS also passes the complete KLayout rule-deck diagnostic,
 with 332 report categories and zero violations; both retained audits pass.
-Magic DRC and the complete official run43320295442 at 2be7f5d remain open.
+Magic DRC and fresh official qualification remain open; run43320295442 is
+retained as rejected, with its dependent precheck/netlist jobs skipped.
 D46's scoped contact-rule correction now clears all 32 isolated-macro
 findings. Actual geometry, 48 boundary cases and the 111-file native replay
 pass; both full-layout diagnostics and fresh complete qualification remain

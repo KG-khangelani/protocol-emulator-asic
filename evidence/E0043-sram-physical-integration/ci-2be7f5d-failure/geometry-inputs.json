@@ -1,0 +1,9 @@
+{
+  "sha256": "1dda8c72e72325db88350d2f8a288226fd6049bd515fb3ce1dc8ee44eb3677c5",
+  "bytes": 1125833,
+  "files": {
+    "isolated-macro.rpt": "8ac9114ad9dde575ca290fb198cb3fb4ab2e032d960759995b0c6723dff52b55",
+    "local-full05.gds": "b2a09ed14fd1676e954e494c03e7d5d5ef74468d269a5b81bfb0ebe0c8382c3f",
+    "original-runner.py": "18674340ab71b8a0d61d4f055eae8c9a47dae77626196cca46dd662019330f2b"
+  }
+}

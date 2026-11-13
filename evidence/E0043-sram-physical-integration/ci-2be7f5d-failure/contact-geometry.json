@@ -1,0 +1,479 @@
+{
+  "status": "PASS_ALL_36_OFFICIAL_MARKERS_MATCH_32_ISOLATED_FOOTPRINTS",
+  "gds_sha256": "be34b7ebc27dcba9831e942afd596e56f213e2e162b33945ef08452e99d17a8c",
+  "report_sha256": "ea94e5d699b96e92a01ec0ece18a1b3a9888858e93271d02c535149e3ddf5089",
+  "isolated_report_sha256": "8ac9114ad9dde575ca290fb198cb3fb4ab2e032d960759995b0c6723dff52b55",
+  "macro_transform": "m0 20160,421180",
+  "isolated_marker_count": 32,
+  "official_marker_count": 36,
+  "unique_contact_count": 32,
+  "marker_footprint_xor": "EMPTY",
+  "observations": [
+    {
+      "marker_nm": "(243445,400600;243605,400610)",
+      "contact_nm": "(243445,400450;243605,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(244465,400600;244625,400610)",
+      "contact_nm": "(244465,400450;244625,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(245485,400600;245645,400610)",
+      "contact_nm": "(245485,400450;245645,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(245995,400600;246155,400610)",
+      "contact_nm": "(245995,400450;246155,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(247015,400600;247175,400610)",
+      "contact_nm": "(247015,400450;247175,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(248035,400600;248195,400610)",
+      "contact_nm": "(248035,400450;248195,400610)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(239365,399150;239525,399160)",
+      "contact_nm": "(239365,399150;239525,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(240385,399150;240545,399160)",
+      "contact_nm": "(240385,399150;240545,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(241405,399150;241565,399160)",
+      "contact_nm": "(241405,399150;241565,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(245995,399150;246155,399160)",
+      "contact_nm": "(245995,399150;246155,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(247015,399150;247175,399160)",
+      "contact_nm": "(247015,399150;247175,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(248035,399150;248195,399160)",
+      "contact_nm": "(248035,399150;248195,399310)",
+      "source_cell": "RSC_IHPSG13_CDLYX1",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50
+    },
+    {
+      "marker_nm": "(20480,375270;20490,375290)",
+      "contact_nm": "(20480,375270;20640,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,375290;20490,375430)",
+      "contact_nm": "(20480,375270;20640,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(202890,375270;202900,375430)",
+      "contact_nm": "(202740,375270;202900,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(254060,375270;254070,375430)",
+      "contact_nm": "(254060,375270;254220,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,375290;436480,375430)",
+      "contact_nm": "(436320,375270;436480,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,357130;20490,357290)",
+      "contact_nm": "(20480,357130;20640,357290)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(202890,357130;202900,357290)",
+      "contact_nm": "(202740,357130;202900,357290)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,375270;436480,375290)",
+      "contact_nm": "(436320,375270;436480,375430)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(254060,357130;254070,357290)",
+      "contact_nm": "(254060,357130;254220,357290)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,338990;20490,339150)",
+      "contact_nm": "(20480,338990;20640,339150)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(202890,338990;202900,339150)",
+      "contact_nm": "(202740,338990;202900,339150)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,357130;436480,357290)",
+      "contact_nm": "(436320,357130;436480,357290)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(254060,338990;254070,339150)",
+      "contact_nm": "(254060,338990;254220,339150)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,320850;20490,321010)",
+      "contact_nm": "(20480,320850;20640,321010)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(202890,320850;202900,321010)",
+      "contact_nm": "(202740,320850;202900,321010)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,338990;436480,339150)",
+      "contact_nm": "(436320,338990;436480,339150)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(254060,320850;254070,321010)",
+      "contact_nm": "(254060,320850;254220,321010)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,302710;20490,302815)",
+      "contact_nm": "(20480,302710;20640,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(20480,302815;20490,302870)",
+      "contact_nm": "(20480,302710;20640,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(202890,302710;202900,302870)",
+      "contact_nm": "(202740,302710;202900,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,320850;436480,321010)",
+      "contact_nm": "(436320,320850;436480,321010)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 2,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(254060,302710;254070,302870)",
+      "contact_nm": "(254060,302710;254220,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,302815;436480,302870)",
+      "contact_nm": "(436320,302710;436480,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    },
+    {
+      "marker_nm": "(436470,302710;436480,302815)",
+      "contact_nm": "(436320,302710;436480,302870)",
+      "source_cell": "RM_IHPSG13_1P_BITKIT_CELL_CORNER",
+      "coincident_contact_occurrences": 1,
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6
+    }
+  ],
+  "local_full05_gds_sha256": "b2a09ed14fd1676e954e494c03e7d5d5ef74468d269a5b81bfb0ebe0c8382c3f",
+  "official_local_shape_xor_layers": [
+    "8/0",
+    "5/0",
+    "6/0",
+    "1/0",
+    "10/0",
+    "10/2",
+    "63/0",
+    "10/29",
+    "30/0",
+    "30/2",
+    "30/29",
+    "19/0",
+    "14/0",
+    "31/0",
+    "10/25",
+    "30/25",
+    "29/0",
+    "16/0",
+    "25/0",
+    "8/2",
+    "50/0",
+    "49/0",
+    "8/29",
+    "8/25",
+    "189/4",
+    "50/2",
+    "50/25",
+    "99/31"
+  ],
+  "official_local_shape_xor": "EMPTY_ALL_LAYERS",
+  "scope": "Diagnostic measurement of unchanged geometry against pinned reference rules. Original official run remains rejected; no report filtering or count waiver.",
+  "full_physical_qualification": "OPEN"
+}

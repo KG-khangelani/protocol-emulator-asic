@@ -118,7 +118,11 @@ The 60.813-second native LVS diagnostic and 137-file replay pass, with all
 4,717 nets, 4,684 devices and 45 top-level pins matched. Routed pin geometry
 also passes. The corrected GDS passes the complete KLayout rule-deck
 diagnostic and both retained audits: 332 report categories, zero violations.
-Magic DRC and the complete official run43320295442 remain open.
+Official run43320295442 is rejected with 36 Magic contact findings; all its
+other final physical conditions pass and dependent jobs are skipped. Its
+1,027 original files and 42 producing inputs pass audit. Actual geometry
+matches the isolated 32 contact locations and local trial 05 on all 28 layers.
+Complete corrected Magic DRC and fresh official qualification remain open.
 D46 explains all 32 isolated-macro contact findings and tests a precise
 two-file rule correction against the pinned references. The complete macro,
 48 boundary cases and 111-file native replay pass. Complete the matched
