@@ -1,0 +1,624 @@
+{
+  "schema": "protocol-emulator-g2-release-verification-v1",
+  "status": "PASS_G2_RELEASE_AND_PACKAGE",
+  "observed_utc": "2026-11-13T05:03:54.065745+00:00",
+  "tag": "v0.1.0-alpha.6",
+  "release_id": 443827451,
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.6",
+  "source_commit": "3cd1a62fb00efbf3bcb9d34e6371dfd382e36159",
+  "physical_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+  "publish_run": 43364455634,
+  "publication_job_id": 131685451213,
+  "publication_artifact_id": 14011347144,
+  "publication_original_zip_sha256": "d983ff6f7209645fa4c52edaf81093d247350ac4d106236ee9418738f6714ffd",
+  "publication_original_zip_files": 1948,
+  "assets": {
+    "g2-production-current.zip": {
+      "id": 742315442,
+      "bytes": 7375703,
+      "sha256": "cc674c735beb4a46d66a34a62a06778f2c9347a5ae971ce2b8e8236d1217b266",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-production-current.zip"
+    },
+    "g2-sram-evidence.zip": {
+      "id": 742315447,
+      "bytes": 647379481,
+      "sha256": "bfe1147f7051420824ce3c1121197812c5fbc3c3de9db15bd2ff6a3f97506e49",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-evidence.zip"
+    },
+    "g2-sram-gatelevel_test_results.zip": {
+      "id": 742315445,
+      "bytes": 1232229,
+      "sha256": "ceb5d0087c6f4a2a8c677979ed89184509baedaef98f933b6ca2ce3e0c6ebcfb",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-gatelevel_test_results.zip"
+    },
+    "g2-sram-GDS_logs.zip": {
+      "id": 742315446,
+      "bytes": 98355378,
+      "sha256": "319194dd2eda5a4a085ca8aff54f52b2a6df91b85f183ead2abc8c3bd93837b8",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-GDS_logs.zip"
+    },
+    "g2-sram-precheck_reports.zip": {
+      "id": 742315444,
+      "bytes": 6915,
+      "sha256": "c5c3c052adae052291b652dba6703abb36a6abd16f9dfc565ed905c96c538bac",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-precheck_reports.zip"
+    },
+    "g2-sram-publication.json": {
+      "id": 742315477,
+      "bytes": 206995,
+      "sha256": "5c6d03258e433080c13630182ff760f5943818bf172e125fa5332c2e0d62d306",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-publication.json"
+    },
+    "g2-sram-SHA256SUMS": {
+      "id": 742315532,
+      "bytes": 844,
+      "sha256": "2bbef43ae37e9bc45f613b81d0d6f3694706c9a9565ffe1a603f7e936f05cbea",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-SHA256SUMS"
+    },
+    "g2-sram-sram-netlist-check.zip": {
+      "id": 742315513,
+      "bytes": 9205,
+      "sha256": "0484cf8d096f54a76acc1ba00fec7e86f7030d47636e805c862fc60d987de3e9",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-sram-netlist-check.zip"
+    },
+    "g2-sram-sram-physical-candidate.zip": {
+      "id": 742315551,
+      "bytes": 163393,
+      "sha256": "d6933cca4fbcf9bb8d78b6e2fb736971223509940e6fb5606404e922d03c795d",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-sram-physical-candidate.zip"
+    },
+    "g2-sram-tt_submission.zip": {
+      "id": 742315574,
+      "bytes": 3693490,
+      "sha256": "aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/g2-sram-tt_submission.zip"
+    },
+    "image-inspect.json": {
+      "id": 742309969,
+      "bytes": 5732,
+      "sha256": "73afb1c0d3e0072a6a45877f2ab141e99b6833dee7eeb80f9fecded0317f19ce",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/image-inspect.json"
+    },
+    "production-profile.json": {
+      "id": 742309964,
+      "bytes": 3633,
+      "sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/production-profile.json"
+    },
+    "production-verification.json": {
+      "id": 742309966,
+      "bytes": 592526,
+      "sha256": "91d30a94dc926bc1ff8f49e775121361ca428ef32fff5f404ba543bc0a8adc69",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/production-verification.json"
+    },
+    "publication.json": {
+      "id": 742309967,
+      "bytes": 4258,
+      "sha256": "9e37d8d35736371b8af26d80850a4d25ca8fb149b074b8879a61280657f56902",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/publication.json"
+    },
+    "SHA256SUMS": {
+      "id": 742309968,
+      "bytes": 1526,
+      "sha256": "2539b8147364f488b70fa84db2a56b528339e16b9ba560e7028b640d1fad07dd",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/SHA256SUMS"
+    },
+    "spi-four-mode.json": {
+      "id": 742309992,
+      "bytes": 97523,
+      "sha256": "d15ad0923cad7935c05f6b759250781b58ebd6b14321f464010f77e476374a8d",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-four-mode.json"
+    },
+    "spi-held-proof.json": {
+      "id": 742309998,
+      "bytes": 39976,
+      "sha256": "fd4aea5ea2b6919d38a43399b4f0f844f53cf7e1430d3fc4c52e7d266baa063f",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-held-proof.json"
+    },
+    "spi-phase1-capacity.json": {
+      "id": 742309993,
+      "bytes": 361639,
+      "sha256": "6ee5a4be8d64c81c64298d421892ed40c15b38282d661aa389bfcfe5bbaf3651",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-phase1-capacity.json"
+    },
+    "spi-sensitivity.json": {
+      "id": 742309996,
+      "bytes": 40146,
+      "sha256": "65425d2729d0554304cfc4ce2e3c76f71aaa81e999c7370a62543c7827c197d0",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-sensitivity.json"
+    },
+    "spi-timed-comparison.json": {
+      "id": 742309999,
+      "bytes": 36708,
+      "sha256": "798ac06bfb8c1faa3a8b337aceb1101cea0d3994640a24469c6566ce0379cb00",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-comparison.json"
+    },
+    "spi-timed-gpio.json": {
+      "id": 742310018,
+      "bytes": 11394,
+      "sha256": "70eb38613ffbda131da9f50e5d5772e6333ea1e0f836e0d3c1ec80ab8d1a00f1",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-gpio.json"
+    },
+    "spi-timed-instruction_f.json": {
+      "id": 742310015,
+      "bytes": 10343,
+      "sha256": "0c7fcbc419d37157cd784f00c97269403351f920aa21f81231f21b7a3e3a7328",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-instruction_f.json"
+    },
+    "spi-timed-instruction_p.json": {
+      "id": 742310024,
+      "bytes": 10086,
+      "sha256": "894199f71ae79ba9265695cef01125f5f220fc5cfb49fb966cd7aaf3c99953c0",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-instruction_p.json"
+    },
+    "spi-timed-program_f.json": {
+      "id": 742310023,
+      "bytes": 42603,
+      "sha256": "494d85e47cd20cb136c287d010aeb8c9f6984eeff58e2b3779b855ea66c0c398",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-program_f.json"
+    },
+    "spi-timed-program_p.json": {
+      "id": 742310020,
+      "bytes": 41958,
+      "sha256": "4c9b3566893416a4e028711eb4cda8d98a38b9e47336981114a395c41b819d51",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-program_p.json"
+    },
+    "spi-timed-refinement_f.json": {
+      "id": 742310036,
+      "bytes": 6044,
+      "sha256": "c3131ee0a52cf89dcf7a2f4c9f4a6cd8387309322655974e68df5de8b7b27dab",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-refinement_f.json"
+    },
+    "spi-timed-refinement_p.json": {
+      "id": 742310044,
+      "bytes": 5946,
+      "sha256": "b068e76ceba42d5107766e41b678e18cced9552ff3d79ab617f00efde3cc5d72",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/spi-timed-refinement_p.json"
+    },
+    "toolchain.lock.json": {
+      "id": 742310045,
+      "bytes": 7328,
+      "sha256": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+      "anonymous_download_verified": true,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0-alpha.6/toolchain.lock.json"
+    }
+  },
+  "original_physical_archives_verified": 6,
+  "original_normal_command_archive_verified": true,
+  "curated_evidence_files_identical_to_release_git_blobs": 1369,
+  "verification_input_files_unchanged_from_clean_default_CI": 329,
+  "publication": {
+    "schema": "protocol-emulator-publication-v1",
+    "source_commit": "3cd1a62fb00efbf3bcb9d34e6371dfd382e36159",
+    "ref": "refs/tags/v0.1.0-alpha.6",
+    "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27",
+    "platform": "linux/amd64",
+    "toolchain_lock_sha256": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+    "verification_run": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43364455634",
+    "checks": [
+      "doctor",
+      "check",
+      "lint",
+      "test",
+      "test-verilator",
+      "formal",
+      "synth",
+      "evidence",
+      "spi-program-sensitivity",
+      "spi-four-mode-screen",
+      "spi-held-program-proof",
+      "spi-phase1-capacity",
+      "spi-timed-gpio"
+    ],
+    "physical_qualification": "NOT_EVALUATED",
+    "production_qualification": {
+      "status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM",
+      "profile": "od128-sram",
+      "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": {
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      },
+      "model_sha256": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+        "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+      },
+      "qualified_run_id": 43348171110,
+      "qualified_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+      "qualified_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+      "files_sha256": {
+        "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+        "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+        "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+        "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+        "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+        "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+        "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+        "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+        "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+        "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+        "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+        "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+        "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+        "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+        "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+      },
+      "metadata_sha256": "81bacf39188db2a2938e41d920789cc326da95be4799930e6eff1840058c39f8"
+    },
+    "physical_qualification_scope": "This publication job does not rerun physical checks; production_qualification binds the retained qualified inputs."
+  },
+  "production_stages": {
+    "doctor": {
+      "kind": "PINNED_TOOL_IDENTITY"
+    },
+    "check": {
+      "kind": "REPOSITORY_CHECKS"
+    },
+    "lint": {
+      "kind": "SOURCE_PINNED_VERILOG_STYLE",
+      "unwaived_warnings": 2,
+      "exception": "Only always-comb on the exact next-state engine and SRAM combinational read mux; both retain standard Verilog always @*. All other rules/modules pass."
+    },
+    "rtl-icarus": {
+      "kind": "CURRENT_SRAM_RTL_PUBLIC_AND_DIRECT_CORE",
+      "test_groups": 30,
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "junit_sha256": "5d378f891aa80a645642f9a3360d865d50544b0281fee9b97d2db9ee78645070",
+      "records": {
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+          "reference_identical": true
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+          "reference_identical": true
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d",
+          "reference_identical": true
+        },
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728",
+          "reference_identical": true
+        }
+      },
+      "current_bank_control": {
+        "status": "PASS",
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959"
+      }
+    },
+    "rtl-verilator": {
+      "kind": "CURRENT_SRAM_RTL_PUBLIC_AND_DIRECT_CORE",
+      "test_groups": 30,
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "junit_sha256": "f0b860d5f88e165810fb8cc980a18478bafdea8bffacb97991703c4fbf291d54",
+      "records": {
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+          "reference_identical": true
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+          "reference_identical": true
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d",
+          "reference_identical": true
+        },
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728",
+          "reference_identical": true
+        }
+      },
+      "current_bank_control": {
+        "status": "PASS",
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959"
+      }
+    },
+    "formal": {
+      "kind": "CURRENT_SRAM_COMPOSITION_AND_SOURCE_MATCHED_FORMAL",
+      "composition": {
+        "engine_compared_bits": 331,
+        "engine_reset_vectors": 69,
+        "store_assertions": 18,
+        "covers": 4,
+        "faults_per_simulator": 4
+      },
+      "prediction": {
+        "invariant": "pc equals previous prefetch_pc",
+        "assumptions": 0,
+        "proved": 1,
+        "cover": 1,
+        "checked_fault": 1
+      },
+      "instruction_tasks": 4,
+      "support_tasks": 5,
+      "historical_tasks": 10,
+      "boundary": "Vendor digital memory model. Earlier complete-chip equivalence timeouts remain incomplete."
+    },
+    "synth": {
+      "kind": "GENERIC_STANDARD_LOGIC_PLUS_REAL_MACRO_BLACKBOX_NOT_PHYSICAL",
+      "primitive_cells": 3422,
+      "state_bits": 353,
+      "cell_types": {
+        "$_ANDNOT_": 288,
+        "$_AND_": 887,
+        "$_DFF_P_": 8,
+        "$_MUX_": 266,
+        "$_NAND_": 946,
+        "$_NOR_": 104,
+        "$_NOT_": 25,
+        "$_ORNOT_": 117,
+        "$_OR_": 347,
+        "$_SDFFE_PN0P_": 317,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 27,
+        "$_XNOR_": 63,
+        "$_XOR_": 26
+      },
+      "macro_count": 1,
+      "separate_physical_memory_bits": 8192,
+      "logical_words": 128
+    },
+    "smoke": {
+      "kind": "RTL_HARNESS_SMOKE_NOT_NETLIST",
+      "tests": 1,
+      "junit_sha256": "f1c6b72621b0893aa19523dc5bc1f131df1540478f627a6d65df7dd7eb357762",
+      "waveform_sha256": "bd7f4c6408015e5fd290692432e0293c473d3a6a283689aca81d1ac758cec316"
+    }
+  },
+  "metadata_check_executions": 2,
+  "metadata_tests_each": 127,
+  "verified_spi_input_hashes": {
+    "experiments/spi_phase/baseline/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "experiments/spi_phase/baseline/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "experiments/spi_phase/baseline/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "experiments/spi_phase/baseline/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "experiments/spi_phase/baseline/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/legacy_baseline.py": "eb17e711b05557bcc88b3afdfc3a0d0b79d7002863dc6f1503e8c910f7809dc9",
+    "experiments/spi_phase/baseline/manifest.json": "c9431b9d87772d49a7502e38b38ad5189dc696d40243e2bdf9d84d19eb586c07",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/four_mode_programs.py": "ae6a8a86894df9f661159886428045efad900672fed124d4c0015b19ab443b96",
+    "experiments/spi_phase/run_four_mode_screen.py": "1352140260d1e93c2d51e47e31bf3a9ad372f5f75185de2eb8f1be7801935760",
+    "experiments/spi_phase/build_variants.py": "bab116853fe7b65bc55fc0e53de4779158f07b736d3e60055d65de65085a3b72",
+    "experiments/spi_phase/run_program_sensitivity.py": "29738d054d87d562541ea67674df83f25405b061d67d0dbc78afd9cb61834596",
+    "test/test_spi_four_mode.py": "df92547d84579acc3c64e5483f6363e62c34dd316479a0bc67c21d8cda41636c",
+    "test/test_spi_four_mode_public.py": "9d2d90d325354c95c0fd2e8bb59286feabf56fc4c68117fdc7573ad6870578db",
+    "test/test.py": "e3c66f306a02c3cbf5d5c65598264f395a404c5e77f9dbf4a73c51edb0422472",
+    "test/Makefile": "6ca5cccd3bdd101d3cf6ef9c83444c062464f95b25b719cda1932a1b7ce864e4",
+    "test/tb.v": "fff1e902e9594f4703795c31bd3377a8a982fadaa2c529c7d502255fca9814b0",
+    "docs/specs/p-spi-host-4mode.md": "d8a33f5f8a0121eaa96e9ba1d1874343df0b39e1c17adbd15518ee0b0e7e822c",
+    "experiments/spi_phase/run_formal.py": "aebf36a08564c1474b0a9a6ec5f4895df27f23c733a1633aa90a1b7b6f6576b9",
+    "experiments/spi_phase/run_integration.py": "e2eb89791a53a55f32ce1d0a5aa632119934be103b703f4d0727d612bb288f78",
+    "experiments/spi_phase/run_program_invariants.py": "8f8967e8a5e5232bed75fcc64f64bd663df9ebae659cdff4fd789cbe936cd35b",
+    "experiments/spi_phase/run_held_program_proof.py": "4f75e5b694291fb0cc4e1ea737b651376c86ac9d5df3c4460b46702a3ba4533f",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/held_spi.sv": "cfcdc7621716a2400459a4c34fa070e81f935a5953d9901417d31ac91565c6ba",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/timed_invariants.vh": "b4cdc380f600aa19e3a521b45bde5437f6021ba733fc54781d9637261ea73489",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "experiments/spi_phase/pins/timed_spi.sv": "1d69fbbed494baf0066451f1c0a829817c05dba05482b90a4223fe56e51124e8",
+    "experiments/spi_phase/pins/held_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+    "docs/specs/spi-held-program-proof.md": "e55464ab5b4dd6792bbb37d6f8cc8ac949769bdf3ef2f6d4f3578718b3c7a135",
+    "experiments/spi_phase/run_phase1_capacity.py": "a52eeccd1a81503c113481c97a97fdb244cb43eaa128204b7939a3e0b7dac3c3",
+    "experiments/spi_phase/phase1_capacity.py": "32e1393d56034c17430a714fc4cde9a8f475c907ca5e26fa5185b18e6caab745",
+    "test/test_spi_phase1_capacity.py": "ae11f19c315e5248a5f20bfd3077fa9868a03759f2958726944e2490b9eb38e5",
+    "test/test_spi_phase1_public.py": "67a1e96b298be55bc8f06c7472ed78835ef7d9b522647f442a4fa83be93e61f4",
+    "docs/specs/spi-phase1-capacity-screen.md": "4356f7be934bf21e6e76f94d6dd3d47f48c9a3a3056be5e86b75345923b6f5c2",
+    "tools/workbench/toolchain.lock.json": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+    "experiments/spi_phase/pin_timing.py": "adb1d8142c5e9e8310afd599e6ecfb08db7dad4e81e872fbc7068bf9b094355f",
+    "docs/specs/spi-program-sensitivity.md": "48c6e4176c1f33534947e9261ce5e459681cbb00042883bc067ac9de3c5103bb",
+    "test/test_spi_mode0_pins.py": "71450ef032cd7210d400ea8d894f17383544bc89b78e9e8f73f6d98ab26422d5",
+    "test/test_spi_program_controls.py": "1d446ca17323d719deb32fb62dcc9433df2bb61db7ec0f5e32e88aa414bfc16d",
+    "experiments/spi_phase/build_timed_gpio.py": "0ea873edbc6da168b307b962cf560ce7810a64d02a49ec6ff9bdb1c68999bf4d",
+    "experiments/spi_phase/timed_gpio_programs.py": "955a7f5309256ecdad011236aab27112fc7ae02de769bc1fe61ba610752b0cc7",
+    "experiments/spi_phase/run_timed_gpio.py": "ea58de850db383574212f3de8e69dcac91242336076e270ab3dbcdd796021fcb",
+    "test/test_spi_timed_gpio.py": "9fa6e076d864736d60b8bc45034bb9d54e7984096305c269d77658647f4fce0e",
+    "test/test_uart_rx_public.py": "024d609a265d9b8f23a011fcb0d96bec9baca4afff2f9e3067d0ee738c8f1e9e",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1",
+    "experiments/spi_phase/run_timed_instruction_proof.py": "bfccd1e19114e2f33cef21f5c277626ca9fe3cfdfc5d75615457ed536a63e651",
+    "experiments/spi_phase/formal/timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "experiments/spi_phase/formal/timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "experiments/spi_phase/formal/timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "experiments/spi_phase/run_timed_program_proof.py": "0096ce21d95950336611af65aa594248d2fe1e1c95ea92cdc596dadca51210ad",
+    "experiments/spi_phase/run_timed_refinement.py": "5cf45e28a26e17a8b167640a26f5297625f0e4bad87a55a2f73da0a13797415e",
+    "experiments/spi_phase/qualify_timed_gpio.py": "0d13069dc79912cdac1f16010959488749c73f928bc99e5d40ec03d3ef3598f3"
+  },
+  "prior_spi_gates": {
+    "spi-sensitivity.json": "PASS",
+    "spi-four-mode.json": "PASS_SCOPED_SCREEN",
+    "spi-held-proof.json": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+    "spi-phase1-capacity.json": "PASS_DECLARED_PHASE1_CAPACITY_SCREEN"
+  },
+  "timed_gate_count": 7,
+  "timed_generic_selection": "P",
+  "timed_measurements_and_record_hashes_match_e0030": true,
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27",
+  "verified_tag_digests": {
+    "v0.1.0-alpha.6": "sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27",
+    "sha-3cd1a62fb00efbf3bcb9d34e6371dfd382e36159": "sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27"
+  },
+  "manifest_digest": "sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27",
+  "linux_amd64_manifest_digest": "sha256:1c7696e47ba50200c2a2d631f6b0507578def5e4ce0ef7166f72d277cba4ae27",
+  "config_digest": "sha256:24c5d3ecdc246aa907699b85c932b56d9662850b65b6163411f33a39c3fc050b",
+  "anonymous_layer_heads": [
+    {
+      "digest": "sha256:501c3e032d323c5d2ecdc2c3da91ccdf6497a1d8e69fac78ad18322540160970",
+      "bytes": 29153837,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:246ac8b7cadc4ee7c220a2d4e02a37a296797f40648480115ae41e083aa60b6e",
+      "bytes": 3533387,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:dc22b8c341d91e21b901b9eb1e414c18b487f4de1a165c539ecb32bb590acbd4",
+      "bytes": 16023549,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:f57cecf87087697ab89776daeb60b1b2b2149c876d4aa69ae6765ae7ad66a470",
+      "bytes": 249,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:a39a1252660617168f3753092e3a1eea5c3ad3b16fd43d9167c843a05f1d04c6",
+      "bytes": 116520185,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7",
+      "bytes": 741875121,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:cb3f2f1d9c26ce778add530876baa64137130c694167dad4880d00480e96d764",
+      "bytes": 18035222,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:353d3800ebc8cef9ad71c391faad58b2eab46b715b1cdd90e54c6535d5d0e8a3",
+      "bytes": 233,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:e4fb6c8b478b7c2bb697968b95bbdf6fd7d87f81e599c8ad6513a633872cc899",
+      "bytes": 403,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+      "bytes": 32,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:bf6e0c8d711eef42d4b7dcf48a68530de5a834d47d819a1d6693a0a14764be8a",
+      "bytes": 4524,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:1a251a3ff58a2ff436c2eefcb72f6d53152dea151d3a9f89524e002ef55964ba",
+      "bytes": 13648883,
+      "anonymous_head_status": 200
+    },
+    {
+      "digest": "sha256:e8caed3e96293872412699619707bf5138b1dba83c5a387e54af803cc170163b",
+      "bytes": 99,
+      "anonymous_head_status": 200
+    }
+  ],
+  "registry_verification_scope": "Manifest/config bodies downloaded and hashed; all layer read permissions and sizes checked by anonymous HEAD, without downloading layer bodies.",
+  "scope": "Initial alpha.6 assets and exact version/source/image identity, complete normal-command release verification and preserved historical gates. Physical qualification comes from the separately retained E0045 run with identical production inputs. No silicon, analog compliance, measured Fmax, unrestricted interoperability or owner fluency claim."
+}

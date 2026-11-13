@@ -1,0 +1,33 @@
+{
+  "status": "PASS_G2_CLOSURE_METADATA_AND_INPUT_IDENTITY",
+  "observed_utc": "2026-11-13T05:15:15.806391+00:00",
+  "release_source_commit": "3cd1a62fb00efbf3bcb9d34e6371dfd382e36159",
+  "check_receipt_created_utc": "20261113T050902486973Z",
+  "check_status": "PASS",
+  "repository_tests": 127,
+  "production_guard_status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM",
+  "qualified_physical_inputs_unchanged": 20,
+  "committed_default_ci_inputs_unchanged": 329,
+  "changed_working_tree_verification_inputs": [],
+  "retained_checksum_manifests": {
+    "ci-94a3082": {
+      "status": "PASS",
+      "files": 31,
+      "manifest_sha256": "c70e84a1c67f2d54b9f27da73a26d595cf1ceec4ada44878ae701a8c8e388f70"
+    },
+    "ci-default-75c1e7d": {
+      "status": "PASS",
+      "files": 17,
+      "manifest_sha256": "cbba918ceb671eaefc9437b0887ea8642585b06e437a1181bf95f4eac1057314"
+    },
+    "publication": {
+      "status": "PASS",
+      "files": 27,
+      "manifest_sha256": "0f89979fb9fe316d39d34d87cf0812668c09880163e9f35002f34af277726719"
+    }
+  },
+  "completion_evidence_references_checked": 16,
+  "completion_audit_sha256": "9855bf1508b6676ad8d82d5643ac07238176d2d7535e494b65077b2b9ea3e823",
+  "unrelated_development_lock_unchanged": true,
+  "scope": "Local repository checks plus byte/source identity verification. Complete RTL, formal, physical and release CI are retained separately; this does not rerun them. Documentation wording and evidence closure are the only follow-up changes."
+}

@@ -1,0 +1,315 @@
+{
+  "schema": "protocol-emulator-g2-completion-audit-v1",
+  "status": "PASS_G2_COMPLETION_REQUIREMENTS",
+  "observed_utc": "2026-11-13T05:04:56.853984+00:00",
+  "release_source_commit": "3cd1a62fb00efbf3bcb9d34e6371dfd382e36159",
+  "physical_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+  "default_command_source_commit": "75c1e7d9eec80541b7b675a20f0557b8c1b22126",
+  "production": {
+    "status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM",
+    "profile": "od128-sram",
+    "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "source_sha256": {
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+    },
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "qualified_run_id": 43348171110,
+    "qualified_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "qualified_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "files_sha256": {
+      "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+      "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+      "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+      "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+      "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+      "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+      "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+      "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+      "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+      "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+      "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+      "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+      "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+      "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+      "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+    },
+    "metadata_sha256": "81bacf39188db2a2938e41d920789cc326da95be4799930e6eff1840058c39f8"
+  },
+  "requirements": [
+    {
+      "requirement": "Freeze I2C contract/oracle before extending the ISA; measure existing-instruction alternatives.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0032-i2c-oracle/qualification.json",
+          "sha256": "5da837c843b68e9dde5bb7c7a262053217251036bb11794cbd4bf4ca3b670e92"
+        },
+        {
+          "path": "evidence/E0033-i2c-existing-instructions/result.json",
+          "sha256": "6736726e08a8d0e79d6a7f8e54579d67c57dbf174278bae0e5e8706c2638b101"
+        },
+        {
+          "path": "evidence/E0034-i2c-receive-reuse/result.json",
+          "sha256": "bdb0b5d0869ce390f0a044de868ccb19af8cbf7b0dda760bce08d81643c8d0fc"
+        },
+        {
+          "path": "docs/decisions/0036-i2c-contract-before-isa.md",
+          "sha256": "ebaa51ef1746daf3340bbd2d38b4308e5431511b19acc6ec43645026858e8fb0"
+        }
+      ],
+      "detail": "Independent 19-group oracle and 3902 observations/53 witnesses precede the scoped compact10 baseline and existing SHIFT_STEP reuse screen; D37 documents the subsequent general instruction/capacity decision."
+    },
+    {
+      "requirement": "Pass all mandatory kernels and UART TX/bounded RX, four-mode SPI and I2C on one candidate.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0042-sram-prefetch-screen/regression/result.json",
+          "sha256": "a9e152caec57d948c5c6b678b832b9a88330175c529c994c737f1a4ff8fbd405"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verification.json",
+          "sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/publication/release-verification.json",
+          "sha256": "f3e6aded83940aad16940bccc837e3675d29071df09b75a6194b863d05bf02d8"
+        }
+      ],
+      "detail": "Every matrix obligation maps to passing groups in both complete 30-group suites using the exact adopted SRAM source/model identities."
+    },
+    {
+      "requirement": "Preserve UART framing, phase, service, delivery and adversarial-input limits.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "docs/specs/p-uart-rx-8n1.md",
+          "sha256": "395087b4f0c7606e5f217880250c3a2dbea11802e4bfc96d6045488f13d818a3"
+        },
+        {
+          "path": "docs/specs/p-uart-rx-host-service.md",
+          "sha256": "04ee84522d237c07e0ce833d7b382cbb4b9384efe10ff0be47289a5aa3b5c556"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verification.json",
+          "sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f"
+        }
+      ],
+      "detail": "Both simulator suites include bounded final-byte delivery, safe/late host reads, framing/timeout and reset/disable/quarantine controls. Continuous autonomous UART delivery remains unqualified."
+    },
+    {
+      "requirement": "Both SPI bit orders/all four modes with input-hold assumptions and edge-only negatives.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "docs/specs/p-spi-host-4mode.md",
+          "sha256": "d8a33f5f8a0121eaa96e9ba1d1874343df0b39e1c17adbd15518ee0b0e7e822c"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verification.json",
+          "sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-94a3082/result.json",
+          "sha256": "af34f8debf3693461626d45782e6b74ca0390d2c6e8bc2106751a4c1ba1e1532"
+        }
+      ],
+      "detail": "1052 unchanged reference records include the stated expected edge-only rejections; no unrestricted peripheral compatibility claim."
+    },
+    {
+      "requirement": "Public-pin program reload without protocol-specific RTL, both simulators, relevant formal properties and meaningful controls.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verification.json",
+          "sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f"
+        },
+        {
+          "path": "evidence/E0042-sram-prefetch-screen/regression/result.json",
+          "sha256": "a9e152caec57d948c5c6b678b832b9a88330175c529c994c737f1a4ff8fbd405"
+        },
+        {
+          "path": "docs/decisions/0037-general-io-i2c-candidate.md",
+          "sha256": "59e9a403e1883d3ebae6faee27adab9e2d217d104829800527874f6ab7694c6a"
+        },
+        {
+          "path": "docs/decisions/0048-adopt-qualified-sram-production.md",
+          "sha256": "71f3dd5f22347ae4ceda513aa8cfe297024bbfe34585354276798f280cad2c24"
+        }
+      ],
+      "detail": "One generic temporal engine; program-bank/reset/length and 44-byte bank checks, complete protocol reloads, source-matched compositional engine/store/prefetch proofs, real faults and retained witnesses. Whole-chip proof timeouts remain inconclusive."
+    },
+    {
+      "requirement": "Promote only after combined regression and fresh pinned physical/timing/precheck/public-netlist acceptance of that revision.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-94a3082/result.json",
+          "sha256": "af34f8debf3693461626d45782e6b74ca0390d2c6e8bc2106751a4c1ba1e1532"
+        },
+        {
+          "path": "evidence/E0043-sram-physical-integration/guarded-netlist/verification.json",
+          "sha256": "61969ec5244a2e79c65ecab731aeed06d2de666e0221f24ee11a9dc88bba63de"
+        },
+        {
+          "path": "tools/production-profile.json",
+          "sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/verification.json",
+          "sha256": "32fbb365d6d215dc75756b4d9289d95dec2a0a4d553c9a1b68c5232e0136b92f"
+        }
+      ],
+      "detail": "D48 adopts all twenty qualified inputs byte for byte. Original 8x4 physical run passes all gates and ten prechecks; eighteen public-netlist groups and the corrected local pair use the same netlist. Actual default commands and release commands verify actual src files."
+    },
+    {
+      "requirement": "Publish original archives, reproducible evidence and matching tools package; verify downloads and all tag gates.",
+      "status": "PASS",
+      "evidence": [
+        {
+          "path": "evidence/E0045-g2-sram-qualification/publication/release-verification.json",
+          "sha256": "f3e6aded83940aad16940bccc837e3675d29071df09b75a6194b863d05bf02d8"
+        },
+        {
+          "path": "evidence/E0045-g2-sram-qualification/publication/tag-runs.json",
+          "sha256": "cd70c38afc0f73994fad93eeb87d7807fbfa4d6d1f4f4e7e394b7e06d6071ecd"
+        }
+      ],
+      "detail": "Anonymous asset downloads and checksums, every curated committed member, complete publication CI, matching manifest/config/source/version tags and anonymous layer availability verified. Documentation closure is in the same follow-up commit."
+    }
+  ],
+  "mandatory_workload_matrix": {
+    "K-PIN-TRACE": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.randomized_trace_matches_reviewed_model",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test.public_pin_reload_changes_observable_program"
+      ]
+    },
+    "K-INPUT-WAIT": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.k_input_wait_public_program_event_timeout_and_reload"
+      ]
+    },
+    "K-SHIFT-8": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.k_shift_8_public_payload_both_orders"
+      ]
+    },
+    "K-BOUNDED-LOOP": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.k_bounded_loop_public_program_counts"
+      ]
+    },
+    "P-RELOAD": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.public_pin_reload_changes_observable_program",
+        "test_general_boundaries.public_store_banks_lengths_and_reset"
+      ]
+    },
+    "P-UART-TX-8N1": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test.uart_tx_8n1_public_pin_oracle"
+      ]
+    },
+    "P-UART-RX-8N1": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine"
+      ]
+    },
+    "P-SPI-HOST-4MODE": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls"
+      ]
+    },
+    "P-I2C-CONTROLLER-100K": {
+      "status": "PASS",
+      "both_simulators": true,
+      "required_groups": [
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_general_boundaries.public_open_drain_and_alternate_payload"
+      ]
+    }
+  },
+  "tag_workflows": {
+    "spi-program-sensitivity": {
+      "run_id": 43364455611,
+      "conclusion": "success"
+    },
+    "docs": {
+      "run_id": 43364455638,
+      "conclusion": "success"
+    },
+    "atlas": {
+      "run_id": 43364455881,
+      "conclusion": "success"
+    },
+    "sram-candidate": {
+      "run_id": 43364455601,
+      "conclusion": "success"
+    },
+    "spi-timed-gpio": {
+      "run_id": 43364455579,
+      "conclusion": "success"
+    },
+    "i2c-general": {
+      "run_id": 43364455582,
+      "conclusion": "success"
+    },
+    "test": {
+      "run_id": 43364455604,
+      "conclusion": "success"
+    },
+    "publish": {
+      "run_id": 43364455634,
+      "conclusion": "success"
+    }
+  },
+  "historical_G1_P_rejection_M0_and_owner_learning_records_unchanged": true,
+  "not_claimed": [
+    "continuous autonomous UART receive",
+    "unrestricted SPI input timing",
+    "analog I2C compliance",
+    "silicon or board validation",
+    "maximum frequency",
+    "minimum ISA",
+    "isothermal fast SRAM corner",
+    "owner fluency",
+    "final submission readiness"
+  ],
+  "next_goal": "G3 remains queued: readable assembly, versioned protocol examples, loading/readback and reproducible pin traces."
+}

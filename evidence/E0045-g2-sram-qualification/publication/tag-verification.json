@@ -1,0 +1,157 @@
+{
+  "status": "PASS_ALL_EIGHT_RELEASE_TAG_WORKFLOWS",
+  "source_commit": "3cd1a62fb00efbf3bcb9d34e6371dfd382e36159",
+  "tag": "v0.1.0-alpha.6",
+  "workflows": {
+    "spi-program-sensitivity": {
+      "run_id": 43364455611,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451119,
+          "name": "controls",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "docs": {
+      "run_id": 43364455638,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685450884,
+          "name": "docs",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "atlas": {
+      "run_id": 43364455881,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451749,
+          "name": "browser",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "sram-candidate": {
+      "run_id": 43364455601,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451166,
+          "name": "qualify (verilator)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451466,
+          "name": "qualify (proof-controls)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451507,
+          "name": "qualify (icarus)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "spi-timed-gpio": {
+      "run_id": 43364455579,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685450896,
+          "name": "comparison",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "i2c-general": {
+      "run_id": 43364455582,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451413,
+          "name": "qualify (store)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451548,
+          "name": "qualify (literal255)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451554,
+          "name": "qualify (shared-proof-controls)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451597,
+          "name": "qualify (lanes-store)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451599,
+          "name": "qualify (architecture)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451617,
+          "name": "qualify (od128)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451628,
+          "name": "qualify (lanes-selection)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451633,
+          "name": "qualify (physical-selection)",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451705,
+          "name": "qualify (shared-selection)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "test": {
+      "run_id": 43364455604,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451179,
+          "name": "test",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451399,
+          "name": "learning-windows",
+          "conclusion": "success"
+        },
+        {
+          "id": 131685451444,
+          "name": "current-candidate",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "publish": {
+      "run_id": 43364455634,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 131685451213,
+          "name": "workbench",
+          "conclusion": "success"
+        }
+      ]
+    }
+  },
+  "publication_auditor": "evidence/E0045-g2-sram-qualification/release-tools/verify_publication.py",
+  "publication_auditor_sha256": "ebfe9f128e20f94326e58710f90c9e8f64bcda3e4cd7f23f4152963a37c8485f"
+}

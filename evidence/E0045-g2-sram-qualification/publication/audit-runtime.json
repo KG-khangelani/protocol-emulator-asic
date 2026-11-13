@@ -1,0 +1,16 @@
+{
+  "status": "PASS_NATIVE_PUBLICATION_AUDIT",
+  "command": [
+    "/usr/local/bin/python3",
+    "/workspace/evidence/E0045-g2-sram-qualification/release-tools/verify_publication.py",
+    "--directory",
+    "/workspace/build/g2-alpha6-runtime/audit"
+  ],
+  "returncode": 0,
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+  "python": "3.11.16",
+  "image": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "anonymous_downloads": 28,
+  "anonymous_download_bytes": 759743002,
+  "scope": "The frozen auditor downloaded and hashed every asset in Linux tmpfs, compared prepared/CI bytes and committed bundle members, and checked public registry identity. The original prepared archives remain on the host; actual public metadata and all digest/size observations are retained."
+}

@@ -3,7 +3,7 @@
 Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**Current G2 gate: physical qualification passed.** E0045 retains complete
+**G2 COMPLETE 2026-11-13; G3 queued.** E0045 retains complete
 run43348171110 at clean 94a3082: GDS, all ten prechecks and all eighteen public
 netlist groups pass. Its six original ZIPs contain 1,713 files; the audit retains
 55 exact producing inputs and passes on Windows and pinned Linux. Five deliberate
@@ -18,7 +18,11 @@ both thirty-group RTL suites, current and historical formal checks, and two
 fresh 127-test executions. Its original 1,922-file ZIP, 329 producing inputs
 and actual immutable container identity pass audit; the retained Linux replay
 reproduces every result and member hash. Physical regeneration reproduces the
-exact adopted files. Alpha.6 publication and download/tag audits remain open. D47 exposes
+exact adopted files. Alpha.6 publishes the qualified milestone: all 28 assets
+were downloaded anonymously and hashed, 1,369 curated members match the
+release commit, public image/source/version identities match, and all eight
+tag workflows pass. The [completion audit](../evidence/E0045-g2-sram-qualification/completion-audit.json)
+closes every G2 requirement. D47 exposes
 54 existing full-height supply rectangles and preserves every conductor,
 instance and public signal pin. D46's exact two-file rule alignment and original
 complete checker remain explicit. Earlier run43337581691 still fails its 148
@@ -728,10 +732,9 @@ efficiently express useful digital communication protocols under hard temporal c
 
 - G1 is complete. Keep its source identities, qualified compact10 result and
   rejected P attempts intact; no new physical run or further tuning is needed.
-- Active engineering goal (G2): publish alpha.6 from the clean, audited
-  D48-adopted source with its matching workbench and
-  original evidence, then verify downloads, image identity and all tag checks.
-- Programming tools (G3): add a small assembler alongside the settled G2
+- G2 is complete. Preserve the qualified SRAM source, original archives,
+  alpha.6 publication and all rejected trials; requalify material design changes.
+- Next engineering goal (G3, queued): add a small assembler alongside the settled G2
   instruction contract; a larger compiler needs a demonstrated use case.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
@@ -751,7 +754,7 @@ Standard-mode I2C share the same RTL. UART framing/delivery/host-service limits,
 SPI input hold and I2C electrical/cleanup assumptions remain explicit. Continuous
 autonomous UART, unrestricted protocol interoperability, analog-bus validation,
 Fmax and fabricated-silicon results remain absent. G3's assembler remains queued;
-G2 still needs verified milestone publication; clean default-command CI and its
-retained replay pass. G1, rejected
+G2 is complete: clean default-command CI, retained replay and alpha.6 publication
+are verified. G1, rejected
 experiments and historical formal evidence remain frozen. The original OpenKnowledge records
 named in `source-pack.md` were not modified or synchronized by this setup.

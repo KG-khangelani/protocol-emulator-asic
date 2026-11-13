@@ -6,16 +6,31 @@ page contains versioned research snapshots. The linked
 contains the pinned Linux amd64 verification tools. A release is not a tapeout,
 silicon result, new physical qualification or owner fluency sign-off.
 
-Current research snapshot: [v0.1.0-alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5),
-[D35](decisions/0035-select-compact10-physical-pilot.md) and
-[E0031](../evidence/E0031-8x4-physical-comparison/README.md). Compact10 is the
-qualified experimental physical pilot; P's smaller area and fanout failure
-remain available. All 28 release asset downloads/checksums, matching image/source
-identity and public access are [verified](../evidence/E0031-8x4-physical-comparison/release-verification.json).
-The release carries nine original physical archives, a curated evidence ZIP
-and a separate G1 manifest/checksum list. These identify physical source 29f4b73;
-the release and tools package use 19b7b16. The tools publication itself does
-not perform physical qualification. Production promotion remains a later gate.
+Current research snapshot: [v0.1.0-alpha.6](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.6),
+[D48](decisions/0048-adopt-qualified-sram-production.md) and
+[E0045](../evidence/E0045-g2-sram-qualification/README.md). The qualified SRAM
+production core runs the declared UART TX/bounded RX, held-input four-mode SPI
+and digital Standard-mode I2C programs. Fresh physical checks, ten prechecks,
+eighteen real-netlist groups and complete clean actual-default-command CI pass.
+
+All 28 assets were downloaded anonymously and verified, including six original
+physical ZIPs, the original production CI ZIP and 1,369 curated files matching
+the release commit. The exact public image/source/version identities and all
+eight tag workflows pass. The [publication verification](../evidence/E0045-g2-sram-qualification/publication/release-verification.json)
+and [completion audit](../evidence/E0045-g2-sram-qualification/completion-audit.json)
+record the closure. Physical source is 94a3082; clean default verification is
+75c1e7d; release/package source is 3cd1a62. The twenty adopted physical inputs
+match the physical run; all 329 clean default-verification inputs are unchanged
+between 75c1e7d and the release commit.
+The workbench job verifies production but does not rerun the physical flow.
+
+The release retains the complete E0032-E0045 research trail, including failures,
+original artifacts and frozen replays, with its own G2 manifest/checksum list.
+[Alpha.5](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.5)
+continues to preserve D35's compact10 qualification and P rejection; its 28
+assets and public package were separately verified. Historical M0 6x4 evidence
+and the owner's pending fluency gate are unchanged. G3's usable toolchain and
+G4's final submission package remain separately ordered.
 
 ## Automatic updates
 
@@ -50,7 +65,8 @@ or documentation commits do not create a milestone release.
    ```
 
 The workflow validates the tag, runs `workbench.sh All` (tool versions, model
-checks, lint, both RTL simulators, formal checks and synthesis), and reruns the
+checks, lint, both RTL simulators, formal checks and synthesis), collects
+source-bound normal-command evidence, and reruns the
 program-sensitivity and four-mode SPI screens, the held-program proof and
 its counterexamples, the phase1 capacity/rejection screen, and the timed GPIO comparison for releases. Publication stops on
 a failed check. Release assets include the lock, manifest, checksums and scoped

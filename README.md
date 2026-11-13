@@ -14,7 +14,7 @@ the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and t
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Engineering: G2 shared protocol core; learning: M0 teach-back pending.**
+**Engineering: G2 complete, G3 queued; learning: M0 teach-back pending.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical
 program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
 loaded programs implement UART TX and bounded RX, both bit orders of all four
@@ -26,7 +26,10 @@ and [E0044](evidence/E0044-sram-current-verification/ci-13660ac/README.md).
 [D48](docs/decisions/0048-adopt-qualified-sram-production.md) binds adoption to
 the exact qualified files. [Clean default-command CI](evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/README.md)
 passes all eight stages on the actual production source; its original archive
-and frozen replay pass. Milestone publication is tracked in [state](docs/state.md).
+and frozen replay pass. [Alpha.6](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0-alpha.6)
+publishes the qualified milestone with verified downloads, matching tools image
+and all eight tag workflows passing. The [completion audit](evidence/E0045-g2-sram-qualification/completion-audit.json)
+closes G2; [state](docs/state.md) identifies the next work.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its

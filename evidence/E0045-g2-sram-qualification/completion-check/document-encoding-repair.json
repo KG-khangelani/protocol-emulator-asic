@@ -1,0 +1,12 @@
+{
+  "status": "PASS_ORIGINAL_DOCUMENT_UNICODE_RESTORED",
+  "changes": [
+    {
+      "path": "docs/backlog.md",
+      "before_sha256": "8ce4017741f93a79d9e340ce301c1ec08a1fc9ce1ba7aec2f5f49b0f399d8c35",
+      "after_sha256": "9f110b20864f3ec420d2e97ba94759737a633769f9221f5d084513c9afc7a700",
+      "original_unicode_lines_restored": 2
+    }
+  ],
+  "scope": "Corrects an auxiliary Windows documentation writer defaulting to cp1252. Every non-ASCII line matches the pre-release-preparation 75c1e7d Git text; intended ASCII checkpoint updates remain. No production or verification input changed."
+}

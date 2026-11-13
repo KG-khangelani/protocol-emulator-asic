@@ -41,6 +41,11 @@ actual immutable image identity and complete semantic results pass audit; a
 fresh frozen Linux replay reproduces every result and member hash.
 
 The [release tools](release-tools/README.md) preserve the complete research
-trail and check publication against these exact inputs. The milestone release,
-matching public image, downloads and all tag checks remain required before G2
-is complete.
+trail and check publication against these exact inputs. [Alpha.6 publication](publication/README.md)
+now passes: all 28 assets downloaded anonymously and hashed, 1,369
+curated members identical to committed bytes, complete publication-stage checks,
+matching public image/source/version identities and eight passing tag workflows.
+The [completion audit](completion-audit.json) closes all nine mandatory workloads
+and every G2 requirement. The [final follow-up checks](completion-check/README.md)
+retain 127 passing repository tests and verify that all 329 CI inputs are unchanged.
+G3 and final submission readiness remain separate.
