@@ -347,7 +347,7 @@ owner fluency remain separate.
 
 Completion checks:
 
-- [ ] Freeze a candidate by January 4 and run the official 8x4 CMOS5L GDS flow,
+- [x] Freeze a candidate by January 4 and run the official 8x4 CMOS5L GDS flow,
   timing checks, precheck and real netlist simulation for the final core.
   Gate-level tests must exercise the actual public loading/protocol paths.
 - [ ] Reproduce the result from a clean checkout with pinned tools. Retain source

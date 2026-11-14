@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--network",
+    "none",
+    "--name",
+    "g4-reproduction-config-id-probe",
+    "--entrypoint",
+    "python3",
+    "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "-c",
+    "print('PASS_EXACT_IMAGE_ID')"
+  ],
+  "timeout_seconds": 20,
+  "status": "TIMEOUT",
+  "stdout": "",
+  "stderr": "",
+  "elapsed_seconds": 20.01157420000527
+}

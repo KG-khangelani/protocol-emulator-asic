@@ -6,18 +6,20 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 **G1-G3 COMPLETE; G4 ACTIVE.** D49 freezes the unchanged qualified core for
 two clean official physical runs and a verified final submission packet.
 [E0047](../evidence/E0047-g4-submission-candidate/README.md) retains the freeze,
-rule observation and forthcoming qualification. Fresh G4 gates remain pending.
+rule observation and completed official runs. Final replay and publication gates remain pending.
 The Tiny Tapeout datasheet, architecture/ISA, verification, toolchain and AI-use
 guides now describe the current SRAM profile. The submission packet and release
-notes are prepared; fresh physical, reproduction and publication gates remain
-pending. Runs43543626249 and43543629839 share frozen source `45c55f7`.
+notes are prepared. Runs43543626249 and43543629839 share frozen source `45c55f7`.
 [Fresh program-tool CI](../evidence/E0047-g4-submission-candidate/program-tools/README.md)
 passes at `ae2ac7b`: 352 frozen inputs, 55 cases per simulator, 53 identical
 compiled files and cross-platform frozen replay with five corruption controls.
-Both G4 layouts now pass their complete physical checks and all ten official
-prechecks. Their netlists, timing/area and recorded stage configurations agree;
-the layouts differ only in standard timestamps. Both public-netlist jobs and
-the complete retained audits remain pending.
+Both G4 runs now pass their complete physical checks, all ten official
+prechecks and all eighteen actual-netlist public groups. Their complete audits
+and Windows replays pass; the candidate rejects nine evidence corruptions.
+The netlists, timing/area, stage configuration/state and retained public records
+agree; layouts differ only in standard timestamps. Linux replay and publication
+remain pending. Local Docker creation failed; isolated CI will use the verified
+public Linux workbench while preserving the observed host failure.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the

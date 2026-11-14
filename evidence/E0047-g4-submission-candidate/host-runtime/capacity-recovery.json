@@ -1,0 +1,80 @@
+{
+  "schema": "protocol-emulator-g4-capacity-recovery-v1",
+  "status": "PASS_VERIFIED_RELOCATION",
+  "observed_utc": "2026-11-14T03:52:58.463228+00:00",
+  "records": [
+    {
+      "record_path": "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-capacity-relocation.json",
+      "record_sha256": "1fc40068eabc8b5246d9a01f143bd89825275db548633517433ad706b2ae572f",
+      "destination_root": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114",
+      "moves": [
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-store-replay-01",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-store-replay-01",
+          "files_verified": 537,
+          "bytes_copied": 651921986,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-store-replay-02",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-store-replay-02",
+          "files_verified": 537,
+          "bytes_copied": 651921986,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-store-replay-03",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-store-replay-03",
+          "files_verified": 537,
+          "bytes_copied": 651921986,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-original-store-replay-d38",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-original-store-replay-d38",
+          "files_verified": 537,
+          "bytes_copied": 651921986,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-sram-qualified-replay-01",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-sram-qualified-replay-01",
+          "files_verified": 344,
+          "bytes_copied": 655850335,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-sram-electrical-replay-01",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-sram-electrical-replay-01",
+          "files_verified": 1749,
+          "bytes_copied": 567121878,
+          "status": "VERIFIED_RELOCATED"
+        }
+      ]
+    },
+    {
+      "record_path": "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-capacity-relocation-additional.json",
+      "record_sha256": "92005cc4b63afd8807d8dd69475f949da98b3022f8ed19f83b3ac115f71d0d22",
+      "destination_root": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114",
+      "moves": [
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-release-assets",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-release-assets",
+          "files_verified": 10,
+          "bytes_copied": 758423633,
+          "status": "VERIFIED_RELOCATED"
+        },
+        {
+          "source": "H:\\hikrepos\\protocol-emulator-asic\\build\\g2-physical-literal255",
+          "destination": "C:\\Users\\user\\.codex\\scratch\\asic-g4-capacity-20261114\\g2-physical-literal255",
+          "files_verified": 283,
+          "bytes_copied": 737720369,
+          "status": "VERIFIED_RELOCATED"
+        }
+      ]
+    }
+  ],
+  "bytes_copied": 5326804159,
+  "files_verified": 4534,
+  "scope": "Inactive ignored generated outputs moved from H to available C scratch space after length/SHA256 verification of every copy. Active G4 work and committed historical evidence remain on H. Copied byte counts do not imply equal reclaimed space because some source files may share storage. Full per-file reports remain at the recorded local paths and beside the relocated copies."
+}

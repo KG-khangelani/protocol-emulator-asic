@@ -1,0 +1,36 @@
+{
+  "exit_code": 125,
+  "invocation_path": "invocation-linux-startup-failed.json",
+  "invocation_sha256": "18bae47b3faf3b77906e1b4e1ee49fdc42b3482b2e38981f959ea54a7382a78e",
+  "log_path": "replay-linux-startup-failed.log.gz",
+  "log_sha256": "7e0cfefe8de64a4c1421b2a495748fae081a75195803bd58a181ac60da1739c2",
+  "output_directory_created": false,
+  "probes": {
+    "g4-reproduction-config-id-probe.json": {
+      "elapsed_seconds": 20.01157420000527,
+      "sha256": "acfd0724858a2d4c7e10395cb2fd56098f5b2160bc6fba7b0773c675754cb51f",
+      "timeout_seconds": 20
+    },
+    "g4-reproduction-no-bind-probe.json": {
+      "elapsed_seconds": 45.02448919999733,
+      "sha256": "730fbb29e30b96c7d9ea6b18c6d0bccdf6de0de5ace76d3f2035c6a67c4c6af3",
+      "timeout_seconds": 45
+    }
+  },
+  "recorded_utc": "2026-11-14T03:51:18.096109+00:00",
+  "run_id": 43543629839,
+  "runtime_inspected_before_launch": {
+    "actual_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "architecture": "amd64",
+    "image_reference": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "os": "linux",
+    "repo_digests": [
+      "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+    ]
+  },
+  "schema": "protocol-emulator-g4-local-linux-startup-failure-v1",
+  "scope": "Local startup failed with Docker create API pipe EOF. No Linux replay or fault control executed in this attempt. The client exited naturally; a guarded process-stop check found it already absent, so this agent stopped no client, daemon or other container. Cause is not established.",
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "status": "FAILED_BEFORE_LINUX_REPLAY_CONTAINER_CREATION",
+  "verify_sha256": "a13576cb9cf3d05ec87d19b6aa0300e65655d42b704ba0321a479cffa50dfb91"
+}

@@ -1,5 +1,18 @@
 # G4 final submission candidate
 
+Current checkpoint: both official runs pass GDS, all ten prechecks and all
+eighteen actual-netlist public groups. Each original six-ZIP set contains 1,729
+members and freezes 84 producing inputs. Their complete audits and Windows
+replays pass; the candidate's nine corruption controls pass. The [complete
+comparison](reproduction.json) reproduces netlists, geometry apart from standard
+timestamps, timing/area, stage configuration/state and retained public records.
+G2 continuity is separately preserved. Linux replay and publication remain
+pending. Local Docker container creation failed after a host disk-capacity event;
+isolated Linux CI will use the previously verified, immutable public workbench
+image. The cause of the host failure is unconfirmed.
+
+The following paragraphs preserve earlier checkpoints and their then-open gates.
+
 Activated 2026-11-14 from G3 closure `59dd1dc` under
 [D49](../../docs/decisions/0049-freeze-g4-submission-candidate.md) and the
 [predeclared contract](../../docs/specs/g4-submission-candidate.md).

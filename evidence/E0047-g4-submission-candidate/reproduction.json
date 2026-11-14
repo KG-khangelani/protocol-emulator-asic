@@ -1,0 +1,175 @@
+{
+  "schema": "protocol-emulator-g4-reproduction-v1",
+  "status": "PASS_REPRODUCED_G4_PHYSICAL_CANDIDATE",
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "runs": {
+    "candidate": {
+      "run_id": 43543626249,
+      "result_path": "evidence/E0047-g4-submission-candidate/ci-43543626249/result.json",
+      "result_sha256": "5f67c663d9c5a8e5a8eed77362caaa56b050f7e8fbffb49d7075fc17ed0bfca9"
+    },
+    "reproduction": {
+      "run_id": 43543629839,
+      "result_path": "evidence/E0047-g4-submission-candidate/ci-43543629839/result.json",
+      "result_sha256": "4d1e1fa4829a756bdade0f5f54593a4ba0f49105af715c2da632750ee374c919"
+    }
+  },
+  "physical_inputs_identical": 20,
+  "comparisons": {
+    "normalized_gds": {
+      "schema": "gds-record-comparison-v1",
+      "left": {
+        "path": "ci-43543626249/tt_submission/tt_um_khangelani_protocol_emulator.gds",
+        "size_in_bytes": 10044774,
+        "sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "right": {
+        "path": "ci-43543629839/tt_submission/tt_um_khangelani_protocol_emulator.gds",
+        "size_in_bytes": 10044774,
+        "sha256": "0541bfb61c1e974a5ffecb051ff43a380b3fdcdc7c1a5bf19870c74642a14bd1",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "record_structure_equal": true,
+      "different_records": 191,
+      "different_bytes": 764,
+      "timestamp_record_differences": {
+        "BGNLIB": 1,
+        "BGNSTR": 190
+      },
+      "non_timestamp_record_differences": {},
+      "equivalent_except_timestamps": true
+    },
+    "netlist": {
+      "identical": true,
+      "sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e"
+    },
+    "metrics": {
+      "identical": true,
+      "physical_metrics": {
+        "status": "PASS",
+        "checked": {
+          "route__drc_errors": 0,
+          "route__antenna_violation__count": 0,
+          "antenna__violating__nets": 0,
+          "antenna__violating__pins": 0,
+          "magic__drc_error__count": 0,
+          "design__lvs_error__count": 0,
+          "design__power_grid_violation__count": 0,
+          "design__max_fanout_violation__count": 0,
+          "design__max_cap_violation__count": 0,
+          "design__max_slew_violation__count": 0,
+          "timing__setup__ws": 5.5958856909900625,
+          "timing__hold__ws": 0.12079138031701087,
+          "design__max_fanout_violation__count__corner:nom_fast_1p32V_m40C": 0,
+          "design__max_cap_violation__count__corner:nom_fast_1p32V_m40C": 0,
+          "design__max_slew_violation__count__corner:nom_fast_1p32V_m40C": 0,
+          "timing__setup__ws__corner:nom_fast_1p32V_m40C": 9.893064425466784,
+          "timing__hold__ws__corner:nom_fast_1p32V_m40C": 0.12079138031701087,
+          "design__max_fanout_violation__count__corner:nom_slow_1p08V_125C": 0,
+          "design__max_cap_violation__count__corner:nom_slow_1p08V_125C": 0,
+          "design__max_slew_violation__count__corner:nom_slow_1p08V_125C": 0,
+          "timing__setup__ws__corner:nom_slow_1p08V_125C": 5.5958856909900625,
+          "timing__hold__ws__corner:nom_slow_1p08V_125C": 0.6680285402820566,
+          "design__max_fanout_violation__count__corner:nom_typ_1p20V_25C": 0,
+          "design__max_cap_violation__count__corner:nom_typ_1p20V_25C": 0,
+          "design__max_slew_violation__count__corner:nom_typ_1p20V_25C": 0,
+          "timing__setup__ws__corner:nom_typ_1p20V_25C": 8.886068132834636,
+          "timing__hold__ws__corner:nom_typ_1p20V_25C": 0.3232766368323826
+        },
+        "errors": []
+      },
+      "area": {
+        "mapped": {
+          "cells": 4201,
+          "area_um2": 53089.7598,
+          "sequential_area_um2": 17293.0464,
+          "sequential_cells": 353
+        },
+        "routed": {
+          "design__instance__count__stdcell": 4679,
+          "design__instance__area__stdcell": 61294.1,
+          "design__instance__utilization": 0.0916943
+        }
+      }
+    },
+    "public_records": {
+      "identical": true,
+      "records": {
+        "i2c/aborts.jsonl": {
+          "all_retained_records": 36,
+          "qualified_records": 36,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728",
+          "semantic_sha256": "b9a2ccd0e459af115917fac61ad5476977359b2c2dd0e3d06a4b5b4b829a8a3c"
+        },
+        "i2c/boundaries.jsonl": {
+          "all_retained_records": 4,
+          "qualified_records": 4,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d",
+          "semantic_sha256": "3508664340ed880f605c181950bfcefb6628a5bfba8fdc878a43658bc79c8833"
+        },
+        "i2c/cases.jsonl": {
+          "all_retained_records": 1160,
+          "qualified_records": 1160,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+          "semantic_sha256": "3fc61a4f1cd266f8a634a317bf96aae8459c32659e9559ef517389405527579b"
+        },
+        "spi/cases.jsonl": {
+          "all_retained_records": 1052,
+          "qualified_records": 1052,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61",
+          "semantic_sha256": "07c9274c0c33a06e3e470f921a6801ea6ea3f83ffa51927648e238b06c210103"
+        }
+      },
+      "uart_retained_landmarks": 97,
+      "uart_landmarks_sha256": "8127124c746cf3ccbba1d89d689bfad7fb28490d8a2e1e4b1c2c57bae76cc091",
+      "uart_scope": "Seven UART groups execute assertions; retained RX landmarks compared, not complete TX traces."
+    },
+    "stages": {
+      "configured": 85,
+      "executed_top_level": 77,
+      "nested": 2,
+      "gate_disabled": 8,
+      "configuration_and_state_bytes_identical": true,
+      "differing_stage_members": []
+    }
+  },
+  "g2_continuity": {
+    "run_id": 43348171110,
+    "source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "gds": {
+      "schema": "gds-record-comparison-v1",
+      "left": {
+        "path": "E0045/ci-94a3082/tt_submission/tt_um_khangelani_protocol_emulator.gds",
+        "size_in_bytes": 10044774,
+        "sha256": "51ac3c1005fd0d811a3e26fddf81fd996a2d57b45172a68670df05e4c57dbbf4",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "right": {
+        "path": "ci-43543626249/tt_submission/tt_um_khangelani_protocol_emulator.gds",
+        "size_in_bytes": 10044774,
+        "sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "record_structure_equal": true,
+      "different_records": 191,
+      "different_bytes": 1146,
+      "timestamp_record_differences": {
+        "BGNLIB": 1,
+        "BGNSTR": 190
+      },
+      "non_timestamp_record_differences": {},
+      "equivalent_except_timestamps": true
+    },
+    "netlist_identical": true,
+    "physical_inputs_identical": true,
+    "physical_metrics_identical": true,
+    "area_identical": true,
+    "public_records_identical": true
+  },
+  "scope": "Two clean official builds at one frozen source. Only standard BGNLIB/BGNSTR timestamps may be normalized. Zero-delay netlist tests and static timing, not hardware or analog measurements."
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "protocol-emulator-g4-physical-replay-invocation-v1",
+  "run_id": 43543626249,
+  "host": "windows",
+  "started_utc": "2026-11-14T03:40:57.061330+00:00",
+  "completed_utc": "2026-11-14T03:41:57.066169+00:00",
+  "command": [
+    "C:\\Python314\\python.exe",
+    "evidence/E0047-g4-submission-candidate/ci-43543626249/verify.py",
+    "--output",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-candidate-windows",
+    "--controls"
+  ],
+  "working_directory": "H:\\hikrepos\\protocol-emulator-asic",
+  "runtime": {
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64"
+  },
+  "returncode": 0,
+  "log_sha256": "d9a4dcfa5ad4495d663b04d83357c4ecbbe859b8e0dad13561bd28c55f3a5f74",
+  "disk_free_before_bytes": 4563255296,
+  "disk_free_after_bytes": 4067299328,
+  "runner_sha256": "3d72154649e8a86fecd48116f799ad94ee4ea054a93dd8dd85631e1b8cc12cd6",
+  "verify_sha256": "a13576cb9cf3d05ec87d19b6aa0300e65655d42b704ba0321a479cffa50dfb91",
+  "verification_sha256": "93885e6d49e4ea4c9888ab51f5bf887529ca783c2970b621caa69533d7466d5d"
+}

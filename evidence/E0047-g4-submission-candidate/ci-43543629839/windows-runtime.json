@@ -1,0 +1,26 @@
+{
+  "remaining_gate": "Pinned Linux replay and nine fault controls; local Docker failed before creating the replay container.",
+  "result_sha256": "4d1e1fa4829a756bdade0f5f54593a4ba0f49105af715c2da632750ee374c919",
+  "run_id": 43543629839,
+  "schema": "protocol-emulator-g4-physical-windows-replay-v1",
+  "scope": "Windows replay audits original physical CI evidence and frozen producing dependencies; it does not rerun physical design or simulation.",
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "status": "PASS_RETAINED_REPRODUCTION_WINDOWS_REPLAY",
+  "windows": {
+    "argv": [
+      "C:\\Python314\\python.exe",
+      "evidence/E0047-g4-submission-candidate/ci-43543629839/verify.py",
+      "--output",
+      "build/g4-reproduction-windows"
+    ],
+    "completed_utc": "2026-11-14T03:39:24.708903+00:00",
+    "exit_code": 0,
+    "log_path": "replay-windows.log.gz",
+    "log_sha256": "a1740baa6773a4ab097a2a704b4f06bb7c03c6267b729bc2e7883bb96ba251b6",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "started_utc": "2026-11-14T03:39:18.179280+00:00",
+    "verification_sha256": "7331802afd26461955e258d9e8c1ea9342b2f297dc1df0c2c2d5f200b858b71a",
+    "verify_sha256": "a13576cb9cf3d05ec87d19b6aa0300e65655d42b704ba0321a479cffa50dfb91"
+  }
+}

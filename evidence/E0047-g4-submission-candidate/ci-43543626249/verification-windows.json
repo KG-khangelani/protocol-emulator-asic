@@ -1,0 +1,10 @@
+{
+  "status": "PASS_RETAINED_COMPLETE_SRAM_QUALIFICATION",
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "run_id": 43543626249,
+  "original_archive_files": 1729,
+  "producing_inputs": 84,
+  "gds_sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "controls_executed": true
+}

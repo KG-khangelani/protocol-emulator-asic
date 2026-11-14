@@ -1,0 +1,43 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--init",
+    "--env",
+    "HOME=/tmp",
+    "--mount",
+    "type=bind,source=H:\\hikrepos\\protocol-emulator-asic,target=/workspace",
+    "--workdir",
+    "/workspace",
+    "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "python3",
+    "evidence/E0047-g4-submission-candidate/ci-43543629839/verify.py",
+    "--output",
+    "build/g4-reproduction-linux",
+    "--controls"
+  ],
+  "completed_utc": "2026-11-14T03:48:25.320766+00:00",
+  "cwd": "H:\\hikrepos\\protocol-emulator-asic",
+  "exit_code": 125,
+  "free_bytes_after": 4063956992,
+  "free_bytes_before": 3218776064,
+  "log_path": "build/g4-reproduction-linux.log",
+  "log_sha256": "7e0cfefe8de64a4c1421b2a495748fae081a75195803bd58a181ac60da1739c2",
+  "platform": "linux",
+  "run_id": 43543629839,
+  "runtime": {
+    "actual_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "architecture": "amd64",
+    "image_reference": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "os": "linux",
+    "repo_digests": [
+      "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+    ]
+  },
+  "schema": "protocol-emulator-g4-reproduction-invocation-v1",
+  "started_utc": "2026-11-14T03:39:29.532808+00:00",
+  "status": "FAILED",
+  "verify_sha256": "a13576cb9cf3d05ec87d19b6aa0300e65655d42b704ba0321a479cffa50dfb91"
+}

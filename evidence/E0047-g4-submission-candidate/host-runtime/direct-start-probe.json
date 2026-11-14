@@ -1,0 +1,12 @@
+{
+  "schema": "protocol-emulator-g4-direct-container-probe-v1",
+  "status": "FAILED_TO_START",
+  "invocation": "Direct PowerShell execution through exec_command",
+  "command": ["docker", "run", "--rm", "--name", "protocol-emulator-g4-direct-probe-20261114", "--pull=never", "--network", "none", "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909", "python3", "--version"],
+  "exec_session_id": 4806,
+  "returncode": 1,
+  "output": "docker: error during connect: Post \"http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.56/containers/create?name=protocol-emulator-g4-direct-probe-20261114\": EOF\n\nRun 'docker run --help' for more information\n",
+  "timing_scope": "Precise launch and exit timestamps were not recorded; the final tool response supplies the actual exit code and error.",
+  "termination": "No process was stopped. A guarded stop found no matching probe process because it had already exited.",
+  "scope": "A minimal no-bind, no-network startup attempt by the previously inspected immutable image configuration ID. This failure does not establish a root cause or alter the successful remote physical jobs."
+}

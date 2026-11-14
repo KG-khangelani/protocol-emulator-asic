@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-11-14T03:45:58.117790+00:00",
+  "status": "CLIENT_PENDING_BEFORE_VISIBLE_CONTAINER",
+  "client_pid": 46440,
+  "parent_pid": 29748,
+  "owner": "KHANCREATE/user",
+  "invocation_snapshot": "g4-reproduction-linux.initial-pending.json",
+  "invocation_sha256": "74770d725ee1d4debe24cdad03967385f10b2cae12148c31a071788104222ee4",
+  "output_directory_exists": false,
+  "log_bytes": 0,
+  "probe_receipts": [
+    "g4-reproduction-no-bind-probe.json",
+    "g4-reproduction-config-id-probe.json"
+  ]
+}

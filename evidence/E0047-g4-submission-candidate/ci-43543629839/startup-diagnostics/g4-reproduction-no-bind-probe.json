@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--network",
+    "none",
+    "--name",
+    "g4-reproduction-no-bind-probe",
+    "--entrypoint",
+    "python3",
+    "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "-c",
+    "print('PASS_PINNED_NO_BIND')"
+  ],
+  "timeout_seconds": 45,
+  "status": "TIMEOUT",
+  "stdout": "",
+  "stderr": "",
+  "elapsed_seconds": 45.02448919999733
+}
