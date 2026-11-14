@@ -199,6 +199,45 @@ def check_g3(source):
     return record, compiled, frozen, archives
 
 
+def check_fresh_program_toolchain(source, production, compiled):
+    directory = EVIDENCE + '/program-tools'
+    frozen = sealed_files(source, directory)
+    for name, raw in frozen.items():
+        require((ROOT / name).read_bytes() == raw, 'local frozen G4 program record differs: ' + name)
+    module = ModuleType('g4_frozen_fresh_program_audit')
+    module.__file__ = str(ROOT / directory / 'verify.py')
+    exec(compile(frozen[directory + '/verify.py'], module.__file__, 'exec'), module.__dict__)
+    checked = module.audit(ROOT / directory)
+    reference_path = directory + '/verification.json'
+    require(checked == json.loads(frozen[reference_path]), 'fresh G4 program audit differs')
+    require(checked['status'] == 'PASS_G4_FRESH_PROGRAM_TOOLCHAIN_CI' and
+            checked['source_commit'] == 'ae2ac7bf800bd02d83fe62677a56bc4131e98b06' and
+            checked['run_id'] == 43544749692, 'fresh G4 program qualification identity differs')
+    producer = json.loads(frozen[directory + '/producer.json'])
+    inputs = producer['verification_inputs_sha256']
+    require(len(inputs) == checked['committed_verification_inputs'] == 352 and
+            len(producer['files']) == checked['frozen_producer']['files'] == 356,
+            'fresh G4 program input membership changed')
+    actual = {name: sha(raw) for name, raw in blobs(source, sorted(inputs)).items()}
+    changed = sorted(name for name in inputs if actual.get(name) != inputs[name])
+    require(not changed, 'fresh G4 producing inputs changed: ' + ', '.join(changed))
+    require(checked['production'] == production, 'fresh G4 program production identity differs')
+    windows_id = checked['artifacts']['windows']['id']
+    observed = module.zip_files(ROOT / directory / (str(windows_id) + '.zip'))
+    require(observed == compiled and len(observed) == 53, 'fresh G4 compiled program artifacts changed')
+    record = {'status': checked['status'], 'source_commit': checked['source_commit'],
+              'run_id': checked['run_id'], 'verification_record': reference_path,
+              'verification_record_sha256': sha(frozen[reference_path]),
+              'verification_inputs_sha256': inputs, 'committed_verification_inputs': len(inputs),
+              'frozen_producer_files': len(producer['files']), 'examples': checked['examples'],
+              'assembler_tests': checked['assembler_tests'], 'public_cases_each': checked['public_cases_each'],
+              'expected_rejections_each': checked['expected_rejections_each'],
+              'compiled_artifact_files_identical': len(observed),
+              'actual_ci_image_config_digest': checked['actual_ci_image_config_digest'],
+              'original_artifacts': checked['artifacts']}
+    return record, frozen
+
+
 def check_physical(source, role, run_id, reproduction, production):
     directory = EVIDENCE + '/ci-' + str(run_id)
     result_path = directory + '/result.json'
@@ -329,6 +368,8 @@ def package(output, source=None):
     notes = blob(source, 'docs/releases/' + TAG + '.md').decode('utf-8')
     require(notes.strip() and not re.search(r'\bDRAFT\b', notes), 'finalize release notes before packaging')
     g3, compiled, frozen, originals = check_g3(source)
+    fresh_programs, fresh_files = check_fresh_program_toolchain(source, g3['production'], compiled)
+    frozen.update(fresh_files)
     historical = blobs(source, [G2 + '/' + name for name in
                                ('14004891901.zip', 'result.json', 'artifacts.json')])
     qualification = read(source, 'tools/production-profile.json')['qualification']
@@ -378,7 +419,7 @@ def package(output, source=None):
     source_files = blobs(source, source_names)
     manifest = {'schema': 'protocol-emulator-g4-release-package-v1', 'tag': TAG,
                 'release_source_commit': source, 'target': 'od128-sram-v1', 'interface_id': '0x22',
-                'g3': g3, 'physical_runs': physical,
+                'g3': g3, 'fresh_program_toolchain': fresh_programs, 'physical_runs': physical,
                 'reproduction': {'path': reproduction_path, 'sha256': sha(reproduction_raw), 'record': reproduction},
                 'original_archives': originals,
                 'source_members_sha256': {name: sha(raw) for name, raw in sorted(source_files.items())},

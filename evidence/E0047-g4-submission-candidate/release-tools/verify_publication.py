@@ -289,6 +289,63 @@ assert set(bundle) == set(source_members) | set(frozen_members) | \
     {'compiled/' + name for name in g4['compiled_members_sha256']} | \
     {'README.md', 'restore-originals.py', 'g4-submission.json'}
 
+# Replay fresh program CI from the bytes inside the actual downloaded bundle.
+# Its 352 producing inputs must equal the final publisher's complete input map;
+# the separately retained G3 audit above remains historical continuity evidence.
+fresh_directory = 'evidence/E0047-g4-submission-candidate/program-tools'
+fresh_prefix = fresh_directory + '/'
+fresh_names = {name for name in frozen_members if name.startswith(fresh_prefix)}
+assert fresh_names == set(git('ls-tree', '-r', '--name-only', SOURCE, '--', fresh_directory).decode().splitlines())
+assert {fresh_prefix + name for name in ('verify.py', 'verification.json', 'producer.json',
+    'producer.tar.gz', 'run.json', 'jobs.json', 'artifacts.json', 'public-job.log.gz',
+    'windows-job.log.gz', 'SHA256SUMS')} <= fresh_names
+fresh_base = base / 'fresh-program-toolchain'
+assert not fresh_base.exists()
+fresh_base.mkdir()
+fresh_seal = {}
+for line in bundle[fresh_prefix + 'SHA256SUMS'].decode('utf-8').splitlines():
+    expected, name = line.split('  ', 1)
+    assert '/' not in name and '\\' not in name and name not in ('.', '..')
+    assert re.fullmatch('[0-9a-f]{64}', expected) and name not in fresh_seal
+    fresh_seal[name] = expected
+assert fresh_names == {fresh_prefix + name for name in fresh_seal} | {fresh_prefix + 'SHA256SUMS'}
+for name in sorted(fresh_names):
+    relative = name.removeprefix(fresh_prefix)
+    assert '/' not in relative and '\\' not in relative
+    raw = bundle[name]
+    if relative != 'SHA256SUMS':
+        assert raw_sha(raw) == fresh_seal[relative]
+    (fresh_base / relative).write_bytes(raw)
+spec = importlib.util.spec_from_file_location('g4_fresh_program_ci_audit', fresh_base / 'verify.py')
+fresh_audit = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(fresh_audit)
+assert fresh_audit.SOURCE == 'ae2ac7bf800bd02d83fe62677a56bc4131e98b06'
+assert fresh_audit.RUN == 43544749692
+fresh_checked = fresh_audit.audit(fresh_base)
+assert fresh_checked == read(fresh_base / 'verification.json')
+assert fresh_checked['status'] == 'PASS_G4_FRESH_PROGRAM_TOOLCHAIN_CI'
+assert fresh_checked['production'] == production
+fresh_producer, fresh_source = fresh_audit.producer()
+assert fresh_producer['verification_inputs_sha256'] == index['files']
+assert len(index['files']) == fresh_checked['committed_verification_inputs'] == 352
+assert len(fresh_source) == fresh_checked['frozen_producer']['files'] == 356
+assert fresh_producer['sha256'] == fresh_checked['frozen_producer']['sha256']
+fresh_windows = fresh_audit.zip_files(fresh_base / (str(fresh_checked['artifacts']['windows']['id']) + '.zip'))
+assert fresh_windows == windows
+fresh_binding = {'status': fresh_checked['status'], 'source_commit': fresh_audit.SOURCE,
+    'run_id': fresh_audit.RUN, 'verification_record': fresh_prefix + 'verification.json',
+    'verification_record_sha256': sha(fresh_base / 'verification.json'),
+    'verification_inputs_sha256': fresh_producer['verification_inputs_sha256'],
+    'committed_verification_inputs': 352, 'frozen_producer_files': 356,
+    'examples': fresh_checked['examples'], 'assembler_tests': fresh_checked['assembler_tests'],
+    'public_cases_each': fresh_checked['public_cases_each'],
+    'expected_rejections_each': fresh_checked['expected_rejections_each'],
+    'compiled_artifact_files_identical': len(fresh_windows),
+    'actual_ci_image_config_digest': fresh_checked['actual_ci_image_config_digest'],
+    'original_artifacts': fresh_checked['artifacts']}
+assert g4['fresh_program_toolchain'] == fresh_binding
+write(base / 'downloaded-fresh-program-verification.json', fresh_checked)
+
 # Re-audit the actual public physical archives with the committed frozen audit.
 # No GitHub Actions download or newer repository helper substitutes for these bytes.
 physical_results, physical_archive_count, physical_members = {}, 0, 0
@@ -421,6 +478,19 @@ assert left['netlist_tests']['records'] == right['netlist_tests']['records']
 assert left['uart_landmarks'] == right['uart_landmarks']
 write(base / 'downloaded-gds-comparison.json', compared_gds)
 
+# Bind every stored comparison field to a replay over the downloaded originals.
+reproducer_name = 'evidence/E0047-g4-submission-candidate/reproduce.py'
+assert reproducer_name in frozen_members
+assert raw_sha((ROOT / reproducer_name).read_bytes()) == frozen_members[reproducer_name]
+comparison_replay = base / 'downloaded-reproduction'
+execution = subprocess.run([sys.executable, str(ROOT / reproducer_name),
+    '--candidate-directory', str(base / 'physical-candidate'),
+    '--reproduction-directory', str(base / 'physical-reproduction'),
+    '--output', str(comparison_replay)], cwd=ROOT, capture_output=True, timeout=600)
+(base / 'downloaded-reproduction.log').write_bytes(execution.stdout + execution.stderr)
+assert execution.returncode == 0, execution.stderr[-2000:]
+assert read(comparison_replay / 'result.json') == reproduction['record']
+
 # Preserve G2 as an earlier, separately measured qualification. Inspect its
 # original submission from the downloaded bundle without calling it a G4 run.
 g2_directory = 'evidence/E0045-g2-sram-qualification/ci-94a3082'
@@ -552,6 +622,9 @@ result = {'schema': 'protocol-emulator-g4-release-verification-v1', 'status': 'P
           'publish_run': run['id'], 'publication_job_id': job['id'], 'publication_artifact_id': meta['id'],
           'publication_original_zip_sha256': sha(original), 'publication_original_zip_files': len(zip_members),
           'assets': downloaded, 'g3_original_ci_archives_verified': 2,
+          'fresh_program_toolchain': fresh_binding,
+          'fresh_program_toolchain_replayed_from_downloaded_bundle': True,
+          'downloaded_fresh_program_verification_sha256': sha(base / 'downloaded-fresh-program-verification.json'),
           'physical_original_ci_archives_verified': physical_archive_count,
           'physical_original_archive_members_verified': physical_members,
           'physical_runs_reaudited_from_public_downloads': {role: {'run_id': value['run_id'],

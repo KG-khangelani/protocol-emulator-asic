@@ -11,6 +11,9 @@ The Tiny Tapeout datasheet, architecture/ISA, verification, toolchain and AI-use
 guides now describe the current SRAM profile. The submission packet and release
 notes are prepared; fresh physical, reproduction and publication gates remain
 pending. Runs43543626249 and43543629839 share frozen source `45c55f7`.
+[Fresh program-tool CI](../evidence/E0047-g4-submission-candidate/program-tools/README.md)
+passes at `ae2ac7b`: 352 frozen inputs, 55 cases per simulator, 53 identical
+compiled files and cross-platform frozen replay with five corruption controls.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the

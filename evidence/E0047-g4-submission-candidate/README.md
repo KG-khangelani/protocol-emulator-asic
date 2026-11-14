@@ -24,6 +24,12 @@ only a timestamp edit and reject a coordinate edit and invalid timestamp datatyp
 The release packager and verifier are prepared, with full execution awaiting the
 actual fresh results and final release.
 
+[Fresh program-tool CI](program-tools/README.md) passes at `ae2ac7b`, run43544749692.
+The two original archives retain 226 members; all 352 producing inputs are
+frozen, including the unchanged 351 G3 inputs. Both simulators' 55 cases and
+the 53 Windows/Linux compiled files match G3. Windows and pinned-Linux replay
+agree, and five deliberate corruptions are rejected on each platform.
+
 G1-G3 evidence, rejected trials, alpha.6 hardware adoption and alpha.7 software
 qualification remain unchanged. G4 ends at submission readiness: no entry is
 sent and no owner fluency or fabricated-silicon result is inferred.

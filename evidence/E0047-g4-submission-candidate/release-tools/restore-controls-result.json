@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case": "positive",
+      "log_sha256": "618dd05822493bf1f8142f561a2e747c3fb8e29440ba5d659824d96beba97a90",
+      "returncode": 0,
+      "status": "PASS_RESTORED_SPLIT_ORIGINAL_AND_PRESERVED_REPLAY"
+    },
+    {
+      "case": "wrong-archive",
+      "log_sha256": "96938ce6a07d5529ec71f40e62c28e8158832ed767888f8554f73b03f2da78b1",
+      "returncode": 1,
+      "status": "PASS_REJECTED_WRONG_ARCHIVE"
+    },
+    {
+      "case": "wrong-part",
+      "log_sha256": "89ae6335787328c764213f5a91777f0b69ae438f64f35f8da35fb3c821b920d9",
+      "returncode": 1,
+      "status": "PASS_REJECTED_WRONG_PART"
+    },
+    {
+      "case": "unsafe-path",
+      "log_sha256": "76cf6312bc63a0ffde206d9ee5e9b17da0a6f1cb8c65bd38da8ed673e3a89f2a",
+      "returncode": 1,
+      "status": "PASS_REJECTED_UNSAFE_PATH"
+    },
+    {
+      "case": "existing-different",
+      "log_sha256": "c8e7e4f5f9b7ab2f6393d4cb8466e1474c1bda73f805462604c3f24185ab5f34",
+      "returncode": 1,
+      "status": "PASS_REJECTED_EXISTING_DIFFERENT"
+    }
+  ],
+  "packager_sha256": "a3135eef83a1ccaa0373a5f6f275ca0c04c239a0833727f38ec8737ae134eaeb",
+  "restore_script_sha256": "11c1a5fad9b7ec1837bcccbaa2e16951450e1d9a1899e7b47c1d2c700ab29bad",
+  "status": "PASS_G4_RESTORE_CONTROLS"
+}
