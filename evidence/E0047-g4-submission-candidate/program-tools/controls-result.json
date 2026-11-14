@@ -1,0 +1,66 @@
+{
+  "audit_sha256": "5ca1645c917522e9f7a1333c3da8483a4e829503974d0d16703062af63b9497e",
+  "baseline_verification_sha256": "5c21584eb11cd5083e58654a76f2c6d0dbf16349316e0fc2c90d312e6992d5b9",
+  "cases": [
+    {
+      "case": "unfinished-workflow",
+      "expected_error": "program-tools workflow is incomplete",
+      "mutation": null,
+      "observed_error": "program-tools workflow is incomplete",
+      "status": "PASS_REJECTED_CORRUPTION"
+    },
+    {
+      "case": "wrong-archive-digest",
+      "expected_error": "original archive digest differs",
+      "mutation": null,
+      "observed_error": "original archive digest differs",
+      "status": "PASS_REJECTED_CORRUPTION"
+    },
+    {
+      "case": "rehashed-skipped-group",
+      "expected_error": "required public group failed or skipped",
+      "mutation": {
+        "after_sha256": "0788879314e952166f1bd5b521e061f5c5d0e8e03edfece3e13db79806dd1a92",
+        "api_and_upload_log_deliberately_rehashed": true,
+        "archive": "public",
+        "before_sha256": "beefd6fd6882d928ac446813f75b7abd8e2bca512e13eb33878788450621bed6",
+        "member": "icarus/results.xml",
+        "synthetic_archive_sha256": "8615f515f255193153d26022b116b22702c33a87b304948ee7a3bae6f5350299"
+      },
+      "observed_error": "required public group failed or skipped",
+      "status": "PASS_REJECTED_CORRUPTION"
+    },
+    {
+      "case": "rehashed-program-binary",
+      "expected_error": "compiled binary differs from catalog",
+      "mutation": {
+        "after_sha256": "eabc18207b3b103a74eae871d71944fada6017f1ec7db35104e031c576e76026",
+        "api_and_upload_log_deliberately_rehashed": true,
+        "archive": "public",
+        "before_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+        "member": "examples/uart_tx/program.bin",
+        "synthetic_archive_sha256": "d127c70722a632ea6258cb4f99baa3c6b11802587fde730c7f6ffb1e068a0c23"
+      },
+      "observed_error": "compiled binary differs from catalog",
+      "status": "PASS_REJECTED_CORRUPTION"
+    },
+    {
+      "case": "rehashed-producing-input",
+      "expected_error": "producing input set differs",
+      "mutation": {
+        "after_sha256": "b2e273b525a2af56d7324718c1e91d4f1cc045ccef589fb7bac97c6f21bda337",
+        "api_and_upload_log_deliberately_rehashed": true,
+        "archive": "public",
+        "before_sha256": "02f300fa98f8a4d5e2ab8a72b29492b64532b049216602519ff9aa2b47d99927",
+        "member": "result.json",
+        "synthetic_archive_sha256": "dca3856d1433c6b95e5d23f26f21804cffd20de900563075193b6baf7da41240"
+      },
+      "observed_error": "producing input set differs",
+      "status": "PASS_REJECTED_CORRUPTION"
+    }
+  ],
+  "runner_sha256": "5e1af9e9505d11257175e79ecf83cd06d4929abdec0bfc00325dcf93d3552b7c",
+  "schema": "protocol-emulator-g4-program-audit-controls-v1",
+  "scope": "Synthetic incomplete and altered archive controls; no fresh hardware simulation.",
+  "status": "PASS_FIVE_G4_PROGRAM_EVIDENCE_CONTROLS"
+}

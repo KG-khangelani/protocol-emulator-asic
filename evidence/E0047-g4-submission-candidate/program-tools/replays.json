@@ -1,0 +1,37 @@
+{
+  "both_complete_audit_reports_byte_identical": true,
+  "controls": {
+    "cases_each": 5,
+    "complete_reports_equal": false,
+    "linux": {
+      "path": "controls-result-linux.json",
+      "sha256": "04652ea54a8806ea0398ff28803c3b315dad56d3837e1dec4ff068bf00147753"
+    },
+    "same_observed_rejections": true,
+    "windows": {
+      "path": "controls-result.json",
+      "sha256": "6a2126fd93975001dd618ff88530a85491d46cdd54ee10666da3bae44288149d"
+    }
+  },
+  "linux": {
+    "actual_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+    "architecture": "amd64",
+    "command": "python3 evidence/E0047-g4-submission-candidate/program-tools/verify.py --output build/g4-program-replay-linux-01.json",
+    "exit_code": 0,
+    "os": "linux",
+    "repo_digests": [
+      "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+    ],
+    "requested_image": "protocol-emulator-asic-workbench@sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909"
+  },
+  "schema": "protocol-emulator-g4-program-replays-v1",
+  "scope": "Replays audit retained original CI artifacts and frozen source; they do not rerun simulation or physical design.",
+  "status": "PASS_FROZEN_REPLAY_ON_WINDOWS_AND_PINNED_LINUX",
+  "verification_sha256": "5c21584eb11cd5083e58654a76f2c6d0dbf16349316e0fc2c90d312e6992d5b9",
+  "windows": {
+    "command": "python evidence/E0047-g4-submission-candidate/program-tools/verify.py --output build/g4-program-replay-windows-01.json",
+    "exit_code": 0,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]"
+  }
+}
