@@ -1,0 +1,19 @@
+{
+  "schema": "protocol-emulator-g4-ci-command-invocation-v1",
+  "command": [
+    "docker",
+    "image",
+    "inspect",
+    "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+  ],
+  "working_directory": "/home/runner/work/protocol-emulator-asic/protocol-emulator-asic",
+  "started_utc": "2026-11-14T04:41:21.632543Z",
+  "completed_utc": "2026-11-14T04:41:21.664829Z",
+  "elapsed_seconds": 0.032284,
+  "returncode": 0,
+  "log_path": "commands/image-inspection-after.log.gz",
+  "log_sha256": "78b1d416a024eebc676032f8f0f0231fc25a7f6c82fa59232537d6c4b2e0ac0c",
+  "compressed_log_sha256": "abd76b058b543792b42fb12cfdf5c4afab078558e244f9d80e88d24e1007107c",
+  "output_capture": "stdout and stderr merged by subprocess.STDOUT, stored without text conversion",
+  "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22"
+}

@@ -6,7 +6,7 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 **G1-G3 COMPLETE; G4 ACTIVE.** D49 freezes the unchanged qualified core for
 two clean official physical runs and a verified final submission packet.
 [E0047](../evidence/E0047-g4-submission-candidate/README.md) retains the freeze,
-rule observation and completed official runs. Final packaging and publication remain pending.
+rule observation and completed official runs. Final publication verification remains pending.
 The Tiny Tapeout datasheet, architecture/ISA, verification, toolchain and AI-use
 guides now describe the current SRAM profile. The submission packet and release
 notes are prepared. Runs43543626249 and43543629839 share frozen source `45c55f7`.
@@ -21,6 +21,15 @@ agree; layouts differ only in standard timestamps. Isolated Linux run43554467650
 replays both complete audits in the verified public workbench image. The failed
 local Docker startup is separately retained. Final package/download/image
 verification remains required before G4 closure.
+
+The corrected [package comparison](../evidence/E0047-g4-submission-candidate/package-ci-43557808053/README.md)
+at release source `5bdc0e6` passes: Windows and isolated Linux CI produce all
+17 assets byte for byte, with 435 bundle members. The standalone distribution
+rebuilds all thirteen examples into 52 identical files. The initial checksum-order
+mismatch is preserved in E0047/package-portability; explicit filename sorting
+fixes it without changing hardware or program inputs. Annotated tag `v0.1.0`
+has been pushed; its publisher, all tag workflows and public-download/image
+audit must finish before completion.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the
