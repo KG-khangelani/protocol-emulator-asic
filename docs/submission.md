@@ -1,6 +1,8 @@
 # Submission packet
 
-Updated 2026-11-14. **G4 qualification and publication are in progress.**
+Updated 2026-11-14. **Fresh physical and program qualification pass; publication verification is pending at this source snapshot.**
+
+<!-- G4 physical qualification from retained E0047 records -->
 This packet collects the design, software and evidence for the Jane Street
 Protocol Emulator ASIC competition. No competition entry has been submitted.
 The completion decision belongs to [E0047](../evidence/E0047-g4-submission-candidate/README.md)
@@ -15,7 +17,7 @@ and the five checks in [G4](goals.md#g4---close-and-publish-the-final-design).
 | Current production interface | `od128-sram-v1`, runtime identity `0x22` |
 | Physical allocation | IHP CMOS5L, 8x4 Tiny Tapeout tiles, 20 ns clock target |
 | Frozen G4 physical source | [`45c55f7cd95db2a883b0ffb5e864decd62d53601`](https://github.com/KG-khangelani/protocol-emulator-asic/tree/45c55f7cd95db2a883b0ffb5e864decd62d53601) |
-| Final release | Intended tag `v0.1.0`; not yet published or verified. [Published releases](https://github.com/KG-khangelani/protocol-emulator-asic/releases) retain G1-G3. |
+| Release target | [`v0.1.0`](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0); completed download/image checks are recorded separately in the [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) when available. |
 | Workbench package | [Public container package](https://github.com/KG-khangelani/protocol-emulator-asic/pkgs/container/protocol-emulator-asic-workbench); final image digest will be bound to the release publication record. |
 
 The final documentation/release revision can follow the physical producer
@@ -69,28 +71,31 @@ records this review.
 | Published requirement | Repository material | G4 closure condition |
 |---|---|---|
 | Public source, RTL and tests | [RTL](../src/), [tests](../test/), [license](../LICENSE), [programming tools](programming.md) | Verify the final public source and download identities. |
-| Tiny Tapeout GDS and precheck | [Production workflow](../.github/workflows/gds.yaml), [G2 qualification](../evidence/E0045-g2-sram-qualification/ci-94a3082/README.md) | Audit both fresh G4 runs, including all physical and precheck gates. |
+| Tiny Tapeout GDS and precheck | [Production workflow](../.github/workflows/gds.yaml), [fresh G4 qualification](../evidence/E0047-g4-submission-candidate/README.md) | Both runs pass every required physical, precheck and public-netlist gate; original archives and frozen replays are retained. |
 | Architecture and instruction set | [Architecture](architecture.md), [ISA](isa.md), [Tiny Tapeout datasheet](info.md) | Check the guides against the frozen implementation. |
 | Programming tools and examples | [Assembler](../tools/assembler.py), [programming guide](programming.md), [thirteen examples](../programs/od128-sram-v1/README.md) | Verify clean CI, standalone distribution and deterministic packaging. |
 | Verification approach | [Verification guide](verification.md), [research ledger](research-ledger.md), [evidence index](../evidence/README.md) | Retain original archives, frozen replay and failed controls. |
 | Description of AI use | [AI-use account](ai-use.md) | Preserve a candid account of assistance and independent-check limits. |
 
 Gate-level simulation is recommended in the FAQ and is a required project
-gate. Both G4 runs must execute the actual submitted netlist. These two runs
-were registered before interpretation and are separate fresh checkouts of the
-same physical producer revision:
+gate. Both fresh runs execute the actual submitted netlist. They were registered
+before interpretation and use separate clean checkouts of the same frozen source.
 
-| Role | Official run | Evidence status at packet preparation |
+| Role | Official run | Retained qualification |
 |---|---|---|
-| Candidate qualification | [43543626249](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543626249) | Results not yet audited. |
-| Independent reproduction | [43543629839](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543629839) | Results not yet audited. |
+| Candidate | [43543626249](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543626249) | [Complete audit](../evidence/E0047-g4-submission-candidate/ci-43543626249/README.md): 6 original ZIPs, 10 prechecks, 18 public-netlist groups, Windows/Linux replay and 9 rejected corruptions. |
+| Reproduction | [43543629839](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543629839) | [Complete audit](../evidence/E0047-g4-submission-candidate/ci-43543629839/README.md): 6 original ZIPs, 10 prechecks, 18 public-netlist groups, Windows/Linux replay and 9 rejected corruptions. |
 
-E0047 must retain all six original archives per run and compare actual source,
-macro views, netlists, geometry, timing/area and public observations. GDS
-timestamp differences may be separated from geometry differences. A successful
-workflow badge alone is insufficient. G2's existing positive setup/hold slack,
-ten passing prechecks and eighteen passing public-netlist groups remain
-historical evidence, not a substitute for these fresh G4 results.
+Each reports +5.595886/+0.120791 ns setup/hold slack at 20 ns and
+61,294.1 square micrometres of routed standard-cell area, separate from SRAM.
+Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
+Netlist, timing/area, recorded stage states and public observations agree.
+The flow has 85 configured entries, 77 executed top-level stages, 2 nested antenna stages and 8 frozen gate-disabled entries.
+See the [reproduction record](../evidence/E0047-g4-submission-candidate/reproduction.json).
+
+G2 continuity is recorded separately: its original geometry agrees after
+timestamp normalization, with matching netlist, physical inputs, metrics
+and public records. Its historical qualification and adoption are preserved.
 
 ## External host and electrical requirements
 
@@ -133,12 +138,15 @@ workbench commands described in the [verification](verification.md) and
 ```
 
 Linux uses `./tools/workbench.sh` with the same action names. Each retained
-evidence directory describes its own replay command and scope; use E0047's
-final commands when its physical and publication audits are complete.
+physical qualification directory describes its exact replay command and scope.
+The reproduction helper compares both original layouts and the separate G2
+reference after those retained audits have run.
 
-Before G4 closure, replace the pending entries above with verified run,
-release and image identities and link the completion audit. Recheck the
-official page for changed requirements. When the final form appears, the
-repository, final release and this write-up provide the prepared material.
-Submitting that entry is a separate action. G5 experiments and G6's owner
-teach-back remain outside this engineering completion.
+Final platform packaging, standalone reconstruction, release-tag CI, actual
+public downloads and image identity remain required before G4 closure.
+Publication verification is pending at this pre-tag snapshot. The subsequent [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records completed public-download, release-tag, standalone-distribution and matching-image checks when those gates finish. Physical qualification alone does not close G4.
+
+Recheck the official page for changed requirements. When the final form appears,
+the repository, final release and this write-up provide the prepared material.
+Submitting that entry is separate. G5 experiments and G6's owner teach-back
+remain outside this engineering completion.

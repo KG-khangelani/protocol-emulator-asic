@@ -1,0 +1,85 @@
+{
+  "artifact_id": 14098180180,
+  "artifact_sha256": "ff8396e86733315a3476396e70c2775564fb2cc21059244d392d8547ed79a681",
+  "ci_job_id": 132324068684,
+  "ci_run_id": 43554467650,
+  "ci_source_commit": "7b73d99fbf300c1041aa930409ea63fc031d20f4",
+  "complete_audit_result_identical": true,
+  "copied_members": {
+    "ci-43543629839/controls-logs/pending-workflow.log.gz": {
+      "bytes": 316,
+      "retained_path": "controls-logs/pending-workflow.log.gz",
+      "sha256": "d9ff394da4fee28887d950d4bb8cea7d852bf7246915221f5496bfe7a7c23bbd"
+    },
+    "ci-43543629839/controls-logs/rehashed-netlist.log.gz": {
+      "bytes": 314,
+      "retained_path": "controls-logs/rehashed-netlist.log.gz",
+      "sha256": "e36dc243f0e21322c3a297d9ce7dead0ec660c49b21f061447cffdc8612b5456"
+    },
+    "ci-43543629839/controls-logs/rehashed-port-count.log.gz": {
+      "bytes": 339,
+      "retained_path": "controls-logs/rehashed-port-count.log.gz",
+      "sha256": "d32eef2dc62c74a94f2f973d8989641520ad45375d4bd8a95a26244d70afcf75"
+    },
+    "ci-43543629839/controls-logs/rehashed-production.log.gz": {
+      "bytes": 291,
+      "retained_path": "controls-logs/rehashed-production.log.gz",
+      "sha256": "9fc9f0c36d8cf03880b7346a8eddfff5359e69d69a0c1c9cc0fe5b4c3f3ba9fc"
+    },
+    "ci-43543629839/controls-logs/rehashed-skipped-test.log.gz": {
+      "bytes": 347,
+      "retained_path": "controls-logs/rehashed-skipped-test.log.gz",
+      "sha256": "a09082d902bc3a3bada7a57b3098c63a767e05bec0016b727177833f63ee8744"
+    },
+    "ci-43543629839/controls-logs/rehashed-stage-configuration.log.gz": {
+      "bytes": 358,
+      "retained_path": "controls-logs/rehashed-stage-configuration.log.gz",
+      "sha256": "5102f81b51f8252139a79b7fa03482157bfc1fba886c05f4fe6626014cf8ce86"
+    },
+    "ci-43543629839/controls-logs/rehashed-stage-skip.log.gz": {
+      "bytes": 370,
+      "retained_path": "controls-logs/rehashed-stage-skip.log.gz",
+      "sha256": "f11618c58ec3c878e6ac089649c50c98f14f1368f8ad8645c5ca24e9d45cdbaf"
+    },
+    "ci-43543629839/controls-logs/wrong-archive-digest.log.gz": {
+      "bytes": 345,
+      "retained_path": "controls-logs/wrong-archive-digest.log.gz",
+      "sha256": "fc7c76b20a8c2bd20943b80679828d8921cb7f73a9582900cd3d304812a8211b"
+    },
+    "ci-43543629839/controls-logs/wrong-job-source.log.gz": {
+      "bytes": 306,
+      "retained_path": "controls-logs/wrong-job-source.log.gz",
+      "sha256": "b8b09f7c16d0844c9638f9a3ae33d06d2f8c3349948a2910b7ca15de9a8033d2"
+    },
+    "ci-43543629839/controls-result.json": {
+      "bytes": 6764,
+      "retained_path": "controls-result.json",
+      "sha256": "f5efce4f9978eb7916c6af66a1f1a6a1dae057708383530df7396958f1281190"
+    },
+    "ci-43543629839/invocation-linux.json": {
+      "bytes": 3549,
+      "retained_path": "invocation-linux.json",
+      "sha256": "69b068bf39923dcbd9520cd26ee606d59e2492fc9df5ec3f46d2f34199c96948"
+    },
+    "ci-43543629839/replay-linux.log.gz": {
+      "bytes": 272,
+      "retained_path": "replay-linux.log.gz",
+      "sha256": "e999b2113602c14b8a17e7ad29654e5581c92b188637370d63cbb84c6580b04f"
+    },
+    "ci-43543629839/verification.json": {
+      "bytes": 409,
+      "retained_path": "verification-linux.json",
+      "sha256": "7e209c0267bf3ffbb41b8c175befe088952e9fa3266dd1a28eda35dc5d91492f"
+    }
+  },
+  "image_config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+  "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+  "physical_run_id": 43543629839,
+  "physical_source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "proof_directory": "../linux-ci-43554467650",
+  "proof_verification_sha256": "1bfc6770a17020a6b09b3190e88ad5252e5026e389df43949c6cef5dd1fab290",
+  "result_sha256": "4d1e1fa4829a756bdade0f5f54593a4ba0f49105af715c2da632750ee374c919",
+  "schema": "protocol-emulator-g4-reproduction-linux-ci-binding-v1",
+  "scope": "Original isolated CI member bytes, with verification.json renamed only. Physical source and result remain unchanged. Local startup failures are preserved and no local Docker recovery is claimed.",
+  "status": "PASS_ORIGINAL_LINUX_CI_REPLAY_AND_NINE_CONTROLS"
+}

@@ -133,3 +133,21 @@ Analog rise/fall behavior, metastability/MTBF, broad peripheral interoperability
 unbounded continuous UART reception, an actual host transport adapter, FPGA
 bring-up and fabricated-silicon observations remain outside the demonstrated
 results. M0 owner teach-back remains pending regardless of engineering progress.
+
+## Fresh G4 qualification checkpoint
+
+<!-- G4 physical qualification from retained E0047 records -->
+The [two complete G4 runs](../evidence/E0047-g4-submission-candidate/README.md),
+qualified on 2026-11-14, discharge the physical requirements above at the same
+frozen source `45c55f7cd95db2a883b0ffb5e864decd62d53601`. Each retains six original
+archives, all ten prechecks and eighteen actual-netlist public groups, with
+Windows/Linux audit replay and nine evidence-corruption controls rejected.
+Both report +5.595886/+0.120791 ns setup/hold slack at 20 ns.
+The flow has 85 configured entries, 77 executed top-level stages, 2 nested antenna stages and 8 frozen gate-disabled entries.
+Recorded stage configuration/state bytes, netlists, timing/area and public
+records agree. Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
+1,052 SPI, 1,160 I2C, 4 boundary and 36 abort records agree. UART comparison retains 97 RX/late-reader
+landmarks; it is not a complete retained UART TX trace comparison.
+G2 continuity remains separately identified. Final release, standalone
+distribution, download and image checks are still pending at this snapshot;
+the [live publication closure](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records their later outcome.

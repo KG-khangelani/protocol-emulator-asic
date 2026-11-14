@@ -149,3 +149,16 @@ routed timing and reproduction. G4's new official runs and final release are
 tracked in [E0047](../evidence/E0047-g4-submission-candidate/README.md); their
 results must be read there rather than inferred from the G2 measurements.
 No fabricated-chip, FPGA or owner-fluency completion result is claimed.
+
+## Fresh G4 physical reproduction
+
+<!-- G4 physical qualification from retained E0047 records -->
+On 2026-11-14, [both complete G4 qualifications](../evidence/E0047-g4-submission-candidate/README.md)
+at `45c55f7cd95db2a883b0ffb5e864decd62d53601` pass physical checks, ten prechecks and
+eighteen public-netlist groups. Each reports +5.595886/+0.120791 ns setup/hold
+slack at 20 ns and 61,294.1 square micrometres of routed standard-cell area.
+Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
+The netlist, metrics and recorded stage states reproduce. G2 continuity is
+separately retained; none of these results establishes silicon or Fmax.
+Final release/download/image verification remains pending at this snapshot;
+see the [live publication closure](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) when completed.
