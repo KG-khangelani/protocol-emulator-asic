@@ -8,10 +8,21 @@ The freeze record preserves all twenty qualified physical inputs, metadata,
 workflow and pinned toolchain identities. The current official rule observation
 is separate. No fresh G4 physical result is claimed at activation.
 
-Two clean official production runs will qualify and reproduce the same committed
-candidate. Original GDS/precheck/public-netlist results, source/runtime identity,
-independent replay and comparisons will be retained here. A stable release
-follows only after every required gate passes.
+Two clean official production runs are building source `45c55f7`:
+[candidate43543626249](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543626249)
+and [reproduction43543629839](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543629839).
+Their identities were registered before results. Original GDS/precheck/public-netlist
+results, source/runtime identity, independent replay and comparisons remain pending.
+A stable release follows only after every required gate passes.
+
+The current [submission account](../../docs/submission.md), architecture/ISA,
+verification and AI-use guides are prepared. The independent stage audit records
+85 configured entries, 77 executed top-level stages, eight frozen gate-disabled
+entries and two nested antenna stages in the qualified G2 baseline. These counts
+remain distinct; no checker is disabled for G4. The GDS comparison controls accept
+only a timestamp edit and reject a coordinate edit and invalid timestamp datatype.
+The release packager and verifier are prepared, with full execution awaiting the
+actual fresh results and final release.
 
 G1-G3 evidence, rejected trials, alpha.6 hardware adoption and alpha.7 software
 qualification remain unchanged. G4 ends at submission readiness: no entry is

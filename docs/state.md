@@ -7,8 +7,10 @@ Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 two clean official physical runs and a verified final submission packet.
 [E0047](../evidence/E0047-g4-submission-candidate/README.md) retains the freeze,
 rule observation and forthcoming qualification. Fresh G4 gates remain pending.
-The Tiny Tapeout datasheet now describes the current 128-word SRAM/UART/SPI/I2C
-profile; the architecture/verification submission guides remain to be completed.
+The Tiny Tapeout datasheet, architecture/ISA, verification, toolchain and AI-use
+guides now describe the current SRAM profile. The submission packet and release
+notes are prepared; fresh physical, reproduction and publication gates remain
+pending. Runs43543626249 and43543629839 share frozen source `45c55f7`.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the

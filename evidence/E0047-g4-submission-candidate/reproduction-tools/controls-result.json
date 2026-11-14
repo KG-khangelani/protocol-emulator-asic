@@ -1,0 +1,34 @@
+{
+  "schema": "protocol-emulator-g4-gds-controls-v1",
+  "status": "PASS_THREE_GDS_COMPARISON_CONTROLS",
+  "source_run_id": 43348171110,
+  "original_submission_zip_sha256": "aece6a161610d8b090a5337fac0291d119b14c58b7fa9568586ecff4f77e4a54",
+  "comparator_sha256": "ffe8827ab3d503cc7987e0265a9a0df55b348feac217db099db9346d7f8de1bf",
+  "runner_sha256": "1082cca9013c2a81c785e0664c9856744e39ca06278fddb34a7f88cea1b6c44d",
+  "reproduction_auditor_sha256": "d6d9c330d5d4557f2c98cb5353899903ca5e9ff34477f0e679bfb249588c6869",
+  "cases": [
+    {
+      "name": "timestamp-only",
+      "status": "PASS_ACCEPTED_ONLY_TIMESTAMP_CHANGE",
+      "changed_byte": 13,
+      "original_sha256": "51ac3c1005fd0d811a3e26fddf81fd996a2d57b45172a68670df05e4c57dbbf4",
+      "changed_sha256": "c45433d2732d565446d020d5a3cc01e4c0e40c514c609acc58a626b46f52a8a7",
+      "equivalent_except_timestamps": true
+    },
+    {
+      "name": "geometry-coordinate",
+      "status": "PASS_REJECTED_GEOMETRY_CHANGE",
+      "changed_byte": 147,
+      "original_sha256": "51ac3c1005fd0d811a3e26fddf81fd996a2d57b45172a68670df05e4c57dbbf4",
+      "changed_sha256": "201f60835ff1c0b16e2ae6608d3d2803e5b384d64993eadad0cc8cea0cfd758c",
+      "equivalent_except_timestamps": false
+    },
+    {
+      "name": "timestamp-wrong-datatype",
+      "status": "PASS_REJECTED_NON_DATE_NORMALIZATION",
+      "changed_byte": 9,
+      "changed_sha256": "f852fd9e7dc1fa35ab3b55737d08f98d97933c26d9ff6d0be086c3a87da27695"
+    }
+  ],
+  "scope": "Auditor controls on original G2 layout; not a fresh G4 physical result."
+}
