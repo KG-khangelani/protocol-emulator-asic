@@ -1,0 +1,90 @@
+# G4: reproducible submission candidate
+
+<!-- G4 physical qualification from retained E0047 records -->
+Physical and program qualification completed 2026-11-14; publication verification
+remains pending at this source snapshot.
+
+The candidate uses the unchanged shared protocol engine, interface `0x22`:
+128 logical 32-bit words in one 8,192-bit SRAM macro and
+353 register bits. 13 readable programs implement UART transmit and bounded
+receive, both bit orders of all four SPI modes, and I2C write, read and
+repeated-START transactions on the same circuit.
+
+Two independent clean production builds at physical source
+`45c55f7cd95db2a883b0ffb5e864decd62d53601` pass all required physical, electrical,
+DRC/LVS/antenna/power checks, all ten official prechecks and all eighteen
+actual-netlist public test groups:
+[candidate 43543626249](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543626249) and
+[reproduction 43543629839](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543629839).
+Both six-archive sets are retained unchanged. Windows and pinned Linux replay
+each complete audit; all nine deliberate evidence corruptions per run are rejected.
+
+At the unchanged 20 ns target, each run reports **+5.595886 ns setup slack**,
+**+0.120791 ns hold slack** and **61,294.1 square micrometres of routed
+standard-cell area**, with the SRAM footprint counted separately.
+Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
+The submitted netlists, reported timing/area and recorded stage configuration
+and state bytes are identical. 1,052 SPI, 1,160 I2C, 4 boundary and 36 abort records agree.
+The retained UART comparison has 97 RX/late-reader landmarks; it does not
+claim complete retained UART TX waveforms.
+
+The flow has 85 configured entries, 77 executed top-level stages, 2 nested antenna stages and 8 frozen gate-disabled entries.
+The conditional skips match the frozen baseline; no required G4 checker is
+disabled. D43-D47's explicit integration and complete original rule checker
+remain part of the qualified flow. G2 continuity is a separate comparison:
+its original layout matches after timestamp normalization, and its netlist,
+physical inputs, timing/area and public record identities agree. G1-G3 and
+rejected experiments retain their original source identities and outcomes.
+
+Fresh program-tool CI passes 20 assembler tests and 55 public cases per
+simulator, including 15 expected rejections. All 53 generated files agree
+between Windows, Linux and G3. Its 352 source inputs are frozen for comparison
+with the final release source.
+
+The immutable `v0.1.0` tag identifies the later release source, distinct from
+the physical producer above. Packaging checks all twenty physical inputs and
+the full fresh toolchain input map before accepting that later revision.
+`g4-submission.json` binds both source identities. The prepared distribution
+contains current architecture, ISA, programming, verification and AI-use guides;
+readable/compiled examples; twelve original physical ZIPs; frozen audit and
+reproduction dependencies; source manifests and checksums. The workbench
+publisher must test and publish the image matching the release commit.
+
+Build and check examples from the release checkout:
+
+```powershell
+.\tools\workbench.ps1 Programs
+.\tools\workbench.ps1 ProgramTest
+```
+
+Linux uses `./tools/workbench.sh` with the same actions. See
+`docs/programming.md` and `docs/submission.md` for loading, pin ownership,
+external requirements and the prepared entry material.
+
+Publication verification is pending at this pre-tag snapshot. The subsequent [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records completed public-download, release-tag, standalone-distribution and matching-image checks when those gates finish. Physical qualification alone does not close G4.
+
+Netlist tests are functional zero-delay simulation; routed timing is separate.
+The 20 ns setting is not measured Fmax. The fast model set combines -40 C
+standard cells and -55 C SRAM. UART RX remains bounded with explicit framing
+and host-service limits; SPI needs its declared input hold; I2C assumes the
+specified digital resolved bus and external pull-ups. No analog compliance,
+fabricated-silicon, FPGA, unrestricted interoperability, continuous autonomous
+receive, owner-fluency or actual competition-submission result is claimed.
+
+Verified workbench: `ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88`
+
+Publication checks: https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43558100168
+
+<!-- G4 verified publication closure -->
+**Publication verified on 2026-11-14; G4 is complete.**
+
+All 35 public downloads, 435 bundle members, both original physical evidence
+sets and the matching workbench image/source identities pass the independent
+audit. All nine release-tag workflows / 22 jobs pass. Windows and Linux
+produce 17 byte-identical assets; the standalone distribution rebuilds all
+13 examples into 52 identical files.
+
+[Publication audit](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md)
+and [five-check completion audit](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/completion-audit.json)
+retain the proof. The source-tag notes above preserve their pre-publication
+snapshot. No competition entry has been sent; owner fluency remains separate.
