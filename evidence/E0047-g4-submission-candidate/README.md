@@ -30,6 +30,13 @@ frozen, including the unchanged 351 G3 inputs. Both simulators' 55 cases and
 the 53 Windows/Linux compiled files match G3. Windows and pinned-Linux replay
 agree, and five deliberate corruptions are rejected on each platform.
 
+The [first completed layout checkpoint](layout-continuity-checkpoint.json)
+audits reproduction run43543629839's original GDS archives. Its complete
+physical conditions pass; netlist and timing/area equal G2. The layout differs
+from G2 only in 191 standard timestamp records (1,146 bytes); all other GDS
+records are identical. This checkpoint is explicitly incomplete qualification:
+precheck, public netlist tests and the independent candidate remain required.
+
 G1-G3 evidence, rejected trials, alpha.6 hardware adoption and alpha.7 software
 qualification remain unchanged. G4 ends at submission readiness: no entry is
 sent and no owner fluency or fabricated-silicon result is inferred.
