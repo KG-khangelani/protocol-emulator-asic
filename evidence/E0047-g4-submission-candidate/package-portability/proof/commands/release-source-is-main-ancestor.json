@@ -1,0 +1,20 @@
+{
+  "schema": "protocol-emulator-g4-ci-command-invocation-v1",
+  "command": [
+    "git",
+    "merge-base",
+    "--is-ancestor",
+    "6140001b47a6643471a1e4c4b361cb2f52975368",
+    "6140001b47a6643471a1e4c4b361cb2f52975368"
+  ],
+  "working_directory": "/home/runner/work/protocol-emulator-asic/protocol-emulator-asic",
+  "started_utc": "2026-11-14T04:26:50.908857Z",
+  "completed_utc": "2026-11-14T04:26:50.912744Z",
+  "elapsed_seconds": 0.003894,
+  "returncode": 0,
+  "log_path": "commands/release-source-is-main-ancestor.log.gz",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "compressed_log_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+  "output_capture": "stdout and stderr merged by subprocess.STDOUT, stored without text conversion",
+  "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22"
+}

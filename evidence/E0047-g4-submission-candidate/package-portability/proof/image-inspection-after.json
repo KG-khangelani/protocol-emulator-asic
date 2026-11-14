@@ -1,0 +1,88 @@
+[
+    {
+        "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+        "RepoTags": [],
+        "RepoDigests": [
+            "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-05T01:33:36.589409709Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/verible/bin:/opt/oss-cad-suite/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+                "PYTHON_VERSION=3.11.16",
+                "PYTHON_SHA256=91bcdebfdde239a003ae93738a7fce0f9230fee5c4bc2b86f6e6e8c6f98aabe8",
+                "DEBIAN_FRONTEND=noninteractive",
+                "PIP_DISABLE_PIP_VERSION_CHECK=1",
+                "PYTHONNOUSERSITE=1",
+                "PROTOCOL_EMULATOR_LOCKED_WORKBENCH=1"
+            ],
+            "Cmd": [
+                "make",
+                "doctor"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/workspace",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "io.protocol-emulator-asic.oss-cad-suite": "2026-07-29",
+                "org.opencontainers.image.description": "Pinned digital verification tools; not the CMOS5L tapeout flow.",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.revision": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+                "org.opencontainers.image.source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+                "org.opencontainers.image.title": "Protocol Emulator ASIC verification workbench",
+                "org.opencontainers.image.version": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 3063612218,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/7df3498a7971ee76a6fa6402f0bc632fd8818960c58dece53115566ac6f54927/diff:/var/lib/docker/overlay2/c9e9ad5ec5b1bab44b878d95d06ef9359212ce3df0a9b6a20b0ece95c03c6585/diff:/var/lib/docker/overlay2/ee1f7a6ff392defe9ca7571e0e0359ffd5523287197b965d70c9e43755627034/diff:/var/lib/docker/overlay2/16271a9b9f19e65339876ae3890dd1d0af88e1d997e309c5d01cde3a887619ae/diff:/var/lib/docker/overlay2/c4c6a0841678cc710ab6a6ea931f220467c6e36ecdc3d652f6f87c75f4aa24c4/diff:/var/lib/docker/overlay2/7acf27f919e79f697b9ab6670e7059605e7481ed8f722e6c85e8df67c59db191/diff:/var/lib/docker/overlay2/4046d4638f5eba4afacf2d921440aa424f3bf80152daab19e74cd60c8e3ff2c1/diff:/var/lib/docker/overlay2/32598a16a10ba2b3643c337f338149291f8bca8615cc1e4dbe69c524ccaceaa1/diff:/var/lib/docker/overlay2/1000b4e01abc864dee5e3c892b4c3c3cd21822960e091b77f8b1837adfac02da/diff:/var/lib/docker/overlay2/a4ee1deef407e6784d07fc43afec25ef4e3775acb634b1115a669b043ac5ae02/diff:/var/lib/docker/overlay2/09a66d6b9ea507ceb407d80209bb861c9a19f573ea372b1de09fa2a5df3a801c/diff:/var/lib/docker/overlay2/ce2b0c4569260ca92efb269287b359b71597f3f57b38763008a7cc20a03a27d2/diff",
+                "MergedDir": "/var/lib/docker/overlay2/fde99fcc39f1efa710a749db9dd90014d906eff879ba94c9f04ff0ed58f75747/merged",
+                "UpperDir": "/var/lib/docker/overlay2/fde99fcc39f1efa710a749db9dd90014d906eff879ba94c9f04ff0ed58f75747/diff",
+                "WorkDir": "/var/lib/docker/overlay2/fde99fcc39f1efa710a749db9dd90014d906eff879ba94c9f04ff0ed58f75747/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:34467cc93912af891dfee8a3902adf9b4f355a9bca4eaa46f658d1181a21de0d",
+                "sha256:b3445de4503d21b3ebc42db2f284bc6c8ad96184ea91ce55fb57f5e87910e1f2",
+                "sha256:546c86e4df2dc808fcf1953c346bfeef32f4c953933634d57c1d38730b750e9c",
+                "sha256:6b6ff8eb9da6c277f4b33452c77d59f8b5ff04e0bcca1a3054570b9db343da79",
+                "sha256:66ea3669bfe9d44117b2524599cd0c4ef7208ffdff6ec1eec1c9d6f2bf2f8b35",
+                "sha256:97720139fbe4f2826cf059a662b4f72d75c1672972953d5521f87080420a93e8",
+                "sha256:fb5cfbbdf7fa7c7859b1f628b405d842a4c9578b4fd4de92bc1a3231b6efc33d",
+                "sha256:120fd5bd67fd0251b37721293c638f6222a6e026f23c29da2d7d156e47147bbb",
+                "sha256:0406ff5ea515aa0ec23f5d34184f33f9fc1e134378923b2adf41e3ebb6ebd734",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:c9389c6c26f0ae195401f885eccae975352f33891b4f1720b0e5e099abd98109",
+                "sha256:da40af7198fd12c9d6c8987abf1fd384a417df59475c56cf0fde15e6ca88e456",
+                "sha256:4c0794e968ebc45a7ce97adf39239f6cc3358a40c8a851c6d38f899148b968e3"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
