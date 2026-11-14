@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  physical:
+  verification:
     if: github.repository == 'KG-khangelani/protocol-emulator-asic' && github.ref == 'refs/heads/codex/g4-linux-verification'
     runs-on: ubuntu-24.04
     timeout-minutes: 120
@@ -19,12 +19,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          sparse-checkout: |
-            .github/g4-linux-verification
-            evidence/E0046-program-toolchain/publication
-            evidence/E0047-g4-submission-candidate/ci-43543626249
-            evidence/E0047-g4-submission-candidate/ci-43543629839
-      - name: Replay both frozen physical qualifications in the verified public image
+      - name: Run the requested verification phase in the verified public image
         env:
           G4_CI_JOB_ID: ${{ github.job }}
         run: python3 .github/g4-linux-verification/run.py --request .github/g4-linux-verification/request.json
