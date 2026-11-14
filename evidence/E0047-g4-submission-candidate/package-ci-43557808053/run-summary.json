@@ -1,0 +1,376 @@
+{
+  "schema": "protocol-emulator-g4-linux-proof-v1",
+  "status": "PASS_G4_LINUX_RELEASE_PACKAGE",
+  "started_utc": "2026-11-14T04:40:42.496464Z",
+  "phase": "package",
+  "scope": "Actual requested verification work in the public Linux image. This is not a new physical producer, release publication, or contest submission.",
+  "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+  "physical_source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "ci_execution": {
+    "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "workflow_execution_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "repository": "KG-khangelani/protocol-emulator-asic",
+    "ref": "refs/heads/codex/g4-linux-verification",
+    "run_id": "43557808053",
+    "run_attempt": "1",
+    "job": "verification",
+    "event_name": "push",
+    "workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/g4-linux-verification.yaml@refs/heads/codex/g4-linux-verification",
+    "workflow_sha": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "host_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "host_platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "host_machine": "x86_64"
+  },
+  "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22",
+  "workflow_binding": {
+    "path": ".github/workflows/g4-linux-verification.yaml",
+    "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "sha256": "38e2e1939563cbcf0d9050fbf4857a9088c0c99a319a7713da9ff63b4824dce6",
+    "runner_path": ".github/g4-linux-verification/run.py",
+    "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22",
+    "request_path": ".github/g4-linux-verification/request.json",
+    "request_sha256": "aca6c9d9d4f5afb47a8354a768a4cb82f83f912b328cbfb4dffcd4cb507eaf83"
+  },
+  "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "git_bindings": {
+    "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "ci_checkout_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "ci_checkout_parents": [
+      "7b2e07915cc78ef6ab0f00335a126558ac1fffa5"
+    ],
+    "origin_main_snapshot": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "release_source_is_ancestor_of_ci_checkout": true,
+    "release_source_is_ancestor_of_origin_main": true,
+    "ci_commits_after_release_source": 5,
+    "tracked_checkout_clean_before": true,
+    "packager_path": "evidence/E0047-g4-submission-candidate/release-tools/package.py",
+    "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+    "executed_packager_identical_to_release_git_blob": true,
+    "public_image_record_identical_to_release_git_blob": true,
+    "tracked_checkout_clean_after": true
+  },
+  "public_image_binding": {
+    "record": "evidence/E0046-program-toolchain/publication/release-verification.json",
+    "record_sha256": "4cf4255ee8c19823e5a75fd67601d3ba30a3ff9db634fd720fa4643e2a3bdb9d",
+    "record_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "tag": "v0.1.0-alpha.7",
+    "source_commit": "33e5e9b286d63317c24eec85ffb0d9ea75f0f8ad",
+    "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+    "config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451"
+  },
+  "package": {
+    "schema": "protocol-emulator-g4-linux-release-package-v1",
+    "status": "PASS_G4_LINUX_RELEASE_PACKAGE",
+    "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "physical_source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+    "asset_directory": "assets",
+    "asset_count": 17,
+    "files": {
+      "g4-43543626249-GDS_logs.zip": {
+        "bytes": 98355651,
+        "sha256": "75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2"
+      },
+      "g4-43543626249-gatelevel_test_results.zip": {
+        "bytes": 1232239,
+        "sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050"
+      },
+      "g4-43543626249-precheck_reports.zip": {
+        "bytes": 6913,
+        "sha256": "4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9"
+      },
+      "g4-43543626249-sram-netlist-check.zip": {
+        "bytes": 9875,
+        "sha256": "7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e"
+      },
+      "g4-43543626249-sram-physical-candidate.zip": {
+        "bytes": 194609,
+        "sha256": "e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd"
+      },
+      "g4-43543626249-tt_submission.zip": {
+        "bytes": 3716722,
+        "sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2"
+      },
+      "g4-43543629839-GDS_logs.zip": {
+        "bytes": 98355535,
+        "sha256": "874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12"
+      },
+      "g4-43543629839-gatelevel_test_results.zip": {
+        "bytes": 1232227,
+        "sha256": "e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c"
+      },
+      "g4-43543629839-precheck_reports.zip": {
+        "bytes": 6915,
+        "sha256": "d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa"
+      },
+      "g4-43543629839-sram-netlist-check.zip": {
+        "bytes": 9875,
+        "sha256": "a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d"
+      },
+      "g4-43543629839-sram-physical-candidate.zip": {
+        "bytes": 194609,
+        "sha256": "6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5"
+      },
+      "g4-43543629839-tt_submission.zip": {
+        "bytes": 3716731,
+        "sha256": "2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922"
+      },
+      "g4-SHA256SUMS": {
+        "bytes": 1587,
+        "sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef"
+      },
+      "g4-public-programs.zip": {
+        "bytes": 261357,
+        "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+      },
+      "g4-submission-bundle.zip": {
+        "bytes": 14869969,
+        "sha256": "eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a"
+      },
+      "g4-submission.json": {
+        "bytes": 224584,
+        "sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d"
+      },
+      "g4-windows-programs.zip": {
+        "bytes": 60759,
+        "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+      }
+    },
+    "manifest_checks": {
+      "manifest_sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d",
+      "checksums_sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef",
+      "bundle_members_verified": 435,
+      "original_archive_assets": 14,
+      "tag": "v0.1.0",
+      "target": "od128-sram-v1",
+      "interface_id": "0x22"
+    },
+    "git_bindings": {
+      "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+      "ci_checkout_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "ci_checkout_parents": [
+        "7b2e07915cc78ef6ab0f00335a126558ac1fffa5"
+      ],
+      "origin_main_snapshot": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+      "release_source_is_ancestor_of_ci_checkout": true,
+      "release_source_is_ancestor_of_origin_main": true,
+      "ci_commits_after_release_source": 5,
+      "tracked_checkout_clean_before": true,
+      "packager_path": "evidence/E0047-g4-submission-candidate/release-tools/package.py",
+      "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+      "executed_packager_identical_to_release_git_blob": true,
+      "public_image_record_identical_to_release_git_blob": true,
+      "tracked_checkout_clean_after": true
+    },
+    "ci_execution": {
+      "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "workflow_execution_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "repository": "KG-khangelani/protocol-emulator-asic",
+      "ref": "refs/heads/codex/g4-linux-verification",
+      "run_id": "43557808053",
+      "run_attempt": "1",
+      "job": "verification",
+      "event_name": "push",
+      "workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/g4-linux-verification.yaml@refs/heads/codex/g4-linux-verification",
+      "workflow_sha": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "host_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "host_platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "host_machine": "x86_64"
+    },
+    "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+    "config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+    "runtime": {
+      "executable": "/usr/local/bin/python3",
+      "machine": "x86_64",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.36",
+      "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+      "container_image": {
+        "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+        "RepoDigests": [
+          "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+        ],
+        "Os": "linux",
+        "Architecture": "amd64"
+      },
+      "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+    },
+    "invocation": "package/invocation-linux.json",
+    "invocation_sha256": "cece226673d441a59db839904feb1532de06d586dd6a47a7ca063adf0f122951",
+    "log_path": "package/package-linux.log.gz",
+    "log_sha256": "cf5340a38ce25e05322bc69cc3ce3113c9fde8ec1b862cb46c15c62a980f02d2",
+    "scope": "Actual Linux package assets only. Windows byte comparison, tag/publication, anonymous downloads, and a matching release image remain separate gates."
+  },
+  "runtime": {
+    "executable": "/usr/local/bin/python3",
+    "machine": "x86_64",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.36",
+    "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+    "container_image": {
+      "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+      "RepoDigests": [
+        "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+      ],
+      "Os": "linux",
+      "Architecture": "amd64"
+    },
+    "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+  },
+  "completed_utc": "2026-11-14T04:41:21.665374Z",
+  "files": {
+    "assets/g4-43543626249-GDS_logs.zip": {
+      "bytes": 98355651,
+      "sha256": "75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2"
+    },
+    "assets/g4-43543626249-gatelevel_test_results.zip": {
+      "bytes": 1232239,
+      "sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050"
+    },
+    "assets/g4-43543626249-precheck_reports.zip": {
+      "bytes": 6913,
+      "sha256": "4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9"
+    },
+    "assets/g4-43543626249-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e"
+    },
+    "assets/g4-43543626249-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd"
+    },
+    "assets/g4-43543626249-tt_submission.zip": {
+      "bytes": 3716722,
+      "sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2"
+    },
+    "assets/g4-43543629839-GDS_logs.zip": {
+      "bytes": 98355535,
+      "sha256": "874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12"
+    },
+    "assets/g4-43543629839-gatelevel_test_results.zip": {
+      "bytes": 1232227,
+      "sha256": "e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c"
+    },
+    "assets/g4-43543629839-precheck_reports.zip": {
+      "bytes": 6915,
+      "sha256": "d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa"
+    },
+    "assets/g4-43543629839-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d"
+    },
+    "assets/g4-43543629839-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5"
+    },
+    "assets/g4-43543629839-tt_submission.zip": {
+      "bytes": 3716731,
+      "sha256": "2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922"
+    },
+    "assets/g4-SHA256SUMS": {
+      "bytes": 1587,
+      "sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef"
+    },
+    "assets/g4-public-programs.zip": {
+      "bytes": 261357,
+      "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+    },
+    "assets/g4-submission-bundle.zip": {
+      "bytes": 14869969,
+      "sha256": "eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a"
+    },
+    "assets/g4-submission.json": {
+      "bytes": 224584,
+      "sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d"
+    },
+    "assets/g4-windows-programs.zip": {
+      "bytes": 60759,
+      "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+    },
+    "commands/container-python-runtime.json": {
+      "bytes": 1662,
+      "sha256": "f659aabcc16c41646234febe7ed1dee9e47954ebe84e9bf5497dc08573656fde"
+    },
+    "commands/container-python-runtime.log.gz": {
+      "bytes": 173,
+      "sha256": "3ed1f79ffe8c5e527f6a39fa9b09b5c9288dd2b7c230c3c7689f86b06d483d36"
+    },
+    "commands/docker-version.json": {
+      "bytes": 799,
+      "sha256": "a5af0675cd144994a9ddf49d6cb9100eb8c3985a6b14141e7ef5f89804a97b0c"
+    },
+    "commands/docker-version.log.gz": {
+      "bytes": 435,
+      "sha256": "5b2ce83e34a6756385a406fdcc84032b72dc0c82d13f139ae558834175a942ce"
+    },
+    "commands/image-inspection-after.json": {
+      "bytes": 920,
+      "sha256": "cd8be0db494395f83483a2d1ff72cca911c9752fd3e4920cdf7d06a67a9c943a"
+    },
+    "commands/image-inspection-after.log.gz": {
+      "bytes": 2297,
+      "sha256": "abd76b058b543792b42fb12cfdf5c4afab078558e244f9d80e88d24e1007107c"
+    },
+    "commands/image-inspection-before.json": {
+      "bytes": 920,
+      "sha256": "2ba40bf8d103195cf25b1f5e0ba8b476f101e08943c2ca507ee946e85ab8f471"
+    },
+    "commands/image-inspection-before.log.gz": {
+      "bytes": 2297,
+      "sha256": "abd76b058b543792b42fb12cfdf5c4afab078558e244f9d80e88d24e1007107c"
+    },
+    "commands/image-pull.json": {
+      "bytes": 892,
+      "sha256": "2ecced42b8dfc99b993176f8704ab1c9f9f4daee0c3822a5175dcf6674540e82"
+    },
+    "commands/image-pull.log.gz": {
+      "bytes": 528,
+      "sha256": "461f6c14c325380d7c44117b9ebad7be9af58e0642a7b8dd068565d80f8a5a9f"
+    },
+    "commands/release-source-is-ci-ancestor.json": {
+      "bytes": 897,
+      "sha256": "f8ecff1c90590027935daf513397abb1a58d801222c5777136af7fb1997cfc72"
+    },
+    "commands/release-source-is-ci-ancestor.log.gz": {
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    "commands/release-source-is-main-ancestor.json": {
+      "bytes": 899,
+      "sha256": "72b75239a0c5662daeed2c9a36a8ddfd3ce0266f00d2062e0f5f919a80a5ce22"
+    },
+    "commands/release-source-is-main-ancestor.log.gz": {
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    "image-inspection-after.json": {
+      "bytes": 5455,
+      "sha256": "78b1d416a024eebc676032f8f0f0231fc25a7f6c82fa59232537d6c4b2e0ac0c"
+    },
+    "image-inspection-before.json": {
+      "bytes": 5455,
+      "sha256": "78b1d416a024eebc676032f8f0f0231fc25a7f6c82fa59232537d6c4b2e0ac0c"
+    },
+    "package/invocation-linux.json": {
+      "bytes": 4485,
+      "sha256": "cece226673d441a59db839904feb1532de06d586dd6a47a7ca063adf0f122951"
+    },
+    "package/package-linux.log.gz": {
+      "bytes": 372,
+      "sha256": "9d897b36c7165d722123301343eaac180d07c49eae40dc86a8acb7686771f626"
+    },
+    "package/result.json": {
+      "bytes": 6358,
+      "sha256": "9692c85326d41883f1a86e4339e1bad1e77d3993aaa7e4066674f8071cd09dc4"
+    },
+    "request.json": {
+      "bytes": 169,
+      "sha256": "aca6c9d9d4f5afb47a8354a768a4cb82f83f912b328cbfb4dffcd4cb507eaf83"
+    },
+    "runtime.json": {
+      "bytes": 1531,
+      "sha256": "025d98205aa37578e6bf4ce6dfebdf68410f2861cd28eac226846be7e45eb4d0"
+    }
+  }
+}

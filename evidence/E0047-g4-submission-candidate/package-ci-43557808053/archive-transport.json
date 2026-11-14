@@ -1,0 +1,11 @@
+{
+  "schema": "protocol-emulator-g4-package-transport-v1",
+  "artifact_id": 14098639370,
+  "bytes": 222509831,
+  "sha256": "d2c40400b75c6f909a8aa4348ed92513ac998255c8127c74fe2d2a9a6cbfcca4",
+  "method": "actual_https_download_from_captured_artifact_response",
+  "started_utc": "2026-11-14T04:42:51.858317+00:00",
+  "completed_utc": "2026-11-14T04:43:37.550610+00:00",
+  "original_zip_retained": false,
+  "scope": "API and upload-log digest bound to actual original ZIP bytes; signed URL omitted."
+}

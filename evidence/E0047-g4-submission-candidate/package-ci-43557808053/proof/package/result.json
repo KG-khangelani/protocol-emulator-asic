@@ -1,0 +1,143 @@
+{
+  "schema": "protocol-emulator-g4-linux-release-package-v1",
+  "status": "PASS_G4_LINUX_RELEASE_PACKAGE",
+  "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "physical_source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "asset_directory": "assets",
+  "asset_count": 17,
+  "files": {
+    "g4-43543626249-GDS_logs.zip": {
+      "bytes": 98355651,
+      "sha256": "75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2"
+    },
+    "g4-43543626249-gatelevel_test_results.zip": {
+      "bytes": 1232239,
+      "sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050"
+    },
+    "g4-43543626249-precheck_reports.zip": {
+      "bytes": 6913,
+      "sha256": "4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9"
+    },
+    "g4-43543626249-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e"
+    },
+    "g4-43543626249-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd"
+    },
+    "g4-43543626249-tt_submission.zip": {
+      "bytes": 3716722,
+      "sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2"
+    },
+    "g4-43543629839-GDS_logs.zip": {
+      "bytes": 98355535,
+      "sha256": "874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12"
+    },
+    "g4-43543629839-gatelevel_test_results.zip": {
+      "bytes": 1232227,
+      "sha256": "e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c"
+    },
+    "g4-43543629839-precheck_reports.zip": {
+      "bytes": 6915,
+      "sha256": "d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa"
+    },
+    "g4-43543629839-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d"
+    },
+    "g4-43543629839-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5"
+    },
+    "g4-43543629839-tt_submission.zip": {
+      "bytes": 3716731,
+      "sha256": "2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922"
+    },
+    "g4-SHA256SUMS": {
+      "bytes": 1587,
+      "sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef"
+    },
+    "g4-public-programs.zip": {
+      "bytes": 261357,
+      "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+    },
+    "g4-submission-bundle.zip": {
+      "bytes": 14869969,
+      "sha256": "eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a"
+    },
+    "g4-submission.json": {
+      "bytes": 224584,
+      "sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d"
+    },
+    "g4-windows-programs.zip": {
+      "bytes": 60759,
+      "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+    }
+  },
+  "manifest_checks": {
+    "manifest_sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d",
+    "checksums_sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef",
+    "bundle_members_verified": 435,
+    "original_archive_assets": 14,
+    "tag": "v0.1.0",
+    "target": "od128-sram-v1",
+    "interface_id": "0x22"
+  },
+  "git_bindings": {
+    "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "ci_checkout_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "ci_checkout_parents": [
+      "7b2e07915cc78ef6ab0f00335a126558ac1fffa5"
+    ],
+    "origin_main_snapshot": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "release_source_is_ancestor_of_ci_checkout": true,
+    "release_source_is_ancestor_of_origin_main": true,
+    "ci_commits_after_release_source": 5,
+    "tracked_checkout_clean_before": true,
+    "packager_path": "evidence/E0047-g4-submission-candidate/release-tools/package.py",
+    "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+    "executed_packager_identical_to_release_git_blob": true,
+    "public_image_record_identical_to_release_git_blob": true,
+    "tracked_checkout_clean_after": true
+  },
+  "ci_execution": {
+    "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "workflow_execution_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "repository": "KG-khangelani/protocol-emulator-asic",
+    "ref": "refs/heads/codex/g4-linux-verification",
+    "run_id": "43557808053",
+    "run_attempt": "1",
+    "job": "verification",
+    "event_name": "push",
+    "workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/g4-linux-verification.yaml@refs/heads/codex/g4-linux-verification",
+    "workflow_sha": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "host_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "host_platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "host_machine": "x86_64"
+  },
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+  "config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+  "runtime": {
+    "executable": "/usr/local/bin/python3",
+    "machine": "x86_64",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.36",
+    "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+    "container_image": {
+      "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+      "RepoDigests": [
+        "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+      ],
+      "Os": "linux",
+      "Architecture": "amd64"
+    },
+    "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+  },
+  "invocation": "package/invocation-linux.json",
+  "invocation_sha256": "cece226673d441a59db839904feb1532de06d586dd6a47a7ca063adf0f122951",
+  "log_path": "package/package-linux.log.gz",
+  "log_sha256": "cf5340a38ce25e05322bc69cc3ce3113c9fde8ec1b862cb46c15c62a980f02d2",
+  "scope": "Actual Linux package assets only. Windows byte comparison, tag/publication, anonymous downloads, and a matching release image remain separate gates."
+}

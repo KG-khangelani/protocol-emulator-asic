@@ -1,0 +1,34 @@
+{
+  "ci_execution": {
+    "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "workflow_execution_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "repository": "KG-khangelani/protocol-emulator-asic",
+    "ref": "refs/heads/codex/g4-linux-verification",
+    "run_id": "43557808053",
+    "run_attempt": "1",
+    "job": "verification",
+    "event_name": "push",
+    "workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/g4-linux-verification.yaml@refs/heads/codex/g4-linux-verification",
+    "workflow_sha": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "runner_os": "Linux",
+    "runner_arch": "X64",
+    "host_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "host_platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "host_machine": "x86_64"
+  },
+  "container": {
+    "executable": "/usr/local/bin/python3",
+    "machine": "x86_64",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.36",
+    "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+    "container_image": {
+      "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+      "RepoDigests": [
+        "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+      ],
+      "Os": "linux",
+      "Architecture": "amd64"
+    },
+    "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+  }
+}

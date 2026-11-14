@@ -1,0 +1,20 @@
+{
+  "status": "PASS_RETAINED_G4_PACKAGE_CI",
+  "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+  "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "run_id": 43557808053,
+  "job_id": 132334521266,
+  "artifact_id": 14098639370,
+  "artifact_bytes": 222509831,
+  "artifact_sha256": "d2c40400b75c6f909a8aa4348ed92513ac998255c8127c74fe2d2a9a6cbfcca4",
+  "original_archive_files": 39,
+  "original_zip_retained": false,
+  "omitted_asset_files": 17,
+  "asset_files_compared_byte_for_byte": 17,
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+  "config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+  "platform_identity_sha256": "a10c2d93ca3885943179aee9457262c7c20467166cc6794b8d6c33ab3824223b",
+  "capture_sha256": "e2e780298c567b432df09d83126667eec15d16fcb0c8c7ca4ca4dc6ed3727929",
+  "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+  "scope": "Original CI API/upload-bound transport, complete member map, source/runtime/commands and actual platform asset bytes verified. Bulk originals intentionally omitted from this small proof."
+}

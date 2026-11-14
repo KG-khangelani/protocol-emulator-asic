@@ -15,6 +15,13 @@ the genuine commands, output and public-image identity for both Linux replays.
 The [host interruption](host-runtime/README.md) preserves the local startup
 failure and reversible relocation of inactive generated files.
 
+[Corrected package CI](package-ci-43557808053/README.md) and the native Windows
+run produce 17 byte-identical assets at release source `5bdc0e6`; the bundle has
+435 members. Its standalone assembler rebuilds thirteen examples into 52
+identical files. The [initial checksum-order mismatch](package-portability/README.md)
+remains rejected. Annotated `v0.1.0` now identifies the corrected source;
+release-tag CI and public-download/image verification remain pending.
+
 | Role | Original files / frozen inputs | Prechecks / public netlist groups | Fault controls |
 |---|---:|---:|---:|
 | [Candidate 43543626249](ci-43543626249/README.md) | 1,729 / 84 | 10 / 18 | 9 rejected |

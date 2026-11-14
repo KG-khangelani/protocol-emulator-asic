@@ -1,0 +1,25 @@
+{
+  "schema": "protocol-emulator-g4-windows-package-invocation-v1",
+  "source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "started_utc": "2026-11-14T04:40:00.246756+00:00",
+  "completed_utc": "2026-11-14T04:40:11.971603+00:00",
+  "elapsed_seconds": 11.722685699998692,
+  "command": [
+    "C:\\Python314\\python.exe",
+    "H:\\hikrepos\\protocol-emulator-asic\\evidence\\E0047-g4-submission-candidate\\release-tools\\package.py",
+    "--source",
+    "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+    "--out",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+  ],
+  "working_directory": "H:\\hikrepos\\protocol-emulator-asic",
+  "exit_code": 0,
+  "log_path": "build/g4-windows-package/5bdc0e6b6449a829a5da1f8f9a8060257e974843/windows-package.log",
+  "log_sha256": "bf37e723c98f05c48cd333c688d75c43779fedacc7a215e0b18525fa5a3867bd",
+  "log_bytes": 87,
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "machine": "AMD64",
+  "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+  "runner_sha256": "eb6c960765d779fda0bfcc3379e9859a7c2d950bec9c73257644128872e9d417"
+}
