@@ -1,0 +1,31 @@
+{
+  "schema": "protocol-emulator-g4-rule-observation-v1",
+  "observed_date": "2026-11-14",
+  "observed_utc": "2026-11-14T01:52:58.993110+00:00",
+  "source": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+  "retrieval": {
+    "http_status": 200,
+    "bytes": 45690,
+    "sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686",
+    "etag": "\"6af78e3a-b27a\"",
+    "last_modified": "Fri, 13 Nov 2026 22:24:58 GMT"
+  },
+  "review": "Official page and FAQ read via the web tool; independently fetched HTML digest retained without redistributing the article.",
+  "process": "IHP 130nm CMOS5L through Tiny Tapeout",
+  "maximum_tiles": "8x4",
+  "deadline": "2027-01-18",
+  "sram": "IHP macros allowed subject to fit and precheck",
+  "required_material": [
+    "Public repository",
+    "RTL and tests",
+    "Passing Tiny Tapeout GDS and precheck",
+    "Architecture and ISA documentation",
+    "Programming tools and examples",
+    "Verification approach",
+    "Description of AI use"
+  ],
+  "fixed_clock_or_protocol_speed_required": false,
+  "video_required": false,
+  "final_submission_form": "Not yet published on the observed page",
+  "actual_submission": "OUT_OF_SCOPE"
+}

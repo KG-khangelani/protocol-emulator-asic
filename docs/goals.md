@@ -1,12 +1,12 @@
 # Goals to submission readiness
 
-Updated: 2026-11-13. Decision: [D32](decisions/0032-goals-to-submission-readiness.md).
+Updated: 2026-11-14. Decisions: [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md).
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
 G1, G2 and G3 are complete. The qualified shared-protocol core now has a
-verified assembler, loading plans and reproducible examples. G4 is next and
-remains queued: prepare the final chip release and submission package.
+verified assembler, loading plans and reproducible examples. G4 is active:
+prepare the final chip release and submission package under its frozen contract.
 Further instruction compression is valuable only when it improves that outcome.
 
 ## Priorities and planning targets
@@ -20,7 +20,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | G1 | Qualify the current physical setup and decide whether timed GPIO P is worth adopting | **COMPLETE 2026-11-12** | 2026-11-20 | M3-T01, M3-T02, M5-T01 |
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **COMPLETE 2026-11-13**; qualified SRAM adopted, default CI and publication audited | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | **COMPLETE 2026-11-13**; clean-clone/CI qualification and alpha.7 publication verified | 2026-12-18 | M4-T01 |
-| G4 | Deliver a reproducible final chip release and submission package | QUEUED; physical checks start in G1 and repeat after material changes | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
+| G4 | Deliver a reproducible final chip release and submission package | ACTIVE 2026-11-14; unchanged candidate, fresh physical reproduction and submission packet | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
 | G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
 
@@ -337,6 +337,13 @@ programming problem justifies it. Compatibility changes need an ISA version and
 migration note, not silently changed example bytes.
 
 ## G4 - Close and publish the final design
+
+Activated by the owner on 2026-11-14. [D49](decisions/0049-freeze-g4-submission-candidate.md)
+and the [acceptance contract](specs/g4-submission-candidate.md) freeze the exact
+qualified core before two clean official runs. E0047 records their original
+archives, reproduction, current documentation and verified final package.
+Commit and push cohesive verified steps throughout. Actual submission and
+owner fluency remain separate.
 
 Completion checks:
 

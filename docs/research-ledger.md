@@ -64,7 +64,13 @@ Windows/Linux packages and a successful standalone rebuild of all thirteen
 examples. The public image/source/version identities match; all nine tag
 workflows and 22 jobs pass. The original 1,948-file publication archive passes
 all eight production stages, two fresh 147-test executions and the historical
-SPI gates. E0046/completion-audit.json closes G3. G4 and owner fluency remain separate.
+SPI gates. E0046/completion-audit.json closes G3. Owner fluency remains separate.
+
+G4 starts on 2026-11-14 under D49/E0047. The candidate preserves all twenty
+qualified physical inputs. Fresh official qualification and independent
+reproduction, current submission documentation and a verified stable package
+remain pending. The obsolete Tiny Tapeout datasheet is a documentation gap,
+not evidence that production regressed to the historical eight-word design.
 
 ## Verified upstream observations (not project measurements)
 

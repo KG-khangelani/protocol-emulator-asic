@@ -1,9 +1,16 @@
 # Current state
 
-Updated: 2026-11-13. Engineering phase: **M1 - reloadable sequencer**.
+Updated: 2026-11-14. Engineering phase: **G4 - final qualification and submission readiness**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**G1-G3 COMPLETE; G4 QUEUED.** G3 delivers a versioned assembler,
+**G1-G3 COMPLETE; G4 ACTIVE.** D49 freezes the unchanged qualified core for
+two clean official physical runs and a verified final submission packet.
+[E0047](../evidence/E0047-g4-submission-candidate/README.md) retains the freeze,
+rule observation and forthcoming qualification. Fresh G4 gates remain pending.
+The Tiny Tapeout datasheet now describes the current 128-word SRAM/UART/SPI/I2C
+profile; the architecture/verification submission guides remain to be completed.
+
+G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the
 unchanged qualified instruction contract. [E0046](../evidence/E0046-program-toolchain/README.md)
 retains thirteen byte-compatible examples, 55 identical public cases in each
@@ -750,7 +757,7 @@ efficiently express useful digital communication protocols under hard temporal c
   alpha.6 publication and all rejected trials; requalify material design changes.
 - G3 is complete. Preserve the versioned assembler, public loading plans,
   independent examples and alpha.7 evidence; a larger compiler still needs a
-  demonstrated use case. G4 is the next engineering goal and remains queued.
+  demonstrated use case. G4 is active under D49 and the E0047 contract.
 - Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
   readiness. G5's optional novelty experiment has a two-working-day budget and
   is deferred if mandatory gates slip. Targets and completion checks are in

@@ -2,12 +2,14 @@
 
 Checked: 2026-09-25. Recheck changeable rules before a release/submission.
 
-S1 rechecked: **2026-11-12**. The November 9 update confirms an **8x4**
+S1 rechecked: **2026-11-14** for G4. The November 9 update confirms an **8x4**
 allocation and says the template's main branch targets CMOS5L. The deadline
 remains **18 January 2027**. This supersedes the November 3 observation of 6x4
 with a possible expansion. D33 records the reviewed current
 template/action/support/PDK identities; D35/E0031 qualifies compact10 under D34.
-G1 is complete, with historical physical conditions preserved. S13 was rechecked
+G1-G3 are complete, with historical physical conditions preserved. The final
+submission form is still forthcoming; E0047 records the dated rule mapping.
+S13 was rechecked
 on 2026-11-12 for D36's I2C digital contract, including data/ACK-valid maxima.
 
 | ID | Source | Use |
