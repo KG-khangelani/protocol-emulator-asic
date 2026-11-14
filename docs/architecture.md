@@ -160,5 +160,7 @@ slack at 20 ns and 61,294.1 square micrometres of routed standard-cell area.
 Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
 The netlist, metrics and recorded stage states reproduce. G2 continuity is
 separately retained; none of these results establishes silicon or Fmax.
-Final release/download/image verification remains pending at this snapshot;
-see the [live publication closure](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) when completed.
+Stable v0.1.0 passes the [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md):
+all 35 public assets, the standalone software distribution, both physical
+replays from downloaded originals and matching workbench source/image
+identities are verified. All nine release-tag workflows pass.

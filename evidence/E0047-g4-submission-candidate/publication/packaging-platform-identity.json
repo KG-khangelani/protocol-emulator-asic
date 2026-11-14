@@ -1,0 +1,186 @@
+{
+  "schema": "protocol-emulator-g4-package-platform-identity-v1",
+  "status": "PASS_WINDOWS_LINUX_PACKAGE_IDENTITY",
+  "source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "files": {
+    "g4-43543626249-GDS_logs.zip": {
+      "bytes": 98355651,
+      "sha256": "75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2"
+    },
+    "g4-43543626249-precheck_reports.zip": {
+      "bytes": 6913,
+      "sha256": "4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9"
+    },
+    "g4-43543626249-gatelevel_test_results.zip": {
+      "bytes": 1232239,
+      "sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050"
+    },
+    "g4-43543626249-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e"
+    },
+    "g4-43543626249-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd"
+    },
+    "g4-43543626249-tt_submission.zip": {
+      "bytes": 3716722,
+      "sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2"
+    },
+    "g4-43543629839-GDS_logs.zip": {
+      "bytes": 98355535,
+      "sha256": "874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12"
+    },
+    "g4-43543629839-gatelevel_test_results.zip": {
+      "bytes": 1232227,
+      "sha256": "e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c"
+    },
+    "g4-43543629839-precheck_reports.zip": {
+      "bytes": 6915,
+      "sha256": "d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa"
+    },
+    "g4-43543629839-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d"
+    },
+    "g4-43543629839-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5"
+    },
+    "g4-43543629839-tt_submission.zip": {
+      "bytes": 3716731,
+      "sha256": "2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922"
+    },
+    "g4-SHA256SUMS": {
+      "bytes": 1587,
+      "sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef"
+    },
+    "g4-public-programs.zip": {
+      "bytes": 261357,
+      "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+    },
+    "g4-submission-bundle.zip": {
+      "bytes": 14869969,
+      "sha256": "eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a"
+    },
+    "g4-submission.json": {
+      "bytes": 224584,
+      "sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d"
+    },
+    "g4-windows-programs.zip": {
+      "bytes": 60759,
+      "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+    }
+  },
+  "asset_count": 17,
+  "comparison": "Every actual asset compared byte-for-byte",
+  "started_utc": "2026-11-14T04:42:51.856075+00:00",
+  "completed_utc": "2026-11-14T04:43:38.431621+00:00",
+  "packager_sha256": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+  "windows": {
+    "invocation_path": "evidence/E0047-g4-submission-candidate/package-ci-43557808053/windows/invocation.json",
+    "invocation_sha256": "5ba70e5b84458940fa816ddd1b2962e389aaf04c23a6942ef5db7918b01f1800",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "H:\\hikrepos\\protocol-emulator-asic\\evidence\\E0047-g4-submission-candidate\\release-tools\\package.py",
+      "--source",
+      "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+      "--out",
+      "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+    ],
+    "exit_code": 0,
+    "log_path": "evidence/E0047-g4-submission-candidate/package-ci-43557808053/windows/windows-package.log.gz",
+    "log_sha256": "bf37e723c98f05c48cd333c688d75c43779fedacc7a215e0b18525fa5a3867bd",
+    "compressed_log_sha256": "23245d16fb150334bb3a1f72c14eedd94d04f3c8cf220435f270e5c240dd5311",
+    "log_bytes": 87,
+    "runtime": {
+      "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "machine": "AMD64"
+    },
+    "runner_sha256": "eb6c960765d779fda0bfcc3379e9859a7c2d950bec9c73257644128872e9d417"
+  },
+  "linux": {
+    "invocation_path": "evidence/E0047-g4-submission-candidate/package-ci-43557808053/proof/package/invocation-linux.json",
+    "invocation_sha256": "cece226673d441a59db839904feb1532de06d586dd6a47a7ca063adf0f122951",
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull=never",
+      "--network=none",
+      "--user",
+      "1001:1001",
+      "--env",
+      "HOME=/tmp",
+      "--env",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "--env",
+      "GIT_OPTIONAL_LOCKS=0",
+      "--mount",
+      "type=bind,source=/home/runner/work/protocol-emulator-asic/protocol-emulator-asic,target=/workspace,readonly",
+      "--mount",
+      "type=bind,source=/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/build/g4-linux-verification-work,target=/workspace/build/g4-linux-verification-work",
+      "--workdir",
+      "/workspace",
+      "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+      "python3",
+      "-u",
+      "-c",
+      "import json, platform, runpy, sys\nruntime = {'python': sys.version, 'platform': platform.platform(),\n           'machine': platform.machine(), 'executable': sys.executable}\nprint('G4_PACKAGE_RUNTIME ' + json.dumps(runtime, sort_keys=True), flush=True)\npackager, source, output = sys.argv[1:]\nsys.argv = [packager, '--source', source, '--out', output]\nprint('G4_PACKAGE_ARGV ' + json.dumps(sys.argv), flush=True)\nrunpy.run_path(packager, run_name='__main__')\n",
+      "evidence/E0047-g4-submission-candidate/release-tools/package.py",
+      "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+      "/workspace/build/g4-linux-verification-work/release-assets/5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+    ],
+    "exit_code": 0,
+    "log_path": "evidence/E0047-g4-submission-candidate/package-ci-43557808053/proof/package/package-linux.log.gz",
+    "log_sha256": "cf5340a38ce25e05322bc69cc3ce3113c9fde8ec1b862cb46c15c62a980f02d2",
+    "runtime": {
+      "executable": "/usr/local/bin/python3",
+      "machine": "x86_64",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.36",
+      "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+      "container_image": {
+        "Id": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+        "RepoDigests": [
+          "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+        ],
+        "Os": "linux",
+        "Architecture": "amd64"
+      },
+      "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
+    },
+    "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22",
+    "ci_execution": {
+      "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "workflow_execution_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "repository": "KG-khangelani/protocol-emulator-asic",
+      "ref": "refs/heads/codex/g4-linux-verification",
+      "run_id": "43557808053",
+      "run_attempt": "1",
+      "job": "verification",
+      "event_name": "push",
+      "workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/g4-linux-verification.yaml@refs/heads/codex/g4-linux-verification",
+      "workflow_sha": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "host_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "host_platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "host_machine": "x86_64"
+    }
+  },
+  "linux_ci": {
+    "proof_path": "evidence/E0047-g4-submission-candidate/package-ci-43557808053",
+    "source_commit": "50c57ebd0f5243a0267992662af9fafb3cbdfd05",
+    "run_id": 43557808053,
+    "run_attempt": 1,
+    "job_id": 132334521266,
+    "artifact_id": 14098639370,
+    "artifact_bytes": 222509831,
+    "artifact_sha256": "d2c40400b75c6f909a8aa4348ed92513ac998255c8127c74fe2d2a9a6cbfcca4",
+    "original_archive_files": 39,
+    "original_zip_retained": false,
+    "omitted_asset_files": 17
+  },
+  "scope": "Actual native Windows and isolated Linux packaging only; final publication/download checks remain separate."
+}

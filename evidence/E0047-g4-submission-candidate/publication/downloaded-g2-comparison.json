@@ -1,0 +1,26 @@
+{
+  "schema": "gds-record-comparison-v1",
+  "left": {
+    "path": "/workspace/build/g4-linux-verification-work/publication-audit/g2-original-submitted.gds",
+    "size_in_bytes": 10044774,
+    "sha256": "51ac3c1005fd0d811a3e26fddf81fd996a2d57b45172a68670df05e4c57dbbf4",
+    "record_count": 995697,
+    "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+  },
+  "right": {
+    "path": "/workspace/build/g4-linux-verification-work/publication-audit/physical-candidate/submitted.gds",
+    "size_in_bytes": 10044774,
+    "sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+    "record_count": 995697,
+    "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+  },
+  "record_structure_equal": true,
+  "different_records": 191,
+  "different_bytes": 1146,
+  "timestamp_record_differences": {
+    "BGNLIB": 1,
+    "BGNSTR": 190
+  },
+  "non_timestamp_record_differences": {},
+  "equivalent_except_timestamps": true
+}

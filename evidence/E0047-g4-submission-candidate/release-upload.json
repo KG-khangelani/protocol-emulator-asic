@@ -1,0 +1,107 @@
+{
+  "schema": "protocol-emulator-g4-release-upload-v1",
+  "source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "tag": "v0.1.0",
+  "command": [
+    "gh",
+    "release",
+    "upload",
+    "v0.1.0",
+    "--repo",
+    "KG-khangelani/protocol-emulator-asic",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-GDS_logs.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-gatelevel_test_results.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-precheck_reports.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-sram-netlist-check.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-sram-physical-candidate.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543626249-tt_submission.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-GDS_logs.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-gatelevel_test_results.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-precheck_reports.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-sram-netlist-check.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-sram-physical-candidate.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-43543629839-tt_submission.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-SHA256SUMS",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-public-programs.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-submission-bundle.zip",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-submission.json",
+    "H:\\hikrepos\\protocol-emulator-asic\\build\\g4-release-assets\\5bdc0e6b6449a829a5da1f8f9a8060257e974843\\g4-windows-programs.zip"
+  ],
+  "started_utc": "2026-11-14T05:36:09.478897+00:00",
+  "completed_utc": "2026-11-14T05:36:49.837473+00:00",
+  "elapsed_seconds": 40.355583900003694,
+  "exit_code": 0,
+  "files": {
+    "g4-43543626249-GDS_logs.zip": {
+      "bytes": 98355651,
+      "sha256": "75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2"
+    },
+    "g4-43543626249-precheck_reports.zip": {
+      "bytes": 6913,
+      "sha256": "4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9"
+    },
+    "g4-43543626249-gatelevel_test_results.zip": {
+      "bytes": 1232239,
+      "sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050"
+    },
+    "g4-43543626249-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e"
+    },
+    "g4-43543626249-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd"
+    },
+    "g4-43543626249-tt_submission.zip": {
+      "bytes": 3716722,
+      "sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2"
+    },
+    "g4-43543629839-GDS_logs.zip": {
+      "bytes": 98355535,
+      "sha256": "874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12"
+    },
+    "g4-43543629839-gatelevel_test_results.zip": {
+      "bytes": 1232227,
+      "sha256": "e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c"
+    },
+    "g4-43543629839-precheck_reports.zip": {
+      "bytes": 6915,
+      "sha256": "d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa"
+    },
+    "g4-43543629839-sram-netlist-check.zip": {
+      "bytes": 9875,
+      "sha256": "a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d"
+    },
+    "g4-43543629839-sram-physical-candidate.zip": {
+      "bytes": 194609,
+      "sha256": "6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5"
+    },
+    "g4-43543629839-tt_submission.zip": {
+      "bytes": 3716731,
+      "sha256": "2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922"
+    },
+    "g4-SHA256SUMS": {
+      "bytes": 1587,
+      "sha256": "066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef"
+    },
+    "g4-public-programs.zip": {
+      "bytes": 261357,
+      "sha256": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+    },
+    "g4-submission-bundle.zip": {
+      "bytes": 14869969,
+      "sha256": "eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a"
+    },
+    "g4-submission.json": {
+      "bytes": 224584,
+      "sha256": "a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d"
+    },
+    "g4-windows-programs.zip": {
+      "bytes": 60759,
+      "sha256": "6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "log_bytes": 0,
+  "runner_sha256": "c7f3e282a176bd336f594591074a20f1d658ce6a8b819febab273452a5e72e9b"
+}

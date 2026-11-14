@@ -1,8 +1,8 @@
 # G4 final submission candidate
 
 <!-- G4 physical qualification from retained E0047 records -->
-**Fresh physical and program qualification pass as of 2026-11-14. Publication
-verification remains pending; G4 is not yet closed.**
+**G4 COMPLETE 2026-11-14: fresh physical reproduction, software distribution,
+verified stable publication and submission packet. No entry has been sent.**
 
 Both predeclared production runs at `45c55f7cd95db2a883b0ffb5e864decd62d53601` pass
 the complete physical, official-precheck and actual-netlist public gates.
@@ -20,7 +20,7 @@ run produce 17 byte-identical assets at release source `5bdc0e6`; the bundle has
 435 members. Its standalone assembler rebuilds thirteen examples into 52
 identical files. The [initial checksum-order mismatch](package-portability/README.md)
 remains rejected. Annotated `v0.1.0` now identifies the corrected source;
-release-tag CI and public-download/image verification remain pending.
+all nine release-tag workflows and public-download/image verification pass.
 
 | Role | Original files / frozen inputs | Prechecks / public netlist groups | Fault controls |
 |---|---:|---:|---:|
@@ -55,7 +55,21 @@ The [submission packet](../../docs/submission.md), current guides and prepared
 producer revision above is distinct from the later immutable release source;
 the package manifest and unchanged-input checks bind that relationship.
 
-Publication verification is pending at this pre-tag snapshot. The subsequent [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records completed public-download, release-tag, standalone-distribution and matching-image checks when those gates finish. Physical qualification alone does not close G4.
+<!-- G4 publication closure from retained evidence -->
+Publication is verified for stable `v0.1.0` at release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843`. All 35 public assets, 435 bundle members and the matching workbench image/source identities pass; all nine tag workflows / 22 jobs pass. Windows and Linux produce 17 byte-identical assets, and the standalone bundle rebuilds all thirteen examples into 52 identical files. See the [publication audit](publication/README.md) and [completion audit](completion-audit.json).
+
+The [rejected initial package comparison](package-portability/README.md)
+exposed Windows/Linux filename-order differences in the checksum list.
+Explicit filename sorting corrected it before the release source was tagged.
+The [current rules observation](rules-closure-observation.json) matches the
+activation page; the final submission form remains forthcoming.
+
+The executed completion checker is retained as `completion-runner.py.gz`.
+Restore it to `build/complete_g4.py` in a complete checkout and run
+`python build/complete_g4.py --check-only` to check all five requirements
+without replacing the original audit. `release-upload.json` and its compressed
+runner/log retain the actual seventeen-asset upload; the independent publication
+audit verifies the resulting public files.
 
 These are digital physical-flow, static-timing and zero-delay netlist results.
 The mixed fast-temperature boundary, UART host service, SPI input hold and

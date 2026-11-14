@@ -148,6 +148,9 @@ Recorded stage configuration/state bytes, netlists, timing/area and public
 records agree. Only 764 bytes across 191 BGNLIB/BGNSTR timestamp records differ; all 995,697 GDS records have the same structure and all geometry records agree.
 1,052 SPI, 1,160 I2C, 4 boundary and 36 abort records agree. UART comparison retains 97 RX/late-reader
 landmarks; it is not a complete retained UART TX trace comparison.
-G2 continuity remains separately identified. Final release, standalone
-distribution, download and image checks are still pending at this snapshot;
-the [live publication closure](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records their later outcome.
+G2 continuity remains separately identified. The [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md)
+verifies stable v0.1.0, all 35 public assets, both original physical sets
+replayed from downloads, platform-identical packages, standalone examples
+and matching source/image identity. All nine tag workflows pass. Registry
+manifest/config bytes and layer HEAD permissions/sizes were checked; this
+does not claim a full pull of the newly published image.

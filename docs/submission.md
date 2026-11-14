@@ -1,6 +1,6 @@
 # Submission packet
 
-Updated 2026-11-14. **Fresh physical and program qualification pass; publication verification is pending at this source snapshot.**
+Updated 2026-11-14. **G4 is complete: physical reproduction, software distribution, stable release and matching workbench are verified.**
 
 <!-- G4 physical qualification from retained E0047 records -->
 This packet collects the design, software and evidence for the Jane Street
@@ -17,13 +17,13 @@ and the five checks in [G4](goals.md#g4---close-and-publish-the-final-design).
 | Current production interface | `od128-sram-v1`, runtime identity `0x22` |
 | Physical allocation | IHP CMOS5L, 8x4 Tiny Tapeout tiles, 20 ns clock target |
 | Frozen G4 physical source | [`45c55f7cd95db2a883b0ffb5e864decd62d53601`](https://github.com/KG-khangelani/protocol-emulator-asic/tree/45c55f7cd95db2a883b0ffb5e864decd62d53601) |
-| Release target | [`v0.1.0`](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0); completed download/image checks are recorded separately in the [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) when available. |
-| Workbench package | [Public container package](https://github.com/KG-khangelani/protocol-emulator-asic/pkgs/container/protocol-emulator-asic-workbench); final image digest will be bound to the release publication record. |
+| Verified release | [v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0), source `5bdc0e6b6449a829a5da1f8f9a8060257e974843`; [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md) |
+| Workbench package | [Public container package](https://github.com/KG-khangelani/protocol-emulator-asic/pkgs/container/protocol-emulator-asic-workbench); `ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88` |
 
 The final documentation/release revision can follow the physical producer
-revision. E0047 must establish that all twenty frozen physical inputs and the
-reviewed program bytes remain unchanged; a later commit hash alone does not
-establish that relationship.
+revision. E0047 verifies all twenty frozen physical inputs and the reviewed program
+bytes against the release commit; the publication audit binds those
+identities to the actual public downloads.
 
 ## Design description
 
@@ -142,11 +142,11 @@ physical qualification directory describes its exact replay command and scope.
 The reproduction helper compares both original layouts and the separate G2
 reference after those retained audits have run.
 
-Final platform packaging, standalone reconstruction, release-tag CI, actual
-public downloads and image identity remain required before G4 closure.
-Publication verification is pending at this pre-tag snapshot. The subsequent [publication closure on main](https://github.com/KG-khangelani/protocol-emulator-asic/blob/main/evidence/E0047-g4-submission-candidate/publication/README.md) records completed public-download, release-tag, standalone-distribution and matching-image checks when those gates finish. Physical qualification alone does not close G4.
+<!-- G4 publication closure from retained evidence -->
+Publication is verified for stable `v0.1.0` at release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843`. All 35 public assets, 435 bundle members and the matching workbench image/source identities pass; all nine tag workflows / 22 jobs pass. Windows and Linux produce 17 byte-identical assets, and the standalone bundle rebuilds all thirteen examples into 52 identical files. See the [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md) and [completion audit](../evidence/E0047-g4-submission-candidate/completion-audit.json).
 
-Recheck the official page for changed requirements. When the final form appears,
+The official page was rechecked on 2026-11-14 with unchanged content and no
+final form. Recheck it again before entry. When the final form appears,
 the repository, final release and this write-up provide the prepared material.
 Submitting that entry is separate. G5 experiments and G6's owner teach-back
 remain outside this engineering completion.

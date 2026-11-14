@@ -1,0 +1,8 @@
+{
+  "source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "files_sha256": {
+    "evidence/E0047-g4-submission-candidate/release-tools/package.py": "51d58dc9e23787e40c416aba0fd3594a15324b05351c3dd3009b9dcfc1709024",
+    "evidence/E0047-g4-submission-candidate/release-tools/verify_publication.py": "f783f2c4f8af42590295306ffa999581a7463cd695435a45d5d22ff26eea8550",
+    "evidence/E0046-program-toolchain/publication/release-verification.json": "4cf4255ee8c19823e5a75fd67601d3ba30a3ff9db634fd720fa4643e2a3bdb9d"
+  }
+}

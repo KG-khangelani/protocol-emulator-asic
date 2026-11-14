@@ -1,35 +1,31 @@
 # Current state
 
-Updated: 2026-11-14. Engineering phase: **G4 - final qualification and submission readiness**.
+Updated: 2026-11-14. Engineering phase: **G4 complete - verified final release and submission packet**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
-**G1-G3 COMPLETE; G4 ACTIVE.** D49 freezes the unchanged qualified core for
-two clean official physical runs and a verified final submission packet.
-[E0047](../evidence/E0047-g4-submission-candidate/README.md) retains the freeze,
-rule observation and completed official runs. Final publication verification remains pending.
-The Tiny Tapeout datasheet, architecture/ISA, verification, toolchain and AI-use
-guides now describe the current SRAM profile. The submission packet and release
-notes are prepared. Runs43543626249 and43543629839 share frozen source `45c55f7`.
-[Fresh program-tool CI](../evidence/E0047-g4-submission-candidate/program-tools/README.md)
-passes at `ae2ac7b`: 352 frozen inputs, 55 cases per simulator, 53 identical
-compiled files and cross-platform frozen replay with five corruption controls.
-Both G4 runs now pass their complete physical checks, all ten official
-prechecks and all eighteen actual-netlist public groups. Their complete audits
-and Windows/Linux replays pass; each run rejects nine evidence corruptions.
-The netlists, timing/area, stage configuration/state and retained public records
-agree; layouts differ only in standard timestamps. Isolated Linux run43554467650
-replays both complete audits in the verified public workbench image. The failed
-local Docker startup is separately retained. Final package/download/image
-verification remains required before G4 closure.
+**G1-G4 COMPLETE.** [Stable v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0)
+publishes release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843` and the matching verified workbench image.
+[E0047](../evidence/E0047-g4-submission-candidate/README.md) retains two clean
+official production builds at frozen physical source `45c55f7`. Each passes
+all required physical/electrical checks, ten prechecks and eighteen actual-netlist
+public groups. Windows/Linux replay and nine corruption controls per run pass.
+Netlists, geometry except standard timestamps, timing/area, recorded stages and
+public records reproduce; all twenty physical inputs remain unchanged.
 
-The corrected [package comparison](../evidence/E0047-g4-submission-candidate/package-ci-43557808053/README.md)
-at release source `5bdc0e6` passes: Windows and isolated Linux CI produce all
-17 assets byte for byte, with 435 bundle members. The standalone distribution
-rebuilds all thirteen examples into 52 identical files. The initial checksum-order
-mismatch is preserved in E0047/package-portability; explicit filename sorting
-fixes it without changing hardware or program inputs. Annotated tag `v0.1.0`
-has been pushed; its publisher, all tag workflows and public-download/image
-audit must finish before completion.
+Fresh program-tool CI binds all 352 verification inputs and 53 compiled files.
+Windows/Linux packaging produces 17 byte-identical assets; the standalone
+bundle rebuilds thirteen examples into 52 identical files. All 35 public assets,
+435 bundle members and matching release/source/image identities are verified.
+All nine tag workflows / 22 jobs pass. The [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md)
+and [completion audit](../evidence/E0047-g4-submission-candidate/completion-audit.json)
+close all five G4 checks. The rejected checksum-order comparison and local Docker
+startup failures remain retained; isolated Linux CI supplied the required replays.
+
+The [submission packet](submission.md) and current architecture/ISA, toolchain,
+verification and AI-use guides are ready. The official rules were rechecked on
+2026-11-14 with unchanged content; the final form is still forthcoming.
+No competition entry has been sent. G5 remains optional and G6 owner fluency
+remains pending.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the
@@ -778,11 +774,11 @@ efficiently express useful digital communication protocols under hard temporal c
   alpha.6 publication and all rejected trials; requalify material design changes.
 - G3 is complete. Preserve the versioned assembler, public loading plans,
   independent examples and alpha.7 evidence; a larger compiler still needs a
-  demonstrated use case. G4 is active under D49 and the E0047 contract.
-- Delivery (G4): aim for a January 4 candidate freeze and January 11 submission
-  readiness. G5's optional novelty experiment has a two-working-day budget and
-  is deferred if mandatory gates slip. Targets and completion checks are in
-  [goals](goals.md).
+  demonstrated use case.
+- G4 is complete. Preserve v0.1.0 and its qualified inputs; watch for the
+  final submission form and recheck rules before a separately authorized entry.
+- G5 remains an optional, bounded experiment under [goals](goals.md);
+  include a new capability only after its declared gates pass.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer

@@ -277,3 +277,17 @@ seconds. Every SPI/I2C/boundary/abort record matches. The 1,246-file replay
 binds 194 frozen inputs, unmodified models/netlist and the four-way reset
 probe. The circuit equals official 232ee20's submission; both earlier physical
 rejections remain preserved. D47's fresh run43348171110 remains in progress.
+
+<!-- G4 publication closure from retained evidence -->
+G4 closes on 2026-11-14 with stable v0.1.0 at `5bdc0e6b6449a829a5da1f8f9a8060257e974843`.
+Both fresh physical qualifications and complete public-download reproduction
+pass. The initial platform comparison rejected checksum filename order despite
+16 identical underlying assets; explicit lexical filename sorting fixes the
+cause. Fresh Windows/Linux packaging then produces 17 byte-identical assets,
+and the standalone distribution rebuilds 13 examples / 52 generated files.
+The publication audit verifies 35 assets, 435 bundle members, unchanged
+352 verification inputs, matching workbench source/version/image identities
+and all nine tag workflows / 22 jobs. Official rules match the activation
+observation. E0047 retains both failed attempts and final checks; its completion
+audit maps all five requirements. This establishes submission readiness, not an
+entry submission, silicon result, ISA minimum or owner fluency.

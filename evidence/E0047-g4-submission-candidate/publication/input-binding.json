@@ -1,0 +1,104 @@
+{
+  "input_directory": ".github/g4-linux-verification/publication-inputs",
+  "input_source_commit": "0cc61c3620a7e13003bef02a912118b147894758",
+  "files": {
+    "14100188311.zip": {
+      "bytes": 7701300,
+      "sha256": "1b8ba632fa184e50232e68766b5295c5a50794b35e0576bfcae109de972efbaf"
+    },
+    "artifacts.json": {
+      "bytes": 1544,
+      "sha256": "4f3e6a4cf46fb245e21037085d38b99a08747e4e53151fd25cd0826c642c694a"
+    },
+    "current-job.log": {
+      "bytes": 121983,
+      "sha256": "af89c217bd4e266ffb5c569bc6d12077037ecdb965332c0d1a5fad4cd6ea4cb9"
+    },
+    "jobs.json": {
+      "bytes": 4371,
+      "sha256": "b3a80c5bdc12eded018809ce74aea7e9308f1ec14239554484b6e6fedc0bfe22"
+    },
+    "release.json": {
+      "bytes": 64017,
+      "sha256": "c29e5e5e9b5548b99377c14322eafe39e2066bd66b7b3457952d6dc44c026b0e"
+    },
+    "run.json": {
+      "bytes": 13941,
+      "sha256": "0f6a2d1e356a24d1c9c633abf2bab2c179592da0ddf28aa6e98c630ab0091725"
+    },
+    "tag-commit.json": {
+      "bytes": 193,
+      "sha256": "762043b90a73ee204fd9e79c9698be2d6d89f8818ede334b6dce621478bcd562"
+    },
+    "tag-object.json": {
+      "bytes": 770,
+      "sha256": "a5df908ba5cd175e4f2422259ba65ff4988be320cc78da2844f67d6f7f4af842"
+    },
+    "tag-ref.json": {
+      "bytes": 367,
+      "sha256": "1011df219a6d4b13d8787da97ff25abe4752578412732057c30c79b36a6a7e90"
+    },
+    "tag-workflows.json": {
+      "bytes": 187727,
+      "sha256": "e7c7934c4fd3f8011486ac4b80f8162bd4e5f7e71277da1ada0b58df5d054c6d"
+    }
+  },
+  "original_archive": "14100188311.zip",
+  "original_artifact_id": 14100188311,
+  "publish_run": 43558100168,
+  "release_id": 445042753,
+  "tag": "v0.1.0",
+  "tag_object_sha": "6a17158d6ed11523895ff3a6d9a35aeddb480ba1",
+  "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "auditor_path": "evidence/E0047-g4-submission-candidate/release-tools/verify_publication.py",
+  "auditor_sha256": "f783f2c4f8af42590295306ffa999581a7463cd695435a45d5d22ff26eea8550",
+  "executed_auditor_identical_to_release_git_blob": true,
+  "asset_names": [
+    "SHA256SUMS",
+    "g4-43543626249-GDS_logs.zip",
+    "g4-43543626249-gatelevel_test_results.zip",
+    "g4-43543626249-precheck_reports.zip",
+    "g4-43543626249-sram-netlist-check.zip",
+    "g4-43543626249-sram-physical-candidate.zip",
+    "g4-43543626249-tt_submission.zip",
+    "g4-43543629839-GDS_logs.zip",
+    "g4-43543629839-gatelevel_test_results.zip",
+    "g4-43543629839-precheck_reports.zip",
+    "g4-43543629839-sram-netlist-check.zip",
+    "g4-43543629839-sram-physical-candidate.zip",
+    "g4-43543629839-tt_submission.zip",
+    "g4-SHA256SUMS",
+    "g4-public-programs.zip",
+    "g4-submission-bundle.zip",
+    "g4-submission.json",
+    "g4-windows-programs.zip",
+    "image-inspect.json",
+    "production-profile.json",
+    "production-verification.json",
+    "publication.json",
+    "spi-four-mode.json",
+    "spi-held-proof.json",
+    "spi-phase1-capacity.json",
+    "spi-sensitivity.json",
+    "spi-timed-comparison.json",
+    "spi-timed-gpio.json",
+    "spi-timed-instruction_f.json",
+    "spi-timed-instruction_p.json",
+    "spi-timed-program_f.json",
+    "spi-timed-program_p.json",
+    "spi-timed-refinement_f.json",
+    "spi-timed-refinement_p.json",
+    "toolchain.lock.json"
+  ],
+  "tag_workflow_runs": {
+    "atlas": 43558100176,
+    "docs": 43558100229,
+    "program-tools": 43558100082,
+    "spi-timed-gpio": 43558100125,
+    "i2c-general": 43558100163,
+    "spi-program-sensitivity": 43558100117,
+    "sram-candidate": 43558100139,
+    "test": 43558100075,
+    "publish": 43558100168
+  }
+}

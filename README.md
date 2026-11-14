@@ -14,7 +14,7 @@ the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and t
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Engineering: G1-G3 complete, G4 active; learning: M0 teach-back pending.**
+**Engineering: G1-G4 complete; learning: M0 teach-back pending.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical
 program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
 loaded programs implement UART TX and bounded RX, both bit orders of all four
@@ -46,7 +46,11 @@ G4's [submission packet](docs/submission.md) brings together the current
 [E0047](evidence/E0047-g4-submission-candidate/README.md) qualifies two fresh
 official production builds, each with ten prechecks and eighteen public-netlist
 groups. Windows/Linux replay, nine evidence controls per run and complete
-reproduction pass. Final release and package verification remain pending.
+reproduction pass. [Stable v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0)
+publishes the final candidate: 35 public assets, deterministic Windows/Linux
+packaging, standalone examples and the matching workbench image are verified.
+All nine tag workflows pass; the [completion audit](evidence/E0047-g4-submission-candidate/completion-audit.json)
+closes G4. The competition entry has not been submitted.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its
