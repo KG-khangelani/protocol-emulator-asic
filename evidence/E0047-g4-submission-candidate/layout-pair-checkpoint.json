@@ -1,0 +1,34 @@
+{
+  "status": "GDS_PAIR_COMPARISON_COMPLETE_DOWNSTREAM_GATES_PENDING",
+  "geometry": {
+    "schema": "gds-record-comparison-v1",
+    "left": {
+      "path": "candidate-original-submitted.gds",
+      "size_in_bytes": 10044774,
+      "sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+      "record_count": 995697,
+      "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+    },
+    "right": {
+      "path": "reproduction-original-submitted.gds",
+      "size_in_bytes": 10044774,
+      "sha256": "0541bfb61c1e974a5ffecb051ff43a380b3fdcdc7c1a5bf19870c74642a14bd1",
+      "record_count": 995697,
+      "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+    },
+    "record_structure_equal": true,
+    "different_records": 191,
+    "different_bytes": 764,
+    "timestamp_record_differences": {
+      "BGNLIB": 1,
+      "BGNSTR": 190
+    },
+    "non_timestamp_record_differences": {},
+    "equivalent_except_timestamps": true
+  },
+  "netlist_identical": true,
+  "metrics_identical": true,
+  "area_identical": true,
+  "differing_stage_members": [],
+  "scope": "Completed layout comparison only; both complete qualification audits remain required."
+}

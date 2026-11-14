@@ -37,6 +37,14 @@ from G2 only in 191 standard timestamp records (1,146 bytes); all other GDS
 records are identical. This checkpoint is explicitly incomplete qualification:
 precheck, public netlist tests and the independent candidate remain required.
 
+The [two-build layout checkpoint](layout-pair-checkpoint.json) compares the
+original submitted layouts from both fresh runs. All 995,697 GDS records have
+the same structure; only 764 bytes across 191 timestamp records differ. The
+netlists, timing/area and every recorded stage configuration/state are identical.
+Both official precheck jobs have also completed successfully. The complete
+public-netlist tests and retained full audits are still pending, so this is
+not a completed G4 qualification.
+
 G1-G3 evidence, rejected trials, alpha.6 hardware adoption and alpha.7 software
 qualification remain unchanged. G4 ends at submission readiness: no entry is
 sent and no owner fluency or fabricated-silicon result is inferred.
