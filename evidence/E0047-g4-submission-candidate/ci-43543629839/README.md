@@ -32,15 +32,33 @@ records. Seven UART groups execute their assertions; 97 RX/service landmarks
 are retained, not complete UART TX traces. Netlist testing is functional
 zero-delay simulation. `uart-landmarks.json` records that comparison scope.
 
-Windows replays the complete audit successfully. `verification-windows.json`,
-`invocation-windows.json`, `replay-windows.log.gz` and `windows-runtime.json`
-retain the actual command, exit code, complete audit equality and log/hash
-bindings. Linux replay and its nine deliberate corruption controls remain
-pending in this record. The local Docker invocation exited125 with a create
-API pipe EOF before any replay output directory was created; two bounded
-minimal startup probes also timed out. `startup-diagnostics/` preserves those
-receipts and the original pending snapshot. None is counted as a verification
-pass. No Docker daemon or other service was restarted by this agent.
+Windows and isolated Linux CI replay the complete audit successfully and
+reproduce the same result. Windows runs locally; [Linux run 43554467650](https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43554467650)
+uses execution source `7b73d99fbf300c1041aa930409ea63fc031d20f4`, distinct from the
+physical source above. Its actual public alpha.7 workbench manifest is
+`ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307`;
+its inspected configuration is `sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451`.
+
+Linux also rejects all nine deliberate evidence faults: pending workflow,
+wrong archive digest, altered supply-port count, skipped public test, changed
+submitted netlist, wrong job source, changed production identity, changed stage
+configuration and changed stage-skip record. Rehashed semantic faults are
+rejected beyond archive integrity. `controls-result.json` and the nine
+`controls-logs/` files retain the actual failures.
+
+`replay-runtime.json` binds the local Windows receipt and actual Linux CI
+receipt, logs, verification reports and immutable image identities.
+`linux-ci-binding.json` maps the unchanged copied CI member bytes to the
+[common original proof](../linux-ci-43554467650/README.md), including its
+33-member artifact, source, API and job-log records. The `verification.json`
+member is named `verification-linux.json` here; its bytes are unchanged.
+
+`startup-diagnostics/` preserves the earlier local Docker create-API EOF
+failure (exit125), both bounded probe timeouts and the pending snapshot.
+No verification or fault controls ran in that local attempt. The isolated CI
+success makes no claim that local Docker recovered. `windows-runtime.json`
+preserves the earlier Windows-only checkpoint; `replay-runtime.json` records
+the completed comparison. Historical failure records remain unchanged.
 
 Replay into fresh directories under `build/`:
 

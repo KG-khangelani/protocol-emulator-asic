@@ -66,11 +66,17 @@ workflows and 22 jobs pass. The original 1,948-file publication archive passes
 all eight production stages, two fresh 147-test executions and the historical
 SPI gates. E0046/completion-audit.json closes G3. Owner fluency remains separate.
 
-G4 starts on 2026-11-14 under D49/E0047. The candidate preserves all twenty
-qualified physical inputs. Fresh official qualification and independent
-reproduction, current submission documentation and a verified stable package
-remain pending. The obsolete Tiny Tapeout datasheet is a documentation gap,
-not evidence that production regressed to the historical eight-word design.
+G4's two clean official runs at `45c55f7` pass physical checks, ten prechecks
+and eighteen public-netlist groups on 2026-11-14. Each retains six original ZIPs,
+1,729 members and 84 producing inputs. Windows and isolated pinned-Linux replay
+agree; nine corruptions per run are rejected. The netlists, timing/area, recorded
+stage configuration/state, SPI/I2C/boundary/abort records and 97 retained UART
+landmarks reproduce. Only 764 bytes across 191 standard GDS timestamp records
+differ; all other records agree. Separate G2 continuity preserves its original
+qualification. All twenty physical inputs remain unchanged. Current guides
+and the corrected datasheet are ready; final package/publication checks remain
+pending. The local Docker startup failure is retained separately from the
+successful remote physical runs and Linux replays.
 
 ## Verified upstream observations (not project measurements)
 

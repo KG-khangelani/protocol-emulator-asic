@@ -1,0 +1,160 @@
+{
+  "status": "PASS_NINE_COMPLETE_QUALIFICATION_FAULT_CONTROLS",
+  "baseline_result_sha256": "4d1e1fa4829a756bdade0f5f54593a4ba0f49105af715c2da632750ee374c919",
+  "audit_sha256": "6509aca87730bd46c762f68905d2bee0737b8d96e53c6eef906215eb7e5086d2",
+  "runner_sha256": "1dd6be25d477a5c632d4d916ea90e31295a7fbff67b9645b1a089bde650a900f",
+  "run_id": 43543629839,
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "cases": [
+    {
+      "name": "pending-workflow",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "physical workflow is not successfully complete",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "physical workflow is not successfully complete"
+      },
+      "mutation": null,
+      "log_sha256": "d484207cbadd0b9bed767a7810b88bca5b7b72253ff3dd4aacca9671734acc3d"
+    },
+    {
+      "name": "wrong-archive-digest",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "archive digest mismatch",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "archive digest mismatch"
+      },
+      "mutation": null,
+      "log_sha256": "79567a45a5bd3dea5177569c02e3b487faea7f1f6af15637aec5e73dfc2e17ae"
+    },
+    {
+      "name": "rehashed-port-count",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "power-port selection differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "power-port selection differs"
+      },
+      "mutation": {
+        "archive": "GDS_logs",
+        "member": "runs/wokwi/58-project-selectsrampowerports/power-port-audit/selection.json",
+        "before_sha256": "5c806eda3593618c642838b0f076e301fbc64b8221512a804af47cea49eb080d",
+        "after_sha256": "37a09800109cf177e401919741265e3ced1e06ca6544ecb694adf378b710c404",
+        "rehashed_archive_sha256": "sha256:bf41aa4b881eaa81516209dc65ec18f0ba47025ca054cd8726f4dba86f69da1b",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "e1e62364e5f468b11e0ffede0eabb6bbcfddec31275d0a33fb3c7f9972bab2be"
+    },
+    {
+      "name": "rehashed-skipped-test",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "required public test skipped",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "required public test skipped"
+      },
+      "mutation": {
+        "archive": "gatelevel_test_results",
+        "member": "results.xml",
+        "before_sha256": "870e4b92f166d08a642c392cc331c67eb06900aeab62a7acf664ba67037725b5",
+        "after_sha256": "b65b21740c34109326afa0c878c93f235c5ecb318fd9a5aed23671c5c4870ffd",
+        "rehashed_archive_sha256": "sha256:a97fd709df9564afeec0fb6ba6cd8ba9fe508bdd91eed75c7d85e8e2b3a7de96",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "0e6c02880a32236df32737ac49571bda301018cb9e7bca244a0e86dbaa9afb62"
+    },
+    {
+      "name": "rehashed-netlist",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "submitted netlist differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "submitted netlist differs"
+      },
+      "mutation": {
+        "archive": "tt_submission",
+        "member": "tt_submission/tt_um_khangelani_protocol_emulator.v",
+        "before_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "after_sha256": "4baf155446b90c0aeadda80a735132cee3770e6d6be56ce6ca1b3c2dc047e2e8",
+        "rehashed_archive_sha256": "sha256:922eee15f122b5760115280eb98bf6f9ebca381c1867504ce8d588c052b4e20f",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "815c1a47cb69512d502ea148a3abe62e9e7fe741410d3f1941ac097fc4440d1c"
+    },
+    {
+      "name": "wrong-job-source",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "G4 job source differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "G4 job source differs"
+      },
+      "mutation": null,
+      "log_sha256": "427fc197a6d58b1ad5dbcddf095a65edc0f239067fb46e7995cd83b8c0ad268b"
+    },
+    {
+      "name": "rehashed-production",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "production verification differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "production verification differs"
+      },
+      "mutation": {
+        "archive": "sram-physical-candidate",
+        "member": "build/sram-physical/inputs.json",
+        "before_sha256": "2c930cda94f65533a2bbd1f647b4dff2a9d1b584c692db9ecd918a39f85e0ed0",
+        "after_sha256": "368b8439bb71f3f914c7a5a687b7b95a47fdbf87c23ea1e368a55ed5abb0a00c",
+        "rehashed_archive_sha256": "sha256:e496c77d39a6e4f4e49e26e52b20db42157d34a34f7f36d8310cabe294016191",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "8c37a0bbc866cc040b3a21db9eb853dd7e0ac3744ffe2d4955836a9e258b7848"
+    },
+    {
+      "name": "rehashed-stage-configuration",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "G4 executed stage configuration differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "G4 executed stage configuration differs"
+      },
+      "mutation": {
+        "archive": "GDS_logs",
+        "member": "runs/wokwi/01-verilator-lint/config.json",
+        "before_sha256": "b69a028b585d0d2aa0db4573dbb8c72d33deaeb66b61c4291ea69fa3cfb4e320",
+        "after_sha256": "5e317adf20ccd8cd128a2f4ffa16ca5621260dd3fccac6c473b26abf2c73b276",
+        "rehashed_archive_sha256": "sha256:b20725db81636c34fcbd3cc1367e3dfdd3a0d9ca1b647ff2b5ae77b9c3d1587b",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "9218fb1e0060d41992119afaf89890bafc79d48e8f6bdac0ce6f7a769c50da97"
+    },
+    {
+      "name": "rehashed-stage-skip",
+      "status": "PASS_REJECTED_CORRUPTION",
+      "returncode": 1,
+      "expected_error": "configured G4 stage sequence differs",
+      "observed": {
+        "status": "NOT_QUALIFIED",
+        "error": "configured G4 stage sequence differs"
+      },
+      "mutation": {
+        "archive": "GDS_logs",
+        "member": "runs/wokwi/flow.log",
+        "before_sha256": "27eb393843190329ed3195c67e7a18f83441bb25f10f62b7ed55b34dd20382ec",
+        "after_sha256": "7e7101cdf31778c94d99c0e7a1c419d22a0285a4aed397e4807d2c9ace444aa9",
+        "rehashed_archive_sha256": "sha256:28db43bba18fe0e31be80e1d8d6a3ee9904dfb6aa00c5edc45076a93e228042c",
+        "metadata_rehashed_for_semantic_control": true
+      },
+      "log_sha256": "6d34132146da5e901eb927ee2c0dc096cb6728938ffdbd18940b38f79d9f184d"
+    }
+  ]
+}

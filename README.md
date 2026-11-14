@@ -43,8 +43,10 @@ retains clean-checkout qualification and the completed publication audit.
 G4's [submission packet](docs/submission.md) brings together the current
 [architecture](docs/architecture.md), [instruction set](docs/isa.md),
 [verification account](docs/verification.md) and [AI-use account](docs/ai-use.md).
-[E0047](evidence/E0047-g4-submission-candidate/README.md) tracks two fresh
-official production builds and their independent reproduction audit.
+[E0047](evidence/E0047-g4-submission-candidate/README.md) qualifies two fresh
+official production builds, each with ten prechecks and eighteen public-netlist
+groups. Windows/Linux replay, nine evidence controls per run and complete
+reproduction pass. Final release and package verification remain pending.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its

@@ -1,0 +1,48 @@
+{
+  "schema": "protocol-emulator-g4-remote-linux-binding-v1",
+  "status": "PASS_BOUND_RETAINED_REMOTE_LINUX_REPLAY",
+  "physical_run_id": 43543626249,
+  "physical_source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "ci_run_id": 43554467650,
+  "ci_job_id": 132324068684,
+  "ci_source_commit": "7b73d99fbf300c1041aa930409ea63fc031d20f4",
+  "artifact_id": 14098180180,
+  "original_archive": {
+    "path": "evidence/E0047-g4-submission-candidate/linux-ci-43554467650/14098180180.zip",
+    "sha256": "ff8396e86733315a3476396e70c2775564fb2cc21059244d392d8547ed79a681"
+  },
+  "proof_record": {
+    "path": "evidence/E0047-g4-submission-candidate/linux-ci-43554467650/verification.json",
+    "sha256": "1bfc6770a17020a6b09b3190e88ad5252e5026e389df43949c6cef5dd1fab290"
+  },
+  "source_record": {
+    "path": "evidence/E0047-g4-submission-candidate/linux-ci-43554467650/source.json",
+    "sha256": "9b462d82c158d2791b97cb3c098d0bc34049ee6d5cf0216848f420cfccd81da5"
+  },
+  "run_summary": {
+    "path": "evidence/E0047-g4-submission-candidate/linux-ci-43554467650/run-summary.json",
+    "sha256": "ccb279fab0b40f080c71d5fa73f67c7bc6f55f21c829d11192df9d452a2f66dd"
+  },
+  "image_reference": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307",
+  "image_config_digest": "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451",
+  "pre_linux_retained_seal_sha256": "4a97220adfa5a4138d5d1fd7599730d9eba0690ff09c371517bff73d28f49a16",
+  "physical_result_sha256": "5f67c663d9c5a8e5a8eed77362caaa56b050f7e8fbffb49d7075fc17ed0bfca9",
+  "copied_members": {
+    "verification-linux.json": {
+      "archive_member": "ci-43543626249/verification.json",
+      "bytes": 410,
+      "sha256": "71b128ab31efac337f9baae3ae89756a66a097d2b5774e7b20e319d129deb5da"
+    },
+    "invocation-linux.json": {
+      "archive_member": "ci-43543626249/invocation-linux.json",
+      "bytes": 3527,
+      "sha256": "4c43e3d5484dba0bdf065001828bee4c6255d0a61a7a4a8d932b88e2b6a6cb21"
+    },
+    "replay-linux.log.gz": {
+      "archive_member": "ci-43543626249/replay-linux.log.gz",
+      "bytes": 159,
+      "sha256": "abb1a6488eec9b001b27b7421dd70d62fa93e70f28a5374dc40d96617c5d7315"
+    }
+  },
+  "scope": "Original successful GitHub Linux replay, copied without byte conversion. Windows and physical evidence remain unchanged; no local Docker recovery is claimed."
+}
