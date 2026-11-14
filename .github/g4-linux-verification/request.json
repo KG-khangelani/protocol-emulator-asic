@@ -2,5 +2,5 @@
   "schema": "protocol-emulator-g4-linux-request-v1",
   "phase": "package",
   "source": "HEAD",
-  "release_source_commit": "6140001b47a6643471a1e4c4b361cb2f52975368"
+  "release_source_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843"
 }
