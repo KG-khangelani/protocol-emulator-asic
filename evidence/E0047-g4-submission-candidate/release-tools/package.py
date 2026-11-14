@@ -482,7 +482,8 @@ has been sent by packaging these files.
             archive.writestr(info, raw)
     manifest['bundle_members_sha256'] = {name: sha(raw) for name, raw in sorted(files.items())}
     manifest['artifacts'] = {}
-    for path in sorted(output.glob('*.zip')):
+    # Path comparisons fold case on Windows; sort filename strings on every host.
+    for path in sorted(output.glob('*.zip'), key=lambda path: path.name):
         digest = hashlib.sha256()
         with path.open('rb') as stream:
             while block := stream.read(1024 * 1024):
@@ -491,7 +492,8 @@ has been sent by packaging these files.
     (output / 'g4-submission.json').write_bytes(encoded(manifest))
     (output / 'g4-SHA256SUMS').write_bytes(''.join(
         (manifest['artifacts'][path.name]['sha256'] if path.suffix == '.zip' else sha(path.read_bytes()))
-        + '  ' + path.name + '\n' for path in sorted(output.iterdir())).encode('utf-8'))
+        + '  ' + path.name + '\n'
+        for path in sorted(output.iterdir(), key=lambda path: path.name)).encode('utf-8'))
     return manifest
 
 

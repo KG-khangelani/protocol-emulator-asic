@@ -1,0 +1,19 @@
+{
+  "schema": "protocol-emulator-g4-ci-command-invocation-v1",
+  "command": [
+    "docker",
+    "version",
+    "--format",
+    "{{json .}}"
+  ],
+  "working_directory": "/home/runner/work/protocol-emulator-asic/protocol-emulator-asic",
+  "started_utc": "2026-11-14T04:26:50.927848Z",
+  "completed_utc": "2026-11-14T04:26:51.049948Z",
+  "elapsed_seconds": 0.122098,
+  "returncode": 0,
+  "log_path": "commands/docker-version.log.gz",
+  "log_sha256": "1647560e301abf68c6e094ab63fc046cd6fd4bedf77df30597f1cf7d14438bc0",
+  "compressed_log_sha256": "5b2ce83e34a6756385a406fdcc84032b72dc0c82d13f139ae558834175a942ce",
+  "output_capture": "stdout and stderr merged by subprocess.STDOUT, stored without text conversion",
+  "runner_sha256": "49a65b10a406f6063dc349054e55326f3e8fa41c6f00934d520af234883a0a22"
+}
