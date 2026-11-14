@@ -1,0 +1,1633 @@
+﻿2026-11-14T04:44:08.0380284Z Current runner version: '2.338.2'
+2026-11-14T04:44:08.0405183Z ##[group]Runner Image Provisioner
+2026-11-14T04:44:08.0406468Z Hosted Compute Agent
+2026-11-14T04:44:08.0407100Z Version: 20261103.629
+2026-11-14T04:44:08.0407855Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T04:44:08.0408622Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T04:44:08.0409368Z Worker ID: {1fc01d87-3b42-45dd-8709-91e0732514da}
+2026-11-14T04:44:08.0410212Z Region: westcentralus
+2026-11-14T04:44:08.0410818Z Cloud: Azure
+2026-11-14T04:44:08.0411409Z ##[endgroup]
+2026-11-14T04:44:08.0413184Z ##[group]Operating System
+2026-11-14T04:44:08.0413856Z Ubuntu
+2026-11-14T04:44:08.0414511Z 24.04.5
+2026-11-14T04:44:08.0415041Z LTS
+2026-11-14T04:44:08.0415635Z ##[endgroup]
+2026-11-14T04:44:08.0416484Z ##[group]Runner Image
+2026-11-14T04:44:08.0417117Z Image: ubuntu-24.04
+2026-11-14T04:44:08.0417805Z Version: 20261111.370.1
+2026-11-14T04:44:08.0419099Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-14T04:44:08.0420707Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-14T04:44:08.0421687Z ##[endgroup]
+2026-11-14T04:44:08.0422985Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T04:44:08.0425150Z Contents: write
+2026-11-14T04:44:08.0425884Z Metadata: read
+2026-11-14T04:44:08.0426690Z Packages: write
+2026-11-14T04:44:08.0427260Z ##[endgroup]
+2026-11-14T04:44:08.0429439Z Secret source: Actions
+2026-11-14T04:44:08.0430413Z Cache mode: write
+2026-11-14T04:44:08.0431568Z Prepare workflow directory
+2026-11-14T04:44:08.0961430Z Prepare all required actions
+2026-11-14T04:44:08.1012582Z Getting action download info
+2026-11-14T04:44:08.3756885Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-14T04:44:08.5124104Z Download action repository 'docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069' (SHA:f87e5991a6d7451dcb8d9637bfbc97413f497069)
+2026-11-14T04:44:09.0767044Z Download action repository 'docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc' (SHA:c3c9e263c25d99ce0380d002d59b67737d91b0dc)
+2026-11-14T04:44:09.7290091Z Download action repository 'docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550' (SHA:8aa5831fb8d48d8f76594c7ddde61ae58019f550)
+2026-11-14T04:44:10.2666268Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-11-14T04:44:10.4849422Z Complete job name: workbench
+2026-11-14T04:44:10.5634794Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-14T04:44:10.5635510Z with:
+2026-11-14T04:44:10.5635725Z   fetch-depth: 0
+2026-11-14T04:44:10.5636184Z   persist-credentials: false
+2026-11-14T04:44:10.5636508Z   repository: KG-khangelani/protocol-emulator-asic
+2026-11-14T04:44:10.5638980Z   token: ***
+2026-11-14T04:44:10.5639198Z   ssh-strict: true
+2026-11-14T04:44:10.5639410Z   ssh-user: git
+2026-11-14T04:44:10.5639631Z   clean: true
+2026-11-14T04:44:10.5639861Z   sparse-checkout-cone-mode: true
+2026-11-14T04:44:10.5640128Z   fetch-tags: false
+2026-11-14T04:44:10.5640350Z   show-progress: true
+2026-11-14T04:44:10.5640564Z   lfs: false
+2026-11-14T04:44:10.5640761Z   submodules: false
+2026-11-14T04:44:10.5640982Z   set-safe-directory: true
+2026-11-14T04:44:10.5641237Z   allow-unsafe-pr-checkout: false
+2026-11-14T04:44:10.5641747Z env:
+2026-11-14T04:44:10.5644061Z   GH_TOKEN: ***
+2026-11-14T04:44:10.5644270Z ##[endgroup]
+2026-11-14T04:44:10.8893295Z Syncing repository: KG-khangelani/protocol-emulator-asic
+2026-11-14T04:44:10.8895344Z ##[group]Getting Git version info
+2026-11-14T04:44:10.8896437Z Working directory is '/home/runner/work/protocol-emulator-asic/protocol-emulator-asic'
+2026-11-14T04:44:10.8897566Z [command]/usr/bin/git version
+2026-11-14T04:44:10.8908539Z git version 2.56.1
+2026-11-14T04:44:10.8932584Z ##[endgroup]
+2026-11-14T04:44:10.8947799Z Temporarily overriding HOME='/home/runner/work/_temp/447d182c-ddba-483c-87b3-4f4678ece8b3' before making global git config changes
+2026-11-14T04:44:10.8949747Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T04:44:10.8954168Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/protocol-emulator-asic/protocol-emulator-asic
+2026-11-14T04:44:10.9030030Z Deleting the contents of '/home/runner/work/protocol-emulator-asic/protocol-emulator-asic'
+2026-11-14T04:44:10.9036745Z ##[group]Determining repository object format
+2026-11-14T04:44:10.9039338Z ##[endgroup]
+2026-11-14T04:44:10.9040085Z ##[group]Initializing the repository
+2026-11-14T04:44:10.9046665Z [command]/usr/bin/git init /home/runner/work/protocol-emulator-asic/protocol-emulator-asic
+2026-11-14T04:44:10.9178056Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-14T04:44:10.9179099Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-14T04:44:10.9179726Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-14T04:44:10.9180503Z hint: call:
+2026-11-14T04:44:10.9180833Z hint:
+2026-11-14T04:44:10.9181310Z hint: 	git config --global init.defaultBranch <name>
+2026-11-14T04:44:10.9181675Z hint:
+2026-11-14T04:44:10.9182001Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-14T04:44:10.9182523Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-14T04:44:10.9182915Z hint:
+2026-11-14T04:44:10.9183125Z hint: 	git branch -m <name>
+2026-11-14T04:44:10.9183376Z hint:
+2026-11-14T04:44:10.9183926Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-14T04:44:10.9190264Z Initialized empty Git repository in /home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git/
+2026-11-14T04:44:10.9206267Z [command]/usr/bin/git remote add origin https://github.com/KG-khangelani/protocol-emulator-asic
+2026-11-14T04:44:10.9265210Z ##[endgroup]
+2026-11-14T04:44:10.9265720Z ##[group]Disabling automatic garbage collection
+2026-11-14T04:44:10.9270829Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-14T04:44:10.9307323Z ##[endgroup]
+2026-11-14T04:44:10.9308101Z ##[group]Setting up auth
+2026-11-14T04:44:10.9309208Z Removing SSH command configuration
+2026-11-14T04:44:10.9317908Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T04:44:10.9360068Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T04:44:10.9815278Z Removing HTTP extra header
+2026-11-14T04:44:10.9822388Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T04:44:10.9872021Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T04:44:11.0118589Z Removing includeIf entries pointing to credentials config files
+2026-11-14T04:44:11.0130234Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T04:44:11.0182626Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T04:44:11.0429145Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-14T04:44:11.0479066Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git.path /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:11.0523388Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:11.0569246Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:11.0620153Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:11.0662910Z ##[endgroup]
+2026-11-14T04:44:11.0663624Z ##[group]Fetching the repository
+2026-11-14T04:44:11.0675385Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-14T04:44:20.2078029Z From https://github.com/KG-khangelani/protocol-emulator-asic
+2026-11-14T04:44:20.2079101Z  * [new branch]      codex/g4-linux-verification -> origin/codex/g4-linux-verification
+2026-11-14T04:44:20.2080380Z  * [new branch]      dependabot/npm_and_yarn/web/vite-8.3.3 -> origin/dependabot/npm_and_yarn/web/vite-8.3.3
+2026-11-14T04:44:20.2081573Z  * [new branch]      docs/m1-execution-contract-draft -> origin/docs/m1-execution-contract-draft
+2026-11-14T04:44:20.2082596Z  * [new branch]      docs/protocol-atlas-design -> origin/docs/protocol-atlas-design
+2026-11-14T04:44:20.2083641Z  * [new branch]      docs/uart-rx-contract-oracle -> origin/docs/uart-rx-contract-oracle
+2026-11-14T04:44:20.2084770Z  * [new branch]      feat/bounded-uart-rx-host-service -> origin/feat/bounded-uart-rx-host-service
+2026-11-14T04:44:20.2085732Z  * [new branch]      feat/k-shift-8      -> origin/feat/k-shift-8
+2026-11-14T04:44:20.2086991Z  * [new branch]      feat/protocol-atlas -> origin/feat/protocol-atlas
+2026-11-14T04:44:20.2087988Z  * [new branch]      feat/spi-mode0-feasibility-20261103 -> origin/feat/spi-mode0-feasibility-20261103
+2026-11-14T04:44:20.2089073Z  * [new branch]      feat/uart-rx-public-readout -> origin/feat/uart-rx-public-readout
+2026-11-14T04:44:20.2089985Z  * [new branch]      feat/uart-tx-8n1    -> origin/feat/uart-tx-8n1
+2026-11-14T04:44:20.2091025Z  * [new branch]      fix/evidence-waveform-provenance -> origin/fix/evidence-waveform-provenance
+2026-11-14T04:44:20.2092043Z  * [new branch]      main                -> origin/main
+2026-11-14T04:44:20.2092655Z  * [new tag]         v0.1.0              -> v0.1.0
+2026-11-14T04:44:20.2093287Z  * [new tag]         v0.1.0-alpha.1      -> v0.1.0-alpha.1
+2026-11-14T04:44:20.2093937Z  * [new tag]         v0.1.0-alpha.2      -> v0.1.0-alpha.2
+2026-11-14T04:44:20.2094832Z  * [new tag]         v0.1.0-alpha.3      -> v0.1.0-alpha.3
+2026-11-14T04:44:20.2095430Z  * [new tag]         v0.1.0-alpha.4      -> v0.1.0-alpha.4
+2026-11-14T04:44:20.2096462Z  * [new tag]         v0.1.0-alpha.5      -> v0.1.0-alpha.5
+2026-11-14T04:44:20.2097059Z  * [new tag]         v0.1.0-alpha.6      -> v0.1.0-alpha.6
+2026-11-14T04:44:20.2097626Z  * [new tag]         v0.1.0-alpha.7      -> v0.1.0-alpha.7
+2026-11-14T04:44:20.2107458Z [command]/usr/bin/git tag --list v0.1.0
+2026-11-14T04:44:20.2143083Z v0.1.0
+2026-11-14T04:44:20.2153694Z [command]/usr/bin/git rev-parse refs/tags/v0.1.0^{commit}
+2026-11-14T04:44:20.2188816Z 5bdc0e6b6449a829a5da1f8f9a8060257e974843
+2026-11-14T04:44:20.2208440Z ##[endgroup]
+2026-11-14T04:44:20.2209115Z ##[group]Determining the checkout info
+2026-11-14T04:44:20.2210133Z ##[endgroup]
+2026-11-14T04:44:20.2210697Z [command]/usr/bin/git sparse-checkout disable
+2026-11-14T04:44:20.2271519Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-14T04:44:20.2311666Z ##[group]Checking out the ref
+2026-11-14T04:44:20.2316791Z [command]/usr/bin/git checkout --progress --force refs/tags/v0.1.0
+2026-11-14T04:44:21.4600495Z Updating files:  77% (3177/4080)
+2026-11-14T04:44:21.7601590Z Updating files:  78% (3183/4080)
+2026-11-14T04:44:21.8620907Z Updating files:  79% (3224/4080)
+2026-11-14T04:44:22.2235078Z Updating files:  80% (3264/4080)
+2026-11-14T04:44:22.2535240Z Updating files:  81% (3305/4080)
+2026-11-14T04:44:22.3248491Z Updating files:  81% (3324/4080)
+2026-11-14T04:44:22.5426664Z Updating files:  82% (3346/4080)
+2026-11-14T04:44:22.5737722Z Updating files:  83% (3387/4080)
+2026-11-14T04:44:22.9294786Z Updating files:  84% (3428/4080)
+2026-11-14T04:44:22.9452765Z Updating files:  85% (3468/4080)
+2026-11-14T04:44:22.9530903Z Updating files:  86% (3509/4080)
+2026-11-14T04:44:22.9703713Z Updating files:  87% (3550/4080)
+2026-11-14T04:44:23.3923787Z Updating files:  88% (3591/4080)
+2026-11-14T04:44:23.4043668Z Updating files:  88% (3592/4080)
+2026-11-14T04:44:23.9769354Z Updating files:  89% (3632/4080)
+2026-11-14T04:44:23.9833584Z Updating files:  90% (3672/4080)
+2026-11-14T04:44:23.9855921Z Updating files:  91% (3713/4080)
+2026-11-14T04:44:23.9909911Z Updating files:  92% (3754/4080)
+2026-11-14T04:44:23.9942735Z Updating files:  93% (3795/4080)
+2026-11-14T04:44:23.9967043Z Updating files:  94% (3836/4080)
+2026-11-14T04:44:23.9993867Z Updating files:  95% (3876/4080)
+2026-11-14T04:44:24.0013033Z Updating files:  96% (3917/4080)
+2026-11-14T04:44:24.0038992Z Updating files:  97% (3958/4080)
+2026-11-14T04:44:24.0068650Z Updating files:  98% (3999/4080)
+2026-11-14T04:44:24.0094009Z Updating files:  99% (4040/4080)
+2026-11-14T04:44:24.0094489Z Updating files: 100% (4080/4080)
+2026-11-14T04:44:24.0094928Z Updating files: 100% (4080/4080), done.
+2026-11-14T04:44:24.0144041Z Note: switching to 'refs/tags/v0.1.0'.
+2026-11-14T04:44:24.0144656Z 
+2026-11-14T04:44:24.0144905Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-14T04:44:24.0145484Z changes and commit them, and you can discard any commits you make in this
+2026-11-14T04:44:24.0146365Z state without impacting any branches by switching back to a branch.
+2026-11-14T04:44:24.0146891Z 
+2026-11-14T04:44:24.0147251Z If you want to create a new branch to retain commits you create, you may
+2026-11-14T04:44:24.0148077Z do so (now or later) by using -c with the switch command. Example:
+2026-11-14T04:44:24.0148593Z 
+2026-11-14T04:44:24.0148786Z   git switch -c <new-branch-name>
+2026-11-14T04:44:24.0149105Z 
+2026-11-14T04:44:24.0149294Z Or undo this operation with:
+2026-11-14T04:44:24.0149594Z 
+2026-11-14T04:44:24.0149755Z   git switch -
+2026-11-14T04:44:24.0149970Z 
+2026-11-14T04:44:24.0150328Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-14T04:44:24.0150861Z 
+2026-11-14T04:44:24.0151271Z HEAD is now at 5bdc0e6 fix(g4): make release checksum ordering identical across platforms
+2026-11-14T04:44:24.0269904Z ##[endgroup]
+2026-11-14T04:44:24.0334337Z [command]/usr/bin/git log -1 --format=%H
+2026-11-14T04:44:24.0372003Z 5bdc0e6b6449a829a5da1f8f9a8060257e974843
+2026-11-14T04:44:24.0387420Z ##[group]Removing auth
+2026-11-14T04:44:24.0388047Z Removing SSH command configuration
+2026-11-14T04:44:24.0390741Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T04:44:24.0437278Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T04:44:24.0697504Z Removing HTTP extra header
+2026-11-14T04:44:24.0703941Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T04:44:24.0748715Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T04:44:24.1001448Z Removing includeIf entries pointing to credentials config files
+2026-11-14T04:44:24.1004845Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T04:44:24.1047383Z includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git.path
+2026-11-14T04:44:24.1049081Z includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git/worktrees/*.path
+2026-11-14T04:44:24.1050993Z includeif.gitdir:/github/workspace/.git.path
+2026-11-14T04:44:24.1051921Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-14T04:44:24.1060032Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git.path
+2026-11-14T04:44:24.1094582Z /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1106295Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git.path /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1152490Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git/worktrees/*.path
+2026-11-14T04:44:24.1187608Z /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1200142Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/protocol-emulator-asic/protocol-emulator-asic/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1246466Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-14T04:44:24.1280260Z /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1291084Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1340605Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-14T04:44:24.1381738Z /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1392997Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config
+2026-11-14T04:44:24.1451360Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T04:44:24.1700343Z Removing credentials config '/home/runner/work/_temp/git-credentials-42e9a85d-643b-48b4-a5e0-68d37f212fe6.config'
+2026-11-14T04:44:24.1708547Z ##[endgroup]
+2026-11-14T04:44:24.1925383Z ##[group]Run set -euo pipefail
+2026-11-14T04:44:24.1925767Z [36;1mset -euo pipefail[0m
+2026-11-14T04:44:24.1926441Z [36;1mif [[ "$GITHUB_REF" == refs/tags/* ]]; then[0m
+2026-11-14T04:44:24.1926919Z [36;1m  [[ "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$ ]][0m
+2026-11-14T04:44:24.1927427Z [36;1m  git merge-base --is-ancestor "$GITHUB_SHA" origin/main[0m
+2026-11-14T04:44:24.1927825Z [36;1m  test -s "docs/releases/$GITHUB_REF_NAME.md"[0m
+2026-11-14T04:44:24.1928312Z [36;1m  # Published versions are immutable. A failed run can be retried before release.[0m
+2026-11-14T04:44:24.1928855Z [36;1m  if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then[0m
+2026-11-14T04:44:24.1929332Z [36;1m    echo "::error::This version already has a release; use a new version."[0m
+2026-11-14T04:44:24.1929723Z [36;1m    exit 1[0m
+2026-11-14T04:44:24.1929938Z [36;1m  fi[0m
+2026-11-14T04:44:24.1930129Z [36;1melse[0m
+2026-11-14T04:44:24.1930384Z [36;1m  test "$GITHUB_REF" = refs/heads/main[0m
+2026-11-14T04:44:24.1930673Z [36;1mfi[0m
+2026-11-14T04:44:24.1930990Z [36;1mecho "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}-workbench" >> "$GITHUB_ENV"[0m
+2026-11-14T04:44:24.1931399Z [36;1mpython3 - <<'PY'[0m
+2026-11-14T04:44:24.1931645Z [36;1mimport json, os[0m
+2026-11-14T04:44:24.1931892Z [36;1mfrom pathlib import Path[0m
+2026-11-14T04:44:24.1932289Z [36;1mlock = json.loads(Path("tools/workbench/toolchain.lock.json").read_text())[0m
+2026-11-14T04:44:24.1932764Z [36;1mwith open(os.environ["GITHUB_ENV"], "a") as output:[0m
+2026-11-14T04:44:24.1933445Z [36;1m    output.write("LOCAL_IMAGE=" + lock["developer_workbench"]["image_tag"] + "\n")[0m
+2026-11-14T04:44:24.1933863Z [36;1mPY[0m
+2026-11-14T04:44:24.1957675Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-14T04:44:24.1958040Z env:
+2026-11-14T04:44:24.1960492Z   GH_TOKEN: ***
+2026-11-14T04:44:24.1960715Z ##[endgroup]
+2026-11-14T04:44:24.7522809Z ##[group]Run docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069
+2026-11-14T04:44:24.7523247Z with:
+2026-11-14T04:44:24.7523461Z   driver: docker-container
+2026-11-14T04:44:24.7523702Z   use: true
+2026-11-14T04:44:24.7523893Z   keep-state: false
+2026-11-14T04:44:24.7524101Z   cache-binary: true
+2026-11-14T04:44:24.7524310Z   cleanup: true
+2026-11-14T04:44:24.7524506Z env:
+2026-11-14T04:44:24.7527356Z   GH_TOKEN: ***
+2026-11-14T04:44:24.7527699Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T04:44:24.7528136Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T04:44:24.7528478Z ##[endgroup]
+2026-11-14T04:44:24.9601885Z ##[group]Docker info
+2026-11-14T04:44:24.9633498Z [command]/usr/bin/docker version
+2026-11-14T04:44:25.0912362Z Client: Docker Engine - Community
+2026-11-14T04:44:25.0913292Z  Version:           28.0.4
+2026-11-14T04:44:25.0916431Z  API version:       1.48
+2026-11-14T04:44:25.0917190Z  Go version:        go1.23.7
+2026-11-14T04:44:25.0917661Z  Git commit:        b8034c0
+2026-11-14T04:44:25.0918051Z  Built:             Tue Mar 25 15:07:16 2025
+2026-11-14T04:44:25.0918454Z  OS/Arch:           linux/amd64
+2026-11-14T04:44:25.0918817Z  Context:           default
+2026-11-14T04:44:25.0919087Z 
+2026-11-14T04:44:25.0919302Z Server: Docker Engine - Community
+2026-11-14T04:44:25.0919672Z  Engine:
+2026-11-14T04:44:25.0919974Z   Version:          28.0.4
+2026-11-14T04:44:25.0920349Z   API version:      1.48 (minimum version 1.24)
+2026-11-14T04:44:25.0920756Z   Go version:       go1.23.7
+2026-11-14T04:44:25.0921100Z   Git commit:       6430e49
+2026-11-14T04:44:25.0921453Z   Built:            Tue Mar 25 15:07:16 2025
+2026-11-14T04:44:25.0921851Z   OS/Arch:          linux/amd64
+2026-11-14T04:44:25.0922216Z   Experimental:     false
+2026-11-14T04:44:25.0922553Z  containerd:
+2026-11-14T04:44:25.0922864Z   Version:          v2.4.2
+2026-11-14T04:44:25.0923568Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-14T04:44:25.0924383Z  runc:
+2026-11-14T04:44:25.0924894Z   Version:          1.5.2
+2026-11-14T04:44:25.0925509Z   GitCommit:        v1.5.2-0-g29dd3dc2
+2026-11-14T04:44:25.0926489Z  docker-init:
+2026-11-14T04:44:25.0927018Z   Version:          0.19.0
+2026-11-14T04:44:25.0927602Z   GitCommit:        de40ad0
+2026-11-14T04:44:25.0968203Z [command]/usr/bin/docker info
+2026-11-14T04:44:25.3300174Z Client: Docker Engine - Community
+2026-11-14T04:44:25.3300747Z  Version:    28.0.4
+2026-11-14T04:44:25.3301090Z  Context:    default
+2026-11-14T04:44:25.3301414Z  Debug Mode: false
+2026-11-14T04:44:25.3301731Z  Plugins:
+2026-11-14T04:44:25.3302063Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-14T04:44:25.3302521Z     Version:  v0.38.2
+2026-11-14T04:44:25.3302968Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-14T04:44:25.3303502Z   compose: Docker Compose (Docker Inc.)
+2026-11-14T04:44:25.3303911Z     Version:  v2.38.2
+2026-11-14T04:44:25.3304401Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-14T04:44:25.3304813Z 
+2026-11-14T04:44:25.3304945Z Server:
+2026-11-14T04:44:25.3305248Z  Containers: 0
+2026-11-14T04:44:25.3305572Z   Running: 0
+2026-11-14T04:44:25.3306509Z   Paused: 0
+2026-11-14T04:44:25.3306860Z   Stopped: 0
+2026-11-14T04:44:25.3307176Z  Images: 6
+2026-11-14T04:44:25.3307496Z  Server Version: 28.0.4
+2026-11-14T04:44:25.3307897Z  Storage Driver: overlay2
+2026-11-14T04:44:25.3308184Z   Backing Filesystem: extfs
+2026-11-14T04:44:25.3308443Z   Supports d_type: true
+2026-11-14T04:44:25.3308673Z   Using metacopy: false
+2026-11-14T04:44:25.3308948Z   Native Overlay Diff: false
+2026-11-14T04:44:25.3309185Z   userxattr: false
+2026-11-14T04:44:25.3309742Z  Logging Driver: json-file
+2026-11-14T04:44:25.3309977Z  Cgroup Driver: systemd
+2026-11-14T04:44:25.3310193Z  Cgroup Version: 2
+2026-11-14T04:44:25.3310395Z  Plugins:
+2026-11-14T04:44:25.3310584Z   Volume: local
+2026-11-14T04:44:25.3310834Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-14T04:44:25.3311480Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-14T04:44:25.3311873Z  Swarm: inactive
+2026-11-14T04:44:25.3312102Z  Runtimes: io.containerd.runc.v2 runc
+2026-11-14T04:44:25.3312373Z  Default Runtime: runc
+2026-11-14T04:44:25.3312598Z  Init Binary: docker-init
+2026-11-14T04:44:25.3312901Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-14T04:44:25.3313527Z  runc version: v1.5.2-0-g29dd3dc2
+2026-11-14T04:44:25.3313977Z  init version: de40ad0
+2026-11-14T04:44:25.3314353Z  Security Options:
+2026-11-14T04:44:25.3314708Z   apparmor
+2026-11-14T04:44:25.3315030Z   seccomp
+2026-11-14T04:44:25.3315373Z    Profile: builtin
+2026-11-14T04:44:25.3315752Z   cgroupns
+2026-11-14T04:44:25.3316444Z  Kernel Version: 7.0.0-1017-azure
+2026-11-14T04:44:25.3316936Z  Operating System: Ubuntu 24.04.5 LTS
+2026-11-14T04:44:25.3317388Z  OSType: linux
+2026-11-14T04:44:25.3317739Z  Architecture: x86_64
+2026-11-14T04:44:25.3318075Z  CPUs: 4
+2026-11-14T04:44:25.3318371Z  Total Memory: 15.61GiB
+2026-11-14T04:44:25.3318728Z  Name: runnervm8axu0
+2026-11-14T04:44:25.3319126Z  ID: 0fef2a29-aadb-43ca-98b5-edbc7a28f18a
+2026-11-14T04:44:25.3319645Z  Docker Root Dir: /var/lib/docker
+2026-11-14T04:44:25.3320104Z  Debug Mode: false
+2026-11-14T04:44:25.3320470Z  Username: githubactions
+2026-11-14T04:44:25.3320913Z  Experimental: false
+2026-11-14T04:44:25.3321258Z  Insecure Registries:
+2026-11-14T04:44:25.3328075Z   ::1/128
+2026-11-14T04:44:25.3328488Z   127.0.0.0/8
+2026-11-14T04:44:25.3328875Z  Live Restore Enabled: false
+2026-11-14T04:44:25.3329195Z 
+2026-11-14T04:44:25.3329851Z ##[endgroup]
+2026-11-14T04:44:25.4080846Z ##[group]Buildx version
+2026-11-14T04:44:25.4105431Z [command]/usr/bin/docker buildx version
+2026-11-14T04:44:25.4723901Z github.com/docker/buildx v0.38.2 3c4cbd35852fc1a476923627a780a7836c28b654
+2026-11-14T04:44:25.4765277Z ##[endgroup]
+2026-11-14T04:44:25.4968304Z ##[group]Inspecting default docker context
+2026-11-14T04:44:25.5151695Z [
+2026-11-14T04:44:25.5152026Z   {
+2026-11-14T04:44:25.5152388Z     "Name": "default",
+2026-11-14T04:44:25.5152797Z     "Metadata": {},
+2026-11-14T04:44:25.5153096Z     "Endpoints": {
+2026-11-14T04:44:25.5153320Z       "docker": {
+2026-11-14T04:44:25.5153756Z         "Host": "unix:///var/run/docker.sock",
+2026-11-14T04:44:25.5154085Z         "SkipTLSVerify": false
+2026-11-14T04:44:25.5154470Z       }
+2026-11-14T04:44:25.5154765Z     },
+2026-11-14T04:44:25.5155076Z     "TLSMaterial": {},
+2026-11-14T04:44:25.5155448Z     "Storage": {
+2026-11-14T04:44:25.5155828Z       "MetadataPath": "<IN MEMORY>",
+2026-11-14T04:44:25.5156589Z       "TLSPath": "<IN MEMORY>"
+2026-11-14T04:44:25.5156880Z     }
+2026-11-14T04:44:25.5157067Z   }
+2026-11-14T04:44:25.5157253Z ]
+2026-11-14T04:44:25.5157807Z ##[endgroup]
+2026-11-14T04:44:25.5867238Z ##[group]Pulling BuildKit image(s)
+2026-11-14T04:44:25.5901121Z [command]/usr/bin/docker pull moby/buildkit:buildx-stable-1
+2026-11-14T04:44:26.2833485Z buildx-stable-1: Pulling from moby/buildkit
+2026-11-14T04:44:26.4858205Z 5e9b4a97f639: Pulling fs layer
+2026-11-14T04:44:26.4859033Z 7724148611ef: Pulling fs layer
+2026-11-14T04:44:26.4860639Z d9f5c1f157ca: Pulling fs layer
+2026-11-14T04:44:26.4861380Z b10da8a4f6de: Pulling fs layer
+2026-11-14T04:44:26.4861873Z 9ed6f1f484bf: Pulling fs layer
+2026-11-14T04:44:26.4862331Z 58b7f699d2bb: Pulling fs layer
+2026-11-14T04:44:26.4862741Z 78a4ff020a19: Pulling fs layer
+2026-11-14T04:44:26.4863134Z b10da8a4f6de: Waiting
+2026-11-14T04:44:26.4863532Z 9ed6f1f484bf: Waiting
+2026-11-14T04:44:26.4863921Z 58b7f699d2bb: Waiting
+2026-11-14T04:44:26.4864310Z 78a4ff020a19: Waiting
+2026-11-14T04:44:26.7050622Z d9f5c1f157ca: Verifying Checksum
+2026-11-14T04:44:26.7051508Z d9f5c1f157ca: Download complete
+2026-11-14T04:44:26.8195503Z 5e9b4a97f639: Verifying Checksum
+2026-11-14T04:44:26.8197616Z 5e9b4a97f639: Download complete
+2026-11-14T04:44:26.8481862Z 7724148611ef: Verifying Checksum
+2026-11-14T04:44:26.8482666Z 7724148611ef: Download complete
+2026-11-14T04:44:26.9083571Z b10da8a4f6de: Verifying Checksum
+2026-11-14T04:44:26.9084740Z b10da8a4f6de: Download complete
+2026-11-14T04:44:26.9354011Z 5e9b4a97f639: Pull complete
+2026-11-14T04:44:27.0526513Z 58b7f699d2bb: Verifying Checksum
+2026-11-14T04:44:27.0528035Z 58b7f699d2bb: Download complete
+2026-11-14T04:44:27.0919196Z 78a4ff020a19: Verifying Checksum
+2026-11-14T04:44:27.0920498Z 78a4ff020a19: Download complete
+2026-11-14T04:44:27.7144831Z 9ed6f1f484bf: Verifying Checksum
+2026-11-14T04:44:27.7145234Z 9ed6f1f484bf: Download complete
+2026-11-14T04:44:29.4478775Z 7724148611ef: Pull complete
+2026-11-14T04:44:29.5400236Z d9f5c1f157ca: Pull complete
+2026-11-14T04:44:29.5516276Z b10da8a4f6de: Pull complete
+2026-11-14T04:44:30.6273879Z 9ed6f1f484bf: Pull complete
+2026-11-14T04:44:30.6409323Z 58b7f699d2bb: Pull complete
+2026-11-14T04:44:30.6505270Z 78a4ff020a19: Pull complete
+2026-11-14T04:44:30.6548834Z Digest: sha256:c5f8862f52499773af85bc07695b2379ef08e8002352b0df2c4864c91d78dabe
+2026-11-14T04:44:30.6570128Z Status: Downloaded newer image for moby/buildkit:buildx-stable-1
+2026-11-14T04:44:30.6578840Z docker.io/moby/buildkit:buildx-stable-1
+2026-11-14T04:44:30.6598452Z ##[endgroup]
+2026-11-14T04:44:30.6599115Z ##[group]Creating a new builder instance
+2026-11-14T04:44:30.7343164Z [command]/usr/bin/docker buildx create --name builder-cf579204-4fb3-4f39-bbbf-b78310c55310 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+2026-11-14T04:44:30.8032333Z builder-cf579204-4fb3-4f39-bbbf-b78310c55310
+2026-11-14T04:44:30.8076888Z ##[endgroup]
+2026-11-14T04:44:30.8077529Z ##[group]Booting builder
+2026-11-14T04:44:30.8125034Z [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-cf579204-4fb3-4f39-bbbf-b78310c55310
+2026-11-14T04:44:30.8732580Z #1 [internal] booting buildkit
+2026-11-14T04:44:31.0238382Z #1 pulling image moby/buildkit:buildx-stable-1
+2026-11-14T04:44:31.3811907Z #1 pulling image moby/buildkit:buildx-stable-1 0.5s done
+2026-11-14T04:44:31.5333215Z #1 creating container buildx_buildkit_builder-cf579204-4fb3-4f39-bbbf-b78310c553100
+2026-11-14T04:44:31.6886480Z #1 creating container buildx_buildkit_builder-cf579204-4fb3-4f39-bbbf-b78310c553100 0.3s done
+2026-11-14T04:44:31.7228259Z #1 DONE 0.8s
+2026-11-14T04:44:31.7573486Z Name:          builder-cf579204-4fb3-4f39-bbbf-b78310c55310
+2026-11-14T04:44:31.7574343Z Driver:        docker-container
+2026-11-14T04:44:31.7574977Z Last Activity: 2026-11-14 04:44:30 +0000 UTC
+2026-11-14T04:44:31.7575329Z 
+2026-11-14T04:44:31.7575454Z Nodes:
+2026-11-14T04:44:31.7575885Z Name:                  builder-cf579204-4fb3-4f39-bbbf-b78310c553100
+2026-11-14T04:44:31.7576632Z Endpoint:              unix:///var/run/docker.sock
+2026-11-14T04:44:31.7576987Z Status:                running
+2026-11-14T04:44:31.7577535Z BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2026-11-14T04:44:31.7578098Z BuildKit version:      v0.34.2
+2026-11-14T04:44:31.7578450Z Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/386
+2026-11-14T04:44:31.7578808Z Labels:
+2026-11-14T04:44:31.7579064Z  org.mobyproject.buildkit.worker.executor:         oci
+2026-11-14T04:44:31.7579478Z  org.mobyproject.buildkit.worker.hostname:         f00c16a9bd99
+2026-11-14T04:44:31.7579897Z  org.mobyproject.buildkit.worker.network:          host
+2026-11-14T04:44:31.7580308Z  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+2026-11-14T04:44:31.7580740Z  org.mobyproject.buildkit.worker.selinux.enabled:  false
+2026-11-14T04:44:31.7581158Z  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+2026-11-14T04:44:31.7581514Z GC Policy rule#0:
+2026-11-14T04:44:31.7581723Z  All:            false
+2026-11-14T04:44:31.7582373Z  Filters:        type==source.local type==exec.cachemount type==source.git.checkout
+2026-11-14T04:44:31.7582781Z  Keep Duration:  48h0m0s
+2026-11-14T04:44:31.7583010Z  Max Used Space: 488.3MiB
+2026-11-14T04:44:31.7583236Z GC Policy rule#1:
+2026-11-14T04:44:31.7583431Z  All:            false
+2026-11-14T04:44:31.7583790Z  Keep Duration:  1440h0m0s
+2026-11-14T04:44:31.7584039Z  Reserved Space: 9.313GiB
+2026-11-14T04:44:31.7584267Z  Max Used Space: 93.13GiB
+2026-11-14T04:44:31.7584489Z  Min Free Space: 27.01GiB
+2026-11-14T04:44:31.7584706Z GC Policy rule#2:
+2026-11-14T04:44:31.7584907Z  All:            false
+2026-11-14T04:44:31.7585118Z  Reserved Space: 9.313GiB
+2026-11-14T04:44:31.7585340Z  Max Used Space: 93.13GiB
+2026-11-14T04:44:31.7585562Z  Min Free Space: 27.01GiB
+2026-11-14T04:44:31.7585778Z GC Policy rule#3:
+2026-11-14T04:44:31.7586241Z  All:            true
+2026-11-14T04:44:31.7586486Z  Reserved Space: 9.313GiB
+2026-11-14T04:44:31.7586718Z  Max Used Space: 93.13GiB
+2026-11-14T04:44:31.7586982Z  Min Free Space: 27.01GiB
+2026-11-14T04:44:31.7631672Z ##[endgroup]
+2026-11-14T04:44:31.8694397Z ##[group]Inspect builder
+2026-11-14T04:44:31.8766242Z {
+2026-11-14T04:44:31.8766547Z   "nodes": [
+2026-11-14T04:44:31.8766828Z     {
+2026-11-14T04:44:31.8767128Z       "name": "builder-cf579204-4fb3-4f39-bbbf-b78310c553100",
+2026-11-14T04:44:31.8767562Z       "endpoint": "unix:///var/run/docker.sock",
+2026-11-14T04:44:31.8767877Z       "status": "running",
+2026-11-14T04:44:31.8768752Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2026-11-14T04:44:31.8769738Z       "buildkit": "v0.34.2",
+2026-11-14T04:44:31.8770348Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2026-11-14T04:44:31.8770736Z       "features": {
+2026-11-14T04:44:31.8771208Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-14T04:44:31.8771639Z         "Cache export": true,
+2026-11-14T04:44:31.8771907Z         "Direct push": true,
+2026-11-14T04:44:31.8772150Z         "Docker exporter": true,
+2026-11-14T04:44:31.8772417Z         "Multi-platform build": true,
+2026-11-14T04:44:31.8772687Z         "OCI exporter": true
+2026-11-14T04:44:31.8772921Z       },
+2026-11-14T04:44:31.8773101Z       "labels": {
+2026-11-14T04:44:31.8773379Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2026-11-14T04:44:31.8773809Z         "org.mobyproject.buildkit.worker.hostname": "f00c16a9bd99",
+2026-11-14T04:44:31.8774229Z         "org.mobyproject.buildkit.worker.network": "host",
+2026-11-14T04:44:31.8774666Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2026-11-14T04:44:31.8775132Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2026-11-14T04:44:31.8775751Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2026-11-14T04:44:31.8776582Z       },
+2026-11-14T04:44:31.8776780Z       "gcPolicy": [
+2026-11-14T04:44:31.8776985Z         {
+2026-11-14T04:44:31.8777184Z           "all": false,
+2026-11-14T04:44:31.8777399Z           "filter": [
+2026-11-14T04:44:31.8777729Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+2026-11-14T04:44:31.8778113Z           ],
+2026-11-14T04:44:31.8778342Z           "keepDuration": "48h0m0s",
+2026-11-14T04:44:31.8778609Z           "maxUsedSpace": "488.3MiB"
+2026-11-14T04:44:31.8778884Z         },
+2026-11-14T04:44:31.8779074Z         {
+2026-11-14T04:44:31.8779254Z           "all": false,
+2026-11-14T04:44:31.8779477Z           "keepDuration": "1440h0m0s",
+2026-11-14T04:44:31.8779784Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:31.8780080Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:31.8780337Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:31.8780576Z         },
+2026-11-14T04:44:31.8780747Z         {
+2026-11-14T04:44:31.8780943Z           "all": false,
+2026-11-14T04:44:31.8781164Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:31.8781448Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:31.8782012Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:31.8782250Z         },
+2026-11-14T04:44:31.8782514Z         {
+2026-11-14T04:44:31.8782794Z           "all": true,
+2026-11-14T04:44:31.8783215Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:31.8783615Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:31.8784117Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:31.8784402Z         }
+2026-11-14T04:44:31.8784594Z       ]
+2026-11-14T04:44:31.8784769Z     }
+2026-11-14T04:44:31.8784958Z   ],
+2026-11-14T04:44:31.8785228Z   "name": "builder-cf579204-4fb3-4f39-bbbf-b78310c55310",
+2026-11-14T04:44:31.8785591Z   "driver": "docker-container",
+2026-11-14T04:44:31.8785880Z   "lastActivity": "2026-11-14T04:44:30.000Z"
+2026-11-14T04:44:31.8786584Z }
+2026-11-14T04:44:31.8787009Z ##[endgroup]
+2026-11-14T04:44:31.8787407Z ##[group]BuildKit version
+2026-11-14T04:44:31.8787717Z builder-cf579204-4fb3-4f39-bbbf-b78310c553100: v0.34.2
+2026-11-14T04:44:31.8788167Z ##[endgroup]
+2026-11-14T04:44:31.9008565Z ##[group]Run docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc
+2026-11-14T04:44:31.9008993Z with:
+2026-11-14T04:44:31.9009201Z   context: tools/workbench
+2026-11-14T04:44:31.9009446Z   file: tools/workbench/Dockerfile
+2026-11-14T04:44:31.9009708Z   platforms: linux/amd64
+2026-11-14T04:44:31.9009944Z   load: true
+2026-11-14T04:44:31.9010195Z   tags: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T04:44:31.9011326Z   labels: org.opencontainers.image.revision=5bdc0e6b6449a829a5da1f8f9a8060257e974843
+org.opencontainers.image.version=5bdc0e6b6449a829a5da1f8f9a8060257e974843
+org.opencontainers.image.description=Pinned digital verification tools; not the CMOS5L tapeout flow.
+
+2026-11-14T04:44:31.9012522Z   cache-from: type=gha,scope=protocol-emulator-workbench-2026-07-29
+2026-11-14T04:44:31.9013017Z   cache-to: type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29
+2026-11-14T04:44:31.9013405Z   no-cache: false
+2026-11-14T04:44:31.9013607Z   pull: false
+2026-11-14T04:44:31.9013844Z   push: false
+2026-11-14T04:44:31.9016469Z   github-token: ***
+2026-11-14T04:44:31.9016690Z env:
+2026-11-14T04:44:31.9018949Z   GH_TOKEN: ***
+2026-11-14T04:44:31.9019249Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T04:44:31.9019673Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T04:44:31.9020002Z ##[endgroup]
+2026-11-14T04:44:32.1656916Z ##[group]GitHub Actions runtime token ACs
+2026-11-14T04:44:32.1665884Z refs/heads/refs/tags/v0.1.0: read/write
+2026-11-14T04:44:32.1666890Z refs/heads/main: read
+2026-11-14T04:44:32.1667696Z ##[endgroup]
+2026-11-14T04:44:32.1668507Z ##[group]Docker info
+2026-11-14T04:44:32.1756666Z [command]/usr/bin/docker version
+2026-11-14T04:44:32.2077076Z Client: Docker Engine - Community
+2026-11-14T04:44:32.2130277Z  Version:           28.0.4
+2026-11-14T04:44:32.2135415Z  API version:       1.48
+2026-11-14T04:44:32.2136518Z  Go version:        go1.23.7
+2026-11-14T04:44:32.2138706Z  Git commit:        b8034c0
+2026-11-14T04:44:32.2142626Z  Built:             Tue Mar 25 15:07:16 2025
+2026-11-14T04:44:32.2155823Z  OS/Arch:           linux/amd64
+2026-11-14T04:44:32.2156790Z  Context:           default
+2026-11-14T04:44:32.2157266Z 
+2026-11-14T04:44:32.2157651Z Server: Docker Engine - Community
+2026-11-14T04:44:32.2158320Z  Engine:
+2026-11-14T04:44:32.2158865Z   Version:          28.0.4
+2026-11-14T04:44:32.2159550Z   API version:      1.48 (minimum version 1.24)
+2026-11-14T04:44:32.2160347Z   Go version:       go1.23.7
+2026-11-14T04:44:32.2161258Z   Git commit:       6430e49
+2026-11-14T04:44:32.2163227Z   Built:            Tue Mar 25 15:07:16 2025
+2026-11-14T04:44:32.2163950Z   OS/Arch:          linux/amd64
+2026-11-14T04:44:32.2164619Z   Experimental:     false
+2026-11-14T04:44:32.2165310Z  containerd:
+2026-11-14T04:44:32.2165899Z   Version:          v2.4.2
+2026-11-14T04:44:32.2167434Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-14T04:44:32.2168510Z  runc:
+2026-11-14T04:44:32.2169227Z   Version:          1.5.2
+2026-11-14T04:44:32.2170811Z   GitCommit:        v1.5.2-0-g29dd3dc2
+2026-11-14T04:44:32.2171719Z  docker-init:
+2026-11-14T04:44:32.2172477Z   Version:          0.19.0
+2026-11-14T04:44:32.2175786Z   GitCommit:        de40ad0
+2026-11-14T04:44:32.2177522Z [command]/usr/bin/docker info
+2026-11-14T04:44:32.2771001Z Client: Docker Engine - Community
+2026-11-14T04:44:32.2771587Z  Version:    28.0.4
+2026-11-14T04:44:32.2772423Z  Context:    default
+2026-11-14T04:44:32.2773255Z  Debug Mode: false
+2026-11-14T04:44:32.2774533Z  Plugins:
+2026-11-14T04:44:32.2775084Z   buildx: Docker Buildx (Docker Inc.)
+2026-11-14T04:44:32.2775409Z     Version:  v0.38.2
+2026-11-14T04:44:32.2775719Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2026-11-14T04:44:32.2776682Z   compose: Docker Compose (Docker Inc.)
+2026-11-14T04:44:32.2776960Z     Version:  v2.38.2
+2026-11-14T04:44:32.2777248Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2026-11-14T04:44:32.2777505Z 
+2026-11-14T04:44:32.2778001Z Server:
+2026-11-14T04:44:32.2778215Z  Containers: 1
+2026-11-14T04:44:32.2778418Z   Running: 1
+2026-11-14T04:44:32.2778611Z   Paused: 0
+2026-11-14T04:44:32.2778798Z   Stopped: 0
+2026-11-14T04:44:32.2778988Z  Images: 7
+2026-11-14T04:44:32.2779183Z  Server Version: 28.0.4
+2026-11-14T04:44:32.2779412Z  Storage Driver: overlay2
+2026-11-14T04:44:32.2779652Z   Backing Filesystem: extfs
+2026-11-14T04:44:32.2779891Z   Supports d_type: true
+2026-11-14T04:44:32.2780109Z   Using metacopy: false
+2026-11-14T04:44:32.2780332Z   Native Overlay Diff: false
+2026-11-14T04:44:32.2780599Z   userxattr: false
+2026-11-14T04:44:32.2780817Z  Logging Driver: json-file
+2026-11-14T04:44:32.2781050Z  Cgroup Driver: systemd
+2026-11-14T04:44:32.2781275Z  Cgroup Version: 2
+2026-11-14T04:44:32.2781475Z  Plugins:
+2026-11-14T04:44:32.2781663Z   Volume: local
+2026-11-14T04:44:32.2781905Z   Network: bridge host ipvlan macvlan null overlay
+2026-11-14T04:44:32.2782324Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2026-11-14T04:44:32.2782715Z  Swarm: inactive
+2026-11-14T04:44:32.2782940Z  Runtimes: runc io.containerd.runc.v2
+2026-11-14T04:44:32.2783218Z  Default Runtime: runc
+2026-11-14T04:44:32.2783446Z  Init Binary: docker-init
+2026-11-14T04:44:32.2783746Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+2026-11-14T04:44:32.2784101Z  runc version: v1.5.2-0-g29dd3dc2
+2026-11-14T04:44:32.2784360Z  init version: de40ad0
+2026-11-14T04:44:32.2784576Z  Security Options:
+2026-11-14T04:44:32.2784773Z   apparmor
+2026-11-14T04:44:32.2784952Z   seccomp
+2026-11-14T04:44:32.2785137Z    Profile: builtin
+2026-11-14T04:44:32.2785333Z   cgroupns
+2026-11-14T04:44:32.2785523Z  Kernel Version: 7.0.0-1017-azure
+2026-11-14T04:44:32.2785788Z  Operating System: Ubuntu 24.04.5 LTS
+2026-11-14T04:44:32.2786352Z  OSType: linux
+2026-11-14T04:44:32.2786570Z  Architecture: x86_64
+2026-11-14T04:44:32.2786782Z  CPUs: 4
+2026-11-14T04:44:32.2786974Z  Total Memory: 15.61GiB
+2026-11-14T04:44:32.2787203Z  Name: runnervm8axu0
+2026-11-14T04:44:32.2787455Z  ID: 0fef2a29-aadb-43ca-98b5-edbc7a28f18a
+2026-11-14T04:44:32.2787745Z  Docker Root Dir: /var/lib/docker
+2026-11-14T04:44:32.2787991Z  Debug Mode: false
+2026-11-14T04:44:32.2788200Z  Username: githubactions
+2026-11-14T04:44:32.2788428Z  Experimental: false
+2026-11-14T04:44:32.2788644Z  Insecure Registries:
+2026-11-14T04:44:32.2788881Z   ::1/128
+2026-11-14T04:44:32.2789059Z   127.0.0.0/8
+2026-11-14T04:44:32.2789259Z  Live Restore Enabled: false
+2026-11-14T04:44:32.2789418Z 
+2026-11-14T04:44:32.2801701Z ##[endgroup]
+2026-11-14T04:44:32.2802316Z ##[group]Proxy configuration
+2026-11-14T04:44:32.2806466Z No proxy configuration found
+2026-11-14T04:44:32.2807241Z ##[endgroup]
+2026-11-14T04:44:32.3491844Z ##[group]Buildx version
+2026-11-14T04:44:32.3523027Z [command]/usr/bin/docker buildx version
+2026-11-14T04:44:32.4163875Z github.com/docker/buildx v0.38.2 3c4cbd35852fc1a476923627a780a7836c28b654
+2026-11-14T04:44:32.4206989Z ##[endgroup]
+2026-11-14T04:44:32.4207583Z ##[group]Builder info
+2026-11-14T04:44:32.5277357Z {
+2026-11-14T04:44:32.5282526Z   "nodes": [
+2026-11-14T04:44:32.5283664Z     {
+2026-11-14T04:44:32.5284201Z       "name": "builder-cf579204-4fb3-4f39-bbbf-b78310c553100",
+2026-11-14T04:44:32.5284980Z       "endpoint": "unix:///var/run/docker.sock",
+2026-11-14T04:44:32.5290103Z       "status": "running",
+2026-11-14T04:44:32.5291347Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2026-11-14T04:44:32.5292166Z       "buildkit": "v0.34.2",
+2026-11-14T04:44:32.5292540Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2026-11-14T04:44:32.5292915Z       "features": {
+2026-11-14T04:44:32.5293234Z         "Automatically load images to the Docker Engine image store": true,
+2026-11-14T04:44:32.5293611Z         "Cache export": true,
+2026-11-14T04:44:32.5293855Z         "Direct push": true,
+2026-11-14T04:44:32.5294104Z         "Docker exporter": true,
+2026-11-14T04:44:32.5294365Z         "Multi-platform build": true,
+2026-11-14T04:44:32.5295342Z         "OCI exporter": true
+2026-11-14T04:44:32.5295743Z       },
+2026-11-14T04:44:32.5296425Z       "labels": {
+2026-11-14T04:44:32.5296965Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2026-11-14T04:44:32.5297735Z         "org.mobyproject.buildkit.worker.hostname": "f00c16a9bd99",
+2026-11-14T04:44:32.5298449Z         "org.mobyproject.buildkit.worker.network": "host",
+2026-11-14T04:44:32.5299305Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2026-11-14T04:44:32.5300247Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2026-11-14T04:44:32.5300728Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2026-11-14T04:44:32.5301247Z       },
+2026-11-14T04:44:32.5301436Z       "gcPolicy": [
+2026-11-14T04:44:32.5301651Z         {
+2026-11-14T04:44:32.5301834Z           "all": false,
+2026-11-14T04:44:32.5302048Z           "filter": [
+2026-11-14T04:44:32.5302403Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+2026-11-14T04:44:32.5302824Z           ],
+2026-11-14T04:44:32.5303030Z           "keepDuration": "48h0m0s",
+2026-11-14T04:44:32.5303307Z           "maxUsedSpace": "488.3MiB"
+2026-11-14T04:44:32.5303563Z         },
+2026-11-14T04:44:32.5303793Z         {
+2026-11-14T04:44:32.5304111Z           "all": false,
+2026-11-14T04:44:32.5304430Z           "keepDuration": "1440h0m0s",
+2026-11-14T04:44:32.5304718Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:32.5305010Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:32.5305283Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:32.5305537Z         },
+2026-11-14T04:44:32.5305719Z         {
+2026-11-14T04:44:32.5306163Z           "all": false,
+2026-11-14T04:44:32.5306439Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:32.5306837Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:32.5307108Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:32.5307359Z         },
+2026-11-14T04:44:32.5307667Z         {
+2026-11-14T04:44:32.5307875Z           "all": true,
+2026-11-14T04:44:32.5308129Z           "reservedSpace": "9.313GiB",
+2026-11-14T04:44:32.5308407Z           "maxUsedSpace": "93.13GiB",
+2026-11-14T04:44:32.5308658Z           "minFreeSpace": "27.01GiB"
+2026-11-14T04:44:32.5308891Z         }
+2026-11-14T04:44:32.5309062Z       ]
+2026-11-14T04:44:32.5309250Z     }
+2026-11-14T04:44:32.5309419Z   ],
+2026-11-14T04:44:32.5309673Z   "name": "builder-cf579204-4fb3-4f39-bbbf-b78310c55310",
+2026-11-14T04:44:32.5310016Z   "driver": "docker-container",
+2026-11-14T04:44:32.5310422Z   "lastActivity": "2026-11-14T04:44:30.000Z"
+2026-11-14T04:44:32.5310732Z }
+2026-11-14T04:44:32.5311277Z ##[endgroup]
+2026-11-14T04:44:32.7111693Z [command]/usr/bin/docker buildx build --cache-from type=gha,scope=protocol-emulator-workbench-2026-07-29 --cache-to type=gha,mode=max,scope=protocol-emulator-workbench-2026-07-29 --file tools/workbench/Dockerfile --iidfile /home/runner/work/_temp/docker-actions-toolkit-G7gvQV/build-iidfile-d71ae624fe.txt --label org.opencontainers.image.revision=5bdc0e6b6449a829a5da1f8f9a8060257e974843 --label org.opencontainers.image.version=5bdc0e6b6449a829a5da1f8f9a8060257e974843 --label org.opencontainers.image.description=Pinned digital verification tools; not the CMOS5L tapeout flow. --platform linux/amd64 --tag protocol-emulator-asic-workbench:2026-07-29 --load --metadata-file /home/runner/work/_temp/docker-actions-toolkit-G7gvQV/build-metadata-7dce47d807.json tools/workbench
+2026-11-14T04:44:33.0046254Z #0 building with "builder-cf579204-4fb3-4f39-bbbf-b78310c55310" instance using docker-container driver
+2026-11-14T04:44:33.0047032Z 
+2026-11-14T04:44:33.0047268Z #1 [internal] load build definition from Dockerfile
+2026-11-14T04:44:33.0047796Z #1 transferring dockerfile: 3.55kB done
+2026-11-14T04:44:33.0048089Z #1 DONE 0.0s
+2026-11-14T04:44:33.0048212Z 
+2026-11-14T04:44:33.0048457Z #2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+2026-11-14T04:44:33.1767325Z #2 ...
+2026-11-14T04:44:33.1767569Z 
+2026-11-14T04:44:33.1768268Z #3 [auth] docker/dockerfile:pull token for registry-1.docker.io
+2026-11-14T04:44:33.1768684Z #3 DONE 0.0s
+2026-11-14T04:44:33.3266061Z 
+2026-11-14T04:44:33.3266928Z #2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+2026-11-14T04:44:33.5949641Z #2 DONE 0.7s
+2026-11-14T04:44:33.7564300Z 
+2026-11-14T04:44:33.7564999Z #4 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+2026-11-14T04:44:33.7566134Z #4 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e done
+2026-11-14T04:44:33.7582103Z #4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 1.05MB / 14.28MB 0.2s
+2026-11-14T04:44:33.9407441Z #4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 14.28MB / 14.28MB 0.2s done
+2026-11-14T04:44:33.9408370Z #4 extracting sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0.1s done
+2026-11-14T04:44:33.9409198Z #4 DONE 0.3s
+2026-11-14T04:44:34.0575692Z 
+2026-11-14T04:44:34.0576587Z #5 [auth] library/python:pull token for registry-1.docker.io
+2026-11-14T04:44:34.2081238Z #5 DONE 0.0s
+2026-11-14T04:44:34.2081459Z 
+2026-11-14T04:44:34.2082020Z #6 [internal] load metadata for docker.io/library/python@sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b
+2026-11-14T04:44:34.5352066Z #6 DONE 0.5s
+2026-11-14T04:44:34.7319566Z 
+2026-11-14T04:44:34.7320058Z #7 [internal] load .dockerignore
+2026-11-14T04:44:34.7320571Z #7 transferring context: 2B done
+2026-11-14T04:44:34.7320855Z #7 DONE 0.0s
+2026-11-14T04:44:34.7320980Z 
+2026-11-14T04:44:34.7321080Z #8 [internal] load build context
+2026-11-14T04:44:34.7321335Z #8 DONE 0.0s
+2026-11-14T04:44:34.7321459Z 
+2026-11-14T04:44:34.7321868Z #9 [stage-0  1/10] FROM docker.io/library/python@sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b
+2026-11-14T04:44:34.7322758Z #9 resolve docker.io/library/python@sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b done
+2026-11-14T04:44:34.7323326Z #9 DONE 0.0s
+2026-11-14T04:44:34.7323438Z 
+2026-11-14T04:44:34.7323600Z #10 importing cache manifest from gha:15886534063594810013
+2026-11-14T04:44:34.9269947Z #10 DONE 0.4s
+2026-11-14T04:44:35.0876647Z 
+2026-11-14T04:44:35.0877208Z #8 [internal] load build context
+2026-11-14T04:44:35.0878166Z #8 transferring context: 10.70kB done
+2026-11-14T04:44:35.0878627Z #8 DONE 0.0s
+2026-11-14T04:44:35.0878828Z 
+2026-11-14T04:44:35.0879182Z #11 [stage-0  8/10] COPY requirements.lock /tmp/workbench-requirements.lock
+2026-11-14T04:44:35.0879839Z #11 CACHED
+2026-11-14T04:44:35.0880036Z 
+2026-11-14T04:44:35.0881375Z #12 [stage-0  2/10] RUN apt-get update     && apt-get install -y --no-install-recommends         ca-certificates=20250419~deb12u1         curl=7.88.1-10+deb12u15         g++=4:12.2.0-3         git=1:2.39.5-0+deb12u3         make=4.3-4.1     && rm -rf /var/lib/apt/lists/*
+2026-11-14T04:44:35.0882982Z #12 CACHED
+2026-11-14T04:44:35.0883158Z 
+2026-11-14T04:44:35.0883893Z #13 [stage-0  7/10] RUN chmod 0755 /usr/local/bin/iverilog /usr/local/bin/vvp
+2026-11-14T04:44:35.0884538Z #13 CACHED
+2026-11-14T04:44:35.0884656Z 
+2026-11-14T04:44:35.0885676Z #14 [stage-0  9/10] RUN echo "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a  /tmp/workbench-requirements.lock" | sha256sum --check --strict     && python -m pip install --no-cache-dir --require-hashes -r /tmp/workbench-requirements.lock     && rm /tmp/workbench-requirements.lock
+2026-11-14T04:44:35.0887430Z #14 CACHED
+2026-11-14T04:44:35.0887641Z 
+2026-11-14T04:44:35.0893441Z #15 [stage-0  4/10] RUN --mount=type=cache,id=protocol-emulator-verible-v0.0-4296,target=/var/cache/verible     (test -f "/var/cache/verible/verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz"         || curl --fail --location --show-error             "https://github.com/chipsalliance/verible/releases/download/v0.0-4296-g0f262651/verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz"             --output "/var/cache/verible/verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz")     && echo "8569defb891d2316067613ea00442af28a7a09d405d95b54c0c91f9942d26635  /var/cache/verible/verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz" | sha256sum --check --strict     && mkdir -p /opt/verible     && tar -xzf "/var/cache/verible/verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz" --strip-components=1 -C /opt/verible     && chmod -R a+rX /opt/verible     && test -x /opt/verible/bin/verible-verilog-lint
+2026-11-14T04:44:35.0899443Z #15 CACHED
+2026-11-14T04:44:35.0899656Z 
+2026-11-14T04:44:35.0899939Z #16 [stage-0  6/10] COPY vvp-system-python /usr/local/bin/vvp
+2026-11-14T04:44:35.0900498Z #16 CACHED
+2026-11-14T04:44:35.0900689Z 
+2026-11-14T04:44:35.0905148Z #17 [stage-0  3/10] RUN --mount=type=cache,id=protocol-emulator-oss-cad-2026-07-29,target=/var/cache/oss-cad     (test -f "/var/cache/oss-cad/oss-cad-suite-linux-x64-20260729.tgz"         || curl --fail --location --show-error             "https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-07-29/oss-cad-suite-linux-x64-20260729.tgz"             --output "/var/cache/oss-cad/oss-cad-suite-linux-x64-20260729.tgz")     && echo "89ea1152ea84bc600f18cc685f721d534d1f018e09831662787865a3d79ce4aa  /var/cache/oss-cad/oss-cad-suite-linux-x64-20260729.tgz" | sha256sum --check --strict     && tar -xzf "/var/cache/oss-cad/oss-cad-suite-linux-x64-20260729.tgz" -C /opt     && test -x /opt/oss-cad-suite/bin/yosys     && test -x /opt/oss-cad-suite/bin/sby
+2026-11-14T04:44:35.0910136Z #17 CACHED
+2026-11-14T04:44:35.0910342Z 
+2026-11-14T04:44:35.0910632Z #18 [stage-0  5/10] COPY iverilog-suite /usr/local/bin/iverilog
+2026-11-14T04:44:35.0911241Z #18 CACHED
+2026-11-14T04:44:35.0911441Z 
+2026-11-14T04:44:35.0911619Z #19 [stage-0 10/10] WORKDIR /workspace
+2026-11-14T04:44:35.1012060Z #19 CACHED
+2026-11-14T04:44:35.2625317Z 
+2026-11-14T04:44:35.2625668Z #20 exporting to docker image format
+2026-11-14T04:44:35.2626359Z #20 exporting layers done
+2026-11-14T04:44:35.2626956Z #20 exporting manifest sha256:3ea336a38d6cffd5b6bd0a92e73b7de9ebb3d8d1a5ba5cc1c2a5e7cd363a4a3f done
+2026-11-14T04:44:35.2627672Z #20 exporting config sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a done
+2026-11-14T04:44:40.5668572Z #20 ...
+2026-11-14T04:44:40.5668816Z 
+2026-11-14T04:44:40.5668982Z #19 [stage-0 10/10] WORKDIR /workspace
+2026-11-14T04:44:40.5669666Z #19 sha256:e8caed3e96293872412699619707bf5138b1dba83c5a387e54af803cc170163b 99B / 99B 0.2s done
+2026-11-14T04:44:40.5670413Z #19 sha256:cb3f2f1d9c26ce778add530876baa64137130c694167dad4880d00480e96d764 18.04MB / 18.04MB 1.1s done
+2026-11-14T04:44:40.5671157Z #19 sha256:f57cecf87087697ab89776daeb60b1b2b2149c876d4aa69ae6765ae7ad66a470 249B / 249B 0.2s done
+2026-11-14T04:44:40.5671882Z #19 sha256:bf6e0c8d711eef42d4b7dcf48a68530de5a834d47d819a1d6693a0a14764be8a 4.52kB / 4.52kB 0.2s done
+2026-11-14T04:44:40.5672633Z #19 sha256:a39a1252660617168f3753092e3a1eea5c3ad3b16fd43d9167c843a05f1d04c6 116.52MB / 116.52MB 2.5s done
+2026-11-14T04:44:40.5673751Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 109.05MB / 741.88MB 5.1s
+2026-11-14T04:44:40.5674454Z #19 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.2s done
+2026-11-14T04:44:40.5675189Z #19 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 28.24MB / 28.24MB 1.0s done
+2026-11-14T04:44:40.5676247Z #19 sha256:353d3800ebc8cef9ad71c391faad58b2eab46b715b1cdd90e54c6535d5d0e8a3 233B / 233B 0.2s done
+2026-11-14T04:44:40.5677622Z #19 sha256:1a251a3ff58a2ff436c2eefcb72f6d53152dea151d3a9f89524e002ef55964ba 13.65MB / 13.65MB 0.9s done
+2026-11-14T04:44:40.5678654Z #19 sha256:246ac8b7cadc4ee7c220a2d4e02a37a296797f40648480115ae41e083aa60b6e 3.53MB / 3.53MB 0.5s done
+2026-11-14T04:44:40.5679465Z #19 sha256:e4fb6c8b478b7c2bb697968b95bbdf6fd7d87f81e599c8ad6513a633872cc899 403B / 403B 0.2s done
+2026-11-14T04:44:40.5680680Z #19 sha256:dc22b8c341d91e21b901b9eb1e414c18b487f4de1a165c539ecb32bb590acbd4 16.02MB / 16.02MB 0.9s done
+2026-11-14T04:44:42.0664790Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 148.90MB / 741.88MB 6.8s
+2026-11-14T04:44:43.7162631Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 187.70MB / 741.88MB 8.4s
+2026-11-14T04:44:45.3664482Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 226.49MB / 741.88MB 10.1s
+2026-11-14T04:44:47.0171697Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 265.29MB / 741.88MB 11.7s
+2026-11-14T04:44:48.6668061Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 304.09MB / 741.88MB 13.4s
+2026-11-14T04:44:50.3168596Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 342.88MB / 741.88MB 15.0s
+2026-11-14T04:44:51.9669496Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 380.63MB / 741.88MB 16.7s
+2026-11-14T04:44:53.6164248Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 419.43MB / 741.88MB 18.3s
+2026-11-14T04:44:55.2666977Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 457.18MB / 741.88MB 20.0s
+2026-11-14T04:44:56.9169695Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 495.98MB / 741.88MB 21.6s
+2026-11-14T04:44:58.5668826Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 533.73MB / 741.88MB 23.3s
+2026-11-14T04:45:00.3664331Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 571.47MB / 741.88MB 25.1s
+2026-11-14T04:45:02.1662489Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 612.37MB / 741.88MB 26.9s
+2026-11-14T04:45:03.8164181Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 651.17MB / 741.88MB 28.5s
+2026-11-14T04:45:05.4670823Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 691.01MB / 741.88MB 30.2s
+2026-11-14T04:45:07.1168830Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 729.81MB / 741.88MB 31.8s
+2026-11-14T04:45:09.2973067Z #19 sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7 741.88MB / 741.88MB 33.8s done
+2026-11-14T04:45:09.2974542Z #19 DONE 34.2s
+2026-11-14T04:45:09.2974819Z 
+2026-11-14T04:45:09.2982518Z #20 exporting to docker image format
+2026-11-14T04:45:09.2983154Z #20 sending tarball
+2026-11-14T04:45:14.6451103Z #20 ...
+2026-11-14T04:45:14.6451374Z 
+2026-11-14T04:45:14.6451551Z #21 importing to docker
+2026-11-14T04:45:14.6452018Z #21 loading layer 34467cc93912 294.91kB / 28.24MB
+2026-11-14T04:45:14.6452794Z #21 loading layer b3445de4503d 65.54kB / 3.53MB
+2026-11-14T04:45:16.2822821Z #21 loading layer 546c86e4df2d 163.84kB / 16.02MB
+2026-11-14T04:45:17.0478967Z #21 loading layer 6b6ff8eb9da6 249B / 249B
+2026-11-14T04:45:17.2255708Z #21 loading layer 66ea3669bfe9 557.06kB / 116.52MB
+2026-11-14T04:45:19.1877912Z #21 loading layer 66ea3669bfe9 111.41MB / 116.52MB 2.1s
+2026-11-14T04:45:20.4546626Z #21 loading layer 97720139fbe4 557.06kB / 741.88MB
+2026-11-14T04:45:22.4871575Z #21 loading layer 97720139fbe4 152.63MB / 741.88MB 2.0s
+2026-11-14T04:45:24.6261065Z #21 loading layer 97720139fbe4 216.69MB / 741.88MB 4.2s
+2026-11-14T04:45:26.6547004Z #21 loading layer 97720139fbe4 262.37MB / 741.88MB 6.2s
+2026-11-14T04:45:28.7029760Z #21 loading layer 97720139fbe4 309.72MB / 741.88MB 8.2s
+2026-11-14T04:45:30.7693579Z #21 loading layer 97720139fbe4 484.64MB / 741.88MB 10.3s
+2026-11-14T04:45:32.8434135Z #21 loading layer 97720139fbe4 645.07MB / 741.88MB 12.4s
+2026-11-14T04:45:34.8735228Z #21 loading layer 97720139fbe4 729.74MB / 741.88MB 14.4s
+2026-11-14T04:45:38.8964092Z #21 loading layer fb5cfbbdf7fa 196.61kB / 18.04MB
+2026-11-14T04:45:39.1280962Z #21 loading layer 120fd5bd67fd 233B / 233B
+2026-11-14T04:45:39.3118285Z #21 loading layer 0406ff5ea515 403B / 403B
+2026-11-14T04:45:39.3118965Z #21 loading layer 5f70bf18a086 32B / 32B
+2026-11-14T04:45:39.3119474Z #21 loading layer c9389c6c26f0 4.52kB / 4.52kB
+2026-11-14T04:45:39.3120336Z #21 loading layer da40af7198fd 163.84kB / 13.65MB
+2026-11-14T04:45:39.7865617Z #21 loading layer 4c0794e968eb 99B / 99B
+2026-11-14T04:45:39.8977018Z #21 loading layer 34467cc93912 28.24MB / 28.24MB 26.2s done
+2026-11-14T04:45:39.8978172Z #21 loading layer b3445de4503d 3.53MB / 3.53MB 25.2s done
+2026-11-14T04:45:39.8979159Z #21 loading layer 546c86e4df2d 16.02MB / 16.02MB 23.6s done
+2026-11-14T04:45:39.8980047Z #21 loading layer 6b6ff8eb9da6 249B / 249B 22.8s done
+2026-11-14T04:45:39.8980899Z #21 loading layer 66ea3669bfe9 116.52MB / 116.52MB 22.8s done
+2026-11-14T04:45:39.8981777Z #21 loading layer 97720139fbe4 741.88MB / 741.88MB 19.4s done
+2026-11-14T04:45:39.8982630Z #21 loading layer fb5cfbbdf7fa 18.04MB / 18.04MB 1.0s done
+2026-11-14T04:45:39.8983450Z #21 loading layer 120fd5bd67fd 233B / 233B 0.7s done
+2026-11-14T04:45:39.8984231Z #21 loading layer 0406ff5ea515 403B / 403B 0.7s done
+2026-11-14T04:45:39.8984992Z #21 loading layer 5f70bf18a086 32B / 32B 0.7s done
+2026-11-14T04:45:39.8985809Z #21 loading layer c9389c6c26f0 4.52kB / 4.52kB 0.7s done
+2026-11-14T04:45:39.8986880Z #21 loading layer da40af7198fd 13.65MB / 13.65MB 0.7s done
+2026-11-14T04:45:39.8987694Z #21 loading layer 4c0794e968eb 99B / 99B 0.1s done
+2026-11-14T04:45:39.8988405Z #21 DONE 26.2s
+2026-11-14T04:45:39.8988805Z 
+2026-11-14T04:45:39.8989176Z #20 exporting to docker image format
+2026-11-14T04:45:39.8989869Z #20 sending tarball 30.7s done
+2026-11-14T04:45:39.8990487Z #20 DONE 64.8s
+2026-11-14T04:45:39.8990886Z 
+2026-11-14T04:45:39.8991244Z #22 exporting to GitHub Actions Cache
+2026-11-14T04:45:39.8992007Z #22 preparing build cache for export 0.0s done
+2026-11-14T04:45:39.8992761Z #22 sending cache export
+2026-11-14T04:45:41.1653468Z #22 sending cache export 1.3s done
+2026-11-14T04:45:41.1654359Z #22 DONE 1.3s
+2026-11-14T04:45:41.1862428Z 
+2026-11-14T04:45:41.1862876Z #23 resolving provenance for metadata file
+2026-11-14T04:45:41.1863524Z #23 DONE 0.0s
+2026-11-14T04:45:41.1966244Z ##[group]ImageID
+2026-11-14T04:45:41.1966929Z sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a
+2026-11-14T04:45:41.1968186Z ##[endgroup]
+2026-11-14T04:45:41.1968866Z ##[group]Digest
+2026-11-14T04:45:41.1969463Z sha256:3ea336a38d6cffd5b6bd0a92e73b7de9ebb3d8d1a5ba5cc1c2a5e7cd363a4a3f
+2026-11-14T04:45:41.1970450Z ##[endgroup]
+2026-11-14T04:45:41.1971061Z ##[group]Metadata
+2026-11-14T04:45:41.1978617Z ::stop-commands::***
+2026-11-14T04:45:41.1979055Z {
+2026-11-14T04:45:41.1979414Z   "buildx.build.provenance": {
+2026-11-14T04:45:41.1979867Z     "builder": {
+2026-11-14T04:45:41.1980202Z       "id": ""
+2026-11-14T04:45:41.1980533Z     },
+2026-11-14T04:45:41.1980991Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2026-11-14T04:45:41.1981623Z     "materials": [
+2026-11-14T04:45:41.1982045Z       {
+2026-11-14T04:45:41.1982471Z         "uri": "pkg:docker/docker/dockerfile@1",
+2026-11-14T04:45:41.1982997Z         "digest": {
+2026-11-14T04:45:41.1983652Z           "sha256": "4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e"
+2026-11-14T04:45:41.1984699Z         }
+2026-11-14T04:45:41.1984989Z       },
+2026-11-14T04:45:41.1985276Z       {
+2026-11-14T04:45:41.1986610Z         "uri": "pkg:docker/python?digest=sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b&platform=linux%2Famd64",
+2026-11-14T04:45:41.1987675Z         "digest": {
+2026-11-14T04:45:41.1988298Z           "sha256": "a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b"
+2026-11-14T04:45:41.1988991Z         }
+2026-11-14T04:45:41.1989326Z       }
+2026-11-14T04:45:41.1989608Z     ],
+2026-11-14T04:45:41.1989895Z     "invocation": {
+2026-11-14T04:45:41.1990227Z       "configSource": {
+2026-11-14T04:45:41.1990593Z         "entryPoint": "Dockerfile"
+2026-11-14T04:45:41.1990996Z       },
+2026-11-14T04:45:41.1991345Z       "parameters": {
+2026-11-14T04:45:41.1991750Z         "frontend": "gateway.v0",
+2026-11-14T04:45:41.1992187Z         "args": {
+2026-11-14T04:45:41.1992540Z           "cmdline": "docker/dockerfile:1",
+2026-11-14T04:45:41.1993690Z           "label:org.opencontainers.image.description": "Pinned digital verification tools; not the CMOS5L tapeout flow.",
+2026-11-14T04:45:41.1994972Z           "label:org.opencontainers.image.revision": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.1996345Z           "label:org.opencontainers.image.version": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.1997205Z           "source": "docker/dockerfile:1"
+2026-11-14T04:45:41.1997690Z         },
+2026-11-14T04:45:41.1997993Z         "locals": [
+2026-11-14T04:45:41.1998363Z           {
+2026-11-14T04:45:41.1998713Z             "name": "context"
+2026-11-14T04:45:41.1999120Z           },
+2026-11-14T04:45:41.1999428Z           {
+2026-11-14T04:45:41.1999776Z             "name": "dockerfile"
+2026-11-14T04:45:41.2000154Z           }
+2026-11-14T04:45:41.2000476Z         ],
+2026-11-14T04:45:41.2000797Z         "root": {
+2026-11-14T04:45:41.2001149Z           "configSource": {
+2026-11-14T04:45:41.2001609Z             "path": "Dockerfile"
+2026-11-14T04:45:41.2002085Z           },
+2026-11-14T04:45:41.2002439Z           "request": {
+2026-11-14T04:45:41.2002783Z             "args": {
+2026-11-14T04:45:41.2003613Z               "label:org.opencontainers.image.description": "Pinned digital verification tools; not the CMOS5L tapeout flow.",
+2026-11-14T04:45:41.2004910Z               "label:org.opencontainers.image.revision": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.2006503Z               "label:org.opencontainers.image.version": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.2007453Z               "vcs:localdir:context": "tools/workbench",
+2026-11-14T04:45:41.2008143Z               "vcs:localdir:dockerfile": "tools/workbench",
+2026-11-14T04:45:41.2008902Z               "vcs:revision": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.2009776Z               "vcs:source": "https://github.com/KG-khangelani/protocol-emulator-asic"
+2026-11-14T04:45:41.2010517Z             }
+2026-11-14T04:45:41.2010836Z           }
+2026-11-14T04:45:41.2011184Z         },
+2026-11-14T04:45:41.2011554Z         "compatibilityVersion": 30
+2026-11-14T04:45:41.2012009Z       },
+2026-11-14T04:45:41.2012325Z       "environment": {
+2026-11-14T04:45:41.2012749Z         "github_actor": "KG-khangelani",
+2026-11-14T04:45:41.2013291Z         "github_actor_id": "62054578",
+2026-11-14T04:45:41.2013783Z         "github_event_name": "push",
+2026-11-14T04:45:41.2014269Z         "github_event_payload": {
+2026-11-14T04:45:41.2014801Z           "after": "6a17158d6ed11523895ff3a6d9a35aeddb480ba1",
+2026-11-14T04:45:41.2015371Z           "base_ref": null,
+2026-11-14T04:45:41.2015855Z           "before": "0000000000000000000000000000000000000000",
+2026-11-14T04:45:41.2016622Z           "commits": [],
+2026-11-14T04:45:41.2017363Z           "compare": "https://github.com/KG-khangelani/protocol-emulator-asic/compare/v0.1.0",
+2026-11-14T04:45:41.2018192Z           "created": true,
+2026-11-14T04:45:41.2018618Z           "deleted": false,
+2026-11-14T04:45:41.2019055Z           "forced": false,
+2026-11-14T04:45:41.2019745Z           "head_commit": {
+2026-11-14T04:45:41.2020156Z             "author": {
+2026-11-14T04:45:41.2020571Z               "email": "mgoqik@pm.me",
+2026-11-14T04:45:41.2021121Z               "name": "kaygizzle",
+2026-11-14T04:45:41.2021691Z               "username": "KG-khangelani"
+2026-11-14T04:45:41.2022233Z             },
+2026-11-14T04:45:41.2022653Z             "committer": {
+2026-11-14T04:45:41.2023150Z               "email": "mgoqik@pm.me",
+2026-11-14T04:45:41.2023617Z               "name": "kaygizzle",
+2026-11-14T04:45:41.2024087Z               "username": "KG-khangelani"
+2026-11-14T04:45:41.2024556Z             },
+2026-11-14T04:45:41.2024924Z             "distinct": true,
+2026-11-14T04:45:41.2025425Z             "id": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.2026436Z             "message": "fix(g4): make release checksum ordering identical across platforms",
+2026-11-14T04:45:41.2027461Z             "timestamp": "2026-11-14T06:39:50+02:00",
+2026-11-14T04:45:41.2028157Z             "tree_id": "8982953de67cb81dffed1878b2ee33e4474daf80",
+2026-11-14T04:45:41.2029277Z             "url": "https://github.com/KG-khangelani/protocol-emulator-asic/commit/5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+2026-11-14T04:45:41.2030270Z           },
+2026-11-14T04:45:41.2030630Z           "pusher": {
+2026-11-14T04:45:41.2031162Z             "email": "62054578+KG-khangelani@users.noreply.github.com",
+2026-11-14T04:45:41.2031840Z             "name": "KG-khangelani"
+2026-11-14T04:45:41.2032290Z           },
+2026-11-14T04:45:41.2032657Z           "ref": "refs/tags/v0.1.0",
+2026-11-14T04:45:41.2033132Z           "repository": {
+2026-11-14T04:45:41.2033578Z             "allow_forking": true,
+2026-11-14T04:45:41.2034502Z             "archive_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/{archive_format}{/ref}",
+2026-11-14T04:45:41.2035457Z             "archived": false,
+2026-11-14T04:45:41.2036551Z             "assignees_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/assignees{/user}",
+2026-11-14T04:45:41.2037915Z             "blobs_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/blobs{/sha}",
+2026-11-14T04:45:41.2039302Z             "branches_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/branches{/branch}",
+2026-11-14T04:45:41.2040511Z             "clone_url": "https://github.com/KG-khangelani/protocol-emulator-asic.git",
+2026-11-14T04:45:41.2041835Z             "collaborators_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/collaborators{/collaborator}",
+2026-11-14T04:45:41.2043364Z             "comments_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/comments{/number}",
+2026-11-14T04:45:41.2044653Z             "commits_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/commits{/sha}",
+2026-11-14T04:45:41.2046238Z             "compare_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/compare/{base}...{head}",
+2026-11-14T04:45:41.2047642Z             "contents_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/contents/{+path}",
+2026-11-14T04:45:41.2048997Z             "contributors_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/contributors",
+2026-11-14T04:45:41.2049942Z             "created_at": 1790116237,
+2026-11-14T04:45:41.2050433Z             "default_branch": "main",
+2026-11-14T04:45:41.2051372Z             "deployments_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/deployments",
+2026-11-14T04:45:41.2052827Z             "description": "Programmable protocol-emulation ASIC research and build project for the Jane Street competition.",
+2026-11-14T04:45:41.2053896Z             "disabled": false,
+2026-11-14T04:45:41.2054757Z             "downloads_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/downloads",
+2026-11-14T04:45:41.2056275Z             "events_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/events",
+2026-11-14T04:45:41.2057529Z             "fork": false,
+2026-11-14T04:45:41.2057954Z             "forks": 0,
+2026-11-14T04:45:41.2058334Z             "forks_count": 0,
+2026-11-14T04:45:41.2059092Z             "forks_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/forks",
+2026-11-14T04:45:41.2059994Z             "full_name": "KG-khangelani/protocol-emulator-asic",
+2026-11-14T04:45:41.2061009Z             "git_commits_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/commits{/sha}",
+2026-11-14T04:45:41.2062371Z             "git_refs_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/refs{/sha}",
+2026-11-14T04:45:41.2063791Z             "git_tags_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/tags{/sha}",
+2026-11-14T04:45:41.2064937Z             "git_url": "git://github.com/KG-khangelani/protocol-emulator-asic.git",
+2026-11-14T04:45:41.2065828Z             "has_discussions": false,
+2026-11-14T04:45:41.2066573Z             "has_downloads": true,
+2026-11-14T04:45:41.2066990Z             "has_issues": true,
+2026-11-14T04:45:41.2067377Z             "has_pages": false,
+2026-11-14T04:45:41.2067771Z             "has_projects": true,
+2026-11-14T04:45:41.2068198Z             "has_pull_requests": true,
+2026-11-14T04:45:41.2068625Z             "has_wiki": true,
+2026-11-14T04:45:41.2069009Z             "homepage": null,
+2026-11-14T04:45:41.2069687Z             "hooks_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/hooks",
+2026-11-14T04:45:41.2070614Z             "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic",
+2026-11-14T04:45:41.2071238Z             "id": 1382425950,
+2026-11-14T04:45:41.2071619Z             "is_template": false,
+2026-11-14T04:45:41.2072484Z             "issue_comment_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/issues/comments{/number}",
+2026-11-14T04:45:41.2073823Z             "issue_events_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/issues/events{/number}",
+2026-11-14T04:45:41.2075056Z             "issues_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/issues{/number}",
+2026-11-14T04:45:41.2076324Z             "keys_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/keys{/key_id}",
+2026-11-14T04:45:41.2077411Z             "labels_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/labels{/name}",
+2026-11-14T04:45:41.2078246Z             "language": "Verilog",
+2026-11-14T04:45:41.2078977Z             "languages_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/languages",
+2026-11-14T04:45:41.2079779Z             "license": {
+2026-11-14T04:45:41.2080157Z               "key": "apache-2.0",
+2026-11-14T04:45:41.2080541Z               "name": "Apache License 2.0",
+2026-11-14T04:45:41.2081008Z               "node_id": "MDc6TGljZW5zZTI=",
+2026-11-14T04:45:41.2081483Z               "spdx_id": "Apache-2.0",
+2026-11-14T04:45:41.2082053Z               "url": "https://api.github.com/licenses/apache-2.0"
+2026-11-14T04:45:41.2082566Z             },
+2026-11-14T04:45:41.2082895Z             "master_branch": "main",
+2026-11-14T04:45:41.2083593Z             "merges_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/merges",
+2026-11-14T04:45:41.2084752Z             "milestones_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/milestones{/number}",
+2026-11-14T04:45:41.2085800Z             "mirror_url": null,
+2026-11-14T04:45:41.2086512Z             "name": "protocol-emulator-asic",
+2026-11-14T04:45:41.2087070Z             "node_id": "R_kgDOUmYlXg",
+2026-11-14T04:45:41.2088145Z             "notifications_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/notifications{?since,all,participating}",
+2026-11-14T04:45:41.2089177Z             "open_issues": 1,
+2026-11-14T04:45:41.2089602Z             "open_issues_count": 1,
+2026-11-14T04:45:41.2090252Z             "owner": {
+2026-11-14T04:45:41.2090835Z               "avatar_url": "https://avatars.githubusercontent.com/u/62054578?v=4",
+2026-11-14T04:45:41.2091651Z               "email": "62054578+KG-khangelani@users.noreply.github.com",
+2026-11-14T04:45:41.2092503Z               "events_url": "https://api.github.com/users/KG-khangelani/events{/privacy}",
+2026-11-14T04:45:41.2093433Z               "followers_url": "https://api.github.com/users/KG-khangelani/followers",
+2026-11-14T04:45:41.2094414Z               "following_url": "https://api.github.com/users/KG-khangelani/following{/other_user}",
+2026-11-14T04:45:41.2095401Z               "gists_url": "https://api.github.com/users/KG-khangelani/gists{/gist_id}",
+2026-11-14T04:45:41.2096314Z               "gravatar_id": "",
+2026-11-14T04:45:41.2096823Z               "html_url": "https://github.com/KG-khangelani",
+2026-11-14T04:45:41.2097366Z               "id": 62054578,
+2026-11-14T04:45:41.2097939Z               "login": "KG-khangelani",
+2026-11-14T04:45:41.2098415Z               "name": "KG-khangelani",
+2026-11-14T04:45:41.2098913Z               "node_id": "MDQ6VXNlcjYyMDU0NTc4",
+2026-11-14T04:45:41.2099620Z               "organizations_url": "https://api.github.com/users/KG-khangelani/orgs",
+2026-11-14T04:45:41.2100598Z               "received_events_url": "https://api.github.com/users/KG-khangelani/received_events",
+2026-11-14T04:45:41.2101529Z               "repos_url": "https://api.github.com/users/KG-khangelani/repos",
+2026-11-14T04:45:41.2102177Z               "site_admin": false,
+2026-11-14T04:45:41.2102891Z               "starred_url": "https://api.github.com/users/KG-khangelani/starred{/owner}{/repo}",
+2026-11-14T04:45:41.2103927Z               "subscriptions_url": "https://api.github.com/users/KG-khangelani/subscriptions",
+2026-11-14T04:45:41.2104676Z               "type": "User",
+2026-11-14T04:45:41.2105178Z               "url": "https://api.github.com/users/KG-khangelani",
+2026-11-14T04:45:41.2105770Z               "user_view_type": "public"
+2026-11-14T04:45:41.2106403Z             },
+2026-11-14T04:45:41.2106752Z             "private": false,
+2026-11-14T04:45:41.2107205Z             "pull_request_creation_policy": "all",
+2026-11-14T04:45:41.2108057Z             "pulls_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/pulls{/number}",
+2026-11-14T04:45:41.2108914Z             "pushed_at": 1794631442,
+2026-11-14T04:45:41.2109718Z             "releases_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/releases{/id}",
+2026-11-14T04:45:41.2110571Z             "size": 532863,
+2026-11-14T04:45:41.2111154Z             "ssh_url": "git@github.com:KG-khangelani/protocol-emulator-asic.git",
+2026-11-14T04:45:41.2111804Z             "stargazers": 0,
+2026-11-14T04:45:41.2112207Z             "stargazers_count": 0,
+2026-11-14T04:45:41.2112990Z             "stargazers_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/stargazers",
+2026-11-14T04:45:41.2114185Z             "statuses_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/statuses/{sha}",
+2026-11-14T04:45:41.2115393Z             "subscribers_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/subscribers",
+2026-11-14T04:45:41.2116837Z             "subscription_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/subscription",
+2026-11-14T04:45:41.2117888Z             "svn_url": "https://github.com/KG-khangelani/protocol-emulator-asic",
+2026-11-14T04:45:41.2118828Z             "tags_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/tags",
+2026-11-14T04:45:41.2119834Z             "teams_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/teams",
+2026-11-14T04:45:41.2120579Z             "topics": [],
+2026-11-14T04:45:41.2121312Z             "trees_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/trees{/sha}",
+2026-11-14T04:45:41.2122144Z             "updated_at": "2026-11-12T16:51:36Z",
+2026-11-14T04:45:41.2123047Z             "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic",
+2026-11-14T04:45:41.2123747Z             "visibility": "public",
+2026-11-14T04:45:41.2124177Z             "watchers": 0,
+2026-11-14T04:45:41.2124576Z             "watchers_count": 0,
+2026-11-14T04:45:41.2125036Z             "web_commit_signoff_required": false
+2026-11-14T04:45:41.2125514Z           },
+2026-11-14T04:45:41.2125825Z           "sender": {
+2026-11-14T04:45:41.2126628Z             "avatar_url": "https://avatars.githubusercontent.com/u/62054578?v=4",
+2026-11-14T04:45:41.2127509Z             "events_url": "https://api.github.com/users/KG-khangelani/events{/privacy}",
+2026-11-14T04:45:41.2128497Z             "followers_url": "https://api.github.com/users/KG-khangelani/followers",
+2026-11-14T04:45:41.2129452Z             "following_url": "https://api.github.com/users/KG-khangelani/following{/other_user}",
+2026-11-14T04:45:41.2130586Z             "gists_url": "https://api.github.com/users/KG-khangelani/gists{/gist_id}",
+2026-11-14T04:45:41.2131280Z             "gravatar_id": "",
+2026-11-14T04:45:41.2131780Z             "html_url": "https://github.com/KG-khangelani",
+2026-11-14T04:45:41.2132323Z             "id": 62054578,
+2026-11-14T04:45:41.2132725Z             "login": "KG-khangelani",
+2026-11-14T04:45:41.2133200Z             "node_id": "MDQ6VXNlcjYyMDU0NTc4",
+2026-11-14T04:45:41.2133906Z             "organizations_url": "https://api.github.com/users/KG-khangelani/orgs",
+2026-11-14T04:45:41.2134910Z             "received_events_url": "https://api.github.com/users/KG-khangelani/received_events",
+2026-11-14T04:45:41.2135825Z             "repos_url": "https://api.github.com/users/KG-khangelani/repos",
+2026-11-14T04:45:41.2136635Z             "site_admin": false,
+2026-11-14T04:45:41.2137333Z             "starred_url": "https://api.github.com/users/KG-khangelani/starred{/owner}{/repo}",
+2026-11-14T04:45:41.2138355Z             "subscriptions_url": "https://api.github.com/users/KG-khangelani/subscriptions",
+2026-11-14T04:45:41.2139095Z             "type": "User",
+2026-11-14T04:45:41.2139592Z             "url": "https://api.github.com/users/KG-khangelani",
+2026-11-14T04:45:41.2140165Z             "user_view_type": "public"
+2026-11-14T04:45:41.2140595Z           }
+2026-11-14T04:45:41.2140901Z         },
+2026-11-14T04:45:41.2141235Z         "github_job": "workbench",
+2026-11-14T04:45:41.2141682Z         "github_ref": "refs/tags/v0.1.0",
+2026-11-14T04:45:41.2142144Z         "github_ref_name": "v0.1.0",
+2026-11-14T04:45:41.2142568Z         "github_ref_protected": "false",
+2026-11-14T04:45:41.2143030Z         "github_ref_type": "tag",
+2026-11-14T04:45:41.2143601Z         "github_repository": "KG-khangelani/protocol-emulator-asic",
+2026-11-14T04:45:41.2144239Z         "github_repository_id": "1382425950",
+2026-11-14T04:45:41.2144768Z         "github_repository_owner": "KG-khangelani",
+2026-11-14T04:45:41.2145322Z         "github_repository_owner_id": "62054578",
+2026-11-14T04:45:41.2145837Z         "github_run_attempt": "1",
+2026-11-14T04:45:41.2146460Z         "github_run_id": "43558100168",
+2026-11-14T04:45:41.2146939Z         "github_run_number": "17",
+2026-11-14T04:45:41.2147380Z         "github_runner_arch": "X64",
+2026-11-14T04:45:41.2147894Z         "github_runner_environment": "github-hosted",
+2026-11-14T04:45:41.2148442Z         "github_runner_image_os": "ubuntu24",
+2026-11-14T04:45:41.2149010Z         "github_runner_image_version": "20261111.370.1",
+2026-11-14T04:45:41.2149433Z         "github_runner_name": "GitHub Actions 1000002415",
+2026-11-14T04:45:41.2149953Z         "github_runner_os": "Linux",
+2026-11-14T04:45:41.2150569Z         "github_runner_tracking_id": "github_21c9e5f7-f9fb-4146-9777-e3c59cb1e544",
+2026-11-14T04:45:41.2151020Z         "github_server_url": "https://github.com",
+2026-11-14T04:45:41.2151360Z         "github_triggering_actor": "KG-khangelani",
+2026-11-14T04:45:41.2151664Z         "github_workflow": "publish",
+2026-11-14T04:45:41.2152203Z         "github_workflow_ref": "KG-khangelani/protocol-emulator-asic/.github/workflows/publish.yaml@refs/tags/v0.1.0",
+2026-11-14T04:45:41.2153015Z         "github_workflow_sha": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+2026-11-14T04:45:41.2153387Z         "platform": "linux/amd64"
+2026-11-14T04:45:41.2153628Z       }
+2026-11-14T04:45:41.2153808Z     }
+2026-11-14T04:45:41.2153977Z   },
+2026-11-14T04:45:41.2154532Z   "buildx.build.ref": "builder-cf579204-4fb3-4f39-bbbf-b78310c55310/builder-cf579204-4fb3-4f39-bbbf-b78310c553100/r1uwdq6k8v8fbd6z0qq2l94b3",
+2026-11-14T04:45:41.2155414Z   "containerimage.config.digest": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+2026-11-14T04:45:41.2156223Z   "containerimage.descriptor": {
+2026-11-14T04:45:41.2156590Z     "mediaType": "application/vnd.oci.image.manifest.v1+json",
+2026-11-14T04:45:41.2157102Z     "digest": "sha256:3ea336a38d6cffd5b6bd0a92e73b7de9ebb3d8d1a5ba5cc1c2a5e7cd363a4a3f",
+2026-11-14T04:45:41.2157535Z     "size": 2769,
+2026-11-14T04:45:41.2157877Z     "annotations": {
+2026-11-14T04:45:41.2158182Z       "org.opencontainers.image.created": "2026-11-14T04:44:35Z"
+2026-11-14T04:45:41.2158515Z     },
+2026-11-14T04:45:41.2158699Z     "platform": {
+2026-11-14T04:45:41.2158920Z       "architecture": "amd64",
+2026-11-14T04:45:41.2159155Z       "os": "linux"
+2026-11-14T04:45:41.2159343Z     }
+2026-11-14T04:45:41.2159514Z   },
+2026-11-14T04:45:41.2159915Z   "containerimage.digest": "sha256:3ea336a38d6cffd5b6bd0a92e73b7de9ebb3d8d1a5ba5cc1c2a5e7cd363a4a3f",
+2026-11-14T04:45:41.2160556Z   "image.name": "docker.io/library/protocol-emulator-asic-workbench:2026-07-29"
+2026-11-14T04:45:41.2160968Z }
+2026-11-14T04:45:41.2161443Z ::***::
+2026-11-14T04:45:41.2161816Z ##[endgroup]
+2026-11-14T04:45:41.2162154Z ##[group]Reference
+2026-11-14T04:45:41.2162660Z builder-cf579204-4fb3-4f39-bbbf-b78310c55310/builder-cf579204-4fb3-4f39-bbbf-b78310c553100/r1uwdq6k8v8fbd6z0qq2l94b3
+2026-11-14T04:45:41.2163348Z ##[endgroup]
+2026-11-14T04:45:41.2163693Z ##[group]Check build summary support
+2026-11-14T04:45:41.2164112Z Build summary supported!
+2026-11-14T04:45:41.2164471Z ##[endgroup]
+2026-11-14T04:45:41.2197156Z ##[group]Run ./tools/workbench.sh All
+2026-11-14T04:45:41.2197536Z [36;1m./tools/workbench.sh All[0m
+2026-11-14T04:45:41.2217289Z shell: /usr/bin/bash -e {0}
+2026-11-14T04:45:41.2217558Z env:
+2026-11-14T04:45:41.2219888Z   GH_TOKEN: ***
+2026-11-14T04:45:41.2220217Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T04:45:41.2220654Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T04:45:41.2220999Z ##[endgroup]
+2026-11-14T04:45:41.4279058Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" doctor
+2026-11-14T04:45:42.6020479Z PASS: doctor build/current/runs/20261114T044542050995Z-doctor
+2026-11-14T04:45:42.6103749Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" check
+2026-11-14T04:46:04.7474271Z PASS: check build/current/runs/20261114T044543201273Z-check
+2026-11-14T04:46:04.7559167Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" lint
+2026-11-14T04:46:05.4997643Z PASS: lint build/current/runs/20261114T044605341312Z-lint
+2026-11-14T04:46:05.5084556Z make test-rtl-icarus
+2026-11-14T04:46:05.5097069Z make[1]: Entering directory '/workspace'
+2026-11-14T04:46:05.5498224Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" rtl-icarus
+2026-11-14T05:01:32.5009179Z PASS: rtl-icarus build/current/runs/20261114T044606145415Z-rtl-icarus
+2026-11-14T05:01:32.5108861Z make[1]: Leaving directory '/workspace'
+2026-11-14T05:01:32.5111632Z make test-gl-harness
+2026-11-14T05:01:32.5125581Z make[1]: Entering directory '/workspace'
+2026-11-14T05:01:32.5519392Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" smoke
+2026-11-14T05:01:34.3502109Z PASS: smoke build/current/runs/20261114T050133139558Z-smoke
+2026-11-14T05:01:34.3578664Z make[1]: Leaving directory '/workspace'
+2026-11-14T05:01:34.3581788Z make test-waveform-provenance
+2026-11-14T05:01:34.3596868Z make[1]: Entering directory '/workspace'
+2026-11-14T05:01:34.3989428Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" provenance
+2026-11-14T05:01:35.0666852Z PASS: provenance /workspace/build/current/provenance.json
+2026-11-14T05:01:35.0760754Z make[1]: Leaving directory '/workspace'
+2026-11-14T05:01:35.0762748Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" rtl-verilator
+2026-11-14T05:09:15.4548203Z PASS: rtl-verilator build/current/runs/20261114T050135668736Z-rtl-verilator
+2026-11-14T05:09:15.4638970Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" formal
+2026-11-14T05:13:39.5489948Z PASS: formal build/current/runs/20261114T050916054436Z-formal
+2026-11-14T05:13:39.5587896Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" synth
+2026-11-14T05:13:42.1071259Z PASS: synth build/current/runs/20261114T051340149129Z-synth
+2026-11-14T05:13:42.2081820Z ##[group]Run ./tools/workbench.sh Evidence
+2026-11-14T05:13:42.2082191Z [36;1m./tools/workbench.sh Evidence[0m
+2026-11-14T05:13:42.2102403Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:13:42.2102665Z env:
+2026-11-14T05:13:42.2105082Z   GH_TOKEN: ***
+2026-11-14T05:13:42.2105405Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:13:42.2105851Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:13:42.2106496Z ##[endgroup]
+2026-11-14T05:13:42.4157176Z python3 tools/current_run.py --sources "/workspace/src" --artifacts "/workspace/build/current" evidence
+2026-11-14T05:14:04.4118509Z PASS: check build/current/runs/20261114T051343064249Z-check
+2026-11-14T05:14:04.7462247Z PASS: evidence /workspace/build/current/evidence.json
+2026-11-14T05:14:04.8391017Z ##[group]Run docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+2026-11-14T05:14:04.8391659Z [36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \[0m
+2026-11-14T05:14:04.8392170Z [36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \[0m
+2026-11-14T05:14:04.8392621Z [36;1m  --workdir /workspace "$LOCAL_IMAGE" \[0m
+2026-11-14T05:14:04.8393141Z [36;1m  python3 experiments/spi_phase/run_program_sensitivity.py --output build/release-sensitivity[0m
+2026-11-14T05:14:04.8393731Z [36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \[0m
+2026-11-14T05:14:04.8394230Z [36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \[0m
+2026-11-14T05:14:04.8394647Z [36;1m  --workdir /workspace "$LOCAL_IMAGE" \[0m
+2026-11-14T05:14:04.8395134Z [36;1m  python3 experiments/spi_phase/run_four_mode_screen.py --output build/release-four-mode[0m
+2026-11-14T05:14:04.8395726Z [36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \[0m
+2026-11-14T05:14:04.8396514Z [36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \[0m
+2026-11-14T05:14:04.8396930Z [36;1m  --workdir /workspace "$LOCAL_IMAGE" \[0m
+2026-11-14T05:14:04.8397422Z [36;1m  python3 experiments/spi_phase/run_held_program_proof.py --output build/release-held-proof[0m
+2026-11-14T05:14:04.8398000Z [36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \[0m
+2026-11-14T05:14:04.8398464Z [36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \[0m
+2026-11-14T05:14:04.8398867Z [36;1m  --workdir /workspace "$LOCAL_IMAGE" \[0m
+2026-11-14T05:14:04.8399363Z [36;1m  python3 experiments/spi_phase/run_phase1_capacity.py --output build/release-phase1-capacity[0m
+2026-11-14T05:14:04.8419719Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:14:04.8419984Z env:
+2026-11-14T05:14:04.8422378Z   GH_TOKEN: ***
+2026-11-14T05:14:04.8422705Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:14:04.8423159Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:14:04.8423496Z ##[endgroup]
+2026-11-14T05:14:11.2289109Z baseline EXPECTED_RESULT PASS
+2026-11-14T05:14:14.1157492Z wrong_public_mosi EXPECTED_RESULT FAIL
+2026-11-14T05:14:21.0178082Z missing_first_premise EXPECTED_RESULT FAIL
+2026-11-14T05:14:22.4856009Z icarus PASS
+2026-11-14T05:14:38.8916249Z verilator PASS
+2026-11-14T05:14:38.8936604Z /workspace/build/release-sensitivity
+2026-11-14T05:14:57.2676168Z reference 6176 positive cases and 16 controls PASS
+2026-11-14T05:15:01.6495375Z icarus PASS
+2026-11-14T05:15:19.6134242Z verilator PASS
+2026-11-14T05:15:19.6169626Z /workspace/build/release-four-mode
+2026-11-14T05:15:21.7156776Z 12 finite preflights and independent pin/image checks PASS
+2026-11-14T05:15:29.2574830Z held_baseline EXPECTED_RESULT PASS
+2026-11-14T05:15:32.4965514Z wrong_public_mosi EXPECTED_RESULT FAIL
+2026-11-14T05:15:44.8188040Z missing_first_hold EXPECTED_RESULT FAIL
+2026-11-14T05:15:44.8204798Z /workspace/build/release-held-proof
+2026-11-14T05:16:08.3618187Z Family search: {'1': 9, '3': 10}
+2026-11-14T05:16:17.4252680Z Reference sweep: 3072 PASS
+2026-11-14T05:16:29.1322293Z icarus PASS
+2026-11-14T05:16:51.2654972Z verilator PASS
+2026-11-14T05:16:51.2771481Z /workspace/build/release-phase1-capacity
+2026-11-14T05:16:51.3746839Z ##[group]Run docker run --rm --pull=never --init --user "$(id -u):$(id -g)" \
+2026-11-14T05:16:51.3747458Z [36;1mdocker run --rm --pull=never --init --user "$(id -u):$(id -g)" \[0m
+2026-11-14T05:16:51.3747980Z [36;1m  --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \[0m
+2026-11-14T05:16:51.3748439Z [36;1m  --workdir /workspace "$LOCAL_IMAGE" \[0m
+2026-11-14T05:16:51.3748950Z [36;1m  python3 experiments/spi_phase/qualify_timed_gpio.py --output build/release-timed-gpio[0m
+2026-11-14T05:16:51.3749429Z [36;1mpython3 - <<'PY'[0m
+2026-11-14T05:16:51.3749666Z [36;1mimport json[0m
+2026-11-14T05:16:51.3749899Z [36;1mfrom pathlib import Path[0m
+2026-11-14T05:16:51.3750308Z [36;1mresult=json.loads(Path("build/release-timed-gpio/result.json").read_text())[0m
+2026-11-14T05:16:51.3750800Z [36;1massert result["status"]=="QUALIFIED_COMPARISON"[0m
+2026-11-14T05:16:51.3751161Z [36;1massert result["selected_candidate"]=="P"[0m
+2026-11-14T05:16:51.3751484Z [36;1mPY[0m
+2026-11-14T05:16:51.3771931Z shell: /usr/bin/bash -e {0}
+2026-11-14T05:16:51.3772197Z env:
+2026-11-14T05:16:51.3774612Z   GH_TOKEN: ***
+2026-11-14T05:16:51.3774953Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:16:51.3775415Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:16:51.3775751Z ##[endgroup]
+2026-11-14T05:33:04.1702498Z {
+2026-11-14T05:33:04.1702815Z   "status": "QUALIFIED_COMPARISON",
+2026-11-14T05:33:04.1703187Z   "decision": "ADVANCE_P_EXPERIMENT_ONLY",
+2026-11-14T05:33:04.1703538Z   "selected_candidate": "P",
+2026-11-14T05:33:04.1703831Z   "measurements": {
+2026-11-14T05:33:04.1704069Z     "compact8": {
+2026-11-14T05:33:04.1704311Z       "primitive_cells": 3107,
+2026-11-14T05:33:04.1704585Z       "state_bits": 412,
+2026-11-14T05:33:04.1704869Z       "cell_types": {
+2026-11-14T05:33:04.1705106Z         "$_ANDNOT_": 114,
+2026-11-14T05:33:04.1705351Z         "$_AND_": 766,
+2026-11-14T05:33:04.1705590Z         "$_MUX_": 394,
+2026-11-14T05:33:04.1705832Z         "$_NAND_": 1091,
+2026-11-14T05:33:04.1706380Z         "$_NOR_": 71,
+2026-11-14T05:33:04.1706613Z         "$_NOT_": 11,
+2026-11-14T05:33:04.1706838Z         "$_ORNOT_": 69,
+2026-11-14T05:33:04.1707072Z         "$_OR_": 116,
+2026-11-14T05:33:04.1707312Z         "$_SDFFE_PN0P_": 395,
+2026-11-14T05:33:04.1707576Z         "$_SDFFE_PP0P_": 1,
+2026-11-14T05:33:04.1707834Z         "$_SDFF_PN0_": 16,
+2026-11-14T05:33:04.1708080Z         "$_XNOR_": 47,
+2026-11-14T05:33:04.1708309Z         "$_XOR_": 16
+2026-11-14T05:33:04.1708529Z       }
+2026-11-14T05:33:04.1708726Z     },
+2026-11-14T05:33:04.1708936Z     "compact10": {
+2026-11-14T05:33:04.1709176Z       "primitive_cells": 3589,
+2026-11-14T05:33:04.1709443Z       "state_bits": 477,
+2026-11-14T05:33:04.1709688Z       "cell_types": {
+2026-11-14T05:33:04.1710191Z         "$_ANDNOT_": 114,
+2026-11-14T05:33:04.1710454Z         "$_AND_": 913,
+2026-11-14T05:33:04.1710687Z         "$_MUX_": 469,
+2026-11-14T05:33:04.1710917Z         "$_NAND_": 1242,
+2026-11-14T05:33:04.1711161Z         "$_NOR_": 77,
+2026-11-14T05:33:04.1711385Z         "$_NOT_": 18,
+2026-11-14T05:33:04.1711611Z         "$_ORNOT_": 85,
+2026-11-14T05:33:04.1711841Z         "$_OR_": 136,
+2026-11-14T05:33:04.1712074Z         "$_SDFFE_PN0P_": 460,
+2026-11-14T05:33:04.1712344Z         "$_SDFFE_PP0P_": 1,
+2026-11-14T05:33:04.1712597Z         "$_SDFF_PN0_": 16,
+2026-11-14T05:33:04.1712841Z         "$_XNOR_": 43,
+2026-11-14T05:33:04.1713074Z         "$_XOR_": 15
+2026-11-14T05:33:04.1713294Z       }
+2026-11-14T05:33:04.1713492Z     },
+2026-11-14T05:33:04.1713692Z     "P": {
+2026-11-14T05:33:04.1713918Z       "primitive_cells": 3146,
+2026-11-14T05:33:04.1714186Z       "state_bits": 412,
+2026-11-14T05:33:04.1714434Z       "cell_types": {
+2026-11-14T05:33:04.1714670Z         "$_ANDNOT_": 113,
+2026-11-14T05:33:04.1714919Z         "$_AND_": 808,
+2026-11-14T05:33:04.1715149Z         "$_MUX_": 400,
+2026-11-14T05:33:04.1715383Z         "$_NAND_": 1076,
+2026-11-14T05:33:04.1715617Z         "$_NOR_": 72,
+2026-11-14T05:33:04.1716225Z         "$_NOT_": 13,
+2026-11-14T05:33:04.1716472Z         "$_ORNOT_": 80,
+2026-11-14T05:33:04.1716704Z         "$_OR_": 117,
+2026-11-14T05:33:04.1716933Z         "$_SDFFE_PN0P_": 395,
+2026-11-14T05:33:04.1717188Z         "$_SDFFE_PP0P_": 1,
+2026-11-14T05:33:04.1717424Z         "$_SDFF_PN0_": 16,
+2026-11-14T05:33:04.1717639Z         "$_XNOR_": 41,
+2026-11-14T05:33:04.1717839Z         "$_XOR_": 14
+2026-11-14T05:33:04.1718035Z       }
+2026-11-14T05:33:04.1718204Z     },
+2026-11-14T05:33:04.1718377Z     "F": {
+2026-11-14T05:33:04.1718572Z       "primitive_cells": 3228,
+2026-11-14T05:33:04.1718816Z       "state_bits": 429,
+2026-11-14T05:33:04.1719035Z       "cell_types": {
+2026-11-14T05:33:04.1719447Z         "$_ANDNOT_": 129,
+2026-11-14T05:33:04.1719666Z         "$_AND_": 823,
+2026-11-14T05:33:04.1719873Z         "$_MUX_": 386,
+2026-11-14T05:33:04.1720071Z         "$_NAND_": 1124,
+2026-11-14T05:33:04.1720279Z         "$_NOR_": 83,
+2026-11-14T05:33:04.1720482Z         "$_NOT_": 10,
+2026-11-14T05:33:04.1720685Z         "$_ORNOT_": 69,
+2026-11-14T05:33:04.1720891Z         "$_OR_": 114,
+2026-11-14T05:33:04.1721098Z         "$_SDFFE_PN0P_": 412,
+2026-11-14T05:33:04.1721328Z         "$_SDFFE_PP0P_": 1,
+2026-11-14T05:33:04.1721555Z         "$_SDFF_PN0_": 16,
+2026-11-14T05:33:04.1721777Z         "$_XNOR_": 48,
+2026-11-14T05:33:04.1721976Z         "$_XOR_": 13
+2026-11-14T05:33:04.1722207Z       }
+2026-11-14T05:33:04.1722384Z     }
+2026-11-14T05:33:04.1722558Z   }
+2026-11-14T05:33:04.1722727Z }
+2026-11-14T05:33:04.2841286Z ##[group]Run docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550
+2026-11-14T05:33:04.2841715Z with:
+2026-11-14T05:33:04.2841918Z   registry: ghcr.io
+2026-11-14T05:33:04.2842153Z   username: KG-khangelani
+2026-11-14T05:33:04.2844650Z   password: ***
+2026-11-14T05:33:04.2844880Z   logout: true
+2026-11-14T05:33:04.2845097Z env:
+2026-11-14T05:33:04.2847948Z   GH_TOKEN: ***
+2026-11-14T05:33:04.2848287Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:33:04.2848727Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:33:04.2849059Z ##[endgroup]
+2026-11-14T05:33:04.5176173Z Logging into ghcr.io...
+2026-11-14T05:33:05.0368280Z Login Succeeded!
+2026-11-14T05:33:05.0510859Z ##[group]Run set -euo pipefail
+2026-11-14T05:33:05.0511221Z [36;1mset -euo pipefail[0m
+2026-11-14T05:33:05.0511513Z [36;1mimmutable="$IMAGE:sha-$GITHUB_SHA"[0m
+2026-11-14T05:33:05.0511850Z [36;1mdocker tag "$LOCAL_IMAGE" "$immutable"[0m
+2026-11-14T05:33:05.0512167Z [36;1mdocker push "$immutable"[0m
+2026-11-14T05:33:05.0512601Z [36;1mdigest="$(docker image inspect --format '{{index .RepoDigests 0}}' "$immutable")"[0m
+2026-11-14T05:33:05.0513066Z [36;1mtest "${digest%@*}" = "$IMAGE"[0m
+2026-11-14T05:33:05.0513401Z [36;1mecho "PUBLISHED_IMAGE=$digest" >> "$GITHUB_ENV"[0m
+2026-11-14T05:33:05.0513987Z [36;1mif [[ "$GITHUB_REF" == refs/tags/* ]]; then[0m
+2026-11-14T05:33:05.0514302Z [36;1m  alias="$IMAGE:$GITHUB_REF_NAME"[0m
+2026-11-14T05:33:05.0514574Z [36;1melse[0m
+2026-11-14T05:33:05.0514782Z [36;1m  alias="$IMAGE:main"[0m
+2026-11-14T05:33:05.0515017Z [36;1mfi[0m
+2026-11-14T05:33:05.0515235Z [36;1mdocker tag "$LOCAL_IMAGE" "$alias"[0m
+2026-11-14T05:33:05.0515552Z [36;1mdocker push "$alias"[0m
+2026-11-14T05:33:05.0515826Z [36;1mmkdir -p build/publication[0m
+2026-11-14T05:33:05.0516511Z [36;1mdocker image inspect "$LOCAL_IMAGE" > build/publication/image-inspect.json[0m
+2026-11-14T05:33:05.0536652Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-14T05:33:05.0537007Z env:
+2026-11-14T05:33:05.0539360Z   GH_TOKEN: ***
+2026-11-14T05:33:05.0539682Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:33:05.0540133Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:33:05.0540468Z ##[endgroup]
+2026-11-14T05:33:05.0965521Z The push refers to repository [ghcr.io/kg-khangelani/protocol-emulator-asic-workbench]
+2026-11-14T05:33:05.2378068Z 4c0794e968eb: Preparing
+2026-11-14T05:33:05.2378539Z da40af7198fd: Preparing
+2026-11-14T05:33:05.2379262Z c9389c6c26f0: Preparing
+2026-11-14T05:33:05.2379676Z 5f70bf18a086: Preparing
+2026-11-14T05:33:05.2380082Z 0406ff5ea515: Preparing
+2026-11-14T05:33:05.2380386Z 120fd5bd67fd: Preparing
+2026-11-14T05:33:05.2380640Z fb5cfbbdf7fa: Preparing
+2026-11-14T05:33:05.2380878Z 97720139fbe4: Preparing
+2026-11-14T05:33:05.2381099Z 66ea3669bfe9: Preparing
+2026-11-14T05:33:05.2381327Z 6b6ff8eb9da6: Preparing
+2026-11-14T05:33:05.2381553Z 546c86e4df2d: Preparing
+2026-11-14T05:33:05.2381776Z b3445de4503d: Preparing
+2026-11-14T05:33:05.2381990Z 34467cc93912: Preparing
+2026-11-14T05:33:05.2387614Z 120fd5bd67fd: Waiting
+2026-11-14T05:33:05.2388334Z fb5cfbbdf7fa: Waiting
+2026-11-14T05:33:05.2388732Z 546c86e4df2d: Waiting
+2026-11-14T05:33:05.2388988Z b3445de4503d: Waiting
+2026-11-14T05:33:05.2389570Z 34467cc93912: Waiting
+2026-11-14T05:33:05.2389875Z 6b6ff8eb9da6: Waiting
+2026-11-14T05:33:05.2390106Z 97720139fbe4: Waiting
+2026-11-14T05:33:05.2390320Z 66ea3669bfe9: Waiting
+2026-11-14T05:33:05.6282139Z 5f70bf18a086: Layer already exists
+2026-11-14T05:33:06.8242143Z 0406ff5ea515: Pushed
+2026-11-14T05:33:07.3251226Z 4c0794e968eb: Pushed
+2026-11-14T05:33:07.3778310Z c9389c6c26f0: Pushed
+2026-11-14T05:33:07.5513235Z 120fd5bd67fd: Pushed
+2026-11-14T05:33:08.3778388Z da40af7198fd: Pushed
+2026-11-14T05:33:08.9473656Z 6b6ff8eb9da6: Pushed
+2026-11-14T05:33:10.9118892Z b3445de4503d: Pushed
+2026-11-14T05:33:11.1097146Z fb5cfbbdf7fa: Pushed
+2026-11-14T05:33:12.1190503Z 546c86e4df2d: Pushed
+2026-11-14T05:33:15.9847015Z 34467cc93912: Pushed
+2026-11-14T05:33:24.1674326Z 66ea3669bfe9: Pushed
+2026-11-14T05:34:46.1646664Z 97720139fbe4: Pushed
+2026-11-14T05:34:49.1835182Z sha-5bdc0e6b6449a829a5da1f8f9a8060257e974843: digest: sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88 size: 3044
+2026-11-14T05:34:49.2391346Z The push refers to repository [ghcr.io/kg-khangelani/protocol-emulator-asic-workbench]
+2026-11-14T05:34:49.3815807Z 4c0794e968eb: Preparing
+2026-11-14T05:34:49.3816538Z da40af7198fd: Preparing
+2026-11-14T05:34:49.3816976Z c9389c6c26f0: Preparing
+2026-11-14T05:34:49.3817294Z 5f70bf18a086: Preparing
+2026-11-14T05:34:49.3817711Z 0406ff5ea515: Preparing
+2026-11-14T05:34:49.3818487Z 120fd5bd67fd: Preparing
+2026-11-14T05:34:49.3818750Z fb5cfbbdf7fa: Preparing
+2026-11-14T05:34:49.3818978Z 97720139fbe4: Preparing
+2026-11-14T05:34:49.3819351Z 66ea3669bfe9: Preparing
+2026-11-14T05:34:49.3819738Z 6b6ff8eb9da6: Preparing
+2026-11-14T05:34:49.3820105Z 546c86e4df2d: Preparing
+2026-11-14T05:34:49.3820478Z b3445de4503d: Preparing
+2026-11-14T05:34:49.3820844Z 34467cc93912: Preparing
+2026-11-14T05:34:49.3821059Z b3445de4503d: Waiting
+2026-11-14T05:34:49.3821268Z 546c86e4df2d: Waiting
+2026-11-14T05:34:49.3821601Z 66ea3669bfe9: Waiting
+2026-11-14T05:34:49.3821878Z 120fd5bd67fd: Waiting
+2026-11-14T05:34:49.3822488Z 34467cc93912: Waiting
+2026-11-14T05:34:49.3822853Z fb5cfbbdf7fa: Waiting
+2026-11-14T05:34:49.3823193Z 97720139fbe4: Waiting
+2026-11-14T05:34:49.7609502Z 4c0794e968eb: Layer already exists
+2026-11-14T05:34:49.7611088Z da40af7198fd: Layer already exists
+2026-11-14T05:34:49.7667617Z 0406ff5ea515: Layer already exists
+2026-11-14T05:34:49.7684942Z 5f70bf18a086: Layer already exists
+2026-11-14T05:34:49.7696165Z c9389c6c26f0: Layer already exists
+2026-11-14T05:34:49.9403992Z fb5cfbbdf7fa: Layer already exists
+2026-11-14T05:34:49.9431282Z 120fd5bd67fd: Layer already exists
+2026-11-14T05:34:49.9497859Z 6b6ff8eb9da6: Layer already exists
+2026-11-14T05:34:49.9534945Z 66ea3669bfe9: Layer already exists
+2026-11-14T05:34:49.9602255Z 97720139fbe4: Layer already exists
+2026-11-14T05:34:50.1213892Z 546c86e4df2d: Layer already exists
+2026-11-14T05:34:50.1227477Z b3445de4503d: Layer already exists
+2026-11-14T05:34:50.1323421Z 34467cc93912: Layer already exists
+2026-11-14T05:34:51.2033133Z v0.1.0: digest: sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88 size: 3044
+2026-11-14T05:34:51.2263576Z ##[group]Run python3 - <<'PY'
+2026-11-14T05:34:51.2263933Z [36;1mpython3 - <<'PY'[0m
+2026-11-14T05:34:51.2264209Z [36;1mimport hashlib, json, os, shutil[0m
+2026-11-14T05:34:51.2264509Z [36;1mfrom pathlib import Path[0m
+2026-11-14T05:34:51.2264802Z [36;1moutput = Path("build/publication")[0m
+2026-11-14T05:34:51.2265161Z [36;1mlock = Path("tools/workbench/toolchain.lock.json")[0m
+2026-11-14T05:34:51.2265531Z [36;1mshutil.copy2(lock, output / lock.name)[0m
+2026-11-14T05:34:51.2265835Z [36;1mmanifest = {[0m
+2026-11-14T05:34:51.2266441Z [36;1m    "schema": "protocol-emulator-publication-v1",[0m
+2026-11-14T05:34:51.2266824Z [36;1m    "source_commit": os.environ["GITHUB_SHA"],[0m
+2026-11-14T05:34:51.2267152Z [36;1m    "ref": os.environ["GITHUB_REF"],[0m
+2026-11-14T05:34:51.2267473Z [36;1m    "image": os.environ["PUBLISHED_IMAGE"],[0m
+2026-11-14T05:34:51.2267785Z [36;1m    "platform": "linux/amd64",[0m
+2026-11-14T05:34:51.2268247Z [36;1m    "toolchain_lock_sha256": hashlib.sha256(lock.read_bytes()).hexdigest(),[0m
+2026-11-14T05:34:51.2268995Z [36;1m    "verification_run": f'{os.environ["GITHUB_SERVER_URL"]}/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}',[0m
+2026-11-14T05:34:51.2269776Z [36;1m    "checks": ["doctor", "check", "lint", "test", "test-verilator", "formal", "synth", "evidence"],[0m
+2026-11-14T05:34:51.2270272Z [36;1m    "physical_qualification": "NOT_EVALUATED",[0m
+2026-11-14T05:34:51.2270572Z [36;1m}[0m
+2026-11-14T05:34:51.2270844Z [36;1mproduction = Path("tools/production-profile.json")[0m
+2026-11-14T05:34:51.2271191Z [36;1mif production.is_file():[0m
+2026-11-14T05:34:51.2271490Z [36;1m    from tools.production_sram import verify[0m
+2026-11-14T05:34:51.2271849Z [36;1m    manifest["production_qualification"] = verify()[0m
+2026-11-14T05:34:51.2272624Z [36;1m    manifest["physical_qualification_scope"] = "This publication job does not rerun physical checks; production_qualification binds the retained qualified inputs."[0m
+2026-11-14T05:34:51.2273413Z [36;1m    shutil.copy2(production, output / production.name)[0m
+2026-11-14T05:34:51.2273941Z [36;1m    shutil.copy2("build/current/evidence.json", output / "production-verification.json")[0m
+2026-11-14T05:34:51.2274472Z [36;1mif os.environ["GITHUB_REF"].startswith("refs/tags/"):[0m
+2026-11-14T05:34:51.2275194Z [36;1m    manifest["checks"] += ["spi-program-sensitivity", "spi-four-mode-screen", "spi-held-program-proof", "spi-phase1-capacity", "spi-timed-gpio"][0m
+2026-11-14T05:34:51.2276341Z [36;1m    shutil.copy2("build/release-sensitivity/result.json", output / "spi-sensitivity.json")[0m
+2026-11-14T05:34:51.2277123Z [36;1m    shutil.copy2("build/release-four-mode/result.json", output / "spi-four-mode.json")[0m
+2026-11-14T05:34:51.2277792Z [36;1m    shutil.copy2("build/release-held-proof/result.json", output / "spi-held-proof.json")[0m
+2026-11-14T05:34:51.2278500Z [36;1m    shutil.copy2("build/release-phase1-capacity/result.json", output / "spi-phase1-capacity.json")[0m
+2026-11-14T05:34:51.2279260Z [36;1m    timed=Path("build/release-timed-gpio")[0m
+2026-11-14T05:34:51.2279680Z [36;1m    shutil.copy2(timed/"result.json", output/"spi-timed-gpio.json")[0m
+2026-11-14T05:34:51.2280336Z [36;1m    for gate in ("comparison","instruction_p","instruction_f","program_p","program_f","refinement_p","refinement_f"):[0m
+2026-11-14T05:34:51.2281045Z [36;1m        shutil.copy2(timed/gate/"result.json", output/("spi-timed-"+gate+".json"))[0m
+2026-11-14T05:34:51.2281623Z [36;1m(output / "publication.json").write_text(json.dumps(manifest, indent=2) + "\n")[0m
+2026-11-14T05:34:51.2282170Z [36;1mfiles = sorted(p for p in output.iterdir() if p.name != "SHA256SUMS")[0m
+2026-11-14T05:34:51.2282605Z [36;1m(output / "SHA256SUMS").write_text("".join([0m
+2026-11-14T05:34:51.2283054Z [36;1m    f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n" for p in files))[0m
+2026-11-14T05:34:51.2283717Z [36;1mwith open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:[0m
+2026-11-14T05:34:51.2284230Z [36;1m    summary.write(f'Published verified workbench: `{manifest["image"]}`\n')[0m
+2026-11-14T05:34:51.2284635Z [36;1mPY[0m
+2026-11-14T05:34:51.2304156Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-14T05:34:51.2304511Z env:
+2026-11-14T05:34:51.2307174Z   GH_TOKEN: ***
+2026-11-14T05:34:51.2307500Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:34:51.2307934Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:34:51.2308661Z   PUBLISHED_IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88
+2026-11-14T05:34:51.2309336Z ##[endgroup]
+2026-11-14T05:34:51.2860034Z ##[group]Run set -euo pipefail
+2026-11-14T05:34:51.2860380Z [36;1mset -euo pipefail[0m
+2026-11-14T05:34:51.2860747Z [36;1mcp "docs/releases/$GITHUB_REF_NAME.md" build/release-notes.md[0m
+2026-11-14T05:34:51.2861308Z [36;1mprintf '\nVerified workbench: `%s`\n' "$PUBLISHED_IMAGE" >> build/release-notes.md[0m
+2026-11-14T05:34:51.2861826Z [36;1mprintf '\nPublication checks: %s/%s/actions/runs/%s\n' \[0m
+2026-11-14T05:34:51.2862346Z [36;1m  "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" >> build/release-notes.md[0m
+2026-11-14T05:34:51.2862779Z [36;1moptions=()[0m
+2026-11-14T05:34:51.2863022Z [36;1mif [[ "$GITHUB_REF_NAME" == *-* ]]; then[0m
+2026-11-14T05:34:51.2863349Z [36;1m  options+=(--prerelease --latest=false)[0m
+2026-11-14T05:34:51.2863630Z [36;1mfi[0m
+2026-11-14T05:34:51.2863924Z [36;1mgh release create "$GITHUB_REF_NAME" build/publication/* \[0m
+2026-11-14T05:34:51.2864452Z [36;1m  --verify-tag --title "Protocol Emulator ASIC $GITHUB_REF_NAME" \[0m
+2026-11-14T05:34:51.2864913Z [36;1m  --notes-file build/release-notes.md "${options[@]}"[0m
+2026-11-14T05:34:51.2884607Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-14T05:34:51.2884952Z env:
+2026-11-14T05:34:51.2887626Z   GH_TOKEN: ***
+2026-11-14T05:34:51.2887948Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:34:51.2888385Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:34:51.2889109Z   PUBLISHED_IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88
+2026-11-14T05:34:51.2889765Z ##[endgroup]
+2026-11-14T05:34:55.7587022Z https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0
+2026-11-14T05:34:55.7677656Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-11-14T05:34:55.7678095Z with:
+2026-11-14T05:34:55.7678385Z   name: publication-5bdc0e6b6449a829a5da1f8f9a8060257e974843
+2026-11-14T05:34:55.7679737Z   path: build/publication/
+build/release-sensitivity/result.json
+build/release-four-mode/result.json
+build/release-held-proof/result.json
+build/release-phase1-capacity/result.json
+build/release-timed-gpio/result.json
+build/release-timed-gpio/*/result.json
+test/results*.xml
+build/current/
+!build/current/**/sim/**
+
+2026-11-14T05:34:55.7681275Z   if-no-files-found: warn
+2026-11-14T05:34:55.7681510Z   retention-days: 90
+2026-11-14T05:34:55.7681729Z   compression-level: 6
+2026-11-14T05:34:55.7681947Z   overwrite: false
+2026-11-14T05:34:55.7682164Z   include-hidden-files: false
+2026-11-14T05:34:55.7682401Z   archive: true
+2026-11-14T05:34:55.7682600Z env:
+2026-11-14T05:34:55.7684932Z   GH_TOKEN: ***
+2026-11-14T05:34:55.7685279Z   IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench
+2026-11-14T05:34:55.7685723Z   LOCAL_IMAGE: protocol-emulator-asic-workbench:2026-07-29
+2026-11-14T05:34:55.7686884Z   PUBLISHED_IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88
+2026-11-14T05:34:55.7687550Z ##[endgroup]
+2026-11-14T05:34:56.3237688Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-14T05:34:56.3241073Z The least common ancestor is /home/runner/work/protocol-emulator-asic/protocol-emulator-asic. This will be the root directory of the artifact
+2026-11-14T05:34:56.3242349Z With the provided path, there will be 1948 files uploaded
+2026-11-14T05:34:56.3247313Z Artifact name is valid!
+2026-11-14T05:34:56.3247914Z Root directory input is valid!
+2026-11-14T05:34:56.6633118Z Uploading artifact: publication-5bdc0e6b6449a829a5da1f8f9a8060257e974843.zip
+2026-11-14T05:34:56.6671123Z Beginning upload of artifact content to blob storage
+2026-11-14T05:34:58.9664135Z Uploaded bytes 7701300
+2026-11-14T05:34:59.0282056Z Finished uploading artifact content to blob storage!
+2026-11-14T05:34:59.0285259Z SHA256 digest of uploaded artifact is 1b8ba632fa184e50232e68766b5295c5a50794b35e0576bfcae109de972efbaf
+2026-11-14T05:34:59.0287626Z Finalizing artifact upload
+2026-11-14T05:34:59.4727251Z Artifact publication-5bdc0e6b6449a829a5da1f8f9a8060257e974843 successfully finalized. Artifact ID 14100188311
+2026-11-14T05:34:59.4729188Z Artifact publication-5bdc0e6b6449a829a5da1f8f9a8060257e974843 has been successfully uploaded! Final size is 7701300 bytes. Artifact ID is 14100188311
+2026-11-14T05:34:59.4734027Z Artifact download URL: https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43558100168/artifacts/14100188311
+2026-11-14T05:34:59.5030530Z Post job cleanup.
+2026-11-14T05:34:59.7277093Z ##[group]Logout from ghcr.io
+2026-11-14T05:34:59.7350416Z [command]/usr/bin/docker logout ghcr.io
+2026-11-14T05:34:59.7539483Z Removing login credentials for ghcr.io
+2026-11-14T05:34:59.7564200Z ##[endgroup]
+2026-11-14T05:34:59.7564822Z ##[group]Post cache
+2026-11-14T05:34:59.7565671Z State not set
+2026-11-14T05:34:59.7566463Z ##[endgroup]
+2026-11-14T05:34:59.7827071Z Post job cleanup.
+2026-11-14T05:35:00.0268421Z ##[group]Generating build summary
+2026-11-14T05:35:00.1167219Z exporting build record to /home/runner/work/_temp/docker-actions-toolkit-8gJ6ED/export
+2026-11-14T05:35:00.2416988Z [command]/usr/bin/docker buildx history export --builder builder-cf579204-4fb3-4f39-bbbf-b78310c55310 --output /home/runner/work/_temp/docker-actions-toolkit-8gJ6ED/export/KG-khangelani~protocol-emulator-asic~R1UWDQ.dockerbuild r1uwdq6k8v8fbd6z0qq2l94b3 --finalize
+2026-11-14T05:35:00.4281563Z Build record written to /home/runner/work/_temp/docker-actions-toolkit-8gJ6ED/export/KG-khangelani~protocol-emulator-asic~R1UWDQ.dockerbuild (38.6 KB)
+2026-11-14T05:35:00.4283374Z Uploading KG-khangelani~protocol-emulator-asic~R1UWDQ.dockerbuild as an artifact
+2026-11-14T05:35:00.4291799Z Artifact name is valid!
+2026-11-14T05:35:00.4294199Z Root directory input is valid!
+2026-11-14T05:35:00.7351660Z Uploading artifact: KG-khangelani~protocol-emulator-asic~R1UWDQ.dockerbuild
+2026-11-14T05:35:00.7391020Z Beginning upload of artifact content to blob storage
+2026-11-14T05:35:01.0242441Z Uploaded bytes 39529
+2026-11-14T05:35:01.0874523Z Finished uploading artifact content to blob storage!
+2026-11-14T05:35:01.0875572Z SHA256 digest of uploaded artifact is 2893770047fcd788a5d56a6a0e5bfef520046f99a6e31de77b1f9daeb2c72dbd
+2026-11-14T05:35:01.0877089Z Finalizing artifact upload
+2026-11-14T05:35:01.5462639Z Artifact KG-khangelani~protocol-emulator-asic~R1UWDQ.dockerbuild successfully finalized. Artifact ID 14100621530
+2026-11-14T05:35:01.5464517Z Artifact download URL: https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43558100168/artifacts/14100621530
+2026-11-14T05:35:01.5498420Z Writing summary
+2026-11-14T05:35:01.5511706Z ##[endgroup]
+2026-11-14T05:35:01.5512652Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-G7gvQV
+2026-11-14T05:35:01.5517139Z ##[endgroup]
+2026-11-14T05:35:01.5517865Z ##[group]Post cache
+2026-11-14T05:35:01.5518488Z State not set
+2026-11-14T05:35:01.5518888Z ##[endgroup]
+2026-11-14T05:35:01.5702313Z Post job cleanup.
+2026-11-14T05:35:01.7625750Z ##[group]Removing builder
+2026-11-14T05:35:01.8864778Z [command]/usr/bin/docker buildx rm builder-cf579204-4fb3-4f39-bbbf-b78310c55310
+2026-11-14T05:35:02.0865277Z builder-cf579204-4fb3-4f39-bbbf-b78310c55310 removed
+2026-11-14T05:35:02.0914111Z ##[endgroup]
+2026-11-14T05:35:02.0914845Z ##[group]Cleaning up certificates
+2026-11-14T05:35:02.0918000Z ##[endgroup]
+2026-11-14T05:35:02.0918698Z ##[group]Post cache
+2026-11-14T05:35:02.0920226Z State not set
+2026-11-14T05:35:02.0920683Z ##[endgroup]
+2026-11-14T05:35:02.1100793Z Post job cleanup.
+2026-11-14T05:35:02.1996243Z [command]/usr/bin/git version
+2026-11-14T05:35:02.2081589Z git version 2.56.1
+2026-11-14T05:35:02.2127779Z Temporarily overriding HOME='/home/runner/work/_temp/72d8f547-6441-4340-8e3f-5ae438134bed' before making global git config changes
+2026-11-14T05:35:02.2129025Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T05:35:02.2133724Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/protocol-emulator-asic/protocol-emulator-asic
+2026-11-14T05:35:02.2171310Z Removing SSH command configuration
+2026-11-14T05:35:02.2180578Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T05:35:02.2225594Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T05:35:02.2502303Z Removing HTTP extra header
+2026-11-14T05:35:02.2509629Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T05:35:02.2574226Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T05:35:02.2840888Z Removing includeIf entries pointing to credentials config files
+2026-11-14T05:35:02.2849463Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T05:35:02.2902468Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T05:35:02.3349073Z Cleaning up orphan processes

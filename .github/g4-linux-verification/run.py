@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Capture actual Linux physical replays or release packaging on the isolated branch.
+"""Capture actual physical, package, or publication verification on the isolated branch.
 
 Docker is used only when main() runs. Physical proof omits reconstructed bulk.
 Package proof retains the seventeen actual assets without changing their bytes.
+Publication proof retains original publisher evidence and curated audit outputs;
+its rebuilt package and bulk anonymous downloads remain outside the artifact.
 """
 
 from __future__ import annotations
@@ -16,6 +18,7 @@ import os
 from pathlib import Path, PurePosixPath
 import platform
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -30,6 +33,32 @@ E47 = Path("evidence/E0047-g4-submission-candidate")
 IMAGE_RECORD = Path("evidence/E0046-program-toolchain/publication/release-verification.json")
 WORKFLOW = Path(".github/workflows/g4-linux-verification.yaml")
 PACKAGER = E47 / "release-tools/package.py"
+AUDITOR = E47 / "release-tools/verify_publication.py"
+PUBLICATION_INPUTS = Path(".github/g4-linux-verification/publication-inputs")
+PUBLICATION_METADATA = {
+    "run.json", "jobs.json", "artifacts.json", "tag-workflows.json", "release.json",
+    "tag-commit.json", "tag-ref.json", "tag-object.json", "current-job.log",
+}
+TAG_WORKFLOWS = {"test", "docs", "atlas", "i2c-general", "sram-candidate",
+                 "spi-program-sensitivity", "spi-timed-gpio", "program-tools", "publish"}
+PUBLICATION_OUTPUTS = {
+    "release-verification.json", "zip-files.json",
+    "downloaded-fresh-program-verification.json", "downloaded-gds-comparison.json",
+    "downloaded-g2-comparison.json", "downloaded-reproduction/result.json", "downloaded-reproduction.log",
+    "downloaded/publication.json", "downloaded/production-profile.json",
+    "downloaded/g4-submission.json", "downloaded/g4-SHA256SUMS", "downloaded/SHA256SUMS",
+}
+REGISTRY_OUTPUTS = {"registry-manifest.json", "registry-config.json", "registry-linux-amd64.json"}
+PUBLICATION_RUNTIME_PREFIX = "G4_PUBLICATION_RUNTIME "
+PUBLICATION_DRIVER = """import json, platform, runpy, sys
+runtime = {'python': sys.version, 'platform': platform.platform(),
+           'machine': platform.machine(), 'executable': sys.executable}
+print('G4_PUBLICATION_RUNTIME ' + json.dumps(runtime, sort_keys=True), flush=True)
+auditor, directory, assets = sys.argv[1:]
+sys.argv = [auditor, '--directory', directory, '--assets', assets]
+print('G4_PUBLICATION_ARGV ' + json.dumps(sys.argv), flush=True)
+runpy.run_path(auditor, run_name='__main__')
+"""
 PHYSICAL_SOURCE = "45c55f7cd95db2a883b0ffb5e864decd62d53601"
 PUBLIC_IMAGE = "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:f487aaf03906535a3187690557ff97ca1707e966b48ae8a99362683b5f68e307"
 PUBLIC_CONFIG = "sha256:6f45e71162641466c4e9e08601a383c8a081c06b263114903a181d5f8f971451"
@@ -193,13 +222,15 @@ def validate_retained(run_id: int) -> dict:
     return {"base": base, "result": result, "sealed": sealed}
 
 
-def docker_command(image: str) -> list[str]:
-    return ["docker", "run", "--rm", "--pull=never", "--network=none",
+def docker_command(image: str, *, network: bool = False, writable_build: bool = False) -> list[str]:
+    writable_source = ROOT / "build" if writable_build else SCRATCH
+    writable_target = "/workspace/build" if writable_build else CONTAINER_SCRATCH
+    return ["docker", "run", "--rm", "--pull=never", "--network=bridge" if network else "--network=none",
             "--user", f"{os.getuid()}:{os.getgid()}",
             "--env", "HOME=/tmp", "--env", "PYTHONDONTWRITEBYTECODE=1",
             "--env", "GIT_OPTIONAL_LOCKS=0",
             "--mount", f"type=bind,source={ROOT},target=/workspace,readonly",
-            "--mount", f"type=bind,source={SCRATCH},target={CONTAINER_SCRATCH}",
+            "--mount", f"type=bind,source={writable_source},target={writable_target}",
             "--workdir", "/workspace", image]
 
 
@@ -403,7 +434,8 @@ def package_inventory(directory: Path, source: str) -> tuple[dict, dict]:
                    "interface_id": manifest["interface_id"]}
 
 
-def package_release(bindings: dict, image: str, runtime: dict, execution: dict) -> dict:
+def package_release(bindings: dict, image: str, runtime: dict, execution: dict,
+                    *, retain_assets: bool = True) -> dict:
     source = bindings["release_source_commit"]
     output = SCRATCH / "release-assets" / source
     destination = PROOF / "assets"
@@ -440,13 +472,17 @@ def package_release(bindings: dict, image: str, runtime: dict, execution: dict) 
     require(not git("status", "--porcelain", "--untracked-files=no"),
             "tracked checkout changed during packaging")
     bindings["tracked_checkout_clean_after"] = True
-    # Both paths are fresh ignored build paths on this Linux runner. Renaming the
-    # directory retains the actual asset bytes rather than rebuilding any ZIP.
-    output.rename(destination)
+    # Both paths are fresh ignored build paths. Publication uses the regenerated
+    # assets in scratch and retains their hashes without uploading duplicate ZIPs.
+    if retain_assets:
+        output.rename(destination)
     result = {
         "schema": "protocol-emulator-g4-linux-release-package-v1",
         "status": "PASS_G4_LINUX_RELEASE_PACKAGE", "release_source_commit": source,
-        "physical_source_commit": PHYSICAL_SOURCE, "asset_directory": "assets",
+        "physical_source_commit": PHYSICAL_SOURCE,
+        "asset_directory": "assets" if retain_assets else repo_path(output),
+        "asset_directory_base": "proof" if retain_assets else "repository",
+        "asset_payload_retained": retain_assets,
         "asset_count": len(files), "files": files, "manifest_checks": package_checks,
         "git_bindings": bindings, "ci_execution": execution,
         "image": image, "config_digest": runtime["container_image"]["Id"], "runtime": runtime,
@@ -458,6 +494,197 @@ def package_release(bindings: dict, image: str, runtime: dict, execution: dict) 
     }
     write(PROOF / "package/result.json", result)
     return result
+
+
+def publication_preflight(request: dict, bindings: dict, head: str) -> dict:
+    source = bindings["release_source_commit"]
+    require(request.get("publication_inputs") == PUBLICATION_INPUTS.as_posix(),
+            "publication inputs must use the dedicated committed input directory")
+    directory = ROOT / PUBLICATION_INPUTS
+    require(directory.is_dir() and not directory.is_symlink(), "publication input directory is missing")
+    source_auditor = git_blob(source, AUDITOR)
+    require(source_auditor == (ROOT / AUDITOR).read_bytes(),
+            "executed publication auditor differs from the selected release Git blob")
+    require(git("rev-parse", "refs/tags/v0.1.0^{commit}") == source and
+            git("cat-file", "-t", "refs/tags/v0.1.0") == "tag",
+            "fetched stable annotated tag does not resolve to the release source")
+    tag_object_sha = git("rev-parse", "refs/tags/v0.1.0")
+    checked_capture(["git", "rev-parse", "refs/tags/v0.1.0^{commit}"], "publication-tag-source")
+    run = read(directory / "run.json")
+    require(run["head_sha"] == source and run["head_branch"] == "v0.1.0" and
+            run["path"] == ".github/workflows/publish.yaml" and run["event"] == "push" and
+            run["status"] == "completed" and run["conclusion"] == "success",
+            "publication input run is not the successful stable-tag publisher")
+    release = read(directory / "release.json")
+    require(release["tag_name"] == "v0.1.0" and release["draft"] is False and
+            release["prerelease"] is False and len(release["assets"]) == 35 and
+            len({item["name"] for item in release["assets"]}) == 35,
+            "publication inputs must describe the complete stable 35-asset release")
+    tag_ref, tag_object, tag_commit = (read(directory / name)
+                                      for name in ("tag-ref.json", "tag-object.json", "tag-commit.json"))
+    require(tag_ref["ref"] == "refs/tags/v0.1.0" and
+            tag_ref["object"]["type"] == "tag" and tag_ref["object"]["sha"] == tag_object_sha and
+            tag_object["sha"] == tag_object_sha and tag_object["tag"] == "v0.1.0" and
+            tag_object["object"] == tag_commit and tag_commit["type"] == "commit" and
+            tag_commit["sha"] == source, "publication API tag inputs differ from the fetched Git tag")
+    records = read(directory / "tag-workflows.json")
+    require(len(records["runs"]) == 9 and {item["name"] for item in records["runs"]} == TAG_WORKFLOWS and
+            all(item["head_sha"] == source and item["head_branch"] == "v0.1.0" and
+                item["status"] == "completed" and item["conclusion"] == "success"
+                for item in records["runs"]), "all nine tag workflow runs must already be successful")
+    matches = [item for item in read(directory / "artifacts.json")["artifacts"]
+               if item["name"] == "publication-" + source]
+    require(len(matches) == 1, "expected exactly one original publisher artifact")
+    artifact = matches[0]
+    require(artifact["workflow_run"]["id"] == run["id"] and
+            artifact["workflow_run"]["head_sha"] == source and not artifact["expired"],
+            "original publisher artifact identity differs")
+    original_name = str(artifact["id"]) + ".zip"
+    expected_names = PUBLICATION_METADATA | {original_name}
+    paths = list(directory.iterdir())
+    require({path.name for path in paths} == expected_names and
+            all(path.is_file() and not path.is_symlink() for path in paths),
+            "publication inputs must contain only the nine metadata/log files and original publisher ZIP")
+    files = {}
+    for path in sorted(paths):
+        raw = path.read_bytes()
+        require(raw == git_blob(head, Path(repo_path(path))),
+                "publication input differs from the isolated workflow Git blob: " + path.name)
+        if path.name != original_name:
+            for url in re.findall(rb"https?://[^\s\"'<>]+", raw):
+                require(re.search(rb"[?&](?:sig|signature|token|access_token|jwt|x-amz-signature|x-goog-signature)=",
+                                  url, re.IGNORECASE) is None,
+                        "publication metadata/log contains a signed URL: " + path.name)
+        files[path.name] = {"bytes": len(raw), "sha256": sha(raw)}
+    require(files[original_name]["bytes"] == artifact["size_in_bytes"] and
+            "sha256:" + files[original_name]["sha256"] == artifact["digest"],
+            "original publisher ZIP differs from its retained API digest/size")
+    return {
+        "input_directory": PUBLICATION_INPUTS.as_posix(), "input_source_commit": head,
+        "files": files, "original_archive": original_name, "original_artifact_id": artifact["id"],
+        "publish_run": run["id"], "release_id": release["id"], "tag": "v0.1.0",
+        "tag_object_sha": tag_object_sha, "release_source_commit": source,
+        "auditor_path": AUDITOR.as_posix(), "auditor_sha256": sha(source_auditor),
+        "executed_auditor_identical_to_release_git_blob": True,
+        "asset_names": sorted(item["name"] for item in release["assets"]),
+        "tag_workflow_runs": {item["name"]: item["id"] for item in records["runs"]},
+    }
+
+
+def copy_publication_outputs(base: Path, dest: Path, *, complete: bool) -> dict:
+    registry_names = {path.name for path in base.glob("registry*.json")}
+    require(registry_names <= REGISTRY_OUTPUTS, "unexpected registry audit output")
+    if complete:
+        require({"registry-manifest.json", "registry-config.json"} <= registry_names,
+                "registry manifest/config evidence is missing")
+    copied = {}
+    for name in sorted(PUBLICATION_OUTPUTS | registry_names):
+        source = base / name
+        if not source.is_file():
+            require(not complete, "required publication output is missing: " + name)
+            continue
+        require(not source.is_symlink(), "publication output must be a regular file: " + name)
+        target = dest / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        require(not target.exists(), "curated publication output already exists: " + name)
+        shutil.copyfile(source, target)
+        require(file_sha(source) == file_sha(target), "curated output bytes differ: " + name)
+        copied[name] = {"bytes": target.stat().st_size, "sha256": file_sha(target)}
+    return copied
+
+
+def audit_publication(inputs: dict, packaged: dict, image: str, runtime: dict, execution: dict) -> dict:
+    source = inputs["release_source_commit"]
+    base, destination = SCRATCH / "publication-audit", PROOF / "publication"
+    require(not base.exists() and not destination.exists(), "publication replay and proof directories must be fresh")
+    base.mkdir()
+    destination.mkdir()
+    for name, expected in inputs["files"].items():
+        original = ROOT / PUBLICATION_INPUTS / name
+        require(original.stat().st_size == expected["bytes"] and file_sha(original) == expected["sha256"],
+                "publication input changed after preflight: " + name)
+        shutil.copyfile(original, base / name)
+        shutil.copyfile(original, destination / name)
+        require(file_sha(base / name) == file_sha(destination / name) == expected["sha256"],
+                "publication input copy differs: " + name)
+    write(destination / "input-binding.json", inputs)
+    require(packaged["release_source_commit"] == source and packaged["asset_count"] == 17 and
+            packaged["asset_directory_base"] == "repository" and not packaged["asset_payload_retained"],
+            "publication audit needs the actual regenerated assets in scratch")
+    container_directory = "/workspace/" + repo_path(base)
+    container_assets = "/workspace/" + packaged["asset_directory"]
+    auditor_argv = [AUDITOR.as_posix(), "--directory", container_directory, "--assets", container_assets]
+    command = docker_command(image, network=True, writable_build=True) + [
+        "python3", "-u", "-c", PUBLICATION_DRIVER, AUDITOR.as_posix(), container_directory, container_assets]
+    receipt_path = destination / "audit-runtime.json"
+    invocation, raw = capture(command, receipt_path, destination / "audit-linux.log.gz", timeout=5400,
+                              details={
+                                  "schema": "protocol-emulator-g4-linux-publication-invocation-v1",
+                                  "host": "linux", "release_source_commit": source, "tag": "v0.1.0",
+                                  "physical_source_commit": PHYSICAL_SOURCE,
+                                  "ci_execution": execution, "runtime": runtime,
+                                  "auditor_sha256": inputs["auditor_sha256"], "auditor_argv": auditor_argv,
+                                  "input_binding_sha256": file_sha(destination / "input-binding.json"),
+                                  "network_scope": "Anonymous release downloads and public registry GET/HEAD verification.",
+                              })
+    # Preserve the exact combined process bytes both directly and compressed.
+    (destination / "audit-linux.log").write_bytes(raw)
+    invocation["uncompressed_log_path"] = "publication/audit-linux.log"
+    invocation["uncompressed_log_sha256"] = sha(raw)
+    write(receipt_path, invocation)
+    curated = copy_publication_outputs(base, destination, complete=invocation["returncode"] == 0)
+    require(invocation["returncode"] == 0, "unchanged publication auditor failed; retained its actual receipt/log")
+    lines = raw.decode("utf-8").splitlines()
+    observed_runtimes = [json.loads(line[len(PUBLICATION_RUNTIME_PREFIX):])
+                         for line in lines if line.startswith(PUBLICATION_RUNTIME_PREFIX)]
+    observed_arguments = [json.loads(line[len("G4_PUBLICATION_ARGV "):])
+                          for line in lines if line.startswith("G4_PUBLICATION_ARGV ")]
+    require(len(observed_runtimes) == 1 and observed_arguments == [auditor_argv] and
+            observed_runtimes[0] == {key: runtime[key] for key in ("python", "platform", "machine", "executable")},
+            "actual publication auditor Python/arguments differ from the expected invocation")
+    invocation["actual_auditor_python_runtime"] = observed_runtimes[0]
+    report = read(destination / "release-verification.json")
+    require(report["schema"] == "protocol-emulator-g4-release-verification-v1" and
+            report["status"] == "PASS_G4_RELEASE_AND_PACKAGE" and report["source_commit"] == source and
+            report["physical_source_commit"] == PHYSICAL_SOURCE and report["tag"] == "v0.1.0",
+            "publication audit did not pass for the selected stable release source")
+    require(report["publish_run"] == inputs["publish_run"] and report["release_id"] == inputs["release_id"] and
+            report["publication_artifact_id"] == inputs["original_artifact_id"] and
+            report["publication_original_zip_sha256"] == inputs["files"][inputs["original_archive"]]["sha256"],
+            "publication audit producer/original evidence binding differs")
+    require(len(report["assets"]) == 35 and set(report["assets"]) == set(inputs["asset_names"]) and
+            all(item["anonymous_download_verified"] is True for item in report["assets"].values()),
+            "all 35 assets must have actual successful anonymous download verification")
+    require(set(report["tag_workflows"]) == TAG_WORKFLOWS and
+            all(value["run_id"] == inputs["tag_workflow_runs"][name] and value["conclusion"] == "success"
+                for name, value in report["tag_workflows"].items()),
+            "all nine successful tag workflows must match the supplied original API records")
+    require(report["image"] == read(destination / "downloaded/publication.json")["image"],
+            "verified published image differs from the downloaded publication record")
+    for name, expected in inputs["files"].items():
+        require(file_sha(base / name) == expected["sha256"], "publication auditor changed an original input: " + name)
+    require(not git("status", "--porcelain", "--untracked-files=no"),
+            "tracked checkout changed during publication verification")
+    invocation["release_verification_sha256"] = file_sha(destination / "release-verification.json")
+    write(receipt_path, invocation)
+    return {
+        "schema": "protocol-emulator-g4-linux-publication-proof-v1",
+        "status": "PASS_G4_LINUX_PUBLICATION_AUDIT", "release_source_commit": source,
+        "physical_source_commit": PHYSICAL_SOURCE, "tag": "v0.1.0", "release_id": report["release_id"],
+        "asset_count": len(report["assets"]), "tag_workflow_count": len(report["tag_workflows"]),
+        "tag_workflows": report["tag_workflows"], "auditor_sha256": inputs["auditor_sha256"],
+        "release_verification_path": "publication/release-verification.json",
+        "release_verification_sha256": invocation["release_verification_sha256"],
+        "input_binding_path": "publication/input-binding.json", "inputs": inputs,
+        "curated_outputs": curated, "ci_execution": execution,
+        "audit_image": image, "audit_image_config_digest": runtime["container_image"]["Id"],
+        "published_image": report["image"], "published_image_config_digest": report["config_digest"],
+        "invocation": "publication/audit-runtime.json", "invocation_sha256": file_sha(receipt_path),
+        "log_path": "publication/audit-linux.log", "log_sha256": sha(raw),
+        "tracked_checkout_clean_after": True,
+        "scope": "Actual unchanged publication auditor and anonymous public read checks. "
+                 "The helper creates no GitHub release, release-asset upload, tag, or competition entry.",
+    }
 
 
 def main() -> int:
@@ -477,8 +704,8 @@ def main() -> int:
     try:
         request = read(args.request)
         require(request.get("schema") == "protocol-emulator-g4-linux-request-v1" and
-                request.get("phase") in ("physical", "package"),
-                "only the physical and package request phases are implemented")
+                request.get("phase") in ("physical", "package", "publication"),
+                "only the physical, package, and publication request phases are implemented")
         phase = request["phase"]
         summary["phase"] = phase
         requested = request.get("source", "HEAD")
@@ -531,6 +758,9 @@ def main() -> int:
             bindings = package_preflight(request, head)
             summary["release_source_commit"] = bindings["release_source_commit"]
             summary["git_bindings"] = bindings
+            if phase == "publication":
+                publication_inputs = publication_preflight(request, bindings, head)
+                summary["publication_input_binding"] = publication_inputs
         image_record = read(ROOT / IMAGE_RECORD)
         require(image_record["status"] == "PASS_G3_RELEASE_AND_PACKAGE" and
                 image_record["tag"] == "v0.1.0-alpha.7" and
@@ -558,13 +788,18 @@ def main() -> int:
         if phase == "physical":
             for role, run_id, controls in RUNS:
                 summary["runs"][role] = replay(role, run_id, controls, retained[run_id], image, runtime, execution)
-        else:
+        elif phase == "package":
             summary["package"] = package_release(bindings, image, runtime, execution)
+        else:
+            summary["package"] = package_release(bindings, image, runtime, execution, retain_assets=False)
+            summary["publication"] = audit_publication(publication_inputs, summary["package"],
+                                                        image, runtime, execution)
         after = inspect_image(image, "image-inspection-after")
         require(all(after[key] == inspected[key] for key in ("Id", "RepoDigests", "Os", "Architecture")),
                 "image identity changed during the actual replays")
-        summary["status"] = ("PASS_G4_LINUX_PHYSICAL_REPLAYS" if phase == "physical"
-                             else "PASS_G4_LINUX_RELEASE_PACKAGE")
+        summary["status"] = {"physical": "PASS_G4_LINUX_PHYSICAL_REPLAYS",
+                             "package": "PASS_G4_LINUX_RELEASE_PACKAGE",
+                             "publication": "PASS_G4_LINUX_PUBLICATION_AUDIT"}[phase]
         summary["runtime"] = runtime
         exit_code = 0
     except Exception as exc:
