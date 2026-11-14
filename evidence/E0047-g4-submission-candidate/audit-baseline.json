@@ -1,0 +1,1621 @@
+{
+  "schema": "protocol-emulator-g4-physical-audit-baseline-v1",
+  "status": "FROZEN_G2_CONFIGURED_AND_EXECUTED_SEQUENCE",
+  "source": {
+    "run_id": 43348171110,
+    "source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "result_path": "evidence/E0045-g2-sram-qualification/ci-94a3082/result.json",
+    "result_sha256": "af34f8debf3693461626d45782e6b74ca0390d2c6e8bc2106751a4c1ba1e1532",
+    "run_api_path": "evidence/E0045-g2-sram-qualification/ci-94a3082/run.json",
+    "run_api_sha256": "6142d7fa7eedb01436700f8c3621f50ee49a8d45cb27133020b14bf86dfb12d0",
+    "artifacts_api_path": "evidence/E0045-g2-sram-qualification/ci-94a3082/artifacts.json",
+    "artifacts_api_sha256": "465f698c8018bfa1e479a5e609736f61f7784a1d6aebd058f294227a3364bc31",
+    "gds_logs": {
+      "artifact_id": 14005061594,
+      "path": "evidence/E0045-g2-sram-qualification/ci-94a3082/14005061594.zip",
+      "sha256": "319194dd2eda5a4a085ca8aff54f52b2a6df91b85f183ead2abc8c3bd93837b8",
+      "bytes": 98355378
+    },
+    "candidate_archive": {
+      "artifact_id": 14004717461,
+      "path": "evidence/E0045-g2-sram-qualification/ci-94a3082/14004717461.zip",
+      "sha256": "d6933cca4fbcf9bb8d78b6e2fb736971223509940e6fb5606404e922d03c795d",
+      "bytes": 163393
+    },
+    "flow_log": {
+      "archive": "GDS_logs",
+      "member": "runs/wokwi/flow.log",
+      "sha256": "5f7ba6d13d72355643af200137f77ad111f6b59c176af0d17c4378bf4a681373"
+    },
+    "resolved": {
+      "archive": "GDS_logs",
+      "member": "runs/wokwi/resolved.json",
+      "sha256": "f844e62267f551fc9918a28ae76cf4315d2fb3dd2fea63e8468b619f4f210e41"
+    },
+    "flow_plugin": {
+      "archive": "sram-physical-candidate",
+      "member": "librelane_plugin_sram.py",
+      "sha256": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399"
+    },
+    "gds_job_log": {
+      "path": "evidence/E0045-g2-sram-qualification/ci-94a3082/gds-job.log.gz",
+      "gzip_sha256": "9e97f36d3a3b8d6a3c6dfbab9f9b091ee51bbbaad612cf3f32c96f3bc7e51b92",
+      "decompressed_sha256": "4a767d67b3553cff0c902d821592460e41b642fda598474d603f828c60a25609"
+    }
+  },
+  "flow": "SramPortsClassic",
+  "configured_stage_count": 85,
+  "original_classic_stage_count": 80,
+  "project_stage_count": 5,
+  "configured_step_ids": [
+    "Verilator.Lint",
+    "Checker.LintTimingConstructs",
+    "Checker.LintErrors",
+    "Checker.LintWarnings",
+    "Yosys.JsonHeader",
+    "Yosys.Synthesis",
+    "Checker.YosysUnmappedCells",
+    "Checker.YosysSynthChecks",
+    "Checker.NetlistAssignStatements",
+    "OpenROAD.CheckSDCFiles",
+    "OpenROAD.CheckMacroInstances",
+    "OpenROAD.STAPrePNR",
+    "OpenROAD.Floorplan",
+    "OpenROAD.DumpRCValues",
+    "Odb.CheckMacroAntennaProperties",
+    "Odb.SetPowerConnections",
+    "Odb.ManualMacroPlacement",
+    "OpenROAD.CutRows",
+    "OpenROAD.TapEndcapInsertion",
+    "Odb.AddPDNObstructions",
+    "OpenROAD.GeneratePDN",
+    "Odb.RemovePDNObstructions",
+    "Project.ConnectSramPower",
+    "Project.CheckSramPower",
+    "Odb.AddRoutingObstructions",
+    "OpenROAD.GlobalPlacementSkipIO",
+    "OpenROAD.IOPlacement",
+    "Odb.CustomIOPlacement",
+    "Odb.ApplyDEFTemplate",
+    "Project.CheckPublicPinPower",
+    "OpenROAD.GlobalPlacement",
+    "Odb.WriteVerilogHeader",
+    "Checker.PowerGridViolations",
+    "OpenROAD.STAMidPNR",
+    "OpenROAD.RepairDesignPostGPL",
+    "Odb.ManualGlobalPlacement",
+    "OpenROAD.DetailedPlacement",
+    "OpenROAD.CTS",
+    "OpenROAD.STAMidPNR-1",
+    "OpenROAD.ResizerTimingPostCTS",
+    "OpenROAD.STAMidPNR-2",
+    "OpenROAD.GlobalRouting",
+    "Project.BufferSramInputs",
+    "OpenROAD.CheckAntennas",
+    "OpenROAD.RepairDesignPostGRT",
+    "Odb.DiodesOnPorts",
+    "Odb.HeuristicDiodeInsertion",
+    "OpenROAD.RepairAntennas",
+    "OpenROAD.ResizerTimingPostGRT",
+    "OpenROAD.STAMidPNR-3",
+    "OpenROAD.DetailedRouting",
+    "Odb.RemoveRoutingObstructions",
+    "OpenROAD.CheckAntennas-1",
+    "Checker.TrDRC",
+    "Odb.ReportDisconnectedPins",
+    "Checker.DisconnectedPins",
+    "Odb.ReportWireLength",
+    "Checker.WireLength",
+    "OpenROAD.FillInsertion",
+    "Odb.CellFrequencyTables",
+    "Project.SelectSramPowerPorts",
+    "OpenROAD.RCX",
+    "OpenROAD.STAPostPNR",
+    "OpenROAD.IRDropReport",
+    "Magic.StreamOut",
+    "KLayout.StreamOut",
+    "KLayout.Render",
+    "Magic.WriteLEF",
+    "Odb.CheckDesignAntennaProperties",
+    "KLayout.XOR",
+    "Checker.XOR",
+    "Magic.DRC",
+    "KLayout.DRC",
+    "Checker.MagicDRC",
+    "Checker.KLayoutDRC",
+    "Magic.SpiceExtraction",
+    "Checker.IllegalOverlap",
+    "Netgen.LVS",
+    "Checker.LVS",
+    "Yosys.EQY",
+    "Checker.SetupViolations",
+    "Checker.HoldViolations",
+    "Checker.MaxSlewViolations",
+    "Checker.MaxCapViolations",
+    "Misc.ReportManufacturability"
+  ],
+  "configured_sequence": [
+    {
+      "step_id": "Verilator.Lint",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/01-verilator-lint",
+      "flow_log_line": 2
+    },
+    {
+      "step_id": "Checker.LintTimingConstructs",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/02-checker-linttimingconstructs",
+      "flow_log_line": 4
+    },
+    {
+      "step_id": "Checker.LintErrors",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/03-checker-linterrors",
+      "flow_log_line": 6
+    },
+    {
+      "step_id": "Checker.LintWarnings",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/04-checker-lintwarnings",
+      "flow_log_line": 8
+    },
+    {
+      "step_id": "Yosys.JsonHeader",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/05-yosys-jsonheader",
+      "flow_log_line": 10
+    },
+    {
+      "step_id": "Yosys.Synthesis",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/06-yosys-synthesis",
+      "flow_log_line": 12
+    },
+    {
+      "step_id": "Checker.YosysUnmappedCells",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/07-checker-yosysunmappedcells",
+      "flow_log_line": 16
+    },
+    {
+      "step_id": "Checker.YosysSynthChecks",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/08-checker-yosyssynthchecks",
+      "flow_log_line": 18
+    },
+    {
+      "step_id": "Checker.NetlistAssignStatements",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/09-checker-netlistassignstatements",
+      "flow_log_line": 20
+    },
+    {
+      "step_id": "OpenROAD.CheckSDCFiles",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/10-openroad-checksdcfiles",
+      "flow_log_line": 21
+    },
+    {
+      "step_id": "OpenROAD.CheckMacroInstances",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/11-openroad-checkmacroinstances",
+      "flow_log_line": 24
+    },
+    {
+      "step_id": "OpenROAD.STAPrePNR",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/12-openroad-staprepnr",
+      "flow_log_line": 26
+    },
+    {
+      "step_id": "OpenROAD.Floorplan",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/13-openroad-floorplan",
+      "flow_log_line": 36
+    },
+    {
+      "step_id": "OpenROAD.DumpRCValues",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/14-openroad-dumprcvalues",
+      "flow_log_line": 39
+    },
+    {
+      "step_id": "Odb.CheckMacroAntennaProperties",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/15-odb-checkmacroantennaproperties",
+      "flow_log_line": 42
+    },
+    {
+      "step_id": "Odb.SetPowerConnections",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/16-odb-setpowerconnections",
+      "flow_log_line": 44
+    },
+    {
+      "step_id": "Odb.ManualMacroPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/17-odb-manualmacroplacement",
+      "flow_log_line": 46
+    },
+    {
+      "step_id": "OpenROAD.CutRows",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/18-openroad-cutrows",
+      "flow_log_line": 48
+    },
+    {
+      "step_id": "OpenROAD.TapEndcapInsertion",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/19-openroad-tapendcapinsertion",
+      "flow_log_line": 51
+    },
+    {
+      "step_id": "Odb.AddPDNObstructions",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/20-odb-addpdnobstructions",
+      "flow_log_line": 54
+    },
+    {
+      "step_id": "OpenROAD.GeneratePDN",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/21-openroad-generatepdn",
+      "flow_log_line": 56
+    },
+    {
+      "step_id": "Odb.RemovePDNObstructions",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/22-odb-removepdnobstructions",
+      "flow_log_line": 242
+    },
+    {
+      "step_id": "Project.ConnectSramPower",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/23-project-connectsrampower",
+      "flow_log_line": 244
+    },
+    {
+      "step_id": "Project.CheckSramPower",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/24-project-checksrampower",
+      "flow_log_line": 246
+    },
+    {
+      "step_id": "Odb.AddRoutingObstructions",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/25-odb-addroutingobstructions",
+      "flow_log_line": 249
+    },
+    {
+      "step_id": "OpenROAD.GlobalPlacementSkipIO",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/26-openroad-globalplacementskipio",
+      "flow_log_line": 251
+    },
+    {
+      "step_id": "OpenROAD.IOPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/27-openroad-ioplacement",
+      "flow_log_line": 253
+    },
+    {
+      "step_id": "Odb.CustomIOPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/28-odb-customioplacement",
+      "flow_log_line": 255
+    },
+    {
+      "step_id": "Odb.ApplyDEFTemplate",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/29-odb-applydeftemplate",
+      "flow_log_line": 257
+    },
+    {
+      "step_id": "Project.CheckPublicPinPower",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/30-project-checkpublicpinpower",
+      "flow_log_line": 261
+    },
+    {
+      "step_id": "OpenROAD.GlobalPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/31-openroad-globalplacement",
+      "flow_log_line": 263
+    },
+    {
+      "step_id": "Odb.WriteVerilogHeader",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/32-odb-writeverilogheader",
+      "flow_log_line": 266
+    },
+    {
+      "step_id": "Checker.PowerGridViolations",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/33-checker-powergridviolations",
+      "flow_log_line": 268
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/34-openroad-stamidpnr",
+      "flow_log_line": 270
+    },
+    {
+      "step_id": "OpenROAD.RepairDesignPostGPL",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/35-openroad-repairdesignpostgpl",
+      "flow_log_line": 273
+    },
+    {
+      "step_id": "Odb.ManualGlobalPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/36-odb-manualglobalplacement",
+      "flow_log_line": 276
+    },
+    {
+      "step_id": "OpenROAD.DetailedPlacement",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/37-openroad-detailedplacement",
+      "flow_log_line": 278
+    },
+    {
+      "step_id": "OpenROAD.CTS",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/38-openroad-cts",
+      "flow_log_line": 281
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-1",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/39-openroad-stamidpnr-1",
+      "flow_log_line": 284
+    },
+    {
+      "step_id": "OpenROAD.ResizerTimingPostCTS",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/40-openroad-resizertimingpostcts",
+      "flow_log_line": 287
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-2",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/41-openroad-stamidpnr-2",
+      "flow_log_line": 290
+    },
+    {
+      "step_id": "OpenROAD.GlobalRouting",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/42-openroad-globalrouting",
+      "flow_log_line": 293
+    },
+    {
+      "step_id": "Project.BufferSramInputs",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/43-project-buffersraminputs",
+      "flow_log_line": 296
+    },
+    {
+      "step_id": "OpenROAD.CheckAntennas",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/44-openroad-checkantennas",
+      "flow_log_line": 300
+    },
+    {
+      "step_id": "OpenROAD.RepairDesignPostGRT",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_POST_GRT_DESIGN_REPAIR",
+      "value": false,
+      "flow_log_line": 303,
+      "message": "Gating variable for step 'OpenROAD.RepairDesignPostGRT' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Odb.DiodesOnPorts",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/45-odb-diodesonports",
+      "flow_log_line": 305
+    },
+    {
+      "step_id": "Odb.HeuristicDiodeInsertion",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_HEURISTIC_DIODE_INSERTION",
+      "value": false,
+      "flow_log_line": 307,
+      "message": "Gating variable for step 'Odb.HeuristicDiodeInsertion' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "OpenROAD.RepairAntennas",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/46-openroad-repairantennas",
+      "flow_log_line": 309
+    },
+    {
+      "step_id": "OpenROAD.ResizerTimingPostGRT",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_POST_GRT_RESIZER_TIMING",
+      "value": false,
+      "flow_log_line": 316,
+      "message": "Gating variable for step 'OpenROAD.ResizerTimingPostGRT' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-3",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/47-openroad-stamidpnr-3",
+      "flow_log_line": 318
+    },
+    {
+      "step_id": "OpenROAD.DetailedRouting",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/48-openroad-detailedrouting",
+      "flow_log_line": 321
+    },
+    {
+      "step_id": "Odb.RemoveRoutingObstructions",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/49-odb-removeroutingobstructions",
+      "flow_log_line": 331
+    },
+    {
+      "step_id": "OpenROAD.CheckAntennas-1",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/50-openroad-checkantennas-1",
+      "flow_log_line": 333
+    },
+    {
+      "step_id": "Checker.TrDRC",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/51-checker-trdrc",
+      "flow_log_line": 336
+    },
+    {
+      "step_id": "Odb.ReportDisconnectedPins",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/52-odb-reportdisconnectedpins",
+      "flow_log_line": 338
+    },
+    {
+      "step_id": "Checker.DisconnectedPins",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/53-checker-disconnectedpins",
+      "flow_log_line": 340
+    },
+    {
+      "step_id": "Odb.ReportWireLength",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/54-odb-reportwirelength",
+      "flow_log_line": 342
+    },
+    {
+      "step_id": "Checker.WireLength",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/55-checker-wirelength",
+      "flow_log_line": 344
+    },
+    {
+      "step_id": "OpenROAD.FillInsertion",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/56-openroad-fillinsertion",
+      "flow_log_line": 346
+    },
+    {
+      "step_id": "Odb.CellFrequencyTables",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/57-odb-cellfrequencytables",
+      "flow_log_line": 349
+    },
+    {
+      "step_id": "Project.SelectSramPowerPorts",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/58-project-selectsrampowerports",
+      "flow_log_line": 352
+    },
+    {
+      "step_id": "OpenROAD.RCX",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/59-openroad-rcx",
+      "flow_log_line": 354
+    },
+    {
+      "step_id": "OpenROAD.STAPostPNR",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/60-openroad-stapostpnr",
+      "flow_log_line": 359
+    },
+    {
+      "step_id": "OpenROAD.IRDropReport",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/61-openroad-irdropreport",
+      "flow_log_line": 372
+    },
+    {
+      "step_id": "Magic.StreamOut",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/62-magic-streamout",
+      "flow_log_line": 403
+    },
+    {
+      "step_id": "KLayout.StreamOut",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/63-klayout-streamout",
+      "flow_log_line": 406
+    },
+    {
+      "step_id": "KLayout.Render",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/64-klayout-render",
+      "flow_log_line": 408
+    },
+    {
+      "step_id": "Magic.WriteLEF",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/65-magic-writelef",
+      "flow_log_line": 410
+    },
+    {
+      "step_id": "Odb.CheckDesignAntennaProperties",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/66-odb-checkdesignantennaproperties",
+      "flow_log_line": 412
+    },
+    {
+      "step_id": "KLayout.XOR",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_XOR",
+      "value": false,
+      "flow_log_line": 414,
+      "message": "Gating variable for step 'KLayout.XOR' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Checker.XOR",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_XOR",
+      "value": false,
+      "flow_log_line": 416,
+      "message": "Gating variable for step 'Checker.XOR' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Magic.DRC",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/67-magic-drc",
+      "flow_log_line": 418
+    },
+    {
+      "step_id": "KLayout.DRC",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_DRC",
+      "value": false,
+      "flow_log_line": 420,
+      "message": "Gating variable for step 'KLayout.DRC' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Checker.MagicDRC",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/68-checker-magicdrc",
+      "flow_log_line": 422
+    },
+    {
+      "step_id": "Checker.KLayoutDRC",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_DRC",
+      "value": false,
+      "flow_log_line": 424,
+      "message": "Gating variable for step 'Checker.KLayoutDRC' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Magic.SpiceExtraction",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/69-magic-spiceextraction",
+      "flow_log_line": 426
+    },
+    {
+      "step_id": "Checker.IllegalOverlap",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/70-checker-illegaloverlap",
+      "flow_log_line": 428
+    },
+    {
+      "step_id": "Netgen.LVS",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/71-netgen-lvs",
+      "flow_log_line": 430
+    },
+    {
+      "step_id": "Checker.LVS",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/72-checker-lvs",
+      "flow_log_line": 432
+    },
+    {
+      "step_id": "Yosys.EQY",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_EQY",
+      "value": false,
+      "flow_log_line": 434,
+      "message": "Gating variable for step 'Yosys.EQY' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Checker.SetupViolations",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/73-checker-setupviolations",
+      "flow_log_line": 436
+    },
+    {
+      "step_id": "Checker.HoldViolations",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/74-checker-holdviolations",
+      "flow_log_line": 438
+    },
+    {
+      "step_id": "Checker.MaxSlewViolations",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/75-checker-maxslewviolations",
+      "flow_log_line": 440
+    },
+    {
+      "step_id": "Checker.MaxCapViolations",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/76-checker-maxcapviolations",
+      "flow_log_line": 442
+    },
+    {
+      "step_id": "Misc.ReportManufacturability",
+      "status": "EXECUTED_TOP_LEVEL",
+      "directory": "runs/wokwi/77-misc-reportmanufacturability",
+      "flow_log_line": 444
+    }
+  ],
+  "executed_top_level_count": 77,
+  "executed_top_level": [
+    {
+      "step_id": "Verilator.Lint",
+      "configuration_step_id": "Verilator.Lint",
+      "directory": "runs/wokwi/01-verilator-lint",
+      "flow_log_line": 2,
+      "config_sha256": "b69a028b585d0d2aa0db4573dbb8c72d33deaeb66b61c4291ea69fa3cfb4e320",
+      "state_in_sha256": "8bbbb272fcbae1f9f875f02f7fae97bb73751ce58d1f651e21b7928aaf9cee9d",
+      "state_out_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "execution_ordinal": 1
+    },
+    {
+      "step_id": "Checker.LintTimingConstructs",
+      "configuration_step_id": "Checker.LintTimingConstructs",
+      "directory": "runs/wokwi/02-checker-linttimingconstructs",
+      "flow_log_line": 4,
+      "config_sha256": "931949fc91fde6aa337b5f496035a30884588dff08453f8d66804747a86d2093",
+      "state_in_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "state_out_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "execution_ordinal": 2
+    },
+    {
+      "step_id": "Checker.LintErrors",
+      "configuration_step_id": "Checker.LintErrors",
+      "directory": "runs/wokwi/03-checker-linterrors",
+      "flow_log_line": 6,
+      "config_sha256": "b4831c7a1407a72baceb8357353231e70e3d90620478cc47464d45f51f34bcf9",
+      "state_in_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "state_out_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "execution_ordinal": 3
+    },
+    {
+      "step_id": "Checker.LintWarnings",
+      "configuration_step_id": "Checker.LintWarnings",
+      "directory": "runs/wokwi/04-checker-lintwarnings",
+      "flow_log_line": 8,
+      "config_sha256": "919d6d89558ac6b0b5be2638c5ec2caa6dd82f9281535bd8f46c377d7a753c08",
+      "state_in_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "state_out_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "execution_ordinal": 4
+    },
+    {
+      "step_id": "Yosys.JsonHeader",
+      "configuration_step_id": "Yosys.JsonHeader",
+      "directory": "runs/wokwi/05-yosys-jsonheader",
+      "flow_log_line": 10,
+      "config_sha256": "936fc4656f095a42869bc0078fb6eb5a3baa60cfe077408c20c0bebbc9fee65f",
+      "state_in_sha256": "11b56f7dba8e4806e39365f6b10c1b56d737723a0f80a9662e2cbd07823a2c74",
+      "state_out_sha256": "eb8feb65a18ff69262c9ca2cd7a1280f5329888667875496b351331cda3e4d04",
+      "execution_ordinal": 5
+    },
+    {
+      "step_id": "Yosys.Synthesis",
+      "configuration_step_id": "Yosys.Synthesis",
+      "directory": "runs/wokwi/06-yosys-synthesis",
+      "flow_log_line": 12,
+      "config_sha256": "e7958b5db3b0e4874ca700b4f2eb38a6ce5ca60c5d07bd428c5f89d888915318",
+      "state_in_sha256": "eb8feb65a18ff69262c9ca2cd7a1280f5329888667875496b351331cda3e4d04",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 6
+    },
+    {
+      "step_id": "Checker.YosysUnmappedCells",
+      "configuration_step_id": "Checker.YosysUnmappedCells",
+      "directory": "runs/wokwi/07-checker-yosysunmappedcells",
+      "flow_log_line": 16,
+      "config_sha256": "f7551d5c1f723353ab5e35c4ecf2e4c67aac25fe8f0b1f5a5f984a5856e63e1a",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 7
+    },
+    {
+      "step_id": "Checker.YosysSynthChecks",
+      "configuration_step_id": "Checker.YosysSynthChecks",
+      "directory": "runs/wokwi/08-checker-yosyssynthchecks",
+      "flow_log_line": 18,
+      "config_sha256": "e8091661c0d63c6367c4d8b8127c0e62136b26a3d0df067991c1db708dfa7021",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 8
+    },
+    {
+      "step_id": "Checker.NetlistAssignStatements",
+      "configuration_step_id": "Checker.NetlistAssignStatements",
+      "directory": "runs/wokwi/09-checker-netlistassignstatements",
+      "flow_log_line": 20,
+      "config_sha256": "4f619d0230801da530ce5a6603a42438e94386501a421dc5b0e90d8f176b899d",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 9
+    },
+    {
+      "step_id": "OpenROAD.CheckSDCFiles",
+      "configuration_step_id": "OpenROAD.CheckSDCFiles",
+      "directory": "runs/wokwi/10-openroad-checksdcfiles",
+      "flow_log_line": 21,
+      "config_sha256": "c28b5f84727f3f56fc8af37b95d9d74f6b5164adf58e5ba3db2b67822f58c276",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 10
+    },
+    {
+      "step_id": "OpenROAD.CheckMacroInstances",
+      "configuration_step_id": "OpenROAD.CheckMacroInstances",
+      "directory": "runs/wokwi/11-openroad-checkmacroinstances",
+      "flow_log_line": 24,
+      "config_sha256": "6ab2a37c6ba2beab1283a463593d83bc217a8098ee75a0540feca8ec82970a2f",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "execution_ordinal": 11
+    },
+    {
+      "step_id": "OpenROAD.STAPrePNR",
+      "configuration_step_id": "OpenROAD.STAPrePNR",
+      "directory": "runs/wokwi/12-openroad-staprepnr",
+      "flow_log_line": 26,
+      "config_sha256": "3d807c8b02fe5cb6da70ce0c79bbd7565ecd116424872614ac60102fd82427ac",
+      "state_in_sha256": "90e584a1d800915e920c45481b49be70bb1325847806a4ee38272a3269c585e0",
+      "state_out_sha256": "27f8661d96905f8e44be6e90cb8b2d86b749a0535b03d6f580550afa7e117ddb",
+      "execution_ordinal": 12
+    },
+    {
+      "step_id": "OpenROAD.Floorplan",
+      "configuration_step_id": "OpenROAD.Floorplan",
+      "directory": "runs/wokwi/13-openroad-floorplan",
+      "flow_log_line": 36,
+      "config_sha256": "59e75fbe49d58d3c8166aed8a117083f6034c9bcb7366034ef0f54558d5ccb4e",
+      "state_in_sha256": "27f8661d96905f8e44be6e90cb8b2d86b749a0535b03d6f580550afa7e117ddb",
+      "state_out_sha256": "cb126877af2fc88bcdc8b99531765e458e3911c1dc8d7a12150832d2876b6cdf",
+      "execution_ordinal": 13
+    },
+    {
+      "step_id": "OpenROAD.DumpRCValues",
+      "configuration_step_id": "OpenROAD.DumpRCValues",
+      "directory": "runs/wokwi/14-openroad-dumprcvalues",
+      "flow_log_line": 39,
+      "config_sha256": "1d9dfc2ec952fdcbd03860d8660403292aa721e9e4eae1f4ed5984145ad56cdb",
+      "state_in_sha256": "cb126877af2fc88bcdc8b99531765e458e3911c1dc8d7a12150832d2876b6cdf",
+      "state_out_sha256": "cb126877af2fc88bcdc8b99531765e458e3911c1dc8d7a12150832d2876b6cdf",
+      "execution_ordinal": 14
+    },
+    {
+      "step_id": "Odb.CheckMacroAntennaProperties",
+      "configuration_step_id": "Odb.CheckMacroAntennaProperties",
+      "directory": "runs/wokwi/15-odb-checkmacroantennaproperties",
+      "flow_log_line": 42,
+      "config_sha256": "3228a1b5707782fb71620c17bfc3a33f468d24684e24228b52a8e3d63a4aced9",
+      "state_in_sha256": "cb126877af2fc88bcdc8b99531765e458e3911c1dc8d7a12150832d2876b6cdf",
+      "state_out_sha256": "b12f2e8755635b6132399eb95dec26aeeb22d4d1bb21610e75a4fa1734460fe2",
+      "execution_ordinal": 15
+    },
+    {
+      "step_id": "Odb.SetPowerConnections",
+      "configuration_step_id": "Odb.SetPowerConnections",
+      "directory": "runs/wokwi/16-odb-setpowerconnections",
+      "flow_log_line": 44,
+      "config_sha256": "95e74479221a8247923f882abfeac7ab68726d2bac0d3aa38a640c69ed585bc3",
+      "state_in_sha256": "b12f2e8755635b6132399eb95dec26aeeb22d4d1bb21610e75a4fa1734460fe2",
+      "state_out_sha256": "cdfdb7080ba0c7e6a8383b2950570e4aecfa4bb8686749dc4e4cb6fbe6300d0c",
+      "execution_ordinal": 16
+    },
+    {
+      "step_id": "Odb.ManualMacroPlacement",
+      "configuration_step_id": "Odb.ManualMacroPlacement",
+      "directory": "runs/wokwi/17-odb-manualmacroplacement",
+      "flow_log_line": 46,
+      "config_sha256": "0fba881cde1c421771915fb4d695405ac57d580052462ecfdb33eb9dc7c379bf",
+      "state_in_sha256": "cdfdb7080ba0c7e6a8383b2950570e4aecfa4bb8686749dc4e4cb6fbe6300d0c",
+      "state_out_sha256": "b186f5389e028468e85c0965f0ed1d078ea1314df4ae1900442f8187f3e5da6c",
+      "execution_ordinal": 17
+    },
+    {
+      "step_id": "OpenROAD.CutRows",
+      "configuration_step_id": "OpenROAD.CutRows",
+      "directory": "runs/wokwi/18-openroad-cutrows",
+      "flow_log_line": 48,
+      "config_sha256": "83a68ae14399f5801aab04a013fa7ac742cab9dcfdfc13bdb5aa518e6cf96ce2",
+      "state_in_sha256": "b186f5389e028468e85c0965f0ed1d078ea1314df4ae1900442f8187f3e5da6c",
+      "state_out_sha256": "3420f1ca43c7bb611f3c5a315b8a1da90b9c6d2de91017f7f3c1a2d941e9dc07",
+      "execution_ordinal": 18
+    },
+    {
+      "step_id": "OpenROAD.TapEndcapInsertion",
+      "configuration_step_id": "OpenROAD.TapEndcapInsertion",
+      "directory": "runs/wokwi/19-openroad-tapendcapinsertion",
+      "flow_log_line": 51,
+      "config_sha256": "50026649c516e9f6e585990fb4923fd2de2a0963e3739c5ccdbd6eee715c124e",
+      "state_in_sha256": "3420f1ca43c7bb611f3c5a315b8a1da90b9c6d2de91017f7f3c1a2d941e9dc07",
+      "state_out_sha256": "56a1366d02024fa62fbbb24c434814841546d59c2e6014ea6b6db7566386e33c",
+      "execution_ordinal": 19
+    },
+    {
+      "step_id": "Odb.AddPDNObstructions",
+      "configuration_step_id": "Odb.AddPDNObstructions",
+      "directory": "runs/wokwi/20-odb-addpdnobstructions",
+      "flow_log_line": 54,
+      "config_sha256": "215d26c0f94c93943c908aef8e252ecd033ff660e09e563ec2491abc605d123b",
+      "state_in_sha256": "56a1366d02024fa62fbbb24c434814841546d59c2e6014ea6b6db7566386e33c",
+      "state_out_sha256": "56a1366d02024fa62fbbb24c434814841546d59c2e6014ea6b6db7566386e33c",
+      "execution_ordinal": 20
+    },
+    {
+      "step_id": "OpenROAD.GeneratePDN",
+      "configuration_step_id": "OpenROAD.GeneratePDN",
+      "directory": "runs/wokwi/21-openroad-generatepdn",
+      "flow_log_line": 56,
+      "config_sha256": "d0621140685f9fda33427c5cd99be138e15f58cadf56b20c03228bcf863860ea",
+      "state_in_sha256": "56a1366d02024fa62fbbb24c434814841546d59c2e6014ea6b6db7566386e33c",
+      "state_out_sha256": "99764a2cfb78ca9bbe09efb65b828ffa616ebd025885059951d5e2aebca0db03",
+      "execution_ordinal": 21
+    },
+    {
+      "step_id": "Odb.RemovePDNObstructions",
+      "configuration_step_id": "Odb.RemovePDNObstructions",
+      "directory": "runs/wokwi/22-odb-removepdnobstructions",
+      "flow_log_line": 242,
+      "config_sha256": "bd8dfed4a40dee6b32d6b6fd57a3c2743074768232976b6c2a7cde9c2ee5b79e",
+      "state_in_sha256": "99764a2cfb78ca9bbe09efb65b828ffa616ebd025885059951d5e2aebca0db03",
+      "state_out_sha256": "99764a2cfb78ca9bbe09efb65b828ffa616ebd025885059951d5e2aebca0db03",
+      "execution_ordinal": 22
+    },
+    {
+      "step_id": "Project.ConnectSramPower",
+      "configuration_step_id": "Project.ConnectSramPower",
+      "directory": "runs/wokwi/23-project-connectsrampower",
+      "flow_log_line": 244,
+      "config_sha256": "75a898b3cf217747f0afcfc9f8358b80ee330028bab49fdf02af7f4a14410f3a",
+      "state_in_sha256": "99764a2cfb78ca9bbe09efb65b828ffa616ebd025885059951d5e2aebca0db03",
+      "state_out_sha256": "315c071a4ff2a0b391accc4c2a4df0c67394166d034179a10615adec3e0e744e",
+      "execution_ordinal": 23
+    },
+    {
+      "step_id": "Project.CheckSramPower",
+      "configuration_step_id": "Project.CheckSramPower",
+      "directory": "runs/wokwi/24-project-checksrampower",
+      "flow_log_line": 246,
+      "config_sha256": "f882fbb19e8c7266a311122d0117eaccb273951b1e19f40130cb64da2f7ff2a2",
+      "state_in_sha256": "315c071a4ff2a0b391accc4c2a4df0c67394166d034179a10615adec3e0e744e",
+      "state_out_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "execution_ordinal": 24
+    },
+    {
+      "step_id": "Odb.AddRoutingObstructions",
+      "configuration_step_id": "Odb.AddRoutingObstructions",
+      "directory": "runs/wokwi/25-odb-addroutingobstructions",
+      "flow_log_line": 249,
+      "config_sha256": "07e441c0cdc920e480b4963eb5635d3c09811845a543ce9c1fa69c1c073020eb",
+      "state_in_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "state_out_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "execution_ordinal": 25
+    },
+    {
+      "step_id": "OpenROAD.GlobalPlacementSkipIO",
+      "configuration_step_id": "OpenROAD.GlobalPlacementSkipIO",
+      "directory": "runs/wokwi/26-openroad-globalplacementskipio",
+      "flow_log_line": 251,
+      "config_sha256": "06b58915ae6a70daa71babb08c49964c9ce08cea607b523e60fef1cfd5e9c999",
+      "state_in_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "state_out_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "execution_ordinal": 26
+    },
+    {
+      "step_id": "OpenROAD.IOPlacement",
+      "configuration_step_id": "OpenROAD.IOPlacement",
+      "directory": "runs/wokwi/27-openroad-ioplacement",
+      "flow_log_line": 253,
+      "config_sha256": "4f79393672636f6acb10b31f56d12e77a19ad67e9d719f36bf32030e6f0f189f",
+      "state_in_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "state_out_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "execution_ordinal": 27
+    },
+    {
+      "step_id": "Odb.CustomIOPlacement",
+      "configuration_step_id": "Odb.CustomIOPlacement",
+      "directory": "runs/wokwi/28-odb-customioplacement",
+      "flow_log_line": 255,
+      "config_sha256": "53e58066f98d953d0b3c7922b434305fb2fdfcd614756bcb2b7c190ce54c8f53",
+      "state_in_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "state_out_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "execution_ordinal": 28
+    },
+    {
+      "step_id": "Odb.ApplyDEFTemplate",
+      "configuration_step_id": "Odb.ApplyDEFTemplate",
+      "directory": "runs/wokwi/29-odb-applydeftemplate",
+      "flow_log_line": 257,
+      "config_sha256": "cee76f129eddf9d6e6dc2e9c65f0d3878e92bab89c3fadc2d9e65d7f1475000a",
+      "state_in_sha256": "38219bcf29acb433ff7bc39a10c670216d01c53083eba4b4e9d1fc22ed1ae3c1",
+      "state_out_sha256": "805869e37945db5fb43c5036718302e0ee725811cdb216d2438538b41d5b45ed",
+      "execution_ordinal": 29
+    },
+    {
+      "step_id": "Project.CheckPublicPinPower",
+      "configuration_step_id": "Project.CheckPublicPinPower",
+      "directory": "runs/wokwi/30-project-checkpublicpinpower",
+      "flow_log_line": 261,
+      "config_sha256": "653f5f16ff2b2e3554eb1bfb476107ef599c7a6de4ad5f5a202b30e36cf6762a",
+      "state_in_sha256": "805869e37945db5fb43c5036718302e0ee725811cdb216d2438538b41d5b45ed",
+      "state_out_sha256": "8fd466fa1ac9d3de2cf7d8c64b655ccfa9d6f7d9fc756cc3017210aab459da1a",
+      "execution_ordinal": 30
+    },
+    {
+      "step_id": "OpenROAD.GlobalPlacement",
+      "configuration_step_id": "OpenROAD.GlobalPlacement",
+      "directory": "runs/wokwi/31-openroad-globalplacement",
+      "flow_log_line": 263,
+      "config_sha256": "d8b4b4c8d5793bc2fef24bbe7c4605d6edbc22d5b6118bf6015821008219eabf",
+      "state_in_sha256": "8fd466fa1ac9d3de2cf7d8c64b655ccfa9d6f7d9fc756cc3017210aab459da1a",
+      "state_out_sha256": "70e6cf62ecbf4e537b577514d2e5008259e3b0446f85318564764ebc6064b386",
+      "execution_ordinal": 31
+    },
+    {
+      "step_id": "Odb.WriteVerilogHeader",
+      "configuration_step_id": "Odb.WriteVerilogHeader",
+      "directory": "runs/wokwi/32-odb-writeverilogheader",
+      "flow_log_line": 266,
+      "config_sha256": "e1d49cf6566a83cc97fca2fb3cdf60fa434b04f85e65b36317762303227451f9",
+      "state_in_sha256": "70e6cf62ecbf4e537b577514d2e5008259e3b0446f85318564764ebc6064b386",
+      "state_out_sha256": "2c61496f49d7aad746d38e7081beab5ef5b05d9018a0164a51bdc9b2b1fadee5",
+      "execution_ordinal": 32
+    },
+    {
+      "step_id": "Checker.PowerGridViolations",
+      "configuration_step_id": "Checker.PowerGridViolations",
+      "directory": "runs/wokwi/33-checker-powergridviolations",
+      "flow_log_line": 268,
+      "config_sha256": "a6919ebe7de0a482db564e863b6cd8883c01f4e47f23f521cadb6631e5e378e5",
+      "state_in_sha256": "2c61496f49d7aad746d38e7081beab5ef5b05d9018a0164a51bdc9b2b1fadee5",
+      "state_out_sha256": "2c61496f49d7aad746d38e7081beab5ef5b05d9018a0164a51bdc9b2b1fadee5",
+      "execution_ordinal": 33
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR",
+      "configuration_step_id": "OpenROAD.STAMidPNR",
+      "directory": "runs/wokwi/34-openroad-stamidpnr",
+      "flow_log_line": 270,
+      "config_sha256": "8bf4a5606993be7c38767e03024fb394725ecb7a7279b69cfa657b6c0c810ab7",
+      "state_in_sha256": "2c61496f49d7aad746d38e7081beab5ef5b05d9018a0164a51bdc9b2b1fadee5",
+      "state_out_sha256": "c2c38ee9233b15210faf03793fa6e0b4dcaabf0917ad259759223d4c903b74bc",
+      "execution_ordinal": 34
+    },
+    {
+      "step_id": "OpenROAD.RepairDesignPostGPL",
+      "configuration_step_id": "OpenROAD.RepairDesignPostGPL",
+      "directory": "runs/wokwi/35-openroad-repairdesignpostgpl",
+      "flow_log_line": 273,
+      "config_sha256": "5fd0e08b55b0f7b52a716a7afc07e89e477794458dcac22bda5887d959168c84",
+      "state_in_sha256": "c2c38ee9233b15210faf03793fa6e0b4dcaabf0917ad259759223d4c903b74bc",
+      "state_out_sha256": "b11a100dbd198b63d6f28ea9bda3f13494c5e30a90f58bf9ac8b77846baa7b2a",
+      "execution_ordinal": 35
+    },
+    {
+      "step_id": "Odb.ManualGlobalPlacement",
+      "configuration_step_id": "Odb.ManualGlobalPlacement",
+      "directory": "runs/wokwi/36-odb-manualglobalplacement",
+      "flow_log_line": 276,
+      "config_sha256": "b6b11a8b7c52752429e9be264db442ad4ee09216692d558ec0aa8a31452f9e8a",
+      "state_in_sha256": "b11a100dbd198b63d6f28ea9bda3f13494c5e30a90f58bf9ac8b77846baa7b2a",
+      "state_out_sha256": "b11a100dbd198b63d6f28ea9bda3f13494c5e30a90f58bf9ac8b77846baa7b2a",
+      "execution_ordinal": 36
+    },
+    {
+      "step_id": "OpenROAD.DetailedPlacement",
+      "configuration_step_id": "OpenROAD.DetailedPlacement",
+      "directory": "runs/wokwi/37-openroad-detailedplacement",
+      "flow_log_line": 278,
+      "config_sha256": "cffb8e532e07896de42eb7263c67f82bb3abcd1e7c7af988e27510fe0066df8e",
+      "state_in_sha256": "b11a100dbd198b63d6f28ea9bda3f13494c5e30a90f58bf9ac8b77846baa7b2a",
+      "state_out_sha256": "83ffcef01af035f865af12e9e0b90d227c420eabd19d63fe564d7f3e2613cbbc",
+      "execution_ordinal": 37
+    },
+    {
+      "step_id": "OpenROAD.CTS",
+      "configuration_step_id": "OpenROAD.CTS",
+      "directory": "runs/wokwi/38-openroad-cts",
+      "flow_log_line": 281,
+      "config_sha256": "8157856a552be2dab0bf237eae61167a25c764254acff623bdce6a3a0697bc8a",
+      "state_in_sha256": "83ffcef01af035f865af12e9e0b90d227c420eabd19d63fe564d7f3e2613cbbc",
+      "state_out_sha256": "0368de96dc43904637d2fe5adf0c7d04a7b4ef723754c643d96d1b20b031d80b",
+      "execution_ordinal": 38
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-1",
+      "configuration_step_id": "OpenROAD.STAMidPNR",
+      "directory": "runs/wokwi/39-openroad-stamidpnr-1",
+      "flow_log_line": 284,
+      "config_sha256": "8bf4a5606993be7c38767e03024fb394725ecb7a7279b69cfa657b6c0c810ab7",
+      "state_in_sha256": "0368de96dc43904637d2fe5adf0c7d04a7b4ef723754c643d96d1b20b031d80b",
+      "state_out_sha256": "15573de8a59ae5e5426c826237ea9a48f740bab8cf02d281efa0d667c8fe47dc",
+      "execution_ordinal": 39
+    },
+    {
+      "step_id": "OpenROAD.ResizerTimingPostCTS",
+      "configuration_step_id": "OpenROAD.ResizerTimingPostCTS",
+      "directory": "runs/wokwi/40-openroad-resizertimingpostcts",
+      "flow_log_line": 287,
+      "config_sha256": "f3d79681c0276294bad2e5d80f8b13f74ad0e66e0fec2c5bb994c558c7c51278",
+      "state_in_sha256": "15573de8a59ae5e5426c826237ea9a48f740bab8cf02d281efa0d667c8fe47dc",
+      "state_out_sha256": "807a78ce88472bc73bb1fa4f6e354cb681ba2c22a2d4ff14716e377b929bb60c",
+      "execution_ordinal": 40
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-2",
+      "configuration_step_id": "OpenROAD.STAMidPNR",
+      "directory": "runs/wokwi/41-openroad-stamidpnr-2",
+      "flow_log_line": 290,
+      "config_sha256": "8bf4a5606993be7c38767e03024fb394725ecb7a7279b69cfa657b6c0c810ab7",
+      "state_in_sha256": "807a78ce88472bc73bb1fa4f6e354cb681ba2c22a2d4ff14716e377b929bb60c",
+      "state_out_sha256": "e9e1090e689aa0af992eb7d31fd4cb55deb0ab96c549d3dbc2d239e539385154",
+      "execution_ordinal": 41
+    },
+    {
+      "step_id": "OpenROAD.GlobalRouting",
+      "configuration_step_id": "OpenROAD.GlobalRouting",
+      "directory": "runs/wokwi/42-openroad-globalrouting",
+      "flow_log_line": 293,
+      "config_sha256": "50d4bb4f973f105fe0ac343e31ea6a9040fc5700c8d8001eedf5a44aa85f6658",
+      "state_in_sha256": "e9e1090e689aa0af992eb7d31fd4cb55deb0ab96c549d3dbc2d239e539385154",
+      "state_out_sha256": "397092c963c8ef501a9c536d453594799409f38c8849becfe59ae309f54b7f2b",
+      "execution_ordinal": 42
+    },
+    {
+      "step_id": "Project.BufferSramInputs",
+      "configuration_step_id": "Project.BufferSramInputs",
+      "directory": "runs/wokwi/43-project-buffersraminputs",
+      "flow_log_line": 296,
+      "config_sha256": "be54cedb5c7d4e5ba3e2d9baa80905c884412b8ccd62262396fff0b1ade03aa0",
+      "state_in_sha256": "397092c963c8ef501a9c536d453594799409f38c8849becfe59ae309f54b7f2b",
+      "state_out_sha256": "268a061c95aaa56340406d1011713156c690b03de8afbbb5a4cddde5c9b4ac28",
+      "execution_ordinal": 43
+    },
+    {
+      "step_id": "OpenROAD.CheckAntennas",
+      "configuration_step_id": "OpenROAD.CheckAntennas",
+      "directory": "runs/wokwi/44-openroad-checkantennas",
+      "flow_log_line": 300,
+      "config_sha256": "09372e82b7df6e95d127a9c68f9f7da587d03c5bc7455098ace8ffa8a1a9b6e6",
+      "state_in_sha256": "268a061c95aaa56340406d1011713156c690b03de8afbbb5a4cddde5c9b4ac28",
+      "state_out_sha256": "eb2aa0b264400ad659fbf10d681091d6b8141cb03947c387a35c44a12ae5b4f7",
+      "execution_ordinal": 44
+    },
+    {
+      "step_id": "Odb.DiodesOnPorts",
+      "configuration_step_id": "Odb.DiodesOnPorts",
+      "directory": "runs/wokwi/45-odb-diodesonports",
+      "flow_log_line": 305,
+      "config_sha256": "00d6683c08c51be44e8b97d952d813ab78e6397626a9e828843159753bfdeb53",
+      "state_in_sha256": "eb2aa0b264400ad659fbf10d681091d6b8141cb03947c387a35c44a12ae5b4f7",
+      "state_out_sha256": "eb2aa0b264400ad659fbf10d681091d6b8141cb03947c387a35c44a12ae5b4f7",
+      "execution_ordinal": 45
+    },
+    {
+      "step_id": "OpenROAD.RepairAntennas",
+      "configuration_step_id": "OpenROAD.RepairAntennas",
+      "directory": "runs/wokwi/46-openroad-repairantennas",
+      "flow_log_line": 309,
+      "config_sha256": "a89b299cf5973185a93ac29c7f4929e0e029813e209a6f83f941bcee43aaaa27",
+      "state_in_sha256": "eb2aa0b264400ad659fbf10d681091d6b8141cb03947c387a35c44a12ae5b4f7",
+      "state_out_sha256": "e949332c01dbe8cd1dd61154dae357446f2ebec16fe3286bdad40cee3f26abc5",
+      "execution_ordinal": 46
+    },
+    {
+      "step_id": "OpenROAD.STAMidPNR-3",
+      "configuration_step_id": "OpenROAD.STAMidPNR",
+      "directory": "runs/wokwi/47-openroad-stamidpnr-3",
+      "flow_log_line": 318,
+      "config_sha256": "8bf4a5606993be7c38767e03024fb394725ecb7a7279b69cfa657b6c0c810ab7",
+      "state_in_sha256": "e949332c01dbe8cd1dd61154dae357446f2ebec16fe3286bdad40cee3f26abc5",
+      "state_out_sha256": "0fbf4e78c03946138fdd65e879a247707751dcd7913772c9a39b5fadd151ccc5",
+      "execution_ordinal": 47
+    },
+    {
+      "step_id": "OpenROAD.DetailedRouting",
+      "configuration_step_id": "OpenROAD.DetailedRouting",
+      "directory": "runs/wokwi/48-openroad-detailedrouting",
+      "flow_log_line": 321,
+      "config_sha256": "ca73359413fb0d64da38556693d9da3fe844270b73c3bf523d21354c05da2ebd",
+      "state_in_sha256": "0fbf4e78c03946138fdd65e879a247707751dcd7913772c9a39b5fadd151ccc5",
+      "state_out_sha256": "8d260ef75e5e39736c091e2df0316d88ba0fd71be73a9b4925d6b62f1f3d8bf6",
+      "execution_ordinal": 48
+    },
+    {
+      "step_id": "Odb.RemoveRoutingObstructions",
+      "configuration_step_id": "Odb.RemoveRoutingObstructions",
+      "directory": "runs/wokwi/49-odb-removeroutingobstructions",
+      "flow_log_line": 331,
+      "config_sha256": "36a1af90ee06f186d53c1eb6c0e0d0c9897af8d148ba7a6be2730c343718e509",
+      "state_in_sha256": "8d260ef75e5e39736c091e2df0316d88ba0fd71be73a9b4925d6b62f1f3d8bf6",
+      "state_out_sha256": "8d260ef75e5e39736c091e2df0316d88ba0fd71be73a9b4925d6b62f1f3d8bf6",
+      "execution_ordinal": 49
+    },
+    {
+      "step_id": "OpenROAD.CheckAntennas-1",
+      "configuration_step_id": "OpenROAD.CheckAntennas",
+      "directory": "runs/wokwi/50-openroad-checkantennas-1",
+      "flow_log_line": 333,
+      "config_sha256": "09372e82b7df6e95d127a9c68f9f7da587d03c5bc7455098ace8ffa8a1a9b6e6",
+      "state_in_sha256": "8d260ef75e5e39736c091e2df0316d88ba0fd71be73a9b4925d6b62f1f3d8bf6",
+      "state_out_sha256": "37e56f4574d23d75446859a1c9d768f1f7a3145862321669f20ebcdccd85b347",
+      "execution_ordinal": 50
+    },
+    {
+      "step_id": "Checker.TrDRC",
+      "configuration_step_id": "Checker.TrDRC",
+      "directory": "runs/wokwi/51-checker-trdrc",
+      "flow_log_line": 336,
+      "config_sha256": "3a2e551d634b52df7eb5e0e0c932b443153bb765a2d05f3411ac4bd2a9a44472",
+      "state_in_sha256": "37e56f4574d23d75446859a1c9d768f1f7a3145862321669f20ebcdccd85b347",
+      "state_out_sha256": "37e56f4574d23d75446859a1c9d768f1f7a3145862321669f20ebcdccd85b347",
+      "execution_ordinal": 51
+    },
+    {
+      "step_id": "Odb.ReportDisconnectedPins",
+      "configuration_step_id": "Odb.ReportDisconnectedPins",
+      "directory": "runs/wokwi/52-odb-reportdisconnectedpins",
+      "flow_log_line": 338,
+      "config_sha256": "1a8ffe18160fde26a184ca6a9053a1e5e004316b2d1ef69081ce99c1c1385d92",
+      "state_in_sha256": "37e56f4574d23d75446859a1c9d768f1f7a3145862321669f20ebcdccd85b347",
+      "state_out_sha256": "29f3e3b7bc76918556911094d3962363797c6c9ece7cb3cb85d2e05674907e8e",
+      "execution_ordinal": 52
+    },
+    {
+      "step_id": "Checker.DisconnectedPins",
+      "configuration_step_id": "Checker.DisconnectedPins",
+      "directory": "runs/wokwi/53-checker-disconnectedpins",
+      "flow_log_line": 340,
+      "config_sha256": "3d34e5a1225e9f1614fd2c1c4a1c956387e3512294cfddadb8e660b955c2e824",
+      "state_in_sha256": "29f3e3b7bc76918556911094d3962363797c6c9ece7cb3cb85d2e05674907e8e",
+      "state_out_sha256": "29f3e3b7bc76918556911094d3962363797c6c9ece7cb3cb85d2e05674907e8e",
+      "execution_ordinal": 53
+    },
+    {
+      "step_id": "Odb.ReportWireLength",
+      "configuration_step_id": "Odb.ReportWireLength",
+      "directory": "runs/wokwi/54-odb-reportwirelength",
+      "flow_log_line": 342,
+      "config_sha256": "c166ff10f465b4a4a238a65dd1167530b2c792c55e681862dbd45fdfdbb67218",
+      "state_in_sha256": "29f3e3b7bc76918556911094d3962363797c6c9ece7cb3cb85d2e05674907e8e",
+      "state_out_sha256": "7a5c522e7aded56900676e0a109972ea98b64ccd3a5ae386ff00fb62bb0d0e30",
+      "execution_ordinal": 54
+    },
+    {
+      "step_id": "Checker.WireLength",
+      "configuration_step_id": "Checker.WireLength",
+      "directory": "runs/wokwi/55-checker-wirelength",
+      "flow_log_line": 344,
+      "config_sha256": "aa8e176d4797b3ce950f114005b248e908e601e81af6cbfe11a43fde1a4c7b51",
+      "state_in_sha256": "7a5c522e7aded56900676e0a109972ea98b64ccd3a5ae386ff00fb62bb0d0e30",
+      "state_out_sha256": "7a5c522e7aded56900676e0a109972ea98b64ccd3a5ae386ff00fb62bb0d0e30",
+      "execution_ordinal": 55
+    },
+    {
+      "step_id": "OpenROAD.FillInsertion",
+      "configuration_step_id": "OpenROAD.FillInsertion",
+      "directory": "runs/wokwi/56-openroad-fillinsertion",
+      "flow_log_line": 346,
+      "config_sha256": "bf3b5965ce78f05347fdce59ca3b1288588e1918b96a610675cc2b4c74ff7dc3",
+      "state_in_sha256": "7a5c522e7aded56900676e0a109972ea98b64ccd3a5ae386ff00fb62bb0d0e30",
+      "state_out_sha256": "52495629df0a65df14639a58697245e8addeae7d6e2e2a9792d4580a1146422a",
+      "execution_ordinal": 56
+    },
+    {
+      "step_id": "Odb.CellFrequencyTables",
+      "configuration_step_id": "Odb.CellFrequencyTables",
+      "directory": "runs/wokwi/57-odb-cellfrequencytables",
+      "flow_log_line": 349,
+      "config_sha256": "7fcf0d50a3346cc4a50d712562826e87016525b1fa47b07b7f2a2b0086fd892f",
+      "state_in_sha256": "52495629df0a65df14639a58697245e8addeae7d6e2e2a9792d4580a1146422a",
+      "state_out_sha256": "4a5b85ad00e0e06936386655bd3352a707cb6670c2ac85cbc6215a589faa3b94",
+      "execution_ordinal": 57
+    },
+    {
+      "step_id": "Project.SelectSramPowerPorts",
+      "configuration_step_id": "Project.SelectSramPowerPorts",
+      "directory": "runs/wokwi/58-project-selectsrampowerports",
+      "flow_log_line": 352,
+      "config_sha256": "e43ff6accd248027bc0c5f7def698e81e82a7dc93a856f6df1314a7d0bb72bf6",
+      "state_in_sha256": "4a5b85ad00e0e06936386655bd3352a707cb6670c2ac85cbc6215a589faa3b94",
+      "state_out_sha256": "d871fe5ee0885e9afc13ea23150ee9b4f17aaaeaa8cb21389f9de247b62f527c",
+      "execution_ordinal": 58
+    },
+    {
+      "step_id": "OpenROAD.RCX",
+      "configuration_step_id": "OpenROAD.RCX",
+      "directory": "runs/wokwi/59-openroad-rcx",
+      "flow_log_line": 354,
+      "config_sha256": "cb5748d55768c245f1fb3606d091f3c17a93b7b6570908d9bf1f340da0361d30",
+      "state_in_sha256": "d871fe5ee0885e9afc13ea23150ee9b4f17aaaeaa8cb21389f9de247b62f527c",
+      "state_out_sha256": "3d911a6d59a0b7b9dc6fba6af1e3a198fbb5b8910704a1f07e7b44af439c7481",
+      "execution_ordinal": 59
+    },
+    {
+      "step_id": "OpenROAD.STAPostPNR",
+      "configuration_step_id": "OpenROAD.STAPostPNR",
+      "directory": "runs/wokwi/60-openroad-stapostpnr",
+      "flow_log_line": 359,
+      "config_sha256": "eeca25b788b20acb4d83c306cd6c6603acbf709359a7bb2fc549d231203dc242",
+      "state_in_sha256": "3d911a6d59a0b7b9dc6fba6af1e3a198fbb5b8910704a1f07e7b44af439c7481",
+      "state_out_sha256": "6a8a2fea28db09fe7d0ddde24de427a9847a2ac5f424117ff57ec4574850137a",
+      "execution_ordinal": 60
+    },
+    {
+      "step_id": "OpenROAD.IRDropReport",
+      "configuration_step_id": "OpenROAD.IRDropReport",
+      "directory": "runs/wokwi/61-openroad-irdropreport",
+      "flow_log_line": 372,
+      "config_sha256": "845a287f9eed684dd434947ea1a6631f890bf5fe11695a433953ac9514fdba18",
+      "state_in_sha256": "6a8a2fea28db09fe7d0ddde24de427a9847a2ac5f424117ff57ec4574850137a",
+      "state_out_sha256": "247ef9d241fc9b353767797d63fef71d20da05ce2f568f487b5ccbb3968b41e4",
+      "execution_ordinal": 61
+    },
+    {
+      "step_id": "Magic.StreamOut",
+      "configuration_step_id": "Magic.StreamOut",
+      "directory": "runs/wokwi/62-magic-streamout",
+      "flow_log_line": 403,
+      "config_sha256": "be4ed7271a73d2ac8d4749884befaf7a3afdc1fa4d075a4aa50cf701055e1ac4",
+      "state_in_sha256": "247ef9d241fc9b353767797d63fef71d20da05ce2f568f487b5ccbb3968b41e4",
+      "state_out_sha256": "115986e2bbdfc45027b300bb82458e34db9aed2bc99e13e2b028df60af53c3a0",
+      "execution_ordinal": 62
+    },
+    {
+      "step_id": "KLayout.StreamOut",
+      "configuration_step_id": "KLayout.StreamOut",
+      "directory": "runs/wokwi/63-klayout-streamout",
+      "flow_log_line": 406,
+      "config_sha256": "38eba4f1823f43f8c4ae428c4c5d0a2b88f841003533bdfa6d38fbc9aed99637",
+      "state_in_sha256": "115986e2bbdfc45027b300bb82458e34db9aed2bc99e13e2b028df60af53c3a0",
+      "state_out_sha256": "f074c7bdefffd7a2316a5c41bdcc1c22cd19666c56ddd58a7ea68bb478357bdd",
+      "execution_ordinal": 63
+    },
+    {
+      "step_id": "KLayout.Render",
+      "configuration_step_id": "KLayout.Render",
+      "directory": "runs/wokwi/64-klayout-render",
+      "flow_log_line": 408,
+      "config_sha256": "c2648f6df88455507ef2b5ec46a76f815f565922c3fb9f8c781d75a7b5755993",
+      "state_in_sha256": "f074c7bdefffd7a2316a5c41bdcc1c22cd19666c56ddd58a7ea68bb478357bdd",
+      "state_out_sha256": "23ce093431f3fc4d614c5b462dd51bcc383f032b2edc9787cf2c38a79f52b8ce",
+      "execution_ordinal": 64
+    },
+    {
+      "step_id": "Magic.WriteLEF",
+      "configuration_step_id": "Magic.WriteLEF",
+      "directory": "runs/wokwi/65-magic-writelef",
+      "flow_log_line": 410,
+      "config_sha256": "446aad4935237d74ed07efc845ec0e1e58b7cc1adf59d711db4938b47ba7c34a",
+      "state_in_sha256": "23ce093431f3fc4d614c5b462dd51bcc383f032b2edc9787cf2c38a79f52b8ce",
+      "state_out_sha256": "2cc3f563d65c30879fe7a7b439ac82bbe1e5e5e553b69180dd8d192759a77059",
+      "execution_ordinal": 65
+    },
+    {
+      "step_id": "Odb.CheckDesignAntennaProperties",
+      "configuration_step_id": "Odb.CheckDesignAntennaProperties",
+      "directory": "runs/wokwi/66-odb-checkdesignantennaproperties",
+      "flow_log_line": 412,
+      "config_sha256": "6d4b8237a8fe7460c16978ba84cb79aae02873ac64df4426b2535c506cfed932",
+      "state_in_sha256": "2cc3f563d65c30879fe7a7b439ac82bbe1e5e5e553b69180dd8d192759a77059",
+      "state_out_sha256": "1ddc6f735bd9e739c3a597626a3341ea286be318597ac159be12776b6b77be5a",
+      "execution_ordinal": 66
+    },
+    {
+      "step_id": "Magic.DRC",
+      "configuration_step_id": "Magic.DRC",
+      "directory": "runs/wokwi/67-magic-drc",
+      "flow_log_line": 418,
+      "config_sha256": "e50ad35760cd56df878e8b0c650a978e60adb03e386ac4f4b26b17675604630c",
+      "state_in_sha256": "1ddc6f735bd9e739c3a597626a3341ea286be318597ac159be12776b6b77be5a",
+      "state_out_sha256": "51f5069997ee046763b1b89106f02ca9f4f9c40892cb4cf69dd280f7f329f33b",
+      "execution_ordinal": 67
+    },
+    {
+      "step_id": "Checker.MagicDRC",
+      "configuration_step_id": "Checker.MagicDRC",
+      "directory": "runs/wokwi/68-checker-magicdrc",
+      "flow_log_line": 422,
+      "config_sha256": "ad2afa0c847e0277f7f9901d497394a32b39af6421235ab04788a2308f566f3f",
+      "state_in_sha256": "51f5069997ee046763b1b89106f02ca9f4f9c40892cb4cf69dd280f7f329f33b",
+      "state_out_sha256": "51f5069997ee046763b1b89106f02ca9f4f9c40892cb4cf69dd280f7f329f33b",
+      "execution_ordinal": 68
+    },
+    {
+      "step_id": "Magic.SpiceExtraction",
+      "configuration_step_id": "Magic.SpiceExtraction",
+      "directory": "runs/wokwi/69-magic-spiceextraction",
+      "flow_log_line": 426,
+      "config_sha256": "db6644c22bb75411febb77bae2bcb464ac423b3414138f2267b64bc4d2e2d6f8",
+      "state_in_sha256": "51f5069997ee046763b1b89106f02ca9f4f9c40892cb4cf69dd280f7f329f33b",
+      "state_out_sha256": "c874578604541b718ba8c5a46d69fff59f9bec9f53dbcfd5d755744e216ca58a",
+      "execution_ordinal": 69
+    },
+    {
+      "step_id": "Checker.IllegalOverlap",
+      "configuration_step_id": "Checker.IllegalOverlap",
+      "directory": "runs/wokwi/70-checker-illegaloverlap",
+      "flow_log_line": 428,
+      "config_sha256": "d2c53f3b357d639d50e0c1b29c96d03dbcde07a93f8b9c500025ea91979ecda7",
+      "state_in_sha256": "c874578604541b718ba8c5a46d69fff59f9bec9f53dbcfd5d755744e216ca58a",
+      "state_out_sha256": "c874578604541b718ba8c5a46d69fff59f9bec9f53dbcfd5d755744e216ca58a",
+      "execution_ordinal": 70
+    },
+    {
+      "step_id": "Netgen.LVS",
+      "configuration_step_id": "Netgen.LVS",
+      "directory": "runs/wokwi/71-netgen-lvs",
+      "flow_log_line": 430,
+      "config_sha256": "2a19bc22ff0dacabf738c6ba348c126be0cb61fa56855342ed0fe9e363983608",
+      "state_in_sha256": "c874578604541b718ba8c5a46d69fff59f9bec9f53dbcfd5d755744e216ca58a",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 71
+    },
+    {
+      "step_id": "Checker.LVS",
+      "configuration_step_id": "Checker.LVS",
+      "directory": "runs/wokwi/72-checker-lvs",
+      "flow_log_line": 432,
+      "config_sha256": "4cac6fcdc471896d99630fc5efb39ebf59ecddc6091d782d5c15648089775514",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 72
+    },
+    {
+      "step_id": "Checker.SetupViolations",
+      "configuration_step_id": "Checker.SetupViolations",
+      "directory": "runs/wokwi/73-checker-setupviolations",
+      "flow_log_line": 436,
+      "config_sha256": "5ee22b7a1e2d630eecbf0ae721d52325acb148fc3542d72237ea340c602158cf",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 73
+    },
+    {
+      "step_id": "Checker.HoldViolations",
+      "configuration_step_id": "Checker.HoldViolations",
+      "directory": "runs/wokwi/74-checker-holdviolations",
+      "flow_log_line": 438,
+      "config_sha256": "08878818af3e45009a1c2e2942cc2a4b76cba79b0bf2b5d545ba68bd22411e22",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 74
+    },
+    {
+      "step_id": "Checker.MaxSlewViolations",
+      "configuration_step_id": "Checker.MaxSlewViolations",
+      "directory": "runs/wokwi/75-checker-maxslewviolations",
+      "flow_log_line": 440,
+      "config_sha256": "0e9b46d3cc4f7449c7a0f77eb876129edb23457fd830d0fba2911a11fe798dc0",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 75
+    },
+    {
+      "step_id": "Checker.MaxCapViolations",
+      "configuration_step_id": "Checker.MaxCapViolations",
+      "directory": "runs/wokwi/76-checker-maxcapviolations",
+      "flow_log_line": 442,
+      "config_sha256": "fb2c84e9ba3515e32cf99cf2a4a348902a2276a532cc1eceb84a028f516f1a0c",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 76
+    },
+    {
+      "step_id": "Misc.ReportManufacturability",
+      "configuration_step_id": "Misc.ReportManufacturability",
+      "directory": "runs/wokwi/77-misc-reportmanufacturability",
+      "flow_log_line": 444,
+      "config_sha256": "8d937c46768b2ae2f95384738664ed11a1e0758dfa789a78c6b1dd2c57728494",
+      "state_in_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "state_out_sha256": "9877efa11f74aef86d5cd2ded4675791e3a47119efa02bc7dc53c28401b03cb4",
+      "execution_ordinal": 77
+    }
+  ],
+  "nested_stage_count": 2,
+  "nested_stages": [
+    {
+      "step_id": "OpenROAD.DiodeInsertion",
+      "configuration_step_id": "OpenROAD.DiodeInsertion",
+      "directory": "runs/wokwi/46-openroad-repairantennas/1-openroad-diodeinsertion",
+      "flow_log_line": 310,
+      "config_sha256": "786e442947b38801210f3c06afbf01941a27b1a9ed13ed336b59e71b953143e0",
+      "state_in_sha256": "eb2aa0b264400ad659fbf10d681091d6b8141cb03947c387a35c44a12ae5b4f7",
+      "state_out_sha256": "bf3c4b056b404d7c3f607d580e6ae0716c090f88c47384182ab47fbb996e57e4",
+      "parent_directory": "runs/wokwi/46-openroad-repairantennas"
+    },
+    {
+      "step_id": "OpenROAD.CheckAntennas",
+      "configuration_step_id": "OpenROAD.CheckAntennas",
+      "directory": "runs/wokwi/46-openroad-repairantennas/2-openroad-checkantennas",
+      "flow_log_line": 313,
+      "config_sha256": "09372e82b7df6e95d127a9c68f9f7da587d03c5bc7455098ace8ffa8a1a9b6e6",
+      "state_in_sha256": "bf3c4b056b404d7c3f607d580e6ae0716c090f88c47384182ab47fbb996e57e4",
+      "state_out_sha256": "e949332c01dbe8cd1dd61154dae357446f2ebec16fe3286bdad40cee3f26abc5",
+      "parent_directory": "runs/wokwi/46-openroad-repairantennas"
+    }
+  ],
+  "gated_skip_count": 8,
+  "gated_skips": [
+    {
+      "step_id": "OpenROAD.RepairDesignPostGRT",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_POST_GRT_DESIGN_REPAIR",
+      "value": false,
+      "flow_log_line": 303,
+      "message": "Gating variable for step 'OpenROAD.RepairDesignPostGRT' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Odb.HeuristicDiodeInsertion",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_HEURISTIC_DIODE_INSERTION",
+      "value": false,
+      "flow_log_line": 307,
+      "message": "Gating variable for step 'Odb.HeuristicDiodeInsertion' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "OpenROAD.ResizerTimingPostGRT",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_POST_GRT_RESIZER_TIMING",
+      "value": false,
+      "flow_log_line": 316,
+      "message": "Gating variable for step 'OpenROAD.ResizerTimingPostGRT' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "KLayout.XOR",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_XOR",
+      "value": false,
+      "flow_log_line": 414,
+      "message": "Gating variable for step 'KLayout.XOR' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Checker.XOR",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_XOR",
+      "value": false,
+      "flow_log_line": 416,
+      "message": "Gating variable for step 'Checker.XOR' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "KLayout.DRC",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_DRC",
+      "value": false,
+      "flow_log_line": 420,
+      "message": "Gating variable for step 'KLayout.DRC' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Checker.KLayoutDRC",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_KLAYOUT_DRC",
+      "value": false,
+      "flow_log_line": 424,
+      "message": "Gating variable for step 'Checker.KLayoutDRC' set to 'False'- the step will be skipped."
+    },
+    {
+      "step_id": "Yosys.EQY",
+      "status": "SKIPPED_FROZEN_GATE_FALSE",
+      "gate": "RUN_EQY",
+      "value": false,
+      "flow_log_line": 434,
+      "message": "Gating variable for step 'Yosys.EQY' set to 'False'- the step will be skipped."
+    }
+  ],
+  "resolved_run_controls": {
+    "RUN_TAP_ENDCAP_INSERTION": true,
+    "RUN_POST_GPL_DESIGN_REPAIR": true,
+    "RUN_POST_GRT_DESIGN_REPAIR": false,
+    "RUN_CTS": true,
+    "RUN_POST_CTS_RESIZER_TIMING": true,
+    "RUN_POST_GRT_RESIZER_TIMING": false,
+    "RUN_HEURISTIC_DIODE_INSERTION": false,
+    "RUN_ANTENNA_REPAIR": true,
+    "RUN_DRT": true,
+    "RUN_FILL_INSERTION": true,
+    "RUN_MCSTA": true,
+    "RUN_SPEF_EXTRACTION": true,
+    "RUN_IRDROP_REPORT": true,
+    "RUN_LVS": true,
+    "RUN_MAGIC_STREAMOUT": true,
+    "RUN_KLAYOUT_STREAMOUT": true,
+    "RUN_MAGIC_WRITE_LEF": true,
+    "RUN_KLAYOUT_XOR": false,
+    "RUN_MAGIC_DRC": true,
+    "RUN_KLAYOUT_DRC": false,
+    "RUN_EQY": false,
+    "RUN_LINTER": true
+  },
+  "in_step_noops_or_skip_notices": [
+    {
+      "flow_log_line": 55,
+      "message": "'PDN_OBSTRUCTIONS' is not defined. Skipping 'Odb.AddPDNObstructions'\u2026"
+    },
+    {
+      "flow_log_line": 243,
+      "message": "'PDN_OBSTRUCTIONS' is not defined. Skipping 'Odb.RemovePDNObstructions'\u2026"
+    },
+    {
+      "flow_log_line": 250,
+      "message": "'ROUTING_OBSTRUCTIONS' is not defined. Skipping 'Odb.AddRoutingObstructions'\u2026"
+    },
+    {
+      "flow_log_line": 254,
+      "message": "I/O pins were loaded from /home/runner/work/protocol-emulator-asic/protocol-emulator-asic/tt/tech/ihp-sg13cmos5l/def/tt_block_8x4_pgvdd.def. Skipping OpenROAD.IOPlacement\u2026"
+    },
+    {
+      "flow_log_line": 256,
+      "message": "No custom I/O placement file configured, skipping 'Odb.CustomIOPlacement'\u2026"
+    },
+    {
+      "flow_log_line": 277,
+      "message": "'MANUAL_GLOBAL_PLACEMENTS' not set. Skipping 'Odb.ManualGlobalPlacement'\u2026"
+    },
+    {
+      "flow_log_line": 306,
+      "message": "'DIODE_ON_PORTS' is set to 'none': skipping 'Odb.DiodesOnPorts'\u2026"
+    },
+    {
+      "flow_log_line": 324,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Cont"
+    },
+    {
+      "flow_log_line": 325,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1"
+    },
+    {
+      "flow_log_line": 326,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1"
+    },
+    {
+      "flow_log_line": 327,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2"
+    },
+    {
+      "flow_log_line": 328,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3"
+    },
+    {
+      "flow_log_line": 329,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer TopVia1"
+    },
+    {
+      "flow_log_line": 330,
+      "message": "[DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer TopVia1"
+    },
+    {
+      "flow_log_line": 332,
+      "message": "'ROUTING_OBSTRUCTIONS' is not defined. Skipping 'Odb.RemoveRoutingObstructions'\u2026"
+    }
+  ],
+  "interpretation": [
+    "85 is the configured flow length: the 80 original Classic stages plus five project construction/check additions. It is not the number of checks that performed work.",
+    "The original G2 flow executed77 top-level step directories and two nested antenna substeps. Eight configured optional steps were skipped by the original false gating settings. Some executed steps returned without work under their own frozen configuration.",
+    "The full Magic DRC and LVS stages are executed. KLayout DRC is a separate mandatory official precheck despite the disabled optional KLayout DRC in the GDS flow.",
+    "The ordered configured sequence is reconstructed from original G2 flow.log Running and false-gate events. Per-step config and state member digests bind that account to the original archive; plugin assertions bind the80-plus-five construction.",
+    "This baseline comes only from retained G2 evidence and does not claim a G4 result. G4 comparison must retain its own artifacts and report all unexpected stage, gate or metric changes."
+  ]
+}

@@ -15,10 +15,14 @@ The assembler emits binaries, decoded JSON, timing listings and public loading
 plans; thirteen versioned examples are in `programs/od128-sram-v1/`.
 
 Reset is synchronous and active-low: hold `rst_n=0` through a rising edge.
-It wins over enable, releases GPIO outputs and invalidates the loaded image.
+It wins over enable, releases runtime GPIO outputs and invalidates the loaded image.
 The SRAM has no reset; valid-word tracking makes unwritten words read as zero.
-Reset or board power-down on deselection requires reloading before useful execution. With reset
-released, `ena=0` freezes execution while input synchronizers keep clocking.
+The host must verify every program byte; committing a length does not check
+that all bytes were supplied. HALT and FAULT retain GPIO values/directions,
+so programs must arrange their terminal outputs and failure cleanup.
+Reset or board power-down on deselection requires reloading before useful
+execution. With reset released, `ena=0` freezes execution while input
+synchronizers keep clocking. Loader-read mode still drives all shared pins.
 Each input passes through two clocked stages; this digital model does not
 establish analog metastability performance.
 

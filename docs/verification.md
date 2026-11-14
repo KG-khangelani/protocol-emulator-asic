@@ -1,71 +1,135 @@
-# Verification plan
+# Verification of the production candidate
 
-Keep functional simulation, generic synthesis, technology-mapped synthesis,
-physical timing and real hardware observations as separate evidence categories.
+The production target is the D48-qualified **od128-sram** core, interface
+**0x22**. Default commands inspect the actual `src/` files and the hash-checked
+SRAM models. [The production guard](../tools/production_sram.py) binds twenty
+physical inputs to [G2's qualification](../evidence/E0045-g2-sram-qualification/README.md).
+The manual `gds` workflow now builds that production profile. The old P,
+compact10 and register-store trials remain separately identified experiments.
 
-D33's manual GDS workflow stages an E0030-identical P or compact10 chip in CI.
-The staged source manifest, not the workflow revision alone, identifies the
-synthesized design. Its twelve required public test groups and full SPI sweep
-must pass on the actual mapped netlist; the preceding RTL-only harness check
-does not qualify physical behavior. D35/E0031 records compact10 passing all
-required routed metrics, all ten prechecks and the real-netlist public groups.
-The workflow defaults to that pilot; production promotion remains conditional
-on combined protocol regression and fresh physical evidence.
-See [E0031](../evidence/E0031-8x4-physical-comparison/README.md).
+G2 establishes the hardware baseline; G3 establishes the assembler and examples.
+[G4](../evidence/E0047-g4-submission-candidate/README.md) tracks fresh official
+production runs, reproduction and final distribution checks. Its new results
+must be read there; the earlier passes below do not imply G4 completion.
 
-| Layer | Current implementation | Next evidence |
+## What each layer establishes
+
+| Layer | Check and retained evidence | Boundary |
 |---|---|---|
-| Repository consistency | `tools/check_project.py` | Metadata, pinout and clock agreement |
-| Learning-status integrity | `tools/learning_status.py --verify` plus an invalid-promotion self-test | Milestone references agree and an unearned human fluency PASS is rejected |
-| RTL | M1 `test/test.py` through Icarus and Verilator, seed 20261002 | Public-pin reload/readback, Python-model agreement, reset/enable, WAIT, K-INPUT-WAIT, K-BOUNDED-LOOP counts 0/1/2/255, K-SHIFT-8 in both bit orders, data-register behavior and safe invalid behavior |
-| Readable waveform | `LearnWaveform` VCD parser plus intentionally corrupted edge | Every M0 rising edge matches the transition table; learner can explain a selected edge |
-| Generic synthesis | `make synth` | Structural sanity; no latches/check errors |
-| CMOS5L hardening | Official `gds` workflow | Mapping, placement, routing, precheck, timing and area |
-| Gate-level | Official `gl_test` action and same pin-level tests | Agreement after mapping |
-| GL-shaped harness | RTL compiled with `GL_TEST`, direct-engine handles absent, separate FST/JUnit provenance | Public reset smoke catches harness/API drift without overwriting or being labelled as the full RTL waveform; no gate-netlist claim |
-| Formal | M1 engine, program store, data store and input-synchronizer SBY/Z3 proofs/covers plus expected-failing wrong-decrement property; archived M0 evidence retained separately | Preserve event-on-final-edge priority, shift completion/capture, result-valid, timeout and freeze properties as the instruction set evolves |
-| GDS reproducibility | `tools/compare_gds_records.py` | Separate BGNLIB/BGNSTR timestamp drift from geometry-record differences |
-| Protocol differential | Independent UART and partial SPI mode-0 oracles; isolated phase/capacity comparison in `experiments/spi_phase/` | All-four-mode SPI and I2C remain open; candidate results do not qualify production RTL |
-| FPGA | Upstream optional workflow; not tested | Board, bitstream, constraints and analyzer traces |
+| Source identity | Production guard, profile hashes and stage-specific input maps | Matching bytes alone do not establish behavior |
+| Repository checks | Metadata, clocks, supported source profile, model/oracle and assembler acceptance tests | G3's complete check has 147 tests; its 20 assembler tests are included in that count |
+| RTL simulation | Icarus and Verilator each run all 30 current groups; [E0042](../evidence/E0042-sram-prefetch-screen/README.md), [E0044](../evidence/E0044-sram-current-verification/ci-13660ac/README.md) and actual-default [E0045 CI](../evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/README.md) | Digital RTL and vendor functional SRAM models, not pad/electrical characterization |
+| Programs through public pins | [G3/E0046](../evidence/E0046-program-toolchain/README.md): 13 sources, complete generated load/readback plans, 55 cases per simulator including 15 expected rejections | A tested software interface, not a fabricated-chip host adapter |
+| Formal properties | Source-matched engine, support, SRAM/prefetch obligations, checked counterexamples and separately retained historical baseline | Written properties under explicit assumptions; no blanket proof of every protocol or program |
+| Generic synthesis | Yosys structural checks, no inferred latches, actual SRAM black box and 353 register bits | Generic cells are not technology area or routed timing |
+| Technology mapping | Matched [E0042 mapping](../evidence/E0042-sram-prefetch-screen/README.md) counts standard cells and adds the real macro footprint | Mapping alone does not prove routability |
+| Routed physical design | [E0045 official run](../evidence/E0045-g2-sram-qualification/ci-94a3082/README.md): timing, fanout, slew, capacitance, DRC, LVS, power-grid and antenna limits | Exact pinned digital flow and libraries, not measured Fmax or silicon |
+| Official precheck | All ten required tests on the actual submitted layout | Complements the complete in-flow checks |
+| Public netlist simulation | E0045 passes 18 selected public groups using the actual submitted netlist and SRAM models | Functional zero-delay simulation, not a timing-annotated gate simulation |
+| Distribution and replay | Original archive digests, all member hashes, exact source, observed runtime, frozen replay dependencies and corruption controls | A replay rechecks retained evidence; it does not rerun place-and-route |
+| Owner learning | Learning-status checks reject an unearned fluency promotion | Tool success does not establish the owner's understanding |
 
-For each future protocol scenario vary payload, phase, clock ratio, reset,
-stalls and adversarial input transitions. Preserve seed, failing waveform and
-smallest reproducer. Explicitly state whether external waits have a timeout.
+The separate `GL_TEST`-shaped harness smoke test compiles **RTL** with direct
+engine access absent and emits its own FST/JUnit. It checks the harness and
+public reset behavior. It is never counted as the actual-netlist test above.
+The full current RTL suites retain normalized public traces; the smoke waveform
+does not substitute for those observations.
 
-An experiment record needs its question, source revision/hash, configuration,
-command, tool versions, observations, limitations and next decision. Preserve
-negative evidence. Large reports/GDS belong in immutable release or CI artifacts
-with identifiers and SHA-256; keep concise results and links in this repository.
+## Independent observations and deliberate failures
 
-The SPI comparison's separate CI step retains candidate sources, hashes, patches,
-logs, JUnit and complete-chip generic netlists. Its banked loader intentionally
-fails the existing length-nine rejection test; the comparison runner requires
-exactly that failure and labels compatibility separately. Missing, skipped or
-additional failures block it. E0022's separate formal job qualifies written
-compact-executor phase properties and legacy-only refinement, with initial-reset
-and explicit fetch assumptions, bounded covers and expected-failing mutants.
-E0023 adds the actual compact-copy top, real public loader/program/data stores
-and synchronizer. Its universal safety job assumes only initial chip reset;
-guided public-pin completion/abort jobs state finite schedules and bounds.
-Four simulation groups per simulator cover complete image readback, all byte
-values, all 40 abort cuts, old-result lifetime and reset ownership. Deliberately
-wrong loader-clear expectations and a dropped-store-write mutant must fail
-with witnesses. Full SPI and physical qualification remain open; ordinary
-production proofs stay attached to production sources.
+Protocol oracles check externally visible frames, bus edges, directions,
+ownership, timing and results without using the DUT's internal PC to invent
+the expected wire trace. UART checks framing and bounded host delivery. SPI
+checks every mode/order under its declared input-hold envelope. I2C checks
+resolved SCL/SDA, open-drain ownership, ACK/NACK, stretching and cleanup.
+Both simulators reproduce 1,052 SPI, 1,160 I2C, four boundary and 36 abort
+records from the frozen contracts. These counts include the contracts'
+deliberate negative cases; they are not counts of universally successful
+transactions.
 
-E0024 uses independent external GPIO/clock/CS and rising-edge word expectations
-for the complete public-loaded compact eight-word image. Per-bit original
-response and ideal digital aperture/noise envelopes remain distinct from
-electrical timing. Separate formal jobs qualify only the actual synchronizer
-with an independent schedule monitor; full-program SAT attempts remain
-inconclusive. Retain profile/masking, early-firmware and interruption controls,
-case manifests and representative timestamped public traces. Agreement between
-simulators and the transport proof does not turn those attempts into passes.
+G3 additionally compares assembled words with independently encoded historical
+programs and compares all normalized observations between simulators. Windows,
+Linux and a clean clone reproduce the same 53 generated program artifacts.
+Changed UART timing, bad framing, edge-only SPI input, changed sample delay,
+active-high I2C drive, wrong timeout and interface/readback mismatches must be
+rejected. The checker must detect the intended failure, not merely any crash.
 
-E0025 adds one depth12/180s actual-program induction configuration. Original
-public loading, firmware, timing premise and public assertions are preserved;
-loaded-image and per-loop facts are proved strengthening assertions over real
-DUT readouts, with no added assumptions. Retain four finite Icarus witnesses
-and label them separately from formal covers. Audit generated module state,
-assumption sites and inverse readout transforms so that monitor-only or
-internally assumed behavior cannot masquerade as the actual-program result.
+The SRAM tests cover every logical byte address, partial writes, reset/reload,
+bank/length boundaries, clocked readback, stale fetch tags and word-zero
+startup. Actual faulty implementations test retained validity on reset, stale
+lanes, current-PC rather than next-PC fetch, and a missing word-zero shadow.
+Formal counterexamples include a real partial-write-mask error. Inconclusive
+complete-chip equivalence attempts remain inconclusive; the later compositional
+proofs and successful regressions do not rewrite those attempts.
+
+"Independent" here describes separately constructed expectations and tool
+implementations. It does not mean the project received an independent human
+certification; see [AI use](ai-use.md).
+
+## Physical acceptance and reproduction
+
+The frozen flow retains 85 configured stage entries: the original 80 plus five
+project integration entries. Conditional stages can be skipped by the pinned
+configuration; a configured entry is not an executed check. The audit must
+inspect actual stage artifacts and gate results, and distinguish those expected
+skips from a missing required gate.
+
+The SRAM integration retains the documented power connections, nine native
+input buffers, public-pin clearance checks, exact Magic contact-rule alignment
+and selection of existing full-height supply ports. The original complete
+Magic checker, LVS and all required electrical limits remain enabled. The
+fast model combines -40 C standard cells with -55 C SRAM; this is an explicit
+mixed-temperature model boundary, not isothermal characterization.
+
+At G2's qualified source, routed setup slack is 5.5958856909900625 ns and hold
+slack is 0.12079138031701087 ns at the 20 ns target. G4 must measure its own
+runs. Its [predeclared contract](specs/g4-submission-candidate.md) requires two
+clean official builds of the same candidate, all six original archives per
+run, source/runtime checks and comparisons of layout, netlist, metrics and
+public traces. GDS normalization may remove only BGNLIB/BGNSTR timestamp
+fields; geometry changes cannot be labelled identical reproduction.
+
+An official passing badge is insufficient. Retained audits bind producing and
+consuming jobs to original archive identities, reconstruct the exact submitted
+GDS/netlist and check semantic results. G2's five evidence-corruption controls
+reject an unfinished workflow, wrong archive digest, rehashed power-port count,
+skipped required test and changed submitted netlist. G4 requires its own
+retained replay and controls.
+
+## Run or inspect the checks
+
+With Docker running, use the locked workbench from a clean checkout:
+
+```powershell
+.\tools\workbench.ps1 All
+.\tools\workbench.ps1 Evidence
+.\tools\workbench.ps1 ProgramTest
+```
+
+The Linux equivalents are `./tools/workbench.sh All`, `Evidence` and
+`ProgramTest`. `All` runs doctor, repository checks, scoped lint, both RTL
+simulators, formal checks and synthesis, including the separate harness smoke
+test. `Evidence` validates and collects the eight source-bound production
+stage receipts, always rerunning the repository check and rerunning other stale
+or missing work. `ProgramTest` independently
+exercises the assembled examples. [Toolchain and reproduction](toolchain.md)
+describes outputs, physical runs and replay commands.
+
+Keep failures, seeds, source hashes, commands, actual tool identities and the
+smallest useful witness. Scope changes need a new declared experiment. Neither
+an expected-failing control nor an intentionally excluded direct-engine test
+may be silently counted as a passing required public test.
+
+## Historical evidence and unresolved work
+
+[G1](../evidence/E0031-8x4-physical-comparison/README.md) retains the rejected P
+fanout result and qualified compact10 comparison. The later register-store
+placement/routing failures, SRAM integration failures, [E0024](../evidence/E0024-mode0-pin-envelope/README.md)
+attempts and scoped [E0028 held-program proof](../evidence/E0028-held-program-induction/README.md)
+retain their own sources and assumptions. Earlier specifications describe
+those checkpoints, not the current interface.
+
+Analog rise/fall behavior, metastability/MTBF, broad peripheral interoperability,
+unbounded continuous UART reception, an actual host transport adapter, FPGA
+bring-up and fabricated-silicon observations remain outside the demonstrated
+results. M0 owner teach-back remains pending regardless of engineering progress.

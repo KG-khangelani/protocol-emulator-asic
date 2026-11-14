@@ -14,8 +14,10 @@ Preserve the G2 production profile as the original adoption record; a new
 final-qualification record must not rewrite that history.
 
 Keep the pinned 8x4 CMOS5L flow, 20 ns target, every acceptance limit, real
-macro views and the complete 85-stage construction/check sequence. D43-D47's
-power integration, input buffers, pin geometry, exact Magic contact alignment
+macro views and the complete configured 85-stage construction/check sequence.
+Audit the actual executed stages and gate-disabled stages separately against
+the qualified G2 baseline; a configured stage is not necessarily executed.
+D43-D47's power integration, input buffers, pin geometry, exact Magic contact alignment
 and full-height power-port selection remain explicit. The original complete
 rule check stays enabled. The fast model set combines -40 C standard cells
 and -55 C SRAM; this is not an isothermal characterization.

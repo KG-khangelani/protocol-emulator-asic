@@ -1,0 +1,27 @@
+{
+  "schema": "protocol-emulator-g4-dispatch-v1",
+  "source_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+  "workflow": ".github/workflows/gds.yaml",
+  "declared_contract": "docs/specs/g4-submission-candidate.md",
+  "runs": [
+    {
+      "role": "candidate",
+      "id": 43543626249,
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543626249",
+      "created_at": "2026-11-14T01:58:01Z",
+      "head_sha": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+      "run_attempt": 1,
+      "status_when_registered": "in_progress"
+    },
+    {
+      "role": "independent-reproduction",
+      "id": 43543629839,
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43543629839",
+      "created_at": "2026-11-14T01:58:03Z",
+      "head_sha": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+      "run_attempt": 1,
+      "status_when_registered": "in_progress"
+    }
+  ],
+  "interpretation": "Both run identities registered before results. No result inferred from dispatch."
+}

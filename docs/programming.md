@@ -4,6 +4,8 @@ The chip runs a program loaded through its public pins. G3's small assembler
 turns readable instructions into the exact 32-bit words used by the qualified
 G2 core. It also produces a timing listing and a step-by-step loading plan.
 The supported target is **od128-sram-v1**, interface **0x22**, with 128 words.
+See the [architecture](architecture.md) for storage and pin ownership, and the
+[ISA reference](isa.md) for exact instruction fields and execution rules.
 
 ## Build and test the examples
 

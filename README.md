@@ -40,6 +40,12 @@ publishes the standalone assembler and thirteen examples with verified public
 downloads and a matching workbench image. [E0046](evidence/E0046-program-toolchain/README.md)
 retains clean-checkout qualification and the completed publication audit.
 
+G4's [submission packet](docs/submission.md) brings together the current
+[architecture](docs/architecture.md), [instruction set](docs/isa.md),
+[verification account](docs/verification.md) and [AI-use account](docs/ai-use.md).
+[E0047](evidence/E0047-g4-submission-candidate/README.md) tracks two fresh
+official production builds and their independent reproduction audit.
+
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its
 framing, phase and bounded host-service/delivery limits. SPI requires its
