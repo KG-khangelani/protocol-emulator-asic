@@ -1,0 +1,68 @@
+{
+  "bundle_sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+  "commands": [
+    {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-I",
+        "-S",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle\\tools\\assembler.py",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle\\experiments\\waveform_replay\\control.asm",
+        "--out",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\rebuilt-control"
+      ],
+      "cwd": "H:\\hikrepos\\g5-distribution-ctua18qv",
+      "log_sha256": "0b1d86aab93e11b5377199e299b6c5f8bd76a700ac894ee4209ea8d032e458ab",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-I",
+        "-S",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle\\tools\\assembler.py",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle\\experiments\\waveform_replay\\timing_fault.asm",
+        "--out",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\rebuilt-timing_fault"
+      ],
+      "cwd": "H:\\hikrepos\\g5-distribution-ctua18qv",
+      "log_sha256": "bfaf85bddb83326e2d927a97b035484115b0daad53e7a19764c3350bc68aa2b3",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-I",
+        "-S",
+        "-c",
+        "import runpy,sys;sys.path.insert(0,sys.argv[1]);sys.argv=[sys.argv[2]];runpy.run_path(sys.argv[0],run_name='__main__')",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle",
+        "H:\\hikrepos\\g5-distribution-ctua18qv\\bundle\\test\\test_waveform_replay_oracle.py"
+      ],
+      "cwd": "H:\\hikrepos\\g5-distribution-ctua18qv",
+      "log_sha256": "ff7d3fe2c0f962f4cd995cc84a0cd9900fdafe386ae9a05a21adccd19e7b7fc1",
+      "returncode": 0
+    }
+  ],
+  "compiled_files": 8,
+  "compiled_sha256": {
+    "control/load-plan.json": "213e42684331a6382c269cc3687631533a61474e48056192a25a9d0453ba292a",
+    "control/program.bin": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+    "control/program.json": "e2264aa0fdae421e4d57961a016fe4d32a7b8c46220466c2065e2e87b319cdba",
+    "control/program.lst": "76ad2762c988c695f1ed0c578cd4d84e478964d4c9bd23e35d75ed2c4baa3220",
+    "timing_fault/load-plan.json": "7a5b1800f44ee67827dab9f9b86cb6bd0f7ebf208b1627e6ce721161fbd8f98a",
+    "timing_fault/program.bin": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+    "timing_fault/program.json": "d1b911063d7a3025b57bad6265646441b1f027670f91499075211fe57b9a95b8",
+    "timing_fault/program.lst": "f31afdc55403caf0a7340e4ca9f1e743ed5b828f04f0edd7b7243214e22c7869"
+  },
+  "oracle_tests": 12,
+  "outside_repository": true,
+  "programs": 2,
+  "release_source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "runtime": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "schema": "protocol-emulator-g5-distribution-smoke-v1",
+  "status": "PASS_G5_STANDALONE_DISTRIBUTION"
+}

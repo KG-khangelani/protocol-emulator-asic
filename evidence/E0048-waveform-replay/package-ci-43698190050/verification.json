@@ -1,0 +1,50 @@
+{
+  "artifact": {
+    "bytes": 2320583,
+    "id": 14155561054,
+    "members": 37,
+    "sha256": "a9fe54cf408b59c7a051009c25699f1fd0b5333f04e718df9c73c25578320eae"
+  },
+  "assets": {
+    "g5-SHA256SUMS": {
+      "bytes": 264,
+      "sha256": "a900b470566a4533d62d3ad930fab4fbe6bf3e87677311b69494205d0ccd14b8"
+    },
+    "g5-original-ci.zip": {
+      "bytes": 2343597,
+      "sha256": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759"
+    },
+    "g5-waveform-replay.json": {
+      "bytes": 52587,
+      "sha256": "f0969582b134fb126ce3d7059806240d3caa6497d35206c37c1d6d5a7b8c60fb"
+    },
+    "g5-waveform-replay.zip": {
+      "bytes": 244576,
+      "sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea"
+    }
+  },
+  "audit": "PASS_G5_RETAINED_ORIGINALS",
+  "ci_source_commit": "672e68aa4d388f43f2de6adf21c3c036dc72e905",
+  "job_id": 132763264046,
+  "observed_utc": "2026-11-15T09:15:44.643558+00:00",
+  "rehashed_controls": 5,
+  "run_id": 43698190050,
+  "runtime": {
+    "id": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+    "ref": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88",
+    "source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+  },
+  "schema": "protocol-emulator-g5-package-ci-audit-v1",
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "standalone": {
+    "compiled_files": 8,
+    "oracle_tests": 12,
+    "outside_repository": true,
+    "platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "programs": 2
+  },
+  "status": "PASS_G5_WINDOWS_LINUX_PACKAGE_AND_SMOKE"
+}
