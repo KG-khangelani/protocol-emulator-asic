@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: Apache-2.0
-# G5 frozen control. Relative SET edges: 0,3,8,13,20,29,37,46,52.
+; SPDX-License-Identifier: Apache-2.0
+; G5 frozen control. Relative SET edges: 0,3,8,13,20,29,37,46,52.
 .target od128-sram-v1
 .idle 0
 SET mask=255 value=0 oe=7

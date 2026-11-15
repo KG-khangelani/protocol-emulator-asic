@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python",
+    "tools/assembler.py",
+    "experiments/waveform_replay/control.asm",
+    "--out",
+    "build/g5-rejected-control-cli"
+  ],
+  "files_sha256": {
+    "assembler.log.gz": "beb2a1cc3e8e908dc1e81efa955f5257929ef01feba493da8544291d4a234478",
+    "control.asm": "74ad740d9b29a7973867f0f35c67e281ab403d54e21c8dfb16287f62bbc9ade0",
+    "result.json.gz": "1208b5262753e4a492d783cbbf5b2e195b71b914a860ff9078468710a6342c2f",
+    "source-inputs.json.gz": "5d7761dcd9145e0b9bcc077dfec2d6e63df0136ab9ca5fba6038d126911b0f04",
+    "source-inputs.zip": "3bb398feca9fab3566c3dd26cb12469f3c5f7ea4489b2392d41a6098186e147c",
+    "timing_fault.asm": "2e0d62133582ef2fd35a54edb9111281dba432fda94328f9bffb81686b1b2a72"
+  },
+  "reason": "Preregistered comment markers are #, but the unchanged assembler accepts semicolon comments. No RTL execution occurred. Correct only comment markers prospectively; retain original frozen declaration and failed bytes.",
+  "returncode": 2,
+  "status": "REJECTED_ASSEMBLY_COMMENT_SYNTAX"
+}

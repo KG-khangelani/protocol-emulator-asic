@@ -1,0 +1,116 @@
+name: waveform-replay
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - 'experiments/waveform_replay/**'
+      - 'test/**'
+      - 'src/**'
+      - 'tools/**'
+      - 'programs/**'
+      - 'Makefile'
+      - 'docs/specs/g5-waveform-replay.md'
+      - '.github/workflows/waveform-replay.yaml'
+  pull_request:
+    paths:
+      - 'experiments/waveform_replay/**'
+      - 'test/**'
+      - 'src/**'
+      - 'tools/**'
+      - 'programs/**'
+      - 'Makefile'
+      - 'docs/specs/g5-waveform-replay.md'
+      - '.github/workflows/waveform-replay.yaml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-waveforms:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      WORKBENCH_IMAGE: ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88
+    steps:
+      - name: Check out exact source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Pull and identify the immutable G4 workbench
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p build/g5-ci
+          docker version > build/g5-ci/docker-version.log
+          docker pull "$WORKBENCH_IMAGE" > build/g5-ci/image-pull.log 2>&1
+          docker image inspect "$WORKBENCH_IMAGE" > build/g5-ci/workbench-image.json
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          image = json.loads(Path('build/g5-ci/workbench-image.json').read_bytes())
+          assert len(image) == 1
+          image = image[0]
+          assert os.environ['WORKBENCH_IMAGE'] in image['RepoDigests']
+          assert image['Architecture'] == 'amd64' and image['Os'] == 'linux'
+          assert image['Config']['Labels']['org.opencontainers.image.revision'] == '5bdc0e6b6449a829a5da1f8f9a8060257e974843'
+          runtime = {'schema': 'protocol-emulator-g5-ci-runtime-v1',
+                     'image_ref': os.environ['WORKBENCH_IMAGE'], 'image_id': image['Id'],
+                     'image_labels': image['Config']['Labels'],
+                     'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                     'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+                     'job': os.environ['GITHUB_JOB']}
+          Path('build/g5-ci/runtime.json').write_text(json.dumps(runtime, indent=2, sort_keys=True) + '\n')
+          PY
+      - name: Load and check the frozen experiment in both simulators
+        shell: bash
+        run: |
+          set -euxo pipefail
+          docker run --rm --pull=never --network=none --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$WORKBENCH_IMAGE" \
+            python3 experiments/waveform_replay/run.py --require-clean --out build/g5-ci/primary
+      - name: Reproduce from a distinct clean clone of the committed source
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone --no-local "file://$GITHUB_WORKSPACE" "$RUNNER_TEMP/g5-clean"
+          git -C "$RUNNER_TEMP/g5-clean" checkout --detach "$GITHUB_SHA"
+          test -z "$(git -C "$RUNNER_TEMP/g5-clean" status --porcelain)"
+          docker run --rm --pull=never --network=none --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$RUNNER_TEMP/g5-clean,target=/workspace" \
+            --workdir /workspace "$WORKBENCH_IMAGE" \
+            python3 experiments/waveform_replay/run.py --require-clean --out build/g5-reproduction
+          docker run --rm --pull=never --network=none --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --mount "type=bind,source=$RUNNER_TEMP/g5-clean,target=/reproduction,readonly" \
+            --workdir /workspace "$WORKBENCH_IMAGE" \
+            python3 experiments/waveform_replay/run.py --compare build/g5-ci/primary \
+            /reproduction/build/g5-reproduction --out build/g5-ci/comparison
+      - name: Preserve the mandatory G3 program behavior
+        shell: bash
+        run: |
+          set -euxo pipefail
+          docker run --rm --pull=never --network=none --init --user "$(id -u):$(id -g)" \
+            --env HOME=/tmp --mount "type=bind,source=$PWD,target=/workspace" \
+            --workdir /workspace "$WORKBENCH_IMAGE" \
+            python3 tools/run_program_examples.py --out build/g5-ci/g3-continuity
+          docker image inspect "$WORKBENCH_IMAGE" > build/g5-ci/workbench-image-after.json
+      - name: Collect the independent clone output, including failures
+        if: always()
+        shell: bash
+        run: |
+          if test -d "$RUNNER_TEMP/g5-clean/build/g5-reproduction"; then
+            cp -a "$RUNNER_TEMP/g5-clean/build/g5-reproduction" build/g5-ci/reproduction
+          fi
+      - name: Retain original experiment records and source identities
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: waveform-replay-${{ github.sha }}
+          path: |
+            build/g5-ci/
+            !build/g5-ci/**/sim/**
+            !build/g5-ci/**/models/**
+          if-no-files-found: error
+          retention-days: 90

@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "docker-info.json": "796300bbc98881403c020b5bc61351537eb6a34062114082bf5fb3852d703492",
+    "docker-info.log.gz": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+    "docker-started-version.json": "90bdaf965ba424bbafb4afbaf51a51bf4a149a49910f05f91eee5300fcfca6a4",
+    "docker-started-version.log.gz": "545d7b468ad4e81dcdf4e1531a73cee120728b4ad7e7966ed0d82ac31aa19666"
+  },
+  "scope": "Docker Desktop was started hidden; info timed out after25seconds; later version returned1 with missingLinuxpipe. No daemon restart or othercontainer changes. LinuxCI selected.",
+  "status": "LOCAL_LINUX_ENGINE_UNAVAILABLE_AFTER_START"
+}

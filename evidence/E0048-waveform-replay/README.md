@@ -15,3 +15,11 @@ Runtime image to verify and use:
 No RTL, analog, silicon, new physical acceptance or owner-fluency result is
 claimed. The original G1-G4 records, stable release and thirteen G3 programs
 remain unchanged. Failed attempts will be retained rather than replaced.
+
+The first native assembly attempt rejected the two leading `#` comment
+markers: the existing assembler accepts `;`. No RTL ran. `assembly-rejection/`
+retains both original sources, the actual failed result, frozen producing
+source archive and CLI diagnostic. `amendment-01.json` prospectively changes
+only those comment markers; the original declaration, every instruction,
+expected pin trace, case and budget remain unchanged. The runner verifies
+the correction byte for byte against the retained originals.

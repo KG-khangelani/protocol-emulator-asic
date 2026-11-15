@@ -1,0 +1,10 @@
+{
+  "command": [
+    "docker",
+    "version",
+    "--format",
+    "{{json .}}"
+  ],
+  "returncode": 1,
+  "utc": "2026-11-15T08:52:51.090390+00:00"
+}

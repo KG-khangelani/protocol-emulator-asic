@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: Apache-2.0
-# G5 frozen fault: delay only pin-0 rising edge 20 to 22; preserve later edges.
+; SPDX-License-Identifier: Apache-2.0
+; G5 frozen fault: delay only pin-0 rising edge 20 to 22; preserve later edges.
 .target od128-sram-v1
 .idle 0
 SET mask=255 value=0 oe=7

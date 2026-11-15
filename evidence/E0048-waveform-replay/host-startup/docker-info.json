@@ -1,0 +1,10 @@
+{
+  "command": [
+    "docker",
+    "info",
+    "--format",
+    "{{json .}}"
+  ],
+  "status": "TIMEOUT_25_SECONDS",
+  "utc": "2026-11-15T08:48:20.910165+00:00"
+}

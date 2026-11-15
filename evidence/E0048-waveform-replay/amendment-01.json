@@ -1,0 +1,17 @@
+{
+  "changes": {
+    "experiments/waveform_replay/control.asm": {
+      "after_sha256": "ef48e382bd53d07671eca5d2002f9721df94ea2e9478287b401e50dffae477c4",
+      "before_sha256": "74ad740d9b29a7973867f0f35c67e281ab403d54e21c8dfb16287f62bbc9ade0"
+    },
+    "experiments/waveform_replay/timing_fault.asm": {
+      "after_sha256": "aa79957fc72a2bfe88930d4e70362a0312fe1026f57c1c64e36650ce0622464f",
+      "before_sha256": "2e0d62133582ef2fd35a54edb9111281dba432fda94328f9bffb81686b1b2a72"
+    }
+  },
+  "limits": "Only two leading comment markers per file change from # to semicolon. All instruction lines, expected traces, cases, acceptance criteria and original budget remain unchanged. No RTL ran before correction. Original rejection retained in assembly-rejection/.",
+  "observed_utc": "2026-11-15T09:01:11.697409+00:00",
+  "original_manifest_sha256": "9f428bc72dfbd00ac081b0756547260da598dfd5a2beb66ed9bb8a4f7e3532fd",
+  "schema": "protocol-emulator-g5-preregistration-amendment-v1",
+  "status": "PROSPECTIVE_COMMENT_SYNTAX_CORRECTION"
+}
