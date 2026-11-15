@@ -56,7 +56,8 @@ G5's [triggered waveform example](docs/waveform-replay.md) reuses the unchanged
 core with two 20-word programs. One moves a selected edge by two clocks while
 preserving later output timing. [E0048](evidence/E0048-waveform-replay/README.md)
 qualifies 21 public cases per simulator, clean reproduction and the unchanged
-G3 examples. Software packaging and publication verification are in progress.
+G3 examples. Windows/Linux packages and standalone checks pass; public
+publication verification is in progress.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its

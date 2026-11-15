@@ -1,0 +1,233 @@
+{
+  "assets": {
+    "SHA256SUMS": {
+      "digest": "sha256:32c2c7d0444da2c64eb8b9a378e84b18655a669f6aedbab48eb4ec99cc8a656a",
+      "id": 746434426,
+      "name": "SHA256SUMS",
+      "size": 1526
+    },
+    "g4-43543626249-GDS_logs.zip": {
+      "digest": "sha256:75f774cc87c3c535a9eb8e360d3a514c27ca95c3051f7c6fd1a155c81c5d61e2",
+      "id": 746437807,
+      "name": "g4-43543626249-GDS_logs.zip",
+      "size": 98355651
+    },
+    "g4-43543626249-gatelevel_test_results.zip": {
+      "digest": "sha256:51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050",
+      "id": 746437804,
+      "name": "g4-43543626249-gatelevel_test_results.zip",
+      "size": 1232239
+    },
+    "g4-43543626249-precheck_reports.zip": {
+      "digest": "sha256:4b43143d1f5228d729b11ae7c11510552e30e87b648e952cb62b93d2b58ef2b9",
+      "id": 746437808,
+      "name": "g4-43543626249-precheck_reports.zip",
+      "size": 6913
+    },
+    "g4-43543626249-sram-netlist-check.zip": {
+      "digest": "sha256:7c4e93114ed55fb5b93e8e70b55713db3b75ca65bdcc442c825557d33c88ea5e",
+      "id": 746437802,
+      "name": "g4-43543626249-sram-netlist-check.zip",
+      "size": 9875
+    },
+    "g4-43543626249-sram-physical-candidate.zip": {
+      "digest": "sha256:e5f9880228e1a65839a548e77fb6af4e5bcebed8ddc251664dc8ea25fecbe3fd",
+      "id": 746437805,
+      "name": "g4-43543626249-sram-physical-candidate.zip",
+      "size": 194609
+    },
+    "g4-43543626249-tt_submission.zip": {
+      "digest": "sha256:7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2",
+      "id": 746437853,
+      "name": "g4-43543626249-tt_submission.zip",
+      "size": 3716722
+    },
+    "g4-43543629839-GDS_logs.zip": {
+      "digest": "sha256:874c57d3cc7d0fc9c7f7c922f4b5aadd1d7c67cd247ae8c64c7ba7f25f2bef12",
+      "id": 746437855,
+      "name": "g4-43543629839-GDS_logs.zip",
+      "size": 98355535
+    },
+    "g4-43543629839-gatelevel_test_results.zip": {
+      "digest": "sha256:e6fb023e5567bb31c5d3d2e1a1186c2ac8366d62d738327d9b30d6cb5ba6a52c",
+      "id": 746437858,
+      "name": "g4-43543629839-gatelevel_test_results.zip",
+      "size": 1232227
+    },
+    "g4-43543629839-precheck_reports.zip": {
+      "digest": "sha256:d14d3092f4b6c582af36652ea5cb4859ed37fee4fd0e7858736ec14ad9fb82aa",
+      "id": 746437874,
+      "name": "g4-43543629839-precheck_reports.zip",
+      "size": 6915
+    },
+    "g4-43543629839-sram-netlist-check.zip": {
+      "digest": "sha256:a65132f423152c33104cf8cbb0b9b02b02323274618b63d651d7909acec5007d",
+      "id": 746437926,
+      "name": "g4-43543629839-sram-netlist-check.zip",
+      "size": 9875
+    },
+    "g4-43543629839-sram-physical-candidate.zip": {
+      "digest": "sha256:6eaabd5f8af242fbc925873d48b50b6ae5470947c539d363d2c9a4757cc299e5",
+      "id": 746437935,
+      "name": "g4-43543629839-sram-physical-candidate.zip",
+      "size": 194609
+    },
+    "g4-43543629839-tt_submission.zip": {
+      "digest": "sha256:2f0df22f3a51b9febc357ccd17715060b143b5c070a286111aace5b0938a4922",
+      "id": 746437967,
+      "name": "g4-43543629839-tt_submission.zip",
+      "size": 3716731
+    },
+    "g4-SHA256SUMS": {
+      "digest": "sha256:066d8cc897e7b3fbdda75f4506fac69a6428aaa18b25caadd8206c8a423430ef",
+      "id": 746437970,
+      "name": "g4-SHA256SUMS",
+      "size": 1587
+    },
+    "g4-public-programs.zip": {
+      "digest": "sha256:5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6",
+      "id": 746438000,
+      "name": "g4-public-programs.zip",
+      "size": 261357
+    },
+    "g4-submission-bundle.zip": {
+      "digest": "sha256:eb57a2c6944232bde0343702ccd02dc0c52c5909bf1ad6a6fe1a098012318e4a",
+      "id": 746438045,
+      "name": "g4-submission-bundle.zip",
+      "size": 14869969
+    },
+    "g4-submission.json": {
+      "digest": "sha256:a8787248d3f4c176c6738f359cfcb32b4e7f539a7489636bcf3923e44018f53d",
+      "id": 746438053,
+      "name": "g4-submission.json",
+      "size": 224584
+    },
+    "g4-windows-programs.zip": {
+      "digest": "sha256:6ca2b2687139b540154636eee4fb336e2ca0937ffd5e454cc73b6cdb420f3d2f",
+      "id": 746438085,
+      "name": "g4-windows-programs.zip",
+      "size": 60759
+    },
+    "image-inspect.json": {
+      "digest": "sha256:ab524d2cfa3a1513b3a94306ea69916a217e1e24c497bc7a00bbe6ea917e0ca4",
+      "id": 746434425,
+      "name": "image-inspect.json",
+      "size": 5724
+    },
+    "production-profile.json": {
+      "digest": "sha256:85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "id": 746434433,
+      "name": "production-profile.json",
+      "size": 3633
+    },
+    "production-verification.json": {
+      "digest": "sha256:d9e023f3c2760e23a06aff68cdc106886027ecb3a5f7c05c58cb86ec2da188aa",
+      "id": 746434431,
+      "name": "production-verification.json",
+      "size": 616275
+    },
+    "publication.json": {
+      "digest": "sha256:f9a697b19a3ec9b0945ff06e97a9c8eff4574d070df6484fabee8c698ed17fa6",
+      "id": 746434432,
+      "name": "publication.json",
+      "size": 4250
+    },
+    "spi-four-mode.json": {
+      "digest": "sha256:dff29f1f61eaa33349b15a4db8308daa8d63d936d153a36f98fbdbc5eccf8941",
+      "id": 746434449,
+      "name": "spi-four-mode.json",
+      "size": 97524
+    },
+    "spi-held-proof.json": {
+      "digest": "sha256:0e9b778cb642ab4f75fa157f11f3d198951591c5e7df110aa9ef4c85247a4d74",
+      "id": 746434466,
+      "name": "spi-held-proof.json",
+      "size": 39979
+    },
+    "spi-phase1-capacity.json": {
+      "digest": "sha256:350a9a645d3d8ae7dffc5ff0fb2086a2e96edcd1e53b9c6cc40eca9f33f00c9a",
+      "id": 746434468,
+      "name": "spi-phase1-capacity.json",
+      "size": 361640
+    },
+    "spi-sensitivity.json": {
+      "digest": "sha256:3660e1850357f9b0bac47599b18e566b31ee4a88ffb455c611cab839bad62595",
+      "id": 746434469,
+      "name": "spi-sensitivity.json",
+      "size": 40144
+    },
+    "spi-timed-comparison.json": {
+      "digest": "sha256:173ce90ad695b520d1eb4532f4885d29daaffade8cee202fe0303a6672407555",
+      "id": 746434472,
+      "name": "spi-timed-comparison.json",
+      "size": 36709
+    },
+    "spi-timed-gpio.json": {
+      "digest": "sha256:f4c0b185633d100b5b68274b2c187205e76caee46d9cda83bd20a6c84f63f122",
+      "id": 746434481,
+      "name": "spi-timed-gpio.json",
+      "size": 11396
+    },
+    "spi-timed-instruction_f.json": {
+      "digest": "sha256:6c1cfeae634228461816651c7f309caa81395e82b90ce64979135061f36b71d5",
+      "id": 746434486,
+      "name": "spi-timed-instruction_f.json",
+      "size": 10343
+    },
+    "spi-timed-instruction_p.json": {
+      "digest": "sha256:5007494a0fdecf6068239c879e3d36874eb1e7764d452443c0404a3224ff21d2",
+      "id": 746434495,
+      "name": "spi-timed-instruction_p.json",
+      "size": 10085
+    },
+    "spi-timed-program_f.json": {
+      "digest": "sha256:0c24a662aa8b9b8c9f282ea3ebe134d7cdf5cb157656d79c03418ea1a490ab67",
+      "id": 746434498,
+      "name": "spi-timed-program_f.json",
+      "size": 42603
+    },
+    "spi-timed-program_p.json": {
+      "digest": "sha256:a0ff4d10515c905994bedd2a914d4c34453d3f4967214e928635782a12a5b353",
+      "id": 746434509,
+      "name": "spi-timed-program_p.json",
+      "size": 41957
+    },
+    "spi-timed-refinement_f.json": {
+      "digest": "sha256:aa56cd9bb3df16cce5a1ea59fabf8cc09090a10e6ff9e3983543f17460a570ec",
+      "id": 746434511,
+      "name": "spi-timed-refinement_f.json",
+      "size": 6044
+    },
+    "spi-timed-refinement_p.json": {
+      "digest": "sha256:65021241a715fbe6b9ffb2cfd4a7110083a9f8fc59c8f7d3952c09644112f9e5",
+      "id": 746434521,
+      "name": "spi-timed-refinement_p.json",
+      "size": 5946
+    },
+    "toolchain.lock.json": {
+      "digest": "sha256:e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+      "id": 746434523,
+      "name": "toolchain.lock.json",
+      "size": 7328
+    }
+  },
+  "body_sha256": "53a99bb96ea5a2bfc4ccad2f106143ca0cb744f1abc88b1db64c8d68bba4ec63",
+  "files_sha256": {
+    "release.json.gz": "4e5a392be69149803ce631a2f121d94cd495ef0164e69796845448aed4945397",
+    "tag_ref.json.gz": "563675552ef3d499a93b1ba3d1f637c97dc5732fabaefdc73f24f09824936fbb"
+  },
+  "g3_program_sources_changed": false,
+  "g4_completed_main": "d664a4c227762f4c62fbbb703eec245fda2a60a9",
+  "g5_main": "00712f1c90cc1de8d3ecbb8bb882c2f8159c9562",
+  "historical_evidence_changed": false,
+  "observed_utc": "2026-11-15T09:30:31.554525+00:00",
+  "release_id": 445042753,
+  "release_title_and_body_unchanged": true,
+  "status": "PASS_G4_RELEASE_AND_HISTORICAL_EVIDENCE_UNCHANGED",
+  "tag_object": {
+    "sha": "6a17158d6ed11523895ff3a6d9a35aeddb480ba1",
+    "type": "tag",
+    "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/git/tags/6a17158d6ed11523895ff3a6d9a35aeddb480ba1"
+  },
+  "title": "Protocol Emulator ASIC v0.1.0 (verified G4 candidate)"
+}

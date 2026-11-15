@@ -11,8 +11,10 @@ The [G5 contract](specs/g5-waveform-replay.md) fixes the programs, literal trace
 both simulators and a clean clone, with five expected rejections. The trace
 moves only the selected edge by two clocks, and the complete G3 guard passes.
 All 366 producing inputs and five rehashed bad-evidence controls pass audit.
-Native Windows/Linux compiled bytes agree. The example is documented;
-software packaging and publication verification remain active.
+Native Windows/Linux compiled bytes agree. The documented standalone bundle
+also passes on both platforms, with four byte-identical release assets.
+Public publication verification remains active. G4's 35 assets, tag, release
+title/body and historical evidence are unchanged.
 
 **G1-G4 COMPLETE.** [Stable v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0)
 publishes release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843` and the matching verified workbench image.

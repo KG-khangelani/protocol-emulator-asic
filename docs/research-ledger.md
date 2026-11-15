@@ -23,6 +23,13 @@ and corrected prospectively without changing instructions or expectations.
 This supports useful firmware reuse beyond the design protocols; it supplies
 no architecture-minimum, physical fixture, analog or silicon evidence.
 
+The G5 software package also reproduces byte for byte across Windows and
+pinned Linux. Both standalone runs rebuild eight compiled files and pass the
+twelve checker tests outside the repository. A fresh G4 API/history comparison
+confirms that all 35 v0.1.0 assets, its tag/title/body, earlier evidence and G3
+program sources are unchanged. Publication of the additive v0.1.1 software
+milestone remains under verification.
+
 Question: **What is the smallest computational substrate that can efficiently
 express useful digital communication protocols under hard temporal constraints?**
 

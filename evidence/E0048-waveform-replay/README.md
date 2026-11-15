@@ -40,5 +40,16 @@ The [usable example](../../docs/waveform-replay.md) explains the pin ownership,
 trigger/timeout behavior, timing assumptions and the value of replaying a
 specific edge fault without adding hardware. This demonstrates a compact
 additional use of the existing core; it does not establish a new architecture
-or a minimum-size program. The verified software package and publication
-checks remain to be completed before G5 closure.
+or a minimum-size program.
+
+[Package verification](package-ci-43698190050/README.md) now passes in native
+Windows and pinned Linux. All four assets are byte-identical; isolated Python
+outside the repository rebuilds both programs and passes twelve checker tests
+on each platform. Release source `0228341` is tagged as v0.1.1; its publisher
+and remaining tag gates are running. Public downloads and the new matching
+image still need verification before G5 closure.
+
+`g4-continuity/` records a fresh API comparison: v0.1.0 retains all 35 asset
+identities, the same annotated tag and identical release title/body. Git
+history confirms that all earlier evidence and the thirteen G3 program
+sources remain unchanged from G4's completed main checkpoint.

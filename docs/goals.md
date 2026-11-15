@@ -386,7 +386,8 @@ The [retained original run](../evidence/E0048-waveform-replay/ci-66743b6/README.
 now qualifies both programs, all 21 cases per simulator, clean reproduction
 and the unchanged G3 program suite. Only the selected output edge moves;
 twenty physical inputs are unchanged. The successful example is documented.
-Software packaging and publication verification remain active before closure.
+Windows/Linux packaging and standalone checks now pass; public publication
+verification remains active before closure.
 
 Default experiment: use firmware alone to replay an irregular digital waveform
 or inject a controlled timing fault. This tests whether the same substrate is
