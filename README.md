@@ -14,7 +14,7 @@ the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and t
 [Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
 the project [glossary](docs/learning/glossary.md).
 
-**Engineering: G1-G4 complete; learning: M0 teach-back pending.**
+**Engineering: G1-G5 complete; learning: M0 teach-back pending.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical
 program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
 loaded programs implement UART TX and bounded RX, both bit orders of all four
@@ -56,8 +56,11 @@ G5's [triggered waveform example](docs/waveform-replay.md) reuses the unchanged
 core with two 20-word programs. One moves a selected edge by two clocks while
 preserving later output timing. [E0048](evidence/E0048-waveform-replay/README.md)
 qualifies 21 public cases per simulator, clean reproduction and the unchanged
-G3 examples. Windows/Linux packages and standalone checks pass; public
-publication verification is in progress.
+G3 examples. [v0.1.1](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.1)
+publishes the verified software bundle: Windows/Linux bytes match, all 22
+public downloads and the matching workbench identity pass audit, and all ten
+tag workflows pass. The [completion audit](evidence/E0048-waveform-replay/completion-audit.json)
+closes the bounded experiment. v0.1.0 remains the unchanged hardware reference.
 
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its

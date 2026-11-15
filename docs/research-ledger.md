@@ -27,8 +27,13 @@ The G5 software package also reproduces byte for byte across Windows and
 pinned Linux. Both standalone runs rebuild eight compiled files and pass the
 twelve checker tests outside the repository. A fresh G4 API/history comparison
 confirms that all 35 v0.1.0 assets, its tag/title/body, earlier evidence and G3
-program sources are unchanged. Publication of the additive v0.1.1 software
-milestone remains under verification.
+program sources are unchanged. The additive v0.1.1 software milestone is
+now verified: all 22 public assets, original publisher execution, matching
+registry identity and ten tag workflows / 23 jobs pass. The downloaded bundle
+rebuilds both programs and passes twelve checker tests outside the repository.
+E0048's completion audit closes G5 within the frozen cap. The result supports
+keeping this firmware example on the qualified hardware baseline. G6 owner
+understanding is the next planned goal.
 
 Question: **What is the smallest computational substrate that can efficiently
 express useful digital communication protocols under hard temporal constraints?**

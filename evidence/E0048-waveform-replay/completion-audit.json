@@ -1,0 +1,250 @@
+{
+  "budget": {
+    "elapsed_seconds": 6265.583406,
+    "maximum_seconds": 57600,
+    "start_utc": "2026-11-15T08:30:00Z",
+    "stop_utc": "2026-11-16T00:30:00Z"
+  },
+  "declaration_commit": "e9f2eec26600e89bee790ce7a5b2f4af821de743",
+  "evidence_baseline_commit": "d0035c8855a61e95b34097e3fde6a2c3d0667217",
+  "limits": [
+    "No new RTL or physical acceptance",
+    "No fabricated silicon or analog characterization",
+    "50 MHz is an assumed target, not measured Fmax",
+    "No unrestricted asynchronous capture",
+    "No owner-fluency promotion or competition submission"
+  ],
+  "observed_utc": "2026-11-15T10:14:25.583406+00:00",
+  "qualified_commit": "66743b60b93508d2f00f23fa2cc2ac7db244bc3a",
+  "release_source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "requirements": [
+    {
+      "detail": "Declaration precedes the first failed assembly. The retained prospective comment correction changes no instructions, traces, cases or budget.",
+      "evidence": [
+        {
+          "path": "evidence/E0048-waveform-replay/preregistration.json",
+          "sha256": "9f428bc72dfbd00ac081b0756547260da598dfd5a2beb66ed9bb8a4f7e3532fd"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/amendment-01.json",
+          "sha256": "ceab649f7ec51c8d812caeff74f7b22d0d9ecbbbf44676df1fe2a98662e43b40"
+        },
+        {
+          "path": "docs/decisions/0050-bounded-firmware-waveform-replay.md",
+          "sha256": "e8d10db60d399a355a3153e864befabc50284cec4d093c16b06da431cc74d2e6"
+        },
+        {
+          "path": "docs/specs/g5-waveform-replay.md",
+          "sha256": "897f4ac6a2c3cade153297d0a33593cea8e3e6504bce7a9a3c9be7a970178b0e"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/assembly-rejection/retention.json",
+          "sha256": "a9d8229dde55ea05707a487769b8d5ac1202bccece12b4a0feb1869dbe4efb49"
+        }
+      ],
+      "requirement": "Freeze one use case, control program, independent pin trace, measurements, timing assumptions and two-working-day cap before execution.",
+      "status": "PASS"
+    },
+    {
+      "detail": "Both simulators and a separate clone qualify 21 cases and five expected rejections. All 366 inputs, public loading/readback and complete G3 guard pass; twenty physical inputs and historical evidence remain unchanged.",
+      "evidence": [
+        {
+          "path": "evidence/E0048-waveform-replay/ci-66743b6/verification.json",
+          "sha256": "83cc8c35453eaee6514b47404434eeef36c368efd07c569b868b598b09e42ee1"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/ci-66743b6/audit-controls.json",
+          "sha256": "28670ce378a775ad26ebf95cd34af02a5083af3833a253d430d4bf3adfa7a593"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/ci-66743b6/windows-comparison.json",
+          "sha256": "4a386359f10535b8a216bf09c8ff96d7b64dd3c12eabd335117a4e2ca7f401c9"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/g4-continuity/verification.json",
+          "sha256": "ba66bd1426a908a241a88d45e96375cbf96cbe2d986b3e66ac2c86c6ed5a0e5d"
+        },
+        {
+          "path": "docs/waveform-replay.md",
+          "sha256": "54978efc800cd71f6de1ca0df2b80071428593f827c82b59bde895e3e0511ed6"
+        }
+      ],
+      "requirement": "Demonstrate the capability through public-pin-loaded programs with zero new RTL, independent trace checks and explicit limits.",
+      "status": "PASS"
+    },
+    {
+      "detail": "Windows/Linux standalone packages agree. Twenty-two public assets, ten tag workflows / twenty-three jobs, matching registry identity and original publisher execution pass within the frozen cap. G6 and competition entry remain separate.",
+      "evidence": [
+        {
+          "path": "evidence/E0048-waveform-replay/package-ci-43698190050/verification.json",
+          "sha256": "d768bb1212822f3507cebd8386acee905fe8ff29d7f7dbcd18e7b3420ce9f605"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/publication/verification.json",
+          "sha256": "ca2efb39a316416c7c69f5d6404f984660ed48fad2fd23a554bb857f1002ae35"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/publication-ci-43702683490/verification.json",
+          "sha256": "3e12fd843591c99eded13ad6afb2193c2174562fe8423e213402fb29a5fcaa3f"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/release-notice.json",
+          "sha256": "7099f876d704583fe331189d81aa73fcdb30333e9eec0b9083a421e8fe020a6e"
+        },
+        {
+          "path": "evidence/E0048-waveform-replay/host-startup/retention.json",
+          "sha256": "48669f8494da16a569ef2b87c99a61c2ec3adc92e0a4bf4f4d947191c87f3f3f"
+        },
+        {
+          "path": "docs/waveform-replay.md",
+          "sha256": "54978efc800cd71f6de1ca0df2b80071428593f827c82b59bde895e3e0511ed6"
+        }
+      ],
+      "requirement": "Keep a useful documented example, retain failures and stop on budget expiry or mandatory regression; publish a matching verified software milestone.",
+      "status": "PASS"
+    }
+  ],
+  "schema": "protocol-emulator-g5-completion-audit-v1",
+  "sealed_records": {
+    "assembly-rejection": 6,
+    "ci-66743b6": 14,
+    "host-startup": 4,
+    "package-ci-43698190050": 12,
+    "publication": 39,
+    "publication-ci-43702683490": 12,
+    "windows-build-66743b6": 12
+  },
+  "snapshot_files_sha256": {
+    "README.md": "f2d1a13db038e644e855f3a29d76cef944c571acd1bdbbdf38c976cb7895678e",
+    "docs/ai-use.md": "b7e2d353f79fdc3902d59b8c0a48af213d2fbc7091a6b91090fe167e064b8064",
+    "docs/backlog.md": "7c51177f9b50daff9747c4c7fb49d307ac6ea3dddae3ed111f52c112d3625c70",
+    "docs/decisions/0050-bounded-firmware-waveform-replay.md": "e8d10db60d399a355a3153e864befabc50284cec4d093c16b06da431cc74d2e6",
+    "docs/goals.md": "2f98b019ade7013769e5340e44c60ec0c884051ecd67df5eca370701379d8fad",
+    "docs/research-ledger.md": "eeed992522339f73261468f03c14c6fb6b6343f1ecf53cf0603383b7c2f95a7a",
+    "docs/specs/g5-waveform-replay.md": "897f4ac6a2c3cade153297d0a33593cea8e3e6504bce7a9a3c9be7a970178b0e",
+    "docs/state.md": "5496907a26e189c6f82a3d2cfc681c8b9831b7c4cb6c1b9b6bc05c2415215044",
+    "docs/verification.md": "ddb6e792b9c00e0df4c527a34f94ed633d77eda005f1610188a70fa662d6dcc8",
+    "docs/waveform-replay.md": "54978efc800cd71f6de1ca0df2b80071428593f827c82b59bde895e3e0511ed6",
+    "evidence/E0048-waveform-replay/README.md": "516ffacea85d6ddca9094ddba94c62fbd48ddcf1e1af87bfd7459c0183905c02",
+    "evidence/E0048-waveform-replay/amendment-01.json": "ceab649f7ec51c8d812caeff74f7b22d0d9ecbbbf44676df1fe2a98662e43b40",
+    "evidence/E0048-waveform-replay/assembly-rejection/assembler.log.gz": "beb2a1cc3e8e908dc1e81efa955f5257929ef01feba493da8544291d4a234478",
+    "evidence/E0048-waveform-replay/assembly-rejection/control.asm": "74ad740d9b29a7973867f0f35c67e281ab403d54e21c8dfb16287f62bbc9ade0",
+    "evidence/E0048-waveform-replay/assembly-rejection/result.json.gz": "1208b5262753e4a492d783cbbf5b2e195b71b914a860ff9078468710a6342c2f",
+    "evidence/E0048-waveform-replay/assembly-rejection/retention.json": "a9d8229dde55ea05707a487769b8d5ac1202bccece12b4a0feb1869dbe4efb49",
+    "evidence/E0048-waveform-replay/assembly-rejection/source-inputs.json.gz": "5d7761dcd9145e0b9bcc077dfec2d6e63df0136ab9ca5fba6038d126911b0f04",
+    "evidence/E0048-waveform-replay/assembly-rejection/source-inputs.zip": "3bb398feca9fab3566c3dd26cb12469f3c5f7ea4489b2392d41a6098186e147c",
+    "evidence/E0048-waveform-replay/assembly-rejection/timing_fault.asm": "2e0d62133582ef2fd35a54edb9111281dba432fda94328f9bffb81686b1b2a72",
+    "evidence/E0048-waveform-replay/ci-66743b6/14155007514.zip": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+    "evidence/E0048-waveform-replay/ci-66743b6/README.md": "d09b56375416a39ae8d140f2d2e8cc7051951b99f19eff0627a5a8a711d37135",
+    "evidence/E0048-waveform-replay/ci-66743b6/artifacts.json": "931c781a26162922190d2ff2f6deb34f5e2bc79861cd48a2d272a3f90a272887",
+    "evidence/E0048-waveform-replay/ci-66743b6/audit-controls.json": "28670ce378a775ad26ebf95cd34af02a5083af3833a253d430d4bf3adfa7a593",
+    "evidence/E0048-waveform-replay/ci-66743b6/audit-runner.py.gz": "51870da93b37fdd2ad5adc1d6e83ca3d8b0440f5cdddace9f1ac7bc9aa82e255",
+    "evidence/E0048-waveform-replay/ci-66743b6/controls-runner.py.gz": "cbe152f560e9aaec159f512798b5238dc5e0be537b0f8a0077f8ff6a05981ae8",
+    "evidence/E0048-waveform-replay/ci-66743b6/job.log.gz": "e4d088df6b6b7952873f9d099bb30dca725f0ba3ffd243586dba1ae99a15f768",
+    "evidence/E0048-waveform-replay/ci-66743b6/jobs.json": "306ef3e7d38a924351bab233111328070546fc5ead30af618e2b07e29355fff1",
+    "evidence/E0048-waveform-replay/ci-66743b6/receive-originals.py.gz": "638b2e6533905efa76a1c28397ae26adeaa2d35b1f6ab7871b97e55145a692c0",
+    "evidence/E0048-waveform-replay/ci-66743b6/retention.json": "d8c02cb330025409b2867df52514a17b0e3135b06f910ff4371644f5595508d5",
+    "evidence/E0048-waveform-replay/ci-66743b6/run.json": "dccbd9e675870964e1e9891b4c8f278580f66ec3176c7fd95584cdb59e0b23bd",
+    "evidence/E0048-waveform-replay/ci-66743b6/transport.json": "efd462ea9ac0785b0c393081805e47b850f16fb5a334d821ee258c795608b5ef",
+    "evidence/E0048-waveform-replay/ci-66743b6/verification.json": "83cc8c35453eaee6514b47404434eeef36c368efd07c569b868b598b09e42ee1",
+    "evidence/E0048-waveform-replay/ci-66743b6/windows-comparison.json": "4a386359f10535b8a216bf09c8ff96d7b64dd3c12eabd335117a4e2ca7f401c9",
+    "evidence/E0048-waveform-replay/ci-66743b6/zip-files.json": "ecc8eee3a95bb77e09b019f62489ccbba7b5766b7d9691f44ca9b503e2fc0614",
+    "evidence/E0048-waveform-replay/complete.py": "28f16386f8f62fc41bb1960620c0ce6b10b08b73fa72d0c1c37011d9e425d805",
+    "evidence/E0048-waveform-replay/g4-continuity/release.json.gz": "4e5a392be69149803ce631a2f121d94cd495ef0164e69796845448aed4945397",
+    "evidence/E0048-waveform-replay/g4-continuity/tag_ref.json.gz": "563675552ef3d499a93b1ba3d1f637c97dc5732fabaefdc73f24f09824936fbb",
+    "evidence/E0048-waveform-replay/g4-continuity/verification.json": "ba66bd1426a908a241a88d45e96375cbf96cbe2d986b3e66ac2c86c6ed5a0e5d",
+    "evidence/E0048-waveform-replay/host-startup/docker-info.json": "796300bbc98881403c020b5bc61351537eb6a34062114082bf5fb3852d703492",
+    "evidence/E0048-waveform-replay/host-startup/docker-info.log.gz": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+    "evidence/E0048-waveform-replay/host-startup/docker-started-version.json": "90bdaf965ba424bbafb4afbaf51a51bf4a149a49910f05f91eee5300fcfca6a4",
+    "evidence/E0048-waveform-replay/host-startup/docker-started-version.log.gz": "545d7b468ad4e81dcdf4e1531a73cee120728b4ad7e7966ed0d82ac31aa19666",
+    "evidence/E0048-waveform-replay/host-startup/retention.json": "48669f8494da16a569ef2b87c99a61c2ec3adc92e0a4bf4f4d947191c87f3f3f",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/14155561054.zip": "a9fe54cf408b59c7a051009c25699f1fd0b5333f04e718df9c73c25578320eae",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/artifacts.json": "9bbe4a4dfde9dad99b8d3d09b087d6e4a8f3518f6f049ca2379dcd3ba7d3c9d4",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/job.log.gz": "0f09d8e9933a6622dfb1e8c98ea6ed4a0bc20e9d0a88445ca3f2c3d1d04707b9",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/jobs.json": "55d99d88a3d29b2159026a8cdb25e6cda22d74fd907bec1c20324e18b517b47d",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/retain-runner.py.gz": "f7a729932a018b579ab9258790daff5adba1223a622aef88aab2cd4c6ae0b7ee",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/retention.json": "3753fc01385345900b39828a0371c6da018fadba1ceff5914d3005b53c939d4c",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/run.json": "63804f243d1a28daae47e5b3c6c3118cbc84e52c0bb8df11573d51beb3994270",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/verification.json": "d768bb1212822f3507cebd8386acee905fe8ff29d7f7dbcd18e7b3420ce9f605",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/windows-control.log.gz": "f73460c13d8bc958d2e344220bf811dd7f41f48c81b034d39b7b64278729daa0",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/windows-oracle-tests.log.gz": "45c0edab47fe0c093975ea732cc7af4d85f69bb1fa544b7008f13e358ba786e1",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/windows-smoke.json": "6c679473988083daf8d346928f59ff83936f808ef34a617db26497ea8512d848",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/windows-timing_fault.log.gz": "ee9ca9a4799bf9fbbda2ab7b8965b46c0e8c70283e01eb6b56a6cff064f51a56",
+    "evidence/E0048-waveform-replay/package-ci-43698190050/zip-files.json": "3e18e705edc2e179a76600e06f5d9417669019dd2e0323d2caf380d4456c58bf",
+    "evidence/E0048-waveform-replay/preregistration.json": "9f428bc72dfbd00ac081b0756547260da598dfd5a2beb66ed9bb8a4f7e3532fd",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/14157406596.zip": "0a9a46fad920a51b64627b2b557e27daf88ebe34da7391e3c6f7fccf2646e6ae",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/artifacts.json": "759299ef7683f29115c431799068c2addefa6216a29e34816d2b223842b087f1",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/job.log.gz": "697772c0a618dff56712a5affd10ab6d5f05e389b5961a3520f3a6beff9c38fb",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/jobs.json": "7d61c6e75482ef18e19a93a9d0bd74e63cabfc25d7a9aab7bee95ae26ad5ac7e",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/request.json": "00dd66d4fb43b48a6773cbc9b5cdb1444e4283c7d7c55993c05ed31b1a35e9ce",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/result.json": "f8b7d34be28d443f992cc538d57ca3237d4c376591ba183d7e854af0cee24197",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/retain-runner.py.gz": "8afc5088e08a3a9b6d38a8742dbca8b4271d1c157dd1111e6f17e4079b7429d8",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/retention.json": "286ed40fe0e9df5aa3c8cc8e2508ff1076ac6ec75b39f6d4852a31df25d0aa21",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/run.json": "4077880f4cff5304c0eb32e4bce1b8fb1143ab0995e8ed19bae78ff9abc314a1",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/runner.py.gz": "976f854aeca3f927551e5897623bb538e126ddfe3b18504a3622d422373f810d",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/verification.json": "3e12fd843591c99eded13ad6afb2193c2174562fe8423e213402fb29a5fcaa3f",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/verify_publication.py.gz": "0834c70cf8b2babf434b90da306a5b7367d78616a72550c4bc7c04e294aecb00",
+    "evidence/E0048-waveform-replay/publication-ci-43702683490/zip-files.json": "4ff8bf9ba6d54e23cd66b523d1005fe33814761452eb0e361411b3458aa6a68b",
+    "evidence/E0048-waveform-replay/publication/14156503337.zip": "3f826e53800bba7c3346224a15af48b25c4c9923c3ce12dd8d777fe0a3fbfa9a",
+    "evidence/E0048-waveform-replay/publication/artifacts.json": "c563bc7c21a4df0fb5560b69199afc06bcc3dceb8cb2daf3a39c719a3ea5ffb0",
+    "evidence/E0048-waveform-replay/publication/downloaded-smoke/control.log": "9cafead9de933f1a96394970cdede2ef5a3940d4beb32721679cd7af2219a9af",
+    "evidence/E0048-waveform-replay/publication/downloaded-smoke/oracle-tests.log": "100dffcea5e9922aae4402f092ad0d33e6735c7a4302c143fb53ad8942e8619d",
+    "evidence/E0048-waveform-replay/publication/downloaded-smoke/result.json": "58a1f81e635343a0266fbf9219312483ba38410428ca0b96079d3870327fa0cc",
+    "evidence/E0048-waveform-replay/publication/downloaded-smoke/timing_fault.log": "bd6ff217d73c3c7d0201a23fc6ea05b7462b162de6d901a0d363f94804a2ef0c",
+    "evidence/E0048-waveform-replay/publication/downloaded/SHA256SUMS": "06e1e88c80d28da1cae10b1eca66e9c9ebafcc0cb47f6de7185f21f51e19f6c1",
+    "evidence/E0048-waveform-replay/publication/downloaded/g5-SHA256SUMS": "a900b470566a4533d62d3ad930fab4fbe6bf3e87677311b69494205d0ccd14b8",
+    "evidence/E0048-waveform-replay/publication/downloaded/g5-original-ci.zip": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+    "evidence/E0048-waveform-replay/publication/downloaded/g5-waveform-replay.json": "f0969582b134fb126ce3d7059806240d3caa6497d35206c37c1d6d5a7b8c60fb",
+    "evidence/E0048-waveform-replay/publication/downloaded/g5-waveform-replay.zip": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+    "evidence/E0048-waveform-replay/publication/downloaded/image-inspect.json": "49797437bef1a9c1e44f0895fa8243393e20759f8bd13e16cf93db2d4664b33f",
+    "evidence/E0048-waveform-replay/publication/downloaded/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "evidence/E0048-waveform-replay/publication/downloaded/production-verification.json": "ea9ffb8a142cfe04248b774c6379d86d43d1c25e59296889489732c956cf5101",
+    "evidence/E0048-waveform-replay/publication/downloaded/publication.json": "6db6d411c46cc05d5edcff0d04bda126cda86b02a2b684baab3954a1c68ec054",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-four-mode.json": "6e29cb6f65aa545bc4446d73a202b528d7faebab4170962d11cdab4f3a5adfa0",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-held-proof.json": "613b785a1cc08adb33f17a7e3a4124595b9da1d2a05db53e25b39b0a53389f4b",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-phase1-capacity.json": "bdbb7f44410c2f43d424647e95c13bb8b669d46e61cd1b79e8cf64fe23fa25c3",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-sensitivity.json": "558175a1656b979fff950eee3e6caa2d324b345d747da48b79da58b2cd47db10",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-comparison.json": "b12e95cec93756d09853936df8ed6e0a25dfb4182dccff0213beba28730553f3",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-gpio.json": "99017c521c29915e6fbb4e4ee85e5d4da69df1b685f7eee2ca9740b41c0cfb1f",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-instruction_f.json": "613759c3d64a762abd28f489575f4cfa9c935bd96e8c0f4bc8ed135a75a61484",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-instruction_p.json": "c45b94f19794e2e60394eac006cc0d9a5f905c3db138f7e12b10bd6e843560d2",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-program_f.json": "904e26dfdd497d72783645906b8cdb637ea15df43a3ddcf12d058a1f7902fed5",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-program_p.json": "205e37c59205e7b9507bc2b6e78fc2b3ec37431bfb8f6d472ed0ac0c45146050",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-refinement_f.json": "c052670e80ff302e8de66d3f0c37c6d53d4a7b4cb99a9b1a149808075ac21cac",
+    "evidence/E0048-waveform-replay/publication/downloaded/spi-timed-refinement_p.json": "7d6767b1900a53d3e2c5b0538958e4d6ae6106d6c72e523adc268ffbde7b9379",
+    "evidence/E0048-waveform-replay/publication/downloaded/toolchain.lock.json": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+    "evidence/E0048-waveform-replay/publication/job.log.gz": "ae0aa2c664b0e972c6cc688b037124a3e572ea2252b14b5accddfc431ab9df0e",
+    "evidence/E0048-waveform-replay/publication/jobs.json": "af5cec7d0c683b71b66a75ca404f94d417c61613c7c39c4d9d5a9abdc0f33a2a",
+    "evidence/E0048-waveform-replay/publication/registry-config.json": "3083a3213ec7597e2a6c20185c76b7accdf9c73ce73f283f62976e6c9b1742be",
+    "evidence/E0048-waveform-replay/publication/registry-manifest.json": "977a4dc20fe558bb84d941b5aa572d5f456866660ea6a2c4f3a9badd87f7811e",
+    "evidence/E0048-waveform-replay/publication/release.json": "6fcbfdeb0da4e54bc70b89781dac4f2bc7f77ea61768749b7a39572468db79ee",
+    "evidence/E0048-waveform-replay/publication/retention.json": "99bb3b026aeefd59f7272680b051a291c65ec335a9eeb5da68ebb44446672fea",
+    "evidence/E0048-waveform-replay/publication/run.json": "39db8b9dab18fbcac553da63a622921065b16d414823ffefa3454dfca6b9158a",
+    "evidence/E0048-waveform-replay/publication/tag-object.json": "f44a8acb48a6567f2bd35e690811f9274fb22734405d2284043eec03858bdcb3",
+    "evidence/E0048-waveform-replay/publication/tag-ref.json": "f3b3eb935dac171d4205f3529ab66759f0ab007af336fbda4d7af8f8460c574b",
+    "evidence/E0048-waveform-replay/publication/tag-workflows.json": "050b66c28a0cf0f44fad7731878ebecabbb0c4718699debde6fc037903f79d86",
+    "evidence/E0048-waveform-replay/publication/verification.json": "ca2efb39a316416c7c69f5d6404f984660ed48fad2fd23a554bb857f1002ae35",
+    "evidence/E0048-waveform-replay/publication/zip-files.json": "c4b34081468d99c1ea27940a6af7bfdbcc60c10c05b1cd23b21fd08bc5b5039b",
+    "evidence/E0048-waveform-replay/release-notice.json": "7099f876d704583fe331189d81aa73fcdb30333e9eec0b9083a421e8fe020a6e",
+    "evidence/E0048-waveform-replay/release-observation/g4_release.json.gz": "fc864c3d94eeb692605cc39889089ef5d64434c780d1bbd9dfdd29cfb4b3934c",
+    "evidence/E0048-waveform-replay/release-observation/latest.json.gz": "940dc5f2c1d4cb04470dcd5619050820d92c75f60b99fe9b45095058822b5ddf",
+    "evidence/E0048-waveform-replay/release-observation/observe-runner.py.gz": "cdab2b18a5e750e5e22805fd6a9b8ebeb48fb1c9843e928e4d11e4a3988b9806",
+    "evidence/E0048-waveform-replay/release-observation/release.json.gz": "940dc5f2c1d4cb04470dcd5619050820d92c75f60b99fe9b45095058822b5ddf",
+    "evidence/E0048-waveform-replay/release-observation/tag_ref.json.gz": "316dfa4ea8d4374638da1fd698eb577cc5c87edcf17b4d293162df0c8941189e",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/control/load-plan.json": "213e42684331a6382c269cc3687631533a61474e48056192a25a9d0453ba292a",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/control/program.bin": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/control/program.json": "e2264aa0fdae421e4d57961a016fe4d32a7b8c46220466c2065e2e87b319cdba",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/control/program.lst": "76ad2762c988c695f1ed0c578cd4d84e478964d4c9bd23e35d75ed2c4baa3220",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/manifest.json": "956b56e921d8ad0d7c8e895cdaf2e1e40cff4315f399e4b34514bfb9f9e8ce72",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/timing_fault/load-plan.json": "7a5b1800f44ee67827dab9f9b86cb6bd0f7ebf208b1627e6ce721161fbd8f98a",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/timing_fault/program.bin": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/timing_fault/program.json": "d1b911063d7a3025b57bad6265646441b1f027670f91499075211fe57b9a95b8",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/programs/timing_fault/program.lst": "f31afdc55403caf0a7340e4ca9f1e743ed5b828f04f0edd7b7243214e22c7869",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/result.json": "61076e4f9215f682de31887a7f0773a5f593a91b7b7a6ba6f83d0123d4f197b3",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/retention.json": "bab96f8e20337a0223d3f1c2d9e84b63b4ee863904a09424c5cd399175ae298c",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/source-inputs.json": "8f9511078abfe94e8725f66e305fb1b36179ba6977441e2e3801aa39bdc2e3a9",
+    "evidence/E0048-waveform-replay/windows-build-66743b6/source-inputs.zip": "3dec8d622a7410df24e925d3b51e8d826d84e0defd71a61f3c9f6327b73a9483"
+  },
+  "snapshot_scope": "Historical closure file hashes. Execution evidence is bound to evidence_baseline_commit; final documentation, public release observations and this audit are committed together immediately after execution. Validate later against the commit holding this audit, not a changed future working tree.",
+  "status": "PASS_G5_COMPLETION_REQUIREMENTS"
+}

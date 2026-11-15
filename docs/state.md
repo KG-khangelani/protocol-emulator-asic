@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-11-15. Engineering phase: **G5 qualified - software publication in progress**.
+Updated: 2026-11-15. Engineering phase: **G5 COMPLETE**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
 [D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
@@ -13,7 +13,12 @@ moves only the selected edge by two clocks, and the complete G3 guard passes.
 All 366 producing inputs and five rehashed bad-evidence controls pass audit.
 Native Windows/Linux compiled bytes agree. The documented standalone bundle
 also passes on both platforms, with four byte-identical release assets.
-Public publication verification remains active. G4's 35 assets, tag, release
+[v0.1.1](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.1)
+now publishes the software milestone. All 22 public assets, the original
+publisher execution, matching registry identity and ten tag workflows / 23
+jobs pass [publication audit](../evidence/E0048-waveform-replay/publication/README.md).
+The [completion audit](../evidence/E0048-waveform-replay/completion-audit.json)
+closes all three G5 checks within the frozen cap. G4's 35 assets, tag, release
 title/body and historical evidence are unchanged.
 
 **G1-G4 COMPLETE.** [Stable v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0)
@@ -37,8 +42,8 @@ startup failures remain retained; isolated Linux CI supplied the required replay
 The [submission packet](submission.md) and current architecture/ISA, toolchain,
 verification and AI-use guides are ready. The official rules were rechecked on
 2026-11-14 with unchanged content; the final form is still forthcoming.
-No competition entry has been sent. G5 remains optional and G6 owner fluency
-remains pending.
+No competition entry has been sent. G5 supplies the qualified optional
+firmware example; G6 owner fluency remains pending.
 
 G3 delivers a versioned assembler,
 inspectable timing listings and public load/readback/run examples around the

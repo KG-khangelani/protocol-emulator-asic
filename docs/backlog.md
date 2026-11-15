@@ -1,10 +1,10 @@
 # Executable backlog
 
-## Active bounded experiment
+## Completed bounded experiment
 
 | ID | Task | Acceptance | Status |
 |---|---|---|---|
-| G5-T01 | Triggered irregular waveform and one controlled timing fault using firmware alone | D50: frozen 20-word programs, literal oracle, 21 public cases in both simulators, clean reproduction and unchanged G3/physical inputs within two working days | QUALIFIED 2026-11-15: original CI43697229433 and audit pass all cases, clean reproduction, G3 continuity and five rehashed evidence controls. Native Windows/Linux program bytes agree; software publication pending |
+| G5-T01 | Triggered irregular waveform and one controlled timing fault using firmware alone | D50: frozen 20-word programs, literal oracle, 21 public cases in both simulators, clean reproduction and unchanged G3/physical inputs within two working days | DONE 2026-11-15: original CI43697229433, clean reproduction, G3 continuity and five rehashed evidence controls pass. Windows/Linux packages and standalone checks agree; all 22 v0.1.1 assets, publisher/image identity and ten tag workflows / 23 jobs pass. E0048 completion audit closes the frozen goal |
 
 Priority is set by [the six goals](goals.md), adopted in
 [D32](decisions/0032-goals-to-submission-readiness.md) on 2026-11-12.

@@ -4,7 +4,7 @@ Updated: 2026-11-15. Decisions: [D32](decisions/0032-goals-to-submission-readine
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
-G1-G4 are complete. The qualified shared-protocol core, assembler, loading
+G1-G5 are complete. The qualified shared-protocol core, assembler, loading
 plans and reproducible examples are published in verified stable v0.1.0.
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
@@ -21,7 +21,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **COMPLETE 2026-11-13**; qualified SRAM adopted, default CI and publication audited | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | **COMPLETE 2026-11-13**; clean-clone/CI qualification and alpha.7 publication verified | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | **COMPLETE 2026-11-14**; two fresh physical runs, final release and public package verified | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
-| G5 | Demonstrate one useful capability beyond the initial protocol set | QUALIFIED 2026-11-15; software publication pending | Within D50's two-working-day cap | G5-T01 |
+| G5 | Demonstrate one useful capability beyond the initial protocol set | **COMPLETE 2026-11-15**; firmware-only waveform, clean reproduction and v0.1.1 publication verified | Within D50's two-working-day cap | G5-T01 |
 | G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
 
 ```mermaid
@@ -386,8 +386,12 @@ The [retained original run](../evidence/E0048-waveform-replay/ci-66743b6/README.
 now qualifies both programs, all 21 cases per simulator, clean reproduction
 and the unchanged G3 program suite. Only the selected output edge moves;
 twenty physical inputs are unchanged. The successful example is documented.
-Windows/Linux packaging and standalone checks now pass; public publication
-verification remains active before closure.
+Windows/Linux packaging and standalone checks pass. All 22 public v0.1.1
+assets, original publisher execution, matching registry identity and ten tag
+workflows / 23 jobs pass verification. **Completed 2026-11-15** within the
+frozen cap; the [completion audit](../evidence/E0048-waveform-replay/completion-audit.json)
+maps all three requirements to retained proof. G4's physical source, release
+and history remain unchanged; G6 and competition entry remain separate.
 
 Default experiment: use firmware alone to replay an irregular digital waveform
 or inject a controlled timing fault. This tests whether the same substrate is
@@ -397,7 +401,7 @@ useful beyond the protocols used to design it.
   measurement and a two-working-day total investigation budget.
 - [x] Demonstrate it through public-pin-loaded programs with zero new RTL, an
   independent trace check, and explicit timing/input limits.
-- [ ] Keep a successful example and explain its value; retain a failed result
+- [x] Keep a successful example and explain its value; retain a failed result
   and stop if the budget expires or mandatory closure slips.
 
 Only start after G2 passes. Decide by December 18; defer if prerequisites are
