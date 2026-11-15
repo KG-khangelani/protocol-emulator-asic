@@ -1,0 +1,24 @@
+{
+  "asset_count": 22,
+  "body_sha256": "ebb40f015c72a734930b5b1e252c2037a64f5377bb902bbb636472a1c1c23834",
+  "files_sha256": {
+    "release-observation/g4_release.json.gz": "fc864c3d94eeb692605cc39889089ef5d64434c780d1bbd9dfdd29cfb4b3934c",
+    "release-observation/latest.json.gz": "940dc5f2c1d4cb04470dcd5619050820d92c75f60b99fe9b45095058822b5ddf",
+    "release-observation/observe-runner.py.gz": "cdab2b18a5e750e5e22805fd6a9b8ebeb48fb1c9843e928e4d11e4a3988b9806",
+    "release-observation/release.json.gz": "940dc5f2c1d4cb04470dcd5619050820d92c75f60b99fe9b45095058822b5ddf",
+    "release-observation/tag_ref.json.gz": "316dfa4ea8d4374638da1fd698eb577cc5c87edcf17b4d293162df0c8941189e"
+  },
+  "g4_assets_unchanged": 35,
+  "g4_release_unchanged": true,
+  "latest_stable_release": true,
+  "observed_utc": "2026-11-15T10:13:26.362033+00:00",
+  "original_notes_unchanged": true,
+  "release_id": 445962727,
+  "schema": "protocol-emulator-g5-final-release-observation-v1",
+  "scope": "Fresh API read confirms stable latest release, original qualified notes, unchanged tag and all verified asset identities. No post-publication title/body edit.",
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "status": "PASS_G5_RELEASE_NOTICE_AND_LATEST",
+  "tag": "v0.1.1",
+  "title": "Protocol Emulator ASIC v0.1.1",
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.1"
+}

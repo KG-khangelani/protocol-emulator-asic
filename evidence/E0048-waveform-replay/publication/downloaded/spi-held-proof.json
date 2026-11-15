@@ -1,0 +1,909 @@
+{
+  "status": "PROVED_HELD_MODE0_MODE2_WITH_CHECKED_CONTROLS",
+  "started_utc": "2026-11-15T09:47:58.960817+00:00",
+  "scope": "ACTUAL_PUBLIC_LOADED_HELD_MODE0_MODE2_PROGRAMS",
+  "input_sha256": {
+    "experiments/spi_phase/baseline/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "experiments/spi_phase/baseline/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "experiments/spi_phase/baseline/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "experiments/spi_phase/baseline/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "experiments/spi_phase/baseline/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/legacy_baseline.py": "eb17e711b05557bcc88b3afdfc3a0d0b79d7002863dc6f1503e8c910f7809dc9",
+    "experiments/spi_phase/baseline/manifest.json": "c9431b9d87772d49a7502e38b38ad5189dc696d40243e2bdf9d84d19eb586c07",
+    "experiments/spi_phase/build_variants.py": "bab116853fe7b65bc55fc0e53de4779158f07b736d3e60055d65de65085a3b72",
+    "experiments/spi_phase/run_formal.py": "aebf36a08564c1474b0a9a6ec5f4895df27f23c733a1633aa90a1b7b6f6576b9",
+    "experiments/spi_phase/run_integration.py": "e2eb89791a53a55f32ce1d0a5aa632119934be103b703f4d0727d612bb288f78",
+    "experiments/spi_phase/run_program_invariants.py": "8f8967e8a5e5232bed75fcc64f64bd663df9ebae659cdff4fd789cbe936cd35b",
+    "experiments/spi_phase/run_program_sensitivity.py": "29738d054d87d562541ea67674df83f25405b061d67d0dbc78afd9cb61834596",
+    "experiments/spi_phase/run_held_program_proof.py": "4f75e5b694291fb0cc4e1ea737b651376c86ac9d5df3c4460b46702a3ba4533f",
+    "experiments/spi_phase/four_mode_programs.py": "ae6a8a86894df9f661159886428045efad900672fed124d4c0015b19ab443b96",
+    "experiments/spi_phase/phase_programs.py": "ae3e4966fb44b30aa85758c36c90f437b8c3ead85df2fdee0310867160477f67",
+    "experiments/spi_phase/pins/program_invariants.vh": "829b9acb5b6704a47e6fb7339c595d0cb3271f9f9853c9f990551a28dc5f41a7",
+    "experiments/spi_phase/pins/held_spi.sv": "cfcdc7621716a2400459a4c34fa070e81f935a5953d9901417d31ac91565c6ba",
+    "experiments/spi_phase/pins/public_spi.sv": "9f4829ce30a854631645230ff51411cc910d468154f108152939dfaaaab3ede1",
+    "experiments/spi_phase/pins/timed_invariants.vh": "b4cdc380f600aa19e3a521b45bde5437f6021ba733fc54781d9637261ea73489",
+    "experiments/spi_phase/pins/transport.sv": "ee368c88dea7ccd5fad4290e53b4b431f81873bf02662ee01f513c3c3fedac2a",
+    "experiments/spi_phase/pins/timed_spi.sv": "1d69fbbed494baf0066451f1c0a829817c05dba05482b90a4223fe56e51124e8",
+    "experiments/spi_phase/pins/held_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+    "docs/specs/spi-held-program-proof.md": "e55464ab5b4dd6792bbb37d6f8cc8ac949769bdf3ef2f6d4f3578718b3c7a135",
+    "tools/spi_four_mode_oracle.py": "2674b32436107af5d8c793d1523af0cdc603149d67c89c45d42fc2e8387d4be2",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/spi_phase_reference.py": "f982539562fff60226ac46ff7988898b6cf1f2f984eb4343b242ebaa50f15e5b",
+    "tools/spi_mode0_oracle.py": "2f1d935587c9bb56afc55de16724806294f3011daa9d647350d333babb9e7feb"
+  },
+  "sources": {
+    "baseline": {
+      "directory": "/workspace/build/release-held-proof/preflight-inputs/variants/baseline/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact": {
+      "directory": "/workspace/build/release-held-proof/preflight-inputs/variants/compact/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "banked": {
+      "directory": "/workspace/build/release-held-proof/preflight-inputs/variants/banked/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "name": "held_baseline",
+      "mode": "prove",
+      "depth": 12,
+      "expected": "PASS",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/release-held-proof/held_baseline/proof",
+        "/workspace/build/release-held-proof/held_baseline/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 7.734,
+      "wall_limit": 180,
+      "status": "PASS",
+      "raw_status": "PASS 0 8",
+      "accepted": true,
+      "k_induction": true,
+      "induction_step": 9,
+      "classification": "EXPECTED_RESULT",
+      "failed_assertions": [],
+      "negative_trace_check": null,
+      "sources": {
+        "baseline": {
+          "directory": "/workspace/build/release-held-proof/held_baseline/variants/baseline/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "compact": {
+          "directory": "/workspace/build/release-held-proof/held_baseline/variants/compact/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "banked": {
+          "directory": "/workspace/build/release-held-proof/held_baseline/variants/banked/src",
+          "source_sha256": {
+            "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+            "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+            "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        }
+      },
+      "generated_sha256": {
+        "program_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+        "project.v": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+        "public_spi.sv": "cfcdc7621716a2400459a4c34fa070e81f935a5953d9901417d31ac91565c6ba",
+        "m1_input_sync.v": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+        "project.v.patch": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+        "program_bindings.vh": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+        "phase_engine.v": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v.patch": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+        "m1_program_store.v.patch": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+        "m1_program_store.v": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+        "phase-engine-declarations.v.patch": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40"
+      }
+    },
+    {
+      "name": "wrong_public_mosi",
+      "mode": "bmc",
+      "depth": 44,
+      "expected": "FAIL",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/release-held-proof/wrong_public_mosi/proof",
+        "/workspace/build/release-held-proof/wrong_public_mosi/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 3.221,
+      "wall_limit": 180,
+      "status": "FAIL",
+      "raw_status": "FAIL 0 3",
+      "accepted": true,
+      "k_induction": false,
+      "induction_step": null,
+      "classification": "EXPECTED_RESULT",
+      "failed_assertions": [
+        "public_spi: public_spi.sv:64.13-65.157 (_witness_.check_assert_public_spi_sv_64_232)"
+      ],
+      "negative_trace_check": {
+        "validated": true,
+        "observations": [
+          {
+            "cycle": 40,
+            "cpol": 0,
+            "msb_first": 0,
+            "tx_byte": 136,
+            "uio_out": 0,
+            "expected_mosi": 0
+          },
+          {
+            "cycle": 40,
+            "cpol": 0,
+            "msb_first": 0,
+            "tx_byte": 136,
+            "uio_out": 0,
+            "expected_mosi": 0
+          }
+        ],
+        "witness_sha256": {
+          "proof/engine_0/trace.vcd": "07a9e18c50f5047d05bb4bb8e920abd23fcc80840db99a05590bd50ee8bdb55a"
+        }
+      },
+      "sources": {
+        "baseline": {
+          "directory": "/workspace/build/release-held-proof/wrong_public_mosi/variants/baseline/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "compact": {
+          "directory": "/workspace/build/release-held-proof/wrong_public_mosi/variants/compact/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "banked": {
+          "directory": "/workspace/build/release-held-proof/wrong_public_mosi/variants/banked/src",
+          "source_sha256": {
+            "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+            "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+            "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        }
+      },
+      "generated_sha256": {
+        "program_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+        "project.v": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+        "public_spi.sv": "5c354ec69259d0b104eac7ff9ea46ba74fa5652441d40c79ed1a661d0c2f3006",
+        "m1_input_sync.v": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+        "project.v.patch": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+        "program_bindings.vh": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+        "phase_engine.v": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v.patch": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+        "m1_program_store.v.patch": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+        "m1_program_store.v": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+        "phase-engine-declarations.v.patch": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40"
+      }
+    },
+    {
+      "name": "missing_first_hold",
+      "mode": "bmc",
+      "depth": 92,
+      "expected": "FAIL",
+      "command": [
+        "sby",
+        "-f",
+        "-d",
+        "/workspace/build/release-held-proof/missing_first_hold/proof",
+        "/workspace/build/release-held-proof/missing_first_hold/proof.sby"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 11.995,
+      "wall_limit": 180,
+      "status": "FAIL",
+      "raw_status": "FAIL 0 12",
+      "accepted": true,
+      "k_induction": false,
+      "induction_step": null,
+      "classification": "EXPECTED_RESULT",
+      "failed_assertions": [
+        "public_spi: program_invariants.vh:94.21-94.89 (_witness_.check_assert_program_invariants_vh_94_1034)"
+      ],
+      "negative_trace_check": {
+        "validated": true,
+        "observations": [
+          {
+            "cycle": 64,
+            "exec_edge": 28,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 0,
+            "f_sampled_inputs": 0,
+            "f_shift_rx_data_status": 0
+          },
+          {
+            "cycle": 64,
+            "exec_edge": 28,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 0,
+            "f_sampled_inputs": 0,
+            "f_shift_rx_data_status": 0
+          },
+          {
+            "cycle": 86,
+            "exec_edge": 50,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 1,
+            "f_sampled_inputs": 2,
+            "f_shift_rx_data_status": 0
+          },
+          {
+            "cycle": 86,
+            "exec_edge": 50,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 1,
+            "f_sampled_inputs": 2,
+            "f_shift_rx_data_status": 0
+          },
+          {
+            "cycle": 88,
+            "exec_edge": 52,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 0,
+            "f_sampled_inputs": 2,
+            "f_shift_rx_data_status": 0
+          },
+          {
+            "cycle": 88,
+            "exec_edge": 52,
+            "cpol": 0,
+            "msb_first": 0,
+            "rx_byte": 2,
+            "raw_miso": 0,
+            "f_sampled_inputs": 2,
+            "f_shift_rx_data_status": 0
+          }
+        ],
+        "witness_sha256": {
+          "proof/engine_0/trace.vcd": "cddaaa5e26b942e6e77718b607d6effdc346dbe02ac26d156846938580cb8b3c"
+        }
+      },
+      "sources": {
+        "baseline": {
+          "directory": "/workspace/build/release-held-proof/missing_first_hold/variants/baseline/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "compact": {
+          "directory": "/workspace/build/release-held-proof/missing_first_hold/variants/compact/src",
+          "source_sha256": {
+            "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+            "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+            "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        },
+        "banked": {
+          "directory": "/workspace/build/release-held-proof/missing_first_hold/variants/banked/src",
+          "source_sha256": {
+            "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+            "m1_engine.v": "9f526002f2709b6e1a50ba99a2f7d7310368f9b36cd54c18a0fb28575f4d6c40",
+            "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+            "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+            "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+          }
+        }
+      },
+      "generated_sha256": {
+        "program_invariants.vh": "df0ad7229083532d1e379d599907be60d1cfbd0c4db080a1db3341bf72123305",
+        "project.v": "34127fb523a0caefd4edac7493ef4b86ba127ab62f1f1a03dd18941686ea532b",
+        "public_spi.sv": "2df4ae5ebae1f1510659fcd5e21c1aabb18af1877a84fcdc573a19074bc76bf9",
+        "m1_input_sync.v": "89358f6e5ed83a0f19a8d4eb7b03c2aaad6abef33e847ad34eda00934fb84883",
+        "project.v.patch": "f415ac8177ae4f13325f35bfa2662f359e938c44e3eb90cb535bdeee483ca46d",
+        "program_bindings.vh": "174f8116eeefb5fcf753b6bb4d4e5aa7002645ea85df00bfe380ef1ad4fa4287",
+        "phase_engine.v": "22fceef64051d96720580121f21c61ea763c18e5f0a8da8fa9299310cccadfa0",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v.patch": "fa83cbe3238e41b64b0234825b8c94c58b2e61e35e348508bb7d91fbcf24f654",
+        "m1_program_store.v.patch": "c5524739fe54037da53380c18bc5ac1742f48e91a79b65d27b62108a003f87dd",
+        "m1_program_store.v": "30190c39dc88b7b9e0ef6173f3240209eca00a5287b5d8adaf635c24f1580245",
+        "phase-engine-declarations.v.patch": "cf1af7c570cf7fb139becbb38605a146838009955b818ccfcb301df6ed051f40"
+      }
+    }
+  ],
+  "rtl": "PRODUCTION_AND_CANDIDATE_UNCHANGED",
+  "assumptions": "symbolic TX/RX/order/CPOL; raw bit at S..T inclusive; fixed public driver",
+  "formal_reachability_cover": "NOT_ATTEMPTED",
+  "physical_qualification": "NOT_EVALUATED",
+  "preflight": [
+    {
+      "name": "mode0-order0-early",
+      "mode": 0,
+      "order": 0,
+      "tx": 150,
+      "rx": 105,
+      "profile": "early",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "37fed03fef38e5de5f0677293bf5a3fe6169d73f94297672bc2c3caea1c39971",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-early/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-early/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-early/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-early/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode0-order0-late",
+      "mode": 0,
+      "order": 0,
+      "tx": 0,
+      "rx": 255,
+      "profile": "late",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "b16c1ecc8bd19bd06aa14b3adef9b4f9232ef35604477d352b215240c4742711",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-late/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-late/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-late/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-late/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode0-order0-jitter",
+      "mode": 0,
+      "order": 0,
+      "tx": 255,
+      "rx": 0,
+      "profile": "jitter",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "e67e7f54c29527e3e93cc0fdb24f54d8f46c38aecd985c76b657ce7ccd9a3b56",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-jitter/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-jitter/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-jitter/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order0-jitter/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode0-order1-early",
+      "mode": 0,
+      "order": 1,
+      "tx": 150,
+      "rx": 105,
+      "profile": "early",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "33ea94b428251c0ad65aa102517bec65cbd14ac0000f8fc4e1682cc6f874a82e",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-early/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-early/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-early/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-early/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode0-order1-late",
+      "mode": 0,
+      "order": 1,
+      "tx": 0,
+      "rx": 255,
+      "profile": "late",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "b16c1ecc8bd19bd06aa14b3adef9b4f9232ef35604477d352b215240c4742711",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-late/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-late/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-late/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-late/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode0-order1-jitter",
+      "mode": 0,
+      "order": 1,
+      "tx": 255,
+      "rx": 0,
+      "profile": "jitter",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "e67e7f54c29527e3e93cc0fdb24f54d8f46c38aecd985c76b657ce7ccd9a3b56",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-jitter/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-jitter/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-jitter/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode0-order1-jitter/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order0-early",
+      "mode": 2,
+      "order": 0,
+      "tx": 150,
+      "rx": 105,
+      "profile": "early",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "479a963615a4bd984251e8b6025d57805fcbf6bb89f78bae2881d3c0605b8a2d",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-early/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-early/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-early/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-early/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order0-late",
+      "mode": 2,
+      "order": 0,
+      "tx": 0,
+      "rx": 255,
+      "profile": "late",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "7a571df7cbe6097143fa860975859bd1add232b0e7e54c31679e631e84df77cc",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-late/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-late/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-late/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-late/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order0-jitter",
+      "mode": 2,
+      "order": 0,
+      "tx": 255,
+      "rx": 0,
+      "profile": "jitter",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "02eb3944f3da563adea640a09d0a4b7f2bb9363999f9c728bbfc9edb182408f9",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-jitter/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-jitter/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-jitter/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order0-jitter/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order1-early",
+      "mode": 2,
+      "order": 1,
+      "tx": 150,
+      "rx": 105,
+      "profile": "early",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "fe667c20b57cc61d54ce90768e0a2af30a54b04b59200e878f2ab204426bd094",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-early/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-early/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-early/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-early/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order1-late",
+      "mode": 2,
+      "order": 1,
+      "tx": 0,
+      "rx": 255,
+      "profile": "late",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "7a571df7cbe6097143fa860975859bd1add232b0e7e54c31679e631e84df77cc",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-late/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-late/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-late/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-late/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    },
+    {
+      "name": "mode2-order1-jitter",
+      "mode": 2,
+      "order": 1,
+      "tx": 255,
+      "rx": 0,
+      "profile": "jitter",
+      "status": "PASS",
+      "serialized_words_match_e0027": true,
+      "oracle_errors": [],
+      "trace_sha256": "02eb3944f3da563adea640a09d0a4b7f2bb9363999f9c728bbfc9edb182408f9",
+      "compile": {
+        "command": [
+          "iverilog",
+          "-g2012",
+          "-s",
+          "sim",
+          "-I/workspace/build/release-held-proof/preflight-inputs/inputs",
+          "-o",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-jitter/sim.vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/project.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/phase_engine.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_program_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_data_store.v",
+          "/workspace/build/release-held-proof/preflight-inputs/inputs/m1_input_sync.v",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-jitter/driver.sv",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-jitter/clock.sv"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.032,
+        "wall_limit": 30
+      },
+      "run": {
+        "command": [
+          "vvp",
+          "/workspace/build/release-held-proof/preflight-inputs/preflight/mode2-order1-jitter/sim.vvp"
+        ],
+        "returncode": 0,
+        "timed_out": false,
+        "seconds": 0.114,
+        "wall_limit": 30
+      }
+    }
+  ]
+}

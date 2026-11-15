@@ -1,0 +1,17 @@
+{
+  "files_sha256": {
+    "14157406596.zip": "0a9a46fad920a51b64627b2b557e27daf88ebe34da7391e3c6f7fccf2646e6ae",
+    "artifacts.json": "759299ef7683f29115c431799068c2addefa6216a29e34816d2b223842b087f1",
+    "job.log.gz": "697772c0a618dff56712a5affd10ab6d5f05e389b5961a3520f3a6beff9c38fb",
+    "jobs.json": "7d61c6e75482ef18e19a93a9d0bd74e63cabfc25d7a9aab7bee95ae26ad5ac7e",
+    "request.json": "00dd66d4fb43b48a6773cbc9b5cdb1444e4283c7d7c55993c05ed31b1a35e9ce",
+    "result.json": "f8b7d34be28d443f992cc538d57ca3237d4c376591ba183d7e854af0cee24197",
+    "retain-runner.py.gz": "8afc5088e08a3a9b6d38a8742dbca8b4271d1c157dd1111e6f17e4079b7429d8",
+    "run.json": "4077880f4cff5304c0eb32e4bce1b8fb1143ab0995e8ed19bae78ff9abc314a1",
+    "runner.py.gz": "976f854aeca3f927551e5897623bb538e126ddfe3b18504a3622d422373f810d",
+    "verification.json": "3e12fd843591c99eded13ad6afb2193c2174562fe8423e213402fb29a5fcaa3f",
+    "verify_publication.py.gz": "0834c70cf8b2babf434b90da306a5b7367d78616a72550c4bc7c04e294aecb00",
+    "zip-files.json": "4ff8bf9ba6d54e23cd66b523d1005fe33814761452eb0e361411b3458aa6a68b"
+  },
+  "status": "PASS_RETAINED_PUBLICATION_PROOF"
+}

@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "variant": "F",
+  "started_utc": "2026-11-15T10:05:31.780679+00:00",
+  "input_sha256": {
+    "experiments/spi_phase/baseline/project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+    "experiments/spi_phase/baseline/m1_engine.v": "f13f2c8e2fa7dae9fdf79ed3ebdc0012b7599485d2f211024e0dd4868e3f74fa",
+    "experiments/spi_phase/baseline/m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+    "experiments/spi_phase/baseline/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "experiments/spi_phase/baseline/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "experiments/spi_phase/legacy_baseline.py": "eb17e711b05557bcc88b3afdfc3a0d0b79d7002863dc6f1503e8c910f7809dc9",
+    "experiments/spi_phase/baseline/manifest.json": "c9431b9d87772d49a7502e38b38ad5189dc696d40243e2bdf9d84d19eb586c07",
+    "experiments/spi_phase/build_timed_gpio.py": "0ea873edbc6da168b307b962cf560ce7810a64d02a49ec6ff9bdb1c68999bf4d",
+    "experiments/spi_phase/build_variants.py": "bab116853fe7b65bc55fc0e53de4779158f07b736d3e60055d65de65085a3b72",
+    "experiments/spi_phase/run_formal.py": "aebf36a08564c1474b0a9a6ec5f4895df27f23c733a1633aa90a1b7b6f6576b9",
+    "experiments/spi_phase/run_integration.py": "e2eb89791a53a55f32ce1d0a5aa632119934be103b703f4d0727d612bb288f78",
+    "experiments/spi_phase/run_program_sensitivity.py": "29738d054d87d562541ea67674df83f25405b061d67d0dbc78afd9cb61834596",
+    "experiments/spi_phase/run_timed_instruction_proof.py": "bfccd1e19114e2f33cef21f5c277626ca9fe3cfdfc5d75615457ed536a63e651",
+    "experiments/spi_phase/run_timed_refinement.py": "5cf45e28a26e17a8b167640a26f5297625f0e4bad87a55a2f73da0a13797415e",
+    "experiments/spi_phase/formal/timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "experiments/spi_phase/formal/timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931",
+    "experiments/spi_phase/formal/timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "docs/specs/spi-timed-gpio-comparison.md": "ad4bdcadb8390e67cd810113f9fb5372a56fb99dc83f4e0f139d0cfb70faf1e1"
+  },
+  "sources": {
+    "compact8": {
+      "directory": "/workspace/build/release-timed-gpio/refinement_f/variants/compact8/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "compact10": {
+      "directory": "/workspace/build/release-timed-gpio/refinement_f/variants/compact10/src",
+      "source_sha256": {
+        "project.v": "d8c2ff9ad9cdfe77f8cd0a5cd9f0a363bb2e2bf0c26e5d34273a5a33864ef1b7",
+        "m1_engine.v": "b429d48e87993f3878aca37f804b2758fa439dc80afc275317e6a10c91d0eaa0",
+        "m1_program_store.v": "8876391afc82e935aba2839a39b5b1174ea8033c88c89093f34890c34881b381",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "P": {
+      "directory": "/workspace/build/release-timed-gpio/refinement_f/variants/P/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "996e949176e8d6ea808aeab3fb6819b5946bf9670ab0383297570ab70a76e531",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    },
+    "F": {
+      "directory": "/workspace/build/release-timed-gpio/refinement_f/variants/F/src",
+      "source_sha256": {
+        "project.v": "0a391b4b283f563b59a49520992af693df102420e8ee34d826b6f72535a4609f",
+        "m1_engine.v": "c46958572b031bc1d8650880e3b673f0b1b7c15cf2554cbad88a13ca2ba852ce",
+        "m1_program_store.v": "947bb1b0bd2cf81f279902426dd8df90cf6a8f7eb553fbbaf0e2e23fb8e198b3",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e"
+      }
+    }
+  },
+  "generated_sha256": {
+    "compact_engine.v": "1ef98fa99b54194827f833492820c1cde1e44348bb2c007681de4280e4ccb5b3",
+    "timed_refinement.sv": "538a5a0b04411b3eea2da6cf2d64dce8efad146aecf15b025001add1859bde70",
+    "phase_engine.v": "fbcf990d1e28d9f1ae59dc4c13f7595b51724c5d8ca3dd3a679cfb2dd8319f8d",
+    "refinement_bindings.vh": "f17c13804bc0ff9f5e5436690e31fb015b2b9accd4f7490539222b1bc95c805e",
+    "phase_bindings.vh": "a3c56445d8d595fa8f45d541e55b503d35ef64032a1069c83496b7f065fec325",
+    "timed-readouts.v.patch": "5d3dcc3bf7019d45265c4e524e461a1e1690d74328829f8ebfe0d0c527037e26",
+    "timed_properties.sv": "d75e2c89fd7b1532044cec51adaee613f7affe05a4fdac6f81af4098a2a56475",
+    "timed_gpio_properties.vh": "8cce9c59f03b4efa35ffebf3ac47266835bdda8a4ecf33fd4d5b31102eb27931"
+  },
+  "change": "flatten and clean solver representation only; no changed assumptions/assertions/budget",
+  "proof": {
+    "command": [
+      "sby",
+      "-f",
+      "-d",
+      "/workspace/build/release-timed-gpio/refinement_f/proof",
+      "/workspace/build/release-timed-gpio/refinement_f/proof.sby"
+    ],
+    "returncode": 0,
+    "timed_out": false,
+    "seconds": 40.028,
+    "wall_limit": 180,
+    "status": "PASS",
+    "raw_status": "PASS 0 40",
+    "k_induction": true,
+    "failed_assertions": []
+  }
+}

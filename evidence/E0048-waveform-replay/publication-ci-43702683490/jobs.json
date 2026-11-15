@@ -1,0 +1,81 @@
+{
+  "jobs": [
+    {
+      "check_run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/check-runs/132777024046",
+      "completed_at": "2026-11-15T10:10:52Z",
+      "conclusion": "success",
+      "created_at": "2026-11-15T10:09:19Z",
+      "head_branch": "codex/g5-linux-verification",
+      "head_sha": "6146f4e8d21ff8af92fd30bf1a9b9bc0f9755305",
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43702683490/job/132777024046",
+      "id": 132777024046,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "name": "verification",
+      "node_id": "CR_kwDOUmYlXs8AAAAe6iCaLg",
+      "run_attempt": 1,
+      "run_id": 43702683490,
+      "run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/runs/43702683490",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000002513,
+      "runner_name": "GitHub Actions 1000002513",
+      "started_at": "2026-11-15T10:09:21Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-11-15T10:09:23Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-11-15T10:09:22Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T10:09:25Z",
+          "conclusion": "success",
+          "name": "Check out the isolated verification source",
+          "number": 2,
+          "started_at": "2026-11-15T10:09:23Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T10:10:46Z",
+          "conclusion": "success",
+          "name": "Verify public release downloads and publisher evidence",
+          "number": 3,
+          "started_at": "2026-11-15T10:09:25Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T10:10:49Z",
+          "conclusion": "success",
+          "name": "Retain actual Linux verification and assets",
+          "number": 4,
+          "started_at": "2026-11-15T10:10:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T10:10:49Z",
+          "conclusion": "success",
+          "name": "Post Check out the isolated verification source",
+          "number": 8,
+          "started_at": "2026-11-15T10:10:49Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T10:10:49Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "started_at": "2026-11-15T10:10:49Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/jobs/132777024046",
+      "workflow_name": "G5 isolated Linux verification"
+    }
+  ],
+  "total_count": 1
+}

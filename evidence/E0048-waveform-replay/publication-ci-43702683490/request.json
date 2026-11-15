@@ -1,0 +1,18 @@
+{
+  "auditor_sha256": "c98bac2851de457a8dfc0998233060f3eb4ed090912dc188c5838619e9407995",
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88",
+  "image_id": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+  "image_source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "inputs_sha256": {
+    "14156503337.zip": "3f826e53800bba7c3346224a15af48b25c4c9923c3ce12dd8d777fe0a3fbfa9a",
+    "artifacts.json": "c563bc7c21a4df0fb5560b69199afc06bcc3dceb8cb2daf3a39c719a3ea5ffb0",
+    "job.log.gz": "ae0aa2c664b0e972c6cc688b037124a3e572ea2252b14b5accddfc431ab9df0e",
+    "jobs.json": "af5cec7d0c683b71b66a75ca404f94d417c61613c7c39c4d9d5a9abdc0f33a2a",
+    "release.json": "6fcbfdeb0da4e54bc70b89781dac4f2bc7f77ea61768749b7a39572468db79ee",
+    "run.json": "39db8b9dab18fbcac553da63a622921065b16d414823ffefa3454dfca6b9158a",
+    "tag-object.json": "f44a8acb48a6567f2bd35e690811f9274fb22734405d2284043eec03858bdcb3",
+    "tag-ref.json": "f3b3eb935dac171d4205f3529ab66759f0ab007af336fbda4d7af8f8460c574b",
+    "tag-workflows.json": "050b66c28a0cf0f44fad7731878ebecabbb0c4718699debde6fc037903f79d86"
+  },
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8"
+}

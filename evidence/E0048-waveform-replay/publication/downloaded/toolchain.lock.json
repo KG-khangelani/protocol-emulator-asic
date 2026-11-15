@@ -1,0 +1,174 @@
+{
+  "schema": "protocol-emulator-toolchain-lock-v1",
+  "developer_workbench": {
+    "image_tag": "protocol-emulator-asic-workbench:2026-07-29",
+    "platform": "linux/amd64",
+    "base_image": "python@sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b",
+    "python": "3.11.16",
+    "oss_cad_suite": {
+      "version": "2026-07-29",
+      "version_marker": "20260729",
+      "asset": "oss-cad-suite-linux-x64-20260729.tgz",
+      "size_in_bytes": 737344018,
+      "sha256": "89ea1152ea84bc600f18cc685f721d534d1f018e09831662787865a3d79ce4aa"
+    },
+    "verible": {
+      "version": "v0.0-4296-g0f262651",
+      "asset": "verible-v0.0-4296-g0f262651-linux-static-x86_64.tar.gz",
+      "size_in_bytes": 17584945,
+      "sha256": "8569defb891d2316067613ea00442af28a7a09d405d95b54c0c91f9942d26635"
+    },
+    "python_requirements": {
+      "path": "tools/workbench/requirements.lock",
+      "sha256": "32c07d0d07b642fb69c44948e7a3b8754109c4d801ea2803bf720a84c5a6747a"
+    },
+    "debian_packages": {
+      "ca-certificates": "20250419~deb12u1",
+      "curl": "7.88.1-10+deb12u15",
+      "g++": "4:12.2.0-3",
+      "git": "1:2.39.5-0+deb12u3",
+      "make": "4.3-4.1"
+    },
+    "tools": {
+      "git": {
+        "command": ["git", "--version"],
+        "expected_output": "git version 2.39.5",
+        "purpose": "records and retrieves the exact project history"
+      },
+      "make": {
+        "command": ["make", "--version"],
+        "expected_output": "GNU Make 4.3",
+        "purpose": "gives the project one consistent command interface"
+      },
+      "g++": {
+        "command": ["g++", "--version"],
+        "expected_output": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+        "purpose": "compiles Verilator's generated C++ hardware model"
+      },
+      "iverilog": {
+        "command": ["iverilog", "-V"],
+        "expected_output": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+        "purpose": "compiles RTL for fast cycle-by-cycle simulation"
+      },
+      "vvp": {
+        "command": ["vvp", "-V"],
+        "expected_output": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+        "purpose": "runs the simulation program produced by Icarus"
+      },
+      "verilator": {
+        "command": ["verilator", "--version"],
+        "expected_output": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+        "purpose": "provides a second, independent RTL compiler and simulator"
+      },
+      "verible": {
+        "command": ["verible-verilog-lint", "--version"],
+        "expected_output": "Version\tv0.0-4296-g0f262651",
+        "purpose": "checks Verilog style and suspicious source patterns"
+      },
+      "yosys": {
+        "command": ["yosys", "-V"],
+        "expected_output": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+        "purpose": "translates RTL into generic logic cells for synthesis checks"
+      },
+      "sby": {
+        "command": ["sby", "--version"],
+        "expected_output": "SBY v0.67-4-gfea6e46",
+        "purpose": "coordinates exhaustive formal-property checks"
+      },
+      "z3": {
+        "command": ["z3", "--version"],
+        "expected_output": "Z3 version 4.15.5 - 64 bit",
+        "purpose": "solves mathematical constraints for formal verification"
+      },
+      "boolector": {
+        "command": ["boolector", "--version"],
+        "expected_output": "3.2.4",
+        "purpose": "provides a second bit-vector formal solver"
+      },
+      "cocotb": {
+        "command": ["cocotb-config", "--version"],
+        "expected_output": "2.0.1",
+        "purpose": "lets Python drive and inspect the simulated hardware"
+      }
+    }
+  },
+  "fast_ci": {
+    "runner": "ubuntu-24.04",
+    "actions": {
+      "actions/checkout": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "docker/setup-buildx-action": "f87e5991a6d7451dcb8d9637bfbc97413f497069",
+      "docker/build-push-action": "c3c9e263c25d99ce0380d002d59b67737d91b0dc",
+      "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+    }
+  },
+  "official_cmos5l_qualification": {
+    "runner": "ubuntu-24.04",
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "outer_action_repository": "TinyTapeout/tt-gds-action",
+    "upstream_ref": "heads/ihp-cmos5l",
+    "outer_action_commit": "3412659307918422f3f0727917cf9b499aaca588",
+    "support_tools_repository": "TinyTapeout/tt-support-tools",
+    "support_tools_commit": "d66cf179e7bc4d296362ab7e2e3b344dc3c4f665",
+    "librelane": "3.1.0.dev3",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "2bbec755dc67ca3db0261c3d6163e15735d66710",
+    "e0006_transitive_actions_observed": {
+      "actions/setup-python": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "actions/download-artifact": "37930b1c2abaa49bbe596cd826c3c89aef350131",
+      "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "test-summary/action": "37b508cfee6d4d080eedd00b5bb240a6a784a6a5",
+      "TinyTapeout/ciel-action": "11703802099012722109e39b7e353eae0fea88bb"
+    },
+    "state": "m0-qualified-pinned-flow-passed-e0010"
+  },
+  "official_cmos5l_8x4": {
+    "runner": "ubuntu-24.04",
+    "checkout_action_commit": "d23441a48e516b6c34aea4fa41551a30e30af803",
+    "outer_action_repository": "TinyTapeout/tt-gds-action",
+    "upstream_ref": "tags/ttihp27a",
+    "outer_action_commit": "5e7361fdc445649261c0725dc15f38242dfad330",
+    "support_tools_repository": "TinyTapeout/tt-support-tools",
+    "support_tools_commit": "9d13ff3e3e6202090740110438c6a10c1d62ca0f",
+    "librelane": "3.1.0.dev4",
+    "librelane_source_commit": "dcea37e640e792186684004142e51a81a0a554de",
+    "librelane_image": "ghcr.io/librelane/librelane@sha256:b4f7c1e0f99a5d5b419571277a3e93bac37ea22eb7e4af3787d59927b73067c5",
+    "pdk": "ihp-sg13cmos5l",
+    "pdk_source": "IHP-Open-PDK",
+    "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+    "template_commit": "4b1204ab387b5ab94db1d57067051d8d89a2f83c",
+    "tiles": "8x4",
+    "die_area_um": [
+      0,
+      0,
+      1724.16,
+      710.64
+    ],
+    "default_corner": "nom_typ_1p20V_25C",
+    "clock_target_hz": 50000000,
+    "config_sha256_lf": "4a3d1133333451c48f550c9ff4a4cdd6255c56f4b43f7d0884b9275824ee790d",
+    "state": "compact10-pilot-qualified-e0031",
+    "configuration_decision": "D34",
+    "physical_constraints": {
+      "CLOCK_PERIOD": 20,
+      "PL_TARGET_DENSITY_PCT": 60,
+      "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+      "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+      "MAX_FANOUT_CONSTRAINT": 8,
+      "CTS_SINK_CLUSTERING_SIZE": 8,
+      "CTS_DISTANCE_BETWEEN_BUFFERS": 100
+    },
+    "qualification": {
+      "status": "PASS_EXPERIMENTAL_PILOT",
+      "decision": "D35",
+      "variant": "compact10",
+      "workflow_source_commit": "29f4b73ae66d2b955f512b5be250f6ed0afcdab8",
+      "run_id": 43173116485,
+      "result_path": "evidence/E0031-8x4-physical-comparison/attempts/d34/compact10/result.json",
+      "result_sha256": "d4b3c907d14e4cb4a7cd69dfd360b4ebb67e88963d0b849021453946a12c2c63",
+      "gds_sha256": "49ac637e176bbc5c3cf8daefbc4143578015466ef68e1d87c8605ca91da01ab8",
+      "netlist_sha256": "bf845f532d6c307ac6080b377e99b26fa69b58c56e260288bcdee38f8d4cdda6",
+      "production_promoted": false
+    }
+  }
+}

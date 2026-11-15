@@ -1,0 +1,27 @@
+{
+  "artifact": {
+    "bytes": 9452576,
+    "id": 14157406596,
+    "members": 63,
+    "sha256": "0a9a46fad920a51b64627b2b557e27daf88ebe34da7391e3c6f7fccf2646e6ae"
+  },
+  "audit_runtime": {
+    "id": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+    "ref": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88",
+    "source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+  },
+  "auditor_commit": "00712f1c90cc1de8d3ecbb8bb882c2f8159c9562",
+  "auditor_sha256": "c98bac2851de457a8dfc0998233060f3eb4ed090912dc188c5838619e9407995",
+  "ci_source_commit": "6146f4e8d21ff8af92fd30bf1a9b9bc0f9755305",
+  "job_id": 132777024046,
+  "observed_utc": "2026-11-15T10:12:20.248095+00:00",
+  "public_assets": 22,
+  "publication_verification_sha256": "ca2efb39a316416c7c69f5d6404f984660ed48fad2fd23a554bb857f1002ae35",
+  "run_id": 43702683490,
+  "schema": "protocol-emulator-g5-publication-ci-audit-v1",
+  "scope": "Actual pinned Linux execution of frozen public-download and registry audit; new-image scope is stated in publication/verification.json.",
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "status": "PASS_G5_PUBLICATION_RECEIPTS",
+  "tag_jobs": 23,
+  "tag_workflows": 10
+}

@@ -1,0 +1,92 @@
+[
+    {
+        "Id": "sha256:3083a3213ec7597e2a6c20185c76b7accdf9c73ce73f283f62976e6c9b1742be",
+        "RepoTags": [
+            "protocol-emulator-asic-workbench:2026-07-29",
+            "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench:sha-022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+            "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench:v0.1.1"
+        ],
+        "RepoDigests": [
+            "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:977a4dc20fe558bb84d941b5aa572d5f456866660ea6a2c4f3a9badd87f7811e"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-05T01:33:36.589409709Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/verible/bin:/opt/oss-cad-suite/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+                "PYTHON_VERSION=3.11.16",
+                "PYTHON_SHA256=91bcdebfdde239a003ae93738a7fce0f9230fee5c4bc2b86f6e6e8c6f98aabe8",
+                "DEBIAN_FRONTEND=noninteractive",
+                "PIP_DISABLE_PIP_VERSION_CHECK=1",
+                "PYTHONNOUSERSITE=1",
+                "PROTOCOL_EMULATOR_LOCKED_WORKBENCH=1"
+            ],
+            "Cmd": [
+                "make",
+                "doctor"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/workspace",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "io.protocol-emulator-asic.oss-cad-suite": "2026-07-29",
+                "org.opencontainers.image.description": "Pinned digital verification tools; not the CMOS5L tapeout flow.",
+                "org.opencontainers.image.licenses": "Apache-2.0",
+                "org.opencontainers.image.revision": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+                "org.opencontainers.image.source": "https://github.com/KG-khangelani/protocol-emulator-asic",
+                "org.opencontainers.image.title": "Protocol Emulator ASIC verification workbench",
+                "org.opencontainers.image.version": "022834146efcb5f388a4d6ec23b3b705a0df7ef8"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 3063612218,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/c6e6ebe5d5e9f9f321bf00e3b8e155986169540388b06e8a9c93fb47026f24b9/diff:/var/lib/docker/overlay2/45952ad1f608c32f8753dd9b52784b96d0a7f7187a208817d454830eacf686d0/diff:/var/lib/docker/overlay2/ab55f7fedb98bcdd5086f1f44677464f9d168d4ec97273a415b28040a1a341d4/diff:/var/lib/docker/overlay2/5eacce4712f0f35cd949355937c75abb6b2660b59a7547284d93c7a362f54c05/diff:/var/lib/docker/overlay2/9b1871b41dd4add14c276475b271b01b1826c64c4bd6f49e6e393cd9474c87ed/diff:/var/lib/docker/overlay2/c0ec2460a0264783788c1edc709a6605d2015b4d76e03bd1384e8186c04887e3/diff:/var/lib/docker/overlay2/aedfdd34d7601a1e2ee08d7bb1ae52ee626457a2b4a72e5829d49611c4eb7481/diff:/var/lib/docker/overlay2/74626fb5d19344838caa2e2fc7ce9e55efaa41d923e0ae86d8205bbae90655b8/diff:/var/lib/docker/overlay2/93c627e9d8ca9ca0f369644f4a141aa3be772739ae84c1f13be40e692a878d81/diff:/var/lib/docker/overlay2/52b33c9ddf03baa214d7bea3f156a941d17f103bcc5202b0431cb098dcd3d59f/diff:/var/lib/docker/overlay2/5ae9fbe3a765e102fa288120d20fff01c4b10f645b91b7f1a0b5732f20ed375b/diff:/var/lib/docker/overlay2/49b3aff3d020c3bc61f6bc1ec46d8b300bf56e17fa99232b48826abb8c894130/diff",
+                "MergedDir": "/var/lib/docker/overlay2/e8162326c77484b5f694b15ce5625563494a52d7fd199c5ae890233bf1e592a0/merged",
+                "UpperDir": "/var/lib/docker/overlay2/e8162326c77484b5f694b15ce5625563494a52d7fd199c5ae890233bf1e592a0/diff",
+                "WorkDir": "/var/lib/docker/overlay2/e8162326c77484b5f694b15ce5625563494a52d7fd199c5ae890233bf1e592a0/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:34467cc93912af891dfee8a3902adf9b4f355a9bca4eaa46f658d1181a21de0d",
+                "sha256:b3445de4503d21b3ebc42db2f284bc6c8ad96184ea91ce55fb57f5e87910e1f2",
+                "sha256:546c86e4df2dc808fcf1953c346bfeef32f4c953933634d57c1d38730b750e9c",
+                "sha256:6b6ff8eb9da6c277f4b33452c77d59f8b5ff04e0bcca1a3054570b9db343da79",
+                "sha256:66ea3669bfe9d44117b2524599cd0c4ef7208ffdff6ec1eec1c9d6f2bf2f8b35",
+                "sha256:97720139fbe4f2826cf059a662b4f72d75c1672972953d5521f87080420a93e8",
+                "sha256:fb5cfbbdf7fa7c7859b1f628b405d842a4c9578b4fd4de92bc1a3231b6efc33d",
+                "sha256:120fd5bd67fd0251b37721293c638f6222a6e026f23c29da2d7d156e47147bbb",
+                "sha256:0406ff5ea515aa0ec23f5d34184f33f9fc1e134378923b2adf41e3ebb6ebd734",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:c9389c6c26f0ae195401f885eccae975352f33891b4f1720b0e5e099abd98109",
+                "sha256:da40af7198fd12c9d6c8987abf1fd384a417df59475c56cf0fde15e6ca88e456",
+                "sha256:4c0794e968ebc45a7ce97adf39239f6cc3358a40c8a851c6d38f899148b968e3"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-15T10:07:55.230939248Z"
+        }
+    }
+]

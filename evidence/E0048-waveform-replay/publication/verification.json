@@ -1,0 +1,564 @@
+{
+  "assets": {
+    "SHA256SUMS": {
+      "anonymous_download": true,
+      "bytes": 1526,
+      "id": 750580849,
+      "sha256": "06e1e88c80d28da1cae10b1eca66e9c9ebafcc0cb47f6de7185f21f51e19f6c1",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/SHA256SUMS"
+    },
+    "g5-SHA256SUMS": {
+      "anonymous_download": true,
+      "bytes": 264,
+      "id": 750582196,
+      "sha256": "a900b470566a4533d62d3ad930fab4fbe6bf3e87677311b69494205d0ccd14b8",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/g5-SHA256SUMS"
+    },
+    "g5-original-ci.zip": {
+      "anonymous_download": true,
+      "bytes": 2343597,
+      "id": 750582193,
+      "sha256": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/g5-original-ci.zip"
+    },
+    "g5-waveform-replay.json": {
+      "anonymous_download": true,
+      "bytes": 52587,
+      "id": 750582187,
+      "sha256": "f0969582b134fb126ce3d7059806240d3caa6497d35206c37c1d6d5a7b8c60fb",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/g5-waveform-replay.json"
+    },
+    "g5-waveform-replay.zip": {
+      "anonymous_download": true,
+      "bytes": 244576,
+      "id": 750582189,
+      "sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/g5-waveform-replay.zip"
+    },
+    "image-inspect.json": {
+      "anonymous_download": true,
+      "bytes": 5724,
+      "id": 750580852,
+      "sha256": "49797437bef1a9c1e44f0895fa8243393e20759f8bd13e16cf93db2d4664b33f",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/image-inspect.json"
+    },
+    "production-profile.json": {
+      "anonymous_download": true,
+      "bytes": 3633,
+      "id": 750580848,
+      "sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/production-profile.json"
+    },
+    "production-verification.json": {
+      "anonymous_download": true,
+      "bytes": 625734,
+      "id": 750580851,
+      "sha256": "ea9ffb8a142cfe04248b774c6379d86d43d1c25e59296889489732c956cf5101",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/production-verification.json"
+    },
+    "publication.json": {
+      "anonymous_download": true,
+      "bytes": 4250,
+      "id": 750580850,
+      "sha256": "6db6d411c46cc05d5edcff0d04bda126cda86b02a2b684baab3954a1c68ec054",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/publication.json"
+    },
+    "spi-four-mode.json": {
+      "anonymous_download": true,
+      "bytes": 97524,
+      "id": 750580867,
+      "sha256": "6e29cb6f65aa545bc4446d73a202b528d7faebab4170962d11cdab4f3a5adfa0",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-four-mode.json"
+    },
+    "spi-held-proof.json": {
+      "anonymous_download": true,
+      "bytes": 39979,
+      "id": 750580870,
+      "sha256": "613b785a1cc08adb33f17a7e3a4124595b9da1d2a05db53e25b39b0a53389f4b",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-held-proof.json"
+    },
+    "spi-phase1-capacity.json": {
+      "anonymous_download": true,
+      "bytes": 361639,
+      "id": 750580868,
+      "sha256": "bdbb7f44410c2f43d424647e95c13bb8b669d46e61cd1b79e8cf64fe23fa25c3",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-phase1-capacity.json"
+    },
+    "spi-sensitivity.json": {
+      "anonymous_download": true,
+      "bytes": 40146,
+      "id": 750580874,
+      "sha256": "558175a1656b979fff950eee3e6caa2d324b345d747da48b79da58b2cd47db10",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-sensitivity.json"
+    },
+    "spi-timed-comparison.json": {
+      "anonymous_download": true,
+      "bytes": 36710,
+      "id": 750580875,
+      "sha256": "b12e95cec93756d09853936df8ed6e0a25dfb4182dccff0213beba28730553f3",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-comparison.json"
+    },
+    "spi-timed-gpio.json": {
+      "anonymous_download": true,
+      "bytes": 11395,
+      "id": 750580887,
+      "sha256": "99017c521c29915e6fbb4e4ee85e5d4da69df1b685f7eee2ca9740b41c0cfb1f",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-gpio.json"
+    },
+    "spi-timed-instruction_f.json": {
+      "anonymous_download": true,
+      "bytes": 10343,
+      "id": 750580890,
+      "sha256": "613759c3d64a762abd28f489575f4cfa9c935bd96e8c0f4bc8ed135a75a61484",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-instruction_f.json"
+    },
+    "spi-timed-instruction_p.json": {
+      "anonymous_download": true,
+      "bytes": 10086,
+      "id": 750580897,
+      "sha256": "c45b94f19794e2e60394eac006cc0d9a5f905c3db138f7e12b10bd6e843560d2",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-instruction_p.json"
+    },
+    "spi-timed-program_f.json": {
+      "anonymous_download": true,
+      "bytes": 42605,
+      "id": 750580899,
+      "sha256": "904e26dfdd497d72783645906b8cdb637ea15df43a3ddcf12d058a1f7902fed5",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-program_f.json"
+    },
+    "spi-timed-program_p.json": {
+      "anonymous_download": true,
+      "bytes": 41958,
+      "id": 750580904,
+      "sha256": "205e37c59205e7b9507bc2b6e78fc2b3ec37431bfb8f6d472ed0ac0c45146050",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-program_p.json"
+    },
+    "spi-timed-refinement_f.json": {
+      "anonymous_download": true,
+      "bytes": 6044,
+      "id": 750580909,
+      "sha256": "c052670e80ff302e8de66d3f0c37c6d53d4a7b4cb99a9b1a149808075ac21cac",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-refinement_f.json"
+    },
+    "spi-timed-refinement_p.json": {
+      "anonymous_download": true,
+      "bytes": 5946,
+      "id": 750580914,
+      "sha256": "7d6767b1900a53d3e2c5b0538958e4d6ae6106d6c72e523adc268ffbde7b9379",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/spi-timed-refinement_p.json"
+    },
+    "toolchain.lock.json": {
+      "anonymous_download": true,
+      "bytes": 7328,
+      "id": 750580920,
+      "sha256": "e2c31a35607ce0c86503e4252d4eb5342c8f00c8ff5f059dfde62dd7fbd52153",
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/toolchain.lock.json"
+    }
+  },
+  "bundle_members": 25,
+  "config_digest": "sha256:3083a3213ec7597e2a6c20185c76b7accdf9c73ce73f283f62976e6c9b1742be",
+  "g5_qualified_input_count": 366,
+  "image": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:977a4dc20fe558bb84d941b5aa572d5f456866660ea6a2c4f3a9badd87f7811e",
+  "layers": [
+    {
+      "anonymous_head_status": 200,
+      "bytes": 29153837,
+      "digest": "sha256:501c3e032d323c5d2ecdc2c3da91ccdf6497a1d8e69fac78ad18322540160970"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 3533387,
+      "digest": "sha256:246ac8b7cadc4ee7c220a2d4e02a37a296797f40648480115ae41e083aa60b6e"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 16023549,
+      "digest": "sha256:dc22b8c341d91e21b901b9eb1e414c18b487f4de1a165c539ecb32bb590acbd4"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 249,
+      "digest": "sha256:f57cecf87087697ab89776daeb60b1b2b2149c876d4aa69ae6765ae7ad66a470"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 116520185,
+      "digest": "sha256:a39a1252660617168f3753092e3a1eea5c3ad3b16fd43d9167c843a05f1d04c6"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 741875121,
+      "digest": "sha256:5d63c436695489d5671ac049fafecaec180f6519a132a80becb15c945a658ac7"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 18035222,
+      "digest": "sha256:cb3f2f1d9c26ce778add530876baa64137130c694167dad4880d00480e96d764"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 233,
+      "digest": "sha256:353d3800ebc8cef9ad71c391faad58b2eab46b715b1cdd90e54c6535d5d0e8a3"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 403,
+      "digest": "sha256:e4fb6c8b478b7c2bb697968b95bbdf6fd7d87f81e599c8ad6513a633872cc899"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 32,
+      "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 4524,
+      "digest": "sha256:bf6e0c8d711eef42d4b7dcf48a68530de5a834d47d819a1d6693a0a14764be8a"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 13648883,
+      "digest": "sha256:1a251a3ff58a2ff436c2eefcb72f6d53152dea151d3a9f89524e002ef55964ba"
+    },
+    {
+      "anonymous_head_status": 200,
+      "bytes": 99,
+      "digest": "sha256:e8caed3e96293872412699619707bf5138b1dba83c5a387e54af803cc170163b"
+    }
+  ],
+  "linux_manifest": "sha256:977a4dc20fe558bb84d941b5aa572d5f456866660ea6a2c4f3a9badd87f7811e",
+  "metadata_tests_each": 159,
+  "observed_utc": "2026-11-15T10:10:46.644593+00:00",
+  "production": {
+    "files_sha256": {
+      "align_sram_magic.py": "af54fb7a43e8869391d45c6cd9f9308596d6bd735dab2e285a1eac90a81ed262",
+      "audit_sram_input_buffers.py": "6025fa37fdf53f9da2b321e9f5c5214dc6ada6579e78f19bfc52684426131a67",
+      "audit_sram_pin_power.py": "30beef8ed5a0111fe00e5776a983e3263233b07ec1785f57e96b6f5bffca2bce",
+      "check_sram_power.tcl": "35dc7da1d169f0a912f0864f968e553eeaa056b37dc836a77c2a60858d2cde4e",
+      "connect_sram_power.py": "075eb3600aaab53db647afebcb5026c4490a0b80d174ed3b9c89b0c99f24ceb9",
+      "librelane_plugin_sram.py": "430e5ffc5b248926ed93cba6bf7c0b1ff8d7192e74361c0379a722b7a764f399",
+      "select_sram_power_ports.py": "2820addb69ccffe7953b77c5fd8f46a9365340028c4640627b049a5c89f9988c",
+      "sram_input_buffers.tcl": "e8cc56ab1ea9ca620016df3b373669e29ea630335fe7044b997f684654bd9d86",
+      "sram_magicrc.tcl": "3f71bdc5fc89377925a397b7f648781f7a1ea10d1654c1a73ee2d647cb6c4f95",
+      "sram_power_ports_step.py": "6784f67c9c23a1b07f43a04b6bfe7129000762c399f00fad765dc776ad66892c",
+      "sram_power_step.py": "c99f19f99a475bb79ecd8594b9051dd9207b88ed831474a054f468cf90d2702f",
+      "src/RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+      "src/config.json": "6dc18b0921c2e2031e1a3cda06d7770a70638b3693a5cac3e78c03b28ecdf4d4",
+      "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+      "src/sram-preparation.json": "7198def5229240f6e4b40ce76dbb36251f32dc2daeaaf18d89e695cf95e745b9",
+      "src/sram_pdn.tcl": "e697f5d0e9d8e1b908d360f2f1d755f872929f1a0f8a58703ace8c3b4db2b873"
+    },
+    "metadata_sha256": "81bacf39188db2a2938e41d920789cc326da95be4799930e6eff1840058c39f8",
+    "model_sha256": {
+      "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+      "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+    },
+    "profile": "od128-sram",
+    "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "qualified_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "qualified_run_id": 43348171110,
+    "qualified_source_commit": "94a30825c633778b8fb1b8374b79d1a419d3fc96",
+    "source_sha256": {
+      "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+      "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+      "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+      "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+      "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+    },
+    "status": "PASS_PRODUCTION_MATCHES_QUALIFIED_SRAM"
+  },
+  "publish_job": 132764028947,
+  "publish_run": 43698444537,
+  "publisher_artifact": {
+    "bytes": 7715770,
+    "id": 14156503337,
+    "members": 1948,
+    "sha256": "3f826e53800bba7c3346224a15af48b25c4c9923c3ce12dd8d777fe0a3fbfa9a"
+  },
+  "publisher_input_count": 361,
+  "registry_scope": "Manifest/config bodies downloaded and hashed; public layer access and sizes checked by anonymous HEAD. No claim of a full pull of the new image.",
+  "release_id": 445962727,
+  "schema": "protocol-emulator-g5-publication-verification-v1",
+  "scope": "Software publication on unchanged G4-qualified physical inputs; no new silicon, analog, Fmax or owner-fluency result.",
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "stages": {
+    "check": {
+      "kind": "REPOSITORY_CHECKS"
+    },
+    "doctor": {
+      "kind": "PINNED_TOOL_IDENTITY"
+    },
+    "formal": {
+      "boundary": "Vendor digital memory model. Earlier complete-chip equivalence timeouts remain incomplete.",
+      "composition": {
+        "covers": 4,
+        "engine_compared_bits": 331,
+        "engine_reset_vectors": 69,
+        "faults_per_simulator": 4,
+        "store_assertions": 18
+      },
+      "historical_tasks": 10,
+      "instruction_tasks": 4,
+      "kind": "CURRENT_SRAM_COMPOSITION_AND_SOURCE_MATCHED_FORMAL",
+      "prediction": {
+        "assumptions": 0,
+        "checked_fault": 1,
+        "cover": 1,
+        "invariant": "pc equals previous prefetch_pc",
+        "proved": 1
+      },
+      "support_tasks": 5
+    },
+    "lint": {
+      "exception": "Only always-comb on the exact next-state engine and SRAM combinational read mux; both retain standard Verilog always @*. All other rules/modules pass.",
+      "kind": "SOURCE_PINNED_VERILOG_STYLE",
+      "unwaived_warnings": 2
+    },
+    "rtl-icarus": {
+      "current_bank_control": {
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959",
+        "status": "PASS"
+      },
+      "junit_sha256": "aa37a229db796c005844ad97d2b834d6b7f6331009131cbf16abec2bc5bb1e9c",
+      "kind": "CURRENT_SRAM_RTL_PUBLIC_AND_DIRECT_CORE",
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      },
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "test_groups": 30
+    },
+    "rtl-verilator": {
+      "current_bank_control": {
+        "observations": 44,
+        "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959",
+        "status": "PASS"
+      },
+      "junit_sha256": "1a7739ebc37ec05415d94428c99b6fdf718e3ab6be92c503c7546e5bf979afa2",
+      "kind": "CURRENT_SRAM_RTL_PUBLIC_AND_DIRECT_CORE",
+      "records": {
+        "i2c/aborts.jsonl": {
+          "count": 36,
+          "reference_identical": true,
+          "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+        },
+        "i2c/boundaries.jsonl": {
+          "count": 4,
+          "reference_identical": true,
+          "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+        },
+        "i2c/cases.jsonl": {
+          "count": 1160,
+          "reference_identical": true,
+          "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+        },
+        "spi/cases.jsonl": {
+          "count": 1052,
+          "reference_identical": true,
+          "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+        }
+      },
+      "required": [
+        "test.invalid_encoding_and_out_of_range_fail_closed",
+        "test.invalid_length_never_releases_engine",
+        "test.k_bounded_loop_public_program_counts",
+        "test.k_input_wait_public_program_event_timeout_and_reload",
+        "test.k_shift_8_public_payload_both_orders",
+        "test.loop_target_overflow_faults_without_alias",
+        "test.public_pin_reload_changes_observable_program",
+        "test.randomized_trace_matches_reviewed_model",
+        "test.shift_invalid_partial_and_reset_fail_closed",
+        "test.shift_trace_matches_semantic_model",
+        "test.synchronized_input_wait_event_and_timeout",
+        "test.timed_shift_burst_invalid_freeze_and_reset",
+        "test.timed_shift_burst_trace_matches_semantic_model",
+        "test.uart_tx_8n1_public_pin_oracle",
+        "test_general_boundaries.public_branch_abandons_partial_byte_and_loop",
+        "test_general_boundaries.public_open_drain_and_alternate_payload",
+        "test_general_boundaries.public_pc_branch_and_skip_boundaries",
+        "test_general_boundaries.public_store_banks_lengths_and_reset",
+        "test_i2c_abort_public.public_i2c_abort_and_reload",
+        "test_i2c_general_public.complete_i2c_transactions",
+        "test_spi_mode0_public.spi_mode0_abort_reload_and_capacity_boundary",
+        "test_spi_mode0_public.spi_mode0_public_conditional_and_counterexample",
+        "test_spi_timed_gpio.timed_instruction_and_abort_controls",
+        "test_spi_timed_gpio.timed_public_programs",
+        "test_uart_rx_public.uart_rx_host_service_fault_abort_quarantine",
+        "test_uart_rx_public.uart_rx_host_service_last_safe_edge",
+        "test_uart_rx_public.uart_rx_host_service_late_read_counterexample",
+        "test_uart_rx_public.uart_rx_public_bounded_last_byte_delivery",
+        "test_uart_rx_public.uart_rx_public_disable_reset_abort_then_reload",
+        "test_uart_rx_public.uart_rx_public_framing_and_bounded_timeouts"
+      ],
+      "test_groups": 30
+    },
+    "smoke": {
+      "junit_sha256": "292a848f0f9bb29a7ce5273d90878591b16da25f79d831f6444ce4a7a96c8dfc",
+      "kind": "RTL_HARNESS_SMOKE_NOT_NETLIST",
+      "tests": 1,
+      "waveform_sha256": "67006ba2b63db35a54a7e8224f86781b35873b51e493b78eac5304b329ec16df"
+    },
+    "synth": {
+      "cell_types": {
+        "$_ANDNOT_": 288,
+        "$_AND_": 887,
+        "$_DFF_P_": 8,
+        "$_MUX_": 266,
+        "$_NAND_": 946,
+        "$_NOR_": 104,
+        "$_NOT_": 25,
+        "$_ORNOT_": 117,
+        "$_OR_": 347,
+        "$_SDFFE_PN0P_": 317,
+        "$_SDFFE_PP0P_": 1,
+        "$_SDFF_PN0_": 27,
+        "$_XNOR_": 63,
+        "$_XOR_": 26
+      },
+      "kind": "GENERIC_STANDARD_LOGIC_PLUS_REAL_MACRO_BLACKBOX_NOT_PHYSICAL",
+      "logical_words": 128,
+      "macro_count": 1,
+      "primitive_cells": 3422,
+      "separate_physical_memory_bits": 8192,
+      "state_bits": 353
+    }
+  },
+  "standalone": {
+    "compiled_files": 8,
+    "oracle_tests": 12,
+    "outside_repository": true,
+    "programs": 2
+  },
+  "status": "PASS_G5_RELEASE_AND_PACKAGE",
+  "tag": "v0.1.1",
+  "tag_workflows": {
+    "atlas": {
+      "jobs": {
+        "browser": 132764028669
+      },
+      "run_id": 43698444535
+    },
+    "docs": {
+      "jobs": {
+        "docs": 132764028880
+      },
+      "run_id": 43698444527
+    },
+    "i2c-general": {
+      "jobs": {
+        "qualify (architecture)": 132764028966,
+        "qualify (lanes-selection)": 132764028975,
+        "qualify (lanes-store)": 132764029012,
+        "qualify (literal255)": 132764028972,
+        "qualify (od128)": 132764029016,
+        "qualify (physical-selection)": 132764028993,
+        "qualify (shared-proof-controls)": 132764028938,
+        "qualify (shared-selection)": 132764028987,
+        "qualify (store)": 132764028743
+      },
+      "run_id": 43698444539
+    },
+    "program-tools": {
+      "jobs": {
+        "public-programs": 132764028836,
+        "windows-assembly": 132764028648
+      },
+      "run_id": 43698444557
+    },
+    "publish": {
+      "jobs": {
+        "workbench": 132764028947
+      },
+      "run_id": 43698444537
+    },
+    "spi-program-sensitivity": {
+      "jobs": {
+        "controls": 132764029166
+      },
+      "run_id": 43698444594
+    },
+    "spi-timed-gpio": {
+      "jobs": {
+        "comparison": 132764029138
+      },
+      "run_id": 43698444547
+    },
+    "sram-candidate": {
+      "jobs": {
+        "qualify (icarus)": 132764029209,
+        "qualify (proof-controls)": 132764029204,
+        "qualify (verilator)": 132764029041
+      },
+      "run_id": 43698444562
+    },
+    "test": {
+      "jobs": {
+        "current-candidate": 132764029573,
+        "learning-windows": 132764029556,
+        "test": 132764029369
+      },
+      "run_id": 43698444694
+    },
+    "waveform-replay": {
+      "jobs": {
+        "public-waveforms": 132764028824
+      },
+      "run_id": 43698444559
+    }
+  },
+  "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.1"
+}

@@ -1,0 +1,16 @@
+{
+  "audit_runtime": {
+    "id": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+    "ref": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88",
+    "source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+  },
+  "ci_source_commit": "6146f4e8d21ff8af92fd30bf1a9b9bc0f9755305",
+  "finished_utc": "2026-11-15T10:10:46.894512+00:00",
+  "job": "verification",
+  "run_id": "43702683490",
+  "schema": "protocol-emulator-g5-linux-publication-v1",
+  "source_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "started_utc": "2026-11-15T10:09:25.613115+00:00",
+  "status": "PASS_G5_PUBLICATION_IN_PINNED_LINUX",
+  "verification_sha256": "ca2efb39a316416c7c69f5d6404f984660ed48fad2fd23a554bb857f1002ae35"
+}
