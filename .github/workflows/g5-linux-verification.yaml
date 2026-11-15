@@ -1,0 +1,27 @@
+name: G5 isolated Linux verification
+"on":
+  push:
+    branches: [codex/g5-linux-verification]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verification:
+    if: github.repository == 'KG-khangelani/protocol-emulator-asic' && github.ref == 'refs/heads/codex/g5-linux-verification'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out the isolated verification source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Replay qualification and package the exact release source
+        run: python3 .github/g5-linux-verification/run.py
+      - name: Retain actual Linux verification and assets
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: g5-linux-proof-${{ github.sha }}
+          path: build/g5-linux-proof/
+          if-no-files-found: error
+          retention-days: 90
