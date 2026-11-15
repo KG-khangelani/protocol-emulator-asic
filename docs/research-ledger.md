@@ -1,5 +1,16 @@
 # Research ledger
 
+## Active hypothesis: G5 waveform reuse
+
+2026-11-15: D50 asks whether the existing qualified core can serve as a compact
+triggered digital stimulus source and reproduce one relative-edge timing
+fault. Two twenty-word firmware images and a literal independent schedule are
+frozen before execution. A two-clock shift of only one output edge is the
+success condition; uncompensated changes, missing release and bad public
+readback must be rejected. E0048 will retain all results within the sixteen-hour
+elapsed cap. This is an untested use-case hypothesis, with no new hardware,
+physical, analog or owner-fluency claim.
+
 Question: **What is the smallest computational substrate that can efficiently
 express useful digital communication protocols under hard temporal constraints?**
 

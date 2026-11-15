@@ -1,0 +1,38 @@
+{
+  "schema": "protocol-emulator-g5-expectations-v1",
+  "clock_period_ps": 20000,
+  "program_words": 20,
+  "runtime_initial": [0, 7],
+  "events": {
+    "control": [[0,1,7],[3,3,7],[8,2,7],[13,6,7],[20,7,7],[29,3,7],[37,1,7],[46,0,7],[52,0,0]],
+    "timing_fault": [[0,1,7],[3,3,7],[8,2,7],[13,6,7],[22,7,7],[29,3,7],[37,1,7],[46,0,7],[52,0,0]]
+  },
+  "halt_relative_edge": 53,
+  "terminal_status": 179,
+  "timeout_release_edge": 35,
+  "timeout_halt_edge": 36,
+  "post_halt_edges": 8,
+  "cases": [
+    {"name":"control-phase-early","group":"waveform","program":"control","first":11,"trigger_edge":8,"phase_ps":1000,"accepted":true},
+    {"name":"control-phase-middle","group":"waveform","program":"control","first":11,"trigger_edge":8,"phase_ps":5000,"accepted":true},
+    {"name":"control-phase-late","group":"waveform","program":"control","first":11,"trigger_edge":8,"phase_ps":9999,"accepted":true},
+    {"name":"fault-phase-early","group":"waveform","program":"timing_fault","first":11,"trigger_edge":8,"phase_ps":1000,"accepted":true},
+    {"name":"fault-phase-middle","group":"waveform","program":"timing_fault","first":11,"trigger_edge":8,"phase_ps":5000,"accepted":true},
+    {"name":"fault-phase-late","group":"waveform","program":"timing_fault","first":11,"trigger_edge":8,"phase_ps":9999,"accepted":true},
+    {"name":"control-already-high","group":"waveform","program":"control","first":3,"idle":128,"accepted":true},
+    {"name":"fault-already-high","group":"waveform","program":"timing_fault","first":3,"idle":128,"accepted":true},
+    {"name":"control-last-trigger","group":"waveform","program":"control","first":35,"trigger_edge":32,"accepted":true},
+    {"name":"fault-last-trigger","group":"waveform","program":"timing_fault","first":35,"trigger_edge":32,"accepted":true},
+    {"name":"control-no-trigger","group":"waveform","program":"control","first":null,"accepted":true},
+    {"name":"fault-no-trigger","group":"waveform","program":"timing_fault","first":null,"accepted":true},
+    {"name":"control-late-trigger","group":"waveform","program":"control","first":null,"trigger_edge":33,"accepted":true},
+    {"name":"control-wrong-trigger-pin","group":"waveform","program":"control","first":null,"trigger_edge":8,"trigger_pin":6,"accepted":true},
+    {"name":"control-unsampled-pulse","group":"waveform","program":"control","first":null,"pulse_edge":8,"accepted":true},
+    {"name":"fault-vs-control","group":"falsification","program":"timing_fault","oracle":"control","first":11,"trigger_edge":8,"accepted":false},
+    {"name":"uncompensated-delay","group":"falsification","program":"control","mutation":"uncompensated","first":11,"trigger_edge":8,"accepted":false},
+    {"name":"missing-release","group":"falsification","program":"control","mutation":"missing_release","first":11,"trigger_edge":8,"accepted":false},
+    {"name":"paused-wall-clock","group":"falsification","program":"control","first":11,"trigger_edge":8,"pause_edges":[20,21],"accepted":false},
+    {"name":"loader-corrupt-readback","group":"loader","program":"control","accepted":false},
+    {"name":"reload-after-rejection","group":"loader","program":"control","first":11,"trigger_edge":8,"accepted":true}
+  ]
+}

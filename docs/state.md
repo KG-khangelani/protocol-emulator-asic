@@ -1,7 +1,13 @@
 # Current state
 
-Updated: 2026-11-14. Engineering phase: **G4 complete - verified final release and submission packet**.
+Updated: 2026-11-15. Engineering phase: **G5 active - bounded firmware-only waveform replay**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
+
+[D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
+digital stimulus and a controlled two-clock edge shift, with zero RTL changes.
+The [G5 contract](specs/g5-waveform-replay.md) fixes the programs, literal trace,
+21 public cases and two-working-day budget before execution. Qualification is
+pending; [E0048](../evidence/E0048-waveform-replay/README.md) will retain results.
 
 **G1-G4 COMPLETE.** [Stable v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0)
 publishes release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843` and the matching verified workbench image.

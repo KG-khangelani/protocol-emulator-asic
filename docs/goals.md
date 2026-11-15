@@ -376,11 +376,17 @@ If a required gate is still failing, report that gap and revise scope explicitly
 
 ## G5 - Reserve a bounded opportunity for a useful breakthrough
 
+Activated 2026-11-15 after G4 completion. [D50](decisions/0050-bounded-firmware-waveform-replay.md)
+freezes a triggered three-line waveform and one two-clock edge shift.
+The [contract](specs/g5-waveform-replay.md) and E0048 define all observations,
+rejection controls and the conservative sixteen-hour elapsed cap for the two
+working days. No execution result is claimed at activation.
+
 Default experiment: use firmware alone to replay an irregular digital waveform
 or inject a controlled timing fault. This tests whether the same substrate is
 useful beyond the protocols used to design it.
 
-- [ ] Before running, choose one use case, a control program, expected pin trace,
+- [x] Before running, choose one use case, a control program, expected pin trace,
   measurement and a two-working-day total investigation budget.
 - [ ] Demonstrate it through public-pin-loaded programs with zero new RTL, an
   independent trace check, and explicit timing/input limits.
