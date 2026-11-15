@@ -1,0 +1,113 @@
+{
+  "jobs": [
+    {
+      "check_run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/check-runs/132760362357",
+      "completed_at": "2026-11-15T09:03:48Z",
+      "conclusion": "success",
+      "created_at": "2026-11-15T09:01:44Z",
+      "head_branch": "main",
+      "head_sha": "66743b60b93508d2f00f23fa2cc2ac7db244bc3a",
+      "html_url": "https://github.com/KG-khangelani/protocol-emulator-asic/actions/runs/43697229433/job/132760362357",
+      "id": 132760362357,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "name": "public-waveforms",
+      "node_id": "CR_kwDOUmYlXs8AAAAe6SJddQ",
+      "run_attempt": 1,
+      "run_id": 43697229433,
+      "run_url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/runs/43697229433",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000002456,
+      "runner_name": "GitHub Actions 1000002456",
+      "started_at": "2026-11-15T09:01:46Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-11-15T09:01:48Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-11-15T09:01:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:02:04Z",
+          "conclusion": "success",
+          "name": "Check out exact source revision",
+          "number": 2,
+          "started_at": "2026-11-15T09:01:48Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:02:25Z",
+          "conclusion": "success",
+          "name": "Pull and identify the immutable G4 workbench",
+          "number": 3,
+          "started_at": "2026-11-15T09:02:04Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:02:44Z",
+          "conclusion": "success",
+          "name": "Load and check the frozen experiment in both simulators",
+          "number": 4,
+          "started_at": "2026-11-15T09:02:25Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:13Z",
+          "conclusion": "success",
+          "name": "Reproduce from a distinct clean clone of the committed source",
+          "number": 5,
+          "started_at": "2026-11-15T09:02:44Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:45Z",
+          "conclusion": "success",
+          "name": "Preserve the mandatory G3 program behavior",
+          "number": 6,
+          "started_at": "2026-11-15T09:03:13Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:45Z",
+          "conclusion": "success",
+          "name": "Collect the independent clone output, including failures",
+          "number": 7,
+          "started_at": "2026-11-15T09:03:45Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:47Z",
+          "conclusion": "success",
+          "name": "Retain original experiment records and source identities",
+          "number": 8,
+          "started_at": "2026-11-15T09:03:45Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:47Z",
+          "conclusion": "success",
+          "name": "Post Check out exact source revision",
+          "number": 16,
+          "started_at": "2026-11-15T09:03:47Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-11-15T09:03:47Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "started_at": "2026-11-15T09:03:47Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/KG-khangelani/protocol-emulator-asic/actions/jobs/132760362357",
+      "workflow_name": "waveform-replay"
+    }
+  ],
+  "total_count": 1
+}

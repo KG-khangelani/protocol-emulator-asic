@@ -1,0 +1,29 @@
+Target od128-sram-v1; interface 0x22; 20/128 words
+Spacing is accepted edges from instruction execution to the next instruction.
+Fixed positions assume valid shift sequencing, continuous enable and no reset.
+Input waits depend on synchronized inputs; final-edge match wins. Disabled time is excluded.
+PC   WORD      SPACING     FIRST..LAST / EXECUTIONS  SOURCE
+---- --------  ----------  ------------------------  ------
+000  00ff0700  1           1..1 / 1                  SET mask=255 value=0 oe=7
+001  fd120020  1..33       2..2 / 1                  WAIT_PIN pin=7 level=1 timeout=32 on_timeout=cleanup
+     flow: {"failure": 18, "failure_aborts_loop_and_shift": true, "next": 2}
+002  00070701  1           conditional or unreachable  SET mask=7 value=1 oe=7
+003  40000001  2           conditional or unreachable  WAIT cycles=1
+004  00070703  1           conditional or unreachable  SET mask=7 value=3 oe=7
+005  40000003  4           conditional or unreachable  WAIT cycles=3
+006  00070702  1           conditional or unreachable  SET mask=7 value=2 oe=7
+007  40000003  4           conditional or unreachable  WAIT cycles=3
+008  00070706  1           conditional or unreachable  SET mask=7 value=6 oe=7
+009  40000005  6           conditional or unreachable  WAIT cycles=5
+010  00070707  1           conditional or unreachable  SET mask=7 value=7 oe=7
+011  40000007  8           conditional or unreachable  WAIT cycles=7
+012  00070703  1           conditional or unreachable  SET mask=7 value=3 oe=7
+013  40000006  7           conditional or unreachable  WAIT cycles=6
+014  00070701  1           conditional or unreachable  SET mask=7 value=1 oe=7
+015  40000007  8           conditional or unreachable  WAIT cycles=7
+016  00070700  1           conditional or unreachable  SET mask=7 value=0 oe=7
+017  40000004  5           conditional or unreachable  WAIT cycles=4
+018  00ff0000  1           conditional or unreachable  SET mask=255 value=0 oe=0
+019  80000000  1           conditional or unreachable  HALT
+Schedule: INPUT_DEPENDENT; HALT edge: None
+Clock target: 50 MHz. This is not an Fmax measurement or analog timing guarantee.

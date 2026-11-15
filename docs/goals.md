@@ -1,6 +1,6 @@
 # Goals to submission readiness
 
-Updated: 2026-11-14. Decisions: [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md).
+Updated: 2026-11-15. Decisions: [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md).
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
@@ -21,7 +21,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | G2 | Demonstrate UART, four-mode SPI and I2C through programs on one core | **COMPLETE 2026-11-13**; qualified SRAM adopted, default CI and publication audited | 2026-12-11 | M1-T03, M2-T01, M3-T01 |
 | G3 | Make programs easy to assemble, load, inspect and reproduce | **COMPLETE 2026-11-13**; clean-clone/CI qualification and alpha.7 publication verified | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | **COMPLETE 2026-11-14**; two fresh physical runs, final release and public package verified | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
-| G5 | Demonstrate one useful capability beyond the initial protocol set | CONDITIONAL experiment, after G2 | Decide by 2026-12-18 | M3-T02 |
+| G5 | Demonstrate one useful capability beyond the initial protocol set | QUALIFIED 2026-11-15; software publication pending | Within D50's two-working-day cap | G5-T01 |
 | G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
 
 ```mermaid
@@ -382,13 +382,19 @@ The [contract](specs/g5-waveform-replay.md) and E0048 define all observations,
 rejection controls and the conservative sixteen-hour elapsed cap for the two
 working days. No execution result is claimed at activation.
 
+The [retained original run](../evidence/E0048-waveform-replay/ci-66743b6/README.md)
+now qualifies both programs, all 21 cases per simulator, clean reproduction
+and the unchanged G3 program suite. Only the selected output edge moves;
+twenty physical inputs are unchanged. The successful example is documented.
+Software packaging and publication verification remain active before closure.
+
 Default experiment: use firmware alone to replay an irregular digital waveform
 or inject a controlled timing fault. This tests whether the same substrate is
 useful beyond the protocols used to design it.
 
 - [x] Before running, choose one use case, a control program, expected pin trace,
   measurement and a two-working-day total investigation budget.
-- [ ] Demonstrate it through public-pin-loaded programs with zero new RTL, an
+- [x] Demonstrate it through public-pin-loaded programs with zero new RTL, an
   independent trace check, and explicit timing/input limits.
 - [ ] Keep a successful example and explain its value; retain a failed result
   and stop if the budget expires or mandatory closure slips.

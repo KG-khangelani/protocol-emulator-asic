@@ -4,7 +4,7 @@
 
 | ID | Task | Acceptance | Status |
 |---|---|---|---|
-| G5-T01 | Triggered irregular waveform and one controlled timing fault using firmware alone | D50: frozen 20-word programs, literal oracle, 21 public cases in both simulators, clean reproduction and unchanged G3/physical inputs within two working days | ACTIVE 2026-11-15; contract frozen before execution; E0048 pending |
+| G5-T01 | Triggered irregular waveform and one controlled timing fault using firmware alone | D50: frozen 20-word programs, literal oracle, 21 public cases in both simulators, clean reproduction and unchanged G3/physical inputs within two working days | QUALIFIED 2026-11-15: original CI43697229433 and audit pass all cases, clean reproduction, G3 continuity and five rehashed evidence controls. Native Windows/Linux program bytes agree; software publication pending |
 
 Priority is set by [the six goals](goals.md), adopted in
 [D32](decisions/0032-goals-to-submission-readiness.md) on 2026-11-12.

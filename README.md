@@ -52,6 +52,12 @@ packaging, standalone examples and the matching workbench image are verified.
 All nine tag workflows pass; the [completion audit](evidence/E0047-g4-submission-candidate/completion-audit.json)
 closes G4. The competition entry has not been submitted.
 
+G5's [triggered waveform example](docs/waveform-replay.md) reuses the unchanged
+core with two 20-word programs. One moves a selected edge by two clocks while
+preserving later output timing. [E0048](evidence/E0048-waveform-replay/README.md)
+qualifies 21 public cases per simulator, clean reproduction and the unchanged
+G3 examples. Software packaging and publication verification are in progress.
+
 Interface **0x22** requires one rising edge for program-byte readback; see the
 [production profile](docs/specs/g2-production-profile.md). UART retains its
 framing, phase and bounded host-service/delivery limits. SPI requires its

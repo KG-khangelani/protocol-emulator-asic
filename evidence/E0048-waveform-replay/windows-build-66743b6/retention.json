@@ -1,0 +1,25 @@
+{
+  "command": [
+    "python",
+    "experiments/waveform_replay/run.py",
+    "--build-only",
+    "--out",
+    "build/g5-windows-66743b6"
+  ],
+  "files_sha256": {
+    "programs/control/load-plan.json": "213e42684331a6382c269cc3687631533a61474e48056192a25a9d0453ba292a",
+    "programs/control/program.bin": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+    "programs/control/program.json": "e2264aa0fdae421e4d57961a016fe4d32a7b8c46220466c2065e2e87b319cdba",
+    "programs/control/program.lst": "76ad2762c988c695f1ed0c578cd4d84e478964d4c9bd23e35d75ed2c4baa3220",
+    "programs/manifest.json": "956b56e921d8ad0d7c8e895cdaf2e1e40cff4315f399e4b34514bfb9f9e8ce72",
+    "programs/timing_fault/load-plan.json": "7a5b1800f44ee67827dab9f9b86cb6bd0f7ebf208b1627e6ce721161fbd8f98a",
+    "programs/timing_fault/program.bin": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+    "programs/timing_fault/program.json": "d1b911063d7a3025b57bad6265646441b1f027670f91499075211fe57b9a95b8",
+    "programs/timing_fault/program.lst": "f31afdc55403caf0a7340e4ca9f1e743ed5b828f04f0edd7b7243214e22c7869",
+    "result.json": "61076e4f9215f682de31887a7f0773a5f593a91b7b7a6ba6f83d0123d4f197b3",
+    "source-inputs.json": "8f9511078abfe94e8725f66e305fb1b36179ba6977441e2e3801aa39bdc2e3a9",
+    "source-inputs.zip": "3dec8d622a7410df24e925d3b51e8d826d84e0defd71a61f3c9f6327b73a9483"
+  },
+  "source_commit": "66743b60b93508d2f00f23fa2cc2ac7db244bc3a",
+  "status": "RETAINED_NATIVE_WINDOWS_BUILD_ONLY"
+}

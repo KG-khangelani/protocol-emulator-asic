@@ -11,6 +11,18 @@ readback must be rejected. E0048 will retain all results within the sixteen-hour
 elapsed cap. This is an untested use-case hypothesis, with no new hardware,
 physical, analog or owner-fluency claim.
 
+E0048 result: committed source `66743b6` passes 21 public cases in both
+simulators and a distinct clean clone. The selected pin-0 rise moves from
+runtime edge 31 to 33; later output transitions, release at 63 and HALT at 64
+are unchanged. Each image uses 20 words / 80 bytes. Trigger boundaries,
+cleanup, five expected negative outcomes, twelve oracle tests and the full G3
+program guard pass. The original 310-file artifact, 366 producing inputs and
+five rehashed evidence controls pass replay; native Windows/Linux compiled
+bytes match. Unsupported comment syntax was rejected before RTL execution
+and corrected prospectively without changing instructions or expectations.
+This supports useful firmware reuse beyond the design protocols; it supplies
+no architecture-minimum, physical fixture, analog or silicon evidence.
+
 Question: **What is the smallest computational substrate that can efficiently
 express useful digital communication protocols under hard temporal constraints?**
 

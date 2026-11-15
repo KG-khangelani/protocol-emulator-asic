@@ -1,0 +1,424 @@
+{
+  "binary_sha256": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+  "byte_order": "little",
+  "capacity_words": 128,
+  "constants": {},
+  "idle_inputs": 0,
+  "instructions": [
+    {
+      "flow": {
+        "next": 1
+      },
+      "line": 5,
+      "opcode": "SET",
+      "operands": {
+        "mask": 255,
+        "oe": 7,
+        "value": 0
+      },
+      "pc": 0,
+      "source": "SET mask=255 value=0 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00ff0700"
+    },
+    {
+      "flow": {
+        "failure": 18,
+        "failure_aborts_loop_and_shift": true,
+        "next": 2
+      },
+      "line": 6,
+      "opcode": "WAIT_PIN",
+      "operands": {
+        "level": 1,
+        "on_timeout": 18,
+        "pin": 7,
+        "timeout": 32
+      },
+      "pc": 1,
+      "source": "WAIT_PIN pin=7 level=1 timeout=32 on_timeout=cleanup",
+      "spacing_edges": {
+        "max": 33,
+        "min": 1
+      },
+      "word": "fd120020"
+    },
+    {
+      "flow": {
+        "next": 3
+      },
+      "line": 7,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 1
+      },
+      "pc": 2,
+      "source": "SET mask=7 value=1 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070701"
+    },
+    {
+      "flow": {
+        "next": 4
+      },
+      "line": 8,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 1
+      },
+      "pc": 3,
+      "source": "WAIT cycles=1",
+      "spacing_edges": {
+        "max": 2,
+        "min": 2
+      },
+      "word": "40000001"
+    },
+    {
+      "flow": {
+        "next": 5
+      },
+      "line": 9,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 3
+      },
+      "pc": 4,
+      "source": "SET mask=7 value=3 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070703"
+    },
+    {
+      "flow": {
+        "next": 6
+      },
+      "line": 10,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 3
+      },
+      "pc": 5,
+      "source": "WAIT cycles=3",
+      "spacing_edges": {
+        "max": 4,
+        "min": 4
+      },
+      "word": "40000003"
+    },
+    {
+      "flow": {
+        "next": 7
+      },
+      "line": 11,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 2
+      },
+      "pc": 6,
+      "source": "SET mask=7 value=2 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070702"
+    },
+    {
+      "flow": {
+        "next": 8
+      },
+      "line": 12,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 3
+      },
+      "pc": 7,
+      "source": "WAIT cycles=3",
+      "spacing_edges": {
+        "max": 4,
+        "min": 4
+      },
+      "word": "40000003"
+    },
+    {
+      "flow": {
+        "next": 9
+      },
+      "line": 13,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 6
+      },
+      "pc": 8,
+      "source": "SET mask=7 value=6 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070706"
+    },
+    {
+      "flow": {
+        "next": 10
+      },
+      "line": 14,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 5
+      },
+      "pc": 9,
+      "source": "WAIT cycles=5",
+      "spacing_edges": {
+        "max": 6,
+        "min": 6
+      },
+      "word": "40000005"
+    },
+    {
+      "flow": {
+        "next": 11
+      },
+      "line": 15,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 7
+      },
+      "pc": 10,
+      "source": "SET mask=7 value=7 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070707"
+    },
+    {
+      "flow": {
+        "next": 12
+      },
+      "line": 16,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 7
+      },
+      "pc": 11,
+      "source": "WAIT cycles=7",
+      "spacing_edges": {
+        "max": 8,
+        "min": 8
+      },
+      "word": "40000007"
+    },
+    {
+      "flow": {
+        "next": 13
+      },
+      "line": 17,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 3
+      },
+      "pc": 12,
+      "source": "SET mask=7 value=3 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070703"
+    },
+    {
+      "flow": {
+        "next": 14
+      },
+      "line": 18,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 6
+      },
+      "pc": 13,
+      "source": "WAIT cycles=6",
+      "spacing_edges": {
+        "max": 7,
+        "min": 7
+      },
+      "word": "40000006"
+    },
+    {
+      "flow": {
+        "next": 15
+      },
+      "line": 19,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 1
+      },
+      "pc": 14,
+      "source": "SET mask=7 value=1 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070701"
+    },
+    {
+      "flow": {
+        "next": 16
+      },
+      "line": 20,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 7
+      },
+      "pc": 15,
+      "source": "WAIT cycles=7",
+      "spacing_edges": {
+        "max": 8,
+        "min": 8
+      },
+      "word": "40000007"
+    },
+    {
+      "flow": {
+        "next": 17
+      },
+      "line": 21,
+      "opcode": "SET",
+      "operands": {
+        "mask": 7,
+        "oe": 7,
+        "value": 0
+      },
+      "pc": 16,
+      "source": "SET mask=7 value=0 oe=7",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00070700"
+    },
+    {
+      "flow": {
+        "next": 18
+      },
+      "line": 22,
+      "opcode": "WAIT",
+      "operands": {
+        "cycles": 4
+      },
+      "pc": 17,
+      "source": "WAIT cycles=4",
+      "spacing_edges": {
+        "max": 5,
+        "min": 5
+      },
+      "word": "40000004"
+    },
+    {
+      "flow": {
+        "next": 19
+      },
+      "line": 24,
+      "opcode": "SET",
+      "operands": {
+        "mask": 255,
+        "oe": 0,
+        "value": 0
+      },
+      "pc": 18,
+      "source": "SET mask=255 value=0 oe=0",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "00ff0000"
+    },
+    {
+      "flow": {
+        "terminal": "HALT"
+      },
+      "line": 25,
+      "opcode": "HALT",
+      "operands": {},
+      "pc": 19,
+      "source": "HALT",
+      "spacing_edges": {
+        "max": 1,
+        "min": 1
+      },
+      "word": "80000000"
+    }
+  ],
+  "interface_id": 34,
+  "labels": {
+    "cleanup": 18
+  },
+  "payloads": {
+    "TX0": 0,
+    "TX1": 0
+  },
+  "schedule": {
+    "halt_edge": null,
+    "positions": {
+      "0": {
+        "executions": 1,
+        "first_edge": 1,
+        "last_edge": 1
+      },
+      "1": {
+        "executions": 1,
+        "first_edge": 2,
+        "last_edge": 2
+      }
+    },
+    "scope": "Dispatch assuming valid runtime shift sequencing, continuous enable and no reset; input choices stop expansion.",
+    "status": "INPUT_DEPENDENT"
+  },
+  "schema": "protocol-emulator-program-v1",
+  "source_sha256": "ef48e382bd53d07671eca5d2002f9721df94ea2e9478287b401e50dffae477c4",
+  "target": "od128-sram-v1",
+  "warnings": [],
+  "word_bytes": 4,
+  "words": [
+    "00ff0700",
+    "fd120020",
+    "00070701",
+    "40000001",
+    "00070703",
+    "40000003",
+    "00070702",
+    "40000003",
+    "00070706",
+    "40000005",
+    "00070707",
+    "40000007",
+    "00070703",
+    "40000006",
+    "00070701",
+    "40000007",
+    "00070700",
+    "40000004",
+    "00ff0000",
+    "80000000"
+  ]
+}

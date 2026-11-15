@@ -1,0 +1,66 @@
+{
+  "controls": [
+    {
+      "changed_members": [
+        "comparison/result.json",
+        "primary/icarus/records/control-phase-middle.json.gz",
+        "primary/icarus/records/records.jsonl",
+        "primary/result.json"
+      ],
+      "control": "runtime-edge",
+      "error": "retained runtime fails independent reassessment: control-phase-middle",
+      "mutated_archive_sha256": "12262ad699e6bc4de50bd8618a1bdc0828e6f4b6dab79155ecee6a4a06e6603a",
+      "rejected": true
+    },
+    {
+      "changed_members": [
+        "comparison/result.json",
+        "primary/icarus/records/control-phase-middle.json.gz",
+        "primary/icarus/records/records.jsonl",
+        "primary/result.json"
+      ],
+      "control": "loader-address",
+      "error": "public reset/bank/address/write/read/commit sequence differs",
+      "mutated_archive_sha256": "90b98ff9e7690f79fec92fe4045a7e3930db887123d336d5af962d35673d7f7a",
+      "rejected": true
+    },
+    {
+      "changed_members": [
+        "runtime.json",
+        "workbench-image-after.json",
+        "workbench-image.json"
+      ],
+      "control": "runtime-image",
+      "error": "actual pulled image manifest/config/platform identity differs",
+      "mutated_archive_sha256": "da26033cbb5a87a94da17ec603da75061a5a3f5d1e2dd3c2b985aae51ebdbe10",
+      "rejected": true
+    },
+    {
+      "changed_members": [
+        "comparison/result.json",
+        "primary/result.json",
+        "primary/verilator/results.xml"
+      ],
+      "control": "missing-junit-group",
+      "error": "JUnit group selection differs: H:\\hikrepos\\protocol-emulator-asic\\build\\g5-audit-w0sx006v\\primary\\verilator\\results.xml",
+      "mutated_archive_sha256": "4907696c24e22a78a51a1b71f01f05685f0f4a39d5e39686ba1a2ebd025930e4",
+      "rejected": true
+    },
+    {
+      "changed_members": [
+        "comparison/result.json",
+        "primary/result.json",
+        "primary/source-inputs.json",
+        "primary/source-inputs.zip"
+      ],
+      "control": "source-oracle",
+      "error": "producing bytes differ from committed Git blobs",
+      "mutated_archive_sha256": "43f92c8069e34b686ecba24f72ce1e9911c40c2c8bf0f79cfa6e375eef6dd615",
+      "rejected": true
+    }
+  ],
+  "original_artifact_sha256": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+  "schema": "protocol-emulator-g5-evidence-controls-v1",
+  "scope": "Synthetic copies deliberately rehash transport metadata, logs and dependent receipts to reach semantic checks; originals are unchanged.",
+  "status": "PASS_FIVE_REHASHED_CONTROLS"
+}

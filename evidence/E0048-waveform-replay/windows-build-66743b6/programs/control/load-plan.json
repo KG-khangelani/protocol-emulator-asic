@@ -1,0 +1,2037 @@
+{
+  "binary_sha256": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+  "ownership": "External devices must release shared pins during loader reads. Flush input levels come from the attached idle environment.",
+  "run": {
+    "ena": 1,
+    "first_edge": "The next rising edge executes program word zero.",
+    "rst_n": 1,
+    "ui_in": 0
+  },
+  "sampling": "Each step holds inputs through one rising edge; check expected outputs after settling. Abort on mismatch.",
+  "schema": "protocol-emulator-load-plan-v1",
+  "steps": [
+    {
+      "action": "reset",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 0,
+      "ui_in": 0,
+      "uio_in": 0
+    },
+    {
+      "action": "identify",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 0,
+        "uo_out": 34
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 103,
+      "uio_in": 0
+    },
+    {
+      "action": "write_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 192,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 193,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 194,
+      "uio_in": 255
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 195,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 196,
+      "uio_in": 32
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 197,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 198,
+      "uio_in": 18
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 199,
+      "uio_in": 253
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 200,
+      "uio_in": 1
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 201,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 202,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 203,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 204,
+      "uio_in": 1
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 205,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 206,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 207,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 208,
+      "uio_in": 3
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 209,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 210,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 211,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 212,
+      "uio_in": 3
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 213,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 214,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 215,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 216,
+      "uio_in": 2
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 217,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 218,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 219,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 220,
+      "uio_in": 3
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 221,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 222,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 223,
+      "uio_in": 64
+    },
+    {
+      "action": "write_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 1
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 192,
+      "uio_in": 6
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 193,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 194,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 195,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 196,
+      "uio_in": 5
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 197,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 198,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 199,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 200,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 201,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 202,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 203,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 204,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 205,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 206,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 207,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 208,
+      "uio_in": 3
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 209,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 210,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 211,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 212,
+      "uio_in": 6
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 213,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 214,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 215,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 216,
+      "uio_in": 1
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 217,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 218,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 219,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 220,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 221,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 222,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 223,
+      "uio_in": 64
+    },
+    {
+      "action": "write_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 2
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 192,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 193,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 194,
+      "uio_in": 7
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 195,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 196,
+      "uio_in": 4
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 197,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 198,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 199,
+      "uio_in": 64
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 200,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 201,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 202,
+      "uio_in": 255
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 203,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 204,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 205,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 206,
+      "uio_in": 0
+    },
+    {
+      "action": "write_byte",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 207,
+      "uio_in": 128
+    },
+    {
+      "action": "read_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 128,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 129,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 255
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 130,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 131,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 32
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 132,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 133,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 18
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 134,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 253
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 135,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 1
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 136,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 137,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 138,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 139,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 1
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 140,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 141,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 142,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 143,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 3
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 144,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 145,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 146,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 147,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 3
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 148,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 149,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 150,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 151,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 2
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 152,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 153,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 154,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 155,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 3
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 156,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 157,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 158,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 159,
+      "uio_in": 0
+    },
+    {
+      "action": "read_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 1
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 6
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 128,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 129,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 130,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 131,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 5
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 132,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 133,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 134,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 135,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 136,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 137,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 138,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 139,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 140,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 141,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 142,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 143,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 3
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 144,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 145,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 146,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 147,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 6
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 148,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 149,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 150,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 151,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 1
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 152,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 153,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 154,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 155,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 156,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 157,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 158,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 159,
+      "uio_in": 0
+    },
+    {
+      "action": "read_bank",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 229,
+      "uio_in": 2
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 128,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 129,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 7
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 130,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 131,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 4
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 132,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 133,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 134,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 64
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 135,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 136,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 137,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 255
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 138,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 139,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 140,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 141,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 142,
+      "uio_in": 0
+    },
+    {
+      "action": "read_byte_after_edge",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 128
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 143,
+      "uio_in": 0
+    },
+    {
+      "action": "commit_length",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 224,
+      "uio_in": 20
+    },
+    {
+      "action": "read_length",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 20
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 160,
+      "uio_in": 0
+    },
+    {
+      "action": "write_TX0",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 225,
+      "uio_in": 0
+    },
+    {
+      "action": "read_TX0",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 161,
+      "uio_in": 0
+    },
+    {
+      "action": "write_TX1",
+      "ena": 1,
+      "expected": {
+        "uio_oe": 0
+      },
+      "host_drives_uio": true,
+      "rst_n": 1,
+      "ui_in": 228,
+      "uio_in": 0
+    },
+    {
+      "action": "read_TX1",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 255,
+        "uio_out": 0
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 164,
+      "uio_in": 0
+    },
+    {
+      "action": "flush_idle",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 0,
+        "uo_out": 32
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 0,
+      "uio_in": 0
+    },
+    {
+      "action": "flush_idle",
+      "ena": 0,
+      "expected": {
+        "uio_oe": 0,
+        "uo_out": 32
+      },
+      "host_drives_uio": false,
+      "rst_n": 1,
+      "ui_in": 0,
+      "uio_in": 0
+    }
+  ],
+  "target": "od128-sram-v1"
+}

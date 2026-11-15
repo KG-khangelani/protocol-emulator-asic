@@ -1,0 +1,21 @@
+{
+  "files_sha256": {
+    "14155007514.zip": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+    "README.md": "d09b56375416a39ae8d140f2d2e8cc7051951b99f19eff0627a5a8a711d37135",
+    "artifacts.json": "931c781a26162922190d2ff2f6deb34f5e2bc79861cd48a2d272a3f90a272887",
+    "audit-controls.json": "28670ce378a775ad26ebf95cd34af02a5083af3833a253d430d4bf3adfa7a593",
+    "audit-runner.py.gz": "51870da93b37fdd2ad5adc1d6e83ca3d8b0440f5cdddace9f1ac7bc9aa82e255",
+    "controls-runner.py.gz": "cbe152f560e9aaec159f512798b5238dc5e0be537b0f8a0077f8ff6a05981ae8",
+    "job.log.gz": "e4d088df6b6b7952873f9d099bb30dca725f0ba3ffd243586dba1ae99a15f768",
+    "jobs.json": "306ef3e7d38a924351bab233111328070546fc5ead30af618e2b07e29355fff1",
+    "receive-originals.py.gz": "638b2e6533905efa76a1c28397ae26adeaa2d35b1f6ab7871b97e55145a692c0",
+    "run.json": "dccbd9e675870964e1e9891b4c8f278580f66ec3176c7fd95584cdb59e0b23bd",
+    "transport.json": "efd462ea9ac0785b0c393081805e47b850f16fb5a334d821ee258c795608b5ef",
+    "verification.json": "83cc8c35453eaee6514b47404434eeef36c368efd07c569b868b598b09e42ee1",
+    "windows-comparison.json": "4a386359f10535b8a216bf09c8ff96d7b64dd3c12eabd335117a4e2ca7f401c9",
+    "zip-files.json": "ecc8eee3a95bb77e09b019f62489ccbba7b5766b7d9691f44ca9b503e2fc0614"
+  },
+  "schema": "protocol-emulator-g5-retention-v1",
+  "source_commit": "66743b60b93508d2f00f23fa2cc2ac7db244bc3a",
+  "status": "PASS_RETAINED_QUALIFICATION"
+}

@@ -1,0 +1,60 @@
+{
+  "artifact": {
+    "bytes": 2343597,
+    "id": 14155007514,
+    "members": 310,
+    "sha256": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759"
+  },
+  "files_sha256": {
+    "14155007514.zip": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+    "artifacts.json": "931c781a26162922190d2ff2f6deb34f5e2bc79861cd48a2d272a3f90a272887",
+    "job.log.gz": "e4d088df6b6b7952873f9d099bb30dca725f0ba3ffd243586dba1ae99a15f768",
+    "jobs.json": "306ef3e7d38a924351bab233111328070546fc5ead30af618e2b07e29355fff1",
+    "run.json": "dccbd9e675870964e1e9891b4c8f278580f66ec3176c7fd95584cdb59e0b23bd"
+  },
+  "g3": {
+    "cases_per_simulator": 55,
+    "compiled_files": 53,
+    "examples": 13,
+    "rejections_per_simulator": 15
+  },
+  "inputs": 366,
+  "job_id": 132760362357,
+  "reproduction": true,
+  "run_id": 43697229433,
+  "runtime": {
+    "image_id": "sha256:21502b121379e64bf296ca06cceb96cf31d7e33c6b40a9152af5d472287fd06a",
+    "image_ref": "ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88",
+    "image_source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843"
+  },
+  "schema": "protocol-emulator-g5-retained-audit-v1",
+  "simulators": {
+    "icarus": {
+      "cases": 21,
+      "rejections": 5
+    },
+    "verilator": {
+      "cases": 21,
+      "rejections": 5
+    }
+  },
+  "source_commit": "66743b60b93508d2f00f23fa2cc2ac7db244bc3a",
+  "status": "PASS_G5_RETAINED_ORIGINALS",
+  "windows_build": {
+    "manifest_files": 1,
+    "program_files": 8,
+    "result_sha256": "61076e4f9215f682de31887a7f0773a5f593a91b7b7a6ba6f83d0123d4f197b3",
+    "scope": "Native assembly only; all eight compiled files match Linux. Listed source files differ only by CRLF; this is not a clean Windows RTL run.",
+    "source_eol_differences": [
+      ".github/workflows/docs.yaml",
+      ".github/workflows/fpga.yaml",
+      "docs/specs/m0-gpio.md",
+      "requirements-dev.txt",
+      "test/requirements.txt",
+      "test/tb.gtkw",
+      "tools/check_junit.py",
+      "tools/doctor.py"
+    ],
+    "source_zip_sha256": "3dec8d622a7410df24e925d3b51e8d826d84e0defd71a61f3c9f6327b73a9483"
+  }
+}
