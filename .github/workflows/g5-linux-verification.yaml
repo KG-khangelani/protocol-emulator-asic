@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - name: Replay qualification and package the exact release source
+      - name: Verify public release downloads and publisher evidence
         run: python3 .github/g5-linux-verification/run.py
       - name: Retain actual Linux verification and assets
         if: always()
