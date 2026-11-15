@@ -15,6 +15,14 @@ attribute every line or claim that the owner manually authored or checked all
 generated material. The Git history, decision records and retained experiment
 inputs identify the inspectable technical changes.
 
+For G5, agents prepared the bounded use case, assembly programs, literal
+schedule, public-pin runner, evidence audit, standalone package and guide.
+The first assembly attempt exposed unsupported comment syntax; the original
+failure was kept and a prospective correction changed only comment markers.
+The unchanged production RTL then passed both simulators and clean-clone
+reproduction. These results establish the recorded digital behavior; the
+agent reviews themselves are not experimental evidence.
+
 ## How generated work is checked
 
 The project treats generated code and explanations as proposals to test.

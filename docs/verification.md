@@ -8,18 +8,20 @@ The manual `gds` workflow now builds that production profile. The old P,
 compact10 and register-store trials remain separately identified experiments.
 
 G2 establishes the hardware baseline; G3 establishes the assembler and examples.
-[G4](../evidence/E0047-g4-submission-candidate/README.md) tracks fresh official
-production runs, reproduction and final distribution checks. Its new results
-must be read there; the earlier passes below do not imply G4 completion.
+[G4](../evidence/E0047-g4-submission-candidate/README.md) retains two fresh
+official production runs, reproduction and the verified v0.1.0 distribution.
+[G5](../evidence/E0048-waveform-replay/README.md) qualifies a firmware-only
+triggered waveform and a controlled timing fault on the same physical inputs.
 
 ## What each layer establishes
 
 | Layer | Check and retained evidence | Boundary |
 |---|---|---|
 | Source identity | Production guard, profile hashes and stage-specific input maps | Matching bytes alone do not establish behavior |
-| Repository checks | Metadata, clocks, supported source profile, model/oracle and assembler acceptance tests | G3's complete check has 147 tests; its 20 assembler tests are included in that count |
+| Repository checks | Metadata, clocks, supported source profile, model/oracle and assembler acceptance tests | G5 adds twelve waveform-oracle tests to G3's 147; the 20 assembler tests remain included |
 | RTL simulation | Icarus and Verilator each run all 30 current groups; [E0042](../evidence/E0042-sram-prefetch-screen/README.md), [E0044](../evidence/E0044-sram-current-verification/ci-13660ac/README.md) and actual-default [E0045 CI](../evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/README.md) | Digital RTL and vendor functional SRAM models, not pad/electrical characterization |
 | Programs through public pins | [G3/E0046](../evidence/E0046-program-toolchain/README.md): 13 sources, complete generated load/readback plans, 55 cases per simulator including 15 expected rejections | A tested software interface, not a fabricated-chip host adapter |
+| Triggered digital stimulus | [G5/E0048](../evidence/E0048-waveform-replay/README.md): two 20-word images, 21 public cases per simulator, five expected rejections and clean-clone reproduction | Exact digital edge schedules under declared trigger/enable assumptions; no physical fixture or analog characterization |
 | Formal properties | Source-matched engine, support, SRAM/prefetch obligations, checked counterexamples and separately retained historical baseline | Written properties under explicit assumptions; no blanket proof of every protocol or program |
 | Generic synthesis | Yosys structural checks, no inferred latches, actual SRAM black box and 353 register bits | Generic cells are not technology area or routed timing |
 | Technology mapping | Matched [E0042 mapping](../evidence/E0042-sram-prefetch-screen/README.md) counts standard cells and adds the real macro footprint | Mapping alone does not prove routability |
@@ -53,6 +55,17 @@ Linux and a clean clone reproduce the same 53 generated program artifacts.
 Changed UART timing, bad framing, edge-only SPI input, changed sample delay,
 active-high I2C drive, wrong timeout and interface/readback mismatches must be
 rejected. The checker must detect the intended failure, not merely any crash.
+
+G5's oracle compares every observed runtime edge with a literal schedule
+frozen before execution, without decoding the assembled instructions. The
+control and fault programs differ in two WAIT words: delay one rise by two
+clocks and compensate before the next transition. Public readback verifies
+all 80 loaded bytes before commit. Trigger phases, the timeout boundary,
+explicit output release, paused enable, a corrupted load byte and successful
+reload are observed through public pins. Icarus, Verilator and a separate
+clean checkout reproduce the same records. Five rehashed corruptions test the
+retained-evidence auditor; they are separate from the five expected public
+test rejections. See the [example and timing limits](waveform-replay.md).
 
 The SRAM tests cover every logical byte address, partial writes, reset/reload,
 bank/length boundaries, clocked readback, stale fetch tags and word-zero

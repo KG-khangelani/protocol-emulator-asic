@@ -1,15 +1,15 @@
 # Research ledger
 
-## Active hypothesis: G5 waveform reuse
+## G5 waveform reuse: hypothesis and measured result
 
 2026-11-15: D50 asks whether the existing qualified core can serve as a compact
 triggered digital stimulus source and reproduce one relative-edge timing
 fault. Two twenty-word firmware images and a literal independent schedule are
 frozen before execution. A two-clock shift of only one output edge is the
 success condition; uncompensated changes, missing release and bad public
-readback must be rejected. E0048 will retain all results within the sixteen-hour
-elapsed cap. This is an untested use-case hypothesis, with no new hardware,
-physical, analog or owner-fluency claim.
+readback must be rejected. E0048 is required to retain all results within the
+sixteen-hour elapsed cap. At activation this was an untested use-case
+hypothesis, with no new hardware, physical, analog or owner-fluency claim.
 
 E0048 result: committed source `66743b6` passes 21 public cases in both
 simulators and a distinct clean clone. The selected pin-0 rise moves from
