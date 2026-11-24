@@ -1,0 +1,20 @@
+{
+  "failure": "subprocess.TimeoutExpired in Yosys full synth, 120s; functional simulator had finished",
+  "failed_command": "read_verilog normal.v; synth -top tt_um_khangelani_protocol_emulator; tee -o generic-stat.json stat -json",
+  "case_log_sha256": {
+    "present-15-60-0": "d19fde0b249cdfdeae86b5d8fdb3af860b41daeccb16389d7de518756494abb3",
+    "present-15-60-1": "570b4bd2a729c378379cb371f418ac5801ee2f6c4d5cb30879a04cb8e6aa7cb1",
+    "present-15-240-0": "d19fde0b249cdfdeae86b5d8fdb3af860b41daeccb16389d7de518756494abb3",
+    "present-15-240-1": "570b4bd2a729c378379cb371f418ac5801ee2f6c4d5cb30879a04cb8e6aa7cb1",
+    "present-60-60-0": "d19fde0b249cdfdeae86b5d8fdb3af860b41daeccb16389d7de518756494abb3",
+    "present-60-60-1": "570b4bd2a729c378379cb371f418ac5801ee2f6c4d5cb30879a04cb8e6aa7cb1",
+    "present-60-240-0": "d19fde0b249cdfdeae86b5d8fdb3af860b41daeccb16389d7de518756494abb3",
+    "present-60-240-1": "570b4bd2a729c378379cb371f418ac5801ee2f6c4d5cb30879a04cb8e6aa7cb1",
+    "absent": "850984a3be505261afda13db89f96add601fb1859fc82799710c84c74d5a3579",
+    "stuck": "5f480bdb2d25dff678aefd79c1eaf2ad35875d23094a07c38273ff7616c0e826",
+    "bad-command": "c0f674e0c4d4f23393523f1c14496f4eb88b2f703d8a21413427d91da5c05f87",
+    "short-reset": "f786d177f9a92b3de0be2957d56516cec83d4f918c6732b481f623e98a2377fa"
+  },
+  "all_twelve_logs_byte_equal_to_noabc_run": true,
+  "first_runner_sha256": "ec3bbc073d53ad8e4b954c8a9cb5985fad14b0070914ad8d76e7b3f7e4cda495"
+}

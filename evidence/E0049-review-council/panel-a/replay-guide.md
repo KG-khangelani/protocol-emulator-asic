@@ -1,0 +1,17 @@
+# Reproduce the architecture panel screens
+
+Start at the root of a checkout containing this council and the retained E0027, E0042 and E0049 inputs. Put that checkout and generated output on H:. The scripts use project-relative paths and create new output directories. They do not run the physical flow. The primary procedure below rebuilds all comparator images, verifies their host and wire event records, and refetches eight pinned source files.
+
+The original host ran Windows PowerShell and Python 3.11 or newer with Node v24.18.0. Docker Desktop had the repository workbench tagged `protocol-emulator-asic-workbench:2026-07-29`, local image ID `sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909`. It reported Icarus 14.0 development build `s20260301-328-geda9fdcd1-dirty` and Yosys `0.67+111, 4821ed17b-dirty`. These local image and tool identities establish this experiment's provenance. The published G4 physical environment has its own release identity. An existing workbench containing Icarus, vvp, Yosys and Python can be supplied using `--image`. If needed, build the project's workbench following its Dockerfile and lock under `tools/workbench`. The replay separately records image/version differences and checks actual observations.
+
+```powershell
+$pioSource = Get-ChildItem -LiteralPath evidence/E0049-review-council -Recurse -Filter power_query.pio | Select-Object -First 1
+$panelRecords = $pioSource.Directory.Parent.FullName
+python -I -B (Join-Path $panelRecords replay.py) build/council-architecture-replay --sources
+```
+
+For a second run use another unused output path. To use an already extracted, hash-verified pair of PIO tools add `--pio-tools <directory>` with its `tools.json`. The default fetches only Raspberry Pi's 154,580-byte assembler release archive and the 114,826-byte Wokwi emulator package. The extractor checks the individual archive hashes and writes only the needed executable and CommonJS modules under the designated build output. Windows uses the existing Linux container for pioasm, and a local Node process for the independent PIO decoder. All simulator containers run with networking off and the source mount read-only. [Official assembler release](https://github.com/raspberrypi/pico-sdk-tools/releases/tag/v2.3.1-0) · [Pinned emulator source](https://github.com/wokwi/rp2040js/tree/cab5fae8d72f44dc300dc139fb6e600f95e8031e)
+
+The output `replay.json` exists only after the numerical UART/SPI checks, fixed-controller controls, programmable PIO controls, all PIO program words, public MMIO transcript and pinned dependency identities agree with the records. The cold PIO consistency check includes register operations and one corrupted upload. The compiler statistics concern generic primitives before ABC. In the `spi` folder, two compressed complete public traces and their common stimulus preserve the one failing first reset row. The fixed-controller folder retains the first functional traces and the original runner for the optional ABC timeout. Its fresh replay uses the prospectively amended pre-ABC command. Gzip records contain ordinary UTF-8 JSON or text.
+
+The fresh-directory rerun records repeatability with new generated data. The same human-selected workload interpretation and Python scoring code appear in each architecture comparison. This replay supplies no new independent source of the protocol requirements or board measurements.

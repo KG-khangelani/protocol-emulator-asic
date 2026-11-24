@@ -1,0 +1,3 @@
+# Public PIO readback control
+
+Before the first execution, add a host-integrity control. RP2040 datasheet Tables 389 and 394 provide write-only instruction memory and a separate read of the instruction addressed by a disabled state machine's PC. After loading, inject a JMP to each location and read SM0_INSTR. Require all 32 returned words to equal the intended image. Restore address zero. A deliberately changed first write must fail at location zero before launch. Count these extra host operations. The public register route is a stronger comparison to the VM's byte-readback path than inspection of a model's private instruction array. [RP2040 datasheet, PIO register list and state-machine registers](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=356)

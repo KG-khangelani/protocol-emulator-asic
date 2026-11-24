@@ -1,0 +1,5 @@
+# First SPI screen and testbench initialization correction
+
+The first run completed 56,976 public observations in Icarus. The initial sampled reset returned `Xx xx xx xx 00 00`. The integer trace parser rejected that row. A search found no other unknown-valued row. This run fails the declared public reset/readback checks and supplies no passing experiment.
+
+The testbench declared constant initial values for all DUT inputs before simulator time zero, including reset and enable. Its first vector then rewrote the same levels at time zero. In the next attempt all DUT inputs except the generating clock begin as unknown. The first public vector drives the declared reset at 1 ns, before the first rising edge at 10 ns. This creates the explicit transition into a valid driven environment used by the repository's public-pin tests. Check the entire reset row again. The expected data, observations, number of clocks, simulator, programs and acceptance criteria stay fixed. Preserve the first source and trace. The result of this change does not characterize power-up or pad timing.

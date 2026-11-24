@@ -1,0 +1,67 @@
+{
+  "start_utc": "2026-11-24T15:24:09.868100+00:00",
+  "end_utc": "2026-11-24T15:24:33.671343+00:00",
+  "docker_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "checked": {
+    "uart": [
+      "scope",
+      "receiver_period_clocks",
+      "bounds",
+      "predictions",
+      "inputs",
+      "observed_cases",
+      "old_bound_wrong_first_copies"
+    ],
+    "spi": [
+      "scope",
+      "cases",
+      "accepted",
+      "expected_rejections",
+      "historical_exact_images_byte_equal",
+      "rtl_sha256",
+      "sram_sha256",
+      "bench_sha256",
+      "checker_sha256",
+      "observed_edges_sha256",
+      "observations"
+    ],
+    "fixed": [
+      "cases",
+      "unmet",
+      "host",
+      "fixed_generic_stat",
+      "generic_synthesis_command",
+      "fixed_attempt_inputs_sha256"
+    ],
+    "pio": [
+      "cases",
+      "unmet",
+      "images",
+      "input_sha256",
+      "public_mmio_operation_counts",
+      "corrupt_write",
+      "assembler_archive",
+      "emulator_archive"
+    ]
+  },
+  "pio_tool_members_checked": true,
+  "pio_cold_host_operations_checked": true,
+  "pio_hex_images_checked": 2,
+  "pio_dependency_fetch": "fresh",
+  "extra": [
+    "pinned source fingerprints, PIO counts and I2C host accounting"
+  ],
+  "environment_comparison": {
+    "uart": {
+      "same_image": true,
+      "original_simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "new_simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+    },
+    "spi": {
+      "same_image": true,
+      "original_simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "new_simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+    }
+  },
+  "spi_raw_sha256": "e5504fbb5d209876fc2b329790074863c91c8f086728f0fd3935bde0809826cd"
+}

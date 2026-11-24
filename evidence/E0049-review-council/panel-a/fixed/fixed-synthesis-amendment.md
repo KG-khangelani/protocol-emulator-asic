@@ -1,0 +1,5 @@
+# Generic synthesis follow-up
+
+The first fixed-controller execution finished all 12 Icarus traces by 15:00:06 UTC. Its optional generic Yosys command, `synth -top tt_um_khangelani_protocol_emulator`, spawned ABC and wrote an output BLIF. The workflow timed out at 120 seconds before generic statistics returned. The process list showed ABC still running. Its cause was not established. The first runner wrote its combined JSON only after synthesis, so those 12 unaltered case logs in `fixed-run-01` are its evidence. The first runner and synthesis scratch remain there.
+
+Before trying again at 15:02 UTC, retain all functional inputs, workload, controls and checker unchanged. Write the case JSON immediately after the digital tests. Substitute `synth -noabc` for the optional count. This deliberately counts Yosys generic internal primitives before ABC mapping. Record the actual primitive types and do not equate their number to standard-cell area. Compare all 12 raw simulator records across attempts.

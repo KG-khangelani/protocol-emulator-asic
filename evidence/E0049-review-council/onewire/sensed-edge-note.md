@@ -1,0 +1,5 @@
+# A write slot starts at an observable falling edge
+
+Before running the [rise-time contract](rise-time-contract.md), the chair found a second way the proposed 70 µs timing can fail. A 62 µs write-zero leaves 8 µs for the remote input to rise before the next command. A controller can command another falling edge while the sensor's own digital input still reads low.
+
+The fixture must therefore start its slot timer on each transition of the **modeled sensor input**, count those transitions, and record the shortest sensed high interval between consecutive controller pulses. The peer can reply only after receiving sixteen individual bits in order and recognizing a seventeenth read-slot start. Record all outcomes against the original proposal, including any 70 µs candidate rejected for this reason. A 1 µs minimum recovery is a separate judgment on observed high time in this deliberately conservative model. [DS18B20 Rev. 6, AC electrical characteristics and write time slots](https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf)

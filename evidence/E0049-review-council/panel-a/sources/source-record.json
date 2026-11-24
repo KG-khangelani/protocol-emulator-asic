@@ -1,0 +1,58 @@
+{
+  "source_files": {
+    "pio_spi": {
+      "url": "https://raw.githubusercontent.com/raspberrypi/pico-examples/0d62f75bafc2c8120d3276c3343d1a9195e909e9/pio/spi/spi.pio",
+      "bytes": 6781,
+      "sha256": "b6407e9daf6b3f7efbae0a37b18989c91d5435ade66f8093d1e5074f0f053777"
+    },
+    "pio_i2c": {
+      "url": "https://raw.githubusercontent.com/raspberrypi/pico-examples/0d62f75bafc2c8120d3276c3343d1a9195e909e9/pio/i2c/i2c.pio",
+      "bytes": 5143,
+      "sha256": "430190b7b32f9822c5b6a36133752349ee4d32bc0a93d181f2b54f3865923021"
+    },
+    "pio_i2c_host": {
+      "url": "https://raw.githubusercontent.com/raspberrypi/pico-examples/0d62f75bafc2c8120d3276c3343d1a9195e909e9/pio/i2c/pio_i2c.c",
+      "bytes": 5491,
+      "sha256": "32533b41af79e128fbb21bce67bfce60b4b66c2dbc6b295f66e9b631f7af4c19"
+    },
+    "peer_top": {
+      "url": "https://raw.githubusercontent.com/Abagel-coder/protocol-emulator/f904d1fe3bfa3374ebb95d73f02feeaa09b14122/src/project.v",
+      "bytes": 4421,
+      "sha256": "caf3cd6dc058e98e71f6a1e5bebe7257a025b630cc283ab9b3268ecbc9993fc3"
+    },
+    "peer_fifo": {
+      "url": "https://raw.githubusercontent.com/Abagel-coder/protocol-emulator/f904d1fe3bfa3374ebb95d73f02feeaa09b14122/src/pe_fifo.v",
+      "bytes": 775,
+      "sha256": "859b0a3338d85e88f1fdd2c9b4950e9f6c2b3393d57217914ecd4163dd587027"
+    },
+    "peer_imem": {
+      "url": "https://raw.githubusercontent.com/Abagel-coder/protocol-emulator/f904d1fe3bfa3374ebb95d73f02feeaa09b14122/src/pe_imem.v",
+      "bytes": 2537,
+      "sha256": "a531f031b29a99b48bd841e87b5b916f39c56ebc57fddb0b3acf41dc02e4615a"
+    },
+    "tempo_top": {
+      "url": "https://raw.githubusercontent.com/satyaammu93/jane-street-asic-2026/65e0a742c1f91ac730c137afea5e154287267d67/protocol_emulator/src/tt_um_protocol_emulator.v",
+      "bytes": 12718,
+      "sha256": "9fe37c88a66fe2d29199c7369414f09d7de2386c08071b1d5f0356340ff7ffbc"
+    },
+    "tempo_fifo": {
+      "url": "https://raw.githubusercontent.com/satyaammu93/jane-street-asic-2026/65e0a742c1f91ac730c137afea5e154287267d67/protocol_emulator/src/tempo_fifo.v",
+      "bytes": 1404,
+      "sha256": "bdc3ef57493d891d0cef0525be956996d7d98d51688739dfdba6d85bf77cc183"
+    }
+  },
+  "assembly_instruction_lines": {
+    "spi_cpha0": 2,
+    "spi_cpha1": 3,
+    "spi_cpha0_cs": 9,
+    "spi_cpha1_cs": 9,
+    "i2c": 18,
+    "set_scl_sda": 4
+  },
+  "host_fifo_put_calls_per_function": {
+    "start": 4,
+    "repstart": 6,
+    "stop": 4
+  },
+  "boundary": "Resident source instruction counts and no-error host submission paths. No competitor execution, gate cost or interoperability comparison."
+}

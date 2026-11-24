@@ -1,0 +1,19 @@
+{
+  "record": "same SPI stimulus against first and amended time-zero testbenches",
+  "rows_per_attempt": 56976,
+  "stimulus_sha256": "aeb83460de73c94343cbc083128071b8ffe82096ab71ef61737a414ae8f58701",
+  "raw_trace_sha256": [
+    "0ba8fa89e9e078bb3962c771559100e2a6b635a33ccc335cdf0f53d39a20c5ff",
+    "e5504fbb5d209876fc2b329790074863c91c8f086728f0fd3935bde0809826cd"
+  ],
+  "differing_rows": 1,
+  "first_12_differences_zero_based": [
+    [
+      0,
+      "Xx xx xx xx 00 00",
+      "00 00 00 08 00 00"
+    ]
+  ],
+  "first_attempt_bench_sha256": "702597702ba1f79d257c84e8a9d969d245f1d01b6a64fb29e54f2c346ac4e265",
+  "final_bench_sha256": "24af503f727123207bdf4802dd30ea0c2194a539c61c922961e18f90a3df078e"
+}

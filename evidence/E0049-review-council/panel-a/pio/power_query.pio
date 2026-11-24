@@ -1,0 +1,59 @@
+; SPDX-License-Identifier: Apache-2.0
+; 1 us per PIO cycle. Sideset controls only the DQ pin direction.
+; SET pins addresses marker[1:0], terminal on the next three GPIOs.
+; The host initializes output latches and directions to zero and preloads
+; 16 command bits (LSB first) in OSR with an explicit PULL before launch.
+.program power_query
+.side_set 1 pindirs
+.wrap_target
+    jmp pin reset_begin       side 0
+error:
+    set pins, 7               side 0       ; terminal, error = 3
+finish:
+    set pindirs, 7            side 0       ; publish three marker pins
+hold:
+    jmp hold                  side 0
+
+reset_begin:
+    set x, 30                 side 1 [3]   ; 4 + 31*16 = 500 us
+reset_loop:
+    jmp x-- reset_loop        side 1 [15]
+    set x, 8                  side 0 [6]   ; 7 + 9*7 = 70 us
+presence_loop:
+    jmp x-- presence_loop     side 0 [6]
+    jmp pin error             side 0
+    set x, 25                 side 0 [10]
+recovery_loop:
+    jmp x-- recovery_loop     side 0 [15]
+    jmp pin bits              side 0
+    jmp error                 side 0
+
+bits:
+    out x, 1                  side 0       ; right shift, pull threshold 16
+    jmp !x zero_bit           side 1 [5]
+    set x, 2                  side 0 [11]  ; release 6 us from start
+one_loop:
+    jmp x-- one_loop          side 0 [15]
+    jmp end_bit               side 0 [1]
+zero_bit:
+    set x, 2                  side 1 [7]
+zero_loop:
+    jmp x-- zero_loop         side 1 [15]
+    nop                       side 0 [5]   ; release 62 us from start
+end_bit:
+    jmp !osre bits            side 0
+    nop                       side 0       ; last slot has no following OUT
+
+    nop                       side 1 [5]   ; read slot, pull low for 6 us
+    nop                       side 0 [7]   ; sample at 14 us
+    jmp pin external_power    side 0
+    set pins, 6               side 0       ; terminal, parasite = 2
+    jmp read_recovery         side 0
+external_power:
+    set pins, 5               side 0 [1]   ; terminal, external = 1
+read_recovery:
+    set x, 2                  side 0 [3]
+read_loop:
+    jmp x-- read_loop         side 0 [15]
+    jmp finish                side 0
+.wrap
