@@ -120,13 +120,20 @@ transceivers and level shifting. Match the attached hardware to those I/O
 levels; the chip's internal timing results do not qualify board voltage,
 pad settling, pull-up sizing, bus capacitance or cable behavior.
 
-The host supplies a continuous clock, holds active-low reset through a rising
-edge and loads the program after reset or board power-down. Plain `ena=0` freezes
-execution; it is not the board power-down operation. The host owns the loader
-control inputs and drives shared pins only for writes. For readback, it releases
-all eight shared pins while the chip drives them. Isolate the protocol partner
-during loading, reconnect the declared idle environment and provide two disabled
-flush edges before execution. No physical host adapter is included.
+The host loads the program after power-up with the project selected. It owns
+the clock, holds reset low through a rising edge, and isolates the external
+protocol partner. The host drives the shared pins only for writes. It releases
+all eight before selecting a read. The released macro-port test plan exercises
+two enable-low flush edges in its simulation harness.
+
+For a continuously selected project, the additional `ColdLoad` command keeps
+enable high throughout. Once every byte and both payload registers have passed
+readback, the controller parks the clock low and releases its data pins. It
+selects `E7`, reconnects the peer at idle, gives two `E7` clocks, settles at
+`67`, settles at `00`, then starts the runtime clock. The digital UART peer
+delivered `96 69` under the released host's framing checks. This command is
+available in the post-release checkout at `550065b`. The physical adapter and
+receiver-end electrical measurements are open. [Command and scope](programming.md#cold-load-the-selected-chip-in-simulation) · [E0050](../evidence/E0050-powered-cold-loader/README.md)
 
 | Workload | Demonstrated digital boundary |
 |---|---|
@@ -137,8 +144,8 @@ flush edges before execution. No physical host adapter is included.
 The 50 MHz clock is the qualified physical-flow target, not measured Fmax.
 Netlist tests are functional zero-delay simulation; routed timing is a separate
 analysis. The fast model set combines -40 C standard cells and -55 C SRAM.
-There is no fabricated-silicon or FPGA result, analog-bus qualification,
-continuous autonomous UART guarantee or owner-fluency pass.
+Receiver-end electrical measurements, FPGA or silicon captures and continuous
+autonomous UART service remain open.
 
 ## Reproduce and finish the packet
 
@@ -164,6 +171,6 @@ Publication is verified for stable `v0.1.0` at release source `5bdc0e6b6449a829a
 The official page was rechecked on 2026-11-24 with unchanged content and no
 final form. Recheck it again before entry. When the final form appears,
 the repository, final release and this write-up provide the prepared material.
-Submitting that entry is separate. G5 is complete and documented above;
-G6's owner teach-back remains pending. The original G4 packet and its
+The January 11 package review and January 18, 2027 filing deadline are tracked
+in the [backlog](backlog.md). The original G4 packet and its
 completion record remain preserved at the v0.1.0 release.

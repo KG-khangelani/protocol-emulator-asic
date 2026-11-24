@@ -1,0 +1,13 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261124" />
+    <testcase name="adverse_handoffs" classname="qualification_cases" file="/workspace/tools/host_transport/qualification_cases.py" lineno="80" time="0.04886174201965332" sim_time_ns="5130.0" ratio_time="104990.11676531294" />
+    <testcase name="assembled_loader_controls" classname="test_program_examples_public" file="/workspace/test/test_program_examples_public.py" lineno="88" time="0.4296860694885254" sim_time_ns="43036.148" ratio_time="100157.18696961216" />
+    <testcase name="assembled_uart_examples" classname="test_program_examples_public" file="/workspace/test/test_program_examples_public.py" lineno="139" time="4.576460123062134" sim_time_ns="788622.0" ratio_time="172321.396623976" />
+    <testcase name="assembled_spi_examples" classname="test_program_examples_public" file="/workspace/test/test_program_examples_public.py" lineno="225" time="2.526074171066284" sim_time_ns="249112.00000000012" ratio_time="98616.26505402538" />
+    <testcase name="assembled_i2c_examples" classname="test_program_examples_public" file="/workspace/test/test_program_examples_public.py" lineno="264" time="5.47542405128479" sim_time_ns="10178892.216" ratio_time="1859014.4106941922" />
+    <testcase name="replay_waveforms" classname="test_waveform_replay_public" file="/workspace/test/test_waveform_replay_public.py" lineno="155" time="0.8760042190551758" sim_time_ns="69840.0" ratio_time="79725.64341679394" />
+    <testcase name="replay_falsification" classname="test_waveform_replay_public" file="/workspace/test/test_waveform_replay_public.py" lineno="167" time="0.15180063247680664" sim_time_ns="14440.0" ratio_time="95124.76835171462" />
+    <testcase name="replay_loader" classname="test_waveform_replay_public" file="/workspace/test/test_waveform_replay_public.py" lineno="174" time="0.08449888229370117" sim_time_ns="7280.001000000164" ratio_time="86154.99758560522" />
+  </testsuite>
+</testsuites>

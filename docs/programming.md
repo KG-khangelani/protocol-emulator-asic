@@ -129,7 +129,11 @@ runtime has not been established. The listing never turns an input-dependent
 wait into a guaranteed single latency. The 50 MHz setting is the qualified flow
 target, not a measured maximum frequency or a board timing guarantee.
 
-## Follow the public loading plan
+## Follow the released macro-port loading plan
+
+The following procedure exercises a macro in a harness that can clock it with
+`ena=0`. A selected, powered project uses the cold-start command above. It
+uses the same image and readback values and keeps `ena=1` on every edge.
 
 Every plan step holds the listed inputs through one rising clock and checks
 the expected outputs after settling. Stop on the first mismatch. The plan ends

@@ -1,0 +1,22 @@
+{
+  "backend": "verilator",
+  "binary_sha256": "1a1f7b923ebc7f1d0b6fe3a3866315a5cd4df4e62cd992e5d4e0855902b5aa1a",
+  "inputs_sha256": {
+    "load-plan.json": "09b2c0d626c0ae18e1472541d7df571f675d4904e224c7b8b82a38a24abd126d",
+    "program.bin": "1a1f7b923ebc7f1d0b6fe3a3866315a5cd4df4e62cd992e5d4e0855902b5aa1a",
+    "program.json": "0696bfeaca492d7e2d9f46bf8b039e6e7e7e56ba927e0950a215e938121f4a5d"
+  },
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "runtime": {
+    "first_edge": {
+      "uio_oe": 12,
+      "uio_out": 8,
+      "uo_out": 33
+    }
+  },
+  "scope": "digital public-pin RTL simulation",
+  "source_sha256": "edf91cbd1fc59bb0f2f066ce5e592ef247217022b03bec701920264c2a641570",
+  "status": "PASS",
+  "transcript_sha256": "b2f90ebefd169f11bad42ebe9525c15c518799ea56522425381fb21cdd831bb6",
+  "verified_bytes": 32
+}

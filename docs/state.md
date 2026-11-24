@@ -1,8 +1,23 @@
 # Current state
 
-Updated: 2026-11-24. Engineering phase: **HOST-T01, powered cold loader**.
+Updated: 2026-11-24. Engineering phase: **HOST-T01 digital loader complete**.
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
+
+The [cold-start command](programming.md#cold-load-the-selected-chip-in-simulation)
+at `550065b` verifies all 32 program bytes on a continuously selected device,
+hands the shared pins to the UART peer and receives `96 69`. The clean
+Verilator RTL and Icarus submitted-netlist comparisons matched all 55 G3
+and twenty applicable G5 cases, including the same 75 raw traces across
+backends. The controller rejected all four injected faults before reporting a
+successful launch, and a fresh cold load passed.
+All twenty qualified physical inputs match both releases. [E0050](../evidence/E0050-powered-cold-loader/README.md)
+
+The next physical milestone is one measured cold handoff and receiver-end
+transaction with a named peer, isolatable wiring and calibrated instruments.
+The [submission packet](submission.md) now distinguishes the release macro
+plan from the continuously selected command. Review the final form by the
+11 January package checkpoint and again before filing.
 
 The [24 November technical review council](reports/2026-11-24-technical-review-council.md)
 and [E0049](../evidence/E0049-review-council/README.md) checked the two releases,
@@ -13,8 +28,6 @@ conditions. A new SPI target exposes a stalled-clock abort failure. The
 [D51 disposition](decisions/0051-review-council-next-steps.md) ranks a
 user-invocable powered cold transport first for engineering, with an equipped
 receiver-end test first when a suitable bench window and actual peer exist.
-The owner checkpoint remains open. None of the five M0 criteria has yet been
-recorded at its required “demonstrated with support” level.
 
 [D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
 digital stimulus and a controlled two-clock edge shift, with zero RTL changes.

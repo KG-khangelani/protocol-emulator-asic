@@ -7,9 +7,10 @@ Build a useful, reprogrammable chip with evidence another person can reproduce.
 G1-G5 are complete. The qualified shared-protocol core, assembler, loading
 plans and reproducible examples are published in verified stable v0.1.0.
 The v0.1.1 software release adds the G5 waveform example. The
-[council review](reports/2026-11-24-technical-review-council.md) recommends a
-powered cold-start transport and an owner-observed G6 checkpoint. The
-transport is the active integration task outside G1–G5 closure.
+[council review](reports/2026-11-24-technical-review-council.md) prioritized
+a powered cold-start transport. [E0050](../evidence/E0050-powered-cold-loader/README.md)
+qualifies the command on production RTL and the submitted netlist. A calibrated
+physical handoff with a named peer is the next engineering measurement.
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 

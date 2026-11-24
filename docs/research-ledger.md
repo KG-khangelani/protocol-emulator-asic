@@ -1,5 +1,20 @@
 # Research ledger
 
+## 24 November powered cold-loader qualification
+
+**Demonstrated.** A caller can load a released program with enable high at every
+clock edge on the modeled public interface. The receiver read back 32 bytes and
+the host delivered `96 69` at terminal `A7`. The product controller reproduced
+the 55 G3 and twenty applicable G5 archive cases on the production RTL and the
+submitted netlist. A bad write, a stuck-connected UART peer, an extra clock and
+a skipped selector each prevented a successful launch report. The two original
+integration failures and subsequent clean replay are retained. [E0050](../evidence/E0050-powered-cold-loader/README.md)
+
+**Open.** The modeled peer switch and driver masks expose ownership directly.
+The physical host needs a calibrated observation at the receiving end. The
+delay from a controller command to actual line release and the installed
+UART host-service interval remain unmeasured. [Bench contract](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
+
 ## 24 November council disposition
 
 The [three-hour review](reports/2026-11-24-technical-review-council.md) examined

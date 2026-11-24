@@ -12,7 +12,7 @@ The technical research question remains:
 > What is the smallest computational substrate that can efficiently express
 > useful digital communication protocols under hard temporal constraints?
 
-The learning question is equally important:
+When the owner resumes learning, its question is:
 
 > Can every design claim be connected to a source file, an executable command,
 > an inspectable result, and a clear explanation of what was and was not proved?
@@ -21,12 +21,14 @@ The ordered milestones, completion checks and planning targets are in
 [goals to submission readiness](goals.md). G1 through G5 are complete. The
 first deferred learning checkpoint is G6's M0 teach-back under D8. The
 [technical review council](reports/2026-11-24-technical-review-council.md)
-recommends a continuously selected, cold-start host transport as the next
-engineering task. The final competition form remains a separate delivery step.
+prioritized the continuously selected cold-start host transport. Its digital
+qualification is complete in [E0050](../evidence/E0050-powered-cold-loader/README.md).
+Next come a calibrated physical measurement when equipped and the competition filing.
 
 ## Working contract
 
-Use this loop throughout the project:
+Engineering follows the evidence loop in [AGENTS.md](../AGENTS.md). Use the
+following learning loop when the owner resumes G6.
 
 ```mermaid
 flowchart LR

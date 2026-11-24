@@ -1,0 +1,257 @@
+{
+  "backend": "verilator",
+  "command": [
+    "make",
+    "-C",
+    "/workspace/tools/host_transport",
+    "-f",
+    "/workspace/test/Makefile",
+    "SIM=verilator",
+    "SRC_DIR=/workspace/src",
+    "SIM_BUILD=/workspace/build/rtl/sim",
+    "COCOTB_TEST_MODULES=qualification_cases,test_program_examples_public,test_waveform_replay_public",
+    "COCOTB_RESULTS_FILE=/workspace/build/rtl/results.xml",
+    "FST=",
+    "COCOTB_PLUSARGS=+NO_DUMP"
+  ],
+  "commit": "550065b9e7ac1e5eeafd081854d766ae100de5ec",
+  "controls": {
+    "damaged-byte": {
+      "completed_rows": 38,
+      "error": "step 37 read_byte_after_edge: observed {'uio_oe': 255, 'uio_out': 1}, expected {'uio_oe': 255, 'uio_out': 0}",
+      "launched": false,
+      "parked": {
+        "clk": 0,
+        "host_mask": 0,
+        "peer_drive": 0,
+        "rst_n": 0,
+        "ui_in": 231,
+        "uio_oe": 0
+      }
+    },
+    "early-clock": {
+      "completed_rows": 76,
+      "error": "unexpected clock edge while parked",
+      "launched": false,
+      "parked": {
+        "clk": 0,
+        "host_mask": 0,
+        "peer_drive": 0,
+        "rst_n": 0,
+        "ui_in": 231,
+        "uio_oe": 0
+      }
+    },
+    "good-cold-retry": {
+      "completed_rows": 76,
+      "launched": true
+    },
+    "peer-stuck-connected": {
+      "completed_rows": 0,
+      "error": "external peer is still driving during cold load",
+      "launched": false,
+      "parked": {
+        "clk": 0,
+        "host_mask": 0,
+        "peer_drive": 2,
+        "rst_n": 0,
+        "ui_in": 231,
+        "uio_oe": 0
+      }
+    },
+    "unordered-selector": {
+      "completed_rows": 76,
+      "error": "unsafe handoff at selector 67",
+      "launched": false,
+      "parked": {
+        "clk": 0,
+        "host_mask": 0,
+        "peer_drive": 0,
+        "rst_n": 0,
+        "ui_in": 231,
+        "uio_oe": 0
+      }
+    }
+  },
+  "g3": {
+    "archive_records_sha256": "7b90f33ed4cc3348e71b02f39d217e0d9f1b9a59ed2271b42b22574d4eac1b6a",
+    "cases": 55,
+    "expected_rejections": 15,
+    "observations": 54522
+  },
+  "g5": {
+    "archive_digest": "sha256:8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759",
+    "cases": 20,
+    "compared": [
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-already-high",
+        "runtime_rows": 64,
+        "trace_sha256": "40e054599e4d337dfd925d7022368233c171fbbff6c60efcaf4ed59466c10504"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-last-trigger",
+        "runtime_rows": 96,
+        "trace_sha256": "4588e9465141e4529bbc3cf1e4b30d0a54072d9a77787d4162a685cbe16ec5fd"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-late-trigger",
+        "runtime_rows": 44,
+        "trace_sha256": "3ed4ec3f7ab41152fa31924eea395a31c2a5b1f940374823260c4dc2bbf30bff"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-no-trigger",
+        "runtime_rows": 44,
+        "trace_sha256": "612c86f7e27bc00de014607f906e87b7d900175c2f01b2e0f8cddf1bbb254dca"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-phase-early",
+        "runtime_rows": 72,
+        "trace_sha256": "19fbd8ae0aa5c3467f981c6f49dda1d4cec8e1fee64c3961b949518a3b58d139"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-phase-late",
+        "runtime_rows": 72,
+        "trace_sha256": "19fbd8ae0aa5c3467f981c6f49dda1d4cec8e1fee64c3961b949518a3b58d139"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-phase-middle",
+        "runtime_rows": 72,
+        "trace_sha256": "19fbd8ae0aa5c3467f981c6f49dda1d4cec8e1fee64c3961b949518a3b58d139"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-unsampled-pulse",
+        "runtime_rows": 44,
+        "trace_sha256": "612c86f7e27bc00de014607f906e87b7d900175c2f01b2e0f8cddf1bbb254dca"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "control-wrong-trigger-pin",
+        "runtime_rows": 44,
+        "trace_sha256": "e10ee55e72303257a5a9bb56fcde7e8df23b234c14e9de19e6038e88dd25f19a"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-already-high",
+        "runtime_rows": 64,
+        "trace_sha256": "e2ac9c08d724672827cab36833fe3035beeaf5098b1c5b941b0fa361ca8425ee"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-last-trigger",
+        "runtime_rows": 96,
+        "trace_sha256": "f4795ab19004c8a38f881cae3b99d744e805fa220b8e5f7aa30d90f474cbff87"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-no-trigger",
+        "runtime_rows": 44,
+        "trace_sha256": "c4fd4db10c4d8ea108fd2438f73b236a9d449cb1c4a08ff2d656c52a642caf24"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-phase-early",
+        "runtime_rows": 72,
+        "trace_sha256": "dfdfaa3d4853e440409589b2611ba02816a34d001ce12b247890a872d3bf9749"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-phase-late",
+        "runtime_rows": 72,
+        "trace_sha256": "dfdfaa3d4853e440409589b2611ba02816a34d001ce12b247890a872d3bf9749"
+      },
+      {
+        "accepted": true,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-phase-middle",
+        "runtime_rows": 72,
+        "trace_sha256": "dfdfaa3d4853e440409589b2611ba02816a34d001ce12b247890a872d3bf9749"
+      },
+      {
+        "accepted": false,
+        "binary": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+        "loader_edges": 176,
+        "name": "fault-vs-control",
+        "runtime_rows": 72,
+        "trace_sha256": "dfdfaa3d4853e440409589b2611ba02816a34d001ce12b247890a872d3bf9749"
+      },
+      {
+        "accepted": false,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 128,
+        "name": "loader-corrupt-readback",
+        "runtime_rows": 0,
+        "trace_sha256": "b30dcf70959e708eec8eee95b34ead93810ba8de59f7d70dcb279d928b3c91bd"
+      },
+      {
+        "accepted": false,
+        "binary": "c81d5801a7223355453aea4e51ac2ef5b9cfeff12edb1f219c6efec74974f6bc",
+        "loader_edges": 176,
+        "name": "missing-release",
+        "runtime_rows": 72,
+        "trace_sha256": "083ecd3b3ea3a2b0d8b7ef6e50f261f8a7190672cfda05bc71385ca86de273ea"
+      },
+      {
+        "accepted": true,
+        "binary": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+        "loader_edges": 176,
+        "name": "reload-after-rejection",
+        "runtime_rows": 72,
+        "trace_sha256": "19fbd8ae0aa5c3467f981c6f49dda1d4cec8e1fee64c3961b949518a3b58d139"
+      },
+      {
+        "accepted": false,
+        "binary": "acbe3e09b18620b6efb747db196131abc1c843814c2521f28806fa10d6fca362",
+        "loader_edges": 176,
+        "name": "uncompensated-delay",
+        "runtime_rows": 74,
+        "trace_sha256": "976fcff3fffcb1c9d816270068d74e9e749c2393113457c6c0c741240f106ee9"
+      }
+    ],
+    "excluded_macro_enable_case": "paused-wall-clock",
+    "expected_rejections": 4
+  },
+  "input_files": 371,
+  "inputs_sha256": "4f0974a51d9f6bd30cb7f33a5150e8c4dc4bb8c1a0de33c2206f7db741e5444a",
+  "junit_sha256": "88b3f2002fbbe32b757d601e5e366fca54f3c79e097b3066af7df1f3ab153203",
+  "model": "RTL",
+  "physical_inputs": 20,
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "status": "PASS"
+}

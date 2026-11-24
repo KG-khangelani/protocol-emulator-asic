@@ -1,0 +1,23 @@
+{
+  "backend": "icarus",
+  "binary_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+  "inputs_sha256": {
+    "load-plan.json": "976ae769f652886abe5b9ad39b0732c7800f797cd1a7504f4a83f2eee5b765c2",
+    "program.bin": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+    "program.json": "ae58861a4a656dd71bde00474daec13d61fb931d0b62644841b10cd77aa5ad5c",
+    "program.lst": "2a9de4bfb1957d19fc75193c62704d061ce3400fd496d24ee3941d37a4a58c30"
+  },
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "runtime": {
+    "terminal": "A7",
+    "uart_received": [
+      150,
+      105
+    ]
+  },
+  "scope": "digital public-pin RTL simulation",
+  "source_sha256": "15c3b49fa57f7dc7c771df0f2d087fcb450c2a828136d9a281f572f1a2de353c",
+  "status": "PASS",
+  "transcript_sha256": "c660d0d69282094b6999c4b5ce83303e77c0307be5571762ec64ebb7ffb0a188",
+  "verified_bytes": 32
+}
