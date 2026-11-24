@@ -73,6 +73,8 @@ def link_checks():
     pages = [*HERE.rglob("*.md"), *(ROOT / "docs/research/council-2026-11-24").glob("*.md")]
     pages += list((ROOT / "docs/reports").glob("2026-11-24-technical-review-council.md"))
     pages += list((ROOT / "docs/decisions").glob("0051-*.md"))
+    tree = subprocess.check_output(["git", "-C", str(ROOT), "ls-tree", "-r", "-t", "-z", "--name-only", "HEAD"])
+    committed = set(tree.decode("utf-8").split("\0"))
     checked = 0
     for page in pages:
         prose = re.sub(r"(?ms)^ *```.*?^ *```[^\n]*", "", page.read_text("utf-8"))
@@ -82,6 +84,7 @@ def link_checks():
                 continue
             path = (page.parent / unquote(url.path)).resolve()
             require(path.is_relative_to(ROOT) and path.exists(), f"broken local link in {page}: {ref}")
+            require(path.relative_to(ROOT).as_posix() in committed, f"uncommitted link target in {page}: {ref}")
             checked += 1
     return checked
 
