@@ -1,0 +1,25 @@
+{
+  "command": "./experiments/spi_target/replay.ps1",
+  "mode": "fresh tool downloads and full offline simulation",
+  "result": "PASS",
+  "first_schedule_write_utc": "2026-11-24T23:15:10.510005+00:00",
+  "last_trace_write_utc": "2026-11-24T23:16:15.476443+00:00",
+  "matched_uncompressed_sha256": {
+    "cases.json": "a73da90435376603273293aefbdb37ef844b29bbd1107233540da1295069bc84",
+    "images.json": "f3bc8e6f034a4dba26b3b2ed25f425f0b3e6525311f36d52bcbbbc4136f955c5",
+    "original.json": "85ae0139349832248584bcf608f29b1a6e3a46561dc7f7c2dc3d8ae864293231",
+    "revised.json": "3d2fea159ba3f5511f1561fef352ea0d794a926f4dafe831dd5a7738cd628e06",
+    "pio.json": "8c95e3851e134493b5b87b6672360a6925ad1da6700512caa04c9a5736b7044e",
+    "original-gate.json": "0c6a6628e0ea221807eebfaeea6431790438fe179eb9ff9f09c287dbc6c59aab",
+    "revised-gate.json": "9e6ae70f5d30080540078c1f15412c053622c3d4b2eba8106976c8c24e01ff45",
+    "pio-host.json": "2285115d09e3151166d8f5b375ba83d9e2c4accd9d40de6bdb44592845471bab",
+    "target.hex": "9ea051acaf76cc9c0cd254d0f14a4a34d4baf0bdf0946b8eb595a38411f4afbe",
+    "revised.asm": "5119bf715fcb4639b6a5f150615d13f2ab8e9cc05fe845f8d13822148eb1661e"
+  },
+  "tool_downloads": {
+    "pio_archive_verified": true,
+    "emulator_modules": 53,
+    "functional_cell_files": 3,
+    "functional_cell_bytes": 131300
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "decision_commit": "4324f9d32d01aad7fcf9408f253ed6b9ba117082",
+  "implementation_commit": "851458c0f8efd4e1857a8b366186f657da54d83a",
+  "run_utc_write_times": {
+    "cases.json": "2026-11-24T23:11:13.059986+00:00",
+    "original.json": "2026-11-24T23:12:15.581282+00:00",
+    "revised.json": "2026-11-24T23:12:40.332507+00:00",
+    "pio.json": "2026-11-24T23:12:00.937114+00:00",
+    "original-gate.json": "2026-11-24T23:12:12.996203+00:00",
+    "revised-gate.json": "2026-11-24T23:12:31.145768+00:00"
+  },
+  "workbench_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "node_image": "node@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920",
+  "source_sha256": {
+    "docs/decisions/0057-compare-spi-target-firmware.md": "b7e6d58275bf63856a51d74abe49939b0dc437051e06c0e0187371cd37f0f84a",
+    "evidence/E0049-review-council/panel-a/pio/fetch_pio_tools.py": "ae55f0d3b769a038f052b7c674d50274cfb3a09b927d270d8b0087f374ca6ba3",
+    "evidence/E0049-review-council/panel-a/pio/tool-identities.json.gz": "638b40e06fcd77cdc41df8c12dad15cde4352222ec1c8a948c8445206161343f",
+    "evidence/E0049-review-council/panel-c/fetch_pdk_models.py": "0f8edeedaecd5bd2a2f3d2883292bd2d5448056152feb3ce2b69069e9d25a7be",
+    "evidence/E0049-review-council/panel-c/resident_replay.py": "731db9b22b7baae448205fb499df9cde74ea16cd0cbfa881b1ea52f8afbffab1",
+    "evidence/E0049-review-council/panel-c/selector_orders.py": "669402e5f6738c7edaf4f0756666471f326f2168e6ac67cb176e47c73114b487",
+    "evidence/E0049-review-council/panel-c/spi-target/spi-target-contract.md": "873bb1c3619344f604a4e59506ff945fdb1404193fc0ab14f347c674994b806c",
+    "evidence/E0049-review-council/panel-c/spi-target/spi_target_screen.py": "9a95a191642e7e9a2a1eeeb063cb00830acae61c680e9ea22828a781889f6554",
+    "evidence/E0049-review-council/panel-c/spi-target/spi_test_target.asm": "9e9d1cf8e811941f87d3578858006ebb2856363833e2130de9fda2417c79b8b8",
+    "experiments/spi_target/pio.cjs": "4e828aef2c9dc52551bd7b9a64b807411dcf51a32c84690a5eb124fb51797194",
+    "experiments/spi_target/requester.py": "dfd0437b174283f6ceeddc5e87e4455a94c223d7aa0dfa5747778d841b055ca7",
+    "experiments/spi_target/revised.py": "a544701be709263edc25881ecffaeaf8cf96ced3cc3e16a64d521c247e772e0d",
+    "experiments/spi_target/run.py": "82e55a5771ee38fd418f5f5c688b738011c12d385467131474a806996dd6d1f7",
+    "experiments/spi_target/target.pio": "dd876d48821c69b130aa1aff066bed0813eb7cdb0ebd3c1c2f4bef5ba40bcdd8",
+    "experiments/spi_target/target_tb.sv": "964c3c0344fd9cbe607b616ad82c4bebd9822e2989f88cfe38ea58b7594e9788",
+    "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+    "tools/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+  },
+  "retained_sha256": {
+    "cases.json.gz": "6e6497e134ec25a01e59a64e8d0720e019ab92029427cff2706bb23dc451af1c",
+    "images.json.gz": "d2594d71a5d935255acbbf383ccfb280244d7ccb973addf875966c87b4955eff",
+    "original-gate.json.gz": "5a60c610ae633b71364354caab74f43e9d3f564cca52ffda19989af9ee154f03",
+    "original.json.gz": "cc8dce4c9c1c4d3fd9650f1cc7aed8038c4ef08ea450890545d6a30a83b36e84",
+    "pio-host.json.gz": "787cf8b6bdb0b13ef466e9235a305253316d1c66d878911a875bdc2a5d46c290",
+    "pio.json.gz": "4736a3fc41084e842f54fba56ccb9f2ebe6b692015d9e5d70f36559a20dcf9f4",
+    "probe-access.json": "5e63a37e3ad4f782fc2a1d57336199d0ed9171717c46d2541153b9dfa77dcea6",
+    "revised-gate.json.gz": "2d814a511f8f532901652b85309466a22d5428a41e26267e3acca08528fc095b",
+    "revised.asm": "5119bf715fcb4639b6a5f150615d13f2ab8e9cc05fe845f8d13822148eb1661e",
+    "revised.json.gz": "83281aeb34382398dbd5e5bd047eeaf8e53b97f49e19333bdecb4abe46a1e45b",
+    "summary.json": "bfc20c7591990abeeb7b966154bc0552a771f6f4f24c393957a9b5637ad6c96f",
+    "target.hex": "9ea051acaf76cc9c0cd254d0f14a4a34d4baf0bdf0946b8eb595a38411f4afbe",
+    "clean-replay.json": "97d25544f5217c61efdf2928cd9f3399fff2eaa0b6c4f5b3399faf8b24faaf30",
+    "doctor.log.gz": "cda3d777b304e12b8bfdd10cd45adf3a45bf3fc1fa0c004ac5692231082d67aa",
+    "check.log.gz": "6ed64255c77603589ba007941d1526405beb257741b1eb7b8e002f9465d3c452"
+  }
+}

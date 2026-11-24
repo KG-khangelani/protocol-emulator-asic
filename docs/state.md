@@ -1,8 +1,18 @@
 # Current state
 
-Updated: 2026-11-25. **Both FabricFox boards delivered two-byte UART batches with separate transmitter and receiver oscillators. BENCH-T01 still needs a calibrated line-release measurement.**
+Updated: 2026-11-25. **A firmware-only SPI target released the bus and served a fresh command in 384 modeled abort trials. It missed the selected-clock timeout. The calibrated UART line-release measurement remains open.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
+
+Both named FabricFox boards were online on 25 November SAST. The public
+interfaces and wiring identified no calibrated probe on the UART target
+branch. The subsequent SPI comparison ran 736 shared schedules per program.
+The revised VM released MISO in 61–99 ns and delivered every fresh reply.
+It failed all 32 cases where the clock paused but chip select stayed low.
+The original VM passed those timeouts and failed all 384 full reselections.
+The one-state-machine PIO target passed normal transfers and failed full
+reselections. Thirty selected submitted-netlist traces matched the VM RTL.
+[E0055 measurements and instrument access](../evidence/E0055-spi-target-comparison/README.md)
 
 The RP2350's crystal clock drove the transmitter. The FPGA's internal oscillator
 clocked the receiver while GPIO16 stayed high. Both boards passed with a fixed
@@ -849,6 +859,10 @@ efficiently express useful digital communication protocols under hard temporal c
   in the packet. REMOTE-T01 measured real host latency and two-frame delivery.
   BENCH-T01 now needs a calibrated high/low/released discriminator on the
   target branch. [Bench protocol](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
+- For an SPI firmware successor, fit the selected-clock watchdog into 128
+  words and rerun both the 384 deselections and 32 selected stalls. Keep
+  production at v0.1.0 while the full target role is open.
+  [Matched comparison](../evidence/E0055-spi-target-comparison/README.md)
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Resume the owner M0 teach-back only at the owner's explicit request under D52.

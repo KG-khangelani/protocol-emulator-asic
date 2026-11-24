@@ -1,0 +1,624 @@
+{
+  "original": {
+    "invalid": {
+      "total": 254,
+      "passed": 254,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "valid": {
+      "total": 28,
+      "passed": 28,
+      "completed_correct_reply_bytes": 28,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        61,
+        79
+      ],
+      "minimum_setup_ns": 131,
+      "minimum_hold_ns": 311,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "reselect": {
+      "total": 384,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 384,
+      "abort_by_160ns": 24,
+      "observed_abort_range_ns": [
+        143,
+        15537
+      ],
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 131,
+      "minimum_hold_ns": 283,
+      "failures_per_check": {
+        "abort_release": 360,
+        "fresh_prefix_drive": 360,
+        "normal_release": 384,
+        "reply_bit": 384,
+        "terminal_result": 384
+      },
+      "first_failure": [
+        "reselect-a4-250-1-0-0",
+        {
+          "check": "abort_release",
+          "ns": 4551,
+          "observed": 4279
+        }
+      ]
+    },
+    "hold": {
+      "total": 32,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 32,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": [
+        1563,
+        1613
+      ],
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 137,
+      "minimum_hold_ns": 343,
+      "failures_per_check": {
+        "abort_release": 32
+      },
+      "first_failure": [
+        "hold-a4-0-0",
+        {
+          "check": "abort_release",
+          "ns": 4557,
+          "observed": 1613
+        }
+      ]
+    },
+    "pause": {
+      "total": 32,
+      "passed": 32,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 137,
+      "minimum_hold_ns": 343,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "stuck_select": {
+      "total": 2,
+      "passed": 2,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        63,
+        63
+      ],
+      "minimum_setup_ns": 397,
+      "minimum_hold_ns": 563,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "missing": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "missing_reply": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 397,
+      "minimum_hold_ns": 583,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "late": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "early": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    }
+  },
+  "revised": {
+    "invalid": {
+      "total": 254,
+      "passed": 254,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "valid": {
+      "total": 28,
+      "passed": 28,
+      "completed_correct_reply_bytes": 28,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        81,
+        99
+      ],
+      "minimum_setup_ns": 151,
+      "minimum_hold_ns": 311,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "reselect": {
+      "total": 384,
+      "passed": 384,
+      "completed_correct_reply_bytes": 384,
+      "abort_observed": 384,
+      "abort_by_160ns": 384,
+      "observed_abort_range_ns": [
+        61,
+        99
+      ],
+      "normal_release_range_ns": [
+        81,
+        99
+      ],
+      "minimum_setup_ns": 151,
+      "minimum_hold_ns": 203,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "hold": {
+      "total": 32,
+      "passed": 32,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 32,
+      "abort_by_160ns": 32,
+      "observed_abort_range_ns": [
+        63,
+        93
+      ],
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 157,
+      "minimum_hold_ns": 203,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "pause": {
+      "total": 32,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 157,
+      "minimum_hold_ns": 323,
+      "failures_per_check": {
+        "missing_reply_drive": 32,
+        "terminal_result": 32
+      },
+      "first_failure": [
+        "pause-a4-0-0",
+        {
+          "check": "terminal_result",
+          "ns": 6257,
+          "observed": [
+            11650,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "stuck_select": {
+      "total": 2,
+      "passed": 2,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        83,
+        83
+      ],
+      "minimum_setup_ns": 417,
+      "minimum_hold_ns": 563,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "missing": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "missing_reply": {
+      "total": 1,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 417,
+      "minimum_hold_ns": 563,
+      "failures_per_check": {
+        "missing_reply_drive": 1,
+        "terminal_result": 1
+      },
+      "first_failure": [
+        "missing_reply",
+        {
+          "check": "terminal_result",
+          "ns": 12007,
+          "observed": [
+            19390,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "late": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "early": {
+      "total": 1,
+      "passed": 1,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {},
+      "first_failure": null
+    }
+  },
+  "pio": {
+    "invalid": {
+      "total": 254,
+      "passed": 2,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {
+        "late_prefix_rejection": 252
+      },
+      "first_failure": [
+        "opcode-00",
+        {
+          "check": "late_prefix_rejection",
+          "ns": 1506,
+          "observed": [
+            0,
+            48,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "valid": {
+      "total": 28,
+      "passed": 28,
+      "completed_correct_reply_bytes": 28,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        141,
+        159
+      ],
+      "minimum_setup_ns": 91,
+      "minimum_hold_ns": 391,
+      "failures_per_check": {},
+      "first_failure": null
+    },
+    "reselect": {
+      "total": 384,
+      "passed": 0,
+      "completed_correct_reply_bytes": 192,
+      "abort_observed": 312,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": [
+        203,
+        15617
+      ],
+      "normal_release_range_ns": [
+        141,
+        159
+      ],
+      "minimum_setup_ns": 91,
+      "minimum_hold_ns": 343,
+      "failures_per_check": {
+        "abort_not_driven": 72,
+        "abort_release": 384,
+        "fresh_prefix_drive": 384,
+        "normal_release": 192,
+        "reply_bit": 192
+      },
+      "first_failure": [
+        "reselect-a4-250-1-0-0",
+        {
+          "check": "abort_release",
+          "ns": 4551,
+          "observed": 4359
+        }
+      ]
+    },
+    "hold": {
+      "total": 32,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 97,
+      "minimum_hold_ns": 403,
+      "failures_per_check": {
+        "abort_not_driven": 6,
+        "abort_release": 32
+      },
+      "first_failure": [
+        "hold-a4-0-0",
+        {
+          "check": "abort_release",
+          "ns": 4557,
+          "observed": null
+        }
+      ]
+    },
+    "pause": {
+      "total": 32,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 97,
+      "minimum_hold_ns": 403,
+      "failures_per_check": {
+        "missing_reply_drive": 32,
+        "terminal_result": 32
+      },
+      "first_failure": [
+        "pause-a4-0-0",
+        {
+          "check": "terminal_result",
+          "ns": 6257,
+          "observed": [
+            11690,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "stuck_select": {
+      "total": 2,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": [
+        143,
+        143
+      ],
+      "minimum_setup_ns": 357,
+      "minimum_hold_ns": 643,
+      "failures_per_check": {
+        "terminal_missing": 2
+      },
+      "first_failure": [
+        "stuck-select-a4",
+        {
+          "check": "terminal_missing",
+          "ns": 18007,
+          "observed": [
+            16150,
+            48,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "missing": {
+      "total": 1,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {
+        "rejected_command_driven": 1,
+        "terminal_result": 1
+      },
+      "first_failure": [
+        "missing",
+        {
+          "check": "terminal_result",
+          "ns": 6007,
+          "observed": [
+            19430,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "missing_reply": {
+      "total": 1,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": 357,
+      "minimum_hold_ns": 643,
+      "failures_per_check": {
+        "missing_reply_drive": 1,
+        "terminal_result": 1
+      },
+      "first_failure": [
+        "missing_reply",
+        {
+          "check": "terminal_result",
+          "ns": 12007,
+          "observed": [
+            19430,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "late": {
+      "total": 1,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {
+        "rejected_command_driven": 1,
+        "terminal_result": 1
+      },
+      "first_failure": [
+        "late",
+        {
+          "check": "terminal_result",
+          "ns": 2207,
+          "observed": [
+            19130,
+            48,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "early": {
+      "total": 1,
+      "passed": 0,
+      "completed_correct_reply_bytes": 0,
+      "abort_observed": 0,
+      "abort_by_160ns": 0,
+      "observed_abort_range_ns": null,
+      "normal_release_range_ns": null,
+      "minimum_setup_ns": null,
+      "minimum_hold_ns": null,
+      "failures_per_check": {
+        "rejected_command_driven": 1,
+        "terminal_missing": 1
+      },
+      "first_failure": [
+        "early",
+        {
+          "check": "rejected_command_driven",
+          "ns": 8130,
+          "observed": [
+            8130,
+            56,
+            1,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

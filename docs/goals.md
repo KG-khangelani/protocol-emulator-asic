@@ -17,6 +17,10 @@ also delivered the fixed-preset pair with the receiver on its own FPGA oscillato
 and the transmitter on the RP2350 crystal. The next electrical measurement is the
 time from the handoff command to release at the target. [E0051 offline build](../evidence/E0051-fabricfox-uart/README.md) · [E0052 physical delivery](../evidence/E0052-remote-uart/README.md) · [E0053 programmed offsets](../evidence/E0053-uart-baud-offsets/README.md) · [E0054 separate oscillators](../evidence/E0054-separate-oscillators/README.md)
 The submission packet is ready; no competition entry has been sent.
+The council's matched SPI target comparison now has 736 digital schedules
+per implementation. A 120-word VM program passed all 384 abort/reselect
+trials but failed all 32 selected-clock pauses. The hardware candidate
+remains v0.1.0. [D57](decisions/0057-compare-spi-target-firmware.md) · [E0055](../evidence/E0055-spi-target-comparison/README.md)
 Further instruction compression is valuable only when it improves that outcome.
 
 ## Priorities and planning targets

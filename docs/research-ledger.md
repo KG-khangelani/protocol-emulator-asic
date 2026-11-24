@@ -1,5 +1,27 @@
 # Research ledger
 
+## 25 November SPI target abort and selected-clock timeout
+
+**Demonstrated in digital models.** All three programs returned both full
+reply bytes across 28 ordinary cases on one requester. The 120-word VM
+program released MISO within 61–99 ns and answered the opposite command
+after every one of 384 aborts. All 30 selected public-pin traces across
+both VM images matched the submitted functional netlist. [E0055](../evidence/E0055-spi-target-comparison/README.md)
+
+**Rejected implementations of the full role.** The revised VM failed
+the 2 µs timeout in all 32 paused-response cases with CS held low. The
+original program passed all those cases but failed complete reselection.
+The 32-word native PIO program met the ordinary reply timing and failed
+the combined abort/reselect gate, even in 192 cases that returned the
+correct fresh byte. The demonstrated tradeoff applies to these programs.
+A smaller complete implementation and actual pad timing remain open.
+[Scoreboard and first failures](../evidence/E0055-spi-target-comparison/summary.json)
+
+**Electrical evidence.** The remote service confirmed the same two
+FabricFox devices were online. No calibrated analog channel across a
+characterized UART target branch was identified. BENCH-T01 remains
+partial. [Dated instrument check](../evidence/E0055-spi-target-comparison/README.md#uart-probe-access)
+
 ## 25 November independently clocked physical UART
 
 **Demonstrated.** Two Welland FabricFox receivers running directly from

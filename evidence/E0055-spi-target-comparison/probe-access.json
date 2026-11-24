@@ -1,0 +1,74 @@
+{
+  "fpga-1": {
+    "url": "https://tinytapeout.fpgas.online/board/fpga-1/status.json",
+    "http_status": 200,
+    "http_date_utc": "2026-11-24T23:03:11Z",
+    "board_identity_sha256": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca",
+    "prior_e0054": "board-1",
+    "reachable": true,
+    "present": true,
+    "kind": "fpga",
+    "clients": 0,
+    "daemon_version": "0.1.0",
+    "status_fields": [
+      "board",
+      "clients",
+      "idle_display",
+      "kind",
+      "kind_reason",
+      "reachable",
+      "safe_start",
+      "uptime_s",
+      "version"
+    ],
+    "device_fields": [
+      "chip",
+      "device",
+      "present",
+      "usb_serial",
+      "vid_pid"
+    ],
+    "page_controls_observed": {
+      "camera": true,
+      "upload": true,
+      "commander": true,
+      "rp2350_fabricfox": true
+    }
+  },
+  "fpga-4": {
+    "url": "https://tinytapeout.fpgas.online/board/fpga-4/status.json",
+    "http_status": 200,
+    "http_date_utc": "2026-11-24T23:03:13Z",
+    "board_identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+    "prior_e0054": "board-4",
+    "reachable": true,
+    "present": true,
+    "kind": "fpga",
+    "clients": 0,
+    "daemon_version": "0.1.0",
+    "status_fields": [
+      "board",
+      "clients",
+      "idle_display",
+      "kind",
+      "kind_reason",
+      "reachable",
+      "safe_start",
+      "uptime_s",
+      "version"
+    ],
+    "device_fields": [
+      "chip",
+      "device",
+      "present",
+      "usb_serial",
+      "vid_pid"
+    ],
+    "page_controls_observed": {
+      "camera": true,
+      "upload": true,
+      "commander": true,
+      "rp2350_fabricfox": true
+    }
+  }
+}
