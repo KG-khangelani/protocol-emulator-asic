@@ -1,0 +1,84 @@
+{
+  "started_utc": "2026-11-24T16:06:43.172163+00:00",
+  "status": "PASS_OFFLINE_ENTRY_CHECK",
+  "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+  "environment": "docker --network none; isolated child Python (-I -S -B)",
+  "g4": {
+    "published_command": "python tools/assembler.py programs/od128-sram-v1/uart_tx.asm --out build/first",
+    "cli_help": "usage: assembler.py [-h] --out OUT source\n\nAssemble readable programs for qualified interface 0x22.\n\npositional arguments:\n  source\n\noptions:\n  -h, --help  show this help message and exit\n  --out OUT   new output directory (never overwrites a prior build)\n",
+    "output": "Assembled 8/128 words for od128-sram-v1: build/first",
+    "generated_sha256": {
+      "program.bin": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "program.lst": "eff529b86c03ee88f38a9d816c3f7f4b8fb7a727c7dfc4802a7c8a9da3f432a5",
+      "program.json": "6c5c957836eb8b13ccbb4545fa7b025ffd724743dcca08a9b4e149148afaa7c5",
+      "load-plan.json": "68ce0cfcf829cf3907ae25d6d7f57e99e924480f68ca15feae16a8a08c82bcba"
+    },
+    "load_steps": 76,
+    "ena_low_steps": 39,
+    "last_two": [
+      {
+        "action": "flush_idle",
+        "ena": 0,
+        "ui_hex": "00"
+      },
+      {
+        "action": "flush_idle",
+        "ena": 0,
+        "ui_hex": "00"
+      }
+    ],
+    "profile_error": "assembler.py: error: unrecognized arguments: --profile selected-power",
+    "expected_error_exit": 2,
+    "unsupported_directory_created": false,
+    "bundle_file_sha256": {
+      "programs/od128-sram-v1/uart_tx.asm": "6d3b0820fb87008a11b86087366d88e3cb8c2d9e8d7001029d44ddb696d90007",
+      "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "docs/programming.md": "ca82d26a15f7229ee5bf437bf4d44fcc5cad527a2d41804b813bfec05c181572"
+    },
+    "shipped_tools_members": [
+      "tools/assembler.py",
+      "tools/production-profile.json",
+      "tools/workbench/toolchain.lock.json"
+    ],
+    "archive_binding": "5a1a83551fa5a270ed98596e1c51ac46486480b8dd46ad6db8bdf1c0af2c9ef6"
+  },
+  "g5": {
+    "published_command": "python tools/assembler.py experiments/waveform_replay/control.asm --out build/first",
+    "cli_help": "usage: assembler.py [-h] --out OUT source\n\nAssemble readable programs for qualified interface 0x22.\n\npositional arguments:\n  source\n\noptions:\n  -h, --help  show this help message and exit\n  --out OUT   new output directory (never overwrites a prior build)\n",
+    "output": "Assembled 20/128 words for od128-sram-v1: build/first",
+    "generated_sha256": {
+      "program.bin": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+      "program.lst": "76ad2762c988c695f1ed0c578cd4d84e478964d4c9bd23e35d75ed2c4baa3220",
+      "program.json": "e2264aa0fdae421e4d57961a016fe4d32a7b8c46220466c2065e2e87b319cdba",
+      "load-plan.json": "213e42684331a6382c269cc3687631533a61474e48056192a25a9d0453ba292a"
+    },
+    "load_steps": 176,
+    "ena_low_steps": 87,
+    "last_two": [
+      {
+        "action": "flush_idle",
+        "ena": 0,
+        "ui_hex": "00"
+      },
+      {
+        "action": "flush_idle",
+        "ena": 0,
+        "ui_hex": "00"
+      }
+    ],
+    "profile_error": "assembler.py: error: unrecognized arguments: --profile selected-power",
+    "expected_error_exit": 2,
+    "unsupported_directory_created": false,
+    "bundle_file_sha256": {
+      "experiments/waveform_replay/control.asm": "ef48e382bd53d07671eca5d2002f9721df94ea2e9478287b401e50dffae477c4",
+      "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "docs/programming.md": "ca82d26a15f7229ee5bf437bf4d44fcc5cad527a2d41804b813bfec05c181572",
+      "README.md": "c1372b1226bac70953dcbdf4c228cf9a9004f7099e15e426dd1bdbb25b77e1ca"
+    },
+    "shipped_tools_members": [
+      "tools/assembler.py"
+    ],
+    "archive_binding": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea"
+  },
+  "ended_utc": "2026-11-24T16:06:43.749784+00:00"
+}

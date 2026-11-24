@@ -1,0 +1,32 @@
+{
+  "vm_power_query": {
+    "instruction_words": 85,
+    "unique": 17,
+    "literal_bytes": 4,
+    "width": 5,
+    "raw_program_bytes": 340,
+    "header_bytes": 4,
+    "dictionary_bytes": 68,
+    "index_bytes": 54,
+    "dense_bytes": 126,
+    "dense_whole_block_4byte_aligned": 128,
+    "raw_fallback_with_4byte_header": 344,
+    "external_preload_bytes": 0,
+    "binary_sha256_le": "0e6724b31461a5e1b55c2bb64334199fd83b2f4d62e5ce6543e9e539bf19ecc2"
+  },
+  "pio_power_query": {
+    "instruction_words": 32,
+    "unique": 32,
+    "literal_bytes": 2,
+    "width": 5,
+    "raw_program_bytes": 64,
+    "header_bytes": 4,
+    "dictionary_bytes": 64,
+    "index_bytes": 20,
+    "dense_bytes": 88,
+    "dense_whole_block_4byte_aligned": 88,
+    "raw_fallback_with_4byte_header": 68,
+    "external_preload_bytes": 4,
+    "binary_sha256_le": "2dfafb97cdec95ccda99a201cfb4d23806796a4cd946cee0f8fa09f2f4b312f9"
+  }
+}

@@ -37,6 +37,8 @@ On that same source variant the 550 manual UART cases passed and the four origin
 
 Run from an H: checkout with the repository's pinned workbench and physical PDK available locally. The wrapper requires a new output name and mounts sources and PDK read-only.
 
+A subsequent clean-directory run of that wrapper reproduced both source variants, every counted cell and area, all 550 manual cases, the four expected burst faults and the fifty non-UART outcomes. [Fresh mapping and functional replay](mapping-reproduction.json)
+
 ```powershell
 ./evidence/E0049-review-council/uart-ablation/replay-mapping.ps1 -RunName council-mapped-replay
 ```

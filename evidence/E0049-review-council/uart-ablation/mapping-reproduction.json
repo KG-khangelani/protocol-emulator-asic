@@ -1,0 +1,29 @@
+{
+  "comparisons": {
+    "mapping": {
+      "fields": [
+        "results",
+        "reference_libraries",
+        "savings_percent",
+        "status",
+        "yosys"
+      ],
+      "all_equal": true,
+      "fresh_started_utc": "2026-11-24T16:04:48.141274+00:00",
+      "fresh_ended_utc": "2026-11-24T16:04:54.236909+00:00",
+      "canonical_sha256": "a0f55543b26651bf2131e7613feee8d30e60511b9ff04ceddc857f79cc99ae47"
+    },
+    "functional": {
+      "fields": [
+        "uart",
+        "candidate_sha256",
+        "non_uart_g3",
+        "status"
+      ],
+      "all_equal": true,
+      "fresh_started_utc": "2026-11-24T16:04:55.585689+00:00",
+      "fresh_ended_utc": "2026-11-24T16:05:22.744238+00:00",
+      "canonical_sha256": "efb11b344b4ba35fa0b2163b1bd19ce266fc673ea53817a8e645a3a0fbe58e91"
+    }
+  }
+}

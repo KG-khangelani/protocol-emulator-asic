@@ -1,0 +1,3 @@
+# Compare literal formats on both matched programs
+
+At 16:09 UTC, after counting the two new VM images and before reading the PIO program's unique-word count, add the identical fixed-index calculation for the *same* DS18B20 task's 32-word PIO image. Charge four header bytes, its native two bytes per distinct PIO instruction and minimal fixed-width indices. Report the separate four-byte FIFO preload and a four-byte-aligned dense block as well as a dense byte stream. The architectural comparisons must continue to report actual resident native bytes, physical storage and actual loader work. An archive encoding that expands a short program should be retained. This is a distribution-format comparison on the established witnesses.

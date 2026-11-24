@@ -1,0 +1,250 @@
+{
+  "started_utc": "2026-11-24T16:09:09.821975+00:00",
+  "completed_utc": "2026-11-24T16:09:09.839336+00:00",
+  "artifacts_sha256": {
+    "14094030144": "8d449e95b172ff247b9a4ea67cfbc1a4bdb09116ba603cd0f6f05a519cad86b1",
+    "14155007514": "8ae7c7bee727dbac925cda1ebbff78bc990ae45001d1bf1dbdea6474a6df9759"
+  },
+  "images": {
+    "i2c_read": {
+      "words": 53,
+      "distinct_words": 19,
+      "index_bits": 5,
+      "original_bytes": 212,
+      "dictionary_bytes": 114,
+      "change_bytes": -98,
+      "fraction_of_original": 0.537736,
+      "original_sha256": "774716ec1a895e362bee918548801fcf0838b140005f530e2abd25f2ceaf0e43",
+      "dictionary_sha256": "ab2fc173ad77b9925649a0edfcb2d46fdcb8df88a769dd8e223f36b3499a8e5e"
+    },
+    "i2c_write": {
+      "words": 54,
+      "distinct_words": 19,
+      "index_bits": 5,
+      "original_bytes": 216,
+      "dictionary_bytes": 114,
+      "change_bytes": -102,
+      "fraction_of_original": 0.527778,
+      "original_sha256": "9a35de7413928c5ec29852112e21239df8aa674c67c1d84b51f97ace1a76d37c",
+      "dictionary_sha256": "1280df376b96229940fc7a2779a1902dc5ccba6a57d97c5d7aa9b4248311e2b3"
+    },
+    "i2c_write_read": {
+      "words": 96,
+      "distinct_words": 21,
+      "index_bits": 5,
+      "original_bytes": 384,
+      "dictionary_bytes": 148,
+      "change_bytes": -236,
+      "fraction_of_original": 0.385417,
+      "original_sha256": "3cd132492f141fd056d2feae41bb2d6c52dc825d3fe4471cf17bddffffc999c2",
+      "dictionary_sha256": "3e6d318e948c75d6602b653b67ed43d2ed5c558ebf41267db6d642103130ebd6"
+    },
+    "spi_mode0_lsb": {
+      "words": 8,
+      "distinct_words": 7,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 35,
+      "change_bytes": 3,
+      "fraction_of_original": 1.09375,
+      "original_sha256": "e2cf7272d751545f8b297314d73529046677bca03d661d38d687c3d4a2e34043",
+      "dictionary_sha256": "04fc975e59064cdd90dfd36c2d54038f6c444ab90dfaaca7a3e27a93fdfde2d8"
+    },
+    "spi_mode0_msb": {
+      "words": 8,
+      "distinct_words": 7,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 35,
+      "change_bytes": 3,
+      "fraction_of_original": 1.09375,
+      "original_sha256": "1a1f7b923ebc7f1d0b6fe3a3866315a5cd4df4e62cd992e5d4e0855902b5aa1a",
+      "dictionary_sha256": "32e597f281d415d15ae568b46aefe415baa64016142a45b83887dbabd1a58ad9"
+    },
+    "spi_mode1_lsb": {
+      "words": 10,
+      "distinct_words": 9,
+      "index_bits": 4,
+      "original_bytes": 40,
+      "dictionary_bytes": 45,
+      "change_bytes": 5,
+      "fraction_of_original": 1.125,
+      "original_sha256": "9373cc0632eb54baffa53f80ec1aacb701eff0d07b8bf7033953ffd9e172cb33",
+      "dictionary_sha256": "2b002dabade6efb60ca53bd108962a2cd805cbf34850a331ae15834c21f1ca4b"
+    },
+    "spi_mode1_msb": {
+      "words": 10,
+      "distinct_words": 9,
+      "index_bits": 4,
+      "original_bytes": 40,
+      "dictionary_bytes": 45,
+      "change_bytes": 5,
+      "fraction_of_original": 1.125,
+      "original_sha256": "91355bd57d792e1f4813ab64da039709a8c3bcdea06427771f6cbacfe24e1b73",
+      "dictionary_sha256": "4eea4e05cd6cf72dea280a5e8ae4e4e850f115c0534f65837a3a2710fed50bab"
+    },
+    "spi_mode2_lsb": {
+      "words": 8,
+      "distinct_words": 7,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 35,
+      "change_bytes": 3,
+      "fraction_of_original": 1.09375,
+      "original_sha256": "9d4af787ad4d45a90ae14e50fe18ca03e35ec45621055636e1883c2b7bf71efa",
+      "dictionary_sha256": "432a30a839b6b346344e46f4715c7039df264238398844bd07ff38823e48d151"
+    },
+    "spi_mode2_msb": {
+      "words": 8,
+      "distinct_words": 7,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 35,
+      "change_bytes": 3,
+      "fraction_of_original": 1.09375,
+      "original_sha256": "d8db6dafc02177bb83e0603a343c95ae3f8286745c9fb8763d0116459c50f6be",
+      "dictionary_sha256": "d66a64e3088a75fb6a39665e73a1af14e2e446a0a9a11b9149e008e693a26357"
+    },
+    "spi_mode3_lsb": {
+      "words": 10,
+      "distinct_words": 9,
+      "index_bits": 4,
+      "original_bytes": 40,
+      "dictionary_bytes": 45,
+      "change_bytes": 5,
+      "fraction_of_original": 1.125,
+      "original_sha256": "c51c6aeba9057c3e301d603aeeedaa3d1ae39cead515808919b26b083d3c352a",
+      "dictionary_sha256": "d3f7761e25afa02a10b8ccbb6da4970d2d5798fcc1eb4a3bba48c0bc76ba4aa5"
+    },
+    "spi_mode3_msb": {
+      "words": 10,
+      "distinct_words": 9,
+      "index_bits": 4,
+      "original_bytes": 40,
+      "dictionary_bytes": 45,
+      "change_bytes": 5,
+      "fraction_of_original": 1.125,
+      "original_sha256": "8771970000345ca80010c3e9255b36058d5b315c56e5d71a3d3a7ad3089db5ba",
+      "dictionary_sha256": "9d53daddb67d6d74efdf98e2571c749abc4a0ac5326318dfff38992f0a2d5be2"
+    },
+    "uart_rx": {
+      "words": 8,
+      "distinct_words": 8,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 39,
+      "change_bytes": 7,
+      "fraction_of_original": 1.21875,
+      "original_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "dictionary_sha256": "d3d1bcfd9b824c2944ff39ba11313049b815d97402f10862f71f10df5366ef87"
+    },
+    "uart_tx": {
+      "words": 8,
+      "distinct_words": 6,
+      "index_bits": 3,
+      "original_bytes": 32,
+      "dictionary_bytes": 31,
+      "change_bytes": -1,
+      "fraction_of_original": 0.96875,
+      "original_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "dictionary_sha256": "45e4f90b426b9c858fdff89bcd39721905065efd933b47f204c15df46ca39de3"
+    },
+    "control": {
+      "words": 20,
+      "distinct_words": 16,
+      "index_bits": 4,
+      "original_bytes": 80,
+      "dictionary_bytes": 78,
+      "change_bytes": -2,
+      "fraction_of_original": 0.975,
+      "original_sha256": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+      "dictionary_sha256": "407a07ecaba3c17d7aa843a42fcd13d4800c4b0776a42b29b2b57e374f770b83"
+    },
+    "timing_fault": {
+      "words": 20,
+      "distinct_words": 16,
+      "index_bits": 4,
+      "original_bytes": 80,
+      "dictionary_bytes": 78,
+      "change_bytes": -2,
+      "fraction_of_original": 0.975,
+      "original_sha256": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+      "dictionary_sha256": "f4a25268c6060e29c902d0c6ddda385c603d6daf9510e0f85ebf89690400ea7b"
+    }
+  },
+  "collection_bytes": {
+    "original_bytes": 1324,
+    "dictionary_bytes": 922
+  },
+  "peak_single_image_bytes": {
+    "original_bytes": 384,
+    "dictionary_bytes": 148
+  },
+  "images_shrunk": 6,
+  "images_equal": 0,
+  "images_grown": 9,
+  "synthetic": {
+    "three_words_partial_byte": {
+      "words": 21,
+      "distinct_words": 3,
+      "index_bits": 2,
+      "original_bytes": 84,
+      "dictionary_bytes": 22,
+      "change_bytes": -62,
+      "fraction_of_original": 0.261905,
+      "original_sha256": "ff08327d01e0b31a682faaaa2305de89f24bf680e2746569bfc745af41b21551",
+      "dictionary_sha256": "02bf776d9465ebd15bd317b38ebf74b9538d7a2032097d77db37621ae914d468"
+    },
+    "two_values_cross_byte": {
+      "words": 22,
+      "distinct_words": 2,
+      "index_bits": 1,
+      "original_bytes": 88,
+      "dictionary_bytes": 15,
+      "change_bytes": -73,
+      "fraction_of_original": 0.170455,
+      "original_sha256": "6b901f3d0b49b3091c3ba29f68a9931bc516ec5c36c536df53fb3d3f56d65787",
+      "dictionary_sha256": "f97dbec9622370b42c43da774e946c73691e2f652e545029caad900cce370b62"
+    },
+    "one_word": {
+      "words": 1,
+      "distinct_words": 1,
+      "index_bits": 0,
+      "original_bytes": 4,
+      "dictionary_bytes": 8,
+      "change_bytes": 4,
+      "fraction_of_original": 2.0,
+      "original_sha256": "6d58692645c9d1cfaf13541cbd258f86193ef63c2f1d38f6bbca9617372d7bd6",
+      "dictionary_sha256": "384aa6497cf696e372c361ed7ca20eee5f283fcfc8750f4a32831925024c1b9a"
+    },
+    "all_equal_128": {
+      "words": 128,
+      "distinct_words": 1,
+      "index_bits": 0,
+      "original_bytes": 512,
+      "dictionary_bytes": 8,
+      "change_bytes": -504,
+      "fraction_of_original": 0.015625,
+      "original_sha256": "33d16b3f8b5ec5d9bfc425a722c657792f48c286b1e3767cbf1aeb4d5d803e46",
+      "dictionary_sha256": "cdc1f63c44394f59a1dca94c17f4adbb423954d9d5e96a75662c7234a960c240"
+    },
+    "all_distinct_128": {
+      "words": 128,
+      "distinct_words": 128,
+      "index_bits": 7,
+      "original_bytes": 512,
+      "dictionary_bytes": 628,
+      "change_bytes": 116,
+      "fraction_of_original": 1.226562,
+      "original_sha256": "89a12877034d9f6b8d86e389208174a9968c2d35eafcb97d35f7b416bbe02beb",
+      "dictionary_sha256": "b9c0523d88c7eb86d8a64e2965374230dbbc49aa3a19d84639f27d3e822b7bb3"
+    }
+  },
+  "rejected": {
+    "out_of_range_index": "unused dictionary index",
+    "short_stream": "incorrect encoded size",
+    "extra_data": "incorrect encoded size",
+    "wrong_width": "noncanonical width",
+    "nonzero_padding": "nonzero padding"
+  }
+}
