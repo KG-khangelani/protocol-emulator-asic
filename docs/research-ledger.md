@@ -298,11 +298,13 @@ inconclusive outcomes. Fresh corrected official qualification remains open.
 
 ## Open questions
 
-- Q1: What timing quantum and external-input latency meet useful protocol rates?
-- Q2: What program-memory type/capacity fits after physical overhead?
-- Q3: How are programs and payloads loaded/read back after fabrication?
-- Q4: What electrical assumptions and synchronization delays govern each pin?
-- Q5: Which stretch protocol demonstrates the most reusable capability per cost?
+| Question | What is resolved, and what would change the answer? |
+| --- | --- |
+| Q1. What timing quantum and external-input latency meet useful protocol rates? | The 20 ns digital target and two input registers support the released roles under their specified peer envelopes. The externally clocked target exposes a different abort deadline. A complete target on a named requester would test that requirement. [Role and timing comparisons](reports/2026-11-24-technical-review-council.md) |
+| Q2. What program-memory type/capacity fits after physical overhead? | One 256×32 macro with 128 logical words fits the qualified 8×4 design. A different physical memory or smaller complete chip needs a matched route and the same loaded workloads. [G4 physical reproduction](../evidence/E0047-g4-submission-candidate/README.md) |
+| Q3. How are programs and payloads loaded/read back after fabrication? | The original port contract and continuously selected digital sequence are executable. A user-invocable controller and observed live-peer handoff are open. [HOST-T01 starting image and controls](research/council-2026-11-24/next-experiments.md#1-deliver-a-usable-cold-start-transport) |
+| Q4. What electrical assumptions and synchronization delays govern each pin? | The digital sampler delay, extracted inter-register timing and several modeled threshold failures are known. A calibrated receiver-end capture and characterized flop parameters would answer different remaining questions. [Pin and STA evidence](../evidence/E0049-review-council/panel-b/README.md) |
+| Q5. Which stretch protocol demonstrates the most reusable capability per cost? | G5 demonstrates timed stimulus reuse. The 1-Wire query and externally clocked SPI target distinguish two further use cases. USB and Ethernet remain proposed stretch roles with unresolved line coding and physical-interface costs. [Council alternatives and priorities](reports/2026-11-24-technical-review-council.md) |
 
 ## Rejected approaches
 

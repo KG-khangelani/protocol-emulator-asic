@@ -1,0 +1,30 @@
+{
+  "start_utc": "2026-11-24T17:06:48.385478+00:00",
+  "source_commit": "928ad99a3c17e168761ef7dd4390a3688d140fbf",
+  "mode": "Git archive of committed inputs, isolated standard-library Python, no simulator",
+  "checks": {
+    "target": {
+      "program": "panel-a/spi-target-crosscheck.py",
+      "source_sha256": "f3936a763248f715bb13c6ac5ff06f86ec108cd4dc53d62d5e11c9c2b6f44391",
+      "reference": null,
+      "canonical_result_sha256": "3782f0476901803f4a4cdc506ebbefafe5f38f5449bf42d177b81c7732d4a3f9",
+      "status": "PASS"
+    },
+    "current_fixture": {
+      "program": "panel-b/fixture/fixture_sensitivity.py",
+      "source_sha256": "81dc74c58f4df58d422f20ce975ff6db1a52b16a239017df504d78112bb4cce7",
+      "reference": "panel-b/fixture/results/fixture-sensitivity.json",
+      "canonical_result_sha256": "df05b24804fc0b23e6d1b9553415094855ea20294b728226bb09f3c9dad4d432",
+      "status": "PASS"
+    },
+    "sensor_rc": {
+      "program": "panel-b/sources/onewire_load.py",
+      "source_sha256": "2a3c597f7626b7ca0ee81051349faa6803990be4ec5067cb0300b1670143161c",
+      "reference": "panel-b/results/onewire-load.json",
+      "canonical_result_sha256": "0ac90d840752f1de9975875f428fe8046989548a579f9e32c72dcc5ffed9f997",
+      "status": "PASS"
+    }
+  },
+  "files_exported": 40,
+  "finish_utc": "2026-11-24T17:06:48.824858+00:00"
+}
