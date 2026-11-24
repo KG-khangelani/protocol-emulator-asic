@@ -1,6 +1,6 @@
 # Submission packet
 
-Updated 2026-11-14. **G4 is complete: physical reproduction, software distribution, stable release and matching workbench are verified.**
+Updated 2026-11-24. **G4 is complete: physical reproduction, software distribution, stable release and matching workbench are verified.** G5 adds the qualified firmware example below.
 
 <!-- G4 physical qualification from retained E0047 records -->
 This packet collects the design, software and evidence for the Jane Street
@@ -18,6 +18,7 @@ and the five checks in [G4](goals.md#g4---close-and-publish-the-final-design).
 | Physical allocation | IHP CMOS5L, 8x4 Tiny Tapeout tiles, 20 ns clock target |
 | Frozen G4 physical source | [`45c55f7cd95db2a883b0ffb5e864decd62d53601`](https://github.com/KG-khangelani/protocol-emulator-asic/tree/45c55f7cd95db2a883b0ffb5e864decd62d53601) |
 | Verified release | [v0.1.0](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.0), source `5bdc0e6b6449a829a5da1f8f9a8060257e974843`; [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md) |
+| Additional firmware example | [v0.1.1](https://github.com/KG-khangelani/protocol-emulator-asic/releases/tag/v0.1.1), source `022834146efcb5f388a4d6ec23b3b705a0df7ef8`; [G5 publication audit](../evidence/E0048-waveform-replay/publication/README.md). The v0.1.0 physical reference is unchanged. |
 | Workbench package | [Public container package](https://github.com/KG-khangelani/protocol-emulator-asic/pkgs/container/protocol-emulator-asic-workbench); `ghcr.io/kg-khangelani/protocol-emulator-asic-workbench@sha256:a22fc6626bc4f61b52cd6a32793cec86f718f0943d078ad03cfbf8dc7932af88` |
 
 The final documentation/release revision can follow the physical producer
@@ -49,6 +50,16 @@ support for every peripheral. See the [architecture](architecture.md),
 [instruction set](isa.md), [programming guide](programming.md) and
 [example catalog](../programs/od128-sram-v1/README.md).
 
+G5 demonstrates reuse beyond those protocols: two 20-word programs generate
+an externally triggered, irregular three-line waveform. One delays a selected
+edge by two clocks and compensates before the next transition. Both simulators
+and a clean clone reproduce the public-pin records, including trigger,
+timeout, readback and cleanup controls. No RTL changes were needed. The
+[example guide](waveform-replay.md) explains its value and timing limits;
+[E0048](../evidence/E0048-waveform-replay/README.md) retains the qualification,
+failed attempts and verified distribution. This is digital simulation evidence,
+with no physical fixture or analog-fault claim.
+
 The design process retained losing alternatives. G1's timed-GPIO P candidate
 reduced routed standard-cell area but failed its fanout limit. G2's larger
 register-backed stores failed placement or routing; the SRAM approach passed
@@ -61,12 +72,17 @@ the original physical gates. Those decisions and failures remain in
 ## Material for review
 
 The [official rules and FAQ](https://blog.janestreet.com/protocol-emulator-asic-competition/)
-were checked on 2026-11-14. They specify a January 18, 2027 deadline and 8x4
+were rechecked on 2026-11-24. They specify a January 18, 2027 deadline and 8x4
 CMOS5L allocation. SRAM is permitted if the design fits and passes precheck.
 The final submission form is still forthcoming. A video and FPGA demonstration
 are optional, and no fixed clock or protocol speed is required. The dated
-[rule observation](../evidence/E0047-g4-submission-candidate/rules-observation.json)
-records this review.
+[rule comparison](research/rule-reviews/2026-11-24.json) confirms identical
+HTML to the November 14 observation despite changed response timestamps.
+
+The judging guidance emphasizes reprogrammability, verification and a clear
+write-up. Our review path is the shared engine and its protocol examples,
+G5's additional firmware use, then the measured design decisions and evidence
+below. This is our presentation choice, not a new competition requirement.
 
 | Published requirement | Repository material | G4 closure condition |
 |---|---|---|
@@ -145,8 +161,9 @@ reference after those retained audits have run.
 <!-- G4 publication closure from retained evidence -->
 Publication is verified for stable `v0.1.0` at release source `5bdc0e6b6449a829a5da1f8f9a8060257e974843`. All 35 public assets, 435 bundle members and the matching workbench image/source identities pass; all nine tag workflows / 22 jobs pass. Windows and Linux produce 17 byte-identical assets, and the standalone bundle rebuilds all thirteen examples into 52 identical files. See the [publication audit](../evidence/E0047-g4-submission-candidate/publication/README.md) and [completion audit](../evidence/E0047-g4-submission-candidate/completion-audit.json).
 
-The official page was rechecked on 2026-11-14 with unchanged content and no
+The official page was rechecked on 2026-11-24 with unchanged content and no
 final form. Recheck it again before entry. When the final form appears,
 the repository, final release and this write-up provide the prepared material.
-Submitting that entry is separate. G5 experiments and G6's owner teach-back
-remain outside this engineering completion.
+Submitting that entry is separate. G5 is complete and documented above;
+G6's owner teach-back remains pending. The original G4 packet and its
+completion record remain preserved at the v0.1.0 release.

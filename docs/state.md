@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-11-15. Engineering phase: **G5 COMPLETE**.
+Updated: 2026-11-24. Engineering phase: **G5 COMPLETE**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
 [D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
@@ -40,8 +40,11 @@ close all five G4 checks. The rejected checksum-order comparison and local Docke
 startup failures remain retained; isolated Linux CI supplied the required replays.
 
 The [submission packet](submission.md) and current architecture/ISA, toolchain,
-verification and AI-use guides are ready. The official rules were rechecked on
-2026-11-14 with unchanged content; the final form is still forthcoming.
+verification and AI-use guides are ready. The announcement was rechecked on
+2026-11-24: response timestamps changed, but its HTML matches November 14
+byte for byte. The [comparison](research/rule-reviews/2026-11-24.json) records
+the observation; the final form is still forthcoming. The current submission
+packet now includes G5's qualified waveform example and software release.
 No competition entry has been sent. G5 supplies the qualified optional
 firmware example; G6 owner fluency remains pending.
 

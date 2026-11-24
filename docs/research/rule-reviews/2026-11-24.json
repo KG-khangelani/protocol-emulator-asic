@@ -1,0 +1,31 @@
+{
+  "comparison": {
+    "changed_response_metadata": [
+      "etag",
+      "last_modified"
+    ],
+    "previous_content_sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686",
+    "previous_etag": "\"6af78e3a-b27a\"",
+    "previous_last_modified": "Fri, 13 Nov 2026 22:24:58 GMT",
+    "previous_observation": "evidence/E0047-g4-submission-candidate/rules-closure-observation.json",
+    "previous_observation_sha256": "c39a084577fec604a703efa23723e98f942f77d5184be316f0d68b802d95c9ec",
+    "previous_observed_date": "2026-11-14",
+    "same_content_bytes": true
+  },
+  "final_submission_form": "Still forthcoming on the observed page",
+  "impact": "No changed requirement found on this page. Surface the completed G5 example in the current submission packet; keep the qualified hardware baseline and historical evidence.",
+  "observed_date": "2026-11-24",
+  "observed_utc": "2026-11-24T14:16:20.308661+00:00",
+  "retrieval": {
+    "bytes": 45690,
+    "etag": "\"6b0548e6-b27a\"",
+    "final_url": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+    "http_status": 200,
+    "last_modified": "Tue, 24 Nov 2026 08:20:54 GMT",
+    "sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686"
+  },
+  "review": "Article and FAQ read in the web tool and independently fetched with Cache-Control: no-cache. The response metadata changed; the HTML bytes match the retained November 14 digest.",
+  "schema": "protocol-emulator-rule-recheck-v1",
+  "scope": "Article and FAQ only. No new flow, RTL, physical or silicon qualification; no competition entry sent.",
+  "source": "https://blog.janestreet.com/protocol-emulator-asic-competition/"
+}

@@ -1,5 +1,12 @@
 # Research ledger
 
+2026-11-24 source recheck: the announcement's response timestamps changed,
+but a fresh fetch matches the November 14 HTML digest exactly. The
+[dated comparison](research/rule-reviews/2026-11-24.json) identifies both
+observations. No new S1 requirement was found. The submission packet now
+includes the completed G5 example; the hardware baseline and G6 status stay
+unchanged. This review adds no engineering qualification.
+
 ## G5 waveform reuse: hypothesis and measured result
 
 2026-11-15: D50 asks whether the existing qualified core can serve as a compact
