@@ -34,3 +34,20 @@ python -I -B evidence/E0049-review-council/panel-b/sources/onewire_load.py
 ## Closing second-simulator check
 
 At 17:12 UTC the chair reserved up to thirteen minutes for the normal `make test-verilator` target before closing. Use the same pinned image and production source as the successful Icarus command. Accept only all thirty required JUnit groups, the four source-bound SPI/I²C/boundary/abort files with their original digests, and the current-bank control. Compare the actual case bytes between simulators. A compile error, a missed deadline or an absent receipt is an incomplete check. This tests a second simulator on the full current suite. The input expectations and vendor functional models are shared.
+
+The Verilator stage started at 17:12:38 UTC and produced its passing receipt at 17:19:58 UTC. All thirty groups passed. All four case files and the separate bank-control file were byte-identical to the fresh Icarus results. The two stage receipts contain identical verification-input dictionaries. [Cross-simulator byte counts and hashes](cross-simulator.json) · [Native Verilator receipt](rtl-verilator-receipt.json.gz) · [Verilator JUnit](rtl-verilator-junit.xml.gz)
+
+To repeat the second run after `replay.ps1 -RunName fresh01`, choose an unused H: output directory. The stock target materializes its build in that directory. The read-only test-source copy already exists from the first command.
+
+```powershell
+$repo = (Get-Location).Path
+$out = (New-Item -ItemType Directory -Path 'build/council-verilator-replay-01').FullName
+$tests = (Resolve-Path 'build/council-2026-11-24/chair/validation/fresh01/test').Path
+$image = 'sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909'
+$mounts = @('--mount', "type=bind,source=$repo,target=/workspace,readonly",
+    '--mount', "type=bind,source=$out,target=/workspace/build",
+    '--mount', "type=bind,source=$tests,target=/workspace/test,readonly")
+$envArgs = @('-e','GIT_CONFIG_COUNT=1','-e','GIT_CONFIG_KEY_0=safe.directory',
+    '-e','GIT_CONFIG_VALUE_0=/workspace','-e','PYTHONDONTWRITEBYTECODE=1')
+docker run --rm --pull=never --init --network none --read-only --ulimit core=0:0 --tmpfs /tmp:rw,mode=1777,size=64m @mounts @envArgs -w /workspace --entrypoint timeout $image --kill-after=10s 780s make CURRENT_ARTIFACTS=/workspace/build/current test-verilator
+```

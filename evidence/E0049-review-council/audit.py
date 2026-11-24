@@ -151,7 +151,22 @@ def normal_validation():
                 "production JUnit " + stage)
     require(current["stages"]["rtl-icarus"]["summary"]["records"] ==
             prior["stages"]["rtl-icarus"]["summary"]["records"], "production case-file comparison")
-    return {"unit_tests": sum(groups), "icarus_groups": 30, "rtl_harness_smoke_groups": 1}
+    other = read(directory / "rtl-verilator-receipt.json.gz")
+    icarus = current["stages"]["rtl-icarus"]
+    require(other["status"] == "PASS" and other["verification_inputs"] == icarus["verification_inputs"] and
+            all(other["summary"][key] == icarus["summary"][key] for key in
+                ("test_groups", "required", "records", "current_bank_control")), "full simulator agreement")
+    junit = raw(directory / "rtl-verilator-junit.xml.gz")
+    cases = ElementTree.fromstring(junit).findall(".//testcase")
+    require(digest(junit) == other["summary"]["junit_sha256"] and len(cases) == 30 and
+            all(case.find(tag) is None for case in cases for tag in ("skipped", "failure", "error")),
+            "Verilator JUnit")
+    compare = read(directory / "cross-simulator.json")["identical_raw_files"]
+    expected = {name: row["sha256"] for name, row in icarus["summary"]["records"].items()}
+    expected["spi/controls.jsonl"] = icarus["summary"]["current_bank_control"]["sha256"]
+    require({name: row["sha256"] for name, row in compare.items()} == expected, "cross-simulator case hashes")
+    return {"unit_tests": sum(groups), "icarus_groups": 30, "verilator_groups": len(cases),
+            "rtl_harness_smoke_groups": 1}
 
 
 def observations():

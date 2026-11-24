@@ -1,0 +1,50 @@
+{
+  "schema": "council-cross-simulator-comparison-v1",
+  "status": "PASS",
+  "commands": [
+    "make test",
+    "timeout --kill-after=10s 780s make test-verilator"
+  ],
+  "same_source_bound_verification_inputs": true,
+  "stages": {
+    "icarus": {
+      "git_head": "2531111e3f3b7da72ad55f1fd38d68d52988095c",
+      "stage_start_utc": "20261124T165419728399Z",
+      "receipt_mtime_utc": "2026-11-24T17:09:54.726475+00:00",
+      "junit_groups": 30
+    },
+    "verilator": {
+      "git_head": "8fabe432ef8a6374f4019c8e83195f74947577af",
+      "stage_start_utc": "20261124T171238538555Z",
+      "receipt_mtime_utc": "2026-11-24T17:19:58.778746+00:00",
+      "junit_groups": 30
+    }
+  },
+  "identical_raw_files": {
+    "spi/cases.jsonl": {
+      "bytes": 355884,
+      "lines": 1052,
+      "sha256": "fbe182647a4a64caf07941f0ee27ce7bd8b2d05fa23e6405074b61ce7bf68e61"
+    },
+    "i2c/cases.jsonl": {
+      "bytes": 580739,
+      "lines": 1160,
+      "sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e"
+    },
+    "i2c/boundaries.jsonl": {
+      "bytes": 680,
+      "lines": 4,
+      "sha256": "857a70c27279f692d5d1443b8ee1f295e6937cb8eafa704f1332b91aab5b510d"
+    },
+    "i2c/aborts.jsonl": {
+      "bytes": 6837,
+      "lines": 36,
+      "sha256": "09aefa41a667ae9d7e8d2bc1bec3dd89c89697b296ddb468a99a72ea745fb728"
+    },
+    "spi/controls.jsonl": {
+      "bytes": 632,
+      "lines": 1,
+      "sha256": "7361576f76252f3a5cb94364523dda5bef695316c91c37b2b356d9b8d5076959"
+    }
+  }
+}
