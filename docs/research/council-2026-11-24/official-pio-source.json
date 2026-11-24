@@ -1,0 +1,27 @@
+{
+  "repo": "raspberrypi/pico-examples",
+  "commit": "0d62f75bafc2c8120d3276c3343d1a9195e909e9",
+  "files": {
+    "onewire_library.c": {
+      "path": "pio/onewire/onewire_library/onewire_library.c",
+      "bytes": 5140,
+      "sha256": "8502631e4e5dd741133292813eb424c8c849a69371dd1bf49082ddeb23f74978",
+      "git_blob": "1d7c6c8156329679d69ac1e18341b2df474fc7a4",
+      "url": "https://github.com/raspberrypi/pico-examples/blob/master/pio/onewire/onewire_library/onewire_library.c"
+    },
+    "onewire_library.h": {
+      "path": "pio/onewire/onewire_library/onewire_library.h",
+      "bytes": 549,
+      "sha256": "b2442ec8500947a4eba933809fc6a472b9444f88d03a0490522051b7886c29c0",
+      "git_blob": "c7a46426296bd4c383d468db2850fec33abb9f0c",
+      "url": "https://github.com/raspberrypi/pico-examples/blob/master/pio/onewire/onewire_library/onewire_library.h"
+    },
+    "onewire_library.pio": {
+      "path": "pio/onewire/onewire_library/onewire_library.pio",
+      "bytes": 3859,
+      "sha256": "81ca40baf8d2812f16c1408bf725b2a4f6a9ae144d7cc1c4d307ddeaaeba1da2",
+      "git_blob": "bc633dc7337e5678650114146936a9fead4d458b",
+      "url": "https://github.com/raspberrypi/pico-examples/blob/master/pio/onewire/onewire_library/onewire_library.pio"
+    }
+  }
+}

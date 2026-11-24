@@ -47,7 +47,7 @@ def compile_sim(out):
                    check=True, timeout=45)
 
 
-def run_case(out, name, image, cap, parasite, delay, width, sample, golden_falls):
+def run_case(out, name, image, cap, parasite, delay, width, sample, golden_falls, expected_halt=109503):
     remote_ticks = rise_ticks(cap, 3.0 if parasite else 2.2)
     local_ticks = rise_ticks(cap, 2.31)
     cmd = ["vvp", str(out / "bench.vvp"), f"+plan={out / (name + '.plan')}",
@@ -74,7 +74,7 @@ def run_case(out, name, image, cap, parasite, delay, width, sample, golden_falls
         outcome = "wrong-power-result"
     elif recovery < 50:
         outcome = "short-sensed-recovery"
-    elif abs(n - 109503) > 1:
+    elif abs(n - expected_halt) > 1:
         outcome = "schedule-mismatch"
     else:
         outcome = "accepted"

@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-11-24T15:35:11.673892+00:00",
+  "status": "PASS_PUBLIC_README_CHECK",
+  "releases": {
+    "v0.1.0": {
+      "http": 206,
+      "content_range": "bytes 0-32767/14869969",
+      "bytes_read": 32768,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.0/g4-submission-bundle.zip",
+      "readme_size": 1889,
+      "readme_start": 11433,
+      "readme_sha256": "a3658121243cfa4ac6231265ff2644aac98f66dee39fc86e9a72543d8d9da6a0",
+      "matched_retained_member": true
+    },
+    "v0.1.1": {
+      "http": 206,
+      "content_range": "bytes 0-32767/244576",
+      "bytes_read": 32768,
+      "url": "https://github.com/KG-khangelani/protocol-emulator-asic/releases/download/v0.1.1/g5-waveform-replay.zip",
+      "readme_size": 1967,
+      "readme_start": 11433,
+      "readme_sha256": "c1372b1226bac70953dcbdf4c228cf9a9004f7099e15e426dd1bdbb25b77e1ca",
+      "matched_retained_member": true
+    }
+  },
+  "notice": {
+    "http": 200,
+    "content_range": null,
+    "bytes_read": 45690,
+    "url": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+    "sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686",
+    "matches_retained_html": true
+  },
+  "ended_utc": "2026-11-24T15:35:14.140257+00:00"
+}
