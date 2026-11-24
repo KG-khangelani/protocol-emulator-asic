@@ -135,6 +135,11 @@ delivered `96 69` under the released host's framing checks. This command is
 available in the post-release checkout at `550065b`. The physical adapter and
 receiver-end electrical measurements are open. [Command and scope](programming.md#cold-load-the-selected-chip-in-simulation) · [E0050](../evidence/E0050-powered-cold-loader/README.md)
 
+A post-release FabricFox v2 configuration also read the image back and
+delivered both UART bytes in decoded-package simulation at 12.5 MHz. The
+50 MHz FPGA route failed timing. The archived bitstream is available for a
+future bench test. [FPGA evidence and limits](../evidence/E0051-fabricfox-uart/README.md)
+
 | Workload | Demonstrated digital boundary |
 |---|---|
 | UART | The examples use 434 accepted edges per bit, approximately 115,207 baud at the 50 MHz target. RX is a bounded two-frame batch with one raw-result register. Host service must meet `H >= 1`, `L >= 1`, `H + L <= 10P`; acceptance waits for framing validation and successful terminal state. Raw-valid is not a frame verdict or FIFO. See the [host-service contract](specs/p-uart-rx-host-service.md). |

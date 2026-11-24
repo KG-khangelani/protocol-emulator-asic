@@ -1,0 +1,46 @@
+Original decoder with upstream PCF syntax
+Traceback (most recent call last):
+  File "/opt/oss-cad-suite/libexec/icebox_vlog", line 116, in <module>
+    pinloc = tuple([int(s) for s in line[2:]])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/oss-cad-suite/libexec/icebox_vlog", line 116, in <listcomp>
+    pinloc = tuple([int(s) for s in line[2:]])
+                    ^^^^^^
+ValueError: invalid literal for int() with base 10: 'clk'
+
+Original decoded port redeclarations
+decoded.v:4: error: 'clk' has already been declared in this scope.
+decoded.v:2:      : It was declared here as a net.
+decoded.v:6: error: 'rst_n' has already been declared in this scope.
+decoded.v:2:      : It was declared here as a net.
+
+Vendor, FPGA and independent word model
+PASS_RAM checks=16640
+/workspace/experiments/fpga_uart/compare_ram.sv:49: $finish called at 166400000 (1ps)
+
+Mutated bypass
+FATAL: /workspace/experiments/fpga_uart/compare_ram.sv:31: RAM_MISMATCH check=1 address=0 mask=f expected=81d35a26 vendor=81d35a26 fpga=80d25b27
+       Time: 9000  Scope: compare_ram.check_edge
+
+Existing program-store suite
+PASS_SRAM_STORE_PORTS checks=2462 unknown_checks=2
+/workspace/test/sram_program_store.sv:159: $finish called at 35481000 (1ps)
+
+Mutated loader clock
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with supplied seed 20261124
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_package.package_handoff (1/1)
+    56.00ns WARNING  cocotb.regression                  test_package.package_handoff failed
+    56.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** test_package.package_handoff   FAIL          56.00           0.02       3057.10  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                 56.00           0.03       1905.83  **
+                                                        **************************************************************************************
+FATAL: /workspace/experiments/fpga_uart/package_tb.v:14: FPGA_CLOCK_TOO_FAST interval_ps=48001 minimum_ps=80000
+       Time: 56002  Scope: tb

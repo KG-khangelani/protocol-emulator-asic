@@ -1,0 +1,325 @@
+{
+  "bitstream_bytes": 104090,
+  "bitstream_sha256": "89fa89607e0eac4468d11257b4b46296f9122115e0995c888274d31387fb4163",
+  "cells_sim_sha256": "b5b2bcd86c0d6eea269015aaebff1d5fb66e7ec3f7eded0bde07406e5ac99527",
+  "decoded_sha256": "3a47ffdce43ef30388b29e4fd6f276710f23a5604ffa9895d2dcaa4517069085",
+  "ended_utc": "2026-11-24T21:15:22.843412+00:00",
+  "inputs_sha256": {
+    "evidence/E0050-powered-cold-loader/uart-result.json": "7ff016bba3b317807a84c9a8023da0d6cadda28d74999d4da325571761f9b764",
+    "evidence/E0050-powered-cold-loader/uart-transcript.json.gz": "c3b98c631f6597a49f754a289aee7031057189df23287e3755abe9b8341ba2bf",
+    "experiments/fpga_uart/compare_ram.sv": "eac2e35cea074b75effa5a28e6e032edfab1edde357236705af8ed8e5abe2fe1",
+    "experiments/fpga_uart/package_tb.v": "3702fd7435ac58395510c6a17f49f1f1156bef2b894d130eb81100c5edaecf47",
+    "experiments/fpga_uart/program_ram.v": "18aeccd29b8618a8389320fb6a7a06b1cbb3ba6326a9d3155df5e2efe6c94666",
+    "experiments/fpga_uart/run.py": "74d00a2e4d1f6397af0855ffa7d1bd563af0f9fecce183efdc403b1afd8a7005",
+    "experiments/fpga_uart/test_package.py": "5dfaa072f00a6777f4632344ae831a02d1a423d0b48b6d6cb40571a43626050d",
+    "experiments/fpga_uart/tt_fpga_fabricfoxv2.pcf": "98ee191f249b6fd9d09d95e9c51374c8ec1429210a4c2b0e0dae9ce51c24a747",
+    "experiments/fpga_uart/tt_fpga_top.v.in": "ca43fa063e4ec312e172f3e9f08441caebcafb8ed14ec50aa03d8a527c28fbcc",
+    "programs/od128-sram-v1/uart_rx.asm": "15c3b49fa57f7dc7c771df0f2d087fcb450c2a828136d9a281f572f1a2de353c",
+    "test/sram_program_store.sv": "e3aca0835a0a6b03b2cce5cf8a35aa4c51aa5d216d4eaad46b2a9514a5191a7c",
+    "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+    "tools/cold_load.py": "aa1d143d51dc44db445521cc63a6d89a19477a85f02b6119bd990922361746eb",
+    "tools/m1_contract_model.py": "14f64ed43d257f0688ccca4452c58d34b0c69042e59b98b3f1f6214f7370e2c0",
+    "tools/production_sram.py": "28ac97efea1a74ccb1eeebf46f8f8ce9d9137d5be6f98256d2c83d79a3309a93",
+    "tools/run_program_examples.py": "1162f0ea3ef41a1a4d51fbbc76dba7768c031ccf4a62f9b970eb756cf5b73908",
+    "tools/uart_rx_host_service.py": "2357980165db5d257a82e51f9f535e3d07ca82c3026e82871eb6c36850398f25",
+    "tools/uart_rx_oracle.py": "4d17b31259fb85fc6be8a645317d529f72ce3ad8485ae9eee340f40bc679c31d"
+  },
+  "mapped_cells": {
+    "$scopeinfo": 6,
+    "SB_CARRY": 113,
+    "SB_DFF": 8,
+    "SB_DFFE": 36,
+    "SB_DFFESR": 318,
+    "SB_DFFSR": 27,
+    "SB_IO": 8,
+    "SB_LUT4": 1593,
+    "SB_RAM40_4K": 4
+  },
+  "package_pins": {
+    "clk": "20",
+    "rst_n": "37",
+    "ui_in[0]": "13",
+    "ui_in[1]": "19",
+    "ui_in[2]": "18",
+    "ui_in[3]": "21",
+    "ui_in[4]": "23",
+    "ui_in[5]": "25",
+    "ui_in[6]": "26",
+    "ui_in[7]": "27",
+    "uio[0]": "2",
+    "uio[1]": "4",
+    "uio[2]": "3",
+    "uio[3]": "6",
+    "uio[4]": "9",
+    "uio[5]": "10",
+    "uio[6]": "11",
+    "uio[7]": "12",
+    "uo_out[0]": "38",
+    "uo_out[1]": "42",
+    "uo_out[2]": "43",
+    "uo_out[3]": "44",
+    "uo_out[4]": "45",
+    "uo_out[5]": "46",
+    "uo_out[6]": "47",
+    "uo_out[7]": "48"
+  },
+  "physical_input_count": 20,
+  "pins": {
+    "bad-stop": {
+      "accepted": null,
+      "handoff": [
+        [
+          76,
+          103,
+          34
+        ],
+        [
+          76,
+          0,
+          32
+        ]
+      ],
+      "host_events": [],
+      "loader_edges": 76,
+      "readback_bytes": 32,
+      "readback_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "rejected": "not-ready/fault",
+      "service_edge": 4339,
+      "terminal": "E6",
+      "terminal_edge": 4130
+    },
+    "clock": {
+      "observed_rising_edges": 13246,
+      "required_minimum_ps": 80000,
+      "shortest_observed_ps": 80000
+    },
+    "damaged-byte": {
+      "actual": 1,
+      "edge": 38,
+      "expected": 0,
+      "rejected": "byte readback"
+    },
+    "opposed-peer": {
+      "edge": 38,
+      "pads": "000000X0",
+      "rejected": "opposed drivers on UIO1"
+    },
+    "two-frames": {
+      "accepted": [
+        150,
+        105
+      ],
+      "handoff": [
+        [
+          76,
+          103,
+          34
+        ],
+        [
+          76,
+          0,
+          32
+        ]
+      ],
+      "host_events": [
+        [
+          4341,
+          "tentative",
+          150
+        ],
+        [
+          8679,
+          "accepted",
+          [
+            150,
+            105
+          ]
+        ]
+      ],
+      "loader_edges": 76,
+      "readback_bytes": 32,
+      "readback_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "rejected": null,
+      "service_edge": 8679,
+      "terminal": "A7",
+      "terminal_edge": 8471
+    }
+  },
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "qualified_model_sha256": {
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "qualified_source_sha256": {
+    "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+  },
+  "ram": {
+    "bad_forwarding_rejected_at_edge": 1,
+    "four_state_store_checks": 2,
+    "store_checks": 2462,
+    "vendor_and_oracle_edges": 16640
+  },
+  "routes": [
+    {
+      "clock": {
+        "achieved": 13.539860725402832,
+        "constraint": 50
+      },
+      "exit": 1,
+      "target_mhz": 50,
+      "timing_sha256": "723c53ff36548cf7a09df779ea0a141ad4c078ba8903fd5216197debf04ecb26",
+      "utilization": {
+        "ICESTORM_DSP": {
+          "available": 8,
+          "used": 0
+        },
+        "ICESTORM_HFOSC": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_LC": {
+          "available": 5280,
+          "used": 1751
+        },
+        "ICESTORM_LFOSC": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_PLL": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_RAM": {
+          "available": 30,
+          "used": 4
+        },
+        "ICESTORM_SPRAM": {
+          "available": 4,
+          "used": 0
+        },
+        "IO_I3C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_GB": {
+          "available": 8,
+          "used": 4
+        },
+        "SB_I2C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_IO": {
+          "available": 39,
+          "used": 26
+        },
+        "SB_LEDDA_IP": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_RGBA_DRV": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_SPI": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_WARMBOOT": {
+          "available": 1,
+          "used": 0
+        }
+      }
+    },
+    {
+      "clock": {
+        "achieved": 13.539860725402832,
+        "constraint": 12.5
+      },
+      "exit": 0,
+      "target_mhz": 12.5,
+      "timing_sha256": "a59f558d8cc2d62e5b4c819f9bfc0437066e26957dac28953c1ed2f69e062202",
+      "utilization": {
+        "ICESTORM_DSP": {
+          "available": 8,
+          "used": 0
+        },
+        "ICESTORM_HFOSC": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_LC": {
+          "available": 5280,
+          "used": 1751
+        },
+        "ICESTORM_LFOSC": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_PLL": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_RAM": {
+          "available": 30,
+          "used": 4
+        },
+        "ICESTORM_SPRAM": {
+          "available": 4,
+          "used": 0
+        },
+        "IO_I3C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_GB": {
+          "available": 8,
+          "used": 4
+        },
+        "SB_I2C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_IO": {
+          "available": 39,
+          "used": 26
+        },
+        "SB_LEDDA_IP": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_RGBA_DRV": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_SPI": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_WARMBOOT": {
+          "available": 1,
+          "used": 0
+        }
+      }
+    }
+  ],
+  "seed": 10,
+  "selected_mhz": 12.5,
+  "short_clock_control": {
+    "rejected_period_ps": 48001,
+    "required_minimum_ps": 80000
+  },
+  "source_commit": "62afbccb979a992675905a37c937ab11bd7e1859",
+  "started_utc": "2026-11-24T21:14:07.625945+00:00",
+  "status": "PASS_FPGA_REHEARSAL",
+  "tools": {
+    "cocotb": "2.0.1",
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "nextpnr": "\"nextpnr-ice40\" -- Next Generation Place and Route (Version nextpnr-0.10-106-g00376b6b)",
+    "yosys": "Yosys 0.67+111 (git sha1 4821ed17b-dirty, Release, Clang /usr/bin/clang++ 21.1.8)"
+  }
+}

@@ -1,8 +1,15 @@
 # Current state
 
-Updated: 2026-11-24. Engineering phase: **HOST-T01 digital loader complete**.
+Updated: 2026-11-24. **FPGA-T01 is complete. BENCH-T01 awaits a physical fixture.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
+
+The FabricFox v2 configuration reproduced from committed sources. The strict
+50 MHz FPGA route failed. At 12.5 MHz the decoded configuration read back the
+32-byte UART image and the modeled host received `96 69` at about 28,802 baud.
+Windows identified motherboard and Bluetooth serial ports with no identifiable
+project target, isolatable transmitter or calibrated capture path.
+[E0051 results, image and reproduction](../evidence/E0051-fabricfox-uart/README.md)
 
 The [cold-start command](programming.md#cold-load-the-selected-chip-in-simulation)
 at `550065b` verifies all 32 program bytes on a continuously selected device,
@@ -810,8 +817,8 @@ efficiently express useful digital communication protocols under hard temporal c
 - The official composite action's internally tagged dependencies remain a
   recorded trust boundary. The upstream canary reports change but never upgrades
   the qualified environment automatically.
-- No FPGA run or devcontainer validation exists yet. These are not M0 acceptance
-  gates. Positive slack at the 20 ns target is not a measured maximum frequency.
+- E0051 establishes a routed FPGA build and decoded-package simulation. FPGA
+  board bring-up, measured clock limits and devcontainer validation remain open.
 
 ## Next executable actions
 
@@ -825,13 +832,12 @@ efficiently express useful digital communication protocols under hard temporal c
 - G4 is complete. Preserve v0.1.0 and its qualified inputs; watch for the
   final submission form and recheck rules before a separately authorized entry.
 - G5 is complete and published in v0.1.1. Keep its qualified waveform example
-  in the packet. Use HOST-T01 and the [D51 experiment protocols](research/council-2026-11-24/next-experiments.md)
-  for the next engineering day. A new production architecture needs a binding
-  application or physical limit and a matched qualification.
+  in the packet. HOST-T01 and FPGA-T01 have supplied the digital loader and a
+  reproducible bench image. BENCH-T01 now needs calibrated release and host
+  latency measurements at the named receiver. [Bench protocol](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
-- Learning: complete the owner M0 teach-back when capacity permits; do not infer
-  fluency from engineering progress.
+- Resume the owner M0 teach-back only at the owner's explicit request under D52.
 
 ## Handoff boundaries
 

@@ -1,5 +1,20 @@
 # Research ledger
 
+## 24 November FabricFox UART rehearsal
+
+**Demonstrated.** The v2 UP5K-SG48 route with seed 10 missed 50 MHz and
+passed 12.5 MHz. Two builds produced the same configuration and decoded
+package observations. The modeled loader read all 32 bytes, and the host
+delivered `96 69` after terminal `A7`. A damaged byte, opposed digital
+drivers, a bad stop, faulty RAM forwarding and short loader clocks each
+produced their predicted failures. [E0051](../evidence/E0051-fabricfox-uart/README.md)
+
+**Open.** The functional pin model permits 2 ps selector-settling steps.
+The routed design reports up to 31.135 ns across asynchronous inputs and
+outputs. The physical controller's schedule, line release and receiver margin
+need measurement. The host inventory identified no suitable connected fixture.
+[Routed paths](../evidence/E0051-fabricfox-uart/timing-12.5.json.gz) · [Hardware inventory](../evidence/E0051-fabricfox-uart/host-inventory.json)
+
 ## 24 November powered cold-loader qualification
 
 **Demonstrated.** A caller can load a released program with enable high at every

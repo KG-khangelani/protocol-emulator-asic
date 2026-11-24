@@ -1,0 +1,62 @@
+{
+  "observed_utc": "2026-11-24T21:17:08.9408845Z",
+  "scope": "Present Windows PnP devices, local serial port names, mounted board volumes and named instrument configuration",
+  "pnp_serial_ports": [
+    {
+      "name": "Communications Port (COM1)",
+      "bus": "ACPI",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM10)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM3)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM4)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM7)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM8)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    },
+    {
+      "name": "Standard Serial over Bluetooth link (COM9)",
+      "bus": "BTHENUM",
+      "status": "OK"
+    }
+  ],
+  "dotnet_serial_ports": [
+    "COM1",
+    "COM10",
+    "COM3",
+    "COM4",
+    "COM7",
+    "COM8",
+    "COM9"
+  ],
+  "present_usb_product_descriptions": [
+    "G502 HERO",
+    "Generic SuperSpeed USB Hub",
+    "Generic USB Hub",
+    "Realtek Bluetooth 5.0 Adapter",
+    "USB Composite Device",
+    "USB Input Device",
+    "Xbox 360 Controller for Windows"
+  ],
+  "matched_board_volumes": [],
+  "matched_instrument_environment_names": [],
+  "disposition": "No identifiable connected project target, isolatable UART peer and calibrated capture path. No COM port was opened or device programmed."
+}

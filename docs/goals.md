@@ -9,8 +9,11 @@ plans and reproducible examples are published in verified stable v0.1.0.
 The v0.1.1 software release adds the G5 waveform example. The
 [council review](reports/2026-11-24-technical-review-council.md) prioritized
 a powered cold-start transport. [E0050](../evidence/E0050-powered-cold-loader/README.md)
-qualifies the command on production RTL and the submitted netlist. A calibrated
-physical handoff with a named peer is the next engineering measurement.
+qualifies the command on production RTL and the submitted netlist. The
+FabricFox v2 configuration reproduced and delivered both UART bytes at its
+simulated package pins at 12.5 MHz. A calibrated physical handoff with a
+named peer and measured host-service timing is the next engineering
+measurement. [E0051](../evidence/E0051-fabricfox-uart/README.md)
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 

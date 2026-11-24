@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261124" />
+    <testcase name="package_handoff" classname="test_package" file="/workspace/build/clean-run/test_package.py" lineno="161" time="3.326061487197876" sim_time_ns="1061814.009" ratio_time="319240.6433515912" />
+  </testsuite>
+</testsuites>
