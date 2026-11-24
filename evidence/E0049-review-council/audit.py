@@ -86,6 +86,37 @@ def link_checks():
     return checked
 
 
+def interface_boundaries():
+    original = read(HERE / "onewire/rise/original-results.json.gz")
+    counts = Counter((r["image"], r["judgment"]) for r in original["in_envelope"])
+    require(counts == {("original", "accepted"): 24, ("original", "missed-presence"): 4,
+                       ("original", "missing-sensed-slot"): 4, ("retimed", "accepted"): 24,
+                       ("retimed", "missing-sensed-slot"): 8}, "original and retimed remote receiver")
+    wider = read(HERE / "onewire/rise/recovery-results.json.gz")
+    receiver = wider["in_envelope"]
+    require(len(receiver) == 32 and all(r["sensed_slots"] == 17 and r["sampled_writes"] == 16
+            and r["received_lsb_first_words_hex"] == "b4cc" and r["judgment"] == "accepted"
+            for r in receiver), "wider slots at the remote receiver")
+    require({(r["sensed_slots"], r["judgment"]) for r in wider["stress"]} ==
+            {(0, "missed-presence"), (9, "missing-sensed-slot")} and len(wider["stress"]) == 2,
+            "two distinct wider-slot stress failures")
+
+    selectors = read(HERE / "panel-c/records/selector-orders.json")["sampled"]
+    for representation in ("rtl", "g4_netlist"):
+        released = selectors[representation]["modes"]["released"]
+        orders = released["number_of_orders_by_count_of_read_dwells"]
+        require(sum(orders.values()) == 720 and orders["0"] == 360 and
+                released["safe_bit7_first_tails"] == 120, "selector order " + representation)
+
+    uart = read(HERE / "panel-a/uart/results.json.gz")
+    exact = uart["bounds"]["100"]["max_all_phase_H_plus_L"]
+    fast = uart["bounds"]["102"]["max_all_phase_H_plus_L"]
+    require((exact, fast) == (4340, 4254) and uart["old_bound_wrong_first_copies"] == 8,
+            "UART host-service boundary")
+    return {"wider_onewire_accepted": len(receiver), "wider_onewire_stress_rejected": len(wider["stress"]),
+            "selector_orders_per_model": sum(orders.values()), "uart_fast_service_clocks": fast}
+
+
 def observations():
     powered = HERE / "powered-netlist"
     rows = by_name(json_rows(raw(powered / "records.jsonl.gz")))
@@ -162,6 +193,7 @@ def main():
     guard = verify(ROOT)
     require(len(guard["files_sha256"]) == 20, "qualified input count")
     result = {"production_inputs": len(guard["files_sha256"]), "observations": observations(),
+              "interface_boundaries": interface_boundaries(),
               "committed_manifest_entries": manifest_checks(), "local_markdown_links": link_checks()}
     formatted = json.dumps(result, indent=2) + "\n"
     if args.output:

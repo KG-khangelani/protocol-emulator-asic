@@ -1,0 +1,121 @@
+{
+  "started_utc": "2026-11-24T16:46:05.918485+00:00",
+  "klayout": "0.30.12",
+  "runs": {
+    "43543626249": {
+      "job_start_utc": "2026-11-14T01:58:04+00:00",
+      "job_end_utc": "2026-11-14T03:36:23+00:00",
+      "job_seconds": {
+        "gds": 3902,
+        "precheck": 278,
+        "gl_test": 1994
+      },
+      "one_run_span_seconds": 5899,
+      "hold": {
+        "arrival_ns": "1.069597",
+        "capture_clock_ns": "0.387456",
+        "library_hold_ns": "0.311350",
+        "uncertainty_ns": "0.250000",
+        "zero_slack_uncertainty_ns": "0.370791",
+        "baseline_hold_ns": "0.120791",
+        "hold_at_0p375_ns": "-0.004209"
+      },
+      "contacts": {
+        "site_count": {
+          "digital": 12,
+          "sram": 20
+        },
+        "covered_at_requirement_nm": {
+          "sram": {
+            "6": 20,
+            "7": 20,
+            "10": 20,
+            "11": 0,
+            "15": 0,
+            "50": 0,
+            "60": 0,
+            "61": 0
+          },
+          "digital": {
+            "6": 12,
+            "7": 12,
+            "10": 12,
+            "11": 12,
+            "15": 12,
+            "50": 12,
+            "60": 12,
+            "61": 0
+          }
+        }
+      }
+    },
+    "43543629839": {
+      "job_start_utc": "2026-11-14T01:58:07+00:00",
+      "job_end_utc": "2026-11-14T03:32:46+00:00",
+      "job_seconds": {
+        "gds": 3332,
+        "precheck": 353,
+        "gl_test": 2345
+      },
+      "one_run_span_seconds": 5679,
+      "hold": {
+        "arrival_ns": "1.069597",
+        "capture_clock_ns": "0.387456",
+        "library_hold_ns": "0.311350",
+        "uncertainty_ns": "0.250000",
+        "zero_slack_uncertainty_ns": "0.370791",
+        "baseline_hold_ns": "0.120791",
+        "hold_at_0p375_ns": "-0.004209"
+      },
+      "contacts": {
+        "site_count": {
+          "digital": 12,
+          "sram": 20
+        },
+        "covered_at_requirement_nm": {
+          "sram": {
+            "6": 20,
+            "7": 20,
+            "10": 20,
+            "11": 0,
+            "15": 0,
+            "50": 0,
+            "60": 0,
+            "61": 0
+          },
+          "digital": {
+            "6": 12,
+            "7": 12,
+            "10": 12,
+            "11": 12,
+            "15": 12,
+            "50": 12,
+            "60": 12,
+            "61": 0
+          }
+        }
+      }
+    }
+  },
+  "job_seconds_sum": 12204,
+  "both_runs_first_start_to_last_finish_s": 5899,
+  "organizer": {
+    "observed_utc": "2026-11-24T14:16:20.308661+00:00",
+    "sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686",
+    "final_form": "Still forthcoming on the observed page",
+    "deadline": "2027-01-18",
+    "material": [
+      "Public repository",
+      "RTL and tests",
+      "Passing Tiny Tapeout GDS and precheck",
+      "Architecture and ISA documentation",
+      "Programming tools and examples",
+      "Verification approach",
+      "Description of AI use"
+    ],
+    "max_tiles": "8x4",
+    "fixed_rate": false,
+    "video": false
+  },
+  "ended_utc": "2026-11-24T16:46:06.877357+00:00"
+}
