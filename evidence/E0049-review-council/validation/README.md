@@ -30,3 +30,7 @@ python -I -B evidence/E0049-review-council/panel-a/spi-target-crosscheck.py
 python -I -B evidence/E0049-review-council/panel-b/fixture/fixture_sensitivity.py
 python -I -B evidence/E0049-review-council/panel-b/sources/onewire_load.py
 ```
+
+## Closing second-simulator check
+
+At 17:12 UTC the chair reserved up to thirteen minutes for the normal `make test-verilator` target before closing. Use the same pinned image and production source as the successful Icarus command. Accept only all thirty required JUnit groups, the four source-bound SPI/I²C/boundary/abort files with their original digests, and the current-bank control. Compare the actual case bytes between simulators. A compile error, a missed deadline or an absent receipt is an incomplete check. This tests a second simulator on the full current suite. The input expectations and vendor functional models are shared.

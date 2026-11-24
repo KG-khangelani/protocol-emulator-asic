@@ -2,7 +2,7 @@
 
 24 November 2026. Council disposition for planning the next engineer-day.
 
-Retain D48's physical inputs, v0.1.0 as the hardware reference and v0.1.1 as the additional software example. On the first available engineering day, produce an additive, user-invocable cold-start transport for a continuously selected project, beginning with an instrumented digital backend. Verify the caller's actual operations against the E0049 reference results. Arrange the existing G6 M0 owner checkpoint separately. The research council implemented experiments and reviewed alternatives; this decision records the subsequent work as proposed.
+Retain D48's physical inputs, v0.1.0 as the hardware reference and v0.1.1 as the additional software example. On the first available engineering day, produce an additive, user-invocable cold-start transport for a continuously selected project, beginning with an instrumented digital backend. Verify the caller's actual operations against the E0049 reference results. Arrange the existing G6 M0 owner checkpoint separately. The research council implemented experiments and reviewed alternatives. The subsequent engineering work is proposed.
 
 This priority follows from two observations. The published assembler and starters already work offline. Their macro-port loading plans rely on low-enable edges. The staged powered sequence reproduces behavior on the submitted netlist, while selector ordering and an attached push-pull peer create concrete ownership hazards. A usable controller recipe adds capability to the current deliverable without changing its bitstream interface. A suitable, time-limited fixture with a named peer can instead make a calibrated handoff measurement the best use of that day.
 

@@ -4,6 +4,8 @@ At the review's starting revision, the production guard and all twenty physical 
 
 Anonymous GETs compared the live tag objects, release titles, descriptions and all 35 and 22 asset name/size/digest triples. The chair's first comparison encountered a title/body mismatch on v0.1.0. It had used the pre-closure release response. The audited [completion notice](../../E0047-g4-submission-candidate/release-notice.json) records the subsequent edit, and the final title/body matched that record. The announcement's HTML also matched the earlier same-day check. These reads check current metadata. The historical publication audits cover actual downloads.
 
+During closing synthesis a second live observation returned the same two tag and asset comparisons, announcement body digest, netlist identity, GDS comparison and physical metrics. The production guard again matched all twenty inputs. [Closing observation at 17:13 UTC](../validation/closing-release-check.json)
+
 From the repository root with Python 3.11 or later, use a fresh filename under `build/`. Omitting `--live` runs the archive and local Git checks offline.
 
 ```powershell

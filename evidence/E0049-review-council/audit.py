@@ -11,6 +11,7 @@ import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
+from xml.etree import ElementTree
 import zipfile
 
 HERE = Path(__file__).resolve().parent
@@ -120,6 +121,39 @@ def interface_boundaries():
             "selector_orders_per_model": sum(orders.values()), "uart_fast_service_clocks": fast}
 
 
+def normal_validation():
+    directory = HERE / "validation"
+    opening = read(HERE / "baseline/observation.json")
+    closing = read(directory / "closing-release-check.json")
+    require(all(opening[field] == closing[field] for field in ("announcement", "physical", "releases")),
+            "opening and closing external/physical observations")
+    require({tag: r["qualified_input_hashes_matched"] for tag, r in closing["releases"].items()} ==
+            {"v0.1.0": 20, "v0.1.1": 20}, "published physical inputs")
+    report = read(directory / "normal-checks.json")
+    for item in report["evidence"]:
+        require(digest(raw(directory / item["path"])) == item["uncompressed_sha256"], item["path"])
+    log = raw(directory / "normal-check.log.gz")
+    groups = [int(n) for n in re.findall(rb"(?m)^Ran (\d+) tests? in", log)]
+    require(groups == report["unit_test_counts_by_discovery_group"] and sum(groups) == 159,
+            "production repository unit tests")
+    current = read(directory / "normal-provenance.json.gz")
+    prior = read(directory / "first-recovered-provenance.json.gz")
+    require(current["status"] == prior["status"] == "PASS", "production provenance")
+    for stage, filename, count in (("rtl-icarus", "rtl-junit.xml.gz", 30),
+                                   ("smoke", "rtl-harness-smoke-junit.xml.gz", 1)):
+        receipt = current["stages"][stage]
+        require(receipt["verification_inputs"] == prior["stages"][stage]["verification_inputs"],
+                "verification input change " + stage)
+        junit = raw(directory / filename)
+        cases = ElementTree.fromstring(junit).findall(".//testcase")
+        require(digest(junit) == receipt["summary"]["junit_sha256"] and len(cases) == count and
+                all(case.find(tag) is None for case in cases for tag in ("skipped", "failure", "error")),
+                "production JUnit " + stage)
+    require(current["stages"]["rtl-icarus"]["summary"]["records"] ==
+            prior["stages"]["rtl-icarus"]["summary"]["records"], "production case-file comparison")
+    return {"unit_tests": sum(groups), "icarus_groups": 30, "rtl_harness_smoke_groups": 1}
+
+
 def observations():
     powered = HERE / "powered-netlist"
     rows = by_name(json_rows(raw(powered / "records.jsonl.gz")))
@@ -207,7 +241,7 @@ def main():
     guard = verify(ROOT)
     require(len(guard["files_sha256"]) == 20, "qualified input count")
     result = {"production_inputs": len(guard["files_sha256"]), "observations": observations(),
-              "interface_boundaries": interface_boundaries(),
+              "interface_boundaries": interface_boundaries(), "production_validation": normal_validation(),
               "committed_manifest_entries": manifest_checks(), "local_markdown_links": link_checks()}
     formatted = json.dumps(result, indent=2) + "\n"
     if args.output:
