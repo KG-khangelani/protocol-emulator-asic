@@ -1,10 +1,17 @@
 # Current state
 
-Updated: 2026-11-25. **Both FabricFox boards delivered two-byte UART batches with a faster and slower transmitter. BENCH-T01 still needs a calibrated line-release measurement.**
+Updated: 2026-11-25. **Both FabricFox boards delivered two-byte UART batches with separate transmitter and receiver oscillators. BENCH-T01 still needs a calibrated line-release measurement.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
-Twenty valid batches passed and four malformed batches were rejected across
+The RP2350's crystal clock drove the transmitter. The FPGA's internal oscillator
+clocked the receiver while GPIO16 stayed high. Both boards passed with a fixed
+27,649-baud preset before any adjustment. Three complete sessions, including a
+fresh repeat, delivered all 15 valid pairs and rejected all six malformed pairs.
+The clock and data were captured together. The largest observed host bound was
+216 µs against a shortest conservative budget of 353.648 µs. [E0054 physical results and retained failures](../evidence/E0054-separate-oscillators/README.md)
+
+In the preceding shared-oscillator study, twenty valid batches passed and four malformed batches were rejected across
 24 physical trials at −2.0095%, nominal and +2.0216% transmitter baud. At
 the fast point the pad capture measured 4,254 receiver clocks between frame
 starts and the largest host bound was 112 µs against 340.32 µs allowed.

@@ -1,5 +1,23 @@
 # Research ledger
 
+## 25 November independently clocked physical UART
+
+**Demonstrated.** Two Welland FabricFox receivers running directly from
+their on-die HFOSC accepted the same untrimmed preset from an RP2350
+transmitter running from a crystal-derived PLL. The primary runs measured
+4,340 and 4,351 receiver clocks between the two preset frame starts. A
+fresh repeat measured 4,335. Three sessions passed all 15 valid pairs and
+rejected six bad-stop cases. The raw data and returning receiver clock share
+one capture, and the physical run-enable stayed high throughout each pair.
+[E0054 measurements and audit](../evidence/E0054-separate-oscillators/README.md)
+
+**Fixture correction.** The HAT joins UI1–3 to UIO1–3 respectively. A
+clock witness on UIO2 interfered with selector UI2 during the first attempt.
+The accepted fixture uses UIO4 for the witness, releases UI1 during reception,
+and returns loader bytes via the dedicated output bus. An intermediate cold
+handoff returned `E0`. Its exact internal cause, long-term rate drift and
+analog release latency remain open. [Retained failures and limitations](../evidence/E0054-separate-oscillators/README.md#earlier-failures-and-claim-limits)
+
 ## 25 November physical UART baud offsets
 
 **Demonstrated.** Two FabricFox boards delivered the expected bytes on every

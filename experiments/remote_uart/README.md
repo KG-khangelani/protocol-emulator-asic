@@ -1,6 +1,26 @@
 # Run the UART on a public FabricFox from Docker
 
-The Docker client loads the E0051 FPGA configuration and runs a short
+## Separate transmitter and receiver oscillators
+
+Use the oscillator fixture on the Welland PMOD HAT. The FPGA clocks the released UART receiver from its own HFOSC. The RP2350 transmits from its crystal-derived system clock. GPIO26 carries the UART on the original UIO1 pad. GPIO29 samples the returned FPGA clock on UIO4. GPIO16 supplies one strobe per loader transaction and stays high throughout reception. The loader stages data through the dedicated input bus and returns bytes on the dedicated output bus. It releases the HAT-linked UI1 driver before the peer takes UIO1. [Board wiring](https://docs.fpgas.online/en/latest/boards/tt-fpga/overview/pin-mapping.html) · [Fixture correction](../../evidence/E0054-separate-oscillators/wiring-correction.md)
+
+From the project checkout on H:, run this PowerShell command for each available board. The client checks the board's occupancy and bitstream hash, runs the test in controller RAM, then restores the previous gallery selection. Each run directory contains the complete terminal response, both captured signals and the host verdict.
+
+```powershell
+$repo = (Get-Location).Path
+$output = New-Item -ItemType Directory -Force (Join-Path $repo 'build/remote-uart')
+$run = 'build/' + [Guid]::NewGuid().ToString('N')
+$image = 'sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909'
+docker run --rm --mount "type=bind,source=$repo,target=/workspace,readonly" --mount "type=bind,source=$($output.FullName),target=/workspace/build" --tmpfs /tmp -w /workspace -e PYTHONDONTWRITEBYTECODE=1 $image python3 -B experiments/remote_uart/run.py --suite oscillator --board fpga-1 --out $run
+```
+
+Inside the locked workbench, rebuild the diagnostic configuration with `python3 -B experiments/fpga_uart/build_oscillator.py --out build/fresh-oscillator`. For the offline board audit use `python3 -B evidence/E0054-separate-oscillators/audit.py`. [Measurements and claim limits](../../evidence/E0054-separate-oscillators/README.md)
+
+## Earlier shared-clock experiments
+
+The E0052 and E0053 commands below record the earlier setup. Their pin captures and host-service times remain available for offline replay. The HAT joins three pairs of selector and bidirectional pins. Those runs did not measure current on the shared connections. Use the isolated fixture above for live Welland measurements. [Historical physical evidence](../../evidence/E0052-remote-uart/README.md) · [Historical baud-offset evidence](../../evidence/E0053-uart-baud-offsets/README.md)
+
+The original Docker client loads the E0051 FPGA configuration and runs a short
 MicroPython test in the public board's RP2350 RAM. Two physical signals cross
 from the RP2350 to the FPGA on the demo PCB. GPIO16 supplies the project
 clock and GPIO26 carries the UART waveform on UIO1. The controller also

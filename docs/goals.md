@@ -12,9 +12,10 @@ a powered cold-start transport. [E0050](../evidence/E0050-powered-cold-loader/RE
 qualifies the command on production RTL and the submitted netlist. The
 FabricFox v2 configuration reproduced in Docker and delivered both UART bytes
 on two physical boards at 12.5 MHz. A second campaign verified delivery with
-the transmitter 2.0216% fast and 2.0095% slow at three launch delays. The
-next electrical measurement is the time from the handoff command to release
-at the target. [E0051 offline build](../evidence/E0051-fabricfox-uart/README.md) · [E0052 physical delivery](../evidence/E0052-remote-uart/README.md) · [E0053 transmitter offsets and remote instrument access](../evidence/E0053-uart-baud-offsets/README.md)
+the transmitter 2.0216% fast and 2.0095% slow at three launch delays. Both boards
+also delivered the fixed-preset pair with the receiver on its own FPGA oscillator
+and the transmitter on the RP2350 crystal. The next electrical measurement is the
+time from the handoff command to release at the target. [E0051 offline build](../evidence/E0051-fabricfox-uart/README.md) · [E0052 physical delivery](../evidence/E0052-remote-uart/README.md) · [E0053 programmed offsets](../evidence/E0053-uart-baud-offsets/README.md) · [E0054 separate oscillators](../evidence/E0054-separate-oscillators/README.md)
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 
