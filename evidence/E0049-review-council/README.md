@@ -1,6 +1,6 @@
 # E0049 — Multidisciplinary review of the protocol emulator
 
-The council reviewed the published 8×4 CMOS5L design and ran bounded comparisons on copies and test fixtures. Start with the [review procedure](../../docs/research/council-2026-11-24/charter.md), [debate record](../../docs/research/council-2026-11-24/proceedings.md) and [primary sources](../../docs/research/council-2026-11-24/sources.md). The research records below give the observed results and the commands that reproduce them.
+The [technical report](../../docs/reports/2026-11-24-technical-review-council.md) explains what the published 8×4 CMOS5L design can do, where it fails and which experiment deserves the next engineering day. The [charter](../../docs/research/council-2026-11-24/charter.md), [debate record](../../docs/research/council-2026-11-24/proceedings.md) and [primary sources](../../docs/research/council-2026-11-24/sources.md) give the basis for those judgments. Use the records below to inspect a measurement or rerun an experiment.
 
 | Question | Result and reproduction |
 | --- | --- |
