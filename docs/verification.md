@@ -18,7 +18,8 @@ triggered waveform and a controlled timing fault on the same physical inputs.
 | Layer | Check and retained evidence | Boundary |
 |---|---|---|
 | Source identity | Production guard, profile hashes and stage-specific input maps | Matching bytes alone do not establish behavior |
-| FPGA bench candidate | FabricFox v2 build, pack/unpack, strict 12.5 MHz internal clock route, two-frame UART at decoded package pins and clean byte-for-byte reproduction | Functional FPGA simulation. The 50 MHz route failed. Physical read dwell, line release and board bring-up remain open. [E0051](../evidence/E0051-fabricfox-uart/README.md) |
+| FPGA configuration | FabricFox v2 build, pack/unpack, strict 12.5 MHz internal clock route, two-frame UART at decoded package pins and clean byte-for-byte reproduction | Functional FPGA simulation. The 50 MHz route failed. [E0051](../evidence/E0051-fabricfox-uart/README.md) |
+| Physical UART | Two real FabricFox boards, 32-byte readback, two different frame pairs, bad-stop controls and measured host service | Shared RP2350 source clock. The weak pulls could not distinguish release from a driven high. [E0052 physical records](../evidence/E0052-remote-uart/README.md) |
 | Repository checks | Metadata, clocks, supported source profile, model/oracle and assembler acceptance tests | G5 adds twelve waveform-oracle tests to G3's 147; the 20 assembler tests remain included |
 | RTL simulation | Icarus and Verilator each run all 30 current groups; [E0042](../evidence/E0042-sram-prefetch-screen/README.md), [E0044](../evidence/E0044-sram-current-verification/ci-13660ac/README.md) and actual-default [E0045 CI](../evidence/E0045-g2-sram-qualification/ci-default-75c1e7d/README.md) | Digital RTL and vendor functional SRAM models, not pad/electrical characterization |
 | Programs through public pins | [G3/E0046](../evidence/E0046-program-toolchain/README.md): 13 sources, complete generated load/readback plans, 55 cases per simulator including 15 expected rejections | A tested software interface, not a fabricated-chip host adapter |
@@ -144,8 +145,8 @@ retain their own sources and assumptions. Earlier specifications describe
 those checkpoints, not the current interface.
 
 Analog rise/fall behavior, metastability/MTBF, broad peripheral interoperability,
-unbounded continuous UART reception, an actual host transport adapter, FPGA
-bring-up and fabricated-silicon observations remain outside the demonstrated
+unbounded continuous UART reception, calibrated release on a physical bus
+and fabricated-silicon observations remain outside the demonstrated
 results. M0 owner teach-back remains pending regardless of engineering progress.
 
 ## Fresh G4 qualification checkpoint

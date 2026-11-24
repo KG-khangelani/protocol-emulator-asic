@@ -1,5 +1,20 @@
 # Research ledger
 
+## 24 November physical UART on public FabricFox boards
+
+**Demonstrated.** The E0051 image received two distinct back-to-back frames
+over the RP2350-to-FPGA PCB traces on each of two Welland boards. Their
+12.5 MHz trials included a changed payload, first/second framing faults,
+corrupt program readback and fresh cold starts. The first reader exceeded
+the 347.2 µs service limit. The final reader's largest observed bound was
+109 µs across ten target-rate trials. A separate clock-pad counter confirmed
+the expected rate within its declared tolerance. [E0052 physical records](../evidence/E0052-remote-uart/README.md)
+
+**Unresolved.** Each fixture read the commanded release as high under both
+weak-bias settings. The same observation occurred with a known high driver.
+Target-branch current, release time, independent-oscillator margins and ASIC
+silicon measurements remain open. [Fixture limits and next measurement](../evidence/E0052-remote-uart/README.md#remaining-electrical-question)
+
 ## 24 November FabricFox UART rehearsal
 
 **Demonstrated.** The v2 UP5K-SG48 route with seed 10 missed 50 MHz and

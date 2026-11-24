@@ -1,0 +1,31 @@
+UARTLAB {"event": "controller", "original_hz": 133000000, "mode": "ASIC_MANUAL_INPUTS"}
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"edge": 38, "selector": 129, "observed": 1, "case": "damaged", "event": "readback_failure", "expected": 0}
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"uio1_pull_down_up": {"driven_low": [0, 0], "released": [1, 1], "driven_high": [1, 1]}, "case": "slow-good", "event": "cold", "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080", "identity": 34, "edges": 76, "status": 32, "registers": [[160, 8], [161, 255], [164, 255]]}
+UARTLAB {"terminal": 167, "polls": 122, "pad_clock_periods": 100000, "case": "slow-good", "max_read_sequence_us": 150, "service_upper_us": 326, "event": "uart", "cpu_hz": 125000000, "tentative": 150, "pad_count_elapsed_us": 100014, "configured_hz": 1000000, "accepted": [150, 105], "max_poll_gap_us": 174}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"uio1_pull_down_up": {"driven_low": [0, 0], "released": [1, 1], "driven_high": [1, 1]}, "case": "target-good", "event": "cold", "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080", "identity": 34, "edges": 76, "status": 32, "registers": [[160, 8], [161, 255], [164, 255]]}
+UARTLAB {"terminal": 167, "polls": 7, "pad_clock_periods": 100000, "case": "target-good", "max_read_sequence_us": 150, "service_upper_us": 344, "event": "uart", "cpu_hz": 125000000, "tentative": 150, "pad_count_elapsed_us": 8023, "configured_hz": 12500000, "accepted": [150, 105], "max_poll_gap_us": 192}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"uio1_pull_down_up": {"driven_low": [0, 0], "released": [1, 1], "driven_high": [1, 1]}, "case": "target-bad-first", "event": "cold", "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080", "identity": 34, "edges": 76, "status": 32, "registers": [[160, 8], [161, 255], [164, 255]]}
+UARTLAB {"terminal": 230, "polls": 3, "pad_clock_periods": 100000, "case": "target-bad-first", "max_read_sequence_us": 161, "service_upper_us": 347, "event": "uart", "cpu_hz": 125000000, "tentative": 150, "pad_count_elapsed_us": 8023, "configured_hz": 12500000, "accepted": null, "max_poll_gap_us": 184}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"uio1_pull_down_up": {"driven_low": [0, 0], "released": [1, 1], "driven_high": [1, 1]}, "case": "target-bad-second", "event": "cold", "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080", "identity": 34, "edges": 76, "status": 32, "registers": [[160, 8], [161, 255], [164, 255]]}
+UARTLAB {"terminal": 230, "polls": 7, "pad_clock_periods": 100000, "case": "target-bad-second", "max_read_sequence_us": 152, "service_upper_us": 346, "event": "uart", "cpu_hz": 125000000, "tentative": 150, "pad_count_elapsed_us": 8022, "configured_hz": 12500000, "accepted": null, "max_poll_gap_us": 192}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+UARTLAB {"uio1_pull_down_up": {"driven_low": [0, 0], "released": [1, 1], "driven_high": [1, 1]}, "case": "target-fresh", "event": "cold", "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080", "identity": 34, "edges": 76, "status": 32, "registers": [[160, 8], [161, 255], [164, 255]]}
+UARTLAB {"terminal": 167, "polls": 7, "pad_clock_periods": 100000, "case": "target-fresh", "max_read_sequence_us": 156, "service_upper_us": 342, "event": "uart", "cpu_hz": 125000000, "tentative": 150, "pad_count_elapsed_us": 8023, "configured_hz": 12500000, "accepted": [150, 105], "max_poll_gap_us": 184}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_MANUAL_INPUTS[0m
+UARTLAB {"restored_cpu_hz": 133000000, "host_uio_oe": 0, "status": "PASS"}

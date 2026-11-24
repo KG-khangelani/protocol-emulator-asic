@@ -11,6 +11,8 @@ reprogrammable temporal machine. Its architecture is still a hypothesis.
 The [project goals](docs/goals.md) and [current state](docs/state.md) track
 engineering and competition delivery. To load and run the released UART
 receiver in simulation, use the [cold-start command](docs/programming.md#cold-load-the-selected-chip-in-simulation).
+The same UART receiver ran on two public FabricFox boards. A Docker client
+loads the FPGA and drives the on-board test. [Physical results](evidence/E0052-remote-uart/README.md) · [Run on a public board](experiments/remote_uart/README.md)
 
 **Engineering milestones G1–G5 are complete.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical

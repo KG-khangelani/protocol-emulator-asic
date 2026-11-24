@@ -1,15 +1,15 @@
 # Current state
 
-Updated: 2026-11-24. **FPGA-T01 is complete. BENCH-T01 awaits a physical fixture.**
+Updated: 2026-11-24. **Physical UART delivery passed on two FabricFox boards. BENCH-T01 still needs a calibrated line-release measurement.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
-The FabricFox v2 configuration reproduced from committed sources. The strict
-50 MHz FPGA route failed. At 12.5 MHz the decoded configuration read back the
-32-byte UART image and the modeled host received `96 69` at about 28,802 baud.
-Windows identified motherboard and Bluetooth serial ports with no identifiable
-project target, isolatable transmitter or calibrated capture path.
-[E0051 results, image and reproduction](../evidence/E0051-fabricfox-uart/README.md)
+The container used the Welland public lab to load the E0051 configuration
+onto two iCE40UP5Ks. Both read back the 32-byte receiver and delivered
+`96 69` and `3C A5` at the 12.5 MHz target, about 28,802 baud. Either faulty
+stop bit prevented delivery. The largest observed host-service bound was
+109 µs against 347.2 µs allowed. Commanded release and driven high gave the
+same weak-bias readings on both fixtures. [E0052 physical evidence](../evidence/E0052-remote-uart/README.md) · [E0051 offline reproduction and failed 50 MHz route](../evidence/E0051-fabricfox-uart/README.md)
 
 The [cold-start command](programming.md#cold-load-the-selected-chip-in-simulation)
 at `550065b` verifies all 32 program bytes on a continuously selected device,
@@ -20,8 +20,8 @@ backends. The controller rejected all four injected faults before reporting a
 successful launch, and a fresh cold load passed.
 All twenty qualified physical inputs match both releases. [E0050](../evidence/E0050-powered-cold-loader/README.md)
 
-The next physical milestone is one measured cold handoff and receiver-end
-transaction with a named peer, isolatable wiring and calibrated instruments.
+The next physical milestone is to resolve the target's drive state and
+turnaround time with a calibrated target-branch measurement.
 The [submission packet](submission.md) now distinguishes the release macro
 plan from the continuously selected command. Review the final form by the
 11 January package checkpoint and again before filing.
@@ -817,8 +817,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - The official composite action's internally tagged dependencies remain a
   recorded trust boundary. The upstream canary reports change but never upgrades
   the qualified environment automatically.
-- E0051 establishes a routed FPGA build and decoded-package simulation. FPGA
-  board bring-up, measured clock limits and devcontainer validation remain open.
+- E0051 establishes a routed FPGA build, and E0052 establishes physical UART
+  reception on two boards. Calibrated line release, frequency limits and
+  fabricated-silicon behavior remain open. Devcontainer validation also remains open.
 
 ## Next executable actions
 
@@ -832,9 +833,9 @@ efficiently express useful digital communication protocols under hard temporal c
 - G4 is complete. Preserve v0.1.0 and its qualified inputs; watch for the
   final submission form and recheck rules before a separately authorized entry.
 - G5 is complete and published in v0.1.1. Keep its qualified waveform example
-  in the packet. HOST-T01 and FPGA-T01 have supplied the digital loader and a
-  reproducible bench image. BENCH-T01 now needs calibrated release and host
-  latency measurements at the named receiver. [Bench protocol](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
+  in the packet. REMOTE-T01 measured real host latency and two-frame delivery.
+  BENCH-T01 now needs a calibrated high/low/released discriminator on the
+  target branch. [Bench protocol](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Resume the owner M0 teach-back only at the owner's explicit request under D52.

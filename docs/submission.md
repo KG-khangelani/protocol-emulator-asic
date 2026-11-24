@@ -132,13 +132,14 @@ readback, the controller parks the clock low and releases its data pins. It
 selects `E7`, reconnects the peer at idle, gives two `E7` clocks, settles at
 `67`, settles at `00`, then starts the runtime clock. The digital UART peer
 delivered `96 69` under the released host's framing checks. This command is
-available in the post-release checkout at `550065b`. The physical adapter and
-receiver-end electrical measurements are open. [Command and scope](programming.md#cold-load-the-selected-chip-in-simulation) · [E0050](../evidence/E0050-powered-cold-loader/README.md)
+available in the post-release checkout at `550065b`. [Command and scope](programming.md#cold-load-the-selected-chip-in-simulation) · [E0050](../evidence/E0050-powered-cold-loader/README.md)
 
 A post-release FabricFox v2 configuration also read the image back and
 delivered both UART bytes in decoded-package simulation at 12.5 MHz. The
-50 MHz FPGA route failed timing. The archived bitstream is available for a
-future bench test. [FPGA evidence and limits](../evidence/E0051-fabricfox-uart/README.md)
+50 MHz FPGA route failed timing. Two Welland public boards then ran the same
+bitstream and received `96 69` and `3C A5` on their physical pins. The largest
+observed host-service bound in the ten 12.5 MHz trials was 109 µs. The
+on-board weak-bias controls left electrical release unresolved. [Offline FPGA evidence](../evidence/E0051-fabricfox-uart/README.md) · [Physical UART records](../evidence/E0052-remote-uart/README.md)
 
 | Workload | Demonstrated digital boundary |
 |---|---|
@@ -149,7 +150,7 @@ future bench test. [FPGA evidence and limits](../evidence/E0051-fabricfox-uart/R
 The 50 MHz clock is the qualified physical-flow target, not measured Fmax.
 Netlist tests are functional zero-delay simulation; routed timing is a separate
 analysis. The fast model set combines -40 C standard cells and -55 C SRAM.
-Receiver-end electrical measurements, FPGA or silicon captures and continuous
+Calibrated receiver-end release, fabricated-silicon captures and continuous
 autonomous UART service remain open.
 
 ## Reproduce and finish the packet

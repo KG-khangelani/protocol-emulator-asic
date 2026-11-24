@@ -1,0 +1,315 @@
+{
+  "before": {
+    "clients": 0,
+    "daemon_version": "0.1.0",
+    "enabled": "tt_um_khangelani_uart_89fa8960",
+    "kind": "fpga",
+    "present": true,
+    "reachable": true,
+    "upload_count": 5
+  },
+  "board": "fpga-1",
+  "board_code_sha256": "d765341e7b52c15bfa9044e0ee77b350ffd657930dfda7c111eedf8104a08af2",
+  "controller_sha256": "5a80bad647f59e774e8a1ec0533fb97928fd0703ff54e142f7df67d3c7270c1f",
+  "enable": {
+    "clock_hz": null,
+    "enabled": "tt_um_khangelani_uart_89fa8960"
+  },
+  "ended_utc": "2026-11-24T21:47:49.709123+00:00",
+  "image_sha256": "89fa89607e0eac4468d11257b4b46296f9122115e0995c888274d31387fb4163",
+  "observations": [
+    {
+      "event": "controller",
+      "mode": "ASIC_MANUAL_INPUTS",
+      "original_hz": 133000000
+    },
+    {
+      "case": "damaged",
+      "edge": 38,
+      "event": "readback_failure",
+      "expected": 0,
+      "observed": 1,
+      "selector": 129
+    },
+    {
+      "case": "slow-good",
+      "edges": 76,
+      "event": "cold",
+      "identity": 34,
+      "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080",
+      "registers": [
+        [
+          160,
+          8
+        ],
+        [
+          161,
+          255
+        ],
+        [
+          164,
+          255
+        ]
+      ],
+      "status": 32,
+      "uio1_pull_down_up": {
+        "driven_high": [
+          1,
+          1
+        ],
+        "driven_low": [
+          0,
+          0
+        ],
+        "released": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "accepted": [
+        150,
+        105
+      ],
+      "case": "slow-good",
+      "configured_hz": 1000000,
+      "cpu_hz": 125000000,
+      "event": "uart",
+      "max_poll_gap_us": 174,
+      "max_read_sequence_us": 150,
+      "pad_clock_periods": 100000,
+      "pad_count_elapsed_us": 100014,
+      "polls": 122,
+      "service_upper_us": 326,
+      "tentative": 150,
+      "terminal": 167
+    },
+    {
+      "case": "target-good",
+      "edges": 76,
+      "event": "cold",
+      "identity": 34,
+      "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080",
+      "registers": [
+        [
+          160,
+          8
+        ],
+        [
+          161,
+          255
+        ],
+        [
+          164,
+          255
+        ]
+      ],
+      "status": 32,
+      "uio1_pull_down_up": {
+        "driven_high": [
+          1,
+          1
+        ],
+        "driven_low": [
+          0,
+          0
+        ],
+        "released": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "accepted": [
+        150,
+        105
+      ],
+      "case": "target-good",
+      "configured_hz": 12500000,
+      "cpu_hz": 125000000,
+      "event": "uart",
+      "max_poll_gap_us": 192,
+      "max_read_sequence_us": 150,
+      "pad_clock_periods": 100000,
+      "pad_count_elapsed_us": 8023,
+      "polls": 7,
+      "service_upper_us": 344,
+      "tentative": 150,
+      "terminal": 167
+    },
+    {
+      "case": "target-bad-first",
+      "edges": 76,
+      "event": "cold",
+      "identity": 34,
+      "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080",
+      "registers": [
+        [
+          160,
+          8
+        ],
+        [
+          161,
+          255
+        ],
+        [
+          164,
+          255
+        ]
+      ],
+      "status": 32,
+      "uio1_pull_down_up": {
+        "driven_high": [
+          1,
+          1
+        ],
+        "driven_low": [
+          0,
+          0
+        ],
+        "released": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "accepted": null,
+      "case": "target-bad-first",
+      "configured_hz": 12500000,
+      "cpu_hz": 125000000,
+      "event": "uart",
+      "max_poll_gap_us": 184,
+      "max_read_sequence_us": 161,
+      "pad_clock_periods": 100000,
+      "pad_count_elapsed_us": 8023,
+      "polls": 3,
+      "service_upper_us": 347,
+      "tentative": 150,
+      "terminal": 230
+    },
+    {
+      "case": "target-bad-second",
+      "edges": 76,
+      "event": "cold",
+      "identity": 34,
+      "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080",
+      "registers": [
+        [
+          160,
+          8
+        ],
+        [
+          161,
+          255
+        ],
+        [
+          164,
+          255
+        ]
+      ],
+      "status": 32,
+      "uio1_pull_down_up": {
+        "driven_high": [
+          1,
+          1
+        ],
+        "driven_low": [
+          0,
+          0
+        ],
+        "released": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "accepted": null,
+      "case": "target-bad-second",
+      "configured_hz": 12500000,
+      "cpu_hz": 125000000,
+      "event": "uart",
+      "max_poll_gap_us": 192,
+      "max_read_sequence_us": 152,
+      "pad_clock_periods": 100000,
+      "pad_count_elapsed_us": 8022,
+      "polls": 7,
+      "service_upper_us": 346,
+      "tentative": 150,
+      "terminal": 230
+    },
+    {
+      "case": "target-fresh",
+      "edges": 76,
+      "event": "cold",
+      "identity": 34,
+      "image": "02000066640300c8d7000040000000c8b0010040403660a0000000cc00000080",
+      "registers": [
+        [
+          160,
+          8
+        ],
+        [
+          161,
+          255
+        ],
+        [
+          164,
+          255
+        ]
+      ],
+      "status": 32,
+      "uio1_pull_down_up": {
+        "driven_high": [
+          1,
+          1
+        ],
+        "driven_low": [
+          0,
+          0
+        ],
+        "released": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "accepted": [
+        150,
+        105
+      ],
+      "case": "target-fresh",
+      "configured_hz": 12500000,
+      "cpu_hz": 125000000,
+      "event": "uart",
+      "max_poll_gap_us": 184,
+      "max_read_sequence_us": 156,
+      "pad_clock_periods": 100000,
+      "pad_count_elapsed_us": 8023,
+      "polls": 7,
+      "service_upper_us": 342,
+      "tentative": 150,
+      "terminal": 167
+    },
+    {
+      "host_uio_oe": 0,
+      "restored_cpu_hz": 133000000,
+      "status": "PASS"
+    }
+  ],
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "source_commit": "2d2d178882e358ebbab66279191c910370cdd1f1",
+  "started_utc": "2026-11-24T21:47:29.345095+00:00",
+  "status": "PASS_REMOTE_UART_DIGITAL",
+  "uart_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+  "upload": {
+    "evicted": [],
+    "name": "tt_um_khangelani_uart_89fa8960",
+    "size": 104090
+  },
+  "websocket_wheel_sha256": "f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f"
+}
