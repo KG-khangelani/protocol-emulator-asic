@@ -1,5 +1,21 @@
 # Research ledger
 
+## 25 November physical UART baud offsets
+
+**Demonstrated.** Two FabricFox boards delivered the expected bytes on every
+valid batch at three programmed rates and three launch delays. Digital pad
+captures independently decoded the two payload patterns and both injected
+framing faults. The fastest observed start-to-start interval was 4,254
+receiver clocks. The largest host bound at that rate was 112 µs against
+340.32 µs allowed by the council's service model. Four altered records
+were rejected in offline replay. [E0053 raw captures and audit](../evidence/E0053-uart-baud-offsets/README.md)
+
+**Unresolved.** The state machines share one oscillator and the capture uses
+a digital input buffer. The provider checks identified no accessible calibrated
+target-branch probe. All 24 weak-bias controls gave identical readings for
+driven high and commanded release. The next physical handoff test needs a
+known-state calibration and a current-sensitive trace at UIO1. [D55](decisions/0055-measure-physical-uart-baud-offsets.md) · [Fixture design](../evidence/E0049-review-council/panel-b/fixture/bench.md)
+
 ## 24 November physical UART on public FabricFox boards
 
 **Demonstrated.** The E0051 image received two distinct back-to-back frames

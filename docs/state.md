@@ -1,10 +1,16 @@
 # Current state
 
-Updated: 2026-11-24. **Physical UART delivery passed on two FabricFox boards. BENCH-T01 still needs a calibrated line-release measurement.**
+Updated: 2026-11-25. **Both FabricFox boards delivered two-byte UART batches with a faster and slower transmitter. BENCH-T01 still needs a calibrated line-release measurement.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
-The container used the Welland public lab to load the E0051 configuration
+Twenty valid batches passed and four malformed batches were rejected across
+24 physical trials at −2.0095%, nominal and +2.0216% transmitter baud. At
+the fast point the pad capture measured 4,254 receiver clocks between frame
+starts and the largest host bound was 112 µs against 340.32 µs allowed.
+The remote instrument search found no verified target-branch probe. [E0053 results, raw digital captures and instrument access](../evidence/E0053-uart-baud-offsets/README.md)
+
+In the earlier exact-rate trial the container used the Welland public lab to load the E0051 configuration
 onto two iCE40UP5Ks. Both read back the 32-byte receiver and delivered
 `96 69` and `3C A5` at the 12.5 MHz target, about 28,802 baud. Either faulty
 stop bit prevented delivery. The largest observed host-service bound was

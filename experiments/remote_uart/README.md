@@ -50,3 +50,17 @@ controls. A third observation samples the requested release. Each applies
 only the MCU's weak pull-down and then pull-up. These digital readings can
 leave driver ownership unresolved. Measuring release time or current needs a
 calibrated receiver-end fixture. [Bench contract](../../docs/research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
+
+## Baud-offset and launch-delay trials
+
+From the repository root on the Windows host, this runs the two-frame rate and phase matrix on an idle public FabricFox. Use another available board slug to repeat it. The script checks the E0051 bitstream and the released receiver before contacting the board. Each invocation creates a new output directory.
+
+```powershell
+$repo = (Get-Location).Path
+$output = New-Item -ItemType Directory -Force (Join-Path $repo 'build/remote-uart')
+$run = 'build/' + [Guid]::NewGuid().ToString('N')
+$image = 'sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909'
+docker run --rm --mount "type=bind,source=$repo,target=/workspace,readonly" --mount "type=bind,source=$($output.FullName),target=/workspace/build" --tmpfs /tmp -w /workspace -e PYTHONDONTWRITEBYTECODE=1 $image python3 -B experiments/remote_uart/run.py --suite margin --board fpga-1 --out $run
+```
+
+The board captures GPIO26 every two RP2350 ticks with DMA while the original register reader services the FPGA. Each of the twelve trials records its complete packed bit samples in `samples_hex`, least significant bit first within each byte. The clock generator, peer and digital sampler share one oscillator. The client checks the pad transitions from the intended bits and compares the FPGA's separate delivery and status observations against the case criteria. The full raw REPL response is saved as `terminal.bin` and the host verdict as `result.json`. [Frozen matrix](../../docs/decisions/0055-measure-physical-uart-baud-offsets.md) · [Audited results](../../evidence/E0053-uart-baud-offsets/README.md) · [MicroPython DMA](https://docs.micropython.org/en/latest/library/rp2.DMA.html)

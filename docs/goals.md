@@ -1,6 +1,6 @@
 # Goals to submission readiness
 
-Updated 2026-11-24. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
+Updated 2026-11-25. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
 [D52](decisions/0052-engineering-first-powered-loader.md) prioritizes engineering. G6 resumes only on the owner's explicit request.
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
@@ -11,8 +11,10 @@ The v0.1.1 software release adds the G5 waveform example. The
 a powered cold-start transport. [E0050](../evidence/E0050-powered-cold-loader/README.md)
 qualifies the command on production RTL and the submitted netlist. The
 FabricFox v2 configuration reproduced in Docker and delivered both UART bytes
-on two physical boards at 12.5 MHz. The next engineering measurement is the
-time from the handoff command to electrical release at the target. [E0051 offline build](../evidence/E0051-fabricfox-uart/README.md) · [E0052 physical delivery and timing](../evidence/E0052-remote-uart/README.md)
+on two physical boards at 12.5 MHz. A second campaign verified delivery with
+the transmitter 2.0216% fast and 2.0095% slow at three launch delays. The
+next electrical measurement is the time from the handoff command to release
+at the target. [E0051 offline build](../evidence/E0051-fabricfox-uart/README.md) · [E0052 physical delivery](../evidence/E0052-remote-uart/README.md) · [E0053 transmitter offsets and remote instrument access](../evidence/E0053-uart-baud-offsets/README.md)
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 
