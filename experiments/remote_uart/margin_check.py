@@ -19,6 +19,12 @@ def decode_wire(encoded, cell_ticks, pair, stops):
     packed = bytes.fromhex(encoded)
     require(len(packed) == 5760, 'short digital capture')
     samples = [(byte >> bit) & 1 for byte in packed for bit in range(8)]
+    result = decode_levels(samples, cell_ticks, pair, stops)
+    result['samples_sha256'] = hashlib.sha256(packed).hexdigest()
+    return result
+
+
+def decode_levels(samples, cell_ticks, pair, stops):
     edges = [i for i in range(1, len(samples)) if samples[i] != samples[i-1]]
     require(samples[0] == samples[-1] == 1 and bool(edges), 'missing idle or frame start')
     start = edges[0]
@@ -41,8 +47,7 @@ def decode_wire(encoded, cell_ticks, pair, stops):
             and (centers[9], centers[19]) == stops, 'wire payload or stop differs')
     return {'first_fall_sample': start, 'transitions': len(edges), 'decoded': decoded,
             'stop_levels': [centers[9], centers[19]], 'max_edge_error_ticks': max(map(abs, errors)),
-            'second_start_spacing_ticks': 2*(edges[boundaries.index(10)]-start) if 10 in boundaries else None,
-            'samples_sha256': hashlib.sha256(packed).hexdigest()}
+            'second_start_spacing_ticks': 2*(edges[boundaries.index(10)]-start) if 10 in boundaries else None}
 
 
 def check_margin(records, image_hash):

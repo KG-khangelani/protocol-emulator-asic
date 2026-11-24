@@ -23,11 +23,15 @@ from tools.cold_load import fresh_directory, UART_BINARY
 from tools.production_sram import verify
 from experiments.remote_uart.check import check
 from experiments.remote_uart.margin_check import check_margin
+from experiments.remote_uart.oscillator_check import check_oscillator, NOMINAL_MHZ
 
 SITE = 'https://tinytapeout.fpgas.online'
 IMAGE = ROOT / 'evidence/E0051-fabricfox-uart/fabricfox-v2-12p5mhz.bin'
 IMAGE_SHA = '89fa89607e0eac4468d11257b4b46296f9122115e0995c888274d31387fb4163'
 NAME = 'tt_um_khangelani_uart_89fa8960'
+OSC_IMAGE = ROOT / 'evidence/E0054-separate-oscillators/fabricfox-hfosc.bin'
+OSC_SHA = '27945dd4aa26dc48e123a93dd6502fdde44a7c4c82e19557740edef0fa26461e'
+OSC_NAME = 'tt_um_khangelani_osc_' + OSC_SHA[:8]
 WHEEL = 'websockets-15.0.1-py3-none-any.whl'
 WHEEL_URL = 'https://files.pythonhosted.org/packages/fa/a8/5b41e0da817d64113292ab1f8247140aac61cbf6cfd085d6a0fa77f4984f/' + WHEEL
 WHEEL_SHA = 'f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f'
@@ -53,7 +57,10 @@ def board_code(suite='delivery'):
     steps = [(r['ui_in'], r['rst_n'], r['raw'] if r['host_drives_uio'] else -1,
               r['expected'].get('uo_out', -1), r['expected'].get('uio_out', -1)) for r in rows]
     code = 'STEPS = ' + repr(steps) + '\n' + (HERE / 'on_board.py').read_text()
-    if suite == 'margin':
+    if suite == 'oscillator':
+        code += f'\nNOMINAL_MHZ = {NOMINAL_MHZ}\n' + (HERE / 'independent_peer.py').read_text()
+        code += '\nrun_suite(oscillator_trials, (xtal_peer, clock_and_data, idle_clock_and_data, watch_enable), 3)\n'
+    elif suite == 'margin':
         code += '\n' + (HERE / 'baud_margin.py').read_text()
         code += '\nrun_suite(margin_trials, (project_clock, serial_peer, pad_sampler, count_clock), 3)\n'
     else:
@@ -104,10 +111,12 @@ def run(args, out, receipt):
     require(hashlib.sha256(wheel.read_bytes()).hexdigest() == WHEEL_SHA, 'terminal dependency hash differs')
     sys.path.insert(0, str(wheel.resolve()))
     from websockets.sync.client import connect
-    image = IMAGE.read_bytes()
-    require(hashlib.sha256(image).hexdigest() == IMAGE_SHA, 'FPGA image changed')
+    fixture = args.suite == 'oscillator'
+    path, expected, name = (OSC_IMAGE, OSC_SHA, OSC_NAME) if fixture else (IMAGE, IMAGE_SHA, NAME)
+    image = path.read_bytes()
+    require(hashlib.sha256(image).hexdigest() == expected, 'FPGA image changed')
     code = board_code(args.suite)
-    receipt.update(board=args.board, image_sha256=IMAGE_SHA, uart_sha256=UART_BINARY,
+    receipt.update(board=args.board, image_sha256=expected, uart_sha256=UART_BINARY,
                    board_code_sha256=hashlib.sha256(code).hexdigest(), websocket_wheel_sha256=WHEEL_SHA)
     page = SITE + '/board/' + args.board + '/'
     api = SITE + '/api/board/' + args.board
@@ -137,26 +146,37 @@ def run(args, out, receipt):
     receipt['board_identity_sha256'] = hashlib.sha256(identity.encode()).hexdigest()
     require(status['reachable'] and status['board']['present'] and status['kind'] == 'fpga'
             and status['clients'] == 0, 'board offline or in use')
-    require(enabled in ('idle_display', NAME), 'another design is using the board')
-    require(len(uploads) < 16 or NAME in uploads, 'upload would evict another visitor')
+    require(enabled in ('idle_display', NAME, name), 'another design is using the board')
+    require(len(uploads) < 16 or name in uploads, 'upload would evict another visitor')
     boundary = 'uartlab' + uuid4().hex
-    prefix = (f'--{boundary}\r\nContent-Disposition: form-data; name="name"\r\n\r\n{NAME}\r\n'
-              f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="{NAME}.bin"\r\n'
+    prefix = (f'--{boundary}\r\nContent-Disposition: form-data; name="name"\r\n\r\n{name}\r\n'
+              f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="{name}.bin"\r\n'
               'Content-Type: application/octet-stream\r\n\r\n').encode()
-    response = request(api + '/bitstream', prefix + image + f'\r\n--{boundary}--\r\n'.encode(),
-                       'multipart/form-data; boundary=' + boundary)
-    receipt['upload'] = response
-    require(response.get('name') == NAME and response.get('size') == len(image) and not response.get('evicted'),
-            'unexpected public upload receipt')
-    # Enabling through the gallery makes the service transfer and check these bytes on the RP2350.
-    receipt['enable'] = request(api + '/designs/' + NAME + '/enable', b'{}', 'application/json')
-    require(request(api + '/designs')['enabled'] == NAME, 'gallery did not select our design')
-    records, errors = run_terminal(connect, args.board, code, out)
-    receipt['observations'] = records
+    try:
+        response = request(api + '/bitstream', prefix + image + f'\r\n--{boundary}--\r\n'.encode(),
+                           'multipart/form-data; boundary=' + boundary)
+        receipt['upload'] = response
+        require(response.get('name') == name and response.get('size') == len(image) and not response.get('evicted'),
+                'unexpected public upload receipt')
+        receipt['enable'] = request(api + '/designs/' + name + '/enable', b'{}', 'application/json')
+        require(request(api + '/designs')['enabled'] == name, 'gallery did not select our design')
+        records, errors = run_terminal(connect, args.board, code, out)
+        receipt['observations'] = records
+    finally:
+        if fixture:
+            current = request(api + '/designs')['enabled']
+            if current == name and current != enabled:
+                require(request(page + 'status.json')['clients'] == 0, 'board occupied before gallery restoration')
+                request(api + '/designs/' + enabled + '/enable', b'{}', 'application/json')
+            receipt['restored_design'] = request(api + '/designs')['enabled']
+            require(receipt['restored_design'] == enabled, 'gallery selection changed during restoration')
     require(not errors, 'board test raised an exception, see terminal.log')
     require(records and records[-1].get('status') == 'PASS' and records[-1]['host_uio_oe'] == 0,
             'missing completion or controller still drives the bus')
-    if args.suite == 'margin':
+    if fixture:
+        receipt['digital_capture_summary'] = check_oscillator(records, UART_BINARY)
+        receipt['status'] = 'PASS_REMOTE_UART_SEPARATE_OSCILLATORS'
+    elif args.suite == 'margin':
         receipt['digital_capture_summary'] = check_margin(records, UART_BINARY)
         receipt['status'] = 'PASS_REMOTE_UART_BAUD_OFFSETS'
     else:
@@ -167,7 +187,7 @@ def run(args, out, receipt):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--board', required=True, help='public FabricFox slug, e.g. fpga-1')
-    parser.add_argument('--suite', choices=('delivery', 'margin'), default='delivery')
+    parser.add_argument('--suite', choices=('delivery', 'margin', 'oscillator'), default='delivery')
     parser.add_argument('--out', type=Path, required=True, help='fresh directory under build/')
     parser.add_argument('--wheel', type=Path, help='optional pre-fetched pinned terminal dependency')
     args = parser.parse_args()
