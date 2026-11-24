@@ -1,6 +1,6 @@
 # Technical review council, 24 November 2026
 
-The council opened at **14:31:37 UTC / 16:31:37 SAST**. The three-hour review window ends at **17:31:37 UTC / 19:31:37 SAST**. These are the observed start and the planned close. The closing record will give the actual end.
+The council opened at **14:31:37 UTC / 16:31:37 SAST**. The scheduled close was **17:31:37 UTC / 19:31:37 SAST**. The chair closed the council at **17:31:49 UTC / 19:31:49 SAST**, after **3 h 00 min 12 s** of wall time. [Actual session record](session.json)
 
 The starting checkout was `e90cca228490423a7fe7c4ae40f7e669200b4d0e` on `main`. Review source, measurements and published material as of this date. The decision concerns where to spend the next engineering day and the remaining time before submission. Adoption of a different chip, a submission, and an owner's demonstration of fluency require separate evidence or action.
 

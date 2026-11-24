@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-24",
+  "timezone": "Africa/Johannesburg",
+  "start_utc": "2026-11-24T14:31:37Z",
+  "planned_end_utc": "2026-11-24T17:31:37Z",
+  "closing_synthesis_began_utc_to_minute": "2026-11-24T17:01Z",
+  "actual_end_utc": "2026-11-24T17:31:49Z",
+  "start_local": "2026-11-24T16:31:37+02:00",
+  "actual_end_local": "2026-11-24T19:31:49+02:00",
+  "wall_seconds": 10812,
+  "review_baseline": "e90cca228490423a7fe7c4ae40f7e669200b4d0e",
+  "agent_capacity_including_chair": 4,
+  "independent_reviewers": 3,
+  "disciplinary_perspectives": 9
+}
