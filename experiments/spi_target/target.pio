@@ -1,0 +1,45 @@
+; SPDX-License-Identifier: Apache-2.0
+; Y is preloaded once with 0x523ca700. Shift out left, sample MOSI on IN,
+; JMP PIN observes CS. SET addresses the two terminal-marker pins.
+.program spi_command_target
+.side_set 1 opt pindirs
+.wrap_target
+idle:
+    wait 0 gpio 2 side 0
+    mov isr, null
+    set x, 6
+prefix_bit:
+    wait 1 gpio 0
+    in pins, 1
+    wait 0 gpio 0
+    jmp x-- prefix_bit
+    mov osr, y
+    mov y, isr
+    mov isr, osr
+    out x, 8
+    jmp x!=y reject
+    mov y, isr
+    wait 1 gpio 0
+    mov isr, null
+    in pins, 1
+    mov x, isr
+    jmp !x reply
+    out null, 8
+reply:
+    wait 0 gpio 0
+    set x, 7
+send_bit:
+    out pins, 1 side 1
+    wait 1 gpio 0
+    jmp pin idle
+    wait 0 gpio 0
+    jmp pin idle
+    jmp x-- send_bit
+    wait 1 gpio 2 side 0
+    set pins, 1
+terminal:
+    irq wait 0
+reject:
+    set pins, 2 side 0
+    jmp terminal
+.wrap
