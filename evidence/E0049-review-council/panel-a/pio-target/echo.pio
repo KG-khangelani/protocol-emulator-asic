@@ -1,0 +1,27 @@
+; SPDX-License-Identifier: Apache-2.0
+.program partial_echo_target
+.wrap_target
+idle:
+    wait 0 gpio 2
+    wait 1 gpio 0
+    mov isr, null
+    in pins, 2
+    mov osr, isr
+    out null, 1
+    wait 0 gpio 0
+    out pins, 1
+    set pindirs, 1
+rise_loop:
+    jmp pin release
+    mov isr, null
+    in pins, 1
+    jmp pin release
+    mov x, isr
+    jmp !x rise_loop
+fall_loop:
+    wait 0 gpio 0
+release:
+    set pindirs, 0
+    wait 1 gpio 2
+    jmp idle
+.wrap

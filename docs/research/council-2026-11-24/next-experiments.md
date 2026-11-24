@@ -10,6 +10,22 @@ The estimates below are planning estimates for an engineer already familiar with
 
 **Score.** From cold selection/reset verify each occupied byte and expected reply with the controller/peer interlock. Hold enable high at every sampled rising edge. With independent clocks disabled, park the clock low, issue the two reserved-selector clocks at `E7`, clear only bit 7 to `67`, settle, then select `00` before running. The released host's existing terminal and valid rules still apply. Compare the product transport's emitted observations to the established 55 G3 and twenty applicable G5 records. The 1,160 I²C archive supplies a regression reference if the runtime sequencer changes. Inject a wrong readback, an unisolated idle-high peer, an early restart and an unordered selector transition. Accept a digital transport only if all required records match and each mutation is caught before a falsely accepted run. A backend lacking a required control has an unsupported operating condition. A physical claim additionally requires measured cold start, direction and turnaround on the named fixture. [Powered comparison](../../../evidence/E0049-review-council/powered-netlist/README.md) · [Selector orders](../../../evidence/E0049-review-council/panel-c/records/selector-orders.json)
 
+```mermaid
+sequenceDiagram
+    participant Host as Board controller
+    participant Chip as Selected ASIC
+    participant Peer as External UART transmitter
+    Host->>Peer: Open the signal link before reset or readback
+    Host->>Chip: Own the clock, reset, load image and verify bytes
+    Chip-->>Host: Drive readback bytes while other data drivers are released
+    Host->>Chip: Park clock low, select E7, release controller data pins
+    Host->>Peer: Connect at stable idle with first start armed
+    Host->>Chip: Step two E7 clocks, return clock low
+    Host->>Chip: Settle 67, settle 00, start continuous clock
+    Peer->>Chip: Send two frames within the declared window
+    Chip-->>Host: Return raw bytes and terminal framing status
+```
+
 ## 2. Observe the owner and a first-time reader
 
 **Owner.** Allow 30–45 minutes with the owner for the existing M0 checkpoint. Start with `.\tools\workbench.ps1 LearnM0` and `LearnWaveform`. Ask the owner to predict a row before viewing it and use the RTL, timing and precheck evidence to defend the answer under a new follow-up. Record only demonstrated criteria and level of support. Close G6 milestones only under the existing rubric. A correct automated transcript and a successful novice trial cannot supply the owner's explanation. [Learning checkpoints](../../learning/checkpoints.md) · [Current criterion record](../../learning/progress.json)
@@ -35,6 +51,8 @@ The estimates below are planning estimates for an engineer already familiar with
 **Work.** Allow one architecture engineer-day for the first matched attempt. Reuse the prospectively defined mode-0 `A4 → 3C`, `A5 → A7` requester, 254 invalid commands, 0.5/1/2 MHz cases, four phases, unequal periods and saturated reply bits. Compare the original VM image, a bounded revised program and a one-SM PIO target; charge every extra SM, pin, FIFO, external switch, native peripheral, service call and restart. Use a common independent requester, externally scheduled SCK/CS, and observe both MISO direction and the resolved bus. Include the quiet command phase, ≥60 ns setup, ≥40 ns hold, missing edge, stuck/early/normal deselection and the next frame. Report cold setup, rearm commands, RAM/ROM, PC/IRQ/FIFO semantics, completed bytes and the first violating edge. [Full target contract](../../../evidence/E0049-review-council/panel-c/spi-target/spi-target-contract.md)
 
 **Score.** After CS rises during a driven reply with SCK stopped, MISO must release within 160 ns. In the independent reselect case return SCK low at +80 ns, reassert CS at +160 ns and perform a complete fresh command after the specified setup. Require no command-phase drive and a correct new reply with no intervening host rescue. Preserve the observed 1,563 ns counterexample as a negative control. A circuit which disconnects MISO during CS high still has to pass the next transaction. Stop after one day if the complete role cannot be met within declared resources. Mark separately any smaller property reached by then. No silicon-area comparison follows from RP2040 program bytes. [VM target and timeout sweep](../../../evidence/E0049-review-council/panel-c/spi-target/README.md) · [External-gate counterexamples](../../../evidence/E0049-review-council/panel-b/fixture/formal-rebuttal.md)
+
+Begin the PIO attempt with the already exercised one-bit echo for a stopped-low clock. Its 480-sequence grid includes 160 ns equality under the after-edge convention. It took 700/718 ns to release in two stopped-high cases. The first tests for a **complete** implementation should stall high and low at every driven response bit, try both data values, and serve the opposite command immediately afterward. Budget synchronizer, mapping, board and uncertainty margins separately from the emulator's cycle count. [Partial native-PIO screen and retained failures](../../../evidence/E0049-review-council/panel-a/pio-target/README.md)
 
 ## 5. Reopen a hardware choice only at a measured boundary
 

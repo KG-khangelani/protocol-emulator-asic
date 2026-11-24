@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-24T16:21:18.403496+00:00",
+  "attempts": [
+    {
+      "attempt": "01",
+      "cases": 120,
+      "expected_historical_failures": 60,
+      "start_utc": "2026-11-24T16:21:18.550039+00:00",
+      "end_utc": "2026-11-24T16:21:21.913809+00:00"
+    },
+    {
+      "attempt": "02",
+      "cases": 122,
+      "expected_historical_failures": 0,
+      "start_utc": "2026-11-24T16:21:22.105139+00:00",
+      "end_utc": "2026-11-24T16:21:25.228998+00:00"
+    }
+  ],
+  "phase_cases": {
+    "accepted": 480
+  },
+  "phase_start_utc": "2026-11-24T16:21:25.413682+00:00",
+  "phase_end_utc": "2026-11-24T16:21:28.718975+00:00",
+  "finished_utc": "2026-11-24T16:21:28.758359+00:00"
+}

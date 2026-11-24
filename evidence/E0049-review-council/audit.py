@@ -141,11 +141,18 @@ def observations():
             "PIO recorded dispositions")
     require(digest(raw(HERE / "panel-a/pio-spi/records/final-public-rows.bin.gz")) ==
             pio["public_rows_sha256"], "PIO pin and FIFO trace")
+    phases = read(HERE / "panel-a/pio-target/records/phase.json.gz")
+    samples = [dict(zip(phases["columns"], row, strict=True)) for row in phases["rows"]]
+    require(len(samples) == 480 and all(not s["errors"] for s in samples), "partial PIO target grid")
+    require(max(s["cold_abort_ns"] for s in samples) == 160 and
+            sum(s["cold_abort_ns"] == s["post_reselect_abort_ns"] == 160 for s in samples) == 4,
+            "worst digital target boundary")
     require(read(HERE / "panel-c/spi-target/records/fresh-replay.json")["miso_abort_ns"] == 1563,
             "SPI target abort counterexample")
     return {"G3_cases": len(rows), "I2C_cases": len(i2c), "G5_cases_each": len(traces[0]),
             "combined_i2c_first_halt_ns": first_halt * 5, "nominal_mapped_delta_um2": round(delta, 2),
-            "pio_single_launches": len(pio["observations"]), "dictionary_images": len(sizes)}
+            "pio_single_launches": len(pio["observations"]), "single_bit_target_phase_cases": len(samples),
+            "dictionary_images": len(sizes)}
 
 
 def main():
