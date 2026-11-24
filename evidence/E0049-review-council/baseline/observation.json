@@ -1,0 +1,71 @@
+{
+  "observed_utc": "2026-11-24T15:00:12.577722+00:00",
+  "baseline": "e90cca228490423a7fe7c4ae40f7e669200b4d0e",
+  "releases": {
+    "v0.1.0": {
+      "tag_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+      "qualified_input_hashes_matched": 20,
+      "retained_asset_count": 35,
+      "live_asset_metadata_matches": true,
+      "title_body_reference": "G4 release-notice.json",
+      "live_name_and_body_match": true,
+      "live_tag_ref_matches": true
+    },
+    "v0.1.1": {
+      "tag_commit": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+      "qualified_input_hashes_matched": 20,
+      "retained_asset_count": 22,
+      "live_asset_metadata_matches": true,
+      "live_name_and_body_match": true,
+      "live_tag_ref_matches": true
+    }
+  },
+  "physical": {
+    "gds_comparison": {
+      "schema": "gds-record-comparison-v1",
+      "left": {
+        "size_in_bytes": 10044774,
+        "sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "right": {
+        "size_in_bytes": 10044774,
+        "sha256": "0541bfb61c1e974a5ffecb051ff43a380b3fdcdc7c1a5bf19870c74642a14bd1",
+        "record_count": 995697,
+        "timestamp_normalized_sha256": "8bcbd2b9a225d7bd70c2c392d536ce20a3e71c4389dfa8d55435902baa90989b"
+      },
+      "record_structure_equal": true,
+      "different_records": 191,
+      "different_bytes": 764,
+      "timestamp_record_differences": {
+        "BGNLIB": 1,
+        "BGNSTR": 190
+      },
+      "non_timestamp_record_differences": {},
+      "equivalent_except_timestamps": true
+    },
+    "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "lef_size": [
+      "SIZE 1724.160 BY 710.640 ;"
+    ],
+    "final_metrics": {
+      "design__die__bbox": "0.0 0.0 1724.16 710.64",
+      "design__core__area": 1208170,
+      "design__instance__area__stdcell": 61294.1,
+      "design__instance__area__macros": 49488.5,
+      "design__instance__utilization": 0.0916943,
+      "design__instance__area__class:fill_cell": 1084140,
+      "timing__setup__ws": 5.5958856909900625,
+      "timing__hold__ws": 0.12079138031701087
+    },
+    "occupied_logic_plus_macro_um2": 110782.6,
+    "calculated_share_of_core_percent": 9.16945462972926
+  },
+  "announcement": {
+    "url": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+    "bytes": 45690,
+    "sha256": "293db5d6dac0639e08057052d4cf25fa4df34fc92b42e81072f60f2e755fa686",
+    "same_body_as_dated_recheck": true
+  }
+}

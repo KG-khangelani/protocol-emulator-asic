@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-11-24T14:53:40.320667+00:00",
+  "scope": "powered macro-pin launch, zero-delay G4 netlist",
+  "source": "38e7d61d370015b524925abede9f25f8de0cd75a",
+  "driver_sha256": "a4b02d7ee12701c5e66bc9a6333be5166aeec546bd79854da7d25ef131d0c571",
+  "status": "incomplete",
+  "pdk_sha256": {
+    "ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+    "ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+    "ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735"
+  },
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "fixture_sha256": {
+    "council_powered_g3.py": "675538d30942150b33610fa7d9595916e8467e1a9981a34aba288ba498c6d0f1",
+    "Makefile": "6ca5cccd3bdd101d3cf6ef9c83444c062464f95b25b719cda1932a1b7ce864e4",
+    "tb.v": "ccf781d519a2fa89ae46d13d8d5f66398fcdbc799fb035ec75657d2335e271c2"
+  },
+  "command": [
+    "make",
+    "-C",
+    "/workspace/build/council-2026-11-24/chair/netlist-01/fixture",
+    "SIM=icarus",
+    "GATES=yes",
+    "SRC_DIR=/workspace/src",
+    "GATE_LEVEL_NETLIST=/workspace/build/council-2026-11-24/chair/netlist-01/submitted.v",
+    "SIM_BUILD=/workspace/build/council-2026-11-24/chair/netlist-01/sim",
+    "COCOTB_TEST_MODULES=council_powered_g3",
+    "COCOTB_RESULTS_FILE=/workspace/build/council-2026-11-24/chair/netlist-01/results.xml",
+    "FST=",
+    "COCOTB_PLUSARGS=+NO_DUMP"
+  ],
+  "returncode": 2,
+  "error": "make returned failure; see run.log",
+  "ended_utc": "2026-11-24T14:53:46.263107+00:00"
+}
