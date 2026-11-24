@@ -1,0 +1,30 @@
+{
+  "before": {
+    "clients": 0,
+    "daemon_version": "0.1.0",
+    "enabled": "idle_display",
+    "kind": "fpga",
+    "present": true,
+    "reachable": true,
+    "upload_count": 4
+  },
+  "board": "fpga-1",
+  "board_code_sha256": "673b420d9e80081dc134047e8c872cafa256386e65cd22b91833df220a19bda8",
+  "enable": {
+    "clock_hz": null,
+    "enabled": "tt_um_khangelani_uart_89fa8960"
+  },
+  "ended_utc": "2026-11-24T21:46:06.535669+00:00",
+  "error": "board test raised an exception, see terminal.log",
+  "image_sha256": "89fa89607e0eac4468d11257b4b46296f9122115e0995c888274d31387fb4163",
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "started_utc": "2026-11-24T21:45:46.696021+00:00",
+  "status": "FAILED",
+  "uart_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+  "upload": {
+    "evicted": [],
+    "name": "tt_um_khangelani_uart_89fa8960",
+    "size": 104090
+  },
+  "websocket_wheel_sha256": "f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f"
+}
