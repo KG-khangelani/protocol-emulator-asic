@@ -1,0 +1,12 @@
+UARTLAB {"event": "controller", "original_hz": 133000000, "mode": "ASIC_MANUAL_INPUTS"}
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.pins.pins: [33;1mTrying to control ui_in2 but possible contention (it is reading HIGH)[0m
+ttboard.pins.pins: [31;1mFollowing pins have not be set as outputs owing to contention: ui_in2[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_MANUAL_INPUTS[0m
+Traceback (most recent call last):
+  File "<stdin>", line 433, in <module>
+  File "<stdin>", line 268, in run_suite
+  File "<stdin>", line 112, in cold
+  File "<stdin>", line 76, in select
+ValueError: ('physical selector failed', 103, 99)

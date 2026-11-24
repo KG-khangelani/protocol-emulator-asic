@@ -1,0 +1,41 @@
+{
+  "before": {
+    "clients": 0,
+    "daemon_version": "0.1.0",
+    "enabled": "tt_um_khangelani_uart_89fa8960",
+    "kind": "fpga",
+    "present": true,
+    "reachable": true,
+    "upload_count": 5
+  },
+  "board": "fpga-1",
+  "board_code_sha256": "0b6e721b6ad7da8c734a79a967ed5d4348ae1c2c8af12fac5860ccb254ea1b3d",
+  "board_identity_sha256": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca",
+  "controller_sha256": "54023cde76d4fec50ecaa66fa766fc9be40fe1f694db3df7004e4803ad04fe02",
+  "enable": {
+    "clock_hz": null,
+    "enabled": "tt_um_khangelani_osc_27945dd4"
+  },
+  "ended_utc": "2026-11-24T22:35:44.323613+00:00",
+  "error": "board test raised an exception, see terminal.log",
+  "image_sha256": "27945dd4aa26dc48e123a93dd6502fdde44a7c4c82e19557740edef0fa26461e",
+  "observations": [
+    {
+      "event": "controller",
+      "mode": "ASIC_MANUAL_INPUTS",
+      "original_hz": 133000000
+    }
+  ],
+  "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "restored_design": "tt_um_khangelani_uart_89fa8960",
+  "source_commit": "e8700c07b53f1423db91fb96ba0b8b044b7ec370",
+  "started_utc": "2026-11-24T22:35:12.022272+00:00",
+  "status": "FAILED",
+  "uart_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+  "upload": {
+    "evicted": [],
+    "name": "tt_um_khangelani_osc_27945dd4",
+    "size": 104090
+  },
+  "websocket_wheel_sha256": "f7a866fbc1e97b5c617ee4116daaa09b722101d4a3c170c787450ba409f9736f"
+}
