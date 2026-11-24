@@ -244,27 +244,34 @@ def run_pair(name, hz, stop1, stop2, tx_id, count_id):
 
 
 tt = DemoBoard.get()
-original_frequency = machine.freq()
-original_mode = tt.mode
-record(event='controller', original_hz=original_frequency, mode=tt.mode_str)
-free = [index for index in range(4) if not rp2.StateMachine(index).active()]
-assert len(free) >= 2
-try:
-    machine.freq(125000000)
-    assert machine.freq() == 125000000
-    assert not cold('damaged', True)
+
+
+def delivery_trials(free):
     for name, hz, stop1, stop2 in (
             ('slow-good', 1000000, 1, 1), ('target-good', 12500000, 1, 1),
             ('target-bad-first', 12500000, 0, 1), ('target-bad-second', 12500000, 1, 0),
             ('target-distinct', 12500000, 1, 1), ('target-fresh', 12500000, 1, 1)):
         assert cold(name, False)
         run_pair(name, hz, stop1, stop2, free[0], free[1])
-finally:
-    park()
+
+
+def run_suite(trials, programs, required_machines):
+    original_frequency = machine.freq()
+    original_mode = tt.mode
+    record(event='controller', original_hz=original_frequency, mode=tt.mode_str)
+    free = [index for index in range(4) if not rp2.StateMachine(index).active()]
+    assert len(free) >= required_machines
     try:
-        for program in (wire_pair, count_clock):
-            rp2.PIO(0).remove_program(program)
+        machine.freq(125000000)
+        assert machine.freq() == 125000000
+        assert not cold('damaged', True)
+        trials(free)
     finally:
-        machine.freq(original_frequency)
-        tt.mode = original_mode
-record(status='PASS', restored_cpu_hz=machine.freq(), host_uio_oe=io.read_uio_outputenable())
+        park()
+        try:
+            for program in programs:
+                rp2.PIO(0).remove_program(program)
+        finally:
+            machine.freq(original_frequency)
+            tt.mode = original_mode
+    record(status='PASS', restored_cpu_hz=machine.freq(), host_uio_oe=io.read_uio_outputenable())

@@ -20,8 +20,7 @@ def require(ok, message):
         raise ValueError(message)
 
 
-def check(records, image_hash):
-    require(len(records) == 3 + 2 * len(CASES), 'missing or extra physical observations')
+def check_setup(records):
     require(records[0].get('event') == 'controller' and records[-1].get('status') == 'PASS'
             and records[0]['original_hz'] == records[-1]['restored_cpu_hz']
             and records[-1]['host_uio_oe'] == 0, 'controller cleanup or identity missing')
@@ -29,16 +28,25 @@ def check(records, image_hash):
     require((damaged['case'], damaged['event'], damaged['edge'], damaged['selector'],
              damaged['expected'], damaged['observed']) == ('damaged', 'readback_failure', 38, 0x81, 0, 1),
             'corrupt image escaped')
+
+
+def check_cold(cold, name, image_hash):
+    require((cold['case'], cold['event'], cold['identity'], cold['status'], cold['edges'])
+            == (name, 'cold', 0x22, 0x20, 76), 'invalid cold start: ' + name)
+    data = bytes.fromhex(cold['image'])
+    require(len(data) == 32 and hashlib.sha256(data).hexdigest() == image_hash
+            and cold['registers'] == [[0xa0, 8], [0xa1, 255], [0xa4, 255]], 'readback differs: ' + name)
+    bias = cold['uio1_pull_down_up']
+    require(all(len(bias[k]) == 2 and all(v in (0, 1) for v in bias[k])
+                for k in ('driven_low', 'driven_high', 'released')), 'missing bias readings: ' + name)
+
+
+def check(records, image_hash):
+    require(len(records) == 3 + 2 * len(CASES), 'missing or extra physical observations')
+    check_setup(records)
     for idx, (name, expected) in enumerate(CASES.items()):
         cold, run = records[2 + idx*2:4 + idx*2]
-        require((cold['case'], cold['event'], cold['identity'], cold['status'], cold['edges'])
-                == (name, 'cold', 0x22, 0x20, 76), 'invalid cold start: ' + name)
-        data = bytes.fromhex(cold['image'])
-        require(len(data) == 32 and hashlib.sha256(data).hexdigest() == image_hash
-                and cold['registers'] == [[0xa0, 8], [0xa1, 255], [0xa4, 255]], 'readback differs: ' + name)
-        bias = cold['uio1_pull_down_up']
-        require(all(len(bias[k]) == 2 and all(v in (0, 1) for v in bias[k])
-                    for k in ('driven_low', 'driven_high', 'released')), 'missing bias readings: ' + name)
+        check_cold(cold, name, image_hash)
         require((run['case'], run['event'], run['accepted']) == (name, 'uart', expected)
                 and run['terminal'] == (0xa7 if expected else 0xe6), 'wrong delivery or terminal: ' + name)
         if expected or name == 'target-bad-second':

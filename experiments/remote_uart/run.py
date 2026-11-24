@@ -22,6 +22,7 @@ from tools.assembler import json_bytes
 from tools.cold_load import fresh_directory, UART_BINARY
 from tools.production_sram import verify
 from experiments.remote_uart.check import check
+from experiments.remote_uart.margin_check import check_margin
 
 SITE = 'https://tinytapeout.fpgas.online'
 IMAGE = ROOT / 'evidence/E0051-fabricfox-uart/fabricfox-v2-12p5mhz.bin'
@@ -41,7 +42,7 @@ def clock():
     return datetime.now(timezone.utc).isoformat()
 
 
-def board_code():
+def board_code(suite='delivery'):
     archive = ROOT / 'evidence/E0050-powered-cold-loader/uart-transcript.json.gz'
     raw = gzip.decompress(archive.read_bytes())
     require(hashlib.sha256(raw).hexdigest() == 'c660d0d69282094b6999c4b5ce83303e77c0307be5571762ec64ebb7ffb0a188',
@@ -51,7 +52,13 @@ def board_code():
     require(len(rows) == 76 and hashlib.sha256(program).hexdigest() == UART_BINARY, 'wrong released program')
     steps = [(r['ui_in'], r['rst_n'], r['raw'] if r['host_drives_uio'] else -1,
               r['expected'].get('uo_out', -1), r['expected'].get('uio_out', -1)) for r in rows]
-    return ('STEPS = ' + repr(steps) + '\n' + (HERE / 'on_board.py').read_text()).encode()
+    code = 'STEPS = ' + repr(steps) + '\n' + (HERE / 'on_board.py').read_text()
+    if suite == 'margin':
+        code += '\n' + (HERE / 'baud_margin.py').read_text()
+        code += '\nrun_suite(margin_trials, (project_clock, serial_peer, pad_sampler, count_clock), 3)\n'
+    else:
+        code += '\nrun_suite(delivery_trials, (wire_pair, count_clock), 2)\n'
+    return code.encode()
 
 
 def receive_until(ws, suffix, timeout):
@@ -99,7 +106,7 @@ def run(args, out, receipt):
     from websockets.sync.client import connect
     image = IMAGE.read_bytes()
     require(hashlib.sha256(image).hexdigest() == IMAGE_SHA, 'FPGA image changed')
-    code = board_code()
+    code = board_code(args.suite)
     receipt.update(board=args.board, image_sha256=IMAGE_SHA, uart_sha256=UART_BINARY,
                    board_code_sha256=hashlib.sha256(code).hexdigest(), websocket_wheel_sha256=WHEEL_SHA)
     page = SITE + '/board/' + args.board + '/'
@@ -149,13 +156,18 @@ def run(args, out, receipt):
     require(not errors, 'board test raised an exception, see terminal.log')
     require(records and records[-1].get('status') == 'PASS' and records[-1]['host_uio_oe'] == 0,
             'missing completion or controller still drives the bus')
-    check(records, UART_BINARY)
-    receipt['status'] = 'PASS_REMOTE_UART_DIGITAL'
+    if args.suite == 'margin':
+        receipt['digital_capture_summary'] = check_margin(records, UART_BINARY)
+        receipt['status'] = 'PASS_REMOTE_UART_BAUD_OFFSETS'
+    else:
+        check(records, UART_BINARY)
+        receipt['status'] = 'PASS_REMOTE_UART_DIGITAL'
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--board', required=True, help='public FabricFox slug, e.g. fpga-1')
+    parser.add_argument('--suite', choices=('delivery', 'margin'), default='delivery')
     parser.add_argument('--out', type=Path, required=True, help='fresh directory under build/')
     parser.add_argument('--wheel', type=Path, help='optional pre-fetched pinned terminal dependency')
     args = parser.parse_args()
