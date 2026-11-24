@@ -2,6 +2,8 @@
 
 Access date was 24 November 2026. When a source describes a different chip, tool or package, the evidence applies to that implementation. Repository links below are relative to this review. Published source pins and section references let a reader reconstruct the comparison after upstream changes.
 
+A separate host-side reachability check at 15:42 UTC received 16 successful responses across 21 sampled URLs. Two NXP requests returned HTTP 404 and three Analog Devices requests timed out on that route. At 16:54 UTC the chair reopened the identical five publisher URLs through the web reader and inspected UM10204 Rev. 7.0, AN12174 Rev. 0, the two 1-Wire and UART application articles and DS18B20 Rev. 6. The initial errors are retained for anyone reproducing the review from a different network. [Host request results](../../../evidence/E0049-review-council/baseline/source-access.json)
+
 | Question | Primary source and use in this review |
 | --- | --- |
 | What is due? | The organizer's November 9 update and FAQ confirm 8×4 on IHP CMOS5L, reprogrammability, the January 18 deadline, requested documentation and the final-form process. They describe board voltage, estimated pad/mux delay and a demo-board clock capability. The estimates are separate from measurements of this macro. An anonymous fresh fetch matched the previously retained response body. [Announcement and FAQ](https://blog.janestreet.com/protocol-emulator-asic-competition/) · [Fresh digest and release checks](../../../evidence/E0049-review-council/baseline/observation.json) |

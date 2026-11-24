@@ -1,0 +1,105 @@
+{
+  "utc": "2026-11-24T15:42:32.722331+00:00",
+  "rows": [
+    {
+      "url": "https://blog.janestreet.com/protocol-emulator-asic-competition/",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+      "status": 200,
+      "type": "application/pdf"
+    },
+    {
+      "url": "https://github.com/Abagel-coder/protocol-emulator/blob/f904d1fe3bfa3374ebb95d73f02feeaa09b14122/src/pe_imem.v",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/TinyTapeout/tt-demo-pcb/blob/bbf3dd1f771d5aed249b07ddf130b3ddc8261d60/tinytapeout-demo.kicad_pcb",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/TinyTapeout/tt-micropython-firmware/tree/d485c7a9986336024e35d790568fca33be1c5665",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/TinyTapeout/tt-multiplexer/blob/3e496494ee9f543ec4b84e5e71bdaee25e958ce1/rtl/tt_mux.v",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/raspberrypi/pico-examples/blob/0d62f75bafc2c8120d3276c3343d1a9195e909e9/pio/onewire/onewire_library/onewire_library.c",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/raspberrypi/pico-examples/blob/0d62f75bafc2c8120d3276c3343d1a9195e909e9/pio/onewire/onewire_library/onewire_library.pio",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/raspberrypi/pico-sdk-tools/releases/tag/v2.3.1-0",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/satyaammu93/jane-street-asic-2026/blob/65e0a742c1f91ac730c137afea5e154287267d67/protocol_emulator/src/tt_um_protocol_emulator.v",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://github.com/wokwi/rp2040js/tree/cab5fae8d72f44dc300dc139fb6e600f95e8031e",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://opentitan.org/book/hw/ip/spi_host/doc/theory_of_operation.html",
+      "status": 206,
+      "type": "text/html"
+    },
+    {
+      "url": "https://serv.readthedocs.io/en/latest/modules.html#instruction-life-cycle",
+      "status": 200,
+      "type": "text/html"
+    },
+    {
+      "url": "https://www.analog.com/en/resources/technical-articles/1wire-communication-through-software.html",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://www.analog.com/en/resources/technical-articles/determining-clock-accuracy-requirements-for-uart-communications.html",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://www.nist.gov/publications/common-industry-specification-usability-requirements",
+      "status": 200,
+      "type": "text/html"
+    },
+    {
+      "url": "https://www.nxp.com/docs/en/application-note/AN12174.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.nxp.com/docs/en/user-guide/UM10204.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.ti.com/lit/an/slva689a/slva689a.pdf",
+      "status": 206,
+      "type": "application/pdf"
+    },
+    {
+      "url": "https://www.ti.com/lit/an/sprace8a/sprace8a.pdf",
+      "status": 206,
+      "type": "application/pdf"
+    }
+  ]
+}

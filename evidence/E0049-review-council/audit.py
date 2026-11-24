@@ -175,9 +175,20 @@ def observations():
     phases = read(HERE / "panel-a/pio-target/records/phase.json.gz")
     samples = [dict(zip(phases["columns"], row, strict=True)) for row in phases["rows"]]
     require(len(samples) == 480 and all(not s["errors"] for s in samples), "partial PIO target grid")
-    require(max(s["cold_abort_ns"] for s in samples) == 160 and
-            sum(s["cold_abort_ns"] == s["post_reselect_abort_ns"] == 160 for s in samples) == 4,
-            "worst digital target boundary")
+    cold = [i for i, s in enumerate(samples) if s["cold_abort_ns"] == 160]
+    repeated = [i for i, s in enumerate(samples) if s["post_reselect_abort_ns"] == 160]
+    require(cold == repeated and len(cold) == 4 and
+            max(max(s["cold_abort_ns"], s["post_reselect_abort_ns"]) for s in samples) == 160,
+            "paired zero-margin aborts in the same four sequences")
+    target = read(HERE / "panel-a/pio-target/records/attempt-02.json.gz")
+    held_high = [r for r in target["observations"] if r["kind"] == "candidate" and r["profile"] == "high_abort"]
+    releases = []
+    for trial in held_high:
+        start = trial["frames"][0]["release_reference_ns"]
+        release = next(t for t, code in trial["public_oe_value_edges"] if t >= start and code == 0)
+        require(trial["errors"] == ["abort_release"], "stopped-high control disposition")
+        releases.append(release - start)
+    require(sorted(releases) == [700, 718], "stopped-high public MISO releases after CS")
     require(read(HERE / "panel-c/spi-target/records/fresh-replay.json")["miso_abort_ns"] == 1563,
             "SPI target abort counterexample")
     return {"G3_cases": len(rows), "I2C_cases": len(i2c), "G5_cases_each": len(traces[0]),
