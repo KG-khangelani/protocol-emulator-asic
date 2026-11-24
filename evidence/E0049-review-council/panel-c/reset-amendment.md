@@ -1,0 +1,3 @@
+At 14:40:45 UTC the first run was incomplete. Its time-zero declaration initialized reset low before Icarus began scheduling the combinational next-state block. On the first clock the reported status, output-enable and sensed pad values included unknowns, and the trace parser stopped. A diagnostic replay yielded `EDGE 0 Xx xx xx` then `EDGE 1 22 00 00`. The input stimulus, compiled bench, original source and failure record remain under `run-01/`.
+
+The next run will start the host controls undriven and explicitly present the first reset vector after time advances 1 ns while the clock stays low. It will keep the same one clock of reset and all registered assertions and controls. No positive result from the first run is counted.
