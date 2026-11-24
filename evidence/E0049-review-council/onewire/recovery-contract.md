@@ -1,0 +1,7 @@
+# Buy recovery time after a write-zero
+
+The first [two-threshold screen](sensed-edge-note.md) finished at 15:30:55 UTC. Both the original image and the same-period adjustment passed 24 of 32 cases. With the 1 nF parasitically powered target, the adjustment recognized presence but all eight combinations still exposed only nine of the seventeen expected slot starts at the modeled receiver. The controller reported local power. The missing remote edges reject the transaction.
+
+The next candidate keeps a 62 µs write-zero low interval. At 3.3 V, 4.7 kΩ and 1 nF, 11.28 µs are required to reach the modeled sensor threshold and a further 1 µs is budgeted for a sensed high state. A 70 µs slot cannot give all three intervals. Add 6 µs after **every** write slot. Retain the prospective 73 µs presence decision, 2 µs write-one low, original read observation, two original receiver thresholds, decoder, all 32 input combinations and both 2.2 nF stress cases.
+
+The sixteen writes now cost 96 µs or 4,800 reference clocks. Require all seventeen sensed slot starts, two actual bytes `CC B4`, the right power marker, at least 50 ticks of sensed recovery and a success HALT at 114,303 ±1. Assert all commanded falls against the original schedule plus 300 clocks per preceding completed write. At least one larger-load stress case should still fail. Use the same H: tool and budget. This screen may support a timing option for a declared digital receiver model. A probe at the physical sensor remains the test for a real installation.

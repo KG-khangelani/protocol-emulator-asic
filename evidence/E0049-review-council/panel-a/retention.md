@@ -1,0 +1,3 @@
+# Check the archived research files
+
+The panel's [received manifest](received-manifest.sha256.gz) fingerprints the original Windows working files. Git's existing text rules converted line endings in five newly archived text files. The [checkout manifest](FILES.sha256) checks all 43 original entries against the published Git blob bytes. The two forms differ only in those CRLF-to-LF conversions. From this directory in a checkout configured to use the repository's declared line endings, run `sha256sum -c FILES.sha256`. The [replay guide](replay-guide.md) describes how to compare the experimental results.
