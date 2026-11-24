@@ -1,7 +1,8 @@
 # Current state
 
-Updated: 2026-11-24. Engineering phase: **G5 COMPLETE**.
-Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
+Updated: 2026-11-24. Engineering phase: **HOST-T01, powered cold loader**.
+G1–G5 are complete. G6 is deferred until requested by the owner under
+[D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
 The [24 November technical review council](reports/2026-11-24-technical-review-council.md)
 and [E0049](../evidence/E0049-review-council/README.md) checked the two releases,
@@ -371,7 +372,7 @@ that kernel omitted complete I2C framing and timeout cleanup. E0035 now compares
 complete general branching/storage schedules and advances the smaller serial
 option for the remaining store-proof and physical gates.
 The owner requested commits throughout the work. See [six execution goals](goals.md) and
-[D32](decisions/0032-goals-to-submission-readiness.md). Active learning task: **M0-T01**,
+[D32](decisions/0032-goals-to-submission-readiness.md). Deferred learning task: **M0-T01**,
 [GitHub issue #1](https://github.com/KG-khangelani/protocol-emulator-asic/issues/1).
 
 **Physical decision: D35 selects compact10 as the experimental integration baseline.**

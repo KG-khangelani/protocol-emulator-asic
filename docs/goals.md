@@ -1,7 +1,7 @@
 # Goals to submission readiness
 
 Updated 2026-11-24. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
-The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
+[D52](decisions/0052-engineering-first-powered-loader.md) prioritizes engineering. G6 resumes only on the owner's explicit request.
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
 G1-G5 are complete. The qualified shared-protocol core, assembler, loading
@@ -9,7 +9,7 @@ plans and reproducible examples are published in verified stable v0.1.0.
 The v0.1.1 software release adds the G5 waveform example. The
 [council review](reports/2026-11-24-technical-review-council.md) recommends a
 powered cold-start transport and an owner-observed G6 checkpoint. The
-proposed transport is an additive integration task outside G1–G5 closure.
+transport is the active integration task outside G1–G5 closure.
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 
@@ -26,7 +26,7 @@ The external deadline is 2027-01-18; aim to have the submission package ready on
 | G3 | Make programs easy to assemble, load, inspect and reproduce | **COMPLETE 2026-11-13**; clean-clone/CI qualification and alpha.7 publication verified | 2026-12-18 | M4-T01 |
 | G4 | Deliver a reproducible final chip release and submission package | **COMPLETE 2026-11-14**; two fresh physical runs, final release and public package verified | Candidate freeze 2027-01-04; package 2027-01-11 | M5-T01 |
 | G5 | Demonstrate one useful capability beyond the initial protocol set | **COMPLETE 2026-11-15**; firmware-only waveform, clean reproduction and v0.1.1 publication verified | Within D50's two-working-day cap | G5-T01 |
-| G6 | Make the design and its limits explainable by the owner | PARALLEL; M0 teach-back PENDING | At each milestone | M0-T01 and later learning gates |
+| G6 | Make the design and its limits explainable by the owner | Deferred by owner under D52 | Resume upon explicit request | M0-T01 and later learning gates |
 
 ```mermaid
 flowchart LR
@@ -36,7 +36,7 @@ flowchart LR
     G3 --> G4
     G2 -. bounded optional experiment .-> G5["G5: Novel capability"]
     G5 -. include only if qualified .-> G4
-    G6["G6: Owner understanding"] -. alongside every milestone .-> G4
+    G6["G6: Deferred until requested"]
 ```
 
 ## G1 - Establish physical feasibility before more optimization
@@ -416,7 +416,7 @@ are deferred unless new evidence materially changes the plan.
 
 ## G6 - Build independent understanding alongside the chip
 
-At each milestone, use the [learning loop](goal.md) and record only demonstrated
+When the owner explicitly resumes G6, use the [learning loop](goal.md) and record only demonstrated
 fluency:
 
 - [ ] The owner can trace a program from source to pin events and distinguish a

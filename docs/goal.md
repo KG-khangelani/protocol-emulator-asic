@@ -1,6 +1,7 @@
 # Project goal
 
-This project has two equal outcomes:
+This project has two long-term outcomes. Engineering has priority until the
+owner explicitly asks to resume the learning work. [D52](decisions/0052-engineering-first-powered-loader.md)
 
 1. Produce a credible, open-source, reprogrammable protocol-emulator ASIC.
 2. Make Khangelani capable of understanding, operating, questioning and
@@ -18,7 +19,7 @@ The learning question is equally important:
 
 The ordered milestones, completion checks and planning targets are in
 [goals to submission readiness](goals.md). G1 through G5 are complete. The
-next active learning checkpoint is G6's M0 teach-back under D8. The
+first deferred learning checkpoint is G6's M0 teach-back under D8. The
 [technical review council](reports/2026-11-24-technical-review-council.md)
 recommends a continuously selected, cold-start host transport as the next
 engineering task. The final competition form remains a separate delivery step.
@@ -42,7 +43,7 @@ flowchart LR
 - Distinguish verified facts, hypotheses, decisions, failures and open questions.
 - Treat missing evidence as `NOT_EVALUATED`, never as an implied pass.
 - Preserve failed experiments when they affect the next decision.
-- End each milestone with both a technical gate and a learning gate.
+- Review technical evidence at each milestone. Resume owner checkpoints upon explicit request.
 - Keep learning progress conservative: automation can validate the record and
   resources, but only an owner explanation and follow-up reasoning can satisfy
   a fluency criterion.
