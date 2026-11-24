@@ -68,6 +68,10 @@ def isolated_cold(name, damaged):
     record(case=name, event='isolated_cold', edges=len(STEPS), image=binascii.hexlify(readback).decode(),
            registers=registers, identity=identity, status=status, selector1_oe=selector_one_driven(),
            host_uio_oe=io.read_uio_outputenable(), path='dedicated_uo')
+    if identity != 0x22 or status != 0x20:
+        record(case=name, event='handoff_failure', status_samples=[runtime_page(0) for _ in range(4)],
+               pc=runtime_page(0x66), request=Pin(16).value(), stage=Pin(32).value(),
+               physical_ui=io.read_ui_in_byte())
     assert identity == 0x22 and status == 0x20
     return True
 

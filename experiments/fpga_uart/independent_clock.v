@@ -12,11 +12,15 @@ module tt_fpga_top (
     SB_HFOSC #(.CLKHF_DIV(`RX_OSC_DIV)) oscillator (
         .CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(receiver_clock)
     );
+    reg reset_meta;
+    reg reset_sync;
     reg request_meta;
     reg request_sync;
     reg request_previous;
     always @(posedge receiver_clock) begin
-        if (!rst_n) begin
+        reset_meta <= rst_n;
+        reset_sync <= reset_meta;
+        if (!reset_sync) begin
             request_meta <= 1'b0;
             request_sync <= 1'b0;
             request_previous <= 1'b0;
@@ -32,29 +36,44 @@ module tt_fpga_top (
     SB_IO #(.PIN_TYPE(6'b0000_01)) uart_input (.PACKAGE_PIN(uio[1]), .D_IN_0(uart_rx));
     SB_IO #(.PIN_TYPE(6'b0000_01)) stage_input (.PACKAGE_PIN(uio[7]), .D_IN_0(stage_byte));
     assign {uio[6:5], uio[3:2], uio[0]} = 5'bzzzzz;
+    reg stage_meta;
+    reg stage_sync;
+    reg [7:0] bus_meta;
+    reg [7:0] bus_sync;
     reg [7:0] staged_data;
+    reg [7:0] selector;
+    // The host holds each value for microseconds with the request low. Allow
+    // both receiving stages to settle before it strobes a loader transaction.
     always @(posedge receiver_clock) begin
-        if (stage_byte)
-            staged_data <= ui_in;
+        stage_meta <= stage_byte;
+        stage_sync <= stage_meta;
+        bus_meta <= ui_in;
+        bus_sync <= bus_meta;
+        if (stage_sync)
+            staged_data <= bus_sync;
+        if (!reset_sync || stage_sync)
+            selector <= 8'he7;
+        else if (bus_sync[7])
+            selector <= bus_sync;
+        else
+            selector <= {bus_sync[7:5], 1'b0, bus_sync[3:2], bus_sync[4], bus_sync[0]};
     end
     // The physical UI1 driver is released throughout reception. UI4 carries its
     // logical selector bit so that the HAT's UI1/UIO1 link can carry the UART.
-    wire [7:0] runtime_selector = {ui_in[7:5], 1'b0, ui_in[3:2], ui_in[4], ui_in[0]};
-    wire [7:0] selector = stage_byte ? 8'he7 : (ui_in[7] ? ui_in : runtime_selector);
     wire enabled = request_sync && (!selector[7] || !request_previous);
     wire [7:0] pin_input = selector[7] ? staged_data : {6'b0, uart_rx, 1'b0};
     wire [7:0] project_data;
     wire [7:0] project_oe;
     wire [7:0] project_status;
     assign uo_out = selector[7] && !selector[6] ? project_data : project_status;
-    wire observe = rst_n && !selector[7];
+    wire observe = reset_sync && !selector[7];
     SB_IO #(.PIN_TYPE(6'b1010_01)) monitor (
         .PACKAGE_PIN(uio[4]), .OUTPUT_ENABLE(observe), .D_OUT_0(receiver_clock)
     );
     tt_um_khangelani_protocol_emulator receiver (
         .ui_in(selector), .uo_out(project_status), .uio_in(pin_input),
         .uio_out(project_data), .uio_oe(project_oe), .ena(enabled),
-        .clk(receiver_clock), .rst_n(rst_n)
+        .clk(receiver_clock), .rst_n(reset_sync)
     );
 endmodule
 
