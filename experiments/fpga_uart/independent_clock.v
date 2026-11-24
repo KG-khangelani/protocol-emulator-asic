@@ -26,20 +26,33 @@ module tt_fpga_top (
             request_previous <= request_sync;
         end
     end
-    wire enabled = request_sync && (!ui_in[7] || !request_previous);
-    wire [7:0] pin_input;
+    wire stage_byte;
+    wire uart_rx;
+    // These pads stay input-only, including while the controller changes loader selectors.
+    SB_IO #(.PIN_TYPE(6'b0000_01)) uart_input (.PACKAGE_PIN(uio[1]), .D_IN_0(uart_rx));
+    SB_IO #(.PIN_TYPE(6'b0000_01)) stage_input (.PACKAGE_PIN(uio[7]), .D_IN_0(stage_byte));
+    assign {uio[6:5], uio[3:2], uio[0]} = 5'bzzzzz;
+    reg [7:0] staged_data;
+    always @(posedge receiver_clock) begin
+        if (stage_byte)
+            staged_data <= ui_in;
+    end
+    // The physical UI1 driver is released throughout reception. UI4 carries its
+    // logical selector bit so that the HAT's UI1/UIO1 link can carry the UART.
+    wire [7:0] runtime_selector = {ui_in[7:5], 1'b0, ui_in[3:2], ui_in[4], ui_in[0]};
+    wire [7:0] selector = stage_byte ? 8'he7 : (ui_in[7] ? ui_in : runtime_selector);
+    wire enabled = request_sync && (!selector[7] || !request_previous);
+    wire [7:0] pin_input = selector[7] ? staged_data : {6'b0, uart_rx, 1'b0};
     wire [7:0] project_data;
     wire [7:0] project_oe;
-    wire observe = rst_n && !ui_in[7];
-    // The UART program uses UIO1 as RX and UIO0 as a dummy TX.
-    // UIO2 returns to the ordinary eight-bit interface during all loader operations.
-    wire [7:0] pin_data = {project_data[7:3], observe ? receiver_clock : project_data[2], project_data[1:0]};
-    wire [7:0] pin_oe = project_oe | {5'b0, observe, 2'b0};
-    SB_IO #(.PIN_TYPE(6'b1010_01)) pads[7:0] (
-        .PACKAGE_PIN(uio), .OUTPUT_ENABLE(pin_oe), .D_OUT_0(pin_data), .D_IN_0(pin_input)
+    wire [7:0] project_status;
+    assign uo_out = selector[7] && !selector[6] ? project_data : project_status;
+    wire observe = rst_n && !selector[7];
+    SB_IO #(.PIN_TYPE(6'b1010_01)) monitor (
+        .PACKAGE_PIN(uio[4]), .OUTPUT_ENABLE(observe), .D_OUT_0(receiver_clock)
     );
     tt_um_khangelani_protocol_emulator receiver (
-        .ui_in(ui_in), .uo_out(uo_out), .uio_in(pin_input),
+        .ui_in(selector), .uo_out(project_status), .uio_in(pin_input),
         .uio_out(project_data), .uio_oe(project_oe), .ena(enabled),
         .clk(receiver_clock), .rst_n(rst_n)
     );

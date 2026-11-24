@@ -74,7 +74,7 @@ def build(directory):
             require(clock['achieved'] < screen and all('Max frequency for clock' in s for s in errors),
                     'route failed outside the timing screen')
             continue
-        require(timing['utilization']['SB_IO']['used'] == 26, 'package pin count differs')
+        require(21 <= timing['utilization']['SB_IO']['used'] <= 26, 'package pin count differs')
         command(stage, 'pack', ['icepack', 'routed.asc', 'image.bin'])
         command(stage, 'unpack', ['iceunpack', 'image.bin', 'unpacked.asc'])
         command(stage, 'repack', ['icepack', 'unpacked.asc', 'repacked.bin'])

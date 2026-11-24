@@ -5,7 +5,7 @@ from bisect import bisect_left
 import hashlib
 import math
 
-from experiments.remote_uart.check import check_cold, check_setup, require
+from experiments.remote_uart.check import check_setup, require
 from experiments.remote_uart.margin_check import decode_levels
 
 NOMINAL_MHZ = 12
@@ -27,8 +27,8 @@ def capture(records, idx, name, length):
 
 
 def clock_trace(raw, nominal):
-    levels = [(byte >> shift) & 3 for byte in raw for shift in (0, 2, 4, 6)]
-    rising = [i for i in range(1, len(levels)) if levels[i] & 2 and not levels[i-1] & 2]
+    levels = [(byte >> shift) & 15 for byte in raw for shift in (0, 4)]
+    rising = [i for i in range(1, len(levels)) if levels[i] & 8 and not levels[i-1] & 8]
     require(len(rising) > 100, 'receiver clock absent')
     periods = len(rising) - 1
     span = rising[-1]-rising[0]
@@ -45,6 +45,25 @@ def clock_trace(raw, nominal):
     return [v & 1 for v in levels], rising, measured
 
 
+def check_peer_clock(tree):
+    ctrl, div, selected, xosc, pll, fbdiv, prim = tree
+    require(ctrl & 0xe1 == 1 and selected == 2 and div == 1 << 16, 'PIO does not use undivided PLL_SYS')
+    require(xosc & 0x80001000 == 0x80001000 and pll & 0x80000100 == 0x80000000,
+            'crystal or system PLL not running as declared')
+    divider = (pll & 63)*((prim >> 16) & 7)*((prim >> 12) & 7)
+    require(divider > 0 and 12*fbdiv == REF_MHZ*divider, 'unexpected crystal to PIO clock ratio')
+
+
+def check_loader(row, name, image_hash):
+    require((row['case'], row['event'], row['identity'], row['status'], row['edges'])
+            == (name, 'isolated_cold', 0x22, 0x20, 76), 'incorrect cold-start sequence')
+    image = bytes.fromhex(row['image'])
+    require(len(image) == 32 and hashlib.sha256(image).hexdigest() == image_hash
+            and row['registers'] == [[0xa0, 8], [0xa1, 255], [0xa4, 255]], 'loader readback differs')
+    require(row['path'] == 'dedicated_uo' and (row['selector1_oe'], row['host_uio_oe']) == (0, 0x82),
+            'unsafe or unverified UART handoff')
+
+
 def check_oscillator(records, image_hash):
     check_setup(records)
     nominal_ticks = (REF_MHZ*434 + NOMINAL_MHZ//2)//NOMINAL_MHZ
@@ -52,20 +71,21 @@ def check_oscillator(records, image_hash):
     summary = {}
     idx = 2
     for name in CASES:
-        check_cold(records[idx], name, image_hash)
+        check_loader(records[idx], name, image_hash)
         idx += 1
         ticks = nominal_ticks if name == 'preset' else matched
         if name == 'fast':
             ticks = (100*matched+51)//102
         if name == 'slow':
             ticks = (100*matched+49)//98
-        length = 4096 if name == 'calibration' else 4*((20*ticks+2048+31)//32)
+        length = 8192 if name == 'calibration' else 4*((20*ticks+2048+15)//16)
         raw, idx = capture(records, idx, name, length)
         data, rising, info = clock_trace(raw, NOMINAL_MHZ)
         row = records[idx]
         idx += 1
         require(row['case'] == name and row['cpu_hz'] == REF_MHZ*1000000, 'wrong case or reference')
         if name == 'calibration':
+            check_peer_clock(row['clock_tree'])
             require(row['event'] == 'clock' and row['request_level'] == 0 and all(data),
                     'calibration did not observe the oscillator with idle UART and run held low')
             n = len(rising)-1
@@ -74,6 +94,9 @@ def check_oscillator(records, image_hash):
                     'independent idle-clock recount differs')
             summary[name] = dict(info, matched_ticks=matched)
             continue
+        check_peer_clock(row['clock_tree_before'])
+        require(row['clock_tree_before'] == row['clock_tree_after'] and row['selector1_oe'] == 0,
+                'peer clock tree or linked selector OE changed')
         require(row['event'] == 'oscillator_uart' and row['cell_ticks'] == ticks
                 and (row['request_level'], row['early_fall'], row['final_fall']) == (1, 0, 1),
                 'transmitter setting or steady run-enable control differs: ' + name)

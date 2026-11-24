@@ -29,8 +29,8 @@ SITE = 'https://tinytapeout.fpgas.online'
 IMAGE = ROOT / 'evidence/E0051-fabricfox-uart/fabricfox-v2-12p5mhz.bin'
 IMAGE_SHA = '89fa89607e0eac4468d11257b4b46296f9122115e0995c888274d31387fb4163'
 NAME = 'tt_um_khangelani_uart_89fa8960'
-OSC_IMAGE = ROOT / 'evidence/E0054-separate-oscillators/fabricfox-hfosc.bin'
-OSC_SHA = '27945dd4aa26dc48e123a93dd6502fdde44a7c4c82e19557740edef0fa26461e'
+OSC_IMAGE = ROOT / 'evidence/E0054-separate-oscillators/fabricfox-isolated-hfosc.bin'
+OSC_SHA = 'f574670d3245f00b29c2f87cf7208116cd569547ad596dc3bf7b80a493535323'
 OSC_NAME = 'tt_um_khangelani_osc_' + OSC_SHA[:8]
 WHEEL = 'websockets-15.0.1-py3-none-any.whl'
 WHEEL_URL = 'https://files.pythonhosted.org/packages/fa/a8/5b41e0da817d64113292ab1f8247140aac61cbf6cfd085d6a0fa77f4984f/' + WHEEL
@@ -59,7 +59,7 @@ def board_code(suite='delivery'):
     code = 'STEPS = ' + repr(steps) + '\n' + (HERE / 'on_board.py').read_text()
     if suite == 'oscillator':
         code += f'\nNOMINAL_MHZ = {NOMINAL_MHZ}\n' + (HERE / 'independent_peer.py').read_text()
-        code += '\nrun_suite(oscillator_trials, (xtal_peer, clock_and_data, idle_clock_and_data, watch_enable), 3)\n'
+        code += '\nrun_suite(oscillator_trials, (xtal_peer, clock_and_data, idle_clock_and_data, watch_enable), 3, isolated_cold)\n'
     elif suite == 'margin':
         code += '\n' + (HERE / 'baud_margin.py').read_text()
         code += '\nrun_suite(margin_trials, (project_clock, serial_peer, pad_sampler, count_clock), 3)\n'

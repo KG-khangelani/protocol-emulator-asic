@@ -175,8 +175,8 @@ def measure_clock(counter, hz):
 
 
 @micropython.native
-def poll_pair(driver):
-    ticks, diff, read = time.ticks_us, time.ticks_diff, page
+def poll_pair(driver, read=page):
+    ticks, diff = time.ticks_us, time.ticks_diff
     first_byte = None
     accepted = None
     terminal = None
@@ -255,7 +255,7 @@ def delivery_trials(free):
         run_pair(name, hz, stop1, stop2, free[0], free[1])
 
 
-def run_suite(trials, programs, required_machines):
+def run_suite(trials, programs, required_machines, cold_load=cold):
     original_frequency = machine.freq()
     original_mode = tt.mode
     record(event='controller', original_hz=original_frequency, mode=tt.mode_str)
@@ -264,7 +264,7 @@ def run_suite(trials, programs, required_machines):
     try:
         machine.freq(125000000)
         assert machine.freq() == 125000000
-        assert not cold('damaged', True)
+        assert not cold_load('damaged', True)
         trials(free)
     finally:
         park()

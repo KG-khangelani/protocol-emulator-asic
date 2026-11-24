@@ -1,0 +1,98 @@
+{
+  "image_sha256": "f574670d3245f00b29c2f87cf7208116cd569547ad596dc3bf7b80a493535323",
+  "length": 104090,
+  "nominal_mhz": 12,
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "routes": [
+    {
+      "clock": "receiver_clock",
+      "clock_pins": {
+        "C": 375,
+        "RCLK": 4,
+        "WCLK": 4
+      },
+      "divider": "0b10",
+      "nominal_mhz": 12,
+      "route_exit": 0,
+      "screen_mhz": 13.2,
+      "timing": {
+        "achieved": 13.805671691894531,
+        "constraint": 13.20009994506836
+      },
+      "utilization": {
+        "ICESTORM_DSP": {
+          "available": 8,
+          "used": 0
+        },
+        "ICESTORM_HFOSC": {
+          "available": 1,
+          "used": 1
+        },
+        "ICESTORM_LC": {
+          "available": 5280,
+          "used": 1650
+        },
+        "ICESTORM_LFOSC": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_PLL": {
+          "available": 1,
+          "used": 0
+        },
+        "ICESTORM_RAM": {
+          "available": 30,
+          "used": 4
+        },
+        "ICESTORM_SPRAM": {
+          "available": 4,
+          "used": 0
+        },
+        "IO_I3C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_GB": {
+          "available": 8,
+          "used": 4
+        },
+        "SB_I2C": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_IO": {
+          "available": 39,
+          "used": 26
+        },
+        "SB_LEDDA_IP": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_RGBA_DRV": {
+          "available": 1,
+          "used": 0
+        },
+        "SB_SPI": {
+          "available": 2,
+          "used": 0
+        },
+        "SB_WARMBOOT": {
+          "available": 1,
+          "used": 0
+        }
+      }
+    }
+  ],
+  "seed": 10,
+  "sources_sha256": {
+    "experiments/fpga_uart/independent_clock.v": "78319748cfb344f5508c98c33b69aa2e3dec4272332cfc09b02bcf094021dea2",
+    "experiments/fpga_uart/program_ram.v": "18aeccd29b8618a8389320fb6a7a06b1cbb3ba6326a9d3155df5e2efe6c94666",
+    "experiments/fpga_uart/tt_fpga_fabricfoxv2.pcf": "98ee191f249b6fd9d09d95e9c51374c8ec1429210a4c2b0e0dae9ce51c24a747",
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+  },
+  "status": "PASS_OSCILLATOR_BUILD"
+}
