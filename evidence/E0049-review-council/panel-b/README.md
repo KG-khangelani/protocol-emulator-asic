@@ -48,4 +48,16 @@ The first launch bench initialized reset low in its declaration. Icarus never de
 
 The first guard invocation compiled the RTL but cocotb failed to discover a test module outside its working directory. No transaction ran. The correction staged the test module, Makefile and testbench in the private experiment directory. An attempted compile reuse still led recursive Make to compile a second time; the original one-compile budget was exceeded by one small compile. A subsequent fresh-directory rerun used the standalone runner with explicit private build and no reuse option. The script difference only changes its supervisor. The four images, traces, numerical results and expected negative matched. [Discovery failure](firstrun/guard-discovery.log.gz) · [First positive run and adverse control](firstrun/guard-pass.json) · [Exact historical supervisor difference](firstrun/guard-supervisor.patch)
 
-The independent review also records the unavailable native `make` and the initial read-only Docker temporary-directory failures. All software executed on the existing workbench. No live board measurement, actual chip pad timing, fabrication run, release amendment or host-service latency certification was performed in these studies. [Primary source identities](source-identities.md)
+The independent review also records the unavailable native `make` and the initial read-only Docker temporary-directory failures. The digital experiments used the existing workbench image. The physical investigation used the project's pinned LibreLane image and PDK. Live board measurements and fabricated-chip timing remain open. [Primary source identities](source-identities.md)
+
+## Physical signoff rebuttal
+
+The [signoff rebuttal](signoff-rebuttal.md) covers the real G4 fast SRAM hold and slow SRAM setup paths, the D46/D47 rules, layout readback, power, and the eight physical synchronizer paths. [The frozen conditions](contracts/signoff-scope.md) distinguish the initial archive inspection, later native geometry remeasurement, and fresh constrained STA. The retained native readback rejects a removed GDS pin shape, exchanged supply labels, a 15 nm hypothetical SRAM enclosure rule and an additional 125 ps clock uncertainty. The original D46/D47 failures remain in E0043. [Archive readback](results/signoff-audit.json) · [GDS remeasurement](results/contact-audit.json) · [Fresh hold sensitivity](results/sta-sensitivity.json) · [Fresh synchronizer transfers](results/sta-sync.json)
+
+From a checkout with the project’s existing physical container and its pinned PDK staged as a Docker volume, run the following command in this record's directory. PowerShell 7, Docker and Python 3.11 or later are required. Use a fresh directory on H:. Optional `-PdkVolume NAME` selects the installed volume holding the original `ciel/ihp-sg13/versions/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008` tree. The script runs all four independent audit programs with the repository and PDK mounted read-only and compares all JSON fields.
+
+```powershell
+.\replay-physical.ps1 -ScratchRoot H:\temp\protocol-council-physical-replay
+```
+
+For an offline standard-library-only inspection, run `python -B <record-directory>/sources/signoff_audit.py` from the checkout root. The remaining three physical scripts use the specified native image. KLayout loads the decompressed submitted GDS into anonymous process memory.

@@ -1,0 +1,394 @@
+{
+  "scope": "New extraction from retained artifacts; no fresh P&R or silicon",
+  "observations": {
+    "static_paths": [
+      {
+        "start": "_7350_",
+        "end": "store.program_memory",
+        "arrival_ns": "1.069597",
+        "required_ns": "0.948806",
+        "slack_ns": "0.120791",
+        "selected_native_report_lines": [
+          "0.021375    0.000978    0.356804 ^ _7350_/CLK (sg13cmos5l_dfrbpq_1)",
+          "3    0.017428    0.050980    0.130095    0.486899 ^ _7350_/Q (sg13cmos5l_dfrbpq_1)",
+          "0.044050    0.000325    1.069597 ^ store.program_memory/A_ADDR[6] (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+          "0.014679    0.000180    0.387456 ^ store.program_memory/A_CLK (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+          "0.250000    0.637456   clock uncertainty",
+          "0.311350    0.948806   library hold time"
+        ]
+      },
+      {
+        "start": "store.program_memory",
+        "end": "_7498_",
+        "arrival_ns": "14.817526",
+        "required_ns": "20.413412",
+        "slack_ns": "5.595886",
+        "selected_native_report_lines": [
+          "0.033082    0.000176    0.873776 ^ store.program_memory/A_CLK (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+          "1    0.005541    0.069591    5.415475    6.289251 ^ store.program_memory/A_DOUT[24] (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+          "0.066420    0.000184   14.817526 ^ _7498_/D (sg13cmos5l_dfrbpq_1)",
+          "0.048764    0.000545   20.867752 ^ _7498_/CLK (sg13cmos5l_dfrbpq_1)",
+          "-0.250000   20.617754   clock uncertainty",
+          "-0.204342   20.413412   library setup time"
+        ]
+      }
+    ],
+    "supply": {
+      "strips_per_net": {
+        "VGND": 27,
+        "VPWR": 27
+      },
+      "die_nm": [
+        1724160,
+        710640
+      ],
+      "width_nm": 2100,
+      "y1_y2_nm": [
+        3560,
+        707080
+      ],
+      "top_gds_full_strips_on_each_layer_purpose": {
+        "50/0": 54,
+        "50/2": 54
+      },
+      "labels_50_25_nm": {
+        "VGND": [
+          16980,
+          355320
+        ],
+        "VPWR": [
+          12880,
+          355320
+        ]
+      },
+      "missing_strip_rejected": true,
+      "swapped_labels_rejected": true
+    },
+    "stages": [
+      {
+        "bit": 0,
+        "cells": [
+          "_7339_",
+          "hold444",
+          "_7144_",
+          "_7331_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_44_clk_regs",
+          "clknet_leaf_45_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 12.96
+      },
+      {
+        "bit": 1,
+        "cells": [
+          "_7340_",
+          "hold445",
+          "_7145_",
+          "_7332_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_45_clk_regs",
+          "clknet_leaf_45_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 17.28
+      },
+      {
+        "bit": 2,
+        "cells": [
+          "_7341_",
+          "hold449",
+          "_7146_",
+          "_7333_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_44_clk_regs",
+          "clknet_leaf_44_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 14.82
+      },
+      {
+        "bit": 3,
+        "cells": [
+          "_7342_",
+          "hold446",
+          "_7147_",
+          "_7334_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_45_clk_regs",
+          "clknet_leaf_45_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 19.14
+      },
+      {
+        "bit": 4,
+        "cells": [
+          "_7343_",
+          "hold443",
+          "_7148_",
+          "_7335_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_40_clk_regs",
+          "clknet_leaf_41_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 12.96
+      },
+      {
+        "bit": 5,
+        "cells": [
+          "_7344_",
+          "hold442",
+          "_7149_",
+          "_7336_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_44_clk_regs",
+          "clknet_leaf_40_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 18.18
+      },
+      {
+        "bit": 6,
+        "cells": [
+          "_7345_",
+          "hold448",
+          "_7150_",
+          "_7337_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_40_clk_regs",
+          "clknet_leaf_40_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 13.92
+      },
+      {
+        "bit": 7,
+        "cells": [
+          "_7346_",
+          "hold447",
+          "_7151_",
+          "_7338_"
+        ],
+        "clock_nets": [
+          "clknet_leaf_44_clk_regs",
+          "clknet_leaf_44_clk_regs"
+        ],
+        "stage1_to_stage2_placement_origin_manhattan_um": 12.96
+      }
+    ],
+    "sdf_ns": {
+      "nom_fast_1p32V_m40C": [
+        {
+          "bit": 0,
+          "normal_clk_to_q_ns": "0.111",
+          "conservative_q_to_d_ns": "0.304",
+          "capture_setup_ns": "0.076"
+        },
+        {
+          "bit": 1,
+          "normal_clk_to_q_ns": "0.111",
+          "conservative_q_to_d_ns": "0.303",
+          "capture_setup_ns": "0.076"
+        },
+        {
+          "bit": 2,
+          "normal_clk_to_q_ns": "0.110",
+          "conservative_q_to_d_ns": "0.304",
+          "capture_setup_ns": "0.076"
+        },
+        {
+          "bit": 3,
+          "normal_clk_to_q_ns": "0.109",
+          "conservative_q_to_d_ns": "0.301",
+          "capture_setup_ns": "0.075"
+        },
+        {
+          "bit": 4,
+          "normal_clk_to_q_ns": "0.110",
+          "conservative_q_to_d_ns": "0.300",
+          "capture_setup_ns": "0.075"
+        },
+        {
+          "bit": 5,
+          "normal_clk_to_q_ns": "0.109",
+          "conservative_q_to_d_ns": "0.302",
+          "capture_setup_ns": "0.075"
+        },
+        {
+          "bit": 6,
+          "normal_clk_to_q_ns": "0.110",
+          "conservative_q_to_d_ns": "0.301",
+          "capture_setup_ns": "0.076"
+        },
+        {
+          "bit": 7,
+          "normal_clk_to_q_ns": "0.110",
+          "conservative_q_to_d_ns": "0.302",
+          "capture_setup_ns": "0.077"
+        }
+      ],
+      "nom_typ_1p20V_25C": [
+        {
+          "bit": 0,
+          "normal_clk_to_q_ns": "0.168",
+          "conservative_q_to_d_ns": "0.452",
+          "capture_setup_ns": "0.114"
+        },
+        {
+          "bit": 1,
+          "normal_clk_to_q_ns": "0.168",
+          "conservative_q_to_d_ns": "0.452",
+          "capture_setup_ns": "0.114"
+        },
+        {
+          "bit": 2,
+          "normal_clk_to_q_ns": "0.167",
+          "conservative_q_to_d_ns": "0.452",
+          "capture_setup_ns": "0.115"
+        },
+        {
+          "bit": 3,
+          "normal_clk_to_q_ns": "0.166",
+          "conservative_q_to_d_ns": "0.448",
+          "capture_setup_ns": "0.113"
+        },
+        {
+          "bit": 4,
+          "normal_clk_to_q_ns": "0.167",
+          "conservative_q_to_d_ns": "0.447",
+          "capture_setup_ns": "0.113"
+        },
+        {
+          "bit": 5,
+          "normal_clk_to_q_ns": "0.166",
+          "conservative_q_to_d_ns": "0.450",
+          "capture_setup_ns": "0.113"
+        },
+        {
+          "bit": 6,
+          "normal_clk_to_q_ns": "0.167",
+          "conservative_q_to_d_ns": "0.448",
+          "capture_setup_ns": "0.114"
+        },
+        {
+          "bit": 7,
+          "normal_clk_to_q_ns": "0.167",
+          "conservative_q_to_d_ns": "0.450",
+          "capture_setup_ns": "0.117"
+        }
+      ],
+      "nom_slow_1p08V_125C": [
+        {
+          "bit": 0,
+          "normal_clk_to_q_ns": "0.266",
+          "conservative_q_to_d_ns": "0.727",
+          "capture_setup_ns": "0.195"
+        },
+        {
+          "bit": 1,
+          "normal_clk_to_q_ns": "0.266",
+          "conservative_q_to_d_ns": "0.727",
+          "capture_setup_ns": "0.195"
+        },
+        {
+          "bit": 2,
+          "normal_clk_to_q_ns": "0.265",
+          "conservative_q_to_d_ns": "0.728",
+          "capture_setup_ns": "0.197"
+        },
+        {
+          "bit": 3,
+          "normal_clk_to_q_ns": "0.263",
+          "conservative_q_to_d_ns": "0.720",
+          "capture_setup_ns": "0.194"
+        },
+        {
+          "bit": 4,
+          "normal_clk_to_q_ns": "0.265",
+          "conservative_q_to_d_ns": "0.720",
+          "capture_setup_ns": "0.194"
+        },
+        {
+          "bit": 5,
+          "normal_clk_to_q_ns": "0.263",
+          "conservative_q_to_d_ns": "0.724",
+          "capture_setup_ns": "0.194"
+        },
+        {
+          "bit": 6,
+          "normal_clk_to_q_ns": "0.265",
+          "conservative_q_to_d_ns": "0.720",
+          "capture_setup_ns": "0.195"
+        },
+        {
+          "bit": 7,
+          "normal_clk_to_q_ns": "0.265",
+          "conservative_q_to_d_ns": "0.723",
+          "capture_setup_ns": "0.202"
+        }
+      ]
+    },
+    "power_W": {
+      "Sequential": "9.488577e-04",
+      "Combinational": "7.656388e-05",
+      "Clock": "6.574983e-04",
+      "Macro": "3.974959e-05",
+      "Pad": "0.000000e+00",
+      "Total": "1.722670e-03"
+    },
+    "typical_static_IR_drop_V": {
+      "VPWR": "2.38e-04",
+      "VGND": "1.88e-04"
+    },
+    "extracted_parasitics": [
+      "runs/wokwi/final/spef/nom/tt_um_khangelani_protocol_emulator.nom.spef"
+    ],
+    "official_klayout_report": {
+      "categories": 332,
+      "items": 0,
+      "contact_rules": [
+        "Cnt.c",
+        "Cnt.c.digibnd",
+        "Cnt.c.SRAM"
+      ]
+    }
+  },
+  "matched_runs": [
+    {
+      "run": 43543626249,
+      "hashed_members": {
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.gds": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17",
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.lef": "d4818f99b3fdd9c0747d5a40bbb35006a13c2fad0b6bba5b9e6026a707e63d95",
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_fast_1p32V_m40C/min.rpt": "d9b0b133bf1e44cb3174ac353ef2f618e023cd8c56fd7732657d1c7b7a85e3c2",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_slow_1p08V_125C/max.rpt": "995451385368d4e2a70225a0e214c3080691446986609bdc55eed91f68d3a156",
+        "GDS_logs/runs/wokwi/final/def/tt_um_khangelani_protocol_emulator.def": "d648f325cbf58cfa76f2e7c9fd52b8f8c879217d8afcbc52968cb820f607d6c5",
+        "GDS_logs/runs/wokwi/final/sdf/nom_fast_1p32V_m40C/tt_um_khangelani_protocol_emulator__nom_fast_1p32V_m40C.sdf": "5571615d1574c3341d67e3fb2a8a42e992eac4224b0902c57a4dd06a388a9e52",
+        "GDS_logs/runs/wokwi/final/sdf/nom_typ_1p20V_25C/tt_um_khangelani_protocol_emulator__nom_typ_1p20V_25C.sdf": "d4c2fad5ad3a0c1b2e953145353548721c972e855c8ae85f9d67f689ce82824e",
+        "GDS_logs/runs/wokwi/final/sdf/nom_slow_1p08V_125C/tt_um_khangelani_protocol_emulator__nom_slow_1p08V_125C.sdf": "65675e1ae64044bbe6a2aad82f0ecf093538ffc7ea74cd1bc55d8414f182331e",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_typ_1p20V_25C/power.rpt": "6942b69cc013aae2b4747f71a9c051ebef818fc1514831f25d4ec5166a9a4233",
+        "GDS_logs/runs/wokwi/61-openroad-irdropreport/irdrop.rpt": "2560c8bf8f5809d619e66f80e3e6ce08c47e5d5c6fadaa32d65f746222c6803c",
+        "precheck_reports/drc_sg13cmos5l.xml": "b14d99b3d19485a642750658b16a3700c9b0cd8e7593fa31daaeb57c077a9fc0"
+      }
+    },
+    {
+      "run": 43543629839,
+      "hashed_members": {
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.gds": "0541bfb61c1e974a5ffecb051ff43a380b3fdcdc7c1a5bf19870c74642a14bd1",
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.lef": "d4818f99b3fdd9c0747d5a40bbb35006a13c2fad0b6bba5b9e6026a707e63d95",
+        "tt_submission/tt_submission/tt_um_khangelani_protocol_emulator.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_fast_1p32V_m40C/min.rpt": "d9b0b133bf1e44cb3174ac353ef2f618e023cd8c56fd7732657d1c7b7a85e3c2",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_slow_1p08V_125C/max.rpt": "995451385368d4e2a70225a0e214c3080691446986609bdc55eed91f68d3a156",
+        "GDS_logs/runs/wokwi/final/def/tt_um_khangelani_protocol_emulator.def": "d648f325cbf58cfa76f2e7c9fd52b8f8c879217d8afcbc52968cb820f607d6c5",
+        "GDS_logs/runs/wokwi/final/sdf/nom_fast_1p32V_m40C/tt_um_khangelani_protocol_emulator__nom_fast_1p32V_m40C.sdf": "e3e61feafb70903ce67e4892cd72873e808eebb79514ab748b337caea563c213",
+        "GDS_logs/runs/wokwi/final/sdf/nom_typ_1p20V_25C/tt_um_khangelani_protocol_emulator__nom_typ_1p20V_25C.sdf": "d74ee09cf9f62e06920e863b1aef4e4dc2d23c7c58a673fdf63e0ef6182cd935",
+        "GDS_logs/runs/wokwi/final/sdf/nom_slow_1p08V_125C/tt_um_khangelani_protocol_emulator__nom_slow_1p08V_125C.sdf": "ab1725d859f955aa2c7ca511921e37b3d1e16e29137ac46c82bc75073d301a4b",
+        "GDS_logs/runs/wokwi/60-openroad-stapostpnr/nom_typ_1p20V_25C/power.rpt": "6942b69cc013aae2b4747f71a9c051ebef818fc1514831f25d4ec5166a9a4233",
+        "GDS_logs/runs/wokwi/61-openroad-irdropreport/irdrop.rpt": "2560c8bf8f5809d619e66f80e3e6ce08c47e5d5c6fadaa32d65f746222c6803c",
+        "precheck_reports/drc_sg13cmos5l.xml": "b14d99b3d19485a642750658b16a3700c9b0cd8e7593fa31daaeb57c077a9fc0"
+      }
+    }
+  ]
+}

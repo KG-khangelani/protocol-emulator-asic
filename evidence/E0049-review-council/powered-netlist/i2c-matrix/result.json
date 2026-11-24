@@ -1,0 +1,37 @@
+{
+  "started_utc": "2026-11-24T15:07:09.479776+00:00",
+  "status": "pass",
+  "source_commit": "49db2332f13fbcb613bfd6db504ebd1015bdbbba",
+  "driver_sha256": "722da6c891a8e4ab3a5de0ba0ca260b9d4950a131d97faf3071e21fd2f543a4c",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "testbench_sha256": {
+    "council_i2c_matrix.py": "5586b0ad69cff9038a07b644d18e1d210d4031149f9a8c56d77781f875cc9098",
+    "Makefile": "6ca5cccd3bdd101d3cf6ef9c83444c062464f95b25b719cda1932a1b7ce864e4",
+    "tb.v": "ccf781d519a2fa89ae46d13d8d5f66398fcdbc799fb035ec75657d2335e271c2"
+  },
+  "command": [
+    "make",
+    "-C",
+    "/workspace/build/council-2026-11-24/chair/extended-i2c-01/fixture",
+    "SIM=icarus",
+    "GATES=yes",
+    "SRC_DIR=/workspace/src",
+    "GATE_LEVEL_NETLIST=/workspace/build/council-2026-11-24/chair/netlist-02/submitted.v",
+    "SIM_BUILD=/workspace/build/council-2026-11-24/chair/extended-i2c-01/sim",
+    "COCOTB_TEST_MODULES=council_i2c_matrix",
+    "COCOTB_RESULTS_FILE=/workspace/build/council-2026-11-24/chair/extended-i2c-01/results.xml",
+    "FST=",
+    "COCOTB_PLUSARGS=+NO_DUMP"
+  ],
+  "differences": [],
+  "retained_records_sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+  "new_records_sha256": "bf9c4b00f4195a7a30dd8e2eb88a5d572b51186df55f4216e7290ca549a6307e",
+  "expected_rejections": 6,
+  "terminal_outcomes": {
+    "OK": 1000,
+    "NACK": 6,
+    "TIMEOUT": 154
+  },
+  "ended_utc": "2026-11-24T15:41:44.386147+00:00",
+  "completed_records": 1160
+}

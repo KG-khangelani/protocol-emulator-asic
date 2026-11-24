@@ -1,0 +1,52 @@
+{
+  "scope": "fresh OpenSTA on retained fast-corner G4 inputs; second condition deliberately hypothetical",
+  "binary": {
+    "sta_version": "2.7.0"
+  },
+  "inputs": {
+    "runs/wokwi/final/nl/tt_um_khangelani_protocol_emulator.nl.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+    "runs/wokwi/final/sdc/tt_um_khangelani_protocol_emulator.sdc": "2b9b4aa28941b605190a19bde0403ee85bef5395a2e98054970f6999fa7125e1",
+    "runs/wokwi/final/spef/nom/tt_um_khangelani_protocol_emulator.nom.spef": "c1727ffa140a937f8f385511ea554335f7fd7b671e6b2be6e2ab1db593d4e3b8"
+  },
+  "liberty_sha256": {
+    "sg13cmos5l_stdcell_fast_1p32V_m40C.lib": "af12d75a72d19648fa690027d29843fbae550aa91f4e40dd3339c7116d6e425d",
+    "sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib": "5c4176e1c7cb5cffbb76aced29a57a45971b38567e37c5e552a2acc73020da68",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27"
+  },
+  "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "warnings": [],
+  "uncertainty_0p250_ns": {
+    "status": "MET",
+    "hold_slack_ns": "0.120791",
+    "path_lines": [
+      "0.000978    0.356804 ^ _7350_/CLK (sg13cmos5l_dfrbpq_1)",
+      "0.130095    0.486899 ^ _7350_/Q (sg13cmos5l_dfrbpq_1)",
+      "0.000325    1.069597 ^ store.program_memory/A_ADDR[6] (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+      "1.069597   data arrival time",
+      "0.000180    0.387456 ^ store.program_memory/A_CLK (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+      "0.250000    0.637456   clock uncertainty",
+      "0.311350    0.948806   library hold time",
+      "0.948806   data required time",
+      "0.948806   data required time",
+      "-1.069597   data arrival time",
+      "0.120791   slack (MET)"
+    ]
+  },
+  "uncertainty_0p375_ns": {
+    "status": "VIOLATED",
+    "hold_slack_ns": "-0.004209",
+    "path_lines": [
+      "0.000978    0.356804 ^ _7350_/CLK (sg13cmos5l_dfrbpq_1)",
+      "0.130095    0.486899 ^ _7350_/Q (sg13cmos5l_dfrbpq_1)",
+      "0.000325    1.069597 ^ store.program_memory/A_ADDR[6] (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+      "1.069597   data arrival time",
+      "0.000180    0.387456 ^ store.program_memory/A_CLK (RM_IHPSG13_1P_256x32_c2_bm_bist)",
+      "0.375000    0.762456   clock uncertainty",
+      "0.311350    1.073806   library hold time",
+      "1.073806   data required time",
+      "1.073806   data required time",
+      "-1.069597   data arrival time",
+      "-0.004209   slack (VIOLATED)"
+    ]
+  }
+}

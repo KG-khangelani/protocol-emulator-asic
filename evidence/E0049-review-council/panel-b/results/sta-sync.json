@@ -1,0 +1,129 @@
+{
+  "scope": "fresh synchronous STA with nominal SPEF and original 20 ns SDC; no metastability characterization",
+  "run": 43543626249,
+  "rows": {
+    "fast": {
+      "transfers": [
+        {
+          "bit": 0,
+          "ordinary_setup_slack_ns": "19.231436"
+        },
+        {
+          "bit": 1,
+          "ordinary_setup_slack_ns": "19.240372"
+        },
+        {
+          "bit": 2,
+          "ordinary_setup_slack_ns": "19.239061"
+        },
+        {
+          "bit": 3,
+          "ordinary_setup_slack_ns": "19.244095"
+        },
+        {
+          "bit": 4,
+          "ordinary_setup_slack_ns": "19.235622"
+        },
+        {
+          "bit": 5,
+          "ordinary_setup_slack_ns": "19.234322"
+        },
+        {
+          "bit": 6,
+          "ordinary_setup_slack_ns": "19.243587"
+        },
+        {
+          "bit": 7,
+          "ordinary_setup_slack_ns": "19.240461"
+        }
+      ],
+      "liberty_sha256": {
+        "sg13cmos5l_stdcell_fast_1p32V_m40C.lib": "af12d75a72d19648fa690027d29843fbae550aa91f4e40dd3339c7116d6e425d",
+        "sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib": "5c4176e1c7cb5cffbb76aced29a57a45971b38567e37c5e552a2acc73020da68",
+        "RM_IHPSG13_1P_256x32_c2_bm_bist_fast_1p32V_m55C.lib": "c46525af05ae9c0b99ee9dda0c43a9dffb17b90762e654d635c432d1ad89bb27"
+      }
+    },
+    "typical": {
+      "transfers": [
+        {
+          "bit": 0,
+          "ordinary_setup_slack_ns": "18.982946"
+        },
+        {
+          "bit": 1,
+          "ordinary_setup_slack_ns": "18.996143"
+        },
+        {
+          "bit": 2,
+          "ordinary_setup_slack_ns": "18.994364"
+        },
+        {
+          "bit": 3,
+          "ordinary_setup_slack_ns": "19.002539"
+        },
+        {
+          "bit": 4,
+          "ordinary_setup_slack_ns": "18.989614"
+        },
+        {
+          "bit": 5,
+          "ordinary_setup_slack_ns": "18.988167"
+        },
+        {
+          "bit": 6,
+          "ordinary_setup_slack_ns": "19.001242"
+        },
+        {
+          "bit": 7,
+          "ordinary_setup_slack_ns": "18.995905"
+        }
+      ],
+      "liberty_sha256": {
+        "sg13cmos5l_stdcell_typ_1p20V_25C.lib": "34163f3e7de9f854afac57332ba06f1739b78e7ac35660a8a5ddd39c570124ad",
+        "sg13cmos5l_io_typ_1p2V_3p3V_25C.lib": "024eb5be8858aca1416cf7bdccb91b25e5b1951a5ea5b242968047a2bd26d9f3",
+        "RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6"
+      }
+    },
+    "slow": {
+      "transfers": [
+        {
+          "bit": 0,
+          "ordinary_setup_slack_ns": "18.519300"
+        },
+        {
+          "bit": 1,
+          "ordinary_setup_slack_ns": "18.539654"
+        },
+        {
+          "bit": 2,
+          "ordinary_setup_slack_ns": "18.537066"
+        },
+        {
+          "bit": 3,
+          "ordinary_setup_slack_ns": "18.550413"
+        },
+        {
+          "bit": 4,
+          "ordinary_setup_slack_ns": "18.530109"
+        },
+        {
+          "bit": 5,
+          "ordinary_setup_slack_ns": "18.528276"
+        },
+        {
+          "bit": 6,
+          "ordinary_setup_slack_ns": "18.547907"
+        },
+        {
+          "bit": 7,
+          "ordinary_setup_slack_ns": "18.538336"
+        }
+      ],
+      "liberty_sha256": {
+        "sg13cmos5l_stdcell_slow_1p08V_125C.lib": "3ee222c580ba33acb2131ac2bf224ff8ee9700751835b73aaec72b670bb31d3c",
+        "sg13cmos5l_io_slow_1p08V_3p0V_125C.lib": "77ed504bcf52862811d3eff8382b5f4f5a38a386f161a82722e4f3832d61af0b",
+        "RM_IHPSG13_1P_256x32_c2_bm_bist_slow_1p08V_125C.lib": "8ab1090ecf527bc71f0c4dc8db05b833e0f9960b4bdb94f3b0351533463b79a2"
+      }
+    }
+  }
+}

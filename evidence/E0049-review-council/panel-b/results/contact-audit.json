@@ -1,0 +1,379 @@
+{
+  "klayout": "0.30.12",
+  "units": "nm",
+  "rules_and_grid": {
+    "Cnt_c": 70,
+    "Cnt_c_sram": 6,
+    "Cnt_c_digibnd": 50,
+    "grid": 5
+  },
+  "actual_enclosure_and_reference_limit": {
+    "60/50": 12,
+    "10/6": 20
+  },
+  "hypothetical_15nm_sram_threshold_rejects": 20,
+  "runs": [
+    {
+      "run": 43543626249,
+      "gds_sha256": "2ae494ddf48df9b8069968a7f3da8f379ee8f6a899891e7649d585e75a465a17"
+    },
+    {
+      "run": 43543629839,
+      "gds_sha256": "0541bfb61c1e974a5ffecb051ff43a380b3fdcdc7c1a5bf19870c74642a14bd1"
+    }
+  ],
+  "measured": [
+    {
+      "marker_nm": "(219205,22020;219365,22030)",
+      "contact_nm": "(219205,21870;219365,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(220225,22020;220385,22030)",
+      "contact_nm": "(220225,21870;220385,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(221245,22020;221405,22030)",
+      "contact_nm": "(221245,21870;221405,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(225835,22020;225995,22030)",
+      "contact_nm": "(225835,21870;225995,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(226855,22020;227015,22030)",
+      "contact_nm": "(226855,21870;227015,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(227875,22020;228035,22030)",
+      "contact_nm": "(227875,21870;228035,22030)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(223285,20570;223445,20580)",
+      "contact_nm": "(223285,20570;223445,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(224305,20570;224465,20580)",
+      "contact_nm": "(224305,20570;224465,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(225325,20570;225485,20580)",
+      "contact_nm": "(225325,20570;225485,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(225835,20570;225995,20580)",
+      "contact_nm": "(225835,20570;225995,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(226855,20570;227015,20580)",
+      "contact_nm": "(226855,20570;227015,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(227875,20570;228035,20580)",
+      "contact_nm": "(227875,20570;228035,20730)",
+      "minimum_activ_enclosure_nm": 60,
+      "marker_coverage": {
+        "digital": true,
+        "sram": false
+      },
+      "reference_limit_nm": 50,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(320,118310;330,118470)",
+      "contact_nm": "(320,118310;480,118470)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(182730,118310;182740,118470)",
+      "contact_nm": "(182580,118310;182740,118470)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(233900,118310;233910,118470)",
+      "contact_nm": "(233900,118310;234060,118470)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(320,100170;330,100330)",
+      "contact_nm": "(320,100170;480,100330)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(182730,100170;182740,100330)",
+      "contact_nm": "(182580,100170;182740,100330)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(416310,118310;416320,118470)",
+      "contact_nm": "(416160,118310;416320,118470)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(233900,100170;233910,100330)",
+      "contact_nm": "(233900,100170;234060,100330)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(320,82030;330,82190)",
+      "contact_nm": "(320,82030;480,82190)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(182730,82030;182740,82190)",
+      "contact_nm": "(182580,82030;182740,82190)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(416310,100170;416320,100330)",
+      "contact_nm": "(416160,100170;416320,100330)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(233900,82030;233910,82190)",
+      "contact_nm": "(233900,82030;234060,82190)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(320,63890;330,64050)",
+      "contact_nm": "(320,63890;480,64050)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(182730,63890;182740,64050)",
+      "contact_nm": "(182580,63890;182740,64050)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(416310,82030;416320,82190)",
+      "contact_nm": "(416160,82030;416320,82190)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(233900,63890;233910,64050)",
+      "contact_nm": "(233900,63890;234060,64050)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(320,45750;330,45910)",
+      "contact_nm": "(320,45750;480,45910)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(182730,45750;182740,45910)",
+      "contact_nm": "(182580,45750;182740,45910)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(416310,63890;416320,64050)",
+      "contact_nm": "(416160,63890;416320,64050)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 2
+    },
+    {
+      "marker_nm": "(233900,45750;233910,45910)",
+      "contact_nm": "(233900,45750;234060,45910)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    },
+    {
+      "marker_nm": "(416310,45750;416320,45910)",
+      "contact_nm": "(416160,45750;416320,45910)",
+      "minimum_activ_enclosure_nm": 10,
+      "marker_coverage": {
+        "digital": true,
+        "sram": true
+      },
+      "reference_limit_nm": 6,
+      "coincident_contact_occurrences": 1
+    }
+  ]
+}

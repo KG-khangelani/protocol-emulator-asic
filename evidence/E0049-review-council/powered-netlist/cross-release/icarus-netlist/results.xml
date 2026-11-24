@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261124" />
+    <testcase name="replay_waveforms" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-gl-01/fixture/council_powered_g5.py" lineno="168" time="0.9829292297363281" sim_time_ns="72315.0" ratio_time="73570.91213921737" />
+    <testcase name="replay_falsification" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-gl-01/fixture/council_powered_g5.py" lineno="180" time="0.20227885246276855" sim_time_ns="14935.0" ratio_time="73833.71923542496" />
+    <testcase name="replay_loader" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-gl-01/fixture/council_powered_g5.py" lineno="187" time="0.11543011665344238" sim_time_ns="7525.001000000004" ratio_time="65190.967644886216" />
+  </testsuite>
+</testsuites>

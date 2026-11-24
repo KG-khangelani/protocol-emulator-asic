@@ -1,0 +1,11 @@
+{
+  "scope": "Second fresh output directory using replay-physical.ps1. All parsed reference and rerun JSON values matched.",
+  "first_result_directory_creation_utc": "2026-11-24T15:42:57.645+00:00",
+  "last_result_update_utc": "2026-11-24T15:43:10.362+00:00",
+  "canonical_json_sha256": {
+    "signoff-audit": "47adb915df4bd6f010b695e9fd6c9e479dc13b8a67f930a34fe4981123a42a1d",
+    "contact-audit": "0aa85d00a77d8e8e89c40e99afefb105387ec8c675ec4029e123cc4940cc900f",
+    "sta-sensitivity": "b9f12383d53d7389f159c7645cf4217a78faaee1ec4edf0b45b8d3ba48b41eca",
+    "sta-sync": "b9fe7b401ae83d6f9e106001f11a5864bf3ad95eb1f264ba6b5213f1b25481c4"
+  }
+}

@@ -1,0 +1,12 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261124" />
+    <testcase name="assembled_loader_controls" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g3.py" lineno="102" time="0.19313859939575195" sim_time_ns="45030.148" ratio_time="233149.3970696695" />
+    <testcase name="assembled_uart_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g3.py" lineno="153" time="4.352402687072754" sim_time_ns="788967.0" ratio_time="181271.6002458464" />
+    <testcase name="assembled_spi_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g3.py" lineno="239" time="2.086853504180908" sim_time_ns="251044.99999999988" ratio_time="120298.33406947042" />
+    <testcase name="assembled_i2c_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g3.py" lineno="278" time="3.5299925804138184" sim_time_ns="10189750.216" ratio_time="2886620.859357575" />
+    <testcase name="replay_waveforms" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g5.py" lineno="168" time="0.4169321060180664" sim_time_ns="72315.0" ratio_time="173445.50576986859" />
+    <testcase name="replay_falsification" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g5.py" lineno="180" time="0.08126091957092285" sim_time_ns="14935.0" ratio_time="183790.68411802847" />
+    <testcase name="replay_loader" classname="council_powered_g5" file="/workspace/build/council-2026-11-24/chair/cross-rtl-01/fixture/council_powered_g5.py" lineno="187" time="0.046071529388427734" sim_time_ns="7525.001000000164" ratio_time="163332.99762109257" />
+  </testsuite>
+</testsuites>
