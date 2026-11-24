@@ -1,0 +1,45 @@
+{
+  "g4_release_commit": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "g4_tree": {
+    "blob_paths": 4080,
+    "logical_file_bytes": 911202781,
+    "evidence_paths": 3643,
+    "evidence_bytes": 908791000,
+    "unique_blob_bytes": 896951118
+  },
+  "retained_releases": {
+    "v0.1.0": {
+      "assets": 35,
+      "asset_sizes_bytes": {
+        "g4-submission-bundle.zip": 14869969,
+        "g4-public-programs.zip": 261357
+      }
+    },
+    "v0.1.1": {
+      "assets": 22,
+      "asset_sizes_bytes": {
+        "g5-waveform-replay.zip": 244576
+      }
+    }
+  },
+  "retained_physical_jobs": {
+    "43543626249": {
+      "elapsed_first_job_start_to_last_completion_s": 5899,
+      "job_duration_s": {
+        "gds": 3902,
+        "precheck": 278,
+        "gl_test": 1994
+      },
+      "sum_of_job_seconds": 6174
+    },
+    "43543629839": {
+      "elapsed_first_job_start_to_last_completion_s": 5679,
+      "job_duration_s": {
+        "gds": 3332,
+        "precheck": 353,
+        "gl_test": 2345
+      },
+      "sum_of_job_seconds": 6030
+    }
+  }
+}

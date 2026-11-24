@@ -1,0 +1,24 @@
+{
+  "revision": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "total_bytes": 131300,
+  "files": [
+    {
+      "name": "sg13cmos5l_io/verilog/sg13cmos5l_io.v",
+      "bytes": 14395,
+      "sha256": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+      "url": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v"
+    },
+    {
+      "name": "sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v",
+      "bytes": 13046,
+      "sha256": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+      "url": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v"
+    },
+    {
+      "name": "sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v",
+      "bytes": 103859,
+      "sha256": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735",
+      "url": "https://raw.githubusercontent.com/IHP-GmbH/IHP-Open-PDK/89d42ee6d2fd9b50b86a1aada6fee6673c3e6008/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "status": "PASS_STANDALONE_README",
+  "started_utc": "2026-11-24T15:22:17.836999+00:00",
+  "bundle_sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "host": "Windows-11-10.0.26300-SP0",
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "tools/assembler.py",
+        "experiments/waveform_replay/control.asm",
+        "--out",
+        "build/my-control"
+      ],
+      "machine_seconds": 0.1302,
+      "returncode": 0,
+      "output": "Assembled 20/128 words for od128-sram-v1: build\\my-control"
+    },
+    {
+      "argv": [
+        "python",
+        "tools/assembler.py",
+        "experiments/waveform_replay/timing_fault.asm",
+        "--out",
+        "build/my-fault"
+      ],
+      "machine_seconds": 0.1349,
+      "returncode": 0,
+      "output": "Assembled 20/128 words for od128-sram-v1: build\\my-fault"
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "test",
+        "-p",
+        "test_waveform_replay_oracle.py"
+      ],
+      "machine_seconds": 0.3459,
+      "returncode": 0,
+      "output": "............\r\n----------------------------------------------------------------------\r\nRan 12 tests in 0.009s\r\n\r\nOK"
+    },
+    {
+      "argv": [
+        "python",
+        "tools/assembler.py",
+        "bad.asm",
+        "--out",
+        "build/bad"
+      ],
+      "machine_seconds": 0.1438,
+      "returncode": 2,
+      "output": "bad.asm:1: error: first statement must be .target od128-sram-v1"
+    }
+  ],
+  "artifacts": {
+    "control/program.bin": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+    "control/program.json": "e2264aa0fdae421e4d57961a016fe4d32a7b8c46220466c2065e2e87b319cdba",
+    "control/program.lst": "76ad2762c988c695f1ed0c578cd4d84e478964d4c9bd23e35d75ed2c4baa3220",
+    "control/load-plan.json": "213e42684331a6382c269cc3687631533a61474e48056192a25a9d0453ba292a",
+    "timing_fault/program.bin": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+    "timing_fault/program.json": "d1b911063d7a3025b57bad6265646441b1f027670f91499075211fe57b9a95b8",
+    "timing_fault/program.lst": "f31afdc55403caf0a7340e4ca9f1e743ed5b828f04f0edd7b7243214e22c7869",
+    "timing_fault/load-plan.json": "7a5b1800f44ee67827dab9f9b86cb6bd0f7ebf208b1627e6ce721161fbd8f98a"
+  },
+  "ended_utc": "2026-11-24T15:22:18.738701+00:00"
+}

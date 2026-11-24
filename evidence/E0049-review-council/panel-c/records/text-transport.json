@@ -1,0 +1,26 @@
+{
+  "common-edit.json": {
+    "native_crlf_sha256": "222a683a809f092409dd494df5cee427c95f54b468872a753daecc93b4563935",
+    "repository_lf_sha256": "eee62b5b59b0d3ed1038dad957d38225082bf8c228a960fd4f8fe9b0e6185230"
+  },
+  "delivery-metrics.json": {
+    "native_crlf_sha256": "cd89231ea058735312823bf4f779edaeaaadc7648530674c9d7a14fc865da281",
+    "repository_lf_sha256": "581b9fbc195612a32176d6bad2fa25152bb7e4ba18bdc837623be190a43db76b"
+  },
+  "fresh-replay.json": {
+    "native_crlf_sha256": "0173bcfaf42acd0272cb6c6e5de837b33417aa146703526d6361bf314f8516bc",
+    "repository_lf_sha256": "92a9d217a2a933e43df39668eab495ef75cf37df7e6b5c40cb1a713a7c2b48e2"
+  },
+  "launch-pad-only.json": {
+    "native_crlf_sha256": "e652b1650a2f68ad4805527f7fab2c904c56285a01caf703b125cb8d02a8d0dd",
+    "repository_lf_sha256": "02cf8a918ec0c27adb4b3eeb54e4788a4279884ada3a784375f1354d100c92b4"
+  },
+  "pdk-source.json": {
+    "native_crlf_sha256": "5c56ca059da225d3223568a3c2996d070ba12d88d6d8fd1d1887fea04286f04b",
+    "repository_lf_sha256": "68794e2ff055776a6fbc621906e926a5ef2d42f9b9154f0e963f3559c4fbead2"
+  },
+  "starter.json": {
+    "native_crlf_sha256": "49cd6e3f4f770bac0133b1f721af072d4f81c0ff50960bd4be783485644f7f98",
+    "repository_lf_sha256": "7a1260af618f3240f37cfc435d17aafc173140946dca3023929b9ab440d07ad7"
+  }
+}

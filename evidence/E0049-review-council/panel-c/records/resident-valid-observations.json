@@ -1,0 +1,222 @@
+{
+  "status": "PASS_VALID_GATED_DIAGNOSTIC",
+  "image_sha256": "3cd132492f141fd056d2feae41bb2d6c52dc825d3fe4471cf17bddffffc999c2",
+  "alternate_sha256": "288726a9bd021512ec76ac042458eb09800e8c619058652a84cfa8db1d8e2835",
+  "cold_A_setup": {
+    "counts": {
+      "selector_commands": 804,
+      "selector_value_changes": 803,
+      "clocked_steps": 802,
+      "macro_oe_checks": 802,
+      "pad_or_status_checks": 390,
+      "host_direction_changes": 30,
+      "peer_isolator_changes": 1
+    },
+    "simulated_setup_ps": 19334000
+  },
+  "first_A": {
+    "trace_sha256": "4e251c5c9e9e8fa7d4358c2d04c4f3eadac96f3691bd3f1ebd4f4ad4e43080d2",
+    "event_rows": 375,
+    "decoded_address_data_readaddress": [
+      164,
+      150,
+      165
+    ],
+    "returned_data": 105,
+    "halt_tick_from_judged_idle": 80584,
+    "outcome": "OK",
+    "oracle_errors": []
+  },
+  "A_endpoint": {
+    "status": 179,
+    "sensed_bus_and_marker_low5": 7,
+    "full_pc": 83,
+    "valid": 1,
+    "rx": 105,
+    "interface": 34,
+    "length": 96
+  },
+  "warm_B_setup": {
+    "counts": {
+      "selector_commands": 16,
+      "unclocked_dedicated_guard_reads": 5,
+      "unclocked_pad_guard_reads": 1,
+      "selector_value_changes": 13,
+      "peer_isolator_changes": 2,
+      "clocked_steps": 8,
+      "macro_oe_checks": 8,
+      "pad_or_status_checks": 5,
+      "host_direction_changes": 4
+    },
+    "simulated_setup_ps": 216000
+  },
+  "warm_actions": [
+    "park",
+    "read_length",
+    "write_TX0",
+    "read_TX0",
+    "write_TX1",
+    "read_TX1",
+    "flush_idle",
+    "flush_idle"
+  ],
+  "warm_B": {
+    "trace_sha256": "0740838c12d451ef871bbb1e7013b6f8fcb21e0743e8910cb856d10d746de6ca",
+    "event_rows": 373,
+    "decoded_address_data_readaddress": [
+      84,
+      210,
+      85
+    ],
+    "returned_data": 59,
+    "halt_tick_from_judged_idle": 80584,
+    "outcome": "OK",
+    "oracle_errors": []
+  },
+  "cold_B_setup": {
+    "counts": {
+      "peer_isolator_changes": 2,
+      "selector_commands": 804,
+      "clocked_steps": 802,
+      "macro_oe_checks": 802,
+      "selector_value_changes": 802,
+      "pad_or_status_checks": 390,
+      "host_direction_changes": 30
+    },
+    "simulated_setup_ps": 19336000
+  },
+  "cold_B": {
+    "trace_sha256": "f9e4670f25b711227e22d8924566f6b55c19bf106caff2122c257864528e702f",
+    "event_rows": 373,
+    "decoded_address_data_readaddress": [
+      84,
+      210,
+      85
+    ],
+    "returned_data": 59,
+    "halt_tick_from_judged_idle": 80584,
+    "outcome": "OK",
+    "oracle_errors": []
+  },
+  "warm_B_comparison": {
+    "full_equal": false,
+    "different_fields": {
+      "rx": 78
+    },
+    "first": {
+      "row": 0,
+      "tick": 0,
+      "valid": 0,
+      "differences": {
+        "rx": [
+          105,
+          0
+        ]
+      }
+    },
+    "different_invalid_rows": 78,
+    "total_rows": 373,
+    "valid_gated_sha256": "4366add49dee57e2387f288f2a4076a7f0f9c7d24ec4a755fe0f6c96fafaab49"
+  },
+  "B_endpoint": {
+    "status": 179,
+    "sensed_bus_and_marker_low5": 7,
+    "full_pc": 83,
+    "valid": 1,
+    "rx": 59,
+    "interface": 34,
+    "length": 96
+  },
+  "repeat_B_setup": {
+    "counts": {
+      "selector_commands": 16,
+      "unclocked_dedicated_guard_reads": 5,
+      "unclocked_pad_guard_reads": 1,
+      "selector_value_changes": 13,
+      "peer_isolator_changes": 2,
+      "clocked_steps": 8,
+      "macro_oe_checks": 8,
+      "pad_or_status_checks": 5,
+      "host_direction_changes": 4
+    },
+    "simulated_setup_ps": 216000
+  },
+  "repeat_B": {
+    "trace_sha256": "e408acd8213bf26a3a8c4d399096fead636745dda780862139c4a0df8e17a9e8",
+    "event_rows": 373,
+    "decoded_address_data_readaddress": [
+      84,
+      210,
+      85
+    ],
+    "returned_data": 59,
+    "halt_tick_from_judged_idle": 80584,
+    "outcome": "OK",
+    "oracle_errors": []
+  },
+  "repeat_B_comparison": {
+    "full_equal": false,
+    "different_fields": {
+      "rx": 78
+    },
+    "first": {
+      "row": 0,
+      "tick": 0,
+      "valid": 0,
+      "differences": {
+        "rx": [
+          59,
+          0
+        ]
+      }
+    },
+    "different_invalid_rows": 78,
+    "total_rows": 373,
+    "valid_gated_sha256": "4366add49dee57e2387f288f2a4076a7f0f9c7d24ec4a755fe0f6c96fafaab49"
+  },
+  "bank_invalidated_guard": {
+    "reason": "terminal mismatch {'status': 0, 'sensed_bus_and_marker_low5': 3, 'full_pc': 0, 'valid': 1, 'rx': 59, 'interface': 34}",
+    "clocked_before_reject": 0,
+    "actions": [],
+    "observed_status": 0,
+    "observed_length": 0
+  },
+  "alternate_setup": {
+    "counts": {
+      "selector_commands": 804,
+      "selector_value_changes": 803,
+      "clocked_steps": 802,
+      "macro_oe_checks": 802,
+      "pad_or_status_checks": 390,
+      "host_direction_changes": 30,
+      "peer_isolator_changes": 1
+    },
+    "simulated_setup_ps": 19334000
+  },
+  "alternate_B": {
+    "trace_sha256": "21be1dbb17cc5fc3b42e9e6720481b0b558cd1b7b2db9d19936556ca33270af0",
+    "event_rows": 373,
+    "decoded_address_data_readaddress": [
+      84,
+      210,
+      85
+    ],
+    "returned_data": 59,
+    "halt_tick_from_judged_idle": 80596,
+    "outcome": "OK",
+    "oracle_errors": []
+  },
+  "lost_session_guard": {
+    "reason": "untrusted image custody",
+    "issued_commands": 0
+  },
+  "alternate_endpoint": {
+    "status": 179,
+    "sensed_bus_and_marker_low5": 7,
+    "full_pc": 83,
+    "valid": 1,
+    "rx": 59,
+    "interface": 34,
+    "length": 96
+  }
+}

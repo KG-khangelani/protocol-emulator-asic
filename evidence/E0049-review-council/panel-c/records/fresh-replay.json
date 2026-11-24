@@ -1,0 +1,34 @@
+{
+  "started_utc": "2026-11-24T15:30:39.839245+00:00",
+  "local_image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "image_selector": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "status": "PASS_PANEL_C_REPLAY",
+  "checks": {
+    "initial_launch_failure": "invalid literal for int() with base 16: b'Xx'",
+    "launch_pad_projection": {
+      "released_programs": 15,
+      "load_steps_per_positive_profile": 2890,
+      "released_ena_low_requests": 1429,
+      "runtime_edges_per_positive_profile": 9811,
+      "powered_identical_after_run": 15,
+      "naive_different_after_run": 15,
+      "first_flush_dedicated_status_reference_naive_powered_hex": [
+        {
+          "status": [
+            "20",
+            "21",
+            "20"
+          ],
+          "examples": 15
+        }
+      ]
+    },
+    "selector_order_samples_per_implementation": 12966,
+    "strict_resident_equality_rejected": true,
+    "resident_observations_sha256": "3832c1e216d44946c5d8ebc6a75fc771cdbcf8474c466e6438251426782d6a4f",
+    "standalone_artifacts": 8,
+    "delivery_costs": "matched",
+    "common_vm_pio_edit_cases_per_implementation": 10
+  },
+  "ended_utc": "2026-11-24T15:31:22.232283+00:00"
+}

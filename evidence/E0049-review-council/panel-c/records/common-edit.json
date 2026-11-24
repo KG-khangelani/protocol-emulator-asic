@@ -1,0 +1,148 @@
+{
+  "started_utc": "2026-11-24T15:26:15.958042+00:00",
+  "status": "PASS_COMMON_DIGITAL_EDIT",
+  "cases": {
+    "present-15-60-0": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 1,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-15-60-1": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 2,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-15-240-0": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 1,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-15-240-1": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 2,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-60-60-0": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 1,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-60-60-1": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 2,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-60-240-0": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 1,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "present-60-240-1": {
+      "width": 25800,
+      "pulses": 18,
+      "terminal_displacement_intervals": 800,
+      "terminal": 2,
+      "decoded": [
+        204,
+        180
+      ]
+    },
+    "absent": {
+      "width": 25800,
+      "pulses": 1,
+      "terminal_displacement_intervals": 800,
+      "terminal": 3,
+      "decoded": []
+    },
+    "stuck": {
+      "width": 25800,
+      "pulses": 1,
+      "terminal_displacement_intervals": 800,
+      "terminal": 3,
+      "decoded": []
+    }
+  },
+  "source_sha256": [
+    {
+      "name": "power_query.asm",
+      "sha256": "4c8f6b3f080694841cdf8fa57403bbff04cd4e97b7aa998c643fa23546efa207"
+    },
+    {
+      "name": "power_query_tb.sv",
+      "sha256": "2911270a4fba0eb8b1fffb6d7173b70dfd7f986a3d387e848218f700067793c6"
+    },
+    {
+      "name": "screen.py",
+      "sha256": "39b65a8dcba7d03ae6949c55e1b0aeecb7e5b63a3b7db77746cb6432a56dae7f"
+    },
+    {
+      "name": "result.json",
+      "sha256": "16982eafbb1c6b3c59aa9dd60923879b12bfed116f36bb89a377572a4247c427"
+    },
+    {
+      "name": "power_query.pio",
+      "sha256": "3f4b20e8d4160f0f30bdbcf3d99b316f06933962d836fb4a70b8240a63141255"
+    },
+    {
+      "name": "pio_trace.cjs",
+      "sha256": "8357799fd1492bbc0f3d3768f745c600efc713bbef688c68bda66a2bd86b5cbb"
+    },
+    {
+      "name": "tools.json",
+      "sha256": "9679f9612556611a7099a145646bb327201e9c8a7da6dcdb7779c6096c082ab0"
+    },
+    {
+      "name": "result.json",
+      "sha256": "eac7f55bfc20794b647a07219b6c318be03e875fa6c118a8d9680064d8b4ebbc"
+    },
+    {
+      "name": "edit_task.py",
+      "sha256": "e1358dfffcaf7f5eb01c96794c1453c89c5f4fb7afad1d35742962a7766b24f9"
+    }
+  ],
+  "vm_edited_image": {
+    "words": 85,
+    "binary_sha256": "17d0709fc83be0ab00f0ba1f15b82e1e1e112470d3ee68b37cb5686d33f7a0f3",
+    "bytes": 340,
+    "load_steps": 712
+  },
+  "pio_edited_image": "3dfa7de3816cbc85d038e6f2378bee8c965c8e6ce6f4c029c986573bda8d572d",
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "node": "v24.18.0",
+  "ended_utc": "2026-11-24T15:26:17.288232+00:00"
+}

@@ -1,0 +1,128 @@
+{
+  "status": "PASS_SETTLED_ORDER_SCREEN",
+  "image_id_supplied_by_invoker": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "started_utc": "2026-11-24T14:57:18.025993+00:00",
+  "bench_sha256": "928bbe6dde27259ff7742588be84d849065e41cd6c25427e8d7bbfc599e323f6",
+  "runner_sha256": "669402e5f6738c7edaf4f0756666471f326f2168e6ac67cb176e47c73114b487",
+  "orders_sha256": "7469bc75ccc7ed7d2c06edefa7cbc5ca080049be51bfbe17b899761d6871f0e8",
+  "archive_sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2",
+  "netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "pdk_library_sha256": {
+    "sg13cmos5l_io/verilog/sg13cmos5l_io.v": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735"
+  },
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "sampled": {
+    "rtl": {
+      "rows": 12966,
+      "sha256": "4029566ae59b247f481794712037f3db3505d93f09f0e50b7aa65f48001b7a4d",
+      "modes": {
+        "released": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 0,
+          "opposed_bit6_X_dwells": 0,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        },
+        "peer_high": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 360,
+          "opposed_bit6_X_dwells": 840,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        },
+        "peer_low": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 0,
+          "opposed_bit6_X_dwells": 0,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        }
+      }
+    },
+    "g4_netlist": {
+      "rows": 12966,
+      "sha256": "4029566ae59b247f481794712037f3db3505d93f09f0e50b7aa65f48001b7a4d",
+      "modes": {
+        "released": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 0,
+          "opposed_bit6_X_dwells": 0,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        },
+        "peer_high": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 360,
+          "opposed_bit6_X_dwells": 840,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        },
+        "peer_low": {
+          "number_of_orders_by_count_of_read_dwells": {
+            "0": 360,
+            "1": 120,
+            "2": 96,
+            "3": 72,
+            "4": 48,
+            "5": 24
+          },
+          "opposed_bit6_X_orders": 0,
+          "opposed_bit6_X_dwells": 0,
+          "weak_pullup_bit0_low_orders": 354,
+          "weak_pullup_bit0_low_dwells": 792,
+          "safe_bit7_first_tails": 120,
+          "explicit_staged_both_steps": "PASS"
+        }
+      }
+    }
+  },
+  "ended_utc": "2026-11-24T14:57:19.932518+00:00",
+  "runtime_seconds": 1.907
+}

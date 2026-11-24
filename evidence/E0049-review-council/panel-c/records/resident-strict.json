@@ -1,0 +1,33 @@
+{
+  "status": "INCOMPLETE",
+  "started_utc": "2026-11-24T15:16:39.384089+00:00",
+  "actual_invoker_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "source_g4": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "released_fixture_sha256": {
+    "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "experiments/i2c/target.py": "997940d87cf83e55392fddc679d0f2afa5f559b4edb13b06aad54ceff4f6b661",
+    "programs/od128-sram-v1/i2c_write_read.asm": "adbeeecb3dbdcbff4b8dc11219ad546c3e8b549d4e53ed98a6ed11754b27ac7c",
+    "programs/od128-sram-v1/examples.json": "ffe263efdf8ed9518273e815728b016ba07e430c177e3dfaab4d4c6d43272c12",
+    "experiments/i2c/public_bus.py": "766256aabea90003864d55874b10a1356d5f3cc3eda15f2f86ba14afcf8910bc"
+  },
+  "adapted_transport_sha256": "9999578170edf0878a75d05a347f269922bfa823dcc4cbc5830079a6ada02ad1",
+  "case_sha256": "59601b5fcbe95188a39681b45ec9948f464665f1d3d1cb548125866c71522ddd",
+  "bench_sha256": "12190f55a97db7bd406f45162476fd80b194a84c9e0e86f9b61831541f4257d4",
+  "runner_sha256": "b95d4c19376d73f901cc597d2aba8ed8d544ad2a22d855dc755de445716cf9e8",
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "cocotb": "2.0.1",
+  "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+  "pdk_commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "library_sha256": {
+    "sg13cmos5l_io/verilog/sg13cmos5l_io.v": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735"
+  },
+  "qualified_archive_sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2",
+  "submitted_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "dut_results": {},
+  "failure": "rtl cocotb test failed; see retained run.log",
+  "ended_utc": "2026-11-24T15:16:42.578194+00:00",
+  "runtime_seconds": 3.194
+}

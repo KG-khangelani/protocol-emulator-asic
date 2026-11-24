@@ -1,0 +1,54 @@
+{
+  "status": "INCOMPLETE",
+  "started_utc": "2026-11-24T14:40:29.301067+00:00",
+  "source_g4": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "source_g5": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "image_identity_supplied_by_invoker": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+  "runner_sha256": "e10ca4e293047b336da7f12ffcf1f74389a67ecce179c65ae0002b410ac5b2ee",
+  "examples": {
+    "uart_tx": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "runtime_edges": 8691,
+      "variants": {}
+    }
+  },
+  "rejections": [],
+  "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "simulated_input_sha256": {
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "bench_sha256": "ae751a87828105400dc29e84cc291eb69a73a9291206f05a098447233755fd33",
+  "compile_command": [
+    "iverilog",
+    "-g2012",
+    "-DFUNCTIONAL",
+    "-DSYNTHESIS",
+    "-s",
+    "powered_host_tb",
+    "-o",
+    "/panel/run-01/bench.vvp",
+    "/panel/powered_host_tb.v",
+    "/panel/run-01/inputs/m1_data_store.v",
+    "/panel/run-01/inputs/m1_engine.v",
+    "/panel/run-01/inputs/m1_input_sync.v",
+    "/panel/run-01/inputs/m1_program_store.v",
+    "/panel/run-01/inputs/project.v",
+    "/panel/run-01/inputs/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+    "/panel/run-01/inputs/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+  ],
+  "bundle_sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+  "failure": "invalid literal for int() with base 16: b'Xx'",
+  "ended_utc": "2026-11-24T14:40:30.406821+00:00",
+  "runtime_seconds": 1.106
+}

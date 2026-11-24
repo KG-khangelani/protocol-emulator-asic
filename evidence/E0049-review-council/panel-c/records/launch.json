@@ -1,0 +1,691 @@
+{
+  "status": "PASS_BOUNDED_DIGITAL_SCREEN",
+  "started_utc": "2026-11-24T14:41:28.420568+00:00",
+  "source_g4": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "source_g5": "022834146efcb5f388a4d6ec23b3b705a0df7ef8",
+  "image_identity_supplied_by_invoker": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "python": "3.11.16 (main, Sep 19 2026, 01:05:51) [GCC 12.2.0]",
+  "runner_sha256": "e10ca4e293047b336da7f12ffcf1f74389a67ecce179c65ae0002b410ac5b2ee",
+  "examples": {
+    "uart_tx": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "runtime_edges": 8691,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "uart_tx",
+          "stimulus_sha256": "7a741dfac053bbf91efb300f052b5d93259ef80fb5bca56173e38d9890559dd9",
+          "runtime_sha256": "e697e4effdfe57d01110b03f2f13bac78325656e56845c32dd6c2e6565bface0"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 1
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": 1,
+          "oracle": "uart_tx",
+          "stimulus_sha256": "d65596f0251ee8c9602840d4310ef37da234bffaba2ba4de24ea702fab010e0c",
+          "runtime_sha256": "ac14fb875a5e1cf2ec81cbda9c1129cd6d4cf5fb3e5f0fb4984c944fa7dfdc6f"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "uart_tx",
+          "stimulus_sha256": "52a5c24d2b49817f4957379d6a1fbc694e14d3ae146a737b5dc86ef29bf8bbed",
+          "runtime_sha256": "e697e4effdfe57d01110b03f2f13bac78325656e56845c32dd6c2e6565bface0"
+        }
+      }
+    },
+    "uart_rx": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "b4620e4eecf1fca145538ebfc569027845586e84d5dc0d001a51c36a8d0349a8",
+          "runtime_sha256": "dce2340fcd964895a00386b155376a40a5d1956f0eeedfa9c2511b539fda9448"
+        },
+        "naive": {
+          "load_failed_checks": 2,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uo_out",
+            "expected": 32,
+            "observed": 33
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "8ec48ea2034302120adbc254b4ea34702128043f5065b3311577ca6477ef91ba",
+          "runtime_sha256": "44f3d5ca6ac7b1b88b03a27ad99dd6f84afbc86ded6e539236a6e633bc7af49f"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "f9b5bfd3c245ace33041d4ec420228ffa7d6793e0abe876b018d238c654dec02",
+          "runtime_sha256": "dce2340fcd964895a00386b155376a40a5d1956f0eeedfa9c2511b539fda9448"
+        }
+      }
+    },
+    "spi_mode0_lsb": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "e2cf7272d751545f8b297314d73529046677bca03d661d38d687c3d4a2e34043",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "4320abf606f9634ef22e12e0513139e0f291875764964e80ec5fac26a4d5884e",
+          "runtime_sha256": "7d9983e65c617383249c3ec19b433b0d15e2c4b62c27fffdba459d351b25a18e"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "7043015550c733dcda8874233992b2a276199df2a421e4e4999238b572a2c7ab",
+          "runtime_sha256": "04780b96c7da6d93698fee977fc9c6d722f68ee108136498278d97b263358e39"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "a2f3ecc45fd4c13954dd59a718207af2e9c18fc107ad60a08d038ae2a5982b22",
+          "runtime_sha256": "7d9983e65c617383249c3ec19b433b0d15e2c4b62c27fffdba459d351b25a18e"
+        }
+      }
+    },
+    "spi_mode0_msb": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "1a1f7b923ebc7f1d0b6fe3a3866315a5cd4df4e62cd992e5d4e0855902b5aa1a",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "a4994f858bcced375d8e4afa34619d6e77244e6ff402583df8e30440d2c118ab",
+          "runtime_sha256": "27fca13270d6139a6f950d90050d1ce22a6632aa6e62fa5520f90b12af9bb45e"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "2fe1fe9340e160b6a900201ad24879e98827955c063d0337ae54eb7ef780d06f",
+          "runtime_sha256": "beda1b260864342cb3f2aad353aab8e8ca0112f09c3125bc35d54095a21eaf52"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "b7326454d05d3da31d795b71a86e4a60b61f2b379fca4f3a94eee7ca14ac8860",
+          "runtime_sha256": "27fca13270d6139a6f950d90050d1ce22a6632aa6e62fa5520f90b12af9bb45e"
+        }
+      }
+    },
+    "spi_mode1_lsb": {
+      "words": 10,
+      "load_steps": 94,
+      "requests_ena_low": 47,
+      "binary_sha256": "9373cc0632eb54baffa53f80ec1aacb701eff0d07b8bf7033953ffd9e172cb33",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "8fe024797c27692a4e2d90fdb4d340e95c15a33917b36e42e1967b3bfab51e24",
+          "runtime_sha256": "32498a8f4009b31880bced343117bc3c5de9041e1d7fb729a5e1932659bea13e"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 92,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "7a527627dccb99022bcca30453394a614da42f9e2e66c98c375f25a704484cb7",
+          "runtime_sha256": "d943fb0252f8d1aaf8d82b5e8038c4625b02537198df0c54a724fd4f694714a1"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "f19243dbd21d395114fa9490745197a8836b621b522532101f8426e2c70dc5c6",
+          "runtime_sha256": "32498a8f4009b31880bced343117bc3c5de9041e1d7fb729a5e1932659bea13e"
+        }
+      }
+    },
+    "spi_mode1_msb": {
+      "words": 10,
+      "load_steps": 94,
+      "requests_ena_low": 47,
+      "binary_sha256": "91355bd57d792e1f4813ab64da039709a8c3bcdea06427771f6cbacfe24e1b73",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "5fe947a7bb6d261d8004d4e1d44a07a36dc946786e107df1de30be89e7d7cd91",
+          "runtime_sha256": "236fe1a6e494225dcde62d9171271daad34c6f18fefb31140767da608e85f0ea"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 92,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "286576c1373012225867a978883b445fbaad975296cc6fab292674740a76246d",
+          "runtime_sha256": "ac26a955d1c927dae2195f8edeafa42c048e13512bc4fd5fc5c94204f4002e45"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "47b50c589fdfe44cad7355ea144d9274ec085af877948a928789799209fe4396",
+          "runtime_sha256": "236fe1a6e494225dcde62d9171271daad34c6f18fefb31140767da608e85f0ea"
+        }
+      }
+    },
+    "spi_mode2_lsb": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "9d4af787ad4d45a90ae14e50fe18ca03e35ec45621055636e1883c2b7bf71efa",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "04a8ca0b375483edef90a89e081f21dc7dbc567da5e00aeac4c81fd71a9b3d96",
+          "runtime_sha256": "b96beebb13574470cb009cb5f1186305f8a1e15905f4038a51db97c18e201568"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "3ca86870d7704a2018024f4501bba2b1beb074b5765ad00136c7605db1ed2e88",
+          "runtime_sha256": "83ac64e36d2a65795ce51b097312dc509d5b91602e5f93da7000cd3a03ab549c"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "baf741dd4e775f7c5ef0ae4c518ad3543ab43c9b0e68f5f970659fde76e642eb",
+          "runtime_sha256": "b96beebb13574470cb009cb5f1186305f8a1e15905f4038a51db97c18e201568"
+        }
+      }
+    },
+    "spi_mode2_msb": {
+      "words": 8,
+      "load_steps": 76,
+      "requests_ena_low": 39,
+      "binary_sha256": "d8db6dafc02177bb83e0603a343c95ae3f8286745c9fb8763d0116459c50f6be",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "360267234d73710432cc4ad51a9c87aa72f1ff992ea7802ec640e0b99cd0fc8b",
+          "runtime_sha256": "65994676687aa775f46dbe312e0183cbb9486d01612fad16fb7301ef25a60460"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 74,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "ad8c56187de1044d5bf56193c07ec2b0a61954384264e3035afaa5c66cac6f0f",
+          "runtime_sha256": "3c86a865df21443163ade2a56561cda92c072e6bf645614ce781888dcd74b4fd"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "74d0f32d2b892e2a206fdaaf17114e1234d56160de9277a8a3c4d2b59d127a8a",
+          "runtime_sha256": "65994676687aa775f46dbe312e0183cbb9486d01612fad16fb7301ef25a60460"
+        }
+      }
+    },
+    "spi_mode3_lsb": {
+      "words": 10,
+      "load_steps": 94,
+      "requests_ena_low": 47,
+      "binary_sha256": "c51c6aeba9057c3e301d603aeeedaa3d1ae39cead515808919b26b083d3c352a",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "38b0b2bf7ab2285f126026e0df0c022ea0db232e062020b33c1160bf477651ba",
+          "runtime_sha256": "1fb7d61581d1c2e206f3337164eb909d27e40ce677e7cd23f998e288a05b350a"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 92,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "3493f265c2569229da90ddb377af7bb24211fe615b7d338c7f5ed2effe4eedf9",
+          "runtime_sha256": "2194233b43b1f5d00438b5030f1e912355413415c0f132edaa7e2e9ed311bcc3"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "2cdfb4ab9fe4113935670189d001b68120e87efad7a37d2c146a88fdce4e8bf2",
+          "runtime_sha256": "1fb7d61581d1c2e206f3337164eb909d27e40ce677e7cd23f998e288a05b350a"
+        }
+      }
+    },
+    "spi_mode3_msb": {
+      "words": 10,
+      "load_steps": 94,
+      "requests_ena_low": 47,
+      "binary_sha256": "8771970000345ca80010c3e9255b36058d5b315c56e5d71a3d3a7ad3089db5ba",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "5b9f8422ea109609b206a71db09a89181e29b0b141945acc194607b933cf1450",
+          "runtime_sha256": "180994968db3435d33105f9a808ddfa79159fc0c4de6ea29cc7feb161869df06"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 92,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 12
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "884e32a16bac22936bfd9711dc3684ecee43c956b64aad66ed843beb0bc0df19",
+          "runtime_sha256": "9fa0b59ba52064f38c2bf695998fcb35060cfb7e3fc2404d1d377e901648fc25"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "8ae038241823dfcfd207eef9f5c06cd8a5e22ab1f531293b763fabcb2b973fb0",
+          "runtime_sha256": "180994968db3435d33105f9a808ddfa79159fc0c4de6ea29cc7feb161869df06"
+        }
+      }
+    },
+    "i2c_write": {
+      "words": 54,
+      "load_steps": 456,
+      "requests_ena_low": 223,
+      "binary_sha256": "9a35de7413928c5ec29852112e21239df8aa674c67c1d84b51f97ace1a76d37c",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "71dd14f1966e7d6e6e3b43f3c2858d1a6b192fbe688657da1b5cea6f7ed1500b",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 454,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 28
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "2dd007bb470b9746dc7a15930edca0795a4bb7979468d3a7c26df5d0ed3371ef",
+          "runtime_sha256": "9d3269afe61c0a8566cac622530c61ad9408c87e648251b70eb4c040a4022615"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "37be3979593e69ab0e065a35870534ecd531b79b92c0273143c898a0ba65fdac",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        }
+      }
+    },
+    "i2c_read": {
+      "words": 53,
+      "load_steps": 448,
+      "requests_ena_low": 219,
+      "binary_sha256": "774716ec1a895e362bee918548801fcf0838b140005f530e2abd25f2ceaf0e43",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "6c38ca068b016ba7215cfa6075148cd6dff597c3e4b839d51514b317659b791b",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 446,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 28
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "726c4d4af99fd4818c66ff60e3c19ad745f6a3139ca73cd160b2316d98900d55",
+          "runtime_sha256": "9d3269afe61c0a8566cac622530c61ad9408c87e648251b70eb4c040a4022615"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "871afa094af9840f5d2c938a0205ef26f4f7b657f2794d882656ced60ed25841",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        }
+      }
+    },
+    "i2c_write_read": {
+      "words": 96,
+      "load_steps": 802,
+      "requests_ena_low": 391,
+      "binary_sha256": "3cd132492f141fd056d2feae41bb2d6c52dc825d3fe4471cf17bddffffc999c2",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "a0051cf7c05e3c51ba9ce568ccb43cc2b7e4f3e4d7d82835c65dbc712d18c2d2",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 800,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 28
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "2eace3a7c719949750a4aba9b918f4bf9adab47be196019331b1ec770b707c43",
+          "runtime_sha256": "9d3269afe61c0a8566cac622530c61ad9408c87e648251b70eb4c040a4022615"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "6103d5518a0bc38fb4a778726a089caf3a7e8657c7535b3a021e43e9f7b329dd",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        },
+        "corrupt": {
+          "load_failed_checks": 1,
+          "first_load_failure": {
+            "index_from_zero": 399,
+            "action": "read_byte_after_edge",
+            "signal": "uio_out",
+            "expected": 0,
+            "observed": 1
+          },
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": null,
+          "stimulus_sha256": "c6cac8e0b5eeacf329f72a95ce9d07ae4501babfe92853b1513c74c04ebfc0f3",
+          "runtime_sha256": "3817af9862cdccf1c1fe2f532b1e9792924aa7434fc54ca4160cfe3e303e48b0"
+        }
+      }
+    },
+    "control": {
+      "words": 20,
+      "load_steps": 176,
+      "requests_ena_low": 87,
+      "binary_sha256": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "control",
+          "stimulus_sha256": "f88adf75a0edc26e517b7e92cf84776415c5c2e9bebdbf069bcbe193dfd80e1c",
+          "runtime_sha256": "d05d5ca85424b68f0d5ff474930738f741b339deabe525d3897772e491bc3b6c"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 174,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 7
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": "control",
+          "stimulus_sha256": "c9a4e6e0208f3e2418fb9c40f59cbb940e0c4b3b611c249c661350a9197e4125",
+          "runtime_sha256": "83f7625b69c2efdfe413a875cb57235e2cc5a1bb9c324fba1c793c7f920ba379"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "control",
+          "stimulus_sha256": "cdc0827683b6bed72d56ccf4e6907cfbd1dd5cb000e1bd1be3490e999f8a0a13",
+          "runtime_sha256": "d05d5ca85424b68f0d5ff474930738f741b339deabe525d3897772e491bc3b6c"
+        }
+      }
+    },
+    "timing_fault": {
+      "words": 20,
+      "load_steps": 176,
+      "requests_ena_low": 87,
+      "binary_sha256": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+      "runtime_edges": 80,
+      "variants": {
+        "reference": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "timing_fault",
+          "stimulus_sha256": "bf11145f1e33d889f10080df8b7add2e82cb16d2d2e8ab69a067b419a4439cae",
+          "runtime_sha256": "abc7e72fc8258aa79d6272fe458d4b4a3c7f5e93fc14bae856fcc216cca11280"
+        },
+        "naive": {
+          "load_failed_checks": 4,
+          "first_load_failure": {
+            "index_from_zero": 174,
+            "action": "flush_idle",
+            "signal": "uio_oe",
+            "expected": 0,
+            "observed": 7
+          },
+          "first_runtime_difference_from_reference": 1,
+          "first_oracle_failure": null,
+          "oracle": "timing_fault",
+          "stimulus_sha256": "fddc33f32c493710e13abf22e73f58ae681acdc4865e8e74bea898d2d2d0812b",
+          "runtime_sha256": "a85ca605362371b2ede5c4bb8d710a19f5e81d25ebbc368fb8b1767bee911bdb"
+        },
+        "powered": {
+          "load_failed_checks": 0,
+          "first_load_failure": null,
+          "first_runtime_difference_from_reference": null,
+          "first_oracle_failure": null,
+          "oracle": "timing_fault",
+          "stimulus_sha256": "1cdd77ce9a506883fbddd558861dbf59129f7e5178a00aff9830e9cfd69a5ae2",
+          "runtime_sha256": "abc7e72fc8258aa79d6272fe458d4b4a3c7f5e93fc14bae856fcc216cca11280"
+        }
+      }
+    }
+  },
+  "rejections": [],
+  "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "simulated_input_sha256": {
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "bench_sha256": "fca33c871fdc2b9333047333e03a14a9e6efcabd8bc414ecaca50ee0318a2e0f",
+  "compile_command": [
+    "iverilog",
+    "-g2012",
+    "-DFUNCTIONAL",
+    "-DSYNTHESIS",
+    "-s",
+    "powered_host_tb",
+    "-o",
+    "/panel/run-02/bench.vvp",
+    "/panel/powered_host_tb.v",
+    "/panel/run-02/inputs/m1_data_store.v",
+    "/panel/run-02/inputs/m1_engine.v",
+    "/panel/run-02/inputs/m1_input_sync.v",
+    "/panel/run-02/inputs/m1_program_store.v",
+    "/panel/run-02/inputs/project.v",
+    "/panel/run-02/inputs/RM_IHPSG13_1P_256x32_c2_bm_bist.v",
+    "/panel/run-02/inputs/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+  ],
+  "bundle_sha256": "58901e20a08a9213024f81af1a76652c2239c9971684b88e21c27085269353ea",
+  "naive_examples_failing_flush": 15,
+  "ended_utc": "2026-11-24T14:41:32.831220+00:00",
+  "runtime_seconds": 4.411
+}

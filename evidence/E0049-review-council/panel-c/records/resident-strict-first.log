@@ -1,0 +1,22 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.11.9 interpreter at /usr/local/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb                             Seeding Python random module with supplied seed 20261124
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /usr/local/lib/python3.11/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running resident_case.resident_write_read (1/1)
+1259679.04ns WARNING  ..t_write_read.resident_write_read warm/cold changed transaction: observed {'trace_sha256': '0740838c12d451ef871bbb1e7013b6f8fcb21e0743e8910cb856d10d746de6ca', 'event_rows': 373, 'decoded_address_data_readaddress': [84, 210, 85], 'returned_data': 59, 'halt_tick_from_judged_idle': 80584, 'outcome': 'OK', 'oracle_errors': []}, expected {'trace_sha256': 'f9e4670f25b711227e22d8924566f6b55c19bf106caff2122c257864528e702f', 'event_rows': 373, 'decoded_address_data_readaddress': [84, 210, 85], 'returned_data': 59, 'halt_tick_from_judged_idle': 80584, 'outcome': 'OK', 'oracle_errors': []}
+                                                         Traceback (most recent call last):
+                                                           File "/panel/resident-01/fixture/resident_case.py", line 231, in resident_write_read
+                                                             require(d["warm_B"], d["cold_B"], "warm/cold changed transaction")
+                                                           File "/panel/resident-01/fixture/resident_case.py", line 31, in require
+                                                             raise AssertionError(f"{description}: observed {actual}, expected {expected}")
+                                                         AssertionError: warm/cold changed transaction: observed {'trace_sha256': '0740838c12d451ef871bbb1e7013b6f8fcb21e0743e8910cb856d10d746de6ca', 'event_rows': 373, 'decoded_address_data_readaddress': [84, 210, 85], 'returned_data': 59, 'halt_tick_from_judged_idle': 80584, 'outcome': 'OK', 'oracle_errors': []}, expected {'trace_sha256': 'f9e4670f25b711227e22d8924566f6b55c19bf106caff2122c257864528e702f', 'event_rows': 373, 'decoded_address_data_readaddress': [84, 210, 85], 'returned_data': 59, 'halt_tick_from_judged_idle': 80584, 'outcome': 'OK', 'oracle_errors': []}
+1259679.04ns WARNING  cocotb.regression                  resident_case.resident_write_read failed
+1259679.04ns INFO     cocotb.regression                  *******************************************************************************************
+                                                         ** TEST                               STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         *******************************************************************************************
+                                                         ** resident_case.resident_write_read   FAIL     1259679.04           1.27     992928.13  **
+                                                         *******************************************************************************************
+                                                         ** TESTS=1 PASS=0 FAIL=1 SKIP=0                 1259679.04           1.28     984130.32  **
+                                                         *******************************************************************************************

@@ -1,0 +1,18 @@
+{
+  "released_programs": 15,
+  "load_steps_per_positive_profile": 2890,
+  "released_ena_low_requests": 1429,
+  "runtime_edges_per_positive_profile": 9811,
+  "powered_identical_after_run": 15,
+  "naive_different_after_run": 15,
+  "first_flush_dedicated_status_reference_naive_powered_hex": [
+    {
+      "status": [
+        "20",
+        "21",
+        "20"
+      ],
+      "examples": 15
+    }
+  ]
+}
