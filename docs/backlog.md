@@ -1,5 +1,16 @@
 # Executable backlog
 
+## Technical review and next engineer-day
+
+| ID | Task | Acceptance | Status |
+| --- | --- | --- | --- |
+| REV-T01 | Three-hour multidisciplinary review of the released chip | Preserve original inputs, independently assess nine disciplines, exchange challenges, test alternatives and commit a source-backed disposition with follow-up experiments | Review findings and trials are filed in [E0049](../evidence/E0049-review-council/README.md) and the [council report](reports/2026-11-24-technical-review-council.md). |
+| HOST-T01 | Add a cold transport for the continuously selected design | A caller can load and verify the exact image through named clock, pin-direction and peer-isolation operations. Wrong-byte, early-run and unsafe ownership cases fail. Attach the actual backend and its evidence level. | PROPOSED under [D51](decisions/0051-review-council-next-steps.md). The powered digital reference exists. Product command and board qualification are open. [Experiment 1](research/council-2026-11-24/next-experiments.md) |
+
+G6's owner checkpoint remains M0-T01. A second, independent reader study can
+test the public documentation. A compatible USB/FPGA/board fixture and a real
+operator are prerequisites only for claims that depend on their measurements.
+
 ## Completed bounded experiment
 
 | ID | Task | Acceptance | Status |

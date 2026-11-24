@@ -1,5 +1,23 @@
 # Research ledger
 
+## 24 November council disposition
+
+The [three-hour review](reports/2026-11-24-technical-review-council.md) examined
+the versioned 0x22 chip as an existence result and evaluated alternatives
+under named workloads. [E0049](../evidence/E0049-review-council/README.md)
+records the original observations, prior failure cases, new tests, negative
+controls and scoped reproductions. [D51](decisions/0051-review-council-next-steps.md)
+records the proposed next allocation. It adds no new production profile.
+
+The physically qualified footprint includes a 256×32 SRAM although the
+public interface addresses 128 words. The closest programmable comparator
+demonstrated two different programmed tasks, but lacks a matched CMOS5L
+layout under the same full host, storage and pin contract. A fixed design
+for one workload is an achievable reference point. Proving a lower bound
+on an optimum requires a bound that holds across all allowed designs.
+The operator, analog bus, metastability, workload-energy and architecture
+minimum questions remain open. [Comparison evidence and limitations](reports/2026-11-24-technical-review-council.md)
+
 2026-11-24 source recheck: the announcement's response timestamps changed,
 but a fresh fetch matches the November 14 HTML digest exactly. The
 [dated comparison](research/rule-reviews/2026-11-24.json) identifies both
@@ -134,10 +152,10 @@ successful remote physical runs and Linux replays.
 
 | ID | Claim | Falsification gate | State |
 |---|---|---|---|
-| H1 | A temporal VM covers UART, SPI and I2C compactly | Requires protocol-specific RTL escape paths or misses timing/fit | Unproven |
-| H2 | Explicit timing instructions simplify verification | A program plus timing table cannot predict every required edge/response, or hidden latency prevents bounded properties | Unproven |
-| H3 | The candidate instruction set is near minimal | Removing/merging an instruction preserves coverage at acceptable cost | Unproven |
-| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Unproven |
+| H1 | A temporal VM covers UART, SPI and I2C compactly | Requires protocol-specific RTL escape paths or misses timing/fit | E0045–E0047 demonstrate the nine named workloads on one routed core. Comparative compactness is open. E0049 supplies a second programmable implementation for two tasks. |
+| H2 | Explicit timing instructions simplify verification | A program plus timing table cannot predict every required edge/response, or hidden latency prevents bounded properties | E0046, E0048 and E0049 support trace prediction and mutation detection for named loads. Lower verification effort than a competing architecture has not been measured. |
+| H3 | The candidate instruction set is near minimal | Removing/merging an instruction preserves coverage at acceptable cost | Open. E0049 disabled timed UART burst on a full-top copy, saved 2.261% nominal cell-plus-macro area and broke published bytecode. Manual UART cost 17/18 words. No complete Pareto or minimum result. |
+| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Supported for G2's declared UART, SPI-host and I²C-controller digital envelopes and the G4 20 ns routing constraint. E0049 finds counterexamples for host service, a modeled bus load and a different SPI target role. Pad timing and silicon remain unmeasured. |
 
 ## Design decisions
 
@@ -187,6 +205,9 @@ successful remote physical runs and Linux replays.
 | D46 | Align the exact two Magic contact rules with the pinned references and control import scheduling | decisions/0046-align-magic-contact-rules-with-pinned-references.md; original findings retained, full checker and every acceptance condition preserved |
 | D47 | Export the existing full-height supply ports without changing conductors or signal pins | decisions/0047-export-existing-full-height-supply-ports.md; 146 internal rectangles removed, 54 existing external rectangles retained; complete E0045 precheck passes |
 | D48 | Adopt the exact qualified SRAM core with source/evidence guards and actual-default-command verification | decisions/0048-adopt-qualified-sram-production.md, E0045; combined and complete physical qualification pass, local adoption screens pass, clean default CI and alpha.6 publication/download/image/tag audits pass; G2 complete |
+| D49 | Freeze and reproduce the G4 submission candidate | [G4 freeze](decisions/0049-freeze-g4-submission-candidate.md) and E0047 |
+| D50 | Demonstrate a triggered digital waveform and controlled edge fault in firmware | [G5 scope](decisions/0050-bounded-firmware-waveform-replay.md) and E0048 |
+| D51 | Retain G4/G5, start with a usable powered cold loader and condition architecture work on a measurable requirement | [Council disposition](decisions/0051-review-council-next-steps.md) and [E0049](../evidence/E0049-review-council/README.md) |
 
 ## Experimental results
 

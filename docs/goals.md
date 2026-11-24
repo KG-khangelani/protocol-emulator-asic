@@ -1,11 +1,15 @@
 # Goals to submission readiness
 
-Updated: 2026-11-15. Decisions: [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md).
+Updated 2026-11-24. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
 The equal engineering and owner-learning outcomes remain in [the project goal](goal.md).
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
 G1-G5 are complete. The qualified shared-protocol core, assembler, loading
 plans and reproducible examples are published in verified stable v0.1.0.
+The v0.1.1 software release adds the G5 waveform example. The
+[council review](reports/2026-11-24-technical-review-council.md) recommends a
+powered cold-start transport and an owner-observed G6 checkpoint. The
+proposed transport is an additive integration task outside G1–G5 closure.
 The submission packet is ready; no competition entry has been sent.
 Further instruction compression is valuable only when it improves that outcome.
 

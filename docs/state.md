@@ -3,6 +3,17 @@
 Updated: 2026-11-24. Engineering phase: **G5 COMPLETE**.
 Learning phase: **M0 - fluency pending**. Hard deadline: **2027-01-18**.
 
+The [24 November technical review council](reports/2026-11-24-technical-review-council.md)
+and [E0049](../evidence/E0049-review-council/README.md) checked the two releases,
+the submitted G4 netlist and the limits of the programmable architecture.
+Keeping the user design powered through the staged load reproduces all 55 G3
+records, 1,160 I²C cases and twenty applicable G5 cases under their stated digital
+conditions. A new SPI target exposes a stalled-clock abort failure. The
+[D51 disposition](decisions/0051-review-council-next-steps.md) ranks a
+user-invocable powered cold transport first for engineering, with an equipped
+receiver-end test first when a suitable bench window and actual peer exist.
+The owner checkpoint remains open at zero of five M0 criteria demonstrated.
+
 [D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
 digital stimulus and a controlled two-clock edge shift, with zero RTL changes.
 The [G5 contract](specs/g5-waveform-replay.md) fixes the programs, literal trace,
@@ -798,8 +809,10 @@ efficiently express useful digital communication protocols under hard temporal c
   demonstrated use case.
 - G4 is complete. Preserve v0.1.0 and its qualified inputs; watch for the
   final submission form and recheck rules before a separately authorized entry.
-- G5 remains an optional, bounded experiment under [goals](goals.md);
-  include a new capability only after its declared gates pass.
+- G5 is complete and published in v0.1.1. Keep its qualified waveform example
+  in the packet. Use HOST-T01 and the [D51 experiment protocols](research/council-2026-11-24/next-experiments.md)
+  for the next engineering day. A new production architecture needs a binding
+  application or physical limit and a matched qualification.
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Learning: complete the owner M0 teach-back when capacity permits; do not infer

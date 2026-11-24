@@ -17,8 +17,11 @@ The learning question is equally important:
 > an inspectable result, and a clear explanation of what was and was not proved?
 
 The ordered milestones, completion checks and planning targets are in
-[goals to submission readiness](goals.md). G1 is the active engineering goal;
-owner fluency remains a separate, parallel outcome under D8.
+[goals to submission readiness](goals.md). G1 through G5 are complete. The
+next active learning checkpoint is G6's M0 teach-back under D8. The
+[technical review council](reports/2026-11-24-technical-review-council.md)
+recommends a continuously selected, cold-start host transport as the next
+engineering task. The final competition form remains a separate delivery step.
 
 ## Working contract
 

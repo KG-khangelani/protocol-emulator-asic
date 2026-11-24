@@ -50,6 +50,8 @@
 | E0045 | Qualified SRAM production and G2 completion | Fresh routed/timing, ten prechecks and eighteen public-netlist groups pass; all twenty adopted inputs match. Clean production CI, alpha.6 assets/image and all release-tag workflows are audited | E0045-g2-sram-qualification/README.md |
 | E0046 | G3 readable assembler and public program toolchain | G3 complete: thirteen byte-compatible examples, clean clone/CI, 55 public cases per simulator with 15 expected rejections, 53 identical artifacts and 147 repository tests. Alpha.7's 23 downloads, 73 bundle members, matching image and all nine tag workflows verified; 351 producing inputs and qualified hardware unchanged | E0046-program-toolchain/README.md |
 | E0047 | Final submission candidate and physical reproduction | G4 complete: two official runs, Windows/Linux replay and fault controls; stable v0.1.0, 35 public assets, standalone examples and matching image verified; all nine tag workflows pass; no entry sent | E0047-g4-submission-candidate/README.md |
+| E0048 | G5 triggered waveform and timing fault | Twenty-one original public cases in both simulators, five deliberate rejections, clean reproduction, G3 continuity, Windows/Linux packaging and v0.1.1 publication audited | [G5 waveform evidence](E0048-waveform-replay/README.md) |
+| E0049 | Multidisciplinary technical review council | Powered G4/G5 comparisons, competing programmable and fixed designs, digital failures, physical sensitivity, software entry points, resource costs and evidence-ranked follow-up | [Council evidence and reproducible commands](E0049-review-council/README.md) |
 
 Run `make evidence` for new local observations. It creates an isolated run
 directory under `build/evidence/` and returns nonzero if any stage fails or is
