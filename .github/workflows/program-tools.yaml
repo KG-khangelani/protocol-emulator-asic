@@ -73,6 +73,8 @@ jobs:
             --workdir /workspace protocol-emulator-asic-workbench:2026-07-29 \
             python3 tools/run_program_examples.py --out build/g3-ci
           docker image inspect protocol-emulator-asic-workbench:2026-07-29 > build/g3-ci/workbench-image.json
+      - name: Cold-load and receive two UART frames on the continuously selected chip
+        run: ./tools/workbench.sh ColdLoad
       - name: Retain original toolchain verification
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7

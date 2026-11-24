@@ -32,6 +32,7 @@ check-base:
 	$(PYTHON) -m unittest discover -s test -p 'test_current_profile.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_production_sram.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_program_tools.py'
+	$(PYTHON) -m unittest discover -s test -p 'test_cold_load_inputs.py'
 	$(PYTHON) -m unittest discover -s test -p 'test_waveform_replay_oracle.py'
 ifneq ($(filter $(SOURCE_PROFILE),od128-shared od128-sram),)
 doctor:

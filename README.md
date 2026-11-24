@@ -8,13 +8,11 @@ A research and build project for the Jane Street Protocol Emulator ASIC
 Competition. **Deadline: 18 January 2027.** The intended design is a compact,
 reprogrammable temporal machine. Its architecture is still a hypothesis.
 
-The project has an equal learning goal: by completion, its owner should be able
-to operate, question and defend the complete RTL-to-GDS workflow. Start with
-the [project goal](docs/goal.md), the [six execution goals](docs/goals.md) and the visual
-[Verilog-to-chip map](docs/learning/map.md); unfamiliar terms are grounded in
-the project [glossary](docs/learning/glossary.md).
+The [project goals](docs/goals.md) and [current state](docs/state.md) track
+engineering and competition delivery. To load and run the released UART
+receiver in simulation, use the [cold-start command](docs/programming.md#cold-load-the-selected-chip-in-simulation).
 
-**Engineering: G1-G5 complete; learning: M0 teach-back pending.**
+**Engineering milestones G1–G5 are complete.**
 Production now uses the qualified `od128-sram` temporal engine: 128 logical
 program words, one 8,192-bit physical SRAM and 353 register bits. Publicly
 loaded programs implement UART TX and bounded RX, both bit orders of all four

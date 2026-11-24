@@ -34,12 +34,13 @@ case "${command,,}" in
     evidence) inside=(make evidence) ;;
     programs) inside=(make programs) ;;
     programtest|program-test) inside=(make program-test) ;;
+    coldload|cold-load) inside=(python3 -B tools/cold_load.py) ;;
     learnstatus|learn-status) inside=(make learn-status) ;;
     learnm0|learn-m0) inside=(python3 tools/m0_walkthrough.py --section "${section,,}") ;;
     learnwaveform|learn-waveform) inside=(make learn-waveform) ;;
     all) inside=(make doctor check lint test test-verilator formal synth) ;;
     shell) inside=(bash) ;;
-    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|Programs|ProgramTest|LearnStatus|LearnM0|LearnWaveform|All|Shell} [section]" >&2; exit 2 ;;
+    *) echo "Usage: $0 {Setup|Build|Doctor|Check|Lint|Test|TestVerilator|Formal|Synth|Evidence|Programs|ProgramTest|ColdLoad|LearnStatus|LearnM0|LearnWaveform|All|Shell} [section]" >&2; exit 2 ;;
 esac
 
 exec docker run --rm --init \

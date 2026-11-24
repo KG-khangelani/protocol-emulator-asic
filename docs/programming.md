@@ -7,6 +7,36 @@ The supported target is **od128-sram-v1**, interface **0x22**, with 128 words.
 See the [architecture](architecture.md) for storage and pin ownership, and the
 [ISA reference](isa.md) for exact instruction fields and execution rules.
 
+## Cold-load the selected chip in simulation
+
+With Docker running, the following command builds the released 32-byte UART
+receiver, verifies it through the shared bus and starts it on the production
+RTL in Icarus. The simulated external transmitter is isolated during loading.
+The host then receives `0x96` and `0x69` and checks terminal status `0xA7`.
+
+```powershell
+.\tools\workbench.ps1 ColdLoad
+```
+
+On Linux use `./tools/workbench.sh ColdLoad`. Each invocation prints a fresh
+directory under `build/cold-load/`. See `result.json` for the binary digest
+and received bytes. `transcript.json` records the observed clock, pin
+directions, selectors and readback. The two modeled backends are Icarus and
+Verilator. For a custom assembler output, run this inside the workbench:
+
+```sh
+python3 tools/cold_load.py --image build/my-program --backend verilator --out build/my-cold-run
+```
+
+Supply `program.bin`, `program.json` and `load-plan.json` together. The
+command verifies the binary against the words and the plan against the
+versioned image. For a custom program it records the supplied source digest.
+The released UART receiver uses a modeled idle-high transmitter on UIO1.
+Other images execute their first program edge with the declared idle inputs
+and a passive external fixture. An application-specific response needs its
+own peer stimulus. Physical loading requires a controller that owns the project
+clock and can isolate every active peer before readback.
+
 ## Build and test the examples
 
 From a clean checkout on Windows with Docker running:
