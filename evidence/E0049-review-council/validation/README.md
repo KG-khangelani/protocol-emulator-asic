@@ -37,6 +37,8 @@ At 17:12 UTC the chair reserved up to thirteen minutes for the normal `make test
 
 The Verilator stage started at 17:12:38 UTC and produced its passing receipt at 17:19:58 UTC. All thirty groups passed. All four case files and the separate bank-control file were byte-identical to the fresh Icarus results. The two stage receipts contain identical verification-input dictionaries. [Cross-simulator byte counts and hashes](cross-simulator.json) · [Native Verilator receipt](rtl-verilator-receipt.json.gz) · [Verilator JUnit](rtl-verilator-junit.xml.gz)
 
+At report revision `91a9b99`, the chair also repeated `make check` in an unused output directory. It completed at 17:23:16 UTC with all 159 unit tests and the repository metadata and learning checks passing. [Closing repository-check log](closing-repository-check.log.gz)
+
 To repeat the second run after `replay.ps1 -RunName fresh01`, choose an unused H: output directory. The stock target materializes its build in that directory. The read-only test-source copy already exists from the first command.
 
 ```powershell

@@ -74,7 +74,7 @@ An unbuilt alternative would let a wait observe both the expected SCK level and 
 
 ## The deliberation that changed the decision
 
-Four available slots accommodated a chair and three AI reviewers. Each reviewer filed a brief representing three disciplines before reading the others. The chair exchanged objections, commissioned contrary cases and asked for independent final ballots on the same one-engineer-day scenarios. The participants then challenged those ballots. Their common project material and AI environment make agreement one council judgment. The evidence for it is the set of identifiable artifacts, primary documents, calculations and independently scored observations. [Dated proceedings and signed positions](../research/council-2026-11-24/proceedings.md) · [Sources and their limits](../research/council-2026-11-24/sources.md)
+Four available slots accommodated a chair and three AI reviewers. Each reviewer filed a brief representing three disciplines before reading the others. The chair exchanged objections, commissioned contrary cases and asked for independent final ballots on the same one-engineer-day scenarios. The participants then challenged those ballots. Their common project material and AI environment make agreement one council judgment. The evidence for it is the set of identifiable artifacts, primary documents, calculations and independently scored observations. [Dated proceedings and attributed ballots](../research/council-2026-11-24/proceedings.md) · [Sources and their limits](../research/council-2026-11-24/sources.md)
 
 | Disciplines | Argument, challenge and adjudication |
 | --- | --- |

@@ -12,7 +12,8 @@ conditions. A new SPI target exposes a stalled-clock abort failure. The
 [D51 disposition](decisions/0051-review-council-next-steps.md) ranks a
 user-invocable powered cold transport first for engineering, with an equipped
 receiver-end test first when a suitable bench window and actual peer exist.
-The owner checkpoint remains open at zero of five M0 criteria demonstrated.
+The owner checkpoint remains open. None of the five M0 criteria has yet been
+recorded at its required “demonstrated with support” level.
 
 [D50](decisions/0050-bounded-firmware-waveform-replay.md) freezes one triggered
 digital stimulus and a controlled two-clock edge shift, with zero RTL changes.
