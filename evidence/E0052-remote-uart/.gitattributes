@@ -1,0 +1,2 @@
+# The RP2350's raw AssertionError line ends with a space.
+first-host/terminal.log whitespace=-blank-at-eol

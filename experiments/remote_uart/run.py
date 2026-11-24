@@ -8,6 +8,7 @@ from http.cookiejar import CookieJar
 import json
 from pathlib import Path
 import re
+import subprocess
 import sys
 import time
 from urllib.request import build_opener, HTTPCookieProcessor, Request, urlopen
@@ -20,6 +21,7 @@ sys.path.insert(0, str(ROOT))
 from tools.assembler import json_bytes
 from tools.cold_load import fresh_directory, UART_BINARY
 from tools.production_sram import verify
+from experiments.remote_uart.check import check
 
 SITE = 'https://tinytapeout.fpgas.online'
 IMAGE = ROOT / 'evidence/E0051-fabricfox-uart/fabricfox-v2-12p5mhz.bin'
@@ -83,10 +85,8 @@ def run_terminal(connect, slug, code, out):
         require(data.startswith(b'OK'), 'board did not accept the test source')
         stdout, stderr = data[2:-2].split(b'\x04', 1)
         (out / 'terminal.log').write_bytes(stdout.replace(b'\r\n', b'\n') + stderr.replace(b'\r\n', b'\n'))
-        require(not stderr, 'board test raised an exception, see terminal.log')
         records = [json.loads(line[8:]) for line in stdout.splitlines() if line.startswith(b'UARTLAB ')]
-        require(records and records[-1].get('status') == 'PASS', 'missing board completion record')
-        return records
+        return records, stderr
 
 
 def run(args, out, receipt):
@@ -125,6 +125,9 @@ def run(args, out, receipt):
     receipt['before'] = {'reachable': status['reachable'], 'present': status['board']['present'],
                          'kind': status['kind'], 'clients': status['clients'], 'enabled': enabled,
                          'upload_count': len(uploads), 'daemon_version': status['version']}
+    identity = status['board'].get('usb_serial')
+    require(identity, 'board has no public device identity')
+    receipt['board_identity_sha256'] = hashlib.sha256(identity.encode()).hexdigest()
     require(status['reachable'] and status['board']['present'] and status['kind'] == 'fpga'
             and status['clients'] == 0, 'board offline or in use')
     require(enabled in ('idle_display', NAME), 'another design is using the board')
@@ -141,7 +144,12 @@ def run(args, out, receipt):
     # Enabling through the gallery makes the service transfer and check these bytes on the RP2350.
     receipt['enable'] = request(api + '/designs/' + NAME + '/enable', b'{}', 'application/json')
     require(request(api + '/designs')['enabled'] == NAME, 'gallery did not select our design')
-    receipt['observations'] = run_terminal(connect, args.board, code, out)
+    records, errors = run_terminal(connect, args.board, code, out)
+    receipt['observations'] = records
+    require(not errors, 'board test raised an exception, see terminal.log')
+    require(records and records[-1].get('status') == 'PASS' and records[-1]['host_uio_oe'] == 0,
+            'missing completion or controller still drives the bus')
+    check(records, UART_BINARY)
     receipt['status'] = 'PASS_REMOTE_UART_DIGITAL'
 
 
@@ -154,7 +162,9 @@ def main():
     require(re.fullmatch(r'fpga-[1-9][0-9]*', args.board), 'expected a public FPGA board slug')
     out = fresh_directory(args.out)
     profile = verify(ROOT)
-    receipt = {'status': 'INCOMPLETE', 'started_utc': clock(), 'production_profile_sha256': profile['profile_sha256']}
+    receipt = {'status': 'INCOMPLETE', 'started_utc': clock(), 'production_profile_sha256': profile['profile_sha256'],
+               'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+               'controller_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     try:
         run(args, out, receipt)
         require(verify(ROOT) == profile, 'production inputs changed')

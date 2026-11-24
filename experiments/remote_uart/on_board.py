@@ -5,6 +5,7 @@ import binascii
 import gc
 import json
 import machine
+import micropython
 import rp2
 import time
 from machine import Pin
@@ -74,10 +75,18 @@ def select(value):
         raise ValueError('physical selector failed', value, io.read_ui_in_byte())
 
 
-def page(value):
-    io.write_ui_in_byte(value)
-    time.sleep_us(3)
-    return io.read_uo_out_byte()
+@micropython.viper
+def page(value: int) -> int:
+    # TTDBv3 uses GPIO17..24 for UI and GPIO33..40 for UO. These are the
+    # same SIO offsets as the public SDK. Wait four 1-us timer transitions
+    # after the selector write, giving at least 3 us of settling.
+    sio = ptr32(0xd0000000)
+    timer = ptr32(0x400b0000)
+    sio[10] = (sio[4] ^ (value << 17)) & (255 << 17)
+    start = uint(timer[10])
+    while uint(timer[10] - start) < uint(4):
+        pass
+    return (sio[2] >> 1) & 255
 
 
 def park():
@@ -165,8 +174,48 @@ def measure_clock(counter, hz):
     return elapsed
 
 
+@micropython.native
+def poll_pair(driver):
+    ticks, diff, read = time.ticks_us, time.ticks_diff, page
+    first_byte = None
+    accepted = None
+    terminal = None
+    max_gap = max_duration = polls = 0
+    start = last_poll = ticks()
+    driver.active(1)
+    while diff(ticks(), start) < 50000:
+        at = ticks()
+        gap = diff(at, last_poll)
+        if gap > max_gap:
+            max_gap = gap
+        last_poll = at
+        status = read(0)
+        valid = read(0x63)
+        if not status & 0x20:
+            raise ValueError('program lost ready')
+        if status >> 6 == 3:
+            terminal = status
+        elif status == 0xa7:
+            if first_byte is None or not valid:
+                raise ValueError('terminal without a first byte')
+            second_byte = read(0x62)
+            if read(0) != 0xa7 or read(0x63) != 1:
+                raise ValueError('terminal changed during read')
+            accepted = [first_byte, second_byte]
+            terminal = status
+        elif valid and first_byte is None:
+            first_byte = read(0x62)
+        polls += 1
+        duration = diff(ticks(), at)
+        if duration > max_duration:
+            max_duration = duration
+        if terminal is not None:
+            break
+    return terminal, first_byte, accepted, polls, max_gap, max_duration
+
+
 def run_pair(name, hz, stop1, stop2, tx_id, count_id):
-    first, second = 0x96, 0x69
+    first, second = (0x3c, 0xa5) if name == 'target-distinct' else (0x96, 0x69)
     bits = ((first << 1) | (stop1 << 9) | (second << 11) | (stop2 << 19) | (1 << 20))
     driver = rp2.StateMachine(tx_id, wire_pair, freq=2*hz, out_base=Pin(26), sideset_base=Pin(16))
     counter = rp2.StateMachine(count_id, count_clock, freq=-1)
@@ -175,34 +224,7 @@ def run_pair(name, hz, stop1, stop2, tx_id, count_id):
         driver.put(431)  # 1 + 432 + 1 rising edges per serial bit
         driver.put(bits)
         gc.collect()
-        first_byte = None
-        accepted = None
-        terminal = None
-        max_gap = max_duration = polls = 0
-        start = last_poll = time.ticks_us()
-        driver.active(1)
-        while time.ticks_diff(time.ticks_us(), start) < 50000:
-            at = time.ticks_us()
-            max_gap = max(max_gap, time.ticks_diff(at, last_poll))
-            last_poll = at
-            status = page(0)
-            valid = page(0x63)
-            if status >> 6 == 3:
-                terminal = status
-            elif status == 0xa7:
-                if first_byte is None or not valid:
-                    raise ValueError('terminal without a first byte')
-                second_byte = page(0x62)
-                if page(0) != 0xa7 or page(0x63) != 1:
-                    raise ValueError('terminal changed during read')
-                accepted = [first_byte, second_byte]
-                terminal = status
-            elif valid and first_byte is None:
-                first_byte = page(0x62)
-            polls += 1
-            max_duration = max(max_duration, time.ticks_diff(time.ticks_us(), at))
-            if terminal is not None:
-                break
+        terminal, first_byte, accepted, polls, max_gap, max_duration = poll_pair(driver)
         # Two independent integer-us interval measurements may each truncate by <1 us.
         bound = max_gap + max_duration + 2
         elapsed = measure_clock(counter, hz)
@@ -234,7 +256,7 @@ try:
     for name, hz, stop1, stop2 in (
             ('slow-good', 1000000, 1, 1), ('target-good', 12500000, 1, 1),
             ('target-bad-first', 12500000, 0, 1), ('target-bad-second', 12500000, 1, 0),
-            ('target-fresh', 12500000, 1, 1)):
+            ('target-distinct', 12500000, 1, 1), ('target-fresh', 12500000, 1, 1)):
         assert cold(name, False)
         run_pair(name, hz, stop1, stop2, free[0], free[1])
 finally:

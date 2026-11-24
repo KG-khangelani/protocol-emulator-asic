@@ -1,0 +1,52 @@
+# Run the UART on a public FabricFox from Docker
+
+The Docker client loads the E0051 FPGA configuration and runs a short
+MicroPython test in the public board's RP2350 RAM. Two physical signals cross
+from the RP2350 to the FPGA on the demo PCB. GPIO16 supplies the project
+clock and GPIO26 carries the UART waveform on UIO1. The controller also
+reads back the program and receives both result bytes over the public pins.
+The service exposes the same bitstream gallery and serial terminal to a
+browser. [Public board list](https://tinytapeout.fpgas.online/) · [Provider's upload instructions](https://docs.fpgas.online/en/latest/user/boards/tt-fpga/own-bitstream.html)
+
+From an H: checkout with the project workbench installed, choose an available
+public FPGA slug. The command checks occupancy and the current design before
+using it. The upload is the existing public project bitstream. The service
+retains its gallery copy until eviction or reboot. The test releases its
+GPIO drivers and restores the original RP2350 frequency and board control
+mode. No board firmware installation is required.
+
+```powershell
+$repo = (Get-Location).Path
+$output = New-Item -ItemType Directory -Force (Join-Path $repo 'build/remote-uart')
+$run = 'build/' + [Guid]::NewGuid().ToString('N')
+$image = 'sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909'
+docker run --rm --mount "type=bind,source=$repo,target=/workspace,readonly" --mount "type=bind,source=$($output.FullName),target=/workspace/build" --tmpfs /tmp -w /workspace -e PYTHONDONTWRITEBYTECODE=1 $image python3 -B experiments/remote_uart/run.py --board fpga-1 --out $run
+```
+
+The network connection reaches the provider and retrieves the hash-checked
+`websockets` 15.0.1 wheel from PyPI. To reuse a local copy, supply
+`--wheel build/websockets-15.0.1-py3-none-any.whl` with the file in the
+mounted output directory. The output contains a receipt, the board terminal
+text and its original raw REPL response. The provider may be occupied or
+offline on a later visit. The existing container-only FPGA rehearsal also
+runs with networking disabled. [Offline build and pin simulation](../fpga_uart/README.md) · [Terminal library](https://pypi.org/project/websockets/15.0.1/)
+
+## Physical measurements
+
+The program in the FPGA is loaded from the archived 76-clock cold-start
+sequence. After readback the RP2350 uses its hardware PIO for the entire
+clock and 8N1 waveform. Sixteen idle clocks precede the first start, followed
+by 434 clocks per serial bit, LSB first. A separate PIO machine observes
+100,000 periods on the physical clock pad. The two pins share the RP2350
+timebase. A native host loop reads valid, data and status with a selector
+dwell of at least 3 µs. It accepts only a ready `A7` terminal with a saved
+first byte. GPIO sampling, framing controls and timers run on the board,
+so Internet latency is outside the service interval. [Firmware GPIO map](https://github.com/TinyTapeout/tt-micropython-firmware/blob/baaf0a2758b475d6e099b8ef65dbd1b5667ea0aa/src/ttboard/util/platform/rp2350.py) · [PIO state machine](https://docs.micropython.org/en/latest/library/rp2.StateMachine.html) · [RP2350 SIO offsets](https://github.com/raspberrypi/pico-sdk/blob/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/sio.h) · [Timer registers](https://github.com/raspberrypi/pico-sdk/blob/2.2.0/src/rp2350/hardware_regs/include/hardware/regs/timer.h)
+
+The host checks the largest recorded inter-poll gap plus the largest read
+sequence plus 2 µs for timer quantization. At 12.5 MHz the limit is 347.2 µs.
+The first two program-byte reads provide driven-high and driven-low UIO1
+controls. A third observation samples the requested release. Each applies
+only the MCU's weak pull-down and then pull-up. These digital readings can
+leave driver ownership unresolved. Measuring release time or current needs a
+calibrated receiver-end fixture. [Bench contract](../../docs/research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
