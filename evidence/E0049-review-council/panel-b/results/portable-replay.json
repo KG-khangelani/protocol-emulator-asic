@@ -1,0 +1,47 @@
+{
+  "source_diff_against": "e90cca228490423a7fe7c4ae40f7e669200b4d0e",
+  "checked_source_groups": [
+    "src",
+    "info.yaml",
+    "test",
+    "tools/assembler.py",
+    "tools/production_sram.py",
+    "tools/production-profile.json",
+    "tools/m1_contract_model.py",
+    "tools/i2c_oracle.py",
+    "experiments/i2c",
+    "experiments/spi_phase",
+    "experiments/waveform_replay",
+    "programs",
+    "evidence/E0042-sram-prefetch-screen",
+    "evidence/E0045-g2-sram-qualification",
+    "evidence/E0047-g4-submission-candidate",
+    "evidence/E0048-waveform-replay"
+  ],
+  "network_for_simulation": "none",
+  "entry_point": "replay.ps1",
+  "entry_point_sha256": "886b1dfdf800ad9308f0097c109681672ace5098fc76fc2ed2969c48d815533f",
+  "structural_G4_paths_match": true,
+  "same_four_guard_results_with_final_runner": true,
+  "runs": {
+    "launch": {
+      "original_started_utc": "2026-11-24T14:40:23.577817+00:00",
+      "rerun_started_utc": "2026-11-24T15:12:55.323425+00:00",
+      "rerun_ended_utc": "2026-11-24T15:12:56.396881+00:00",
+      "all_stable_result_fields_identical": true
+    },
+    "guard": {
+      "original_started_utc": "2026-11-24T15:12:34.763654+00:00",
+      "rerun_started_utc": "2026-11-24T15:13:00.537171+00:00",
+      "rerun_ended_utc": "2026-11-24T15:13:02.410950+00:00",
+      "all_stable_result_fields_identical": true
+    },
+    "retime": {
+      "original_started_utc": "2026-11-24T15:03:13.969790+00:00",
+      "rerun_started_utc": "2026-11-24T15:13:05.892784+00:00",
+      "rerun_ended_utc": "2026-11-24T15:15:09.563338+00:00",
+      "all_stable_result_fields_identical": true
+    }
+  },
+  "retime_159_case_journal_sha256": "17a0dff8431269adcf0514dc79df1fae05046d2b0f1a530a8f6089de6bf2a31e"
+}

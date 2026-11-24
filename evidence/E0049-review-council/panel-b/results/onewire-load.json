@@ -1,0 +1,39 @@
+{
+  "model": "ideal initial 0 V, exponential rise, zero leakage, no distributed line or pad delay",
+  "pullup_v": 3.3,
+  "pullup_ohm": 4700,
+  "loads": [
+    {
+      "capacitance_pf": 100,
+      "tau_us": 0.47,
+      "volts_after_9us": 3.3,
+      "release_to_threshold_us": {
+        "RP2040_host_3V3": 0.437832,
+        "DS18B20_local": 0.516348,
+        "DS18B20_parasite": 1.127011
+      },
+      "latest_presence_start_us_if_crossing_at_threshold": {
+        "DS18B20_local": 60.516348,
+        "DS18B20_parasite": 61.127011
+      }
+    },
+    {
+      "capacitance_pf": 1000,
+      "tau_us": 4.7,
+      "volts_after_9us": 2.81372,
+      "release_to_threshold_us": {
+        "RP2040_host_3V3": 4.378324,
+        "DS18B20_local": 5.163478,
+        "DS18B20_parasite": 11.270108
+      },
+      "latest_presence_start_us_if_crossing_at_threshold": {
+        "DS18B20_local": 65.163478,
+        "DS18B20_parasite": 71.270108
+      }
+    }
+  ],
+  "write_one_at_15us_max_capacitance_pf": {
+    "DS18B20_local": 1743.0113,
+    "DS18B20_parasite": 798.5727
+  }
+}

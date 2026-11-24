@@ -1,0 +1,120 @@
+{
+  "source": "IHP Open PDK",
+  "commit": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "cell": "sg13cmos5l_IOPadInOut30mA",
+  "condition": "c2p stays low, c2p_en asserts, falling output",
+  "assumptions_for_algebra": "Both pins at one common tabulated corner, each at a grid point, monotone full swing, 20 ns between pad enable reference crossings, literal table interpretation; no route, package or board measurement.",
+  "tables": [
+    {
+      "file": "sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib",
+      "git_blob": "55241e71c2278fb230ed6de3ca704907e6e8131a",
+      "file_sha256": "5c4176e1c7cb5cffbb76aced29a57a45971b38567e37c5e552a2acc73020da68",
+      "pad_max_capacitance_pf": 40.0,
+      "input_slew_grid_ns": [
+        0.02,
+        0.1,
+        0.17,
+        0.33,
+        0.64,
+        1.26,
+        2.5
+      ],
+      "output_load_grid_pf": [
+        2.0,
+        6.0,
+        12.0,
+        18.0,
+        28.0,
+        40.0
+      ],
+      "tabulated_points": 42,
+      "oe_to_fall50_ns": [
+        0.853465,
+        2.74322
+      ],
+      "fall90_to10_ns": [
+        0.351844,
+        3.25531
+      ],
+      "algebra_only": {
+        "earliest70_lower_ns": -0.59288,
+        "latest30_upper_ns": 5.99853,
+        "falling_pair_order_lower_if_pad_enables_20ns_apart_ns": 13.40859
+      }
+    },
+    {
+      "file": "sg13cmos5l_io_typ_1p2V_3p3V_25C.lib",
+      "git_blob": "0401964ebbe3454fd0edc882fa4ef7abaedfc371",
+      "file_sha256": "024eb5be8858aca1416cf7bdccb91b25e5b1951a5ea5b242968047a2bd26d9f3",
+      "pad_max_capacitance_pf": 40.0,
+      "input_slew_grid_ns": [
+        0.02,
+        0.1,
+        0.17,
+        0.33,
+        0.64,
+        1.26,
+        2.5
+      ],
+      "output_load_grid_pf": [
+        2.0,
+        6.0,
+        12.0,
+        18.0,
+        28.0,
+        40.0
+      ],
+      "tabulated_points": 42,
+      "oe_to_fall50_ns": [
+        1.40629,
+        4.00771
+      ],
+      "fall90_to10_ns": [
+        0.508413,
+        4.59863
+      ],
+      "algebra_only": {
+        "earliest70_lower_ns": -0.71636,
+        "latest30_upper_ns": 8.60634,
+        "falling_pair_order_lower_if_pad_enables_20ns_apart_ns": 10.6773
+      }
+    },
+    {
+      "file": "sg13cmos5l_io_slow_1p08V_3p0V_125C.lib",
+      "git_blob": "9650fe2c9ef4c705d42138cec0f11ca8d1947663",
+      "file_sha256": "77ed504bcf52862811d3eff8382b5f4f5a38a386f161a82722e4f3832d61af0b",
+      "pad_max_capacitance_pf": 40.0,
+      "input_slew_grid_ns": [
+        0.02,
+        0.1,
+        0.17,
+        0.33,
+        0.64,
+        1.26,
+        2.5
+      ],
+      "output_load_grid_pf": [
+        2.0,
+        6.0,
+        12.0,
+        18.0,
+        28.0,
+        40.0
+      ],
+      "tabulated_points": 42,
+      "oe_to_fall50_ns": [
+        2.7615,
+        6.58798
+      ],
+      "fall90_to10_ns": [
+        0.830755,
+        7.25203
+      ],
+      "algebra_only": {
+        "earliest70_lower_ns": -0.85796,
+        "latest30_upper_ns": 13.84001,
+        "falling_pair_order_lower_if_pad_enables_20ns_apart_ns": 5.30203
+      }
+    }
+  ]
+}

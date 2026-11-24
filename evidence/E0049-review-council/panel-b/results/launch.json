@@ -1,0 +1,119 @@
+{
+  "started_utc": "2026-11-24T14:40:23.577817+00:00",
+  "status": "PASS_PREFIX_AND_THREE_NEGATIVE_CONTROLS",
+  "runtime": {
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+  },
+  "images": [
+    {
+      "source": "programs/od128-sram-v1/i2c_read.asm",
+      "binary_sha256": "774716ec1a895e362bee918548801fcf0838b140005f530e2abd25f2ceaf0e43",
+      "reference_disabled_steps": 219,
+      "result": "MATCH loader_steps=448 edges=64 status=61 driven=00 oe=1c"
+    },
+    {
+      "source": "programs/od128-sram-v1/i2c_write.asm",
+      "binary_sha256": "9a35de7413928c5ec29852112e21239df8aa674c67c1d84b51f97ace1a76d37c",
+      "reference_disabled_steps": 223,
+      "result": "MATCH loader_steps=456 edges=64 status=61 driven=00 oe=1c"
+    },
+    {
+      "source": "programs/od128-sram-v1/i2c_write_read.asm",
+      "binary_sha256": "3cd132492f141fd056d2feae41bb2d6c52dc825d3fe4471cf17bddffffc999c2",
+      "reference_disabled_steps": 391,
+      "result": "MATCH loader_steps=802 edges=64 status=61 driven=00 oe=1c"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode0_lsb.asm",
+      "binary_sha256": "e2cf7272d751545f8b297314d73529046677bca03d661d38d687c3d4a2e34043",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=63 driven=01 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode0_msb.asm",
+      "binary_sha256": "1a1f7b923ebc7f1d0b6fe3a3866315a5cd4df4e62cd992e5d4e0855902b5aa1a",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=63 driven=00 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode1_lsb.asm",
+      "binary_sha256": "9373cc0632eb54baffa53f80ec1aacb701eff0d07b8bf7033953ffd9e172cb33",
+      "reference_disabled_steps": 47,
+      "result": "MATCH loader_steps=94 edges=64 status=67 driven=00 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode1_msb.asm",
+      "binary_sha256": "91355bd57d792e1f4813ab64da039709a8c3bcdea06427771f6cbacfe24e1b73",
+      "reference_disabled_steps": 47,
+      "result": "MATCH loader_steps=94 edges=64 status=67 driven=01 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode2_lsb.asm",
+      "binary_sha256": "9d4af787ad4d45a90ae14e50fe18ca03e35ec45621055636e1883c2b7bf71efa",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=63 driven=05 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode2_msb.asm",
+      "binary_sha256": "d8db6dafc02177bb83e0603a343c95ae3f8286745c9fb8763d0116459c50f6be",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=63 driven=04 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode3_lsb.asm",
+      "binary_sha256": "c51c6aeba9057c3e301d603aeeedaa3d1ae39cead515808919b26b083d3c352a",
+      "reference_disabled_steps": 47,
+      "result": "MATCH loader_steps=94 edges=64 status=67 driven=04 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/spi_mode3_msb.asm",
+      "binary_sha256": "8771970000345ca80010c3e9255b36058d5b315c56e5d71a3d3a7ad3089db5ba",
+      "reference_disabled_steps": 47,
+      "result": "MATCH loader_steps=94 edges=64 status=67 driven=05 oe=0d"
+    },
+    {
+      "source": "programs/od128-sram-v1/uart_rx.asm",
+      "binary_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=61 driven=00 oe=00"
+    },
+    {
+      "source": "programs/od128-sram-v1/uart_tx.asm",
+      "binary_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "reference_disabled_steps": 39,
+      "result": "MATCH loader_steps=76 edges=64 status=63 driven=00 oe=01"
+    },
+    {
+      "source": "experiments/waveform_replay/control.asm",
+      "binary_sha256": "edb550887203af818320c82e908937020a5306ef5ab60b8b656b145ebd817d7f",
+      "reference_disabled_steps": 87,
+      "result": "MATCH loader_steps=176 edges=64 status=b3 driven=00 oe=00"
+    },
+    {
+      "source": "experiments/waveform_replay/timing_fault.asm",
+      "binary_sha256": "09db44950585bdbd64ca4328a67217de94f05ea7aa275d214885a871721d6891",
+      "reference_disabled_steps": 87,
+      "result": "MATCH loader_steps=176 edges=64 status=b3 driven=00 oe=00"
+    },
+    {
+      "source": "synthetic_first_wait",
+      "binary_sha256": "04c35fc1e675af9efd6a6b8c94fbeef81f7a584bdfe709b4075b986b4aceb03c",
+      "reference_disabled_steps": 19,
+      "result": "MATCH loader_steps=36 edges=64 status=a2 driven=01 oe=01"
+    }
+  ],
+  "controls": [
+    "CONTROL stale_idle selected=e0 reference=21",
+    "CONTROL invalidating_bank selected=00 reference=20",
+    "CONTROL intermediate_read oe=ff driven=22"
+  ],
+  "script_sha256": "240422d4c9a90d3e8e51b5ab7d30384a085dd9547b9e3db4f1ffa8fabaa9892c",
+  "bench_sha256": "6dfea9a58b9ddcd6ba25630a546f1d8645dd0e807e3b1c858f9cd8e1cfa18302",
+  "qualified_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "model_sha256": {
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "ended_utc": "2026-11-24T14:40:24.638158+00:00"
+}

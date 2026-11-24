@@ -1,0 +1,382 @@
+{
+  "started_utc": "2026-11-24T15:12:34.763654+00:00",
+  "method": "ideal closed-loop RTL plus offline first-order falling-edge projection",
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "script_sha256": "4ec4e841a6eee6943123ed75f459f3e0761160328e4d9a6975946f625f300301",
+  "witness": {
+    "g4_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+    "run_id": 43543626249,
+    "archive_id": 14096124429,
+    "archive_sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050",
+    "member": "output/i2c/write_read-96.json",
+    "member_sha256": "14aa6d759688ead4aa6f8be60cac2b0430a96cc79637dfce0c626b09080eaa49"
+  },
+  "reference_trace_sha256": "e3ae610ec9b7ab763fc6ee196ab7861b858b8c1b8436175886d1c202a70b5923",
+  "case": {
+    "kind": "write_read",
+    "address": 46,
+    "tx": 150,
+    "rx": 1,
+    "nack": null,
+    "timeout_release": null
+  },
+  "response_ticks": 690,
+  "variants": [
+    {
+      "added_clocks": 0,
+      "wait_operand": null,
+      "source_sha256": "adbeeecb3dbdcbff4b8dc11219ad546c3e8b549d4e53ed98a6ed11754b27ac7c",
+      "binary_sha256": "3cd132492f141fd056d2feae41bb2d6c52dc825d3fe4471cf17bddffffc999c2",
+      "words": 96,
+      "spare_words": 32,
+      "trace_sha256": "e3ae610ec9b7ab763fc6ee196ab7861b858b8c1b8436175886d1c202a70b5923",
+      "rows": 371,
+      "release_count": 38,
+      "terminal_tick": 80584,
+      "terminal_rx": 1,
+      "terminal_rx_valid": 1,
+      "decoded_by_target": [
+        {
+          "segment": 0,
+          "kind": "address",
+          "byte": 92
+        },
+        {
+          "segment": 0,
+          "kind": "write",
+          "byte": 150
+        },
+        {
+          "segment": 1,
+          "kind": "address",
+          "byte": 93
+        }
+      ],
+      "oracle_error_kinds": [],
+      "oracle_first_errors": [],
+      "fastest_ideal_hz": 98619.32938856016,
+      "timing": {
+        "min_ideal_low_ns": 5240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10140,
+        "min_ideal_setup_ns": 1810,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29120,
+          "sda_ns": 29140,
+          "gap_ns": 20
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 20,
+            "max_ns": 40
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 10.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 0.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": -113.6765
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": -397.8676
+          }
+        ]
+      }
+    },
+    {
+      "added_clocks": 8,
+      "wait_operand": 7,
+      "source_sha256": "1cf14ea77c7051ae0599bd2b998fa792cf15fc283cef46efbb93f7209e12dec6",
+      "binary_sha256": "a248433e33d05ae4f619152ecea3e2ff71f15c29a92cb03324b3e503462adb05",
+      "words": 108,
+      "spare_words": 20,
+      "trace_sha256": "4d6daf225681a494012021dbd274e891703aee8da82465464564c7a5e3f9ed4f",
+      "rows": 447,
+      "release_count": 38,
+      "terminal_tick": 81800,
+      "terminal_rx": 1,
+      "terminal_rx_valid": 1,
+      "decoded_by_target": [
+        {
+          "segment": 0,
+          "kind": "address",
+          "byte": 92
+        },
+        {
+          "segment": 0,
+          "kind": "write",
+          "byte": 150
+        },
+        {
+          "segment": 1,
+          "kind": "address",
+          "byte": 93
+        }
+      ],
+      "oracle_error_kinds": [],
+      "oracle_first_errors": [],
+      "fastest_ideal_hz": 97087.3786407767,
+      "timing": {
+        "min_ideal_low_ns": 5400,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10300,
+        "min_ideal_setup_ns": 1970,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29440,
+          "sda_ns": 29620,
+          "gap_ns": 180
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 180,
+            "max_ns": 200
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 170.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 160.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 46.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": -237.8676
+          }
+        ]
+      }
+    },
+    {
+      "added_clocks": 24,
+      "wait_operand": 23,
+      "source_sha256": "d3c1aac01ba0f90586eaf8c1cb2ad385533e502b2029f874ce82e0c63088fbf9",
+      "binary_sha256": "eb929a5a2cc19b954367baa05d7645287158e55bd8e48dbe7999ac689f80377d",
+      "words": 108,
+      "spare_words": 20,
+      "trace_sha256": "5138af0f06374cf3f86c5bb00becb9032a2398603a0f0b6122ba0359b5deda93",
+      "rows": 447,
+      "release_count": 38,
+      "terminal_tick": 84232,
+      "terminal_rx": 1,
+      "terminal_rx_valid": 1,
+      "decoded_by_target": [
+        {
+          "segment": 0,
+          "kind": "address",
+          "byte": 92
+        },
+        {
+          "segment": 0,
+          "kind": "write",
+          "byte": 150
+        },
+        {
+          "segment": 1,
+          "kind": "address",
+          "byte": 93
+        }
+      ],
+      "oracle_error_kinds": [],
+      "oracle_first_errors": [],
+      "fastest_ideal_hz": 94161.95856873824,
+      "timing": {
+        "min_ideal_low_ns": 5720,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10620,
+        "min_ideal_setup_ns": 2290,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 30080,
+          "sda_ns": 30580,
+          "gap_ns": 500
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 500,
+            "max_ns": 520
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 490.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 480.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 366.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 82.1324
+          }
+        ]
+      }
+    },
+    {
+      "added_clocks": 200,
+      "wait_operand": 199,
+      "source_sha256": "3f02ad30286d28d407b654727689f4fecffbebf7ec87cda3c09d5f88060a11f4",
+      "binary_sha256": "a333a53385acf94a23265297e820e0b36e49b4035be4b09440fcceb9aa2e4a37",
+      "words": 108,
+      "spare_words": 20,
+      "trace_sha256": "fbd80292e01f164cb76b1955c73accaa8cffac552b0d30f3bc9233b9490fd943",
+      "rows": 447,
+      "release_count": 38,
+      "terminal_tick": 110984,
+      "terminal_rx": 1,
+      "terminal_rx_valid": 1,
+      "decoded_by_target": [
+        {
+          "segment": 0,
+          "kind": "address",
+          "byte": 92
+        },
+        {
+          "segment": 0,
+          "kind": "write",
+          "byte": 150
+        },
+        {
+          "segment": 1,
+          "kind": "address",
+          "byte": 93
+        }
+      ],
+      "oracle_error_kinds": [
+        "data_valid_delay"
+      ],
+      "oracle_first_errors": [
+        {
+          "kind": "data_valid_delay",
+          "t": 6444
+        },
+        {
+          "kind": "data_valid_delay",
+          "t": 9276
+        },
+        {
+          "kind": "data_valid_delay",
+          "t": 12108
+        },
+        {
+          "kind": "data_valid_delay",
+          "t": 20604
+        }
+      ],
+      "fastest_ideal_hz": 70721.35785007072,
+      "timing": {
+        "min_ideal_low_ns": 9240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 14140,
+        "min_ideal_setup_ns": 5240,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 37120,
+          "sda_ns": 41140,
+          "gap_ns": 4020
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 15,
+            "min_ns": 4020,
+            "max_ns": 4040
+          },
+          "target": {
+            "count": 4,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 4010.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 4000.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3886.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3602.1324
+          }
+        ]
+      }
+    }
+  ],
+  "checks": {
+    "unaltered_trace_matches_g4": true,
+    "all_words_fit": true,
+    "positive_oracle": true,
+    "negative_late_data": true,
+    "guard_scales_earliest_fall": true,
+    "speed_not_faster": true
+  },
+  "ended_utc": "2026-11-24T15:12:36.529947+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-11-24T14:39:50.412306+00:00",
+  "status": "FAILED",
+  "runtime": {
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+    "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+  },
+  "images": [],
+  "controls": [],
+  "script_sha256": "240422d4c9a90d3e8e51b5ab7d30384a085dd9547b9e3db4f1ffa8fabaa9892c",
+  "bench_sha256": "9e3901cb413c6f33ed98b71f41e26234a7aa69285f83f79e41858feda3bad2e1",
+  "qualified_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "model_sha256": {
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "error": "vvp returned 1\nFATAL: /work/build/council-2026-11-24/panel-b/launch_tb.sv:75: wrong wire direction at loader step 0\n       Time: 11000  Scope: launch_tb\n",
+  "ended_utc": "2026-11-24T14:39:50.612557+00:00"
+}

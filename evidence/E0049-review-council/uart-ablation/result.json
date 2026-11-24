@@ -1,0 +1,321 @@
+{
+  "schema": "council-uart-ablation-v1",
+  "inputs": {
+    "manual_tx.asm": "349adfa2de9c7078fc35dc6d8c949567fa8bb305181b3f5443b2ed320475e356",
+    "manual_rx.asm": "6753ff89d42f33e94d03cfb3a6af91cd00abf23557288e171b4b52a67dec60ab",
+    "uart_tb.sv": "fe00cb5cb49df8311df28a6db1716769e0151440a62fe9b4f80b8868d660490a",
+    "screen.py": "2d4d0c5b3467e72ccb5db706bed4278ca17e777062a3f5c853d038e784f97de9"
+  },
+  "groups": {
+    "tx-released-4": {
+      "words": 8,
+      "binary_sha256": "d89bc35fde16057069f36bf818f359683d85cae721b26f561cecb1f49709ac00",
+      "load_steps": 76,
+      "cases": 256,
+      "runtime_edges_checked": 21248,
+      "terminal_edges": [
+        83
+      ],
+      "terminal_status_hex": [
+        "a7"
+      ],
+      "host": []
+    },
+    "tx-released-434": {
+      "words": 8,
+      "binary_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "load_steps": 76,
+      "cases": 16,
+      "runtime_edges_checked": 138928,
+      "terminal_edges": [
+        8683
+      ],
+      "terminal_status_hex": [
+        "a7"
+      ],
+      "host": []
+    },
+    "tx-manual-4": {
+      "words": 17,
+      "binary_sha256": "af49ea139935a71193943ff81aac7a1c96746108b9f3a24c3b795b46aa277bcf",
+      "load_steps": 152,
+      "cases": 256,
+      "runtime_edges_checked": 21248,
+      "terminal_edges": [
+        83
+      ],
+      "terminal_status_hex": [
+        "b0"
+      ],
+      "host": []
+    },
+    "tx-manual-434": {
+      "words": 17,
+      "binary_sha256": "c018b8bc9d4ac9e7db83c145af9df2c5f7832eb2dd7a66aa138071c820247f2a",
+      "load_steps": 152,
+      "cases": 16,
+      "runtime_edges_checked": 138928,
+      "terminal_edges": [
+        8683
+      ],
+      "terminal_status_hex": [
+        "b0"
+      ],
+      "host": []
+    },
+    "tx-late-4": {
+      "words": 17,
+      "binary_sha256": "fdc19906f7f358eabfc63e94ef785b83072fc4e64a7809ba0f6003a708e47943",
+      "load_steps": 152,
+      "expected_checker_rejection": "MISMATCH wire case=0 edge=11 observed=0 expected=1"
+    },
+    "tx-late-434": {
+      "words": 17,
+      "binary_sha256": "b370806e85bebbcacc29993e18990231143a088436d069969a402a5df070fb41",
+      "load_steps": 152,
+      "expected_checker_rejection": "MISMATCH wire case=0 edge=871 observed=0 expected=1"
+    },
+    "tx-wrong-slot-4": {
+      "words": 17,
+      "binary_sha256": "e04da0de1ef8ff827031ec92d1aa2f462dbdb6aec90536fdbbea373ed90b37a9",
+      "load_steps": 152,
+      "expected_checker_rejection": "MISMATCH wire case=0 edge=47 observed=0 expected=1"
+    },
+    "tx-wrong-slot-434": {
+      "words": 17,
+      "binary_sha256": "970b26c425d6577c6520db772a3e41a54962c38bc139989689eab5fcdd799293",
+      "load_steps": 152,
+      "expected_checker_rejection": "MISMATCH wire case=0 edge=4777 observed=0 expected=1"
+    },
+    "rx-released-4": {
+      "words": 8,
+      "binary_sha256": "c3f241298a270d983099cc41ce65c0ac0142abcb53e6870e5caf1e8e7eeb34f9",
+      "load_steps": 76,
+      "cases": 259,
+      "runtime_edges_checked": 22112,
+      "terminal_edges": [
+        10,
+        45,
+        85,
+        86
+      ],
+      "terminal_status_hex": [
+        "a7",
+        "e1",
+        "e6"
+      ],
+      "host": [
+        {
+          "case": 150,
+          "bad": 0,
+          "terminal": "a7",
+          "edge": 86,
+          "delivered": [
+            150,
+            105
+          ],
+          "rejected": null
+        },
+        {
+          "case": 256,
+          "bad": 1,
+          "terminal": "e6",
+          "edge": 45,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 257,
+          "bad": 2,
+          "terminal": "e6",
+          "edge": 85,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 258,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 10,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-released-434": {
+      "words": 8,
+      "binary_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "load_steps": 76,
+      "cases": 19,
+      "runtime_edges_checked": 150742,
+      "terminal_edges": [
+        870,
+        4130,
+        8470,
+        8471
+      ],
+      "terminal_status_hex": [
+        "a7",
+        "e1",
+        "e6"
+      ],
+      "host": [
+        {
+          "case": 9,
+          "bad": 0,
+          "terminal": "a7",
+          "edge": 8471,
+          "delivered": [
+            150,
+            105
+          ],
+          "rejected": null
+        },
+        {
+          "case": 16,
+          "bad": 1,
+          "terminal": "e6",
+          "edge": 4130,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 17,
+          "bad": 2,
+          "terminal": "e6",
+          "edge": 8470,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 18,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 870,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-manual-4": {
+      "words": 18,
+      "binary_sha256": "2e6154af3602d85fc0de6762bef28f8e21ccb78a14c613feecedb2d67c76ccff",
+      "load_steps": 160,
+      "cases": 259,
+      "runtime_edges_checked": 22112,
+      "terminal_edges": [
+        10,
+        45,
+        85,
+        86
+      ],
+      "terminal_status_hex": [
+        "b1",
+        "e1",
+        "e8",
+        "f0"
+      ],
+      "host": [
+        {
+          "case": 150,
+          "bad": 0,
+          "terminal": "b1",
+          "edge": 86,
+          "delivered": null,
+          "rejected": "HALT without first cache/valid image"
+        },
+        {
+          "case": 256,
+          "bad": 1,
+          "terminal": "e8",
+          "edge": 45,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 257,
+          "bad": 2,
+          "terminal": "f0",
+          "edge": 85,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 258,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 10,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-manual-434": {
+      "words": 18,
+      "binary_sha256": "aef3084655660f13b32b92884ca701e4e4f3b1e5fdf8af27845747b1478f0a57",
+      "load_steps": 160,
+      "cases": 19,
+      "runtime_edges_checked": 150742,
+      "terminal_edges": [
+        870,
+        4130,
+        8470,
+        8471
+      ],
+      "terminal_status_hex": [
+        "b1",
+        "e1",
+        "e8",
+        "f0"
+      ],
+      "host": [
+        {
+          "case": 9,
+          "bad": 0,
+          "terminal": "b1",
+          "edge": 8471,
+          "delivered": null,
+          "rejected": "HALT without first cache/valid image"
+        },
+        {
+          "case": 16,
+          "bad": 1,
+          "terminal": "e8",
+          "edge": 4130,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 17,
+          "bad": 2,
+          "terminal": "f0",
+          "edge": 8470,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 18,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 870,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-late-4": {
+      "words": 18,
+      "binary_sha256": "556aa3ba5f30a252352131260793df1cd1b2f6eb67fb187b87773908035695ae",
+      "load_steps": 160,
+      "expected_checker_rejection": "MISMATCH direction case=0 edge=13 observed=0 expected=1"
+    },
+    "rx-late-434": {
+      "words": 18,
+      "binary_sha256": "5caff7d9349134c1c0d06651cd92f75ab1ea0f23ef861195c0d3e157d60616d0",
+      "load_steps": 160,
+      "expected_checker_rejection": "MISMATCH direction case=0 edge=658 observed=0 expected=1"
+    }
+  },
+  "unmet": [],
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+}

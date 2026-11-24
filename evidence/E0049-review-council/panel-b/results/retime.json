@@ -1,0 +1,454 @@
+{
+  "started_utc": "2026-11-24T15:03:13.969790+00:00",
+  "source": "retimed public Icarus RTL, ideal bus and historical loader",
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "witness": {
+    "g4_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+    "run_id": 43543626249,
+    "archive_id": 14096124429,
+    "archive_sha256": "51802650223e32e270e758d250b7eaa79bde40d3cac16905ce16d19987071050",
+    "member": "output/i2c/write_read-96.json",
+    "member_sha256": "14aa6d759688ead4aa6f8be60cac2b0430a96cc79637dfce0c626b09080eaa49"
+  },
+  "script_sha256": "5eca70da3812a472efb9376a28127de119e7089deea5dab1d92aea520ddf89e2",
+  "reference_trace_sha256": "e3ae610ec9b7ab763fc6ee196ab7861b858b8c1b8436175886d1c202a70b5923",
+  "reference_event_counts": {
+    "scl_transitions": 76,
+    "boundaries": [
+      [
+        "START",
+        948
+      ],
+      [
+        "RESTART",
+        40360
+      ],
+      [
+        "STOP",
+        79632
+      ]
+    ],
+    "halt": 80584
+  },
+  "images": {
+    "8": {
+      "binary_sha256": "22c9adfe5d50b21a912b114597ccdc225bf868a2120e48e8a67a3d1ecb43869e",
+      "words": 108
+    },
+    "24": {
+      "binary_sha256": "a4d4f8a848800f36fe04db0e2e3c6d0ee6a417b4814055cf7fb99da8c53fdc00",
+      "words": 108
+    },
+    "170": {
+      "binary_sha256": "f5561f1febc3cb4b63842e4c927ee9534adedfc911fba79922f7f7e375eb942e",
+      "words": 108
+    },
+    "171": {
+      "binary_sha256": "3c63f275291d9a567de0281468fa74370ab658a12963e9d9b805ea9bdf7d81d5",
+      "words": 108
+    }
+  },
+  "accepted_by_class": {
+    "plain": 4,
+    "nack": 3,
+    "before": 38,
+    "final": 38,
+    "late": 38,
+    "forever": 38
+  },
+  "rejected_expectations": [],
+  "unextended": [
+    {
+      "test": "plain-8",
+      "clocks": 8,
+      "nack": null,
+      "stretches": {},
+      "expected_outcome": "OK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "30d143bfeb9ccc58b217aedd9b01666830faf4bf6a324de0f85147fa3febdadb",
+      "releases": 38,
+      "halt_tick": 80584,
+      "observed_terminal_marker": 1,
+      "matched_original_event_times": {
+        "scl_transitions": true,
+        "boundaries": true,
+        "halt": true
+      },
+      "timing": {
+        "min_ideal_low_ns": 5240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10140,
+        "min_ideal_setup_ns": 1810,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29120,
+          "sda_ns": 29300,
+          "gap_ns": 180
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 180,
+            "max_ns": 200
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 170.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 160.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 46.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": -237.8676
+          }
+        ]
+      },
+      "rx": 1,
+      "rx_valid": 1,
+      "fastest_ideal_hz": 98619.32938856016,
+      "events": [
+        [
+          "START",
+          948
+        ],
+        [
+          "RESTART",
+          40360
+        ],
+        [
+          "STOP",
+          79632
+        ]
+      ],
+      "expectation_matched": true
+    },
+    {
+      "test": "plain-24",
+      "clocks": 24,
+      "nack": null,
+      "stretches": {},
+      "expected_outcome": "OK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "b91e19e6e06830d0b37195b12a8c99d8b1a619530ebebcc5fc9ceb9dbdacad18",
+      "releases": 38,
+      "halt_tick": 80584,
+      "observed_terminal_marker": 1,
+      "matched_original_event_times": {
+        "scl_transitions": true,
+        "boundaries": true,
+        "halt": true
+      },
+      "timing": {
+        "min_ideal_low_ns": 5240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10140,
+        "min_ideal_setup_ns": 1810,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29120,
+          "sda_ns": 29620,
+          "gap_ns": 500
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 500,
+            "max_ns": 520
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 490.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 480.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 366.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 82.1324
+          }
+        ]
+      },
+      "rx": 1,
+      "rx_valid": 1,
+      "fastest_ideal_hz": 98619.32938856016,
+      "events": [
+        [
+          "START",
+          948
+        ],
+        [
+          "RESTART",
+          40360
+        ],
+        [
+          "STOP",
+          79632
+        ]
+      ],
+      "expectation_matched": true
+    },
+    {
+      "test": "plain-170",
+      "clocks": 170,
+      "nack": null,
+      "stretches": {},
+      "expected_outcome": "OK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "725ec7b714e1bb57892bb812e74270b9c862cca64e78b66d5b7a8d903af7be02",
+      "releases": 38,
+      "halt_tick": 80584,
+      "observed_terminal_marker": 1,
+      "matched_original_event_times": {
+        "scl_transitions": true,
+        "boundaries": true,
+        "halt": true
+      },
+      "timing": {
+        "min_ideal_low_ns": 5240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10140,
+        "min_ideal_setup_ns": 1810,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29120,
+          "sda_ns": 32540,
+          "gap_ns": 3420
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 3420,
+            "max_ns": 3440
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 3410.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3400.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3286.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3002.1324
+          }
+        ]
+      },
+      "rx": 1,
+      "rx_valid": 1,
+      "fastest_ideal_hz": 98619.32938856016,
+      "events": [
+        [
+          "START",
+          948
+        ],
+        [
+          "RESTART",
+          40360
+        ],
+        [
+          "STOP",
+          79632
+        ]
+      ],
+      "expectation_matched": true
+    },
+    {
+      "test": "plain-171",
+      "clocks": 171,
+      "nack": null,
+      "stretches": {},
+      "expected_outcome": "OK",
+      "oracle_error_kinds": [
+        "data_valid_delay"
+      ],
+      "expected_oracle_errors": [
+        "data_valid_delay"
+      ],
+      "trace_sha256": "7fb60194f83c649d6a7740e18c6335df83fff673ddfe74bcc52b98d8278cde18",
+      "releases": 38,
+      "halt_tick": 80584,
+      "observed_terminal_marker": 1,
+      "matched_original_event_times": {
+        "scl_transitions": true,
+        "boundaries": true,
+        "halt": true
+      },
+      "timing": {
+        "min_ideal_low_ns": 5240,
+        "min_ideal_high_ns": 4900,
+        "min_ideal_period_ns": 10140,
+        "min_ideal_setup_ns": 1810,
+        "earliest_controller_fall": {
+          "owner": "controller",
+          "direction": "fall",
+          "scl_fall_ns": 29120,
+          "sda_ns": 32560,
+          "gap_ns": 3440
+        },
+        "controller_sda_falls": 8,
+        "ideal_low_changes": {
+          "controller": {
+            "count": 17,
+            "min_ns": 3440,
+            "max_ns": 3460
+          },
+          "target": {
+            "count": 6,
+            "min_ns": 3450,
+            "max_ns": 3450
+          }
+        },
+        "offline_falling_pair_projections": [
+          {
+            "tf_scl_ns": 10,
+            "tf_sda_ns": 10,
+            "ordering_margin_ns": 3430.0
+          },
+          {
+            "tf_scl_ns": 20,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3420.0
+          },
+          {
+            "tf_scl_ns": 100,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3306.3235
+          },
+          {
+            "tf_scl_ns": 300,
+            "tf_sda_ns": 20,
+            "ordering_margin_ns": 3022.1324
+          }
+        ]
+      },
+      "rx": 1,
+      "rx_valid": 1,
+      "fastest_ideal_hz": 98619.32938856016,
+      "events": [
+        [
+          "START",
+          948
+        ],
+        [
+          "RESTART",
+          40360
+        ],
+        [
+          "STOP",
+          79632
+        ]
+      ],
+      "expectation_matched": true
+    }
+  ],
+  "nack": [
+    {
+      "test": "nack-address",
+      "clocks": 24,
+      "nack": "address",
+      "stretches": {},
+      "expected_outcome": "NACK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "3db7cd6edae0e4e39327a790585a19da848ab11744b9481616632d668525747c",
+      "releases": 10,
+      "halt_tick": 22876,
+      "observed_terminal_marker": 2,
+      "expectation_matched": true
+    },
+    {
+      "test": "nack-data",
+      "clocks": 24,
+      "nack": "data",
+      "stretches": {},
+      "expected_outcome": "NACK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "b788f4f01eade7b024ba584fe272103d0a79d7d4ef0a8f98ce963bfe62b6e9f3",
+      "releases": 19,
+      "halt_tick": 41172,
+      "observed_terminal_marker": 2,
+      "expectation_matched": true
+    },
+    {
+      "test": "nack-read_address",
+      "clocks": 24,
+      "nack": "read_address",
+      "stretches": {},
+      "expected_outcome": "NACK",
+      "oracle_error_kinds": [],
+      "expected_oracle_errors": [],
+      "trace_sha256": "7124321da45ccdadd91cd8c2b33854f8e579972fcb9e2d5160a200a3c90a1bcd",
+      "releases": 29,
+      "halt_tick": 62292,
+      "observed_terminal_marker": 2,
+      "expectation_matched": true
+    }
+  ],
+  "timeout_cleanup_ideal_ticks": {
+    "min": 8,
+    "max": 8,
+    "count": 76
+  },
+  "total": 159,
+  "ended_utc": "2026-11-24T15:05:11.914709+00:00",
+  "cases_sha256": "17a0dff8431269adcf0514dc79df1fae05046d2b0f1a530a8f6089de6bf2a31e"
+}

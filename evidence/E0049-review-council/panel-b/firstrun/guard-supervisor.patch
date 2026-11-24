@@ -1,0 +1,30 @@
+--- guard_screen.py
++++ guard_screen.py
+@@ -172,6 +172,7 @@
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--out", required=True, type=Path)
+     parser.add_argument("--root", type=Path, default=Path.cwd())
++    parser.add_argument("--reuse-sim", type=Path, help="Reuse this unchanged Icarus compile after a harness discovery failure.")
+     args = parser.parse_args()
+     out, root = args.out.resolve(), args.root.resolve()
+     out.mkdir(parents=True, exist_ok=False)
+@@ -192,11 +193,18 @@
+                    str(root / "test"), str(root)]), I2C_GENERAL_VARIANT="od128",
+                I2C_GENERAL_RECORD_DIR=str(out), COUNCIL_REPO=str(root),
+                PYTHONHASHSEED="0", COCOTB_RANDOM_SEED="20261124")
+-    sim = out / "sim"
++    sim = args.reuse_sim.resolve() if args.reuse_sim else out/"sim"
+     command = ["make", "-C", str(out), f"SRC_DIR={root/'src'}", "SIM=icarus", f"SIM_BUILD={sim}",
+                "COCOTB_TEST_MODULES=guard_screen", f"COCOTB_RESULTS_FILE={out/'results.xml'}",
+                "GENERAL_IO=yes", "G2_CURRENT=yes", "G2_SRAM=yes", f"SRAM_MODEL_DIR={out}",
+                "FST=", "COCOTB_PLUSARGS=+NO_DUMP"]
++    if args.reuse_sim:
++        if not (sim/"sim.vvp").is_file():
++            raise ValueError("missing earlier Icarus compile")
++        # Select precisely the earlier compile. Testbench, RTL and model bytes
++        # are identical; only the directory of cocotb discovery has changed.
++        command[1:1] = ["-o", str(sim/"sim.vvp")]
++        env["MAKEFLAGS"] = "--assume-old=" + str(sim/"sim.vvp")
+     proc = subprocess.run(command, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                           text=True, check=False, timeout=1200)
+     (out / "run.log").write_text(proc.stdout, encoding="utf-8")

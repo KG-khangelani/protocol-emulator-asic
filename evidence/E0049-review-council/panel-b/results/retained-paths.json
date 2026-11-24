@@ -1,0 +1,111 @@
+{
+  "g4_archives": [
+    {
+      "run_id": 43543626249,
+      "producer_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+      "paths": [
+        {
+          "member": "runs/wokwi/60-openroad-stapostpnr/nom_fast_1p32V_m40C/min.rpt",
+          "member_sha256": "d9b0b133bf1e44cb3174ac353ef2f618e023cd8c56fd7732657d1c7b7a85e3c2",
+          "startpoint": "_7350_",
+          "endpoint": "store.program_memory",
+          "macro_data_pin": [
+            "A_ADDR[6]"
+          ],
+          "slack_ns": 0.12079138031701087
+        },
+        {
+          "member": "runs/wokwi/60-openroad-stapostpnr/nom_slow_1p08V_125C/max.rpt",
+          "member_sha256": "995451385368d4e2a70225a0e214c3080691446986609bdc55eed91f68d3a156",
+          "startpoint": "store.program_memory",
+          "endpoint": "_7498_",
+          "macro_data_pin": [
+            "A_DOUT[24]"
+          ],
+          "slack_ns": 5.5958856909900625
+        }
+      ],
+      "sdc_member": "runs/wokwi/final/sdc/tt_um_khangelani_protocol_emulator.sdc",
+      "sdc_lines": [
+        "create_clock -name clk -period 20.0000 [get_ports {clk}]",
+        "set_clock_uncertainty 0.2500 clk",
+        "set_input_delay 4.0000 -clock [get_clocks {clk}] -add_delay [get_ports {ena}]",
+        "set_output_delay 4.0000 -clock [get_clocks {clk}] -add_delay [get_ports {uio_oe[0]}]"
+      ],
+      "i2c_witness": {
+        "member": "output/i2c/write_read-96.json",
+        "member_sha256": "14aa6d759688ead4aa6f8be60cac2b0430a96cc79637dfce0c626b09080eaa49",
+        "tick_ns": 5,
+        "scl_fall_tick": 5824,
+        "controller_sda_fall_tick": 5828,
+        "minimum_gap_ns": 20,
+        "observed_fastest_clock_hz": 98619.32938856016
+      }
+    },
+    {
+      "run_id": 43543629839,
+      "producer_commit": "45c55f7cd95db2a883b0ffb5e864decd62d53601",
+      "paths": [
+        {
+          "member": "runs/wokwi/60-openroad-stapostpnr/nom_fast_1p32V_m40C/min.rpt",
+          "member_sha256": "d9b0b133bf1e44cb3174ac353ef2f618e023cd8c56fd7732657d1c7b7a85e3c2",
+          "startpoint": "_7350_",
+          "endpoint": "store.program_memory",
+          "macro_data_pin": [
+            "A_ADDR[6]"
+          ],
+          "slack_ns": 0.12079138031701087
+        },
+        {
+          "member": "runs/wokwi/60-openroad-stapostpnr/nom_slow_1p08V_125C/max.rpt",
+          "member_sha256": "995451385368d4e2a70225a0e214c3080691446986609bdc55eed91f68d3a156",
+          "startpoint": "store.program_memory",
+          "endpoint": "_7498_",
+          "macro_data_pin": [
+            "A_DOUT[24]"
+          ],
+          "slack_ns": 5.5958856909900625
+        }
+      ],
+      "sdc_member": "runs/wokwi/final/sdc/tt_um_khangelani_protocol_emulator.sdc",
+      "sdc_lines": [
+        "create_clock -name clk -period 20.0000 [get_ports {clk}]",
+        "set_clock_uncertainty 0.2500 clk",
+        "set_input_delay 4.0000 -clock [get_clocks {clk}] -add_delay [get_ports {ena}]",
+        "set_output_delay 4.0000 -clock [get_clocks {clk}] -add_delay [get_ports {uio_oe[0]}]"
+      ],
+      "i2c_witness": {
+        "member": "output/i2c/write_read-96.json",
+        "member_sha256": "14aa6d759688ead4aa6f8be60cac2b0430a96cc79637dfce0c626b09080eaa49",
+        "tick_ns": 5,
+        "scl_fall_tick": 5824,
+        "controller_sda_fall_tick": 5828,
+        "minimum_gap_ns": 20,
+        "observed_fastest_clock_hz": 98619.32938856016
+      }
+    }
+  ],
+  "falling_edge_models": [
+    {
+      "scl_fall_70_to_30_ns": 10,
+      "sda_fall_70_to_30_ns": 10,
+      "scl_reaches_30_ns": 14.2096,
+      "sda_reaches_70_ns": 24.2096,
+      "ordering_margin_ns": 10.0
+    },
+    {
+      "scl_fall_70_to_30_ns": 20,
+      "sda_fall_70_to_30_ns": 20,
+      "scl_reaches_30_ns": 28.4191,
+      "sda_reaches_70_ns": 28.4191,
+      "ordering_margin_ns": 0.0
+    },
+    {
+      "scl_fall_70_to_30_ns": 100,
+      "sda_fall_70_to_30_ns": 20,
+      "scl_reaches_30_ns": 142.0956,
+      "sda_reaches_70_ns": 28.4191,
+      "ordering_margin_ns": -113.6765
+    }
+  ]
+}
