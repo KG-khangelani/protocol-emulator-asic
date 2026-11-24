@@ -8,8 +8,12 @@ def peer_clock_tree():
             read[0x40050000], read[0x40050008], read[0x4005000c]]
 
 
+def runtime_selector(value):
+    return (value & ~0x12) | ((value & 2) << 3)
+
+
 def runtime_page(value):
-    return page((value & ~0x12) | ((value & 2) << 3))
+    return page(runtime_selector(value))
 
 
 def selector_one_driven():
@@ -31,7 +35,7 @@ def isolated_cold(name, damaged):
             stage.value(1)
             select(write_data ^ int(damaged and selector == 0xc1))
             stage.value(0)  # Keep the original byte in the staging register.
-        select(selector)
+        select(selector if selector & 0x80 else runtime_selector(selector))
         if rst_n != previous_reset:
             tt.reset_project(not rst_n)
             previous_reset = rst_n

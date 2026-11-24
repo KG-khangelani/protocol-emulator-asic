@@ -1,0 +1,11 @@
+UARTLAB {"event": "controller", "original_hz": 133000000, "mode": "ASIC_MANUAL_INPUTS"}
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_RP_CONTROL[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.demoboard: [32;1mChanging reset to output mode[0m
+ttboard.pins.pins: [32;1mSetting mode to ASIC_MANUAL_INPUTS[0m
+Traceback (most recent call last):
+  File "<stdin>", line 501, in <module>
+  File "<stdin>", line 268, in run_suite
+  File "<stdin>", line 324, in isolated_cold
+ValueError: ('staged loader status', 2, 34, 0)

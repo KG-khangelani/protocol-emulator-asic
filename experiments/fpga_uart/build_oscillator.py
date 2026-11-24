@@ -40,6 +40,18 @@ def clock_roots(design, divider):
     return dict(counts)
 
 
+def check_fixture_pads(design):
+    pins = design['ports']['uio']['bits']
+    require(all(pins[i] == 'z' for i in (0, 2, 3, 5, 6)), 'unused bidirectional pad has a driver')
+    cells = {n: c for n, c in design['cells'].items() if c['type'] == 'SB_IO'}
+    require(set(cells) == {'uart_input', 'stage_input', 'monitor'}, 'unexpected bidirectional pad binding')
+    for name, pin in (('uart_input', 1), ('stage_input', 7), ('monitor', 4)):
+        cell = cells[name]
+        require(cell['connections']['PACKAGE_PIN'] == [pins[pin]], 'wrong physical pad: ' + name)
+        mode = '101001' if name == 'monitor' else '000001'
+        require(cell['parameters']['PIN_TYPE'] == mode, 'wrong pad direction: ' + name)
+
+
 def build(directory):
     profile = verify(ROOT)
     sources = [HERE / 'independent_clock.v', HERE / 'program_ram.v']
@@ -57,6 +69,7 @@ def build(directory):
         command(stage, 'synth', ['yosys', '-s', 'build.ys'])
         design = json.loads((stage / 'design.json').read_bytes())['modules']['tt_fpga_top']
         roots = clock_roots(design, divider)
+        check_fixture_pads(design)
         # nextpnr infers the nameplate oscillator frequency unless this net is constrained explicitly.
         (stage / 'constraint.py').write_text(f'ctx.addClock("receiver_clock", {screen})\n')
         rc = command(stage, 'route', ['nextpnr-ice40', '--up5k', '--package', 'sg48', '--seed', str(SEED),
