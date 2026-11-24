@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-24T15:54:01.570337+00:00",
+  "scope": "matched nominal cell mapping; no placement or routing",
+  "reference_libraries": {
+    "sg13cmos5l_stdcell_typ_1p20V_25C.lib": "34163f3e7de9f854afac57332ba06f1739b78e7ac35660a8a5ddd39c570124ad",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6"
+  },
+  "yosys": "Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang /nix/store/874j5xydsj6nr6i1zdrjvhln5gmxvvrr-clang-wrapper-21.1.8/bin/clang++ 21.1.8)",
+  "results": {},
+  "status": "incomplete",
+  "error": "reference unaccounted cells {'$scopeinfo'} / SRAM",
+  "ended_utc": "2026-11-24T15:54:04.890788+00:00"
+}

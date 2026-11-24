@@ -1,0 +1,4 @@
+# Preserve these three measured Windows files byte-for-byte for FILES.sha256.
+records/fresh-replay.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+records/history.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+records/resident-common.pio -text whitespace=trailing-space,space-before-tab,cr-at-eol

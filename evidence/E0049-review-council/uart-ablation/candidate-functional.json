@@ -1,0 +1,196 @@
+{
+  "started_utc": "2026-11-24T16:01:26.676714+00:00",
+  "candidate_sha256": "1e02e4abad487bc57f125b4b441da5681dcad484ce9a333d69a3ebba8b6c04e7",
+  "uart": {
+    "tx-manual-4": {
+      "words": 17,
+      "binary_sha256": "af49ea139935a71193943ff81aac7a1c96746108b9f3a24c3b795b46aa277bcf",
+      "load_steps": 152,
+      "cases": 256,
+      "runtime_edges_checked": 21248,
+      "terminal_edges": [
+        83
+      ],
+      "terminal_status_hex": [
+        "b0"
+      ],
+      "host": []
+    },
+    "tx-manual-434": {
+      "words": 17,
+      "binary_sha256": "c018b8bc9d4ac9e7db83c145af9df2c5f7832eb2dd7a66aa138071c820247f2a",
+      "load_steps": 152,
+      "cases": 16,
+      "runtime_edges_checked": 138928,
+      "terminal_edges": [
+        8683
+      ],
+      "terminal_status_hex": [
+        "b0"
+      ],
+      "host": []
+    },
+    "tx-released-4": {
+      "words": 8,
+      "binary_sha256": "d89bc35fde16057069f36bf818f359683d85cae721b26f561cecb1f49709ac00",
+      "load_steps": 76,
+      "fault_at_edge_status_raw_valid": [
+        7,
+        228,
+        0,
+        0
+      ]
+    },
+    "tx-released-434": {
+      "words": 8,
+      "binary_sha256": "e5cdb1da832d9391897b0e3d5767754185e85ac65d64ae5234204b98686e803d",
+      "load_steps": 76,
+      "fault_at_edge_status_raw_valid": [
+        437,
+        228,
+        0,
+        0
+      ]
+    },
+    "rx-manual-4": {
+      "words": 18,
+      "binary_sha256": "2e6154af3602d85fc0de6762bef28f8e21ccb78a14c613feecedb2d67c76ccff",
+      "load_steps": 160,
+      "cases": 259,
+      "runtime_edges_checked": 22112,
+      "terminal_edges": [
+        10,
+        45,
+        85,
+        86
+      ],
+      "terminal_status_hex": [
+        "b1",
+        "e1",
+        "e8",
+        "f0"
+      ],
+      "host": [
+        {
+          "case": 150,
+          "bad": 0,
+          "terminal": "b1",
+          "edge": 86,
+          "delivered": null,
+          "rejected": "HALT without first cache/valid image"
+        },
+        {
+          "case": 256,
+          "bad": 1,
+          "terminal": "e8",
+          "edge": 45,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 257,
+          "bad": 2,
+          "terminal": "f0",
+          "edge": 85,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 258,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 10,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-manual-434": {
+      "words": 18,
+      "binary_sha256": "aef3084655660f13b32b92884ca701e4e4f3b1e5fdf8af27845747b1478f0a57",
+      "load_steps": 160,
+      "cases": 19,
+      "runtime_edges_checked": 150742,
+      "terminal_edges": [
+        870,
+        4130,
+        8470,
+        8471
+      ],
+      "terminal_status_hex": [
+        "b1",
+        "e1",
+        "e8",
+        "f0"
+      ],
+      "host": [
+        {
+          "case": 9,
+          "bad": 0,
+          "terminal": "b1",
+          "edge": 8471,
+          "delivered": null,
+          "rejected": "HALT without first cache/valid image"
+        },
+        {
+          "case": 16,
+          "bad": 1,
+          "terminal": "e8",
+          "edge": 4130,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 17,
+          "bad": 2,
+          "terminal": "f0",
+          "edge": 8470,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        },
+        {
+          "case": 18,
+          "bad": 3,
+          "terminal": "e1",
+          "edge": 870,
+          "delivered": null,
+          "rejected": "not-ready/fault"
+        }
+      ]
+    },
+    "rx-released-4": {
+      "words": 8,
+      "binary_sha256": "c3f241298a270d983099cc41ce65c0ac0142abcb53e6870e5caf1e8e7eeb34f9",
+      "load_steps": 76,
+      "fault_at_edge_status_raw_valid": [
+        13,
+        229,
+        0,
+        0
+      ]
+    },
+    "rx-released-434": {
+      "words": 8,
+      "binary_sha256": "47f0f1b86828840ec671579b6042334995267eb6e6167d88e737c499f82c0c39",
+      "load_steps": 76,
+      "fault_at_edge_status_raw_valid": [
+        658,
+        229,
+        0,
+        0
+      ]
+    }
+  },
+  "non_uart_g3": {
+    "groups": [
+      "assembled_i2c_examples",
+      "assembled_loader_controls",
+      "assembled_spi_examples"
+    ],
+    "cases": 50,
+    "expected_rejections": 13,
+    "observations": 15455
+  },
+  "status": "pass",
+  "ended_utc": "2026-11-24T16:01:54.285301+00:00"
+}

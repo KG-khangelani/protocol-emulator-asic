@@ -1,0 +1,70 @@
+[
+  {
+    "stage": "01",
+    "start_utc": "2026-11-24T15:33:29.549936+00:00",
+    "end_utc": "2026-11-24T15:34:09.694304+00:00",
+    "raw_original_json_sha256": "6271bf60909631e8b59bf37680d89ae36dd0380eab4b362018f989155d6df330",
+    "compressed_public_row_sha256": "36f7df790502098bd0aa36f3811118237a064445c376b05c17969acf01f3e73b",
+    "cases": 256,
+    "met_disposition": 256,
+    "historical_unexpected": 0,
+    "public_edge_rows": 106760,
+    "raw_public_row_sha256": "9a138e0559938f658d776c5403a34a20e8510997711f34eecfe73a8c2a3d1e13"
+  },
+  {
+    "stage": "02",
+    "start_utc": "2026-11-24T15:39:20.121620+00:00",
+    "end_utc": "2026-11-24T15:40:12.900681+00:00",
+    "raw_original_json_sha256": "4810020e299029146f4d8da6ee75a6151f591a4f59ba38403a291f055a29d380",
+    "compressed_public_row_sha256": "36f7df790502098bd0aa36f3811118237a064445c376b05c17969acf01f3e73b",
+    "cases": 360,
+    "met_disposition": 256,
+    "historical_unexpected": 104,
+    "public_edge_rows": 106760,
+    "raw_public_row_sha256": "9a138e0559938f658d776c5403a34a20e8510997711f34eecfe73a8c2a3d1e13",
+    "first_failure_stack": "emulator exit 1: pio-spi/pio_spi_trace.cjs:93\n        if (sm.waiting || duration < 1 || duration > 8) throw new Error(\"SM stalled or delay outside range\");\n                                                        ^\n\nError: SM stalled or delay outside range\n    at Object.<anonymous> (pio-spi/pio_spi_trace.cjs:93:63)\n    at Module._compile (node:internal/modules/cjs/loader:1871:14)\n    at Object..js (node:internal/modules/cjs/loader:2002:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v24.18.0\n",
+    "first_failure_case": {
+      "index": 32,
+      "case": [
+        "gpio_bypass",
+        0,
+        0,
+        "bypass_exact",
+        "edge_only",
+        150,
+        105,
+        null,
+        false,
+        "pass"
+      ],
+      "error_class": "SM stalled or delay outside range"
+    },
+    "all_previous_successful_records_identical": true
+  },
+  {
+    "stage": "03",
+    "start_utc": "2026-11-24T15:45:17.997388+00:00",
+    "end_utc": "2026-11-24T15:46:15.636025+00:00",
+    "raw_original_json_sha256": "1ee21daa8840e96f603d984b9e33629affd089d82a6f5a550d1484f4209699e0",
+    "compressed_public_row_sha256": "c179c8c080c6dbdff644703d85da13fdedd6a669c65aa837f115e46a50f4c14d",
+    "cases": 424,
+    "met_disposition": 424,
+    "historical_unexpected": 0,
+    "public_edge_rows": 176816,
+    "raw_public_row_sha256": "707dc66352933601b663aa30012992c7d6f2769065bf71b42818c33023bb8771",
+    "all_previous_successful_records_identical": true
+  },
+  {
+    "stage": "04",
+    "start_utc": "2026-11-24T15:50:50.509909+00:00",
+    "end_utc": "2026-11-24T15:52:03.010275+00:00",
+    "raw_original_json_sha256": "0d0042262c02497b532edfb207ac38a88dbcff45301dc1e43ad3024d48defd67",
+    "compressed_public_row_sha256": "93186af9cf1ffc5b9577be0531f717377d920da32859d18484a1dedaa577b399",
+    "cases": 536,
+    "met_disposition": 536,
+    "historical_unexpected": 0,
+    "public_edge_rows": 223520,
+    "raw_public_row_sha256": "f2e2bdd2ace70053c897803599df1f25d75660f42bdb53f3b574c71a2f46aaf3",
+    "all_previous_successful_records_identical": true
+  }
+]

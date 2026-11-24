@@ -1,0 +1,1829 @@
+{
+  "scope": "fresh zero-delay RTL and G4 gate functional models; all external selectable paths ideal digital elements",
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "archive_sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2",
+  "submitted_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "input_plan_sha256": "16f016a699ee92431bede9995e396d23af35e4f5f83998bf64a22438b47811a9",
+  "input_plan_steps": 498,
+  "assembly_image_sha256": "8d257ace7cc236c3ff5b2b71242679422f81900b6ee10dbd0daa78a7f318a81e",
+  "source_sha256": {
+    "switch_reselect_tb.sv": "392747a35136de0c880bba0d1a3f903eaa3022a4887ee5f3533910cab76f158c",
+    "switch_reselect.py": "2ff2147cb0cf6e652f5732ca972fdae93a8f714ded6e47b1216893276d791e06"
+  },
+  "pdk_source": "89d42ee6d2fd9b50b86a1aada6fee6673c3e6008",
+  "cell_models": {
+    "sg13cmos5l_io/verilog/sg13cmos5l_io.v": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735"
+  },
+  "representations": [
+    "rtl",
+    "g4"
+  ],
+  "matched_cases_per_representation": 20,
+  "cases": {
+    "direct/normal_a5/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "normal_end": {
+          "time_ns": 8757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        },
+        "terminal": {
+          "time_ns": 11157,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "10100111"
+      },
+      "second_frame": null
+    },
+    "direct/parked_high/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "direct/parked_high/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "direct/new_mode0_a4/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    },
+    "direct/new_mode0_a4/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    },
+    "one_way/normal_a5/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "x",
+          "status": "60"
+        },
+        "normal_end": {
+          "time_ns": 8757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        },
+        "terminal": {
+          "time_ns": 11157,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "10100111"
+      },
+      "second_frame": null
+    },
+    "one_way/parked_high/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "x",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "one_way/parked_high/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "x",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "one_way/new_mode0_a4/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "x",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "00000000"
+      }
+    },
+    "one_way/new_mode0_a4/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "x",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "response_bits": "00000000"
+      }
+    },
+    "bilateral/normal_a5/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "normal_end": {
+          "time_ns": 8757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        },
+        "terminal": {
+          "time_ns": 11157,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "10100111"
+      },
+      "second_frame": null
+    },
+    "bilateral/parked_high/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "bilateral/parked_high/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "bilateral/new_mode0_a4/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "x",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    },
+    "bilateral/new_mode0_a4/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "1",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    },
+    "disarmed/normal_a5/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "normal_end": {
+          "time_ns": 8757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        },
+        "terminal": {
+          "time_ns": 11157,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b6"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "10100111"
+      },
+      "second_frame": null
+    },
+    "disarmed/parked_high/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "disarmed/parked_high/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "parked_end": {
+          "time_ns": 6608,
+          "cs": "0",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        },
+        "terminal": {
+          "time_ns": 9028,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "ba"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": null
+    },
+    "disarmed/new_mode0_a4/peer0": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    },
+    "disarmed/new_mode0_a4/peer1": {
+      "snapshots": {
+        "first_select": {
+          "time_ns": 208,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "0",
+          "bus": "0",
+          "status": "60"
+        },
+        "command_drive_control": {
+          "time_ns": 209,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "60"
+        },
+        "abort_plus_1": {
+          "time_ns": 4648,
+          "cs": "1",
+          "sck": "1",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "72"
+        },
+        "abort_plus_159": {
+          "time_ns": 4806,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "reselect_with_peer": {
+          "time_ns": 4808,
+          "cs": "0",
+          "sck": "0",
+          "chip_oe": "1",
+          "chip_value": "1",
+          "branch_oe": "0",
+          "peer_on": "1",
+          "peer_value": "1",
+          "bus": "1",
+          "status": "37"
+        },
+        "second_end": {
+          "time_ns": 13357,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        },
+        "terminal": {
+          "time_ns": 15757,
+          "cs": "1",
+          "sck": "0",
+          "chip_oe": "0",
+          "chip_value": "0",
+          "branch_oe": "0",
+          "peer_on": "0",
+          "peer_value": "1",
+          "bus": "0",
+          "status": "b8"
+        }
+      },
+      "first_frame": {
+        "command_driven_indices": [],
+        "response_bits": "1"
+      },
+      "second_frame": {
+        "command_driven_indices": [],
+        "response_bits": "zzzzzzzz"
+      }
+    }
+  }
+}

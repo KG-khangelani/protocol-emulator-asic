@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261124" />
+    <testcase name="assembled_loader_controls" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/functional-burst-02/fixture/council_powered_g3.py" lineno="102" time="0.3068876266479492" sim_time_ns="45030.148" ratio_time="146731.71574837397" />
+    <testcase name="assembled_uart_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/functional-burst-02/fixture/council_powered_g3.py" lineno="153" time="0" sim_time_ns="0" ratio_time="0">
+      <skipped />
+    </testcase>
+    <testcase name="assembled_spi_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/functional-burst-02/fixture/council_powered_g3.py" lineno="239" time="3.3759925365448" sim_time_ns="251044.99999999997" ratio_time="74361.8350107299" />
+    <testcase name="assembled_i2c_examples" classname="council_powered_g3" file="/workspace/build/council-2026-11-24/chair/functional-burst-02/fixture/council_powered_g3.py" lineno="278" time="6.904476642608643" sim_time_ns="10189750.216" ratio_time="1475817.8995229562" />
+  </testsuite>
+</testsuites>

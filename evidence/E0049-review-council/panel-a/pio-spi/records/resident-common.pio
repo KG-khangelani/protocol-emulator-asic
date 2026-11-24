@@ -1,0 +1,43 @@
+; SPDX-License-Identifier: Apache-2.0
+.program council_spi_resident
+.side_set 2
+.wrap_target
+phase0_entry:
+    out pins, 1                side 2
+    set pindirs, 13            side 0 [7]
+    jmp p0_launch_tail            side 0 [7]
+p0_next_bit:
+    out pins, 1                side 0 [7]
+    nop                        side 0 [7]
+p0_launch_tail:
+    nop                        side 0 [7]
+    nop                        side 0
+    nop                        side 1 [3]
+    in pins, 1                 side 1 [7]
+    nop                        side 1 [7]
+    jmp y-- p0_next_bit           side 1 [4]
+    jmp complete               side 2
+phase1_entry:
+    out pins, 1                side 0 [7]
+    nop                        side 0 [7]
+    nop                        side 0 [7]
+    nop                        side 0
+    set pindirs, 13            side 1 [7]
+    jmp p1_launch_tail            side 1 [7]
+p1_next_bit:
+    out pins, 1                side 1 [7]
+    nop                        side 1 [7]
+p1_launch_tail:
+    nop                        side 1 [7]
+    nop                        side 1
+    nop                        side 0 [3]
+    in pins, 1                 side 0 [7]
+    nop                        side 0 [7]
+    jmp y-- p1_next_bit           side 0 [4]
+    jmp complete               side 2
+complete:
+    nop                        side 2
+    irq 0                      side 2
+hold:
+    jmp hold                   side 2
+.wrap

@@ -1,0 +1,2 @@
+# The hash-identified original simulation fixture has one trailing space.
+spi_target_tb.v whitespace=-blank-at-eol

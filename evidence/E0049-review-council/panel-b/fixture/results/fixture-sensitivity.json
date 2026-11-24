@@ -1,0 +1,172 @@
+{
+  "scope": "Analytical proposed 3.3 V setup, no hardware measurement",
+  "independent_integrator_max_abs_error_v": 4.858280444608454e-11,
+  "same_bias_held_and_released_ma": [
+    0.0,
+    0.0
+  ],
+  "absolute_opposing_current_ceiling_ma_at_3p4V_min_external_resistors": 2.336288,
+  "voltage_at_0p25ma_across_470ohm_v": 0.1175,
+  "cases": [
+    {
+      "ct_cb_pf": [
+        12,
+        12
+      ],
+      "initial_drive_and_bias_v": [
+        3.3,
+        0
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 42.899,
+      "rp2040_guaranteed_bias_level_ns": 27.162,
+      "microchip_guaranteed_bias_level_ns": 21.377,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.003346,
+        "80": 0.063739,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        12,
+        12
+      ],
+      "initial_drive_and_bias_v": [
+        0,
+        3.3
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 42.899,
+      "rp2040_guaranteed_bias_level_ns": 13.967,
+      "microchip_guaranteed_bias_level_ns": 21.377,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.003346,
+        "80": 0.063739,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        24,
+        40
+      ],
+      "initial_drive_and_bias_v": [
+        3.3,
+        0
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 89.002,
+      "rp2040_guaranteed_bias_level_ns": 69.035,
+      "microchip_guaranteed_bias_level_ns": 54.389,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.088962,
+        "80": 0.284999,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        24,
+        40
+      ],
+      "initial_drive_and_bias_v": [
+        0,
+        3.3
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 89.002,
+      "rp2040_guaranteed_bias_level_ns": 35.626,
+      "microchip_guaranteed_bias_level_ns": 54.389,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.088962,
+        "80": 0.284999,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        60,
+        60
+      ],
+      "initial_drive_and_bias_v": [
+        3.3,
+        0
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 214.496,
+      "rp2040_guaranteed_bias_level_ns": 135.812,
+      "microchip_guaranteed_bias_level_ns": 106.883,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.373513,
+        "80": 0.67464,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        60,
+        60
+      ],
+      "initial_drive_and_bias_v": [
+        0,
+        3.3
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 214.496,
+      "rp2040_guaranteed_bias_level_ns": 69.835,
+      "microchip_guaranteed_bias_level_ns": 106.883,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.373513,
+        "80": 0.67464,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        120,
+        120
+      ],
+      "initial_drive_and_bias_v": [
+        3.3,
+        0
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 428.991,
+      "rp2040_guaranteed_bias_level_ns": 271.624,
+      "microchip_guaranteed_bias_level_ns": 213.766,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.67464,
+        "80": 0.934965,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    },
+    {
+      "ct_cb_pf": [
+        120,
+        120
+      ],
+      "initial_drive_and_bias_v": [
+        0,
+        3.3
+      ],
+      "steady_opposed_current_ma": 1.976048,
+      "after_release_i_abs_lo_0p25ma_ns": 428.991,
+      "rp2040_guaranteed_bias_level_ns": 139.671,
+      "microchip_guaranteed_bias_level_ns": 213.766,
+      "current_ma_at_t160_by_release_delay_ns": {
+        "0": 0.67464,
+        "80": 0.934965,
+        "160": 1.976048,
+        "1563": 1.976048
+      }
+    }
+  ]
+}

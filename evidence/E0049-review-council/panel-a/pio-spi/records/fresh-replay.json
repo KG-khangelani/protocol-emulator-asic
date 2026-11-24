@@ -1,0 +1,64 @@
+{
+  "started_utc": "2026-11-24T15:54:43.649519+00:00",
+  "stages": [
+    {
+      "stage": "01",
+      "cases": 256,
+      "met_disposition": 256,
+      "historical_unexpected": 0,
+      "eight_frame_sequence": 0,
+      "raw_public_rows_sha256": "9a138e0559938f658d776c5403a34a20e8510997711f34eecfe73a8c2a3d1e13",
+      "measured_start_utc": "2026-11-24T15:54:44.589841+00:00",
+      "measured_end_utc": "2026-11-24T15:55:21.330467+00:00",
+      "node": "v24.18.0",
+      "input_file_hashes_match_on_host": true,
+      "tools_json_hash_matches_on_host": true
+    },
+    {
+      "stage": "02",
+      "cases": 360,
+      "met_disposition": 256,
+      "historical_unexpected": 104,
+      "eight_frame_sequence": 0,
+      "raw_public_rows_sha256": "9a138e0559938f658d776c5403a34a20e8510997711f34eecfe73a8c2a3d1e13",
+      "measured_start_utc": "2026-11-24T15:55:21.513921+00:00",
+      "measured_end_utc": "2026-11-24T15:56:16.682606+00:00",
+      "node": "v24.18.0",
+      "input_file_hashes_match_on_host": true,
+      "tools_json_hash_matches_on_host": true
+    },
+    {
+      "stage": "03",
+      "cases": 424,
+      "met_disposition": 424,
+      "historical_unexpected": 0,
+      "eight_frame_sequence": 0,
+      "raw_public_rows_sha256": "707dc66352933601b663aa30012992c7d6f2769065bf71b42818c33023bb8771",
+      "measured_start_utc": "2026-11-24T15:56:16.855399+00:00",
+      "measured_end_utc": "2026-11-24T15:57:14.142634+00:00",
+      "node": "v24.18.0",
+      "input_file_hashes_match_on_host": true,
+      "tools_json_hash_matches_on_host": true
+    },
+    {
+      "stage": "04",
+      "cases": 536,
+      "met_disposition": 536,
+      "historical_unexpected": 0,
+      "eight_frame_sequence": 8,
+      "raw_public_rows_sha256": "f2e2bdd2ace70053c897803599df1f25d75660f42bdb53f3b574c71a2f46aaf3",
+      "measured_start_utc": "2026-11-24T15:57:14.370869+00:00",
+      "measured_end_utc": "2026-11-24T15:58:23.402626+00:00",
+      "node": "v24.18.0",
+      "input_file_hashes_match_on_host": true,
+      "tools_json_hash_matches_on_host": true
+    }
+  ],
+  "normative_probe_observed_levels": [
+    1,
+    1,
+    0,
+    1
+  ],
+  "finished_utc": "2026-11-24T15:58:23.574982+00:00"
+}

@@ -1,0 +1,107 @@
+{
+  "started_utc": "2026-11-24T16:01:26.186245+00:00",
+  "scope": "matched nominal cell mapping; no placement or routing",
+  "reference_libraries": {
+    "sg13cmos5l_stdcell_typ_1p20V_25C.lib": "34163f3e7de9f854afac57332ba06f1739b78e7ac35660a8a5ddd39c570124ad",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist_typ_1p20V_25C.lib": "5592828b5fbce6d368f870ce725ebe9e14d980061a535604e8ad9ada68b219c6"
+  },
+  "yosys": "Yosys 0.69 (git sha1 9f75ca1f9834a39a863915b5dae0c7b1e33533bc, Release, Clang /nix/store/874j5xydsj6nr6i1zdrjvhln5gmxvvrr-clang-wrapper-21.1.8/bin/clang++ 21.1.8)",
+  "results": {
+    "reference": {
+      "cell_counts": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist": 1,
+        "sg13cmos5l_a21o_1": 48,
+        "sg13cmos5l_a21oi_1": 488,
+        "sg13cmos5l_a221oi_1": 118,
+        "sg13cmos5l_a22oi_1": 93,
+        "sg13cmos5l_and2_1": 107,
+        "sg13cmos5l_and3_1": 15,
+        "sg13cmos5l_and4_1": 14,
+        "sg13cmos5l_dfrbpq_1": 353,
+        "sg13cmos5l_inv_1": 153,
+        "sg13cmos5l_mux2_1": 44,
+        "sg13cmos5l_mux4_1": 35,
+        "sg13cmos5l_nand2_1": 357,
+        "sg13cmos5l_nand2b_1": 52,
+        "sg13cmos5l_nand3_1": 103,
+        "sg13cmos5l_nand3b_1": 11,
+        "sg13cmos5l_nand4_1": 76,
+        "sg13cmos5l_nor2_1": 431,
+        "sg13cmos5l_nor2b_1": 59,
+        "sg13cmos5l_nor3_1": 96,
+        "sg13cmos5l_nor4_1": 70,
+        "sg13cmos5l_o21ai_1": 384,
+        "sg13cmos5l_or2_1": 24,
+        "sg13cmos5l_or3_1": 10,
+        "sg13cmos5l_or4_1": 20,
+        "sg13cmos5l_xnor2_1": 58,
+        "sg13cmos5l_xor2_1": 8
+      },
+      "scope_attributes": 4,
+      "std_cells": 3227,
+      "sequential_cells": 353,
+      "std_cell_area_um2": 44717.8158,
+      "macro_area_um2": 49488.4992,
+      "total_um2": 94206.315,
+      "source_hashes": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+      }
+    },
+    "ablation": {
+      "cell_counts": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist": 1,
+        "sg13cmos5l_a21o_1": 35,
+        "sg13cmos5l_a21oi_1": 457,
+        "sg13cmos5l_a221oi_1": 118,
+        "sg13cmos5l_a22oi_1": 91,
+        "sg13cmos5l_and2_1": 116,
+        "sg13cmos5l_and3_1": 33,
+        "sg13cmos5l_and4_1": 18,
+        "sg13cmos5l_dfrbpq_1": 353,
+        "sg13cmos5l_inv_1": 111,
+        "sg13cmos5l_mux2_1": 37,
+        "sg13cmos5l_mux4_1": 28,
+        "sg13cmos5l_nand2_1": 266,
+        "sg13cmos5l_nand2b_1": 59,
+        "sg13cmos5l_nand3_1": 107,
+        "sg13cmos5l_nand3b_1": 13,
+        "sg13cmos5l_nand4_1": 63,
+        "sg13cmos5l_nor2_1": 373,
+        "sg13cmos5l_nor2b_1": 39,
+        "sg13cmos5l_nor3_1": 102,
+        "sg13cmos5l_nor4_1": 58,
+        "sg13cmos5l_o21ai_1": 362,
+        "sg13cmos5l_or2_1": 15,
+        "sg13cmos5l_or3_1": 12,
+        "sg13cmos5l_or4_1": 23,
+        "sg13cmos5l_xnor2_1": 55,
+        "sg13cmos5l_xor2_1": 22
+      },
+      "scope_attributes": 4,
+      "std_cells": 2966,
+      "sequential_cells": 353,
+      "std_cell_area_um2": 42587.7858,
+      "macro_area_um2": 49488.4992,
+      "total_um2": 92076.285,
+      "source_hashes": {
+        "RM_IHPSG13_1P_256x32_c2_bm_bist.vh": "ef9519a465bd374d37365f7a15b3b2e16573712f27ccdd61e37b1c03a5b54c7f",
+        "m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+        "m1_engine.v": "1e02e4abad487bc57f125b4b441da5681dcad484ce9a333d69a3ebba8b6c04e7",
+        "m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+        "m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+        "project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18"
+      }
+    }
+  },
+  "savings_percent": {
+    "std_cell_area_um2": 4.763269,
+    "total_um2": 2.261027
+  },
+  "status": "matched",
+  "ended_utc": "2026-11-24T16:01:29.163001+00:00"
+}

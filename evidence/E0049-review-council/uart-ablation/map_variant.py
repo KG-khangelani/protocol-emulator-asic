@@ -96,24 +96,31 @@ def map_both(out):
             d = out / name
             check(all(sha((d/n).read_bytes()) == h for n,h in expected.items()), "copied sources")
             stats = d / "stat.json"
-            check(not stats.exists(), "choose fresh prepared sources")
             commands = [f"read_verilog -lib {d / (MACRO+'.vh')}",
                         "read_verilog -sv -DSYNTHESIS " + " ".join(str(d/n) for n in expected if n.endswith(".v")),
                         f"hierarchy -check -top {TOP}", f"synth -flatten -noabc -top {TOP}", "check -assert",
                         f"dfflibmap -liberty {std}", f"abc -liberty {std}", "clean",
                         f"tee -o {stats} stat -json -top {TOP} -liberty {std} -liberty {macro}"]
             path = d / "map.ys"
-            path.write_text("\n".join(commands) + "\n")
-            with (d/"map.log").open("wb") as log:
-                proc = subprocess.run(["yosys", "-Q", "-s", str(path)], stdout=log,
-                                      stderr=subprocess.STDOUT, timeout=180)
-            check(proc.returncode == 0, name + " Yosys mapping")
+            recipe = "\n".join(commands) + "\n"
+            if stats.exists():
+                check(path.read_text() == recipe and "End of script." in (d/"map.log").read_text(),
+                      "incomplete or different mapping recipe")
+            else:
+                path.write_text(recipe)
+                with (d/"map.log").open("wb") as log:
+                    proc = subprocess.run(["yosys", "-Q", "-s", str(path)], stdout=log,
+                                          stderr=subprocess.STDOUT, timeout=180)
+                check(proc.returncode == 0, name + " Yosys mapping")
             stat = json.loads(stats.read_bytes())["modules"]["\\"+TOP]
             counts = {n.lstrip("\\"): count for n,count in stat["num_cells_by_type"].items()}
+            # Yosys flatten emits portless scope records to preserve source attributes.
+            metadata = counts.pop("$scopeinfo", 0)
             unknown = set(counts) - set(table)
             check(not unknown and counts.get(MACRO) == 1, f"{name} unaccounted cells {unknown} / SRAM")
             std_area = sum(table[k][0]*c for k,c in counts.items() if k != MACRO)
-            record["results"][name] = {"cell_counts": counts, "std_cells": sum(counts.values())-1,
+            record["results"][name] = {"cell_counts": counts, "scope_attributes": metadata,
+                                       "std_cells": sum(counts.values())-1,
                                        "sequential_cells": sum(c for k,c in counts.items() if k != MACRO and table[k][1]),
                                        "std_cell_area_um2": round(std_area,4), "macro_area_um2": table[MACRO][0],
                                        "total_um2": round(std_area+table[MACRO][0],4),

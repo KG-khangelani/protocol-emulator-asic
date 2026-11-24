@@ -1,0 +1,146 @@
+[
+  {
+    "mode": 0,
+    "order": 0,
+    "rows": 405,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      8,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": []
+  },
+  {
+    "mode": 0,
+    "order": 1,
+    "rows": 405,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      8,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": []
+  },
+  {
+    "mode": 1,
+    "order": 0,
+    "rows": 429,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      8,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": []
+  },
+  {
+    "mode": 1,
+    "order": 1,
+    "rows": 429,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      8,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": []
+  },
+  {
+    "mode": 2,
+    "order": 0,
+    "rows": 405,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      12,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": [
+      0
+    ]
+  },
+  {
+    "mode": 2,
+    "order": 1,
+    "rows": 405,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      12,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": [
+      0
+    ]
+  },
+  {
+    "mode": 3,
+    "order": 0,
+    "rows": 429,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      12,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": [
+      0
+    ]
+  },
+  {
+    "mode": 3,
+    "order": 1,
+    "rows": 429,
+    "vm_edge0_output_enable": [
+      0,
+      0
+    ],
+    "pio_edge0_output_enable": [
+      12,
+      12
+    ],
+    "enable_difference_edges": [
+      0
+    ],
+    "resolved_difference_edges": [
+      0
+    ]
+  }
+]

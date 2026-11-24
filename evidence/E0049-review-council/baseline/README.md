@@ -9,3 +9,10 @@ From the repository root with Python 3.11 or later, use a fresh filename under `
 ```powershell
 python -B evidence/E0049-review-council/baseline/check.py --live --out build/council-baseline-replay.json
 ```
+
+The chair also streamed each member of the two G4 run archive sets and the original G5 program CI artifact against the retained SHA-256 indexes. All thirteen ZIP identities and 3,768 member instances matched. The decompressed input total was 1,588,332,728 bytes. Instances include files present in both builds. The original G5 verifier independently re-evaluated the CI evidence and the archived native Windows assembly. Its receipt equals the original CI verification object in every common field and adds the eight-file Windows comparison. Source and asset integrity, digital semantics and human reproducibility answer different questions. [Streamed results](streamed-archives.json) · [Fresh G5 verifier output](g5-original-audit.json) · [Original G5 CI](../../E0048-waveform-replay/ci-66743b6/verification.json)
+
+```powershell
+python -B evidence/E0049-review-council/baseline/check_archives.py build/council-original-archives.json
+python -B evidence/E0048-waveform-replay/verify.py --directory evidence/E0048-waveform-replay/ci-66743b6 --windows-build evidence/E0048-waveform-replay/windows-build-66743b6 --output build/council-original-g5.json
+```

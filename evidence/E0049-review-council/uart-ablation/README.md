@@ -19,3 +19,24 @@ The original run compiled at 15:19:59 UTC and finished at 15:20:27 UTC. It used 
 ```sh
 python3 -B evidence/E0049-review-council/uart-ablation/screen.py build/council-uart-replay
 ```
+
+## Same-library hardware removal
+
+A separate test changed one decoded period field to zero in an isolated copy of the complete top, which makes the original burst encodings fault. The physical SRAM, loader, manual shift, phase operations and all top-level ports participated in both maps. Both used the same nominal IHP Liberty files, the same ABC script and Yosys 0.69. The kept output names every hardware cell and records the four portless hierarchy annotations separately. [Prospective contract](mapping-contract.md) · [Rejected commands and accounting](mapping-amendment.md) · [Cell counts, areas, libraries and source digests](mapped.json)
+
+| Nominal mapped measure | Reference | Experimental copy |
+| --- | ---: | ---: |
+| Standard cells / sequential cells | 3,227 / 353 | 2,966 / 353 |
+| Standard-cell area (µm²) | 44,717.8158 | 42,587.7858 |
+| SRAM area (µm²), one macro | 49,488.4992 | 49,488.4992 |
+| Total cell-plus-macro area (µm²) | 94,206.3150 | 92,076.2850 |
+
+Disabling the operation saved 2,130.03 µm² under this mapper, 4.7633% of the logic or 2.2610% including SRAM. The reference here was mapped with its own matched recipe. G4's routed standard-cell area comes from a different flow. The two runs establish neither a tile saving nor a timing or power improvement. [Reference statistics](reference-stat.json.gz) · [Variant statistics](ablation-stat.json.gz) · [Reference map log](reference-map.log.gz) · [Variant map log](ablation-map.log.gz)
+
+On that same source variant the 550 manual UART cases passed and the four original burst probes faulted at the predicted TX or RX instruction with invalid, zero result. The three non-UART G3 groups matched fifty original cases including thirteen deliberate rejections, covering 15,455 observations. This separates the value of the instruction from the cost of its implementation. It also demonstrates a specific compatibility break in programs published for interface 0x22. Changing that interface would need a use case, versioned migration, wider regression and fresh physical acceptance. [Candidate results](candidate-functional.json) · [UART observations](candidate-uart-observations.log.gz) · [Non-UART records](candidate-g3.jsonl.gz) · [JUnit](candidate-g3.xml)
+
+Run from an H: checkout with the repository's pinned workbench and physical PDK available locally. The wrapper requires a new output name and mounts sources and PDK read-only.
+
+```powershell
+./evidence/E0049-review-council/uart-ablation/replay-mapping.ps1 -RunName council-mapped-replay
+```

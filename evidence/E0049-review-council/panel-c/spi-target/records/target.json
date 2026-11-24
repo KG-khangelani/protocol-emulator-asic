@@ -1,0 +1,221 @@
+{
+  "started_utc": "2026-11-24T15:44:15.020661+00:00",
+  "status": "COMPLETE_DIGITAL_SCREEN",
+  "implementation": {
+    "rtl": {
+      "cases": 288,
+      "outcomes": {
+        "BAD_OPCODE": 255,
+        "OK": 28,
+        "TIMEOUT": 2,
+        "BAD_CS": 1,
+        "ABORT": 1,
+        "REJECTED_MUTATION": 1
+      },
+      "unexpected_failures": [],
+      "first_unexpected": null,
+      "first_bad_command_index_histogram": {
+        "0": 129,
+        "2": 32,
+        "5": 4,
+        "6": 2,
+        "4": 8,
+        "3": 16,
+        "1": 64
+      },
+      "minimum_modeled_setup_ns": 131,
+      "minimum_modeled_hold_ns": 311,
+      "maximum_normal_release_ns": 79,
+      "named": {
+        "all-a4": {
+          "outcome": "OK",
+          "reply": 60,
+          "min_miso_setup_ns": 397,
+          "min_miso_hold_ns": 563,
+          "miso_release_after_last_fall_ns": 63
+        },
+        "all-a5": {
+          "outcome": "OK",
+          "reply": 167,
+          "min_miso_setup_ns": 397,
+          "min_miso_hold_ns": 563,
+          "miso_release_after_last_fall_ns": 63
+        },
+        "named-bad": {
+          "outcome": "BAD_OPCODE",
+          "first_bad_command_bit": 0,
+          "decision_after_rise_ns": 124
+        },
+        "missing": {
+          "outcome": "TIMEOUT",
+          "from_last_activity_ns": 1718
+        },
+        "late": {
+          "outcome": "TIMEOUT",
+          "from_last_activity_ns": 1730
+        },
+        "early-cs": {
+          "outcome": "BAD_CS",
+          "after_cs_ns": 972
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 1563,
+          "terminal_after_cs_ns": 1584,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "reply-mutation": {
+          "outcome": "REJECTED_MUTATION",
+          "reason": "reply bit 7: expected 1, sampled 0, driven True"
+        }
+      },
+      "canonical_sha256": "2e3dba7edeebca54704c0920d5230b4e676eed4f8038c839588e8db37d0cb6e6"
+    },
+    "g4_netlist": {
+      "cases": 8,
+      "outcomes": {
+        "OK": 2,
+        "BAD_OPCODE": 1,
+        "TIMEOUT": 2,
+        "BAD_CS": 1,
+        "ABORT": 1,
+        "REJECTED_MUTATION": 1
+      },
+      "unexpected_failures": [],
+      "first_unexpected": null,
+      "first_bad_command_index_histogram": {
+        "0": 1
+      },
+      "minimum_modeled_setup_ns": 397,
+      "minimum_modeled_hold_ns": 563,
+      "maximum_normal_release_ns": 63,
+      "named": {
+        "all-a4": {
+          "outcome": "OK",
+          "reply": 60,
+          "min_miso_setup_ns": 397,
+          "min_miso_hold_ns": 563,
+          "miso_release_after_last_fall_ns": 63
+        },
+        "all-a5": {
+          "outcome": "OK",
+          "reply": 167,
+          "min_miso_setup_ns": 397,
+          "min_miso_hold_ns": 563,
+          "miso_release_after_last_fall_ns": 63
+        },
+        "named-bad": {
+          "outcome": "BAD_OPCODE",
+          "first_bad_command_bit": 0,
+          "decision_after_rise_ns": 124
+        },
+        "missing": {
+          "outcome": "TIMEOUT",
+          "from_last_activity_ns": 1718
+        },
+        "late": {
+          "outcome": "TIMEOUT",
+          "from_last_activity_ns": 1730
+        },
+        "early-cs": {
+          "outcome": "BAD_CS",
+          "after_cs_ns": 972
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 1563,
+          "terminal_after_cs_ns": 1584,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "reply-mutation": {
+          "outcome": "REJECTED_MUTATION",
+          "reason": "reply bit 7: expected 1, sampled 0, driven True"
+        }
+      },
+      "canonical_sha256": "494b4e8a0206c8005b646708fe828f584ed52fdd2aafb66707a417bdc947c4db"
+    }
+  },
+  "source_sha256": {
+    "spi_target_screen.py": "9a95a191642e7e9a2a1eeeb063cb00830acae61c680e9ea22828a781889f6554",
+    "spi_test_target.asm": "9e9d1cf8e811941f87d3578858006ebb2856363833e2130de9fda2417c79b8b8",
+    "spi_target_tb.v": "f3074d0a3cdcb7760e2864021de6779ab1f50510be05e036bb07d323ddeec782",
+    "spi-target-contract.md": "873bb1c3619344f604a4e59506ff945fdb1404193fc0ab14f347c674994b806c"
+  },
+  "images": {
+    "normal": {
+      "words": 59,
+      "bytes": 236,
+      "binary_sha256": "8d257ace7cc236c3ff5b2b71242679422f81900b6ee10dbd0daa78a7f318a81e",
+      "clocked_load_steps": 498,
+      "plan_sha256": "16f016a699ee92431bede9995e396d23af35e4f5f83998bf64a22438b47811a9",
+      "payloads": {
+        "TX0": 60,
+        "TX1": 167
+      },
+      "step_counts": {
+        "reset": 1,
+        "identify": 1,
+        "write_bank": 8,
+        "write_byte": 236,
+        "read_bank": 8,
+        "read_byte_after_edge": 236,
+        "commit_length": 1,
+        "read_length": 1,
+        "write_TX0": 1,
+        "read_TX0": 1,
+        "write_TX1": 1,
+        "read_TX1": 1,
+        "flush_idle": 2
+      }
+    },
+    "mutant": {
+      "words": 59,
+      "bytes": 236,
+      "binary_sha256": "8d257ace7cc236c3ff5b2b71242679422f81900b6ee10dbd0daa78a7f318a81e",
+      "clocked_load_steps": 498,
+      "plan_sha256": "bea04343ba7881c44c11e8f01bea660daa317d1b1bf71b49f9272dc7af4e5702",
+      "payloads": {
+        "TX0": 60,
+        "TX1": 166
+      },
+      "step_counts": {
+        "reset": 1,
+        "identify": 1,
+        "write_bank": 8,
+        "write_byte": 236,
+        "read_bank": 8,
+        "read_byte_after_edge": 236,
+        "commit_length": 1,
+        "read_length": 1,
+        "write_TX0": 1,
+        "read_TX0": 1,
+        "write_TX1": 1,
+        "read_TX1": 1,
+        "flush_idle": 2
+      }
+    }
+  },
+  "release_assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+  "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+  "release_source": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "qualified_file_sha256": {
+    "src/m1_data_store.v": "8b952cadb70c2c7bba260a0fc52db71293228129be6774579916111ddc55e45d",
+    "src/m1_engine.v": "2d8734f1351173878c90768f3006208a8704fd12e142f923a2bd4eb2f260f365",
+    "src/m1_input_sync.v": "c147a304956cba973c110cd2c428e02d6095f315baadc6a55ba209d8fe64251e",
+    "src/m1_program_store.v": "1c018ef691997573e1b9b24157d2cb682d499687685a162d3e3d2996271da447",
+    "src/project.v": "ae85d0b1ea439a6c35838b6738fcc39f6b4a691667b85c44569741dbdd7b3a18",
+    "RM_IHPSG13_1P_256x32_c2_bm_bist.v": "074beaf0e84f5ed4f770b2304cf1907a2252ac20d550b8a219c7df1278687bb2",
+    "RM_IHPSG13_1P_core_behavioral_bm_bist.v": "d0a6258f8e9c93d1d5b1f78c0a1d66f30d28b1ad8037e5e07f53d1a4e3670b12"
+  },
+  "g4_archive_sha256": "7348d2fc9e448ada84974b450801ee7cd5aa0b3065e1569fceefd6a154ad3ee2",
+  "g4_netlist_sha256": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+  "cell_library_sha256": {
+    "sg13cmos5l_io/verilog/sg13cmos5l_io.v": "ae986803821a9d6c3af9c221c33c3aa58ca23c283d3ad93ed4b3a2c45d6ccb4d",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_udp.v": "5491a3edf7468792b5222e7abe057e0583a407c01b2086d4fd44a55b6cf88055",
+    "sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v": "485945f1b167daa68354548f46c95bdbff7d931516fc5b4edd47f2e2cd555735"
+  },
+  "stronger_abort_pass": false,
+  "ended_utc": "2026-11-24T15:44:28.625148+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-24T15:55:45.420206+00:00",
+  "image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "status": "REPRODUCED_COMPLETE_FRAMES_AND_ABORT_FAILURE",
+  "observations": {
+    "rtl": "2e3dba7edeebca54704c0920d5230b4e676eed4f8038c839588e8db37d0cb6e6",
+    "g4_netlist": "494b4e8a0206c8005b646708fe828f584ed52fdd2aafb66707a417bdc947c4db"
+  },
+  "timeout_sweep_sha256": "f9cb540869ed78eb4b894a97c2b436d4c5ecc426f495acfd42729e97518ab393",
+  "miso_abort_ns": 1563,
+  "ended_utc": "2026-11-24T15:56:22.262237+00:00"
+}

@@ -1,0 +1,442 @@
+{
+  "started_utc": "2026-11-24T15:50:54.059144+00:00",
+  "status": "COMPLETE_BOUND_DIAGNOSTIC",
+  "release": "5bdc0e6b6449a829a5da1f8f9a8060257e974843",
+  "single_timeout": {
+    "operands": 81,
+    "individual_simulations": 405,
+    "all_four_500kHz_phases_pass": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "active_abort_within_160ns": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "both": [],
+    "canonical_sha256": "f9cb540869ed78eb4b894a97c2b436d4c5ecc426f495acfd42729e97518ab393",
+    "boundary": {
+      "0": {
+        "binary_sha256": "a6bdba893789b93ef252f898735eb43e37ac5e7e33e6490debecf328d3e65b4c",
+        "normal": {
+          "1": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16631,
+                3,
+                186
+              ]
+            ]
+          },
+          "7": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16631,
+                3,
+                186
+              ]
+            ]
+          },
+          "13": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16651,
+                3,
+                186
+              ]
+            ]
+          },
+          "19": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16651,
+                3,
+                186
+              ]
+            ]
+          }
+        },
+        "abort": {
+          "outcome": "ALREADY_RELEASED_BEFORE_CS",
+          "last_oe_change_minus_cs_ns": -37
+        },
+        "all_slow_pass": false,
+        "abort_pass": false
+      },
+      "2": {
+        "binary_sha256": "0d1e16ed18def5a41a92d80afc6974e8033e456aa279ef26d9209dd78597234e",
+        "normal": {
+          "1": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16671,
+                3,
+                186
+              ]
+            ]
+          },
+          "7": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16671,
+                3,
+                186
+              ]
+            ]
+          },
+          "13": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16691,
+                3,
+                186
+              ]
+            ]
+          },
+          "19": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16691,
+                3,
+                186
+              ]
+            ]
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 3,
+          "terminal_after_cs_ns": 24,
+          "marker": 3,
+          "passes_160ns_abort_limit": true
+        },
+        "all_slow_pass": false,
+        "abort_pass": true
+      },
+      "9": {
+        "binary_sha256": "82335cb1f43e56db7bed0d86feb9a8c4620c2c46b771d55a0f0c02ce8cc23ae6",
+        "normal": {
+          "1": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16811,
+                3,
+                186
+              ]
+            ]
+          },
+          "7": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16811,
+                3,
+                186
+              ]
+            ]
+          },
+          "13": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16831,
+                3,
+                186
+              ]
+            ]
+          },
+          "19": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16831,
+                3,
+                186
+              ]
+            ]
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 143,
+          "terminal_after_cs_ns": 164,
+          "marker": 3,
+          "passes_160ns_abort_limit": true
+        },
+        "all_slow_pass": false,
+        "abort_pass": true
+      },
+      "10": {
+        "binary_sha256": "5363787dd3306981266bee4998d9b3695cee0a915e75598ab87fcddec2b73a39",
+        "normal": {
+          "1": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16831,
+                3,
+                186
+              ]
+            ]
+          },
+          "7": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16831,
+                3,
+                186
+              ]
+            ]
+          },
+          "13": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16851,
+                3,
+                186
+              ]
+            ]
+          },
+          "19": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                16851,
+                3,
+                186
+              ]
+            ]
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 163,
+          "terminal_after_cs_ns": 184,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "all_slow_pass": false,
+        "abort_pass": false
+      },
+      "47": {
+        "binary_sha256": "21d2210132b83d150ca70bcc5637741ae54d81da6d2510af5c6420f3cb7e8d01",
+        "normal": {
+          "1": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                17571,
+                3,
+                186
+              ]
+            ]
+          },
+          "7": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                17571,
+                3,
+                186
+              ]
+            ]
+          },
+          "13": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                17591,
+                3,
+                186
+              ]
+            ]
+          },
+          "19": {
+            "outcome": "FAIL",
+            "reason": "accepted opcode missing OK halting marker",
+            "terminal": [
+              [
+                17591,
+                3,
+                186
+              ]
+            ]
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 903,
+          "terminal_after_cs_ns": 924,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "all_slow_pass": false,
+        "abort_pass": false
+      },
+      "48": {
+        "binary_sha256": "ea01c6e0ec289d04405a4259212fecb23110be78fe0fe3e7d968c61e01c6afec",
+        "normal": {
+          "1": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 891,
+            "min_miso_hold_ns": 1069,
+            "miso_release_after_last_fall_ns": 69
+          },
+          "7": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 897,
+            "min_miso_hold_ns": 1063,
+            "miso_release_after_last_fall_ns": 63
+          },
+          "13": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 883,
+            "min_miso_hold_ns": 1077,
+            "miso_release_after_last_fall_ns": 77
+          },
+          "19": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 889,
+            "min_miso_hold_ns": 1071,
+            "miso_release_after_last_fall_ns": 71
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 923,
+          "terminal_after_cs_ns": 944,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "all_slow_pass": true,
+        "abort_pass": false
+      },
+      "80": {
+        "binary_sha256": "8d257ace7cc236c3ff5b2b71242679422f81900b6ee10dbd0daa78a7f318a81e",
+        "normal": {
+          "1": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 891,
+            "min_miso_hold_ns": 1069,
+            "miso_release_after_last_fall_ns": 69
+          },
+          "7": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 897,
+            "min_miso_hold_ns": 1063,
+            "miso_release_after_last_fall_ns": 63
+          },
+          "13": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 883,
+            "min_miso_hold_ns": 1077,
+            "miso_release_after_last_fall_ns": 77
+          },
+          "19": {
+            "outcome": "OK",
+            "reply": 167,
+            "min_miso_setup_ns": 889,
+            "min_miso_hold_ns": 1071,
+            "miso_release_after_last_fall_ns": 71
+          }
+        },
+        "abort": {
+          "outcome": "ABORT",
+          "miso_release_ns": 1563,
+          "terminal_after_cs_ns": 1584,
+          "marker": 3,
+          "passes_160ns_abort_limit": false
+        },
+        "all_slow_pass": true,
+        "abort_pass": false
+      }
+    }
+  },
+  "cooperative": {
+    "assembled": false,
+    "error": "program exceeds 128 words; no truncation is permitted",
+    "section_words": {
+      "command": 33,
+      "reply_a": 88,
+      "reply_b": 90,
+      "cleanup": 4
+    },
+    "total_source_words": 215,
+    "source_sha256": "acc3c1c18c7f6926dd55555e599dfe94fc3ae899b5b0b28f45fe649781d9d85a"
+  },
+  "ended_utc": "2026-11-24T15:51:12.437540+00:00"
+}

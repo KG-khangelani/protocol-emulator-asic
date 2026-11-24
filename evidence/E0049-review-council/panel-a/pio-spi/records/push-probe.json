@@ -1,0 +1,45 @@
+{
+  "node": "v24.18.0",
+  "observations": [
+    {
+      "name": "one_manual_conditional",
+      "count": 1,
+      "automatic": false,
+      "conditional": true,
+      "expected": 0,
+      "before": 0,
+      "observed": 1,
+      "expected_matches": false
+    },
+    {
+      "name": "eight_manual_conditional",
+      "count": 8,
+      "automatic": false,
+      "conditional": true,
+      "expected": 1,
+      "before": 0,
+      "observed": 1,
+      "expected_matches": true
+    },
+    {
+      "name": "one_automatic_conditional",
+      "count": 1,
+      "automatic": true,
+      "conditional": true,
+      "expected": 0,
+      "before": 0,
+      "observed": 0,
+      "expected_matches": true
+    },
+    {
+      "name": "one_manual_unconditional",
+      "count": 1,
+      "automatic": false,
+      "conditional": false,
+      "expected": 1,
+      "before": 0,
+      "observed": 1,
+      "expected_matches": true
+    }
+  ]
+}

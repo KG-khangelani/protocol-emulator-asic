@@ -1,0 +1,9 @@
+{
+  "comparison": "All fields of both retained JSON and fresh-directory rerun matched",
+  "rerun_directory_created_utc": "2026-11-24T16:05:47.037+00:00",
+  "last_result_updated_utc": "2026-11-24T16:05:59.172+00:00",
+  "json_canonical_sha256": {
+    "switch-reselect": "384de39557abc063fd95f72b4b59c47f1b07507678caf0d2b8274995e0958483",
+    "fixture-sensitivity": "df05b24804fc0b23e6d1b9553415094855ea20294b728226bb09f3c9dad4d432"
+  }
+}
