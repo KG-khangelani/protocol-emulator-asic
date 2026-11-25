@@ -2,6 +2,16 @@
 
 Checked 25 November 2026. Prices below are in rand and include VAT unless stated. A retailer's national catalogue and a named branch's stock are different evidence. Collection and calibration quotes are still open. No order was placed.
 
+**One-stop sensor parts in Strand, R134.94.** Next Dimension Electronics has a walk-in counter at Unit 1, Comprop Square, 7 Henry Vos Close, Asla Park, Strand 7140. Phone **084 880 1881**. The shop lists Monday–Friday 08:00–17:00 and Saturday 08:00–13:00. Its live product pages showed the following quantities on 25 November. The shop lists final prices and free counter collection. [Shop and hours](https://nde3d.co.za/contact/) · [Collection](https://nde3d.co.za/delivery/)
+
+| Item and seller SKU | Quantity to buy | Price | Stock shown |
+| --- | ---: | ---: | ---: |
+| [Wired RP2040 Pico, B1664](https://nde3d.co.za/product/raspberry-pi-pico-rp2040/) | 1 | R63.94 | 10 |
+| [Three-wire DS18B20 temperature sensor, C1966](https://nde3d.co.za/product/ds18b20-waterproof-digital-temperature-probe/) | 2 | R33.00 each | 20 |
+| [4.7 kΩ, 1%, ten-pack, D0503-14](https://nde3d.co.za/product/resistor-thl-14w-1-pack-of-10-14/) | 1 pack | R5.00 | 4 packs |
+
+The sensors have 2 m leads. For the short-wire bench, use the bare Stellenbosch sensors and keep the cable length fixed when comparing power modes. The seller does not certify the sensor manufacturer's identity or parasite-mode behavior. Verify the ROM and power response on each unit. A [400-point breadboard](https://nde3d.co.za/product/breadboard-400-points/) adds R19.70, for **R154.64** in Strand before a USB data cable and hookup wire. For the planned FPGA bench, the Strand Pico plus the Stellenbosch short-lead sensors, resistors and 2×10 headers total **R123.74** before the FPGA, instruments and remaining wiring. [Pico header wiring and sensor procedure](../../evidence/E0063-local-breakout/README.md)
+
 | Local source | Parts or service | Availability observed |
 | --- | --- | --- |
 | Micro Robotics, 9 Quantum Road, Technopark, Stellenbosch. 021 007 2971 | Two bare three-lead DS18B20 sensors, SKU `18B20-TO-92`. R16.10 each, R32.20 for two. The Adafruit KB2040 with an RP2040 is also available as a standalone peer for R217.35. | The seller lists Stellenbosch bin Z6069 for the sensors and C0036 for the KB2040. It does not identify the sensor's silicon manufacturer. [Sensors](https://www.robotics.org.za/sensors/18B20) · [KB2040](https://www.robotics.org.za/AF5302) · [Branch](https://www.robotics.org.za/index.php?route=information/contact) |
@@ -16,7 +26,7 @@ Checked 25 November 2026. Prices below are in rand and include VAT unless stated
 
 **Solderless sensor wiring at the same shop.** The KB2040 has a fitted four-pin STEMMA QT connector. A 400-point breadboard (`BREAD-400`, R20.70, bin Z7091) and a four-pack of Qwiic-to-breadboard leads (`QWIIC-15-DUP`, R13.80, bin Z6032) bring the Stellenbosch subtotal to **R302.45**. Use the breakout's 3.3 V, ground and one programmable data pin for a one-sensor check. Allow for a USB-C data cable matching your computer and a short wire for the parasite-mode ground connection. The FPGA and calibrated probe are separate items. [Breadboard](https://www.robotics.org.za/BREAD-400) · [Four-pack of leads](https://www.robotics.org.za/QWIIC-15-DUP) · [KB2040 connector and pinout](https://learn.adafruit.com/adafruit-kb2040/pinouts)
 
-**Lower parts cost across two shops.** Two Stellenbosch sensors, the Communica Pico and three 1% pull-ups total **R154.15** if the Cape Town branch can supply them. Both totals exclude a data cable, headers, breadboard and wiring. An RP2040 board can check the sensors and act as a separate UART/SPI peer. A locally accessible FPGA is required to put the project itself on that bench. The remote TT board has a different RP2350B wiring map. Its GPIO numbers must be remapped for a standalone RP2040 board.
+**Stellenbosch and Paarden Eiland option.** Two Stellenbosch sensors, the Communica Pico and three 1% pull-ups total **R154.15** if the Cape Town branch can supply them. This subtotal excludes a data cable, headers, breadboard and wiring. An RP2040 board can check the sensors and act as a separate UART/SPI peer. A locally accessible FPGA is required to put the project itself on that bench. The remote TT board has a different RP2350B wiring map. Its GPIO numbers must be remapped for a standalone RP2040 board.
 
 For the one-device-at-a-time 1-Wire trial, use the same 3.3 V data pull-up and short wiring in both runs. Supply one sensor externally and tie VDD to ground on the parasite-powered device. Decode `CC B4` least-significant bit first and the seventeenth slot at the sensor. The expected read bit is one for external power and zero for parasite power. The query does not start a temperature conversion. [Analog Devices data sheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf) · [Council's receiver test](../../evidence/E0049-review-council/onewire/rise/README.md)
 
