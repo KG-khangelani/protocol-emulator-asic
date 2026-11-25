@@ -1,0 +1,38 @@
+{
+  "board_identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+  "files": {
+    "audit.py": "749a3c1934de1cd1832c4cbe8f2e71ae1948cc67236a16be32e51129975a801f",
+    "bias-control.md": "242cb268f3c74e0606e55cf7bfd105af910f75e31452039ded26c62dc35dcb5b",
+    "fabricfox.bin": "7ee587d50556b33599c23a2a893176534fafee1863d858c16d586d97c9be4bf4",
+    "initial/allocation-result.json": "5221a4fe94547abdaca7a3d305ed747e028794fe47c676a56c68fe42a334f71f",
+    "initial/allocation-terminal.bin.gz": "31d30db0d245736a8e13b5c92d226da526f9e3c61800c86fb4c8f7cbd06713ba",
+    "initial/heap-restore.json": "813765de504d0e18e22fd975b15a61bab3ff1b8b2c965c67231a5a3958673121",
+    "initial/initial-restore.json": "3f58ae7044d3dfcd7d3da7d76c95f9d34564e8937e288ef0efd7fb4728c181a7",
+    "initial/soft-restore.json": "32920b552cccbaaaa95aff27e48e48ddd053697d31e3061fa79e01b56bde5eff",
+    "linked-pulls/decoded.json": "a06b8747ff27a8bfc133e95ab65d00b56fdb4f2514767a3864efeefd777337aa",
+    "linked-pulls/result.json": "2e13a43530fd7fdc23040637363b240f25ef991698f7f50acbedce9c65763365",
+    "linked-pulls/terminal.bin.gz": "59a53a89c92f8dae9472c644e037eb2c099df0896136e28568ba714a2dfa5285",
+    "native-first/decoded.json": "191e5bc0a85d999d9ed8fc21b960839b417d36e598b0f7ad76cf08ed379edf95",
+    "native-first/result.json": "56f08c8b8c9c12f85a25822a5d5777fe4223af431844b86f5401754e1be9026d",
+    "native-first/terminal.bin.gz": "6afba30b24b6eb549c642b7711876a13c9e21335f2756c501004b6f58305c87f",
+    "native-repeat/decoded.json": "c867f1f9bd85f3a8e7484283e427dd517aac59f31c5217e1c763f68a8210b9aa",
+    "native-repeat/result.json": "af4b18c3edea6beadfe84d5bd9ba7ce3fd7c52b3afbb3255855fe977ece909e0",
+    "native-repeat/terminal.bin.gz": "b4fb1c329903b19443adf6cf9366a53bf08b93d2437d368b664063e0da5eeb6c",
+    "route-a.json": "8b84d798b27982ed14e13ce83f391a1b4e034ac9647f4b14b8909cdf6d0efcc0",
+    "route-a.log.gz": "5ab3e2c767c0a75ee85bc9d1795fe40b1b9204447a31630d194d750fd1b7fbf2",
+    "route-b.json": "8b84d798b27982ed14e13ce83f391a1b4e034ac9647f4b14b8909cdf6d0efcc0",
+    "route-b.log.gz": "bea6f07a572648aa01afdd1503032c0b97bb68591bfa349891e3c63fa4507c01"
+  },
+  "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "inputs": {
+    "docs/decisions/0061-try-i2c-on-a-hardware-target.md": "42e40a4b4219567b731a92bde7e9f0fed214961ab2f2ffbb5e72d7645be90642",
+    "experiments/i2c/guard_cases.py": "387746b32fbb88a284624749e0e17bfc95eaeb34acf523883116e3c4f037c451",
+    "experiments/remote_i2c/build.py": "81eae5b0c55b558e08bd74fb08b4ff8ff1526c9deabd2f508d841b8110e79b22",
+    "experiments/remote_i2c/check.py": "0feba204bbabfd9bbec209a3fa9fef3d8cd399eac109219bda3cc6b73a4a4fbf",
+    "experiments/remote_i2c/fabricfox.v": "cf1198dea494ab51f4f23f96320dab0f6d492d6180d85ed20ad3dc22e4c6083c",
+    "experiments/remote_i2c/on_board.py": "973fc4621fd98715963571b1e3544d1426e907078aacdfdd5f2678296acf1d2f",
+    "experiments/remote_i2c/recover.py": "83c6be8fb0a803669c746b5eac388b424d81440e52d0c010a85641ec456a3f5c",
+    "experiments/remote_i2c/remote.py": "d78bfe41dee2bff116d49d118490f842efbbebae3aa479d40a428d275ef3a2d1",
+    "experiments/remote_uart/run.py": "1475c86f61e7fa0040addb8eed2d10b716cc87b8fc798e4a47fd465ed78cb76e"
+  }
+}

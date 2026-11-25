@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-11-25T20:19:24.195910+00:00",
+  "ended_utc": "2026-11-25T20:19:50.856883+00:00",
+  "board": "fpga-4",
+  "events": [
+    {
+      "current": "tt_um_khangelani_i2c_7ee587d5",
+      "clients": 0
+    },
+    {
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "current": "tt_um_khangelani_i2c_7ee587d5",
+      "clients": 0
+    },
+    {
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "current": "tt_um_khangelani_i2c_7ee587d5",
+      "clients": 0
+    },
+    {
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "current": "tt_um_khangelani_i2c_7ee587d5",
+      "clients": 0
+    },
+    {
+      "error": "HTTP Error 502: Bad Gateway"
+    }
+  ]
+}

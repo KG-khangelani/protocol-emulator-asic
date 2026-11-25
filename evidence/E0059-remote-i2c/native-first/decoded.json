@@ -1,0 +1,310 @@
+{
+  "0-55-2e": {
+    "bytes_read_back": 384,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          236
+        ],
+        [
+          "RESTART",
+          8635
+        ],
+        [
+          "STOP",
+          17025
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            85,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            165,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 17193,
+      "passed": true,
+      "start_to_stop_ns": 1678900
+    },
+    "raw_scl_edges": 260,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 165,
+    "short_scl_ns": [
+      100,
+      200,
+      300
+    ],
+    "short_scl_runs": 184,
+    "terminal_status": 136
+  },
+  "0-96-2e": {
+    "bytes_read_back": 384,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          238
+        ],
+        [
+          "RESTART",
+          8637
+        ],
+        [
+          "STOP",
+          17028
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            150,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 17195,
+      "passed": true,
+      "start_to_stop_ns": 1679000
+    },
+    "raw_scl_edges": 152,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 1,
+    "short_scl_ns": [
+      100,
+      200
+    ],
+    "short_scl_runs": 76,
+    "terminal_status": 136
+  },
+  "0-96-2f": {
+    "bytes_read_back": 384,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          235
+        ],
+        [
+          "STOP",
+          4722
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 4889,
+      "passed": true,
+      "start_to_stop_ns": 448700
+    },
+    "raw_scl_edges": 40,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 0,
+    "short_scl_ns": [
+      100,
+      200
+    ],
+    "short_scl_runs": 20,
+    "terminal_status": 144
+  },
+  "24-55-2e": {
+    "bytes_read_back": 432,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          234
+        ],
+        [
+          "RESTART",
+          8633
+        ],
+        [
+          "STOP",
+          17022
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            85,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            165,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 17190,
+      "passed": true,
+      "start_to_stop_ns": 1678800
+    },
+    "raw_scl_edges": 132,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 165,
+    "short_scl_ns": [
+      100,
+      200
+    ],
+    "short_scl_runs": 56,
+    "terminal_status": 136
+  },
+  "24-96-2e": {
+    "bytes_read_back": 432,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          236
+        ],
+        [
+          "RESTART",
+          8635
+        ],
+        [
+          "STOP",
+          17025
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            150,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 17193,
+      "passed": true,
+      "start_to_stop_ns": 1678900
+    },
+    "raw_scl_edges": 260,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 1,
+    "short_scl_ns": [
+      100,
+      200,
+      300
+    ],
+    "short_scl_runs": 184,
+    "terminal_status": 136
+  },
+  "24-96-2f": {
+    "bytes_read_back": 432,
+    "five_sample_diagnostic": {
+      "boundaries": [
+        [
+          "START",
+          234
+        ],
+        [
+          "STOP",
+          4719
+        ]
+      ],
+      "frames": [
+        [
+          [
+            92,
+            1
+          ]
+        ]
+      ],
+      "halt_sample": 4887,
+      "passed": true,
+      "start_to_stop_ns": 448500
+    },
+    "raw_scl_edges": 36,
+    "raw_valid": 1,
+    "raw_wire": {
+      "error": "Sr/STOP preparation",
+      "passed": false
+    },
+    "rx": 0,
+    "short_scl_ns": [
+      100,
+      200
+    ],
+    "short_scl_runs": 16,
+    "terminal_status": 144
+  }
+}

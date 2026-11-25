@@ -1,0 +1,13 @@
+{
+  "board": "fpga-4",
+  "started_utc": "2026-11-25T20:22:21.487562+00:00",
+  "before": "tt_um_khangelani_i2c_7ee587d5",
+  "heap_response": "OK341600\r\n342416\r\n\u0004\u0004>",
+  "soft_restart": {
+    "bytes": 2212,
+    "sha256": "a8c9a6a8f572d6cb25aff1bf96df71a88b482827e25b79be0c0d7f303d9b4c00",
+    "returned_to_prompt": true
+  },
+  "after": "tt_um_factory_test",
+  "ended_utc": "2026-11-25T20:22:34.859931+00:00"
+}
