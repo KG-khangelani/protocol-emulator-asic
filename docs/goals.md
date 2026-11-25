@@ -27,6 +27,13 @@ passed. The wider sweep measured a worst digital release of 140 ns. The SPI
 hardware decision now depends on a named requester's electrical timing
 requirement. [D58](decisions/0058-combine-spi-abort-and-watchdog.md) · [E0056](../evidence/E0056-spi-target-watchdog/README.md)
 
+FabricFox board 4 now bounds that comparison at a routed 12.5 MHz. Moving
+the abort 32 ns later gave 384/384 complete handoffs at fourfold-slower
+requester timing. All 32 scaled clock stalls timed out. At the original
+requester rate the board missed every complete handoff and selected-stall
+deadline. The next physical gate is a calibrated MISO drive-state measurement
+on a named requester and load. [D59](decisions/0059-exercise-spi-recovery-on-fabricfox.md) · [E0057](../evidence/E0057-remote-spi/README.md)
+
 ## Priorities and planning targets
 
 Dates below are internal planning targets, not measured completion promises.

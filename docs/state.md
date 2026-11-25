@@ -1,10 +1,23 @@
 # Current state
 
-Updated 2026-11-25. **A 126-word SPI target now releases the bus on abort, serves the next command, and times out if the clock stops while selected. The calibrated UART line-release measurement remains open.**
+Updated 2026-11-25. **The 126-word SPI target recovered from aborts and clock stalls on FabricFox board 4 at a bounded requester rate. At the original 160 ns handoff and 2 µs timeout, the 12.5 MHz board missed both requirements. Calibrated UART and MISO release measurements remain open.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
-The selected firmware passed the 736 original schedules and 1,952 additional
+On the physical board, the first fourfold-slower requester returned 384/384
+fresh bytes and reached a released timeout in 5.544–5.984 µs in all 32
+stalls. In ten aborts MISO still showed the preceding bit just before CS rose.
+Moving that edge 32 ns later gave 384/384 complete passes. The MISO
+output-enable witness fell 264–416 ns after abort. At the fastest scaled
+rate, a 424 ns gap gave at least 8 ns digital clearance on the tested grid.
+Two runs at 480 ns gave at least 56 ns. At the original requester
+timing, 0/384 complete handoffs and 0/32 selected-stall timeouts passed.
+The RP2350 sampled the MISO pad and a second pin carrying the FPGA's actual
+enable signal. The next electrical test needs a calibrated drive-state
+measurement on the target branch.
+[E0057 board measurements, gap sweep and raw captures](../evidence/E0057-remote-spi/README.md)
+
+In the 50 MHz digital models, the selected firmware passed the 736 original schedules and 1,952 additional
 phase, timing and data trials. All 384 original reselections returned the correct
 fresh byte after releasing MISO in 61–99 ns. All 32 selected-clock pauses reached
 a released timeout in 1.383–1.493 µs. The largest release time on the extended

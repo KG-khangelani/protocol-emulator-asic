@@ -1,8 +1,26 @@
 # Research ledger
 
+## 25 November SPI recovery on FabricFox board 4
+
+**Measured.** The external RP2350 captured the MISO pad, its output-enable
+witness and the 12.5 MHz project clock in the same samples. At fourfold-slower
+requester timing all 384 opposite commands received the correct reply and
+all 32 clock stalls reached a released timeout within 8 µs. Ten of the 384
+aborts sampled the previous bit immediately before deselection. Repeating
+with CS rising 32 ns later passed all 384 checks. At the original requester
+timing the complete 160 ns handoff failed in every case, and no selected
+stall reached the 2 µs timeout. On two short-gap controls a correctly decoded
+reply hid active drive into the next selection. [E0057 measurements and signals](../evidence/E0057-remote-spi/README.md)
+
+**Qualification boundary.** The 50 MHz E0056 model and the 12.5 MHz board
+are distinct timing results. The fine gap sweep brackets clearance on the
+FPGA's enable witness for one requester and four scheduled phases. Absolute
+pad turnoff, channel skew and clearance at an application's actual load
+still need a calibrated branch measurement. [Gap sweep and bench criteria](../evidence/E0057-remote-spi/README.md#next-electrical-test)
+
 ## 25 November combined SPI firmware watchdog
 
-**Demonstrated.** A single 126-word firmware image met the original external
+**Demonstrated in digital models.** A single 126-word firmware image met the original external
 mode-0 requester's two recovery requirements. MISO released within 61–99 ns
 on all 384 aborts, followed by a complete fresh reply. A clock stall with CS
 held low reached a released timeout in 1,383–1,493 ns on all 32 reply-bit
@@ -274,7 +292,7 @@ successful remote physical runs and Linux replays.
 | H1 | A temporal VM covers UART, SPI and I2C compactly | Requires protocol-specific RTL escape paths or misses timing/fit | E0045–E0047 demonstrate the nine named workloads on one routed core. Comparative compactness is open. E0049 supplies a second programmable implementation for two tasks. |
 | H2 | Explicit timing instructions simplify verification | A program plus timing table cannot predict every required edge/response, or hidden latency prevents bounded properties | E0046, E0048 and E0049 support trace prediction and mutation detection for named loads. Lower verification effort than a competing architecture has not been measured. |
 | H3 | The candidate instruction set is near minimal | Removing/merging an instruction preserves coverage at acceptable cost | Open. E0049 disabled timed UART burst on a full-top copy, saved 2.261% nominal cell-plus-macro area and broke published bytecode. Manual UART cost 17/18 words. No complete Pareto or minimum result. |
-| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Supported for G2's UART, SPI-host and I²C-controller digital envelopes and the G4 20 ns routing constraint. E0049 found counterexamples for host service, modeled bus load and SPI target abort. A [126-word SPI target](../evidence/E0056-spi-target-watchdog/README.md) now meets the tested abort and selected-stall deadlines for two literal replies. Receiver-end release timing remains unmeasured. |
+| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Supported for G2's UART, SPI-host and I²C-controller digital envelopes and the G4 20 ns routing constraint. E0049 found host, bus-load and target-abort counterexamples. The 126-word SPI target met both tested deadlines for two literal replies in the 50 MHz models. At 12.5 MHz the FPGA demonstrated a slower requester envelope and missed both original deadlines. Calibrated MISO turnoff remains open. [E0056 models](../evidence/E0056-spi-target-watchdog/README.md) · [E0057 board](../evidence/E0057-remote-spi/README.md) |
 
 ## Design decisions
 

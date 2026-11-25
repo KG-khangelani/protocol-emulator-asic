@@ -1,0 +1,60 @@
+{
+  "fpga-4": {
+    "observed_utc": "2026-11-25T17:25:06.593076+00:00",
+    "http_date": "Wed, 25 Nov 2026 17:25:03 GMT",
+    "status_fields": [
+      "board",
+      "clients",
+      "idle_display",
+      "kind",
+      "kind_reason",
+      "reachable",
+      "safe_start",
+      "uptime_s",
+      "version"
+    ],
+    "kind": "fpga",
+    "reachable": true,
+    "present": true,
+    "identity": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+    "clients": 0,
+    "enabled": null,
+    "uploads": 8,
+    "interfaces": {
+      "commander": true,
+      "camera": true,
+      "upload": true,
+      "oscilloscope": false,
+      "calibrated_probe": false
+    }
+  },
+  "fpga-1": {
+    "observed_utc": "2026-11-25T17:25:10.691170+00:00",
+    "http_date": "Wed, 25 Nov 2026 17:25:07 GMT",
+    "status_fields": [
+      "board",
+      "clients",
+      "idle_display",
+      "kind",
+      "kind_reason",
+      "reachable",
+      "safe_start",
+      "uptime_s",
+      "version"
+    ],
+    "kind": "fpga",
+    "reachable": true,
+    "present": true,
+    "identity": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca",
+    "clients": 1,
+    "enabled": "tt_um_factory_test",
+    "uploads": 8,
+    "interfaces": {
+      "commander": true,
+      "camera": true,
+      "upload": true,
+      "oscilloscope": false,
+      "calibrated_probe": false
+    }
+  }
+}

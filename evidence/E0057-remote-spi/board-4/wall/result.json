@@ -1,0 +1,26 @@
+{
+  "board": "fpga-4",
+  "suite": "wall",
+  "started_utc": "2026-11-25T17:36:17.834230+00:00",
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "image_sha256": "d4b9201641f0781757510db4defe28bd43300c9329a708944865a8a3d6fdae5b",
+  "program_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+  "board_code_sha256": "bc22fa35965d715633c64341a658b174eeb681ebb8ff4425ee7b04e089680a31",
+  "previous": "tt_um_factory_test",
+  "clients_before": 0,
+  "board_identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+  "upload": {
+    "name": "tt_um_khangelani_spi_d4b92016",
+    "size": 104090,
+    "evicted": []
+  },
+  "restore_via": "tt_um_factory_test",
+  "enable": {
+    "enabled": "tt_um_khangelani_spi_d4b92016",
+    "clock_hz": null
+  },
+  "observations": 419,
+  "after": "tt_um_factory_test",
+  "status": "CAPTURED",
+  "ended_utc": "2026-11-25T17:37:08.926351+00:00"
+}

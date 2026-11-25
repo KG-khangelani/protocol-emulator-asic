@@ -1,0 +1,38 @@
+[
+  {
+    "action": "doctor",
+    "created_utc": "20261125T172259406823Z",
+    "git_head": "346cb56609c0c9c6b012a3c0936e4623b12cd305",
+    "status": "PASS",
+    "directory": "build/current/runs/20261125T172259406823Z-doctor",
+    "summary": {
+      "kind": "PINNED_TOOL_IDENTITY"
+    },
+    "artifact_sha256": {
+      "run.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c"
+    }
+  },
+  {
+    "action": "check",
+    "started_utc": "2026-11-25T17:37:51.195906Z",
+    "status": "FAILED_OR_INCOMPLETE",
+    "error": "AssertionError: inputs changed during execution",
+    "subprocess_exit": 0,
+    "log": "interrupted-check.log.gz",
+    "note": "Unit tests finished. The outer integrity guard detected changes to current verification inputs during the launch of the added gap experiment. The launcher overwrites its single per-stage receipt on the next run.",
+    "host_command_exit": 1
+  },
+  {
+    "action": "check",
+    "created_utc": "20261125T174515573874Z",
+    "git_head": "8768c5862382d937d579264291ec7c11a35a2141",
+    "status": "PASS",
+    "directory": "build/current/runs/20261125T174515573874Z-check",
+    "summary": {
+      "kind": "REPOSITORY_CHECKS"
+    },
+    "artifact_sha256": {
+      "run.log": "766b849dd32948d00348a98dd93096514d5656d09abd7e7a1c351e1a97d04d3a"
+    }
+  }
+]

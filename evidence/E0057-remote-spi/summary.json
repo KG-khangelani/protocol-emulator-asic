@@ -1,0 +1,1362 @@
+{
+  "pilot": {
+    "trials": 9,
+    "samples": 82508,
+    "groups": {
+      "normal": {
+        "cases": 3,
+        "strict_pass": 3,
+        "terminal_status": {
+          "0xb9": 2,
+          "0xba": 1
+        },
+        "failures_by_check": {}
+      },
+      "short": {
+        "cases": 2,
+        "strict_pass": 0,
+        "terminal_status": {
+          "0xb9": 2
+        },
+        "failures_by_check": {
+          "fresh command did not stay released": 2
+        },
+        "active_before_abort": 2,
+        "expected_bit_before_abort": 2,
+        "enable_low_by_deadline": 2,
+        "enable_high_at_reselection": 2,
+        "quiet_until_fresh_reply": 0,
+        "correct_fresh_byte_and_setup_hold": 2,
+        "first_observed_disable_ns": [
+          304,
+          384
+        ],
+        "measured_cs_high_ns": [
+          160,
+          168
+        ],
+        "release_to_select_lower_ns": [
+          -224,
+          -152
+        ],
+        "strict_with_positive_margin": 0,
+        "fresh_setup_lower_ns": [
+          488,
+          488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          1256
+        ]
+      },
+      "reselect": {
+        "cases": 2,
+        "strict_pass": 2,
+        "terminal_status": {
+          "0xb9": 2
+        },
+        "failures_by_check": {},
+        "active_before_abort": 2,
+        "expected_bit_before_abort": 2,
+        "enable_low_by_deadline": 2,
+        "enable_high_at_reselection": 0,
+        "quiet_until_fresh_reply": 2,
+        "correct_fresh_byte_and_setup_hold": 2,
+        "first_observed_disable_ns": [
+          384,
+          400
+        ],
+        "measured_cs_high_ns": [
+          640,
+          648
+        ],
+        "release_to_select_lower_ns": [
+          232,
+          256
+        ],
+        "strict_with_positive_margin": 2,
+        "fresh_setup_lower_ns": [
+          488,
+          1432
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          2312
+        ]
+      },
+      "pause": {
+        "cases": 2,
+        "strict_pass": 2,
+        "terminal_status": {
+          "0xbb": 2
+        },
+        "failures_by_check": {},
+        "selected_stall_timeouts": 2,
+        "selected_stall_ns": [
+          5544,
+          5824
+        ],
+        "timeout_marker_ns": [
+          5544,
+          5824
+        ]
+      }
+    }
+  },
+  "matrix": {
+    "trials": 421,
+    "samples": 7061700,
+    "groups": {
+      "normal": {
+        "cases": 3,
+        "strict_pass": 3,
+        "terminal_status": {
+          "0xb9": 2,
+          "0xba": 1
+        },
+        "failures_by_check": {}
+      },
+      "short": {
+        "cases": 2,
+        "strict_pass": 0,
+        "terminal_status": {
+          "0xb9": 2
+        },
+        "failures_by_check": {
+          "fresh command did not stay released": 2
+        },
+        "active_before_abort": 2,
+        "expected_bit_before_abort": 2,
+        "enable_low_by_deadline": 2,
+        "enable_high_at_reselection": 2,
+        "quiet_until_fresh_reply": 0,
+        "correct_fresh_byte_and_setup_hold": 2,
+        "first_observed_disable_ns": [
+          304,
+          384
+        ],
+        "measured_cs_high_ns": [
+          160,
+          168
+        ],
+        "release_to_select_lower_ns": [
+          -224,
+          -152
+        ],
+        "strict_with_positive_margin": 0,
+        "fresh_setup_lower_ns": [
+          488,
+          488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          1256
+        ]
+      },
+      "reselect": {
+        "cases": 384,
+        "strict_pass": 374,
+        "terminal_status": {
+          "0xb9": 384
+        },
+        "failures_by_check": {
+          "expected driven bit at abort": 10
+        },
+        "active_before_abort": 384,
+        "expected_bit_before_abort": 374,
+        "enable_low_by_deadline": 384,
+        "enable_high_at_reselection": 0,
+        "quiet_until_fresh_reply": 384,
+        "correct_fresh_byte_and_setup_hold": 384,
+        "first_observed_disable_ns": [
+          264,
+          416
+        ],
+        "measured_cs_high_ns": [
+          632,
+          648
+        ],
+        "release_to_select_lower_ns": [
+          216,
+          376
+        ],
+        "strict_with_positive_margin": 374,
+        "fresh_setup_lower_ns": [
+          416,
+          3488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          4312
+        ]
+      },
+      "pause": {
+        "cases": 32,
+        "strict_pass": 32,
+        "terminal_status": {
+          "0xbb": 32
+        },
+        "failures_by_check": {},
+        "selected_stall_timeouts": 32,
+        "selected_stall_ns": [
+          5544,
+          5984
+        ],
+        "timeout_marker_ns": [
+          5544,
+          5984
+        ]
+      }
+    },
+    "preabort_counterexamples": {
+      "reselect-a4-250-1-6-0": 8,
+      "reselect-a4-250-19-6-0": 16,
+      "reselect-a5-250-1-1-0": 8,
+      "reselect-a5-250-1-2-0": 8,
+      "reselect-a5-250-19-1-0": 16,
+      "reselect-a5-250-19-2-0": 16,
+      "reselect-a5-500-13-2-0": 0,
+      "reselect-a5-500-13-5-0": 0,
+      "reselect-a5-1000-13-2-0": 0,
+      "reselect-a5-1000-13-5-0": 0
+    }
+  },
+  "settled": {
+    "trials": 384,
+    "samples": 6788800,
+    "groups": {
+      "settled": {
+        "cases": 384,
+        "strict_pass": 384,
+        "terminal_status": {
+          "0xb9": 384
+        },
+        "failures_by_check": {},
+        "active_before_abort": 384,
+        "expected_bit_before_abort": 384,
+        "enable_low_by_deadline": 384,
+        "enable_high_at_reselection": 0,
+        "quiet_until_fresh_reply": 384,
+        "correct_fresh_byte_and_setup_hold": 384,
+        "first_observed_disable_ns": [
+          264,
+          416
+        ],
+        "measured_cs_high_ns": [
+          632,
+          648
+        ],
+        "release_to_select_lower_ns": [
+          216,
+          376
+        ],
+        "strict_with_positive_margin": 384,
+        "fresh_setup_lower_ns": [
+          416,
+          3488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          4328
+        ]
+      }
+    }
+  },
+  "gaps": {
+    "trials": 1792,
+    "samples": 15645056,
+    "groups": {
+      "gaps": {
+        "cases": 1792,
+        "strict_pass": 1093,
+        "terminal_status": {
+          "0xb9": 1792
+        },
+        "failures_by_check": {
+          "expected driven bit at abort": 42,
+          "fresh command did not stay released": 678
+        },
+        "active_before_abort": 1792,
+        "expected_bit_before_abort": 1750,
+        "enable_low_by_deadline": 1792,
+        "enable_high_at_reselection": 678,
+        "quiet_until_fresh_reply": 1114,
+        "correct_fresh_byte_and_setup_hold": 1792,
+        "first_observed_disable_ns": [
+          264,
+          416
+        ],
+        "measured_cs_high_ns": [
+          152,
+          648
+        ],
+        "release_to_select_lower_ns": [
+          -264,
+          376
+        ],
+        "strict_with_positive_margin": 1048,
+        "fresh_setup_lower_ns": [
+          416,
+          488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          1328
+        ]
+      }
+    },
+    "gap_sweep": {
+      "0": {
+        "shortest_passing_tested_ns": null,
+        "by_requested_gap_ns": {
+          "160": {
+            "cases": 128,
+            "strict_pass": 0,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6,
+              "fresh command did not stay released": 128
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 128,
+            "quiet_until_fresh_reply": 0,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              152,
+              168
+            ],
+            "release_to_select_lower_ns": [
+              -264,
+              -104
+            ],
+            "strict_with_positive_margin": 0,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "240": {
+            "cases": 128,
+            "strict_pass": 0,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6,
+              "fresh command did not stay released": 128
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 128,
+            "quiet_until_fresh_reply": 0,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              232,
+              248
+            ],
+            "release_to_select_lower_ns": [
+              -184,
+              -24
+            ],
+            "strict_with_positive_margin": 0,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "320": {
+            "cases": 128,
+            "strict_pass": 55,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6,
+              "fresh command did not stay released": 73
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 73,
+            "quiet_until_fresh_reply": 55,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              312,
+              328
+            ],
+            "release_to_select_lower_ns": [
+              -104,
+              56
+            ],
+            "strict_with_positive_margin": 41,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "400": {
+            "cases": 128,
+            "strict_pass": 116,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6,
+              "fresh command did not stay released": 9
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 9,
+            "quiet_until_fresh_reply": 119,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              392,
+              408
+            ],
+            "release_to_select_lower_ns": [
+              -24,
+              136
+            ],
+            "strict_with_positive_margin": 101,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "480": {
+            "cases": 128,
+            "strict_pass": 122,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              472,
+              488
+            ],
+            "release_to_select_lower_ns": [
+              56,
+              216
+            ],
+            "strict_with_positive_margin": 122,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "560": {
+            "cases": 128,
+            "strict_pass": 122,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              552,
+              568
+            ],
+            "release_to_select_lower_ns": [
+              136,
+              296
+            ],
+            "strict_with_positive_margin": 122,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "640": {
+            "cases": 128,
+            "strict_pass": 122,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "expected driven bit at abort": 6
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 122,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              632,
+              648
+            ],
+            "release_to_select_lower_ns": [
+              216,
+              376
+            ],
+            "strict_with_positive_margin": 122,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          }
+        }
+      },
+      "32": {
+        "shortest_passing_tested_ns": 480,
+        "by_requested_gap_ns": {
+          "160": {
+            "cases": 128,
+            "strict_pass": 0,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "fresh command did not stay released": 128
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 128,
+            "quiet_until_fresh_reply": 0,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              152,
+              168
+            ],
+            "release_to_select_lower_ns": [
+              -264,
+              -104
+            ],
+            "strict_with_positive_margin": 0,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "240": {
+            "cases": 128,
+            "strict_pass": 0,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "fresh command did not stay released": 128
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 128,
+            "quiet_until_fresh_reply": 0,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              232,
+              248
+            ],
+            "release_to_select_lower_ns": [
+              -184,
+              -24
+            ],
+            "strict_with_positive_margin": 0,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "320": {
+            "cases": 128,
+            "strict_pass": 53,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "fresh command did not stay released": 75
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 75,
+            "quiet_until_fresh_reply": 53,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              312,
+              328
+            ],
+            "release_to_select_lower_ns": [
+              -104,
+              56
+            ],
+            "strict_with_positive_margin": 44,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "400": {
+            "cases": 128,
+            "strict_pass": 119,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "fresh command did not stay released": 9
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 9,
+            "quiet_until_fresh_reply": 119,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              392,
+              408
+            ],
+            "release_to_select_lower_ns": [
+              -24,
+              136
+            ],
+            "strict_with_positive_margin": 112,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "480": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              472,
+              488
+            ],
+            "release_to_select_lower_ns": [
+              56,
+              216
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "560": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              552,
+              568
+            ],
+            "release_to_select_lower_ns": [
+              136,
+              296
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "640": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              632,
+              648
+            ],
+            "release_to_select_lower_ns": [
+              216,
+              376
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          }
+        }
+      }
+    }
+  },
+  "wall": {
+    "trials": 419,
+    "samples": 2410168,
+    "groups": {
+      "normal": {
+        "cases": 3,
+        "strict_pass": 1,
+        "terminal_status": {
+          "0xb9": 2,
+          "0xba": 1
+        },
+        "failures_by_check": {
+          "decoded reply": 2,
+          "normal release": 2,
+          "reply setup/hold": 2,
+          "sampled reply bit": 2
+        }
+      },
+      "reselect": {
+        "cases": 384,
+        "strict_pass": 0,
+        "terminal_status": {
+          "0xb9": 240,
+          "0xba": 10,
+          "0xbb": 134
+        },
+        "failures_by_check": {
+          "abort deadline": 360,
+          "decoded reply": 279,
+          "expected driven bit at abort": 140,
+          "fresh command did not stay released": 360,
+          "no active release to measure": 24,
+          "normal release": 384,
+          "reply setup/hold": 283,
+          "sampled reply bit": 283,
+          "success terminal after deselection": 144
+        },
+        "active_before_abort": 360,
+        "expected_bit_before_abort": 244,
+        "enable_low_by_deadline": 0,
+        "enable_high_at_reselection": 382,
+        "quiet_until_fresh_reply": 0,
+        "correct_fresh_byte_and_setup_hold": 101,
+        "first_observed_disable_ns": [
+          264,
+          11880
+        ],
+        "measured_cs_high_ns": [
+          152,
+          168
+        ],
+        "release_to_select_lower_ns": [
+          -11728,
+          -104
+        ],
+        "strict_with_positive_margin": 0,
+        "fresh_setup_lower_ns": [
+          -8,
+          488
+        ],
+        "fresh_hold_lower_ns": [
+          -8,
+          1328
+        ]
+      },
+      "pause": {
+        "cases": 32,
+        "strict_pass": 0,
+        "terminal_status": {
+          "0xbb": 32
+        },
+        "failures_by_check": {
+          "decoded reply": 2,
+          "released timeout while selected": 32,
+          "reply setup/hold": 30,
+          "sampled reply bit": 30,
+          "selected timeout": 32,
+          "timeout marker outside the selected stall": 32
+        },
+        "selected_stall_timeouts": 0,
+        "selected_stall_ns": [],
+        "timeout_marker_ns": [
+          10528,
+          14280
+        ]
+      }
+    }
+  },
+  "fine": {
+    "trials": 1408,
+    "samples": 12302400,
+    "groups": {
+      "fine": {
+        "cases": 1408,
+        "strict_pass": 1399,
+        "terminal_status": {
+          "0xb9": 1408
+        },
+        "failures_by_check": {
+          "fresh command did not stay released": 9
+        },
+        "active_before_abort": 1408,
+        "expected_bit_before_abort": 1408,
+        "enable_low_by_deadline": 1408,
+        "enable_high_at_reselection": 9,
+        "quiet_until_fresh_reply": 1399,
+        "correct_fresh_byte_and_setup_hold": 1408,
+        "first_observed_disable_ns": [
+          264,
+          416
+        ],
+        "measured_cs_high_ns": [
+          392,
+          488
+        ],
+        "release_to_select_lower_ns": [
+          -24,
+          216
+        ],
+        "strict_with_positive_margin": 1367,
+        "fresh_setup_lower_ns": [
+          416,
+          488
+        ],
+        "fresh_hold_lower_ns": [
+          1256,
+          1328
+        ]
+      }
+    },
+    "gap_sweep": {
+      "32": {
+        "shortest_passing_tested_ns": 424,
+        "by_requested_gap_ns": {
+          "400": {
+            "cases": 128,
+            "strict_pass": 119,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {
+              "fresh command did not stay released": 9
+            },
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 9,
+            "quiet_until_fresh_reply": 119,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              392,
+              408
+            ],
+            "release_to_select_lower_ns": [
+              -24,
+              136
+            ],
+            "strict_with_positive_margin": 112,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "408": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              400,
+              416
+            ],
+            "release_to_select_lower_ns": [
+              -8,
+              144
+            ],
+            "strict_with_positive_margin": 112,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "416": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              408,
+              424
+            ],
+            "release_to_select_lower_ns": [
+              -8,
+              152
+            ],
+            "strict_with_positive_margin": 119,
+            "fresh_setup_lower_ns": [
+              416,
+              480
+            ],
+            "fresh_hold_lower_ns": [
+              1264,
+              1328
+            ]
+          },
+          "424": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              416,
+              432
+            ],
+            "release_to_select_lower_ns": [
+              8,
+              152
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              424,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1320
+            ]
+          },
+          "432": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              424,
+              440
+            ],
+            "release_to_select_lower_ns": [
+              8,
+              168
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "440": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              440,
+              448
+            ],
+            "release_to_select_lower_ns": [
+              16,
+              176
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "448": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              440,
+              456
+            ],
+            "release_to_select_lower_ns": [
+              24,
+              184
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "456": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              448,
+              464
+            ],
+            "release_to_select_lower_ns": [
+              40,
+              184
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              480
+            ],
+            "fresh_hold_lower_ns": [
+              1264,
+              1328
+            ]
+          },
+          "464": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              456,
+              472
+            ],
+            "release_to_select_lower_ns": [
+              40,
+              200
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              424,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1320
+            ]
+          },
+          "472": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              464,
+              480
+            ],
+            "release_to_select_lower_ns": [
+              48,
+              208
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          },
+          "480": {
+            "cases": 128,
+            "strict_pass": 128,
+            "terminal_status": {
+              "0xb9": 128
+            },
+            "failures_by_check": {},
+            "active_before_abort": 128,
+            "expected_bit_before_abort": 128,
+            "enable_low_by_deadline": 128,
+            "enable_high_at_reselection": 0,
+            "quiet_until_fresh_reply": 128,
+            "correct_fresh_byte_and_setup_hold": 128,
+            "first_observed_disable_ns": [
+              264,
+              416
+            ],
+            "measured_cs_high_ns": [
+              472,
+              488
+            ],
+            "release_to_select_lower_ns": [
+              56,
+              216
+            ],
+            "strict_with_positive_margin": 128,
+            "fresh_setup_lower_ns": [
+              416,
+              488
+            ],
+            "fresh_hold_lower_ns": [
+              1256,
+              1328
+            ]
+          }
+        }
+      }
+    }
+  }
+}
