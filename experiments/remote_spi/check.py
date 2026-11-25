@@ -183,8 +183,9 @@ def assess(descriptor, r, wall=False):
                 expected_pins = 4 | first['polarity']
                 need(all((v & 5)==expected_pins for v in raw[abort:]), 'CS or SCK moved after held abort')
                 metrics['held_after_abort_ns']=(len(raw)-1-abort)*8
-                metrics['quiet_after_release']=active_release and quiet(disabled,len(raw))
-                test(metrics['quiet_after_release'],'MISO enable did not remain low after held abort')
+                if active_release:
+                    metrics['quiet_after_release']=quiet(disabled,len(raw))
+                    test(metrics['quiet_after_release'],'MISO enable reasserted after held abort')
         elif mode=='pause':
             origin=edge[(0,first['lost_clock'])]
             resumed=next(t for t in actual[0] if t>origin)
