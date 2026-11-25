@@ -43,6 +43,11 @@ def board_code(suite):
     extension = ''
     if suite in ('gaps','settled'):
         extension = (HERE/'gaps.py').read_text() + '\ntrials=gap_trials\nschedule=gap_schedule\n'
+    elif suite=='wall':
+        extension = (HERE/'wall.py').read_text() + (
+            '\nbase_trials=trials\nbase_schedule=schedule\ntick=wall_tick\n'
+            'def trials(suite): return wall_trials(base_trials)\n'
+            'def schedule(scenario, item): return wall_schedule(base_schedule,scenario,item)\n')
     return ('import binascii\nPLAN=binascii.unhexlify("' + rows.hex() + '")\nSUITE=' + repr(suite) + '\n' +
             inspect.getsource(scenario) + '\n' + (HERE/'schedules.py').read_text() + '\n' +
             (HERE/'on_board.py').read_text() + '\n' + extension + 'run_experiment()\n').encode()
@@ -154,7 +159,7 @@ def run(args, out, rec):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--board',choices=('fpga-1','fpga-4'),required=True)
-    p.add_argument('--suite',choices=('pilot','matrix','gaps','settled'),required=True)
+    p.add_argument('--suite',choices=('pilot','matrix','gaps','settled','wall'),required=True)
     p.add_argument('--image',type=Path,required=True)
     p.add_argument('--wheel',type=Path)
     p.add_argument('--out',type=Path,required=True)
