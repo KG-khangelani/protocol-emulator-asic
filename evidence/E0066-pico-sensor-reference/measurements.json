@@ -1,0 +1,503 @@
+{
+  "first": [
+    {
+      "case": "empty",
+      "peer_slots": 0,
+      "error": "ValueError('expected exactly one sensor', 0)"
+    },
+    {
+      "case": "ext",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 483000,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          61500,
+          7000,
+          7000,
+          60500,
+          60500,
+          7000,
+          7000,
+          60500,
+          60500,
+          7000,
+          61000,
+          6500,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4535
+      }
+    },
+    {
+      "case": "par",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "286543210fedcb27",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 481500,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          61500,
+          6500,
+          6500,
+          60500,
+          61000,
+          6500,
+          6500,
+          61000,
+          60500,
+          7000,
+          61000,
+          6500,
+          6500,
+          60500,
+          6500
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4536
+      }
+    },
+    {
+      "case": "bad-crc",
+      "peer_slots": 352,
+      "error": "ValueError('invalid scratchpad or CRC', b'50054b467fff0c101d')"
+    },
+    {
+      "case": "par",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "286543210fedcb27",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 483000,
+        "presence_delay_ns": 25000,
+        "presence_ns": 97500,
+        "write_low_ns": [
+          61000,
+          61500,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4537
+      }
+    },
+    {
+      "case": "ext",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 482500,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97500,
+        "write_low_ns": [
+          61500,
+          61500,
+          6500,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61500,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4534
+      }
+    }
+  ],
+  "faults": [
+    {
+      "case": "par",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "286543210fedcb27",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 482000,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          61500,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          60500,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4519
+      }
+    },
+    {
+      "case": "late-power",
+      "peer_slots": 883,
+      "error": "ValueError('identity or power result changed',)",
+      "partial_wire": {
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 482000,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          60500,
+          7000,
+          7000,
+          61000,
+          60500,
+          7000,
+          7000,
+          61000,
+          61000,
+          6500,
+          60500,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4519
+      }
+    },
+    {
+      "case": "flat-scratch",
+      "peer_slots": 352,
+      "error": "ValueError('invalid scratchpad or CRC', b'000000000000000000')"
+    },
+    {
+      "case": "empty",
+      "peer_slots": 0,
+      "error": "ValueError('expected exactly one sensor', 0)"
+    },
+    {
+      "case": "bad-crc",
+      "peer_slots": 352,
+      "error": "ValueError('invalid scratchpad or CRC', b'50054b467fff0c101d')"
+    },
+    {
+      "case": "ext",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 481000,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97500,
+        "write_low_ns": [
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4525
+      }
+    }
+  ],
+  "crossover": [
+    {
+      "case": "ext",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 481500,
+        "presence_delay_ns": 25000,
+        "presence_ns": 97500,
+        "write_low_ns": [
+          61500,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61500,
+          60500,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4522
+      }
+    },
+    {
+      "case": "par",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "286543210fedcb27",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 481500,
+        "presence_delay_ns": 25000,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          61500,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61500,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4532
+      }
+    },
+    {
+      "case": "swapped-high",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "286543210fedcb27",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 482000,
+        "presence_delay_ns": 25000,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4523
+      }
+    },
+    {
+      "case": "swapped-low",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 0,
+        "reset_ns": 481500,
+        "presence_delay_ns": 25000,
+        "presence_ns": 97500,
+        "write_low_ns": [
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4520
+      }
+    },
+    {
+      "case": "silent",
+      "peer_slots": 883,
+      "error": "",
+      "measurement": {
+        "rom": "28123456789abc1e",
+        "scratchpad_before": "50054b467fff0c101c",
+        "scratchpad_after": "50054b467fff0c101c",
+        "command": [
+          204,
+          180
+        ],
+        "slots": 17,
+        "wire_power": 1,
+        "reset_ns": 482000,
+        "presence_delay_ns": 24500,
+        "presence_ns": 97000,
+        "write_low_ns": [
+          61500,
+          61500,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          7000,
+          61000,
+          61000,
+          7000,
+          61000,
+          7000,
+          7000,
+          61000,
+          7000
+        ],
+        "read_low_pulses": 1,
+        "read_slot_start_sample": 4534
+      }
+    },
+    {
+      "case": "empty",
+      "peer_slots": 0,
+      "error": "ValueError('expected exactly one sensor', 0)"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
-from experiments.local_breakout.score_sensor import crc8
+from experiments.local_breakout.score_sensor import crc8, score_file as fpga_result
 from experiments.remote_i2c.check import need
 from experiments.remote_onewire.peer.score import command_bytes
 
@@ -62,8 +62,10 @@ def measurement(row):
 
 
 def local(path):
-    lines = [json.loads(line[10:]) for line in path.read_text(encoding="utf-8-sig").splitlines()
-             if line.startswith("SENSORREF ")]
+    transcript = path.read_text(encoding="utf-8-sig").splitlines()
+    need(not any(s.startswith(("SENSORREF_PARTIAL ", "SENSORREF_ERROR ")) for s in transcript),
+         "local sensor acquisition failed")
+    lines = [json.loads(line[10:]) for line in transcript if line.startswith("SENSORREF ")]
     need(len(lines) == 1, "one completed local sensor acquisition")
     row = lines[0]
     need((row["fixture"], row["host"], row["master_gpio"], row["sensor_gpio"]) ==
@@ -77,10 +79,37 @@ def pair(external, parasite):
     return {"external": external, "parasite": parasite}
 
 
+def crossover(original, swapped):
+    need(original["external"]["rom"] == swapped["parasite"]["rom"] and
+         original["parasite"]["rom"] == swapped["external"]["rom"], "same two ROMs with the rails swapped")
+    return {"original": original, "swapped": swapped}
+
+
+def compare_fpga(reference, external, parasite):
+    for mode, trial in (("external", external), ("parasite", parasite)):
+        native = reference[mode]
+        need(trial["mode"] == mode and trial["rom"] == native["rom"] and trial["reference_bit"] == trial["bit"]
+             == native["wire_power"] and trial["command"] == native["command"] and trial["slots"] == 17,
+             "FPGA sensor, power, command and slot count: " + mode)
+    return {"external": external, "parasite": parasite}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("first", type=Path, help="single terminal transcript, or the externally powered one")
     parser.add_argument("parasite", nargs="?", type=Path, help="transcript with a different sensor's VDD grounded")
+    parser.add_argument("--swapped", nargs=2, type=Path, metavar=("EXTERNAL", "PARASITE"),
+                        help="optional second pair after swapping the two sensors' power connections")
+    parser.add_argument("--fpga", nargs=2, type=Path, metavar=("EXTERNAL", "PARASITE"),
+                        help="E0063 FPGA transactions for the original two references and power connections")
     args = parser.parse_args()
     first = local(args.first)
-    print(json.dumps(first if args.parasite is None else pair(first, local(args.parasite)), indent=2))
+    if (args.swapped or args.fpga) and args.parasite is None:
+        parser.error("a comparison requires the first pair")
+    result = first if args.parasite is None else pair(first, local(args.parasite))
+    reference = result
+    if args.swapped:
+        result = crossover(result, pair(*(local(path) for path in args.swapped)))
+    if args.fpga:
+        result = {"pico": result, "fpga": compare_fpga(reference, *(fpga_result(path) for path in args.fpga))}
+    print(json.dumps(result, indent=2))

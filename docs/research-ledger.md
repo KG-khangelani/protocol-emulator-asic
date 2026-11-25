@@ -1,5 +1,22 @@
 # Research ledger
 
+## 26 November Pico reference for the real sensor trial
+
+**Observed.** FabricFox board 4 exercised the native MicroPython 1-Wire
+master against a scripted open-drain peer. All 11 completed broadcasts
+decoded as `CC B4` and 17 slots. Both ROMs returned both power values in a
+crossover. Three no-responder, two bad-CRC and one constant-zero scratchpad
+cases were rejected. A post-query change from zero to one was also
+rejected, with the previously completed wire capture retained.
+
+**Decision and limit.** Use the purchased Pico to establish two real ROMs
+and power references. Tap a bare device at its DQ lead. For a sealed
+probe record that only the cable connector was accessible. A silent read
+can produce one even after a valid addressed scratchpad. Swapping the
+power connections tests whether each sensor can also return zero. The
+fully wired FPGA and calibrated three-protocol bench still need physical
+acquisitions. [D68](decisions/0068-check-real-sensors-before-connecting-the-fpga.md) · [E0066 records and acceptance](../evidence/E0066-pico-sensor-reference/README.md)
+
 ## 26 November SPI receiver bias and project-clock control
 
 **Observed.** On FabricFox board 4 the MISO enable witness fell 392 ns after

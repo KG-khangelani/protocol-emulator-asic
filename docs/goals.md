@@ -47,6 +47,12 @@ The optional device trial still needs one externally powered and one parasite-
 powered DS18B20, tested separately.
 [Digital I²C gate](../evidence/E0058-i2c-guard/README.md) · [Receiver crossover](../evidence/E0060-i2c-receiver/README.md) · [1-Wire controls](../evidence/E0061-onewire-board-controls/README.md) · [1-Wire physical replies](../evidence/E0062-onewire-peer/README.md) · [Local bench sources](research/western-cape-bench.md)
 
+The sensor-only Pico command can establish both device identities and
+power responses before the FPGA arrives. It matched all 11,652 sampled
+slots through completion or rejection in the physical scripted-peer trials.
+Use the real-device transcripts as references for the subsequent FPGA
+power queries. [E0066 procedure and evidence](../evidence/E0066-pico-sensor-reference/README.md)
+
 The proposed local receiver is an original RP2040 Pico wired to the J2/J3
 headers of a Lattice ICE40UP5K-B-EVN. The three retained FPGA images passed
 the header simulation. Next, verify the assembled fixture's continuity and

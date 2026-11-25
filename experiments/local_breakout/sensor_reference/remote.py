@@ -18,6 +18,8 @@ from tools.cold_load import fresh_directory
 from tools.production_sram import sha, verify
 
 CASES = ("empty", "ext", "par", "bad-crc", "par", "ext")
+FAULTS = ("par", "late-power", "flat-scratch", "empty", "bad-crc", "ext")
+CROSSOVER = ("ext", "par", "swapped-high", "swapped-low", "silent", "empty")
 
 
 def bits(data):
@@ -26,11 +28,14 @@ def bits(data):
 
 def script(name):
     """One action per slot. A separate physical sampler checks the bits written by the master."""
-    high = name != "par"
-    ident = bytes.fromhex("28123456789abc" if high else "286543210fedcb")
+    high = name not in ("par", "late-power", "swapped-low")
+    second_rom = name in ("par", "late-power", "swapped-high")
+    ident = bytes.fromhex("286543210fedcb" if second_rom else "28123456789abc")
     rom = ident + bytes([crc8(ident)])
     scratch = bytes.fromhex("50054b467fff0c10")
     scratch += bytes([crc8(scratch) ^ int(name == "bad-crc")])
+    if name == "flat-scratch":
+        scratch = bytes(9)  # Its CRC is valid despite the unusable readback.
     actions, levels = [], []
 
     def reset():
@@ -45,7 +50,7 @@ def script(name):
         actions.append(1 - bit)  # Sink a zero and release a one.
         levels.append(bit)
 
-    def identify():
+    def identify(power):
         reset()
         transmit([0xf0])
         for b in bits(rom):
@@ -57,34 +62,39 @@ def script(name):
         transmit(bytes([0x55]) + rom + bytes([0xbe]))
         for b in bits(scratch):
             reply(b)
-        if name != "bad-crc":
+        if name not in ("bad-crc", "flat-scratch"):
             reset()
             transmit(bytes([0x55]) + rom + bytes([0xb4]))
-            reply(int(high))
+            reply(int(power))
 
-    identify()
-    if name != "bad-crc":
+    identify(high)
+    if name not in ("bad-crc", "flat-scratch"):
         reset()
         transmit([0xcc, 0xb4])
         reply(int(high))
-        identify()
+        identify(high or name == "late-power")
     return dict(rom=rom.hex(), scratchpad=scratch.hex(), actions=bytes(actions), levels=bytes(levels))
 
 
-def payload(order):
-    cases = CASES if order == "forward" else CASES[::-1]
+def payload(order, pico_source=None):
+    cases = {"forward": CASES, "reverse": CASES[::-1], "faults": FAULTS, "crossover": CROSSOVER}[order]
     vectors = {}
-    for name in ("ext", "par", "bad-crc"):
+    names = ("ext", "par", "bad-crc") + (("late-power", "flat-scratch") if order == "faults" else ())
+    if order == "crossover":
+        names += ("swapped-high", "swapped-low", "silent")
+    for name in names:
         design = script(name)
         vectors[name] = base64.b64encode(design["actions"]).decode(), len(design["levels"])
     prefix = f"__name__='sensor_reference'\nCASES={cases!r}\nVECTORS={vectors!r}\n"
-    return (prefix + (HERE / "pico.py").read_text(encoding="utf8") + "\n"
+    if pico_source is None:
+        pico_source = (HERE / "pico.py").read_text(encoding="utf8")
+    return (prefix + pico_source + "\n"
             + (HERE / "scripted_peer.py").read_text(encoding="utf8")).encode()
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("order", choices=("forward", "reverse"))
+    parser.add_argument("order", choices=("forward", "reverse", "faults", "crossover"))
     parser.add_argument("out", type=Path)
     parser.add_argument("--wheel", required=True, type=Path)
     args = parser.parse_args()

@@ -1,0 +1,84 @@
+{
+  "doctor": {
+    "status": "PASS",
+    "created_utc": "20261125T221459250582Z",
+    "log_sha256": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c",
+    "tests": 0
+  },
+  "check": {
+    "status": "PASS",
+    "created_utc": "20261125T222538474073Z",
+    "log_sha256": "76350c377c8a6539143ec1b3f4ef80df675c58a924f1c88d93a308014f2db370",
+    "tests": 163
+  },
+  "interrupted_check": {
+    "stage": "20261125T222418418118Z-check",
+    "status": "failed integrity guard",
+    "error": "inputs changed during execution",
+    "stage_log_sha256": "13a550729504cbb8d7aae6bad082abf002602fafebd5d94f51c832fa186ff0f3",
+    "top_level_log_sha256": "6700fbc889916520aafe11c42c4449d5d5b688fd25ea58eee66fad6a1b02cc8e",
+    "tests": 163
+  },
+  "stock_compile": {
+    "compilations": 2,
+    "target": "armv6m",
+    "source_sha256": "ed7601e60f9f64736ffc4891df2b71c99fb1028071fa2f8dc5fa886f723eecf1",
+    "upstream_tarball_sha256": "8072f6ad42c0e3bbfca88ed09bf8f1106ce207a39129af920f70081b8f2fe286",
+    "mpy_bytes": 2154,
+    "first_sha256": "b695793a1b7099ea4492c534ec0e12921ce93dd3f5027ef0143b1837e966bd48",
+    "second_sha256": "b695793a1b7099ea4492c534ec0e12921ce93dd3f5027ef0143b1837e966bd48",
+    "version": "MicroPython v1.29.0 on 2026-11-25; mpy-cross emitting mpy v6.3",
+    "assembler_words": [
+      "4001"
+    ],
+    "sample_shiftdir": "right",
+    "autopush": 32
+  },
+  "local_and_remote_access": {
+    "inspected_utc": "2026-11-25T22:15:38Z",
+    "local_present_ports": {
+      "serial": [
+        "COM1"
+      ],
+      "bluetooth": [
+        "COM3",
+        "COM4",
+        "COM7",
+        "COM8",
+        "COM9",
+        "COM10"
+      ]
+    },
+    "local_instrument_matches": [],
+    "local_inspection": "Get-PnpDevice -PresentOnly; match Ports, USBTMC, oscilloscopes, PicoScope, RP2040/2350, Lattice, Digilent and ADALM",
+    "provider": [
+      {
+        "board": "fpga-1",
+        "reachable": true,
+        "clients": 1
+      },
+      {
+        "board": "fpga-4",
+        "reachable": true,
+        "clients": 0
+      }
+    ],
+    "advertised_board_fields": [
+      "chip",
+      "device",
+      "present",
+      "usb_serial",
+      "vid_pid"
+    ],
+    "target_branch_calibration_verified": false,
+    "real_sensor_power_connections_verified": false
+  },
+  "related_evidence_replay": {
+    "E0058": "matched three backend archives including the submitted functional netlist",
+    "E0065": "100 bias trials, eight clock controls, ten historical schedules, five rejected corruptions",
+    "release_tag_inputs": {
+      "v0.1.0": 20,
+      "v0.1.1": 20
+    }
+  }
+}

@@ -79,10 +79,17 @@ def observe(master, tap, sm_id, pull):
         master.init(Pin.OPEN_DRAIN, pull, value=1)
         before = identification(bus)
         bit, data = broadcast(bus, tap, sm_id)
-        after = identification(bus)
-        if before["rom"] != after["rom"] or before["power"] != after["power"] or bit != before["power"]:
-            raise ValueError("identity or power result changed")
-        return dict(before=before, after=after, power=bit, samples=SAMPLES, sample_hz=SAMPLE_HZ, dq_lsb_first=data)
+        record = dict(before=before, power=bit, samples=SAMPLES, sample_hz=SAMPLE_HZ, dq_lsb_first=data)
+        try:
+            after = identification(bus)
+            record["after"] = after
+            if before["rom"] != after["rom"] or before["power"] != after["power"] or bit != before["power"]:
+                raise ValueError("identity or power result changed")
+        except Exception:
+            # The waveform was acquired even if the device went away or its response changed later.
+            print("SENSORREF_PARTIAL " + json.dumps(record))
+            raise
+        return record
     finally:
         master.init(Pin.IN, None)
 
@@ -96,6 +103,9 @@ def main():
         result = observe(master, tap, 4, None)
         result.update(fixture="local-pico", host=host, system_hz=machine.freq(), master_gpio=19, sensor_gpio=18)
         print("SENSORREF " + json.dumps(result))
+    except Exception as exc:
+        print("SENSORREF_ERROR " + json.dumps({"error": repr(exc)}))
+        raise
     finally:
         master.init(Pin.IN, None)
         tap.init(Pin.IN, None)

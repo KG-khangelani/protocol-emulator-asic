@@ -4,6 +4,13 @@ Updated 2026-11-26. **Both physical SPI inputs still read the previous bit at al
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
+The Pico-only sensor test is ready for the two local devices. An RP2350B
+read both programmed ROMs in both power-response modes and decoded 17
+slots at the tapped pin. A late change from zero to one was rejected
+after the waveform had been saved. The standalone command can match
+the two real ROMs to the FPGA trials when the parts arrive.
+[E0066 fixture results and local commands](../evidence/E0066-pico-sensor-reference/README.md)
+
 In 100 SPI trials, the output-enable witness fell 392 ns after the selected
 aborts. Four matched clock controls each recorded 200 GPIO28 transitions
 with the clock running, zero while parked, and 200 after restart. The receiver
