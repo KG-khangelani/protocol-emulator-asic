@@ -1,5 +1,20 @@
 # Research ledger
 
+## 26 November SPI receiver bias and project-clock control
+
+**Observed.** On FabricFox board 4 the MISO enable witness fell 392 ns after
+each of 80 selected aborts. GPIO20 and GPIO28 retained the preceding bit
+through all 24 fresh selects with an opposing pull. Both inputs decoded
+all 60 fresh bytes. In four paired raw controls, stopping the project clock
+removed all 200 GPIO28 transitions seen in each corresponding running
+window. All four restarted windows recorded 200 transitions.
+
+**Inference and open question.** On this board the receiver pin and clock
+activity affect the observed transition sequence. The recordings leave
+open the coupling mechanism, target current and loaded electrical turnoff.
+Start with calibrated, opposite-bias drive-state references and the 480 ns
+handoff, then repeat the shorter gaps. [D67](decisions/0067-test-miso-bias-at-both-receiver-inputs.md) · [E0065 raw observations, controls and limitations](../evidence/E0065-spi-branch-bias/README.md)
+
 ## 25 November native I²C receiver stretch
 
 **Observed.** A physical RP2350B on FabricFox board 4 held the first read-data

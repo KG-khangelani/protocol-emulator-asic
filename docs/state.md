@@ -1,8 +1,15 @@
 # Current state
 
-Updated 2026-11-25. **Both I²C images completed a receiver clock stretch longer than 3.92 ms and released their drive commands on timeout.** The board's native target still held one bus line after each late or withheld reply. Calibrated receiver measurements and the two known 1-Wire sensor power configurations remain open.
+Updated 2026-11-26. **Both physical SPI inputs still read the previous bit at all 24 opposite-bias reselections on FabricFox board 4.** The FPGA had commanded MISO off and every fresh transaction decoded correctly. Calibrated receiver measurements and the two real 1-Wire sensor power configurations remain open.
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
+
+In 100 SPI trials, the output-enable witness fell 392 ns after the selected
+aborts. Four matched clock controls each recorded 200 GPIO28 transitions
+with the clock running, zero while parked, and 200 after restart. The receiver
+level on this branch cannot identify when the FPGA stopped driving it. The
+next handoff test needs driven and released reference currents on a measured
+load. [E0065 measurements, raw captures and replay](../evidence/E0065-spi-branch-bias/README.md)
 
 A local bench can use the three existing FPGA images. All 26 project pads reach
 J2/J3 on a Lattice ICE40UP5K-B-EVN. Two decoded-header simulations passed the

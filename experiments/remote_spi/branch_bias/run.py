@@ -45,11 +45,30 @@ def schedules():
     return result
 
 
+def source_parts(source, helpers):
+    lines = source.splitlines(keepends=True)
+    pieces = []
+    found = set()
+    for node in ast.parse(source).body:
+        if isinstance(node, ast.FunctionDef) and node.name in helpers:
+            first = min([node.lineno, *(d.lineno for d in node.decorator_list)])
+            found.add(node.name)
+        elif isinstance(node, (ast.Import, ast.ImportFrom)):
+            first = node.lineno
+        else:
+            continue
+        pieces.extend(lines[first-1:node.end_lineno])
+    need(found == helpers, "board helper inventory")
+    return "".join(pieces)
+
+
 def payload(order):
     plan, image_sha = firmware("spi")
     need(image_sha == remote.PROGRAM_SHA, "watchdog image")
     stimulus = {}
     for name, (_, case) in schedules().items():
+        if order == "clock-control" and not name.endswith("-held"):
+            continue
         finish = tick(case["finish"])
         words = bytearray()
         events = [(tick(t), value) for t, value in case["events"]]
@@ -58,24 +77,17 @@ def payload(order):
             words.extend(struct.pack("<I", ((end-t-4) << 3) | value))
         stimulus[name] = (base64.b64encode(words).decode(), 4*((finish+67)//4))
     old = (HERE.parent / "on_board.py").read_text(encoding="utf8")
-    lines = old.splitlines(keepends=True)
     helpers = {"report", "core_clock", "requester", "pulse", "load_program"}
-    pieces = []
-    for node in ast.parse(old).body:
-        if isinstance(node, ast.FunctionDef) and node.name in helpers:
-            first = min([node.lineno, *(d.lineno for d in node.decorator_list)])
-        elif isinstance(node, (ast.Import, ast.ImportFrom)):
-            first = node.lineno
-        else:
-            continue
-        pieces.extend(lines[first-1:node.end_lineno])
     names, bias = list(stimulus), list(BIAS)
     if order == "reverse":
         names.reverse()
         bias.reverse()
     header = (f"DATA={base64.b64encode(plan).decode()!r}\nCASES={stimulus!r}\n"
               f"NAMES={names!r}\nBIAS={bias!r}\nORDER={order!r}\n")
-    return (header + "".join(pieces) + "\n" + (HERE / "on_board.py").read_text(encoding="utf8")).encode()
+    body = (HERE / "on_board.py").read_text(encoding="utf8")
+    if order == "clock-control":
+        body = source_parts(body, {"branch_sampler", "physical_input"}) + "\n" + (HERE / "clock_board.py").read_text(encoding="utf8")
+    return (header + source_parts(old, helpers) + "\n" + body).encode()
 
 
 def acquire(wheel, out, code, rec):
@@ -116,12 +128,13 @@ def acquire(wheel, out, code, rec):
         if request(api)["enabled"] == remote.NAME and request(page + "status.json")["clients"] == 0:
             rec["restore"] = request(api + "/" + target + "/enable", b"{}")
         rec["after"] = request(api)["enabled"]
-    need(rec["traces"] == 50 and rec["after"] in (target, "idle_display"), "trial count and restoration")
+    expected = 8 if rec["order"] == "clock-control" else 50
+    need(rec["traces"] == expected and rec["after"] in (target, "idle_display"), "trial count and restoration")
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("order", choices=("forward", "reverse"))
+    p.add_argument("order", choices=("forward", "reverse", "clock-control"))
     p.add_argument("out", type=Path)
     p.add_argument("--wheel", required=True, type=Path)
     args = p.parse_args()

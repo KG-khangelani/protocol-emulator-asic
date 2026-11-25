@@ -1,6 +1,6 @@
 # Goals to submission readiness
 
-Updated 2026-11-25. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
+Updated 2026-11-26. Decisions include [D32](decisions/0032-goals-to-submission-readiness.md), [D49](decisions/0049-freeze-g4-submission-candidate.md), [D50](decisions/0050-bounded-firmware-waveform-replay.md) and the [D51 council disposition](decisions/0051-review-council-next-steps.md).
 [D52](decisions/0052-engineering-first-powered-loader.md) prioritizes engineering. G6 resumes only on the owner's explicit request.
 
 Build a useful, reprogrammable chip with evidence another person can reproduce.
@@ -59,6 +59,12 @@ or late byte. A late byte left SDA low after the FPGA released both
 commands. Verify the connected receiver is idle before retrying. The guard
 selection still depends on the calibrated crossing and load measurements.
 [E0064 captures and replay](../evidence/E0064-i2c-target-stretch/README.md)
+
+The physical SPI receiver retained the last bit at all 24 opposing-bias
+reselections. GPIO28 changed 200 times in each running-clock control window
+and zero times in the corresponding parked windows. For the next SPI
+measurement, calibrate both ends of the target branch sense resistor and
+start with the 480 ns handoff. [D67](decisions/0067-test-miso-bias-at-both-receiver-inputs.md) · [E0065](../evidence/E0065-spi-branch-bias/README.md)
 
 ## Priorities and planning targets
 

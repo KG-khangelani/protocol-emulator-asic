@@ -70,13 +70,18 @@ def pin_observation(raw, pin, drive, bias, origin, off, end, select):
                 sustained_before_select_lower_ns=None if stable is None or select is None else NS*(select-off-stable-1))
 
 
-def trial(row, raw, desc, case):
+def check_pads(row):
     bias = tuple(row["bias"])
     need(bias in BIAS and len(row["pads"]) == 2, "known receiver bias")
     for (gpio, pad, control, status), expected_gpio, meaning in zip(row["pads"], (20, 28), bias):
         need(gpio == expected_gpio and (pad & 12) == {-1:4, 0:0, 1:8}[meaning]
-             and pad & 0x40 and (control & 31) == 5 and not (status & 0x2000),
+             and (pad & ~12) == 0x52 and control == 5 and not (status & 0x2000),
              "physical input function, bias and disabled driver")
+    return bias
+
+
+def trial(row, raw, desc, case):
+    bias = check_pads(row)
     checks = {}
     for label, pin in (("gp28", NATIVE), ("gp20", LINKED)):
         view = bytes(((v & 0x77) | (8 if v & pin else 0)) for v in raw)
@@ -115,10 +120,10 @@ def trial(row, raw, desc, case):
                 sample_count=len(raw), receivers=checks)
 
 
-def score(path):
+def session(path, orders):
     log = records(gzip.decompress(path.read_bytes()))
     start, bad, cold = log[:3]
-    need(start["event"] == "start" and start["order"] in ("forward", "reverse") and
+    need(start["event"] == "start" and start["order"] in orders and
          (start["samples_hz"], start["system_hz"], start["core_divisor"]) == (125000000,125000000,10),
          "physical sample and core clocks")
     need(bad["event"] == "readback_error" and bad["selector"] == 0x81 and bad["observed"] == (bad["expected"] ^ 1),
@@ -129,6 +134,11 @@ def score(path):
     finish = log[-1]
     need(finish["event"] == "finish" and finish["host_uio_oe"] == 0 and
          finish["restored_hz"] == start["original_hz"], "board cleanup")
+    return start, log[3:-1]
+
+
+def score(path):
+    start, rows = session(path, ("forward", "reverse"))
     plans = schedules()
     names, biases = list(plans), list(BIAS)
     if start["order"] == "reverse":
@@ -136,7 +146,7 @@ def score(path):
         biases.reverse()
     expected = [(name, bias) for bias in biases for name in names]
     cases, fragments = [], []
-    for row in log[3:-1]:
+    for row in rows:
         if row["event"] == "raw":
             fragments.append(row)
             continue
