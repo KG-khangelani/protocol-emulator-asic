@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Use the existing board-4 I²C configuration to capture GPIO19 through GPIO34 simultaneously."""
+"""Use the existing board-4 I²C configuration to sample both receiver connections and drive commands."""
 import argparse
 import ast
 from http.cookiejar import CookieJar
@@ -21,11 +21,8 @@ from tools.cold_load import fresh_directory
 from tools.production_sram import verify
 
 
-def payload(hz, extra, swap_target=False, both_sda=False):
-    """Reuse the exact plans and the MicroPython clock/loader functions from the earlier capture."""
-    require(hz in (8_000_000, 10_000_000), "specified sample rates")
-    require(not swap_target or extra, "paired pin swap requires equal requested pull-up settings")
-    original = remote.board_code(extra).decode()
+def loader_source(original):
+    """Select the verified MicroPython clock/loader and optional packed plans for a board job."""
     lines = original.splitlines(keepends=True)
     pieces = []
     helpers = {"emit", "project_clock", "pulse", "load_program"}
@@ -39,10 +36,17 @@ def payload(hz, extra, swap_target=False, both_sda=False):
             continue
         pieces.extend(lines[start - 1:node.end_lineno])
     require(found == helpers, "E0059 loader function inventory")
+    return "".join(pieces)
+
+
+def payload(hz, extra, swap_target=False, both_sda=False):
+    """Reuse the exact plans and the MicroPython clock/loader functions from the earlier capture."""
+    require(hz in (8_000_000, 10_000_000), "specified sample rates")
+    require(not swap_target or extra, "paired pin swap requires equal requested pull-up settings")
+    prefix = loader_source(remote.board_code(extra).decode())
     sda, scl = (18, 19) if swap_target else (26, 27)
-    pieces.extend([f"\nSAMPLE_HZ={hz}\nTARGET_SDA={sda}\nTARGET_SCL={scl}\nBOTH_SDA={both_sda!r}\n",
-                   (HERE / "on_board.py").read_text(encoding="utf-8")])
-    return "".join(pieces).encode()
+    settings = f"\nSAMPLE_HZ={hz}\nTARGET_SDA={sda}\nTARGET_SCL={scl}\nBOTH_SDA={both_sda!r}\n"
+    return (prefix + settings + (HERE / "on_board.py").read_text(encoding="utf-8")).encode()
 
 
 def acquire(wheel, out, receipt, code):

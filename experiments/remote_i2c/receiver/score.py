@@ -62,7 +62,7 @@ def input_timing(values, observed, commands, period):
         width = (end - start) * period
         if width >= 500:
             continue
-        crosses = any((values[t] ^ values[start]) & SCL_OE for t in range(start, end + 1))
+        crosses = any((values[t] ^ values[t - 1]) & SCL_OE for t in range(start, end + 1))
         command = "crosses" if crosses else "asserted" if values[start] & SCL_OE else "released"
         level = "high" if values[start] & observed else "low"
         short_runs[command + "_" + level] += 1
