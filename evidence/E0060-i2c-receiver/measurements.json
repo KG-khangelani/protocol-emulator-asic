@@ -1,0 +1,701 @@
+{
+  "full19-first": {
+    "active_scl": 19,
+    "address_nacks": 2,
+    "both_sda": true,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        34,
+        40
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        108,
+        188
+      ],
+      "short_runs": {
+        "released_high": 134,
+        "released_low": 134
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        3
+      ],
+      [
+        19,
+        90,
+        3
+      ],
+      [
+        26,
+        90,
+        5
+      ],
+      [
+        27,
+        90,
+        5
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 365
+  },
+  "full19-repeat": {
+    "active_scl": 19,
+    "address_nacks": 2,
+    "both_sda": true,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        200
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        200
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        40,
+        40
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        126,
+        192
+      ],
+      "short_runs": {
+        "released_high": 179,
+        "released_low": 179
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        3
+      ],
+      [
+        19,
+        90,
+        3
+      ],
+      [
+        26,
+        90,
+        5
+      ],
+      [
+        27,
+        90,
+        5
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 449
+  },
+  "full27": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": true,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        22
+      ],
+      "raw_pass": 1,
+      "read_edge_range": [
+        112,
+        192
+      ],
+      "short_runs": {
+        "released_high": 155,
+        "released_low": 155
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        5
+      ],
+      [
+        19,
+        90,
+        5
+      ],
+      [
+        26,
+        90,
+        3
+      ],
+      [
+        27,
+        90,
+        3
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 382
+  },
+  "native10": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": false,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        2000,
+        2100
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1900
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        40,
+        40
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        140,
+        260
+      ],
+      "short_runs": {
+        "released_high": 270,
+        "released_low": 270
+      }
+    },
+    "hz": 10000000,
+    "reads": 4,
+    "total_disagreement_samples": 571
+  },
+  "native8": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": false,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        2000,
+        2125
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        250
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1875,
+        2000
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1250,
+        1875
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        250
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1875,
+        2125
+      ],
+      "nack_edge_range": [
+        46,
+        54
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        188,
+        220
+      ],
+      "short_runs": {
+        "released_high": 279,
+        "released_low": 279
+      }
+    },
+    "hz": 8000000,
+    "reads": 4,
+    "total_disagreement_samples": 445
+  },
+  "pin19": {
+    "active_scl": 19,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        40,
+        40
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        112,
+        184
+      ],
+      "short_runs": {
+        "released_high": 166,
+        "released_low": 166
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        3
+      ],
+      [
+        19,
+        90,
+        3
+      ],
+      [
+        26,
+        90,
+        5
+      ],
+      [
+        27,
+        90,
+        5
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 427
+  },
+  "pin27-after": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        34,
+        42
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        112,
+        192
+      ],
+      "short_runs": {
+        "released_high": 168,
+        "released_low": 168
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        5
+      ],
+      [
+        19,
+        90,
+        5
+      ],
+      [
+        26,
+        90,
+        3
+      ],
+      [
+        27,
+        90,
+        3
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 398
+  },
+  "pin27-before": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        200
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        200
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        38,
+        38
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        112,
+        188
+      ],
+      "short_runs": {
+        "released_high": 166,
+        "released_low": 166
+      }
+    },
+    "hz": 10000000,
+    "pad_registers": [
+      [
+        18,
+        90,
+        5
+      ],
+      [
+        19,
+        90,
+        5
+      ],
+      [
+        26,
+        90,
+        3
+      ],
+      [
+        27,
+        90,
+        3
+      ]
+    ],
+    "reads": 4,
+    "total_disagreement_samples": 408
+  },
+  "pulls10": {
+    "active_scl": 27,
+    "address_nacks": 2,
+    "both_sda": false,
+    "command_count_passes": 6,
+    "extra_pulls": true,
+    "gpio19": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        1200,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        100
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        1900,
+        2100
+      ],
+      "nack_edge_range": [
+        20,
+        20
+      ],
+      "raw_pass": 6,
+      "read_edge_range": [
+        76,
+        76
+      ],
+      "short_runs": {}
+    },
+    "gpio27": {
+      "filtered_pass": 6,
+      "first_high_delay_ns": [
+        800,
+        1300
+      ],
+      "guard0_sda_command_after_sampled_low_ns": [
+        0,
+        200
+      ],
+      "guard24_sda_command_after_sampled_low_ns": [
+        2000,
+        2100
+      ],
+      "nack_edge_range": [
+        40,
+        60
+      ],
+      "raw_pass": 0,
+      "read_edge_range": [
+        128,
+        192
+      ],
+      "short_runs": {
+        "released_high": 224,
+        "released_low": 224
+      }
+    },
+    "hz": 10000000,
+    "reads": 4,
+    "total_disagreement_samples": 454
+  }
+}

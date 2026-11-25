@@ -1,0 +1,56 @@
+{
+  "inventory": [
+    {
+      "board": "fpga-1",
+      "observed_utc": "2026-11-25T20:34:35.539020+00:00",
+      "reachable": true,
+      "present": true,
+      "kind": "fpga",
+      "clients": 1,
+      "selected": "tt_um_factory_test",
+      "identity_sha256": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca",
+      "designs": [
+        "tt_um_counter_7seg",
+        "tt_um_crc32",
+        "tt_um_factory_test",
+        "tt_um_flip_pendant",
+        "tt_um_khangelani_osc_27945dd4",
+        "tt_um_khangelani_osc_5ac62a88",
+        "tt_um_khangelani_osc_f574670d",
+        "tt_um_khangelani_uart_89fa8960",
+        "tt_um_nanosilicon",
+        "tt_um_pwm_breathe",
+        "tt_um_uart_hello",
+        "tt_um_vga_pattern",
+        "tt_um_vgacal_bars"
+      ]
+    },
+    {
+      "board": "fpga-4",
+      "observed_utc": "2026-11-25T20:34:38.333346+00:00",
+      "reachable": true,
+      "present": true,
+      "kind": "fpga",
+      "clients": 0,
+      "selected": "idle_display",
+      "identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+      "designs": [
+        "tt_um_counter_7seg",
+        "tt_um_factory_test",
+        "tt_um_khangelani_i2c_7ee587d5",
+        "tt_um_khangelani_osc_5ac62a88",
+        "tt_um_khangelani_spi_d4b92016",
+        "tt_um_khangelani_uart_89fa8960",
+        "tt_um_pwm_breathe",
+        "tt_um_uart_hello",
+        "tt_um_vga_pattern",
+        "tt_um_vgacal_bars",
+        "tt_um_vgacal_counter",
+        "tt_um_vgacal_framer",
+        "tt_um_vgacal_grid",
+        "tt_um_vgacal_modes",
+        "tt_um_vgacal_prbs"
+      ]
+    }
+  ]
+}
