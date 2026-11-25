@@ -1,0 +1,1995 @@
+{
+  "complete": {
+    "core-a": {
+      "0-0": {
+        "guard": 0,
+        "requested_service_us": 0,
+        "actual_service_us": 78,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11169,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          105280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 105280,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1745920
+      },
+      "24-0": {
+        "guard": 24,
+        "requested_service_us": 0,
+        "actual_service_us": 65,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11128,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          99040,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 99040,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1739520
+      },
+      "24-1000": {
+        "guard": 24,
+        "requested_service_us": 1000,
+        "actual_service_us": 1033,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 17116,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1057280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 1057280,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 2698080
+      },
+      "0-1000": {
+        "guard": 0,
+        "requested_service_us": 1000,
+        "actual_service_us": 1050,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 17247,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1078240,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 1078240,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 2718880
+      },
+      "0--1": {
+        "guard": 0,
+        "requested_service_us": -1,
+        "actual_service_us": null,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32899,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          0
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": null
+      },
+      "24--1": {
+        "guard": 24,
+        "requested_service_us": -1,
+        "actual_service_us": null,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32900,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          0
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": null
+      }
+    },
+    "boundary-c": {
+      "24-3850": {
+        "guard": 24,
+        "requested_service_us": 3850,
+        "actual_service_us": 3898,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 35045,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          3925440,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 3925440,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 5566240
+      },
+      "0-3850": {
+        "guard": 0,
+        "requested_service_us": 3850,
+        "actual_service_us": 3915,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 35185,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          3948160,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 3948160,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 5588640
+      },
+      "0-4150": {
+        "guard": 0,
+        "requested_service_us": 4150,
+        "actual_service_us": 4207,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32899,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          0,
+          1
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": 235840
+      },
+      "24-4150": {
+        "guard": 24,
+        "requested_service_us": 4150,
+        "actual_service_us": 4216,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32902,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          0,
+          1
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": 241920
+      },
+      "24-0": {
+        "guard": 24,
+        "requested_service_us": 0,
+        "actual_service_us": 64,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11086,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          92000,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 92000,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1732800
+      },
+      "0-0": {
+        "guard": 0,
+        "requested_service_us": 0,
+        "actual_service_us": 67,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11109,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          95680,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 95680,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1736320
+      }
+    },
+    "core-b": {
+      "0-0": {
+        "guard": 0,
+        "requested_service_us": 0,
+        "actual_service_us": 60,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11070,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          89920,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 89920,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1730560
+      },
+      "24-0": {
+        "guard": 24,
+        "requested_service_us": 0,
+        "actual_service_us": 71,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11116,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          96640,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 96640,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1737120
+      },
+      "24-1000": {
+        "guard": 24,
+        "requested_service_us": 1000,
+        "actual_service_us": 1054,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 17270,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1081280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 1081280,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 2721760
+      },
+      "0-1000": {
+        "guard": 0,
+        "requested_service_us": 1000,
+        "actual_service_us": 1033,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 17140,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1060960,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 1060960,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 2701440
+      },
+      "0--1": {
+        "guard": 0,
+        "requested_service_us": -1,
+        "actual_service_us": null,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32899,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          0
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": null
+      },
+      "24--1": {
+        "guard": 24,
+        "requested_service_us": -1,
+        "actual_service_us": null,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32902,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          0
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": null
+      }
+    },
+    "boundary-d": {
+      "24-3850": {
+        "guard": 24,
+        "requested_service_us": 3850,
+        "actual_service_us": 3901,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 35054,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          3927360,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 3927360,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 5568160
+      },
+      "0-3850": {
+        "guard": 0,
+        "requested_service_us": 3850,
+        "actual_service_us": 3895,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 35039,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          3924800,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "stretched_release": 29,
+        "outcome": "OK",
+        "longest_release_ns": 3924800,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 5565280
+      },
+      "0-4150": {
+        "guard": 0,
+        "requested_service_us": 4150,
+        "actual_service_us": 4179,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32899,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          0,
+          1
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": 206560
+      },
+      "24-4150": {
+        "guard": 24,
+        "requested_service_us": 4150,
+        "actual_service_us": 4207,
+        "status": 152,
+        "rx": 0,
+        "valid": 1,
+        "halt_sample": 32899,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          null
+        ],
+        "scl_releases": 29,
+        "target_request_count": 1,
+        "samples": 45000,
+        "end_receiver": [
+          0,
+          1
+        ],
+        "outcome": "TIMEOUT",
+        "stretched_release": 29,
+        "read_address_phase_bits": 9,
+        "release_to_halt_ns": 4000160,
+        "sample_bounds_ns": [
+          4000000,
+          4000320
+        ],
+        "interval_inside_contract": true,
+        "post_halt_scl_high_ns": 238400
+      },
+      "24-0": {
+        "guard": 24,
+        "requested_service_us": 0,
+        "actual_service_us": 74,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11145,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          101440,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 101440,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1742080
+      },
+      "0-0": {
+        "guard": 0,
+        "requested_service_us": 0,
+        "actual_service_us": 75,
+        "status": 136,
+        "rx": 1,
+        "valid": 1,
+        "halt_sample": 11157,
+        "release_to_receiver_high_ns": [
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          103200,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280,
+          1280
+        ],
+        "scl_releases": 38,
+        "target_request_count": 2,
+        "samples": 45000,
+        "end_receiver": [
+          1,
+          1
+        ],
+        "outcome": "OK",
+        "longest_release_ns": 103200,
+        "frames": [
+          [
+            [
+              92,
+              0
+            ],
+            [
+              150,
+              0
+            ]
+          ],
+          [
+            [
+              93,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "start_to_stop_ns": 1743680
+      }
+    }
+  },
+  "partial": {
+    "24-3850": {
+      "guard": 24,
+      "requested_service_us": 3850,
+      "actual_service_us": 3918,
+      "status": 136,
+      "rx": 1,
+      "valid": 1,
+      "halt_sample": 35167,
+      "release_to_receiver_high_ns": [
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        3945440,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280
+      ],
+      "scl_releases": 38,
+      "target_request_count": 2,
+      "samples": 45000,
+      "end_receiver": [
+        1,
+        1
+      ],
+      "stretched_release": 29,
+      "outcome": "OK",
+      "longest_release_ns": 3945440,
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            150,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "start_to_stop_ns": 5586080
+    },
+    "0-3850": {
+      "guard": 0,
+      "requested_service_us": 3850,
+      "actual_service_us": 3915,
+      "status": 136,
+      "rx": 1,
+      "valid": 1,
+      "halt_sample": 35135,
+      "release_to_receiver_high_ns": [
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        3940320,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280
+      ],
+      "scl_releases": 38,
+      "target_request_count": 2,
+      "samples": 45000,
+      "end_receiver": [
+        1,
+        1
+      ],
+      "stretched_release": 29,
+      "outcome": "OK",
+      "longest_release_ns": 3940320,
+      "frames": [
+        [
+          [
+            92,
+            0
+          ],
+          [
+            150,
+            0
+          ]
+        ],
+        [
+          [
+            93,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "start_to_stop_ns": 5580960
+    },
+    "0-4150": {
+      "guard": 0,
+      "requested_service_us": 4150,
+      "actual_service_us": 4209,
+      "status": 152,
+      "rx": 0,
+      "valid": 1,
+      "halt_sample": 32903,
+      "release_to_receiver_high_ns": [
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        1280,
+        null
+      ],
+      "scl_releases": 29,
+      "target_request_count": 1,
+      "samples": 45000,
+      "end_receiver": [
+        0,
+        1
+      ],
+      "outcome": "TIMEOUT",
+      "stretched_release": 29,
+      "read_address_phase_bits": 9,
+      "release_to_halt_ns": 4000160,
+      "sample_bounds_ns": [
+        4000000,
+        4000320
+      ],
+      "interval_inside_contract": true,
+      "post_halt_scl_high_ns": 237760
+    }
+  }
+}

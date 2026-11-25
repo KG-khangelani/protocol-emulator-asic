@@ -3,6 +3,18 @@
 import os
 
 
+def reset_receiver():
+    # RP2350 RESETS atomic SET/CLEAR aliases. Reset only I2C1 with its pins disconnected.
+    resets = 0x40020000
+    i2c1 = 1 << 5
+    machine.mem32[resets + 0x2000] = i2c1
+    machine.mem32[resets + 0x3000] = i2c1
+    for _ in range(100):
+        if machine.mem32[resets + 8] & i2c1:
+            return
+    raise RuntimeError("I2C1 reset did not complete")
+
+
 @rp2.asm_pio(in_shiftdir=rp2.PIO.SHIFT_RIGHT, out_shiftdir=rp2.PIO.SHIFT_RIGHT, autopush=True, push_thresh=32)
 def stretch_pins():
     mov(osr, pins)        # Capture all inputs simultaneously, starting at GPIO18.
@@ -54,6 +66,7 @@ def one_trial(tt, name, clocks, delay, buffer, clock_id):
     dma = rp2.DMA()
     target = None
     try:
+        reset_receiver()
         target = machine.I2CTarget(1, addr=0x2e, scl=scl, sda=sda)
         target.irq(response.interrupt, trigger=machine.I2CTarget.IRQ_READ_REQ | machine.I2CTarget.IRQ_WRITE_REQ,
                    hard=True)
@@ -80,7 +93,7 @@ def one_trial(tt, name, clocks, delay, buffer, clock_id):
         status = io.read_uo_out_byte()
         timer.active(0)
         Pin(16, Pin.OUT, value=0)
-        at_halt = [sda.value(), scl.value()]
+        after_capture = [sda.value(), scl.value()]
         page.value(1)
         time.sleep_us(5)
         received = io.read_uo_out_byte()
@@ -98,6 +111,7 @@ def one_trial(tt, name, clocks, delay, buffer, clock_id):
             target.deinit()
         for gpio in (18, 19, 26, 27):
             Pin(gpio, Pin.IN, Pin.PULL_UP)
+        reset_receiver()
         time.sleep_us(30)
         recovered = [sda.value(), scl.value()]
         for gpio in (18, 19, 25, 26, 27, 28, 29, 30, 31):
@@ -119,7 +133,7 @@ def one_trial(tt, name, clocks, delay, buffer, clock_id):
     emit(event="trace", name=name, guard=clocks, delay_us=delay, service_us=actual_delay,
          read_events=response.read_events, writes_received=response.received, pointer=response.register[0],
          enqueued=response.enqueued, status=status, rx=received, valid=received_valid, samples=len(buffer),
-         idle=idle, at_halt=at_halt, recovered=recovered, pad_registers=pads)
+         idle=idle, after_capture=after_capture, recovered=recovered, pad_registers=pads)
 
 
 def stretch_run():
@@ -141,7 +155,7 @@ def stretch_run():
         assert machine.freq() == 125000000 and pio.gpio_base() == Pin(16)
         emit(event="start", system_hz=machine.freq(), original_hz=hz, core_divisor=10, sample_hz=6250000,
              sm_hz=31250000, gpio_base=16, in_base=18, mask=0x8f, host=os.uname().machine,
-             micropython=os.uname().release, capture="native-i2c1-stretch")
+             micropython=os.uname().release, capture="native-i2c1-stretch", reset_each_receiver=True)
         for clocks_added, delay in TRIALS:
             gc.collect()
             one_trial(tt, "%d-%d" % (clocks_added, delay), clocks_added, delay, buf, clocks[0])

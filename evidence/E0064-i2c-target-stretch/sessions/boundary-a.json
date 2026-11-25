@@ -1,0 +1,15 @@
+{
+  "board": "fpga-4",
+  "started_utc": "2026-11-25T21:41:40.679586+00:00",
+  "suite": "boundary",
+  "status": "INCOMPLETE",
+  "image_sha256": "7ee587d50556b33599c23a2a893176534fafee1863d858c16d586d97c9be4bf4",
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "code_sha256": "3033aa49d710b469de659a0f6e4a1c0fbba0794c2386d478e4991be102016bda",
+  "previous": "tt_um_factory_test",
+  "restore_target": "tt_um_factory_test",
+  "clients_before": 0,
+  "identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+  "error": "board occupied before selection",
+  "ended_utc": "2026-11-25T21:41:47.517087+00:00"
+}

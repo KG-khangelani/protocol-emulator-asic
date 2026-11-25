@@ -69,6 +69,10 @@ def measure(changes, meta):
     need(len(halts) == 1 and all((v & (SCL_OE|SDA_OE|HALT)) == HALT for v in values[halts[0]:]),
          "single stable HALT and both commands released")
     halt = halts[0]
+    end_receiver = [int(bool(values[-1] & pin)) for pin in (SDA, SCL)]
+    # The first job called this CPU read "at_halt". It occurs after the DMA capture.
+    end_readback = meta.get("after_capture", meta.get("at_halt"))
+    need(end_receiver == end_readback, "last PIO sample and end-of-capture readback")
     cmd = edges(values, SCL_OE)
     need(cmd and len(cmd)%2 == 0 and cmd[-1] < halt, "complete SCL command pairs before HALT")
     releases = cmd[1::2]
@@ -84,7 +88,7 @@ def measure(changes, meta):
     measured = dict(guard=guard, requested_service_us=delay, actual_service_us=meta["service_us"],
                     status=meta["status"], rx=meta["rx"], valid=meta["valid"], halt_sample=halt,
                     release_to_receiver_high_ns=windows, scl_releases=len(releases),
-                    target_request_count=meta["read_events"], samples=meta["samples"])
+                    target_request_count=meta["read_events"], samples=meta["samples"], end_receiver=end_receiver)
     if delay in (0,1000,3850):
         wire = wire_result(bus, len(values), True, 0x96, 1)
         need(wire["passed"], "native read trace: "+str(wire.get("error")))
@@ -94,13 +98,18 @@ def measure(changes, meta):
             selected = [i+1 for i,ns in enumerate(windows) if ns >= 500_000]
             need(len(selected) == 1 and selected[0] in (28,29), "single read-address or first-data stretch")
             measured["stretched_release"] = selected[0]
+            start = releases[selected[0]-1]
+            end = start + windows[selected[0]-1] // TICK_NS
+            need(all((v & (SCL | SDA_OE | SCL_OE)) == 0 for v in values[start:end]),
+                 "receiver holds clock while both FPGA drive commands are released")
         measured.update(outcome="OK", longest_release_ns=max(windows), frames=wire["frames"],
                         start_to_stop_ns=(wire["boundaries"][-1][1]-wire["boundaries"][0][1])*TICK_NS)
     else:
         need(delay in (-1,4150) and meta["status"] == 0x98, "expected firmware timeout")
         need(len(releases) in (28,29) and windows.count(None) == 1 and windows[-1] is None, "single final stretched clock")
         last = releases[-1]
-        need(all(not v & (SCL|SCL_OE) for v in values[last:halt+1]), "native clock held low through HALT")
+        need(all(not v & (SCL | SCL_OE | SDA_OE) for v in values[last:halt+1]),
+             "native clock held low through HALT with both FPGA drive commands released")
         delta = (halt-last)*TICK_NS
         bounds = [delta-TICK_NS,delta+TICK_NS]
         need(bounds[1] >= DEADLINE_NS and bounds[0] <= DEADLINE_NS + 1280, "timeout outside project cleanup window")
@@ -108,21 +117,30 @@ def measure(changes, meta):
         need(len(releases) == 20+bits, "clock ordinal agrees with decoded address phase")
         measured.update(outcome="TIMEOUT", stretched_release=len(releases), read_address_phase_bits=bits,
                         release_to_halt_ns=delta, sample_bounds_ns=bounds,
-                        interval_inside_contract=bounds[0] >= DEADLINE_NS and bounds[1] <= DEADLINE_NS+1280,
-                        end_receiver=[int(bool(values[-1]&SDA)),int(bool(values[-1]&SCL))])
+                        interval_inside_contract=bounds[0] >= DEADLINE_NS and bounds[1] <= DEADLINE_NS+1280)
+        later_rises = [t for t in rises if t > halt]
+        measured["post_halt_scl_high_ns"] = (later_rises[0] - halt) * TICK_NS if later_rises else None
         if delay == -1:
             need(all(not v & SCL for v in values[last:]), "native peripheral held clock until the end of capture")
+        else:
+            need(len(later_rises) == 1 and end_receiver == [0, 1],
+                 "late transmitter starts its first zero bit after the controller halted")
     return measured
 
 
-def records(path):
+def terminal(path):
     raw = gzip.decompress(path.read_bytes())
     need(raw.startswith(b"OK") and raw.endswith(b"\x04>"), "complete physical terminal")
     stdout, stderr = raw[2:-2].split(b"\x04", 1)
-    need(not stderr, "board exception")
     data = [json.loads(x[7:]) for x in stdout.splitlines() if x.startswith(b"I2CLAB ")]
+    return data, stderr
+
+
+def records(path):
+    data, stderr = terminal(path)
+    need(not stderr, "board exception")
     start, finish = data[0], data[-1]
-    need(start["capture"] == "native-i2c1-stretch" and [start[k] for k in
+    need(start["event"] == "start" and start["capture"] == "native-i2c1-stretch" and [start[k] for k in
          ("system_hz","core_divisor","sm_hz","sample_hz","gpio_base","in_base","mask")] ==
          [125000000,10,31250000,6250000,16,18,MASK], "physical capture configuration")
     need(finish["event"] == "finish" and finish["restored_hz"] == start["original_hz"] and finish["restored_bank"]
@@ -144,6 +162,13 @@ def records(path):
     return cold, pins, traces
 
 
+def check_load(row, guard):
+    image = bytes.fromhex(row["image"])
+    need((len(image), hashlib.sha256(image).hexdigest()) == IMAGES[guard] and
+         row["registers"] == [[160, len(image)//4], [161, 0x5c], [164, 0x96]] and
+         row["rows"] == (802 if guard == 0 else 902), row["name"] + " physical cold readback")
+
+
 def score(path, suite):
     cold, pins, meta = records(path)
     wanted = MATRIX[suite]
@@ -151,10 +176,7 @@ def score(path, suite):
     results = {}
     for guard, delay in wanted:
         name = f"{guard}-{delay}"
-        image = bytes.fromhex(cold[name]["image"])
-        need((len(image),hashlib.sha256(image).hexdigest()) == IMAGES[guard] and cold[name]["registers"] ==
-             [[160,len(image)//4],[161,0x5c],[164,0x96]] and cold[name]["rows"] == (802 if guard == 0 else 902),
-             name+" physical cold readback")
+        check_load(cold[name], guard)
         results[name] = measure(pins[name], meta[name])
     return results
 

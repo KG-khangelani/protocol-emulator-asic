@@ -1,5 +1,21 @@
 # Research ledger
 
+## 25 November native I²C receiver stretch
+
+**Observed.** A physical RP2350B on FabricFox board 4 held the first read-data
+clock low with both FPGA drive commands released. The 96- and 108-word loads
+each returned the expected byte after immediate, 1 ms and 3.85 ms service
+requests. Eight late or withheld requests reached HALT 4.00016 ms after
+release, with a 160 ns sampling uncertainty on the shared timebase. The
+sampled receiver still held SDA or SCL low after cleanup. One subsequent
+target initialization failed its idle check. The two corrected boundary
+sessions each finished both follow-on reads after an isolated I2C1 reset.
+
+**Decision.** Keep the 96-word image selected. Check for idle with the target
+connected before a retry. Whether the guard improves the voltage timing of a
+particular receiver, and whether that receiver recovers without a reset,
+remain open. [D66 predeclared cases](decisions/0066-measure-native-i2c-clock-stretch.md) · [E0064 raw evidence and limits](../evidence/E0064-i2c-target-stretch/README.md)
+
 ## 25 November local breakout and Pico bench
 
 **Verified from the board schematic and decoded package simulation.** Each of

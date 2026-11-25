@@ -1,6 +1,6 @@
 # Current state
 
-Updated 2026-11-25. **Board 4 now has an I²C receiver connection that decodes cleanly at the actual target pins. The 1-Wire FPGA bench also exchanged both command bytes and both read values with a programmable pin-level peer. The next physical gates require a calibrated receiver measurement and two known sensor power configurations.**
+Updated 2026-11-25. **Both I²C images completed a receiver clock stretch longer than 3.92 ms and released their drive commands on timeout.** The board's native target still held one bus line after each late or withheld reply. Calibrated receiver measurements and the two known 1-Wire sensor power configurations remain open.
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
@@ -10,6 +10,14 @@ UART, SPI, I²C and modeled 1-Wire trials using the original Pico's GPIO map.
 All four Pico sensor-test modes cross-compiled. Physical receiver measurements
 await the wired boards, two sensors and calibrated branch instruments.
 [E0063 wiring, results and acquisition commands](../evidence/E0063-local-breakout/README.md) · [Western Cape stock and quotes](research/western-cape-bench.md)
+
+Four complete sessions on FabricFox board 4 gave 16 successful I²C reads
+and eight timeouts. At the nominal 12.5 MHz FPGA clock every timeout reached
+HALT 4.00016 ms after SCL release, within one 160 ns sample period of the
+deadline. A first restart failed because SDA was low when the native target
+was re-enabled. Resetting the receiver between trials allowed both boundary
+repeats to finish. Keep the 96-word image selected and check bus idle with
+the target connected before retrying. [E0064 timing, failure and raw captures](../evidence/E0064-i2c-target-stretch/README.md)
 
 At 50 MHz the 108-word candidate moved commanded SDA changes from 20–40 ns to
 500–520 ns after falling SCL in the original transaction. Both images kept

@@ -53,6 +53,13 @@ the header simulation. Next, verify the assembled fixture's continuity and
 clock, acquire the two real power queries, and capture calibrated voltages
 and drive-state references for the three primary protocols. [D65](decisions/0065-check-the-local-breakout-at-its-headers.md) · [E0063](../evidence/E0063-local-breakout/README.md)
 
+The native RP2350B target has now exercised the physical I²C stretch and
+timeout paths. Both images finished delayed reads and halted on a withheld
+or late byte. A late byte left SDA low after the FPGA released both
+commands. Verify the connected receiver is idle before retrying. The guard
+selection still depends on the calibrated crossing and load measurements.
+[E0064 captures and replay](../evidence/E0064-i2c-target-stretch/README.md)
+
 ## Priorities and planning targets
 
 Dates below are internal planning targets, not measured completion promises.
