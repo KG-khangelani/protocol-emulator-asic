@@ -1,0 +1,5 @@
+# Additional pull-up trial on board 4
+
+The 20:18 UTC capture returned both requested byte values on both firmware images. Counting every sampled SCL rising edge gave extra clocks. Short high and low runs each spanned one to three 100 ns samples. The six original unfiltered decodes failed.
+
+Retain those outcomes. Repeat the six cold loads with the internal weak pull-ups on the HAT-linked UI1 and UI2 inputs enabled during the transaction, in addition to the native target's existing bias. Release both GPIO output drivers. Keep the FPGA bitstream, both program binaries, 125 MHz system setting, 12.5 MHz project clock, 10 MHz sampler and request cases fixed. Score every observed edge first. A diagnostic requiring five consecutive samples of the new level can indicate whether the slow protocol symbols were delivered across a short excursion. Its verdict cannot close the original edge criterion. Count short pulses and correct bytes in each configuration. The weak pull-ups are unmeasured. A change in the results does not establish the electrical source of the excursions. [HAT connection record](../E0054-separate-oscillators/wiring-correction.md)
