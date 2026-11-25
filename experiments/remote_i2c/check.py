@@ -112,6 +112,8 @@ def check(path):
             need(name not in cold and (len(image), hashlib.sha256(image).hexdigest()) == IMAGES[cycles],
                  name + " image readback")
             need(row["rows"] == (802 if cycles == 0 else 902), name + " loader steps")
+            need(row["registers"] == [[0xa0, len(image) // 4], [0xa1, 0x5c], [0xa4, reg]],
+                 name + " length, write address or requested memory offset")
             cold[name] = len(image)
             pins[name] = []
         elif event == "pins":
