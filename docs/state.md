@@ -1,6 +1,6 @@
 # Current state
 
-Updated 2026-11-25. **The released and guarded I²C programs both read the correct data on FabricFox board 4. All 18 physical captures contained extra clock transitions. The next firmware decision depends on measuring SDA and SCL at a receiver with a known load.**
+Updated 2026-11-25. **Board 4 now has an I²C receiver connection that decodes cleanly at the actual target pins. The 1-Wire FPGA bench also passes its absent and stuck-line controls. The next physical gates require a calibrated receiver measurement and two known sensor power configurations.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
@@ -10,11 +10,26 @@ the same SCL, transaction boundaries and HALT timing in all 172 matched cases.
 The 171-clock adverse control returned the right byte while violating the
 data-valid limit. [E0058 digital evidence and replay](../evidence/E0058-i2c-guard/README.md)
 
-On the 12.5 MHz FPGA, the native RP2350B target returned all 12 requested
+In nine further sessions the FPGA command showed 76 SCL transitions for
+each of 36 reads and 20 for each of 18 missing addresses. GPIO19 had the
+same counts. GPIO27 recorded 3,482 sub-500 ns intervals while the FPGA
+held SCL released. Moving the native I2C1 peripheral to GPIO18/19 gave
+12/12 complete raw decodes at those actual SDA/SCL pins across two captures.
+The competing physical explanations require simultaneous voltages and a known
+load. Use GPIO18/19 for the digital fixture and keep the 96-word release selected.
+[E0060 physical crossover, timings and raw data](../evidence/E0060-i2c-receiver/README.md)
+
+The 85-word 1-Wire image produced a 500 µs reset on all four physical trials
+that started with DQ high. With DQ already low, both trials issued no reset.
+All six halted with the error marker and sent zero command slots. Eight
+modeled sensor responses passed at the same 12.5 MHz FPGA target. The
+17-slot result from actual externally powered and parasite-powered sensors
+and calibrated SPI MISO and UART turnoff remain open.
+[E0061 physical controls and RTL positives](../evidence/E0061-onewire-board-controls/README.md) · [Western Cape bench sources](research/western-cape-bench.md)
+
+In the first 12.5 MHz FPGA study, the native RP2350B target returned all 12 requested
 bytes and all six missing-address controls produced NACK. Neither firmware
-image passed the unfiltered clock-edge check. Keep the released 96-word image
-selected pending calibrated receiver measurements. Calibrated SPI MISO turnoff,
-UART handoff and the two real 1-Wire power responses remain open.
+image passed the unfiltered clock-edge check at the original GPIO27 observation point.
 [E0059 waveforms and decision](../evidence/E0059-remote-i2c/README.md) · [Western Cape bench sources](research/western-cape-bench.md)
 
 The 126-word SPI target recovered from aborts and clock stalls on board 4

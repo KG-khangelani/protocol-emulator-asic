@@ -1,5 +1,24 @@
 # Research ledger
 
+## 25 November receiver pin crossover and 1-Wire controls
+
+**Measured on an FPGA.** In 54 I²C transfers the FPGA issued the expected
+SCL commands. GPIO19 showed the correct edge count every time. All 3,482
+short GPIO27 intervals occurred with the drive command held released.
+In a matched crossover the native peripheral moved between the two pin pairs
+while all four pad-control words read `0x5A`. The extra edges stayed on
+GPIO27. Capturing native SDA18 and SCL19 together gave 12/12 raw decodes
+over two sessions. Use that pair as the board's digital receiver reference.
+The observations leave the physical cause and voltage margin open.
+[E0060 paired traces and controls](../evidence/E0060-i2c-receiver/README.md)
+
+**Measured for 1-Wire.** Pull-up only, stuck before launch and stuck
+after the reset started were each tested twice on the physical board.
+The firmware returned its error marker with zero command slots in all six.
+The same 85-word image produced both command bytes and the seventeenth read
+slot in eight RTL trials with a modeled sensor. Real sensor power responses
+remain an open measurement. [E0061 raw board controls, program and RTL logs](../evidence/E0061-onewire-board-controls/README.md)
+
 ## 25 November I²C timing guard and receiver captures
 
 **Demonstrated at public digital pins.** The 24-clock guard shifted commanded

@@ -35,14 +35,15 @@ deadline. The next physical gate is a calibrated MISO drive-state measurement
 on a named requester and load. [D59](decisions/0059-exercise-spi-recovery-on-fabricfox.md) · [E0057](../evidence/E0057-remote-spi/README.md)
 
 The active engineering objective is receiver-end qualification. The I²C
-timing guard preserved transaction duration on all 172 paired digital
-requests. Both images addressed the RP2350B and read the expected data,
-but every unfiltered board capture contained extra SCL transitions.
-Keep the released 96-word image selected. Measure SDA and SCL threshold
-crossings at a named load, then characterize SPI MISO and UART turnoff
-with driven and released reference captures. The optional 1-Wire trial
+timing guard preserved the duration of all 172 paired digital requests.
+The GPIO18/19 target connection gave 12/12 raw physical decodes across
+two captures. Extra clock transitions followed GPIO27 after the native
+peripheral moved. Keep the released 96-word image selected. Measure SDA
+and SCL at a known load and characterize SPI MISO and UART turnoff with
+calibrated driven and released reference captures. The physical 1-Wire
+bench passed all six absent/stuck controls. Its optional power query still
 needs one externally powered and one parasite-powered sensor, tested separately.
-[I²C digital gate](../evidence/E0058-i2c-guard/README.md) · [Board 4 results](../evidence/E0059-remote-i2c/README.md) · [Local bench sources](research/western-cape-bench.md)
+[Digital I²C gate](../evidence/E0058-i2c-guard/README.md) · [Receiver crossover](../evidence/E0060-i2c-receiver/README.md) · [1-Wire controls](../evidence/E0061-onewire-board-controls/README.md) · [Local bench sources](research/western-cape-bench.md)
 
 ## Priorities and planning targets
 
