@@ -1,0 +1,79 @@
+{
+  "remote": [
+    {
+      "board": "fpga-1",
+      "utc": "2026-11-25T21:06:34.121522+00:00",
+      "url": "https://tinytapeout.fpgas.online/board/fpga-1/status.json",
+      "reachable": true,
+      "present": true,
+      "kind": "fpga",
+      "clients": 1,
+      "fields": [
+        "board",
+        "clients",
+        "idle_display",
+        "kind",
+        "kind_reason",
+        "reachable",
+        "safe_start",
+        "uptime_s",
+        "version"
+      ],
+      "board_fields": [
+        "chip",
+        "device",
+        "present",
+        "usb_serial",
+        "vid_pid"
+      ],
+      "identity_sha256": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca"
+    },
+    {
+      "board": "fpga-4",
+      "utc": "2026-11-25T21:06:34.121713+00:00",
+      "url": "https://tinytapeout.fpgas.online/board/fpga-4/status.json",
+      "reachable": true,
+      "present": true,
+      "kind": "fpga",
+      "clients": 0,
+      "fields": [
+        "board",
+        "clients",
+        "idle_display",
+        "kind",
+        "kind_reason",
+        "reachable",
+        "safe_start",
+        "uptime_s",
+        "version"
+      ],
+      "board_fields": [
+        "chip",
+        "device",
+        "present",
+        "usb_serial",
+        "vid_pid"
+      ],
+      "identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741"
+    }
+  ],
+  "provider_pin_map": "https://docs.fpgas.online/en/latest/boards/tt-fpga/overview/pin-mapping.html",
+  "local_check_utc": "2026-11-25T21:23:04.3932270Z",
+  "local_command": "Get-PnpDevice -PresentOnly -Class Ports; Get-PnpDevice -PresentOnly | Where-Object { $_.FriendlyName -match 'USBTMC|oscilloscope|ADALM2000|Digilent Analog Discovery|PicoScope|Rigol|Siglent|RP2040|RP2350|FabricFox|FT2232|iCE40' }",
+  "local_ports": {
+    "communications": [
+      "COM1"
+    ],
+    "bluetooth": [
+      "COM3",
+      "COM4",
+      "COM7",
+      "COM8",
+      "COM9",
+      "COM10"
+    ]
+  },
+  "local_instrument_or_fpga_labels": [],
+  "local_sensor_access": "User reports no additional hardware.",
+  "limits": "Public status and inventories establish what was accessible. The lab supplied no target-branch instrument calibration, route or one-device power fixture."
+}

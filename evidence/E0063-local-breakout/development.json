@@ -1,0 +1,37 @@
+{
+  "doctor": {
+    "status": "PASS",
+    "created_utc": "20261125T210617668506Z",
+    "commands": [
+      {
+        "command": [
+          "/usr/local/bin/python3",
+          "tools/doctor.py"
+        ],
+        "returncode": 0,
+        "timeout_seconds": 120
+      }
+    ],
+    "artifact_sha256": {
+      "run.log": "ecedccecb0a899c3d20476d2127f15204fcf65c4ca1f3a528e58cb92722b903c"
+    }
+  },
+  "header_compile_first": {
+    "tool": "Icarus Verilog",
+    "diagnostic": [
+      "/workspace/experiments/local_breakout/headers_tb.sv:63: error: 'target' has already been declared in this scope.",
+      "./header_instance.vh:1:      : It was declared here as an instance name."
+    ],
+    "source_before": "initial begin : target",
+    "source_after": "initial begin : i2c_responder"
+  },
+  "sensor_compile_first": {
+    "tool": "MicroPython 1.29.0 mpy-cross for armv6m",
+    "source_sha256": "258025b01157c2e62e9c1b44abf917213f2e536b8e1f9bef6994f78437db274e",
+    "diagnostic": "pico_job.py, line 178, in run_sensor: SyntaxError: *x must be assignment target",
+    "source_before": "for gpio in (*range(16), 17, 18, 19, 20, 21, 22, 26):",
+    "source_after": "for gpio in list(range(16)) + [17, 18, 19, 20, 21, 22, 26]:"
+  },
+  "host_i2c_import": "Without cocotb, the original council retimer cannot be imported on the Windows base interpreter. Use the pinned workbench to regenerate or audit the I2C variants.",
+  "physical_trials": 0
+}

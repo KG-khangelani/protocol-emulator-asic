@@ -4,6 +4,13 @@ Updated 2026-11-25. **Board 4 now has an I²C receiver connection that decodes c
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
+A local bench can use the three existing FPGA images. All 26 project pads reach
+J2/J3 on a Lattice ICE40UP5K-B-EVN. Two decoded-header simulations passed the
+UART, SPI, I²C and modeled 1-Wire trials using the original Pico's GPIO map.
+All four Pico sensor-test modes cross-compiled. Physical receiver measurements
+await the wired boards, two sensors and calibrated branch instruments.
+[E0063 wiring, results and acquisition commands](../evidence/E0063-local-breakout/README.md) · [Western Cape stock and quotes](research/western-cape-bench.md)
+
 At 50 MHz the 108-word candidate moved commanded SDA changes from 20–40 ns to
 500–520 ns after falling SCL in the original transaction. Both images kept
 the same SCL, transaction boundaries and HALT timing in all 172 matched cases.

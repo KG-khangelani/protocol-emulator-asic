@@ -47,6 +47,12 @@ The optional device trial still needs one externally powered and one parasite-
 powered DS18B20, tested separately.
 [Digital I²C gate](../evidence/E0058-i2c-guard/README.md) · [Receiver crossover](../evidence/E0060-i2c-receiver/README.md) · [1-Wire controls](../evidence/E0061-onewire-board-controls/README.md) · [1-Wire physical replies](../evidence/E0062-onewire-peer/README.md) · [Local bench sources](research/western-cape-bench.md)
 
+The proposed local receiver is an original RP2040 Pico wired to the J2/J3
+headers of a Lattice ICE40UP5K-B-EVN. The three retained FPGA images passed
+the header simulation. Next, verify the assembled fixture's continuity and
+clock, acquire the two real power queries, and capture calibrated voltages
+and drive-state references for the three primary protocols. [D65](decisions/0065-check-the-local-breakout-at-its-headers.md) · [E0063](../evidence/E0063-local-breakout/README.md)
+
 ## Priorities and planning targets
 
 Dates below are internal planning targets, not measured completion promises.

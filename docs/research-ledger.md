@@ -1,5 +1,22 @@
 # Research ledger
 
+## 25 November local breakout and Pico bench
+
+**Verified from the board schematic and decoded package simulation.** Each of
+the three packed images uses 26 SG48 pins routed to the Lattice breakout's
+J2/J3 headers. The complete host interface fits one original Pico. In two runs
+the same 32 UART bytes, 504 SPI bytes, 384/432 I²C bytes and 340 1-Wire bytes
+read back on the mapped connections. The modeled SPI pad was released 296 and
+376 ns after the two selected aborts. The model resolves a four-state pin
+directly. Physical turnoff and receiver margins still require calibrated
+measurements at the branch. [E0063](../evidence/E0063-local-breakout/README.md)
+
+**Prepared for hardware.** Four Pico jobs compiled for RP2040. The real sensor
+test checks the family code, ROM CRC and addressed power response before and
+after the FPGA exchange. The digital trace scorer checks both commands and
+the final read slot. Device provenance, actual wiring and behavior on the
+assembled breakout remain open. [D65](decisions/0065-check-the-local-breakout-at-its-headers.md) · [Local parts](research/western-cape-bench.md)
+
 ## 25 November receiver pin crossover and 1-Wire controls
 
 **Measured on an FPGA.** In 54 I²C transfers the FPGA issued the expected

@@ -1,0 +1,31 @@
+{
+  "compiler": "MicroPython v1.29.0 on 2026-11-25; mpy-cross emitting mpy v6.3",
+  "pio_words": {
+    "project_clock": [
+      58369,
+      58368
+    ],
+    "sample_pins": [
+      16400
+    ]
+  },
+  "jobs": {
+    "external": {
+      "source_sha256": "0e496b3c86886453c4275b466a67f9452016b778b7e0823072a555ff3f3c2583",
+      "mpy_sha256": "9b7dbe1ea20625ec4bef4d74474ff79bfc5811a3c27cb1829d4ff1cbfc20a633"
+    },
+    "parasite": {
+      "source_sha256": "a90b665902107073c909d971a04e4b6e871ef0f98c8cc8a4f5b81d3c2146504a",
+      "mpy_sha256": "461d1b49901675998aab6b17067cb32f3d42cbc8b1cb30d52b7f5796f2808291"
+    },
+    "absent": {
+      "source_sha256": "6c572bb8f9392735365d38bd98272c5dc3b576c6e6499d21e63967c76a81082d",
+      "mpy_sha256": "4e7b7fc2f6794e2ff163e4354c40f838e96ce4d30f042b425fb8ec6d228b0bc9"
+    },
+    "stuck": {
+      "source_sha256": "0737aafe391cd9e1ea8b2e0e9f51ba7b9a021254eb9cbfebf4f131c7ff0fa9fa",
+      "mpy_sha256": "742c53001d939e7587c9b7aeb5dc795968b041f79f2d569894b17a657ff29289"
+    }
+  },
+  "assembler_sha256": "5a9dc4e48ce272395768ac7273cf5e5ee48b36af5323f457c0d0c99e1ebcaf68"
+}
