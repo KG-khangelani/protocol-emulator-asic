@@ -19,6 +19,13 @@ The same 85-word image produced both command bytes and the seventeenth read
 slot in eight RTL trials with a modeled sensor. Real sensor power responses
 remain an open measurement. [E0061 raw board controls, program and RTL logs](../evidence/E0061-onewire-board-controls/README.md)
 
+**Measured on a programmable 1-Wire peer.** Two board sessions captured twelve
+complete 17-slot queries. In eight accepted cases the peer's decoded `CC B4`
+record, both sampled wire inputs and the FPGA marker agreed. In four controls
+the peer expected `CD B4`, declined to send its zero, and the firmware read
+one from the pull-up. Inspect command reception and sensor identity before
+attributing a high read to external power. [E0062 raw FPGA captures and comparison](../evidence/E0062-onewire-peer/README.md)
+
 ## 25 November I²C timing guard and receiver captures
 
 **Demonstrated at public digital pins.** The 24-clock guard shifted commanded

@@ -1,6 +1,6 @@
 # Current state
 
-Updated 2026-11-25. **Board 4 now has an I²C receiver connection that decodes cleanly at the actual target pins. The 1-Wire FPGA bench also passes its absent and stuck-line controls. The next physical gates require a calibrated receiver measurement and two known sensor power configurations.**
+Updated 2026-11-25. **Board 4 now has an I²C receiver connection that decodes cleanly at the actual target pins. The 1-Wire FPGA bench also exchanged both command bytes and both read values with a programmable pin-level peer. The next physical gates require a calibrated receiver measurement and two known sensor power configurations.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
@@ -23,9 +23,12 @@ The 85-word 1-Wire image produced a 500 µs reset on all four physical trials
 that started with DQ high. With DQ already low, both trials issued no reset.
 All six halted with the error marker and sent zero command slots. Eight
 modeled sensor responses passed at the same 12.5 MHz FPGA target. The
-17-slot result from actual externally powered and parasite-powered sensors
-and calibrated SPI MISO and UART turnoff remain open.
-[E0061 physical controls and RTL positives](../evidence/E0061-onewire-board-controls/README.md) · [Western Cape bench sources](research/western-cape-bench.md)
+RP2350 peer subsequently decoded both command bytes in all twelve physical
+17-slot trials. It accepted eight, returned both bit values, and withheld its
+zero in four controls. In those controls the FPGA read the pulled-up bus as a
+one. Measurements with externally powered and parasite-powered DS18B20s and
+calibrated SPI MISO and UART turnoff remain open.
+[E0061 physical controls and RTL positives](../evidence/E0061-onewire-board-controls/README.md) · [E0062 physical commands and replies](../evidence/E0062-onewire-peer/README.md) · [Western Cape bench sources](research/western-cape-bench.md)
 
 In the first 12.5 MHz FPGA study, the native RP2350B target returned all 12 requested
 bytes and all six missing-address controls produced NACK. Neither firmware

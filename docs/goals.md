@@ -41,9 +41,11 @@ two captures. Extra clock transitions followed GPIO27 after the native
 peripheral moved. Keep the released 96-word image selected. Measure SDA
 and SCL at a known load and characterize SPI MISO and UART turnoff with
 calibrated driven and released reference captures. The physical 1-Wire
-bench passed all six absent/stuck controls. Its optional power query still
-needs one externally powered and one parasite-powered sensor, tested separately.
-[Digital I²C gate](../evidence/E0058-i2c-guard/README.md) · [Receiver crossover](../evidence/E0060-i2c-receiver/README.md) · [1-Wire controls](../evidence/E0061-onewire-board-controls/README.md) · [Local bench sources](research/western-cape-bench.md)
+bench passed six absent/stuck controls and eight accepted 17-slot exchanges
+with an RP2350 peer. Four rejected-command controls produced a pulled-up one.
+The optional device trial still needs one externally powered and one parasite-
+powered DS18B20, tested separately.
+[Digital I²C gate](../evidence/E0058-i2c-guard/README.md) · [Receiver crossover](../evidence/E0060-i2c-receiver/README.md) · [1-Wire controls](../evidence/E0061-onewire-board-controls/README.md) · [1-Wire physical replies](../evidence/E0062-onewire-peer/README.md) · [Local bench sources](research/western-cape-bench.md)
 
 ## Priorities and planning targets
 
