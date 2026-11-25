@@ -1,5 +1,20 @@
 # Research ledger
 
+## 26 November scope selection for electrical handoff
+
+**Calculated.** With 13–17 pF on each node of the council's 470 Ω / 1 kΩ
+reference circuit, an instantaneously opened driver takes 46–61 ns for the
+sense current to drop to 0.25 mA. Allowing 40 mV differential error and 1%
+resistance error moves the passing crossing to 59–77 ns. The analytical
+solution and numerical integration agreed for both bias directions.
+
+**Open.** The standard probes on the Siglent SDS2204X Plus fall in this
+capacitance range in one manufacturer data sheet. An earlier sheet lists
+16–20 pF. The actual probe revision, loaded response and target current
+on the proposed Lattice board still need measurement. Request known
+immediate and delayed controls with the same probe pair before interpreting
+the 480 ns SPI schedule. [E0067 calculation, data sheets and bench criteria](../evidence/E0067-probe-loading/README.md)
+
 ## 26 November Pico reference for the real sensor trial
 
 **Observed.** FabricFox board 4 exercised the native MicroPython 1-Wire

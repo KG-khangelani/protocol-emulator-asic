@@ -25,6 +25,13 @@ All four Pico sensor-test modes cross-compiled. Physical receiver measurements
 await the wired boards, two sensors and calibrated branch instruments.
 [E0063 wiring, results and acquisition commands](../evidence/E0063-local-breakout/README.md) · [Western Cape stock and quotes](research/western-cape-bench.md)
 
+In the council's reference circuit, the standard probes on the locally
+listed Siglent scope can leave current above the uncertainty-adjusted
+release band for 59–77 ns after instantaneous turnoff at 13–17 pF per node.
+The 480 ns remote SPI case had only 56 ns of digital clearance at its
+tightest. Obtain known immediate and delayed traces on the loaded fixture
+before judging physical pin release. [E0067 probe estimate and controls](../evidence/E0067-probe-loading/README.md)
+
 Four complete sessions on FabricFox board 4 gave 16 successful I²C reads
 and eight timeouts. At the nominal 12.5 MHz FPGA clock every timeout reached
 HALT 4.00016 ms after SCL release, within one 160 ns sample period of the
