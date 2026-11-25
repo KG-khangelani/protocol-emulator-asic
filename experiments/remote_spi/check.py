@@ -13,6 +13,7 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.remote_spi.remote import PROGRAM_SHA
 from experiments.remote_spi.fine import fine_trials
+from experiments.remote_spi.held import held_trials, held_schedule
 from experiments.remote_spi.gaps import gap_schedule, gap_trials
 from experiments.remote_spi.schedules import schedule, tick, trials
 from experiments.remote_spi.wall import wall_schedule, wall_tick, wall_trials
@@ -60,11 +61,15 @@ def assess(descriptor, r, wall=False):
     name = descriptor[0]
     need(name==r['name'], 'case name')
     mode = descriptor[4]
-    case = (gap_schedule if mode in ('gaps','settled','fine') else schedule)(scenario, descriptor)
     units = wall_tick if wall else tick
     scale = 1 if wall else 4
-    if wall:
+    held = mode in ('held','heldwall')
+    if held:
+        case = held_schedule(scenario,descriptor)
+    elif wall:
         case = wall_schedule(schedule,scenario,descriptor)
+    else:
+        case = (gap_schedule if mode in ('gaps','settled','fine') else schedule)(scenario, descriptor)
     raw = unpack(r)
     need(len(raw)==4*((units(case['finish'])+67)//4), 'capture does not span full case')
     # Align to the observed CS fall, then check every input change by pin. Two pins
@@ -96,8 +101,9 @@ def assess(descriptor, r, wall=False):
     def test(ok,msg):
         if not ok:
             errors.append(msg)
-    test(len(halts)==1 and raw[-1]&32 and not any(v&16 for v in raw[halt:]),
-         'HALT and released ending')
+    if not held or halts:
+        test(len(halts)==1 and raw[-1]&32 and not any(v&16 for v in raw[halt:]),
+             'HALT and released ending')
     def active_value(t):
         return ((raw[t]>>3)&1) if raw[t]&16 else None
     def check_frame(frame, limit=None):
@@ -144,31 +150,41 @@ def assess(descriptor, r, wall=False):
              'invalid prefix rejection time')
     else:
         test(quiet(start,edge[(0,first['falls'][7])]),'driven command prefix')
-        if remaining:
-            fresh, = remaining
+        if 'abort' in first:
             abort = edge[(2,first['abort'])]
-            new_cs = edge[(2,fresh['select'])]
             bit = (REPLIES[first['command']]>>(7-first['bit']))&1
             metrics['active_before_abort'] = bool(raw[abort-1]&16)
             metrics['bit_correct_before_abort'] = active_value(abort-1)==bit
             test(active_value(abort-1)==bit, 'expected driven bit at abort')
+            end = edge[(2,remaining[0]['select'])] if remaining else len(raw)
             if active_value(abort-1)!=bit:
-                first_match = next((t for t in range(abort,new_cs) if active_value(t)==bit),None)
+                first_match = next((t for t in range(abort,end) if active_value(t)==bit),None)
                 metrics['preabort_bit_late_ns'] = None if first_match is None else (first_match-abort)*8
             disabled = disabled_after(abort)
-            metrics.update(handoff_ns=(new_cs-abort)*8, enabled_at_fresh=bool(raw[new_cs]&16))
-            if disabled is None or not metrics['active_before_abort']:
+            active_release = disabled is not None and metrics['active_before_abort']
+            if not active_release:
                 test(False,'no active release to measure')
             else:
                 delta = (disabled-abort)*8
-                metrics.update(abort_ns=delta,release_to_fresh_lower_ns=(new_cs-disabled-1)*8)
+                metrics['abort_ns'] = delta
                 metrics['released_by_deadline'] = delta+8<=160*scale
-                metrics['quiet_through_fresh_prefix'] = disabled<=new_cs and quiet(disabled,edge[(0,fresh['falls'][7])])
                 test(delta+8<=160*scale,'abort deadline')
-                test(metrics['quiet_through_fresh_prefix'],'fresh command did not stay released')
             check_frame(first,first['abort'])
-            check_frame(fresh)
-            completion(fresh)
+            if remaining:
+                fresh, = remaining
+                metrics.update(handoff_ns=(end-abort)*8, enabled_at_fresh=bool(raw[end]&16))
+                if active_release:
+                    metrics['release_to_fresh_lower_ns']=(end-disabled-1)*8
+                    metrics['quiet_through_fresh_prefix']=disabled<=end and quiet(disabled,edge[(0,fresh['falls'][7])])
+                    test(metrics['quiet_through_fresh_prefix'],'fresh command did not stay released')
+                check_frame(fresh)
+                completion(fresh)
+            else:
+                expected_pins = 4 | first['polarity']
+                need(all((v & 5)==expected_pins for v in raw[abort:]), 'CS or SCK moved after held abort')
+                metrics['held_after_abort_ns']=(len(raw)-1-abort)*8
+                metrics['quiet_after_release']=active_release and quiet(disabled,len(raw))
+                test(metrics['quiet_after_release'],'MISO enable did not remain low after held abort')
         elif mode=='pause':
             origin=edge[(0,first['lost_clock'])]
             resumed=next(t for t in actual[0] if t>origin)
@@ -202,6 +218,8 @@ def audit(raw,suite,strict=True):
         wanted=list(wall_trials(trials))
     elif suite=='fine':
         wanted=list(fine_trials(gap_trials))
+    elif suite in ('held','heldwall'):
+        wanted=list(held_trials(suite))
     else:
         wanted=list(gap_trials(suite) if suite in ('gaps','settled') else trials(suite))
     captures=rows[3:-1]
@@ -210,7 +228,7 @@ def audit(raw,suite,strict=True):
     groups=defaultdict(list)
     for desc,r in zip(wanted,captures):
         try:
-            m=assess(desc,r,wall=suite=='wall')
+            m=assess(desc,r,wall=suite in ('wall','heldwall'))
         except (ValueError,KeyError,IndexError) as exc:
             raise ValueError(desc[0]+': '+str(exc)) from exc
         measured[desc[0]]=m
@@ -221,7 +239,7 @@ def audit(raw,suite,strict=True):
     def span(families, field):
         values=[m[field] for family in families for m in groups.get(family,()) if field in m]
         return [min(values),max(values)] if values else []
-    abort_families=('reselect','settled','gaps','fine')
+    abort_families=('reselect','settled','gaps','fine','held','heldwall')
     summary=dict(cases=len(wanted),failures=failures,groups={k:len(v) for k,v in groups.items()},
                  abort_ns=span(abort_families,'abort_ns'),timeout_ns=span(('pause',),'timeout_ns'),
                  handoff_ns=span(abort_families,'handoff_ns'), samples=sum(m['capture_samples'] for m in measured.values()),
