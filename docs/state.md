@@ -10,7 +10,8 @@ stalls. In ten aborts MISO still showed the preceding bit just before CS rose.
 Moving that edge 32 ns later gave 384/384 complete passes. The MISO
 output-enable witness fell 264–416 ns after abort. At the fastest scaled
 rate, a 424 ns gap gave at least 8 ns digital clearance on the tested grid.
-Two runs at 480 ns gave at least 56 ns. At the original requester
+Two runs at 480 ns gave at least 56 ns. All 64 slower standalone aborts
+also released with SCK held fixed high or low. At the original requester
 timing, 0/384 complete handoffs and 0/32 selected-stall timeouts passed.
 The RP2350 sampled the MISO pad and a second pin carrying the FPGA's actual
 enable signal. The next electrical test needs a calibrated drive-state

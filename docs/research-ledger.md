@@ -9,7 +9,9 @@ all 32 clock stalls reached a released timeout within 8 µs. Ten of the 384
 aborts sampled the previous bit immediately before deselection. Repeating
 with CS rising 32 ns later passed all 384 checks. At the original requester
 timing the complete 160 ns handoff failed in every case, and no selected
-stall reached the 2 µs timeout. On two short-gap controls a correctly decoded
+stall reached the 2 µs timeout. With SCK held fixed after CS rose, all 64
+slower standalone aborts released and all 32 original-rate cases missed
+the 160 ns requirement. On two short-gap controls a correctly decoded
 reply hid active drive into the next selection. [E0057 measurements and signals](../evidence/E0057-remote-spi/README.md)
 
 **Qualification boundary.** The 50 MHz E0056 model and the 12.5 MHz board

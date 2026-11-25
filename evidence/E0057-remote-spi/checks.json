@@ -24,15 +24,15 @@
   },
   {
     "action": "check",
-    "created_utc": "20261125T174515573874Z",
-    "git_head": "8768c5862382d937d579264291ec7c11a35a2141",
+    "created_utc": "20261125T175047588412Z",
+    "git_head": "dbff78a5f6b5454c5ff0d67eb680c9eda617bbbe",
     "status": "PASS",
-    "directory": "build/current/runs/20261125T174515573874Z-check",
+    "directory": "build/current/runs/20261125T175047588412Z-check",
     "summary": {
       "kind": "REPOSITORY_CHECKS"
     },
     "artifact_sha256": {
-      "run.log": "766b849dd32948d00348a98dd93096514d5656d09abd7e7a1c351e1a97d04d3a"
+      "run.log": "831e88013a4d8d84b7a3eb9fc488c92fba488100500dcee9a3cf945306a1a8a8"
     }
   }
 ]

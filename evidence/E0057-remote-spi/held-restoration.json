@@ -1,0 +1,32 @@
+{
+  "fpga-4": {
+    "observed_utc": "2026-11-25T17:51:34.773192+00:00",
+    "http_date": "Wed, 25 Nov 2026 17:51:33 GMT",
+    "status_url": "https://tinytapeout.fpgas.online/board/fpga-4/status.json",
+    "gallery_url": "https://tinytapeout.fpgas.online/api/board/fpga-4/designs",
+    "selection": "idle_display",
+    "present": true,
+    "reachable": true,
+    "clients": 0,
+    "idle_display": {
+      "design": "/usr/share/fpgas-online/tt-fpga/bitstreams/tt-display-tt-fpga/tt_fpga_platform.bin",
+      "state": "loaded"
+    },
+    "identity": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741"
+  },
+  "fpga-1": {
+    "observed_utc": "2026-11-25T17:51:37.547501+00:00",
+    "http_date": "Wed, 25 Nov 2026 17:51:35 GMT",
+    "status_url": "https://tinytapeout.fpgas.online/board/fpga-1/status.json",
+    "gallery_url": "https://tinytapeout.fpgas.online/api/board/fpga-1/designs",
+    "selection": "tt_um_factory_test",
+    "present": true,
+    "reachable": true,
+    "clients": 1,
+    "idle_display": {
+      "design": "/usr/share/fpgas-online/tt-fpga/bitstreams/tt-display-tt-fpga/tt_fpga_platform.bin",
+      "state": "in use"
+    },
+    "identity": "70b4b839de266c08897c60195030561da9d6414e8b284223d66ad750b12b93ca"
+  }
+}

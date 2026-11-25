@@ -1358,5 +1358,273 @@
         }
       }
     }
+  },
+  "held": {
+    "trials": 64,
+    "samples": 288256,
+    "groups": {
+      "held": {
+        "cases": 64,
+        "strict_pass": 64,
+        "terminal_status": {
+          "0xbb": 64
+        },
+        "failures_by_check": {},
+        "active_before_abort": 64,
+        "expected_bit_before_abort": 64,
+        "enable_low_by_deadline": 64,
+        "stayed_disabled": 64,
+        "first_observed_disable_ns": [
+          264,
+          392
+        ],
+        "fixed_clock_observation_ns": [
+          10864,
+          10888
+        ]
+      }
+    },
+    "by_abort_offset_ns": {
+      "0": {
+        "both": {
+          "cases": 32,
+          "strict_pass": 32,
+          "terminal_status": {
+            "0xbb": 32
+          },
+          "failures_by_check": {},
+          "active_before_abort": 32,
+          "expected_bit_before_abort": 32,
+          "enable_low_by_deadline": 32,
+          "stayed_disabled": 32,
+          "first_observed_disable_ns": [
+            264,
+            384
+          ],
+          "fixed_clock_observation_ns": [
+            10864,
+            10888
+          ]
+        },
+        "sck_low": {
+          "cases": 16,
+          "strict_pass": 16,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {},
+          "active_before_abort": 16,
+          "expected_bit_before_abort": 16,
+          "enable_low_by_deadline": 16,
+          "stayed_disabled": 16,
+          "first_observed_disable_ns": [
+            304,
+            384
+          ],
+          "fixed_clock_observation_ns": [
+            10872,
+            10888
+          ]
+        },
+        "sck_high": {
+          "cases": 16,
+          "strict_pass": 16,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {},
+          "active_before_abort": 16,
+          "expected_bit_before_abort": 16,
+          "enable_low_by_deadline": 16,
+          "stayed_disabled": 16,
+          "first_observed_disable_ns": [
+            264,
+            344
+          ],
+          "fixed_clock_observation_ns": [
+            10864,
+            10880
+          ]
+        }
+      },
+      "32": {
+        "both": {
+          "cases": 32,
+          "strict_pass": 32,
+          "terminal_status": {
+            "0xbb": 32
+          },
+          "failures_by_check": {},
+          "active_before_abort": 32,
+          "expected_bit_before_abort": 32,
+          "enable_low_by_deadline": 32,
+          "stayed_disabled": 32,
+          "first_observed_disable_ns": [
+            272,
+            392
+          ],
+          "fixed_clock_observation_ns": [
+            10864,
+            10888
+          ]
+        },
+        "sck_low": {
+          "cases": 16,
+          "strict_pass": 16,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {},
+          "active_before_abort": 16,
+          "expected_bit_before_abort": 16,
+          "enable_low_by_deadline": 16,
+          "stayed_disabled": 16,
+          "first_observed_disable_ns": [
+            272,
+            352
+          ],
+          "fixed_clock_observation_ns": [
+            10872,
+            10888
+          ]
+        },
+        "sck_high": {
+          "cases": 16,
+          "strict_pass": 16,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {},
+          "active_before_abort": 16,
+          "expected_bit_before_abort": 16,
+          "enable_low_by_deadline": 16,
+          "stayed_disabled": 16,
+          "first_observed_disable_ns": [
+            312,
+            392
+          ],
+          "fixed_clock_observation_ns": [
+            10864,
+            10880
+          ]
+        }
+      }
+    }
+  },
+  "heldwall": {
+    "trials": 32,
+    "samples": 85584,
+    "groups": {
+      "heldwall": {
+        "cases": 32,
+        "strict_pass": 0,
+        "terminal_status": {
+          "0xbb": 32
+        },
+        "failures_by_check": {
+          "abort deadline": 30,
+          "decoded reply": 2,
+          "expected driven bit at abort": 19,
+          "no active release to measure": 2,
+          "reply setup/hold": 30,
+          "sampled reply bit": 30
+        },
+        "active_before_abort": 30,
+        "expected_bit_before_abort": 13,
+        "enable_low_by_deadline": 0,
+        "stayed_disabled": 30,
+        "first_observed_disable_ns": [
+          280,
+          560
+        ],
+        "fixed_clock_observation_ns": [
+          15056,
+          15088
+        ]
+      }
+    },
+    "by_abort_offset_ns": {
+      "0": {
+        "both": {
+          "cases": 32,
+          "strict_pass": 0,
+          "terminal_status": {
+            "0xbb": 32
+          },
+          "failures_by_check": {
+            "abort deadline": 30,
+            "decoded reply": 2,
+            "expected driven bit at abort": 19,
+            "no active release to measure": 2,
+            "reply setup/hold": 30,
+            "sampled reply bit": 30
+          },
+          "active_before_abort": 30,
+          "expected_bit_before_abort": 13,
+          "enable_low_by_deadline": 0,
+          "stayed_disabled": 30,
+          "first_observed_disable_ns": [
+            280,
+            560
+          ],
+          "fixed_clock_observation_ns": [
+            15056,
+            15088
+          ]
+        },
+        "sck_low": {
+          "cases": 16,
+          "strict_pass": 0,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {
+            "abort deadline": 14,
+            "expected driven bit at abort": 10,
+            "no active release to measure": 2,
+            "reply setup/hold": 14,
+            "sampled reply bit": 14
+          },
+          "active_before_abort": 14,
+          "expected_bit_before_abort": 6,
+          "enable_low_by_deadline": 0,
+          "stayed_disabled": 14,
+          "first_observed_disable_ns": [
+            296,
+            560
+          ],
+          "fixed_clock_observation_ns": [
+            15064,
+            15088
+          ]
+        },
+        "sck_high": {
+          "cases": 16,
+          "strict_pass": 0,
+          "terminal_status": {
+            "0xbb": 16
+          },
+          "failures_by_check": {
+            "abort deadline": 16,
+            "decoded reply": 2,
+            "expected driven bit at abort": 9,
+            "reply setup/hold": 16,
+            "sampled reply bit": 16
+          },
+          "active_before_abort": 16,
+          "expected_bit_before_abort": 7,
+          "enable_low_by_deadline": 0,
+          "stayed_disabled": 16,
+          "first_observed_disable_ns": [
+            280,
+            440
+          ],
+          "fixed_clock_observation_ns": [
+            15056,
+            15088
+          ]
+        }
+      }
+    }
   }
 }

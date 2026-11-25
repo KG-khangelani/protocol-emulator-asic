@@ -1,4 +1,4 @@
-"""Rebuild the SPI measurement tables from the six archived physical captures."""
+"""Rebuild the SPI measurement tables from the archived physical captures."""
 import argparse
 from collections import Counter
 import gzip
@@ -13,11 +13,12 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.remote_spi.check import assess, audit, need, records, transitions, unpack
+from experiments.remote_spi.held import held_trials
 from experiments.remote_spi.remote import board_code, IMAGE_SHA, NAME, PROGRAM_SHA, WHEEL_SHA
 from experiments.remote_spi.schedules import trials
 from tools.production_sram import verify
 
-SUITES = ('pilot', 'matrix', 'settled', 'gaps', 'wall', 'fine')
+SUITES = ('pilot', 'matrix', 'settled', 'gaps', 'wall', 'fine', 'held', 'heldwall')
 
 
 def read(path):
@@ -54,6 +55,13 @@ def group(rows, family):
     if family=='pause':
         result.update(selected_stall_timeouts=sum('timeout_ns' in r for r in rows),
                       selected_stall_ns=span('timeout_ns'), timeout_marker_ns=span('timeout_marker_ns'))
+    if family in ('held','heldwall'):
+        result.update(active_before_abort=count('active_before_abort'),
+                      expected_bit_before_abort=count('bit_correct_before_abort'),
+                      enable_low_by_deadline=count('released_by_deadline'),
+                      stayed_disabled=count('quiet_after_release'),
+                      first_observed_disable_ns=span('abort_ns'),
+                      fixed_clock_observation_ns=span('held_after_abort_ns'))
     return result
 
 
@@ -82,6 +90,13 @@ def campaign(suite, profile, identity):
     if suite=='matrix':
         output['preabort_counterexamples'] = {
             name:m['preabort_bit_late_ns'] for name,m in measurements.items() if name in summary['failures']}
+    if suite in ('held','heldwall'):
+        output['by_abort_offset_ns']={}
+        for offset in sorted({d[-1] for d in held_trials(suite)}):
+            selected=[d for d in held_trials(suite) if d[-1]==offset]
+            output['by_abort_offset_ns'][str(offset)] = {
+                label:group([measurements[d[0]] for d in selected if pol is None or d[6]==pol],suite)
+                for label,pol in (('both',None),('sck_low',0),('sck_high',1))}
     if suite in ('gaps','fine'):
         grid = {}
         for name, row in measurements.items():
@@ -130,6 +145,15 @@ def adverse_controls():
         need('full program and register readback' in str(exc), 'wrong readback rejection')
     else:
         raise ValueError('altered archived program accepted')
+    held_raw=gzip.decompress((HERE/'board-4/held/terminal.bin.gz').read_bytes())
+    descriptor=next(d for d in held_trials('held') if d[-1]==32)
+    trace=next(r for r in records(held_raw) if r.get('name')==descriptor[0])
+    samples=bytearray(unpack(trace))
+    abort=transitions(samples,2)[-1]
+    release=next(t for t in transitions(samples,4) if t>abort and not samples[t]&16)
+    samples[release+4] |= 16
+    result=assess(descriptor,dict(trace,packed=False,data=samples.hex()))
+    need('MISO enable reasserted after held abort' in result['errors'], 'held enable reassertion')
 
 
 def main(output):
@@ -166,6 +190,10 @@ def main(output):
         output.write_bytes((json.dumps(measured,indent=2)+'\n').encode())
         return
     need(read(HERE/'summary.json')==measured,'recomputed physical measurements')
+    final=read(HERE/'held-restoration.json')['fpga-4']
+    need(final['identity']==access['fpga-4']['identity'] and final['clients']==0 and
+         final['selection']=='idle_display' and final['idle_display']['state']=='loaded',
+         'service state after fixed-clock sessions')
     manifest=read(HERE/'manifest.json')
     artifacts={f.relative_to(HERE).as_posix() for f in HERE.rglob('*') if f.is_file() and
                f.name not in ('manifest.json','audit.py','README.md') and '__pycache__' not in f.parts}
@@ -180,7 +208,7 @@ def main(output):
     log=gzip.decompress((HERE/'check.log.gz').read_bytes())
     need(sum(map(int,re.findall(rb'Ran ([0-9]+) tests?',log)))==163, 'repository check count')
     print(f"PASS: {sum(s['trials'] for s in measured.values()):,} physical trials reproduced, "
-          "six altered-capture controls rejected, two release profiles checked")
+          "seven altered-capture controls rejected, two release profiles checked")
 
 
 if __name__=='__main__':
