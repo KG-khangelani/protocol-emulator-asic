@@ -1,0 +1,40 @@
+{
+  "board_identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+  "docker_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "files": {
+    "audit.py": "c11db763a9763c562f85d78a5a1ce4e8e11543e441dd1ff207b78d104a888d94",
+    "check-receipt.json": "db22f570150f02e85adbf0350f7c636e0bc6b7bbc507ee7b5b6962feff37b69a",
+    "check.log.gz": "fe779fb4adf94dbaff473bce230aa9fd937faa1ea0821877810a05bbf741328a",
+    "first/result.json": "c5de3051b23eea36efc07bfd9ac11d68a79da5420b7bbff7994e037ecea9e354",
+    "first/terminal.bin.gz": "a2eb6e0d5a86a19ed4ed598217a979f71047fd484639fe8541d0c144d2af41de",
+    "job.py.gz": "2d12d332a1b757d4bd587e155bb1a5cd13e817c3813b0dbf98773033993f01c2",
+    "measurements.json": "6785c4d451da4e98ef15194c7bcc62ae5a48c161a62c908eb597b2b86f96e3e3",
+    "repeat/result.json": "da052baddd3463ab8a286e6d7cd4685ba9358880865e672023bd65804e49f473",
+    "repeat/terminal.bin.gz": "892975f7bff9227a730ea19ef00a6009a2401ab9053d116f274bbf5de57e9dc1"
+  },
+  "inputs": {
+    "docs/decisions/0064-observe-both-onewire-replies-on-the-fpga.md": "c28cd8cb89ae6fa0d3790b9752921b2309e70419a042143f163884f760320916",
+    "evidence/E0049-review-council/onewire/power_query.asm": "4c8f6b3f080694841cdf8fa57403bbff04cd4e97b7aa998c643fa23546efa207",
+    "evidence/E0059-remote-i2c/fabricfox.bin": "7ee587d50556b33599c23a2a893176534fafee1863d858c16d586d97c9be4bf4",
+    "evidence/E0061-onewire-board-controls/board.bin": "a29b2e045146fb1c29121a616f692ebd43142b55ab73baae9f1148b977e14638",
+    "experiments/remote_i2c/check.py": "0feba204bbabfd9bbec209a3fa9fef3d8cd399eac109219bda3cc6b73a4a4fbf",
+    "experiments/remote_i2c/fabricfox.v": "cf1198dea494ab51f4f23f96320dab0f6d492d6180d85ed20ad3dc22e4c6083c",
+    "experiments/remote_i2c/on_board.py": "973fc4621fd98715963571b1e3544d1426e907078aacdfdd5f2678296acf1d2f",
+    "experiments/remote_i2c/receiver/run.py": "9d15c051f62ff825ac087e42acc649630ea21bcec0a074bb92ed9897a835623c",
+    "experiments/remote_i2c/receiver/score.py": "1525174a62566d1c49c0651ccd88211e3e2b545b29d5e591e61c87ff172e6929",
+    "experiments/remote_i2c/remote.py": "d78bfe41dee2bff116d49d118490f842efbbebae3aa479d40a428d275ef3a2d1",
+    "experiments/remote_onewire/on_board.py": "390fb79621f8fca18f1c2fea9bb5f38480042087c363b617d0d08f1da9c46a1c",
+    "experiments/remote_onewire/peer/on_board.py": "042ffff6e60ba5738a84b58d0fd4b92bf1e91c61590e75cdd2934f3da9ded416",
+    "experiments/remote_onewire/peer/run.py": "70e1f3705fd80ba1207c06494ad71045f8b5b474eb002307bcc68fadbb9e5230",
+    "experiments/remote_onewire/peer/score.py": "48c32579c423bb1f91bc1b1f7f114137cd9e734553920aa17f147aa87baca922",
+    "experiments/remote_onewire/program.py": "209c118e950dc22e9cbf961bf61b50bb62bba275831833394d3ed51830de11ff",
+    "experiments/remote_onewire/run.py": "4fc36d4f6ad0075d74693485085a371adc0d5ebd193762333dd43de7e2a5108f",
+    "experiments/remote_onewire/score.py": "81deaeb2a01c7afda4d52c5f85a063009842075d2d3301b3593486d7c78e97e0",
+    "experiments/remote_uart/run.py": "1475c86f61e7fa0040addb8eed2d10b716cc87b8fc798e4a47fd465ed78cb76e",
+    "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+    "tools/cold_load.py": "aa1d143d51dc44db445521cc63a6d89a19477a85f02b6119bd990922361746eb",
+    "tools/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "tools/production_sram.py": "28ac97efea1a74ccb1eeebf46f8f8ce9d9137d5be6f98256d2c83d79a3309a93"
+  },
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+}

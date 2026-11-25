@@ -1,0 +1,522 @@
+{
+  "first": {
+    "0": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 78
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 26000,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70200,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 1,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501400,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "1": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 40
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 144,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 56600,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70200,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501400,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "2": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 76
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 144,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 26600,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "3": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 56600,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 1,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "4": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 74
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": false,
+      "peer_fifo": [
+        3033268224,
+        2
+      ],
+      "presence_delay_ns": 26800,
+      "presence_width_ns": 97400,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "5": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 40
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": false,
+      "peer_fifo": [
+        3033268224,
+        2
+      ],
+      "presence_delay_ns": 57000,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    }
+  },
+  "repeat": {
+    "0": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 74
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 26200,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 1,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "1": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 72
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 144,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 56600,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "2": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 0,
+        "transitions": 78
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 144,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 26600,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "3": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 40
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": true,
+      "peer_fifo": [
+        3033268224,
+        1
+      ],
+      "presence_delay_ns": 56000,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70000,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 1,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501400,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "4": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 112
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": false,
+      "peer_fifo": [
+        3033268224,
+        2
+      ],
+      "presence_delay_ns": 26800,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70200,
+      "requested_presence_delay_us": 25,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501400,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    },
+    "5": {
+      "final_slot_low_pulses": 1,
+      "gpio19": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 38
+      },
+      "gpio27": {
+        "command": [
+          204,
+          180
+        ],
+        "read_bit": 1,
+        "transitions": 40
+      },
+      "long_command_ns": [
+        62000
+      ],
+      "marker": 136,
+      "matched": false,
+      "peer_fifo": [
+        3033268224,
+        2
+      ],
+      "presence_delay_ns": 56400,
+      "presence_width_ns": 97200,
+      "read_command_ns": 2000,
+      "read_start_to_halt_ns": 70200,
+      "requested_presence_delay_us": 55,
+      "requested_reply": 0,
+      "reset_command_ns": 500000,
+      "reset_low_ns": 501200,
+      "short_command_ns": [
+        2000
+      ],
+      "slots": 17,
+      "spacing_ns": [
+        76000
+      ]
+    }
+  }
+}
