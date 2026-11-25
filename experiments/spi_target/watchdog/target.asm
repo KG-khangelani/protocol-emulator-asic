@@ -50,6 +50,7 @@ reply_a:
     SET mask=8 value=0 oe=8
     LOOP count=0 end=a_first
 after_a_next:
+    WAIT_PIN pin=2 level=0 timeout=0 on_timeout=rearm
 ; A1 holds zero and now sets A2 high. A3 holds one and continues at A4.
     WAIT_PIN pin=3 level=0 timeout=0 on_timeout=middle_first
     SET mask=8 value=8 oe=8
@@ -87,6 +88,7 @@ reply_b:
     SET mask=8 value=8 oe=8
     LOOP count=0 end=b_first
 after_b_first:
+    WAIT_PIN pin=2 level=0 timeout=0 on_timeout=rearm
 ; B0 holds one and now sets B1 low. B1 holds zero and sets B2 high.
     WAIT_PIN pin=3 level=1 timeout=0 on_timeout=b_third_high
     SET mask=8 value=0 oe=8
@@ -158,6 +160,7 @@ timeout_middle:
     HALT
 
 after_middle:
+    WAIT_PIN pin=2 level=0 timeout=0 on_timeout=rearm
 ; A5 holds one and sets A6 low. B4 holds zero and sets B5 high.
     WAIT_PIN pin=3 level=0 timeout=0 on_timeout=tail_low
     SET mask=8 value=8 oe=8
