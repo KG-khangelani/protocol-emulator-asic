@@ -22,8 +22,7 @@ def pairing(words, label_x, number_x, y_offset, y_bounds):
             continue
         nearby = [n for n in numbers if abs(label[1] - n[1] - y_offset) < 1]
         require(len(nearby) == 1, "ambiguous PDF row " + str(label))
-        name = label[4].replace("IOT_345A_G1", "IOT_45A_G1")
-        result[name] = int(nearby[0][4])
+        result[label[4]] = int(nearby[0][4])
     return result
 
 
@@ -34,6 +33,11 @@ def check(path):
         headers = doc[27].get_text("words")
     sg = pairing(package, (299, 307), (331, 335), 0, (248, 316))
     sg.update(pairing(package, (454, 465), (444, 448), 0, (210, 322)))
+    # Fig. A.3 prints the package signal and a differently spelled off-page connector on the same wire.
+    # Follow the literal connector label across both pages for this pin.
+    sheet_reset = "IOT_345A_G1"
+    reset_link = pairing(package, (265, 268), (331, 335), 2.3, (281, 284))
+    require(reset_link.get(sheet_reset) == sg["IOT_45A_G1"] == 37, "reset off-page wire reaches pin 37")
     j2 = pairing(headers, (296, 309), (363, 370), 2.3, (288, 335))
     j2.update(pairing(headers, (414, 418), (391, 395), 2.3, (288, 335)))
     j3 = pairing(headers, (470, 480), (516, 520), 2.3, (288, 335))
@@ -41,7 +45,8 @@ def check(path):
     for row in wiring():
         header, pin = row["header"].split(".")
         net = row["net"]
-        require(sg[net] == int(row["sg48"]) and {"J2": j2, "J3": j3}[header][net] == int(pin),
+        label = sheet_reset if net == "IOT_45A_G1" else net
+        require(sg[net] == int(row["sg48"]) and {"J2": j2, "J3": j3}[header][label] == int(pin),
                 f"{row['signal']} {net} {header}.{pin}")
     print("26 package pads and 26 connector positions match Lattice figures A.3 and A.4.")
 
