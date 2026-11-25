@@ -1,0 +1,37 @@
+{
+  "board_identity_sha256": "e5a3a5e33ca38df28cf1b6b33b83c86b42d98d82b759352876e3e5364f24f741",
+  "docker_image": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "files": {
+    "audit.py": "acb0ac80cdd8416ef117ad7f27bbbe4baed6ced2d586274dfdc91e722f9f8a43",
+    "board.asm": "398d5a833048c8820d618956fab8843c10a1dde7f0208b77376b2e8b8734e3c7",
+    "board.bin": "a29b2e045146fb1c29121a616f692ebd43142b55ab73baae9f1148b977e14638",
+    "board/job.py.gz": "49a6cbaa75d8ab3fbd3a884d8e518c86dee31886fdec25bc03f7d0452fbc4047",
+    "board/result.json": "f8bae630dc7ad4028ce5d0db67b6c1b418c341a84e20143d0cd8d026412ac539",
+    "board/terminal.bin.gz": "4d7ec42bbfec8b4e35175d5c9e9085f1be483d2a1cb86bee120936ea1636803c",
+    "physical.json": "d9663239fd18f7d67db4cf7f55184ac5758c5a2d1dc6403539e0cfac3ab9aa8a",
+    "rtl-logs.json.gz": "336bddf136781205bf0975d1a5e1e9de4d02bcf86394d9aeec81b34ab0e56beb",
+    "rtl-repeat-logs.json.gz": "839ee64f985686818e1b5d4819df3c2476cde3e38106fed29ffada2d2a846448",
+    "rtl-repeat.json": "34b8038c1a5679b4244902b6addc9fb9780adf57f8ed5b5ff07088fa0b051f64",
+    "rtl-result.json": "474c8bc2735a7216a17c6107db4dbdfcb09f9b012c56167a99030a6f45a5d26a"
+  },
+  "inputs": {
+    "docs/decisions/0063-measure-onewire-negative-controls.md": "a50391b1685c4479823b966d4662f69e09416c918dd6f6d19773159d30d3268d",
+    "evidence/E0049-review-council/onewire/power_query.asm": "4c8f6b3f080694841cdf8fa57403bbff04cd4e97b7aa998c643fa23546efa207",
+    "evidence/E0049-review-council/onewire/power_query_tb.sv": "2911270a4fba0eb8b1fffb6d7173b70dfd7f986a3d387e848218f700067793c6",
+    "evidence/E0049-review-council/onewire/screen.py": "39b65a8dcba7d03ae6949c55e1b0aeecb7e5b63a3b7db77746cb6432a56dae7f",
+    "evidence/E0059-remote-i2c/fabricfox.bin": "7ee587d50556b33599c23a2a893176534fafee1863d858c16d586d97c9be4bf4",
+    "experiments/remote_i2c/check.py": "0feba204bbabfd9bbec209a3fa9fef3d8cd399eac109219bda3cc6b73a4a4fbf",
+    "experiments/remote_i2c/fabricfox.v": "cf1198dea494ab51f4f23f96320dab0f6d492d6180d85ed20ad3dc22e4c6083c",
+    "experiments/remote_i2c/on_board.py": "973fc4621fd98715963571b1e3544d1426e907078aacdfdd5f2678296acf1d2f",
+    "experiments/remote_i2c/receiver/run.py": "9d15c051f62ff825ac087e42acc649630ea21bcec0a074bb92ed9897a835623c",
+    "experiments/remote_i2c/receiver/score.py": "1525174a62566d1c49c0651ccd88211e3e2b545b29d5e591e61c87ff172e6929",
+    "experiments/remote_i2c/remote.py": "d78bfe41dee2bff116d49d118490f842efbbebae3aa479d40a428d275ef3a2d1",
+    "experiments/remote_onewire/offline.py": "01a1d14f659418a6a83f7c77c4f9ec343b4f401b925d2a11e7d58a5282ba8f08",
+    "experiments/remote_onewire/on_board.py": "390fb79621f8fca18f1c2fea9bb5f38480042087c363b617d0d08f1da9c46a1c",
+    "experiments/remote_onewire/program.py": "209c118e950dc22e9cbf961bf61b50bb62bba275831833394d3ed51830de11ff",
+    "experiments/remote_onewire/run.py": "4fc36d4f6ad0075d74693485085a371adc0d5ebd193762333dd43de7e2a5108f",
+    "experiments/remote_onewire/score.py": "81deaeb2a01c7afda4d52c5f85a063009842075d2d3301b3593486d7c78e97e0",
+    "tools/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+  },
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f"
+}

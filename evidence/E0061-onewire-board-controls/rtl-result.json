@@ -1,0 +1,614 @@
+{
+  "status": "PASS",
+  "core_hz": 12500000,
+  "images": {
+    "normal": {
+      "words": 85,
+      "binary_sha256": "a29b2e045146fb1c29121a616f692ebd43142b55ab73baae9f1148b977e14638",
+      "bytes": 340,
+      "load_steps": 712
+    },
+    "short-reset": {
+      "words": 85,
+      "binary_sha256": "cafcffc22ec43bfb0886862d81e5c8118b920614cdb679368e72bf70b1ee9a45",
+      "bytes": 340,
+      "load_steps": 712
+    },
+    "bad-command": {
+      "words": 85,
+      "binary_sha256": "687658e1189818e398b5e689c11792006d8afb17856ec4af6896894568dca837",
+      "bytes": 340,
+      "load_steps": 712
+    }
+  },
+  "cases": {
+    "present-15-60-0": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-15-60-1": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 2
+      },
+      "expected_marker": 2,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-15-240-0": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-15-240-1": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 2
+      },
+      "expected_marker": 2,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-60-60-0": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-60-60-1": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 2
+      },
+      "expected_marker": 2,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-60-240-0": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "present-60-240-1": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          13277,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 2
+      },
+      "expected_marker": 2,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "absent": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2
+        ],
+        "releases": [
+          6252
+        ],
+        "decoded_wire_bytes": [],
+        "write_samples": 0,
+        "halt_edge": 7166,
+        "result": 3
+      },
+      "expected_marker": 3,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "stuck": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2
+        ],
+        "releases": [
+          6252
+        ],
+        "decoded_wire_bytes": [],
+        "write_samples": 0,
+        "halt_edge": 12503,
+        "result": 3
+      },
+      "expected_marker": 3,
+      "expected_rejection": null,
+      "actual_rejection": null
+    },
+    "bad-command": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          12502,
+          13452,
+          14402,
+          15352,
+          16302,
+          17252,
+          18202,
+          19152,
+          20102,
+          21052,
+          22002,
+          22952,
+          23902,
+          24852,
+          25802,
+          26752,
+          27702
+        ],
+        "releases": [
+          6252,
+          12527,
+          14227,
+          14427,
+          15377,
+          17077,
+          18027,
+          18227,
+          19177,
+          20877,
+          21827,
+          22027,
+          23727,
+          23927,
+          24877,
+          26577,
+          26777,
+          27727
+        ],
+        "decoded_wire_bytes": [
+          205,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 28578,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": "command bytes",
+      "actual_rejection": "command bytes"
+    },
+    "short-reset": {
+      "observed": {
+        "load_steps": 712,
+        "falls": [
+          2,
+          11252,
+          12202,
+          13152,
+          14102,
+          15052,
+          16002,
+          16952,
+          17902,
+          18852,
+          19802,
+          20752,
+          21702,
+          22652,
+          23602,
+          24552,
+          25502,
+          26452
+        ],
+        "releases": [
+          5002,
+          12027,
+          12977,
+          13177,
+          14127,
+          15827,
+          16777,
+          16977,
+          17927,
+          19627,
+          20577,
+          20777,
+          22477,
+          22677,
+          23627,
+          25327,
+          25527,
+          26477
+        ],
+        "decoded_wire_bytes": [
+          204,
+          180
+        ],
+        "write_samples": 16,
+        "halt_edge": 27328,
+        "result": 1
+      },
+      "expected_marker": 1,
+      "expected_rejection": "reset duration",
+      "actual_rejection": "reset duration"
+    }
+  },
+  "profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+  "compiler": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)"
+}

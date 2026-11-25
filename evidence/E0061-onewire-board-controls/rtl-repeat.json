@@ -1,0 +1,14 @@
+[
+  {
+    "directory": "onewire-rtl-a",
+    "log_archive": "rtl-logs.json.gz",
+    "result_file_mtime_utc": "2026-11-25T20:46:10.785523+00:00",
+    "result_sha256": "474c8bc2735a7216a17c6107db4dbdfcb09f9b012c56167a99030a6f45a5d26a"
+  },
+  {
+    "directory": "onewire-rtl-b",
+    "log_archive": "rtl-repeat-logs.json.gz",
+    "result_file_mtime_utc": "2026-11-25T20:50:54.510245+00:00",
+    "result_sha256": "474c8bc2735a7216a17c6107db4dbdfcb09f9b012c56167a99030a6f45a5d26a"
+  }
+]

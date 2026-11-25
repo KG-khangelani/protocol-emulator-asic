@@ -1,0 +1,98 @@
+{
+  "0-absent": {
+    "command_slots": 0,
+    "drive_edges": [
+      20,
+      2520
+    ],
+    "gpio19_first_high_after_release_ns": 1400,
+    "gpio19_transitions": [
+      20,
+      2527
+    ],
+    "gpio27_first_high_after_release_ns": 1000,
+    "gpio27_transitions": [
+      20,
+      2525,
+      2526,
+      2527
+    ],
+    "halt_sample": 2886,
+    "mode": "absent",
+    "reset_low_ns": 500000,
+    "reset_start_to_halt_ns": 573200,
+    "status": 152
+  },
+  "1-stuck-before": {
+    "command_slots": 0,
+    "drive_edges": [],
+    "halt_sample": 22,
+    "mode": "stuck-before",
+    "status": 152
+  },
+  "2-stuck-after": {
+    "command_slots": 0,
+    "drive_edges": [
+      25,
+      2525
+    ],
+    "gpio19_transitions": [
+      25
+    ],
+    "gpio27_transitions": [
+      25
+    ],
+    "halt_sample": 5025,
+    "mode": "stuck-after",
+    "reset_low_ns": 500000,
+    "reset_start_to_halt_ns": 1000000,
+    "status": 152
+  },
+  "3-stuck-after": {
+    "command_slots": 0,
+    "drive_edges": [
+      21,
+      2521
+    ],
+    "gpio19_transitions": [
+      22
+    ],
+    "gpio27_transitions": [
+      21
+    ],
+    "halt_sample": 5022,
+    "mode": "stuck-after",
+    "reset_low_ns": 500000,
+    "reset_start_to_halt_ns": 1000200,
+    "status": 152
+  },
+  "4-stuck-before": {
+    "command_slots": 0,
+    "drive_edges": [],
+    "halt_sample": 21,
+    "mode": "stuck-before",
+    "status": 152
+  },
+  "5-absent": {
+    "command_slots": 0,
+    "drive_edges": [
+      21,
+      2521
+    ],
+    "gpio19_first_high_after_release_ns": 1200,
+    "gpio19_transitions": [
+      21,
+      2527
+    ],
+    "gpio27_first_high_after_release_ns": 1200,
+    "gpio27_transitions": [
+      21,
+      2527
+    ],
+    "halt_sample": 2886,
+    "mode": "absent",
+    "reset_low_ns": 500000,
+    "reset_start_to_halt_ns": 573000,
+    "status": 152
+  }
+}
