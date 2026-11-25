@@ -125,7 +125,13 @@ def run(args, out, rec):
     rec['upload'] = request(api+'/bitstream',body+image+f'\r\n--{boundary}--\r\n'.encode(),'multipart/form-data; boundary='+boundary)
     if rec['upload'].get('evicted') or rec['upload'].get('size')!=len(image) or rec['upload'].get('name')!=NAME:
         raise ValueError('gallery upload receipt')
-    intended = old or 'idle_display'
+    # idle_display is loaded privately by the site's idle controller and may
+    # have no public gallery entry. The stock SDK start design re-arms it.
+    listed = {d['name'] for d in gallery['designs']}
+    intended = old if old in listed and old != NAME else 'tt_um_factory_test'
+    if intended not in listed:
+        raise ValueError('previous design and SDK startup demo unavailable for restoration')
+    rec['restore_via'] = intended
     try:
         if request(page+'status.json')['clients'] != 0:
             raise ValueError('board occupied before programming')
@@ -138,7 +144,7 @@ def run(args, out, rec):
         if current in (NAME,None) and current != intended and request(page+'status.json')['clients']==0:
             request(api+'/designs/'+intended+'/enable',b'{}')
         rec['after'] = request(api+'/designs')['enabled']
-    if rec['after'] != intended:
+    if rec['after'] != intended and not (intended == 'tt_um_factory_test' and rec['after'] == 'idle_display'):
         raise ValueError('board selection after session: '+str(rec['after']))
 
 
