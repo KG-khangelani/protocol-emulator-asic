@@ -34,6 +34,16 @@ requester rate the board missed every complete handoff and selected-stall
 deadline. The next physical gate is a calibrated MISO drive-state measurement
 on a named requester and load. [D59](decisions/0059-exercise-spi-recovery-on-fabricfox.md) · [E0057](../evidence/E0057-remote-spi/README.md)
 
+The active engineering objective is receiver-end qualification. The I²C
+timing guard preserved transaction duration on all 172 paired digital
+requests. Both images addressed the RP2350B and read the expected data,
+but every unfiltered board capture contained extra SCL transitions.
+Keep the released 96-word image selected. Measure SDA and SCL threshold
+crossings at a named load, then characterize SPI MISO and UART turnoff
+with driven and released reference captures. The optional 1-Wire trial
+needs one externally powered and one parasite-powered sensor, tested separately.
+[I²C digital gate](../evidence/E0058-i2c-guard/README.md) · [Board 4 results](../evidence/E0059-remote-i2c/README.md) · [Local bench sources](research/western-cape-bench.md)
+
 ## Priorities and planning targets
 
 Dates below are internal planning targets, not measured completion promises.

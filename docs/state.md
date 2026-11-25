@@ -1,8 +1,25 @@
 # Current state
 
-Updated 2026-11-25. **The 126-word SPI target recovered from aborts and clock stalls on FabricFox board 4 at a bounded requester rate. At the original 160 ns handoff and 2 µs timeout, the 12.5 MHz board missed both requirements. Calibrated UART and MISO release measurements remain open.**
+Updated 2026-11-25. **The released and guarded I²C programs both read the correct data on FabricFox board 4. All 18 physical captures contained extra clock transitions. The next firmware decision depends on measuring SDA and SCL at a receiver with a known load.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
+
+At 50 MHz the 108-word candidate moved commanded SDA changes from 20–40 ns to
+500–520 ns after falling SCL in the original transaction. Both images kept
+the same SCL, transaction boundaries and HALT timing in all 172 matched cases.
+The 171-clock adverse control returned the right byte while violating the
+data-valid limit. [E0058 digital evidence and replay](../evidence/E0058-i2c-guard/README.md)
+
+On the 12.5 MHz FPGA, the native RP2350B target returned all 12 requested
+bytes and all six missing-address controls produced NACK. Neither firmware
+image passed the unfiltered clock-edge check. Keep the released 96-word image
+selected pending calibrated receiver measurements. Calibrated SPI MISO turnoff,
+UART handoff and the two real 1-Wire power responses remain open.
+[E0059 waveforms and decision](../evidence/E0059-remote-i2c/README.md) · [Western Cape bench sources](research/western-cape-bench.md)
+
+The 126-word SPI target recovered from aborts and clock stalls on board 4
+at a bounded requester rate. At the original 160 ns handoff and 2 µs
+timeout the 12.5 MHz board missed both requirements.
 
 On the physical board, the first fourfold-slower requester returned 384/384
 fresh bytes and reached a released timeout in 5.544–5.984 µs in all 32

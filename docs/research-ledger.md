@@ -1,5 +1,28 @@
 # Research ledger
 
+## 25 November I²C timing guard and receiver captures
+
+**Demonstrated at public digital pins.** The 24-clock guard shifted commanded
+SDA from 20–40 ns to 500–520 ns after falling SCL in the original 50 MHz
+transaction. All 172 pairs had identical clock edges, START, repeated START,
+STOP and HALT times wherever those events occurred. Two RTL simulators and
+the submitted functional netlist reproduced the same 347 traces each with a
+shared target and oracle. The 171-clock control violated the 3,450 ns
+data-valid limit while returning the requested byte. [E0058](../evidence/E0058-i2c-guard/README.md)
+
+**Observed on board 4.** At 12.5 MHz the physical RP2350B returned all 12
+addressed bytes and six address-NACK controls behaved as expected.
+All 18 raw pin records failed the strict decoder. Additional SCL high or low
+intervals lasted one to three nominal 100 ns samples. A diagnostic requiring
+five stable samples decoded all 18. Extra input pull-ups shortened the
+transaction and left the strict result unchanged. [E0059 captures and receiver limits](../evidence/E0059-remote-i2c/README.md)
+
+**Open question and decision.** These samples cannot distinguish actual
+threshold recrossings from an effect of the wiring or GPIO sampler. Keep the
+96-word release selected. Capture both voltages and drive commands at a known
+load to decide whether the 108-word guard improves receiver margin.
+[Acceptance criteria](decisions/0060-qualify-i2c-guard-and-measure-handoffs.md) · [Local equipment options](research/western-cape-bench.md)
+
 ## 25 November SPI recovery on FabricFox board 4
 
 **Measured.** The external RP2350 captured the MISO pad, its output-enable
