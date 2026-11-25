@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import sys
 import time
+from urllib.error import HTTPError
 from urllib.request import build_opener, HTTPCookieProcessor, Request
 from uuid import uuid4
 
@@ -127,7 +128,16 @@ def run(board, image, wheel, out, receipt, linked_pulls):
     finally:
         chosen = request(api + "/designs")["enabled"]
         if chosen in (None, NAME) and request(page + "status.json")["clients"] == 0:
-            receipt["restore"] = request(f"{api}/designs/{restore}/enable", b"{}")
+            try:
+                receipt["restore"] = request(f"{api}/designs/{restore}/enable", b"{}")
+            except HTTPError as exc:
+                detail = exc.read().decode(errors="replace")
+                if exc.code != 502 or "MemoryError" not in detail or restore != "tt_um_factory_test":
+                    raise
+                from experiments.remote_i2c.recover import restore as restore_after_memory_error
+                recovery = {"manager_error": detail}
+                receipt["restore_recovery"] = recovery
+                restore_after_memory_error(board, wheel, recovery, soft_reset=True)
         receipt["after"] = request(api + "/designs")["enabled"]
     require(receipt["after"] in (restore, "idle_display") and receipt["traces"] == 6, "restoration or inventory")
 
