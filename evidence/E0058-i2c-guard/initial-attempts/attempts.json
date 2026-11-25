@@ -1,0 +1,42 @@
+[
+  {
+    "checker_disagreements": 0,
+    "reason": "cocotb import before first case",
+    "rows": 0,
+    "run": "icarus-a"
+  },
+  {
+    "checker_disagreements": 68,
+    "first_case": "0-late-1",
+    "reason": "two-clock cleanup encoded as two sample ticks",
+    "rows": 146,
+    "run": "verilator-a"
+  },
+  {
+    "checker_disagreements": 0,
+    "reason": "cocotb import before first case",
+    "rows": 0,
+    "run": "netlist-a"
+  },
+  {
+    "checker_disagreements": 16,
+    "first_case": "0-late-1",
+    "reason": "two-clock cleanup encoded as two sample ticks",
+    "rows": 42,
+    "run": "icarus-b"
+  },
+  {
+    "checker_disagreements": 18,
+    "first_case": "0-late-1",
+    "reason": "two-clock cleanup encoded as two sample ticks",
+    "rows": 45,
+    "run": "verilator-b"
+  },
+  {
+    "checker_disagreements": 1,
+    "first_case": "0-late-1",
+    "reason": "two-clock cleanup encoded as two sample ticks",
+    "rows": 11,
+    "run": "netlist-b"
+  }
+]

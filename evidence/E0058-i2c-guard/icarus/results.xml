@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261125" />
+    <testcase name="compare_guards" classname="guard_suite" file="/workspace/build/icarus-c/fixture/guard_suite.py" lineno="26" time="405.4955241680145" sim_time_ns="419450938.164" ratio_time="1034415.7041551046" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,106 @@
+{
+  "files_sha256": {
+    "audit.py": "64c3d38a9ec5c82a6eecd5c49e7a3ea7bb80d9b590f7650c8f8455d76d749728",
+    "board_inventory.py": "47dcec9786c8ea5259e81c1100029d679ba5fb7995bbdf25cb0f6198476eaf14",
+    "cases.jsonl.gz": "4dbd9f47a621d331fd0d239ec048372edcfcdc66b8d02d981b5610ba6ebe516f",
+    "check-receipt.json": "2c711ce2f9ca839984e1ab34c3cf51b4a319738049b84f4cb16559dc3bb172af",
+    "doctor-receipt.json": "0e544ec9ad53e87a764c3fb5d737039cdffdc60bf80f27635bba58c697e6c81c",
+    "icarus/result.json": "56500fe9ee2db5c10b667c67fa03028466ddba57faab850cc3636eae2a2e612a",
+    "icarus/results.xml": "f7272525b7b9f686cbb07402f248dff638d26c3057872c8fb9243808fc7a15e9",
+    "icarus/simulator.log.gz": "d5c2989cde287659fedea1a918f1a75c89e0cd096d21ba416e3ebd0aa60e708a",
+    "initial-attempts/attempts.json": "3b397a9bbfef8f3aa2391ce09c468445c963bb3f442f5e054436d42b0d4f626a",
+    "initial-attempts/first-failure.json.gz": "3d97837252fb781a16b7c351fbbc3c4d8f793dcfcee18a993e29214764fcbf45",
+    "initial-attempts/icarus-a-result.json.gz": "bb015fb75d16b43d000ed702b7cbf89cb3418e7ee0036808fd1396cbe319a50b",
+    "initial-attempts/icarus-a-simulator.log.gz": "625e795b781a7f4388fb9e7d8ddc308902e3fe6f50765245b38c8829140ff31a",
+    "initial-attempts/icarus-b-cases.jsonl.gz": "6d5a8e9f564bfa99884e01ae902d062a90f3c1d683b4da03db25ca4b381f46c4",
+    "initial-attempts/icarus-b-simulator.log.gz": "f56a6f38e0532cb6cbcb2aea9b5a3dcf308a1d665ad733e8525d38763fb22293",
+    "initial-attempts/netlist-a-result.json.gz": "087c3faa793d7df315587462d281044e9e658c2a589630a2f72b4d402319fa1b",
+    "initial-attempts/netlist-a-simulator.log.gz": "d6f7eb7f6a54f5a6ae1fbf0a709d6c53d21963f77c531b081f811088825421d8",
+    "initial-attempts/netlist-b-cases.jsonl.gz": "c98fd00801bb8919299c4a83b00f806e18f97b2a2a2392e0db4bddb87307c2f5",
+    "initial-attempts/netlist-b-simulator.log.gz": "003665eb4c5b9c08ebdc7c45b23eaaf1b02d69f7fa570206f70ad802475d2b3c",
+    "initial-attempts/verilator-a-cases.jsonl.gz": "287c62f71cfed8330edc671db5d85483fe135c9a40a4614592eb3cfcb5c45b0d",
+    "initial-attempts/verilator-a-simulator.log.gz": "e4fdaebf2d1b2bbe3e5ff5e55fde9cf0c3341475559a465cd580f04949e354a8",
+    "initial-attempts/verilator-b-cases.jsonl.gz": "770f4a1a14692b6ef202e11f5e46988ee87a7428ce123015ffbeb21fd38f96bf",
+    "initial-attempts/verilator-b-simulator.log.gz": "4b33cec7687569a1eff356f1d05e439e44e656ca06c73081315461d2a408b2f1",
+    "netlist/result.json": "297220c8b8a31a602a87958b778ef58d60bb1f720be42d73cb361b24bddcc0f1",
+    "netlist/results.xml": "56ad218b3d39ad482a6be981b2568f72d4ab28b2c8a69166a3ad102d7fa684eb",
+    "netlist/simulator.log.gz": "f89d14e27e5f6cf06548adc7c13775ee264b3f7e531d150d43958febbf57831f",
+    "remote-access.json": "2685ec6acda0d7d5b364dddb83c8961134e5f9d2a3de2dc86f0abf3f69026396",
+    "traces.jsonl.gz": "f981386b4ae8faae9fb2d73cbabbffd8103d5342a622441f67659c0b5f7f6059",
+    "verilator/result.json": "2ccec51844f236d477960c9644979e50272b24fc5aba42c530b8128ffc8fbc7c",
+    "verilator/results.xml": "f05d4372d41285a3ed4bdbdf9b1b2af502d95bf83807fb11d134fbe033427b78",
+    "verilator/simulator.log.gz": "44b1ed1afa9da3740606553e950b3d86a63c34945df2fdd8f3fbabaabed2501c"
+  },
+  "image_id": "sha256:9e300db4db672314f6dc5394d19e4b7d5d72917588fa2a963ace1a8118391909",
+  "inputs_sha256": {
+    "docs/decisions/0060-qualify-i2c-guard-and-measure-handoffs.md": "e6880453461806dfebaca764a293a072bf29393a19a0d4bc9db9b101a5901c7a",
+    "evidence/E0049-review-council/panel-b/results/retime-cases.jsonl": "17a0dff8431269adcf0514dc79df1fae05046d2b0f1a530a8f6089de6bf2a31e",
+    "evidence/E0049-review-council/panel-b/results/retime.json": "296606606088061a77a2566d114f57096365a937be91162207028eb65ca8c759",
+    "evidence/E0049-review-council/panel-b/sources/guard_screen.py": "4ec4e841a6eee6943123ed75f459f3e0761160328e4d9a6975946f625f300301",
+    "evidence/E0049-review-council/panel-b/sources/retime_screen.py": "5eca70da3812a472efb9376a28127de119e7089deea5dab1d92aea520ddf89e2",
+    "evidence/E0049-review-council/panel-c/selector_orders.py": "669402e5f6738c7edaf4f0756666471f326f2168e6ac67cb176e47c73114b487",
+    "experiments/i2c/guard_cases.py": "387746b32fbb88a284624749e0e17bfc95eaeb34acf523883116e3c4f037c451",
+    "experiments/i2c/guard_run.py": "7630255b66ec757e9a4b995993179372939807a79ce0fa43bca78cce48cf1f7b",
+    "experiments/i2c/guard_suite.py": "6f278e98452240403e7f5001982cc5b100ceff4c8f754e0ece71fce4531dd7f2",
+    "experiments/i2c/public_bus.py": "766256aabea90003864d55874b10a1356d5f3cc3eda15f2f86ba14afcf8910bc",
+    "experiments/i2c/target.py": "997940d87cf83e55392fddc679d0f2afa5f559b4edb13b06aad54ceff4f6b661",
+    "programs/od128-sram-v1/i2c_write_read.asm": "adbeeecb3dbdcbff4b8dc11219ad546c3e8b549d4e53ed98a6ed11754b27ac7c",
+    "test/Makefile": "6ca5cccd3bdd101d3cf6ef9c83444c062464f95b25b719cda1932a1b7ce864e4",
+    "tools/assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+    "tools/cold_load.py": "aa1d143d51dc44db445521cc63a6d89a19477a85f02b6119bd990922361746eb",
+    "tools/host_transport/controller.py": "eff572e3616f9187452d1fc2055af7b6458f63bf96d45ce063dee30f4ee72a68",
+    "tools/host_transport/digital.py": "d995ee4381c0901cc13c8b334b6596ef89f9633f0f97c552f68d0e9444eebe0b",
+    "tools/host_transport/tb.v": "68de12fa657b325239413a81b4e5824bf8754d0f0832b04285ab40c7decb1e4d",
+    "tools/i2c_oracle.py": "f2d9bb590a32b260e66b86a9008227cad4ea49800771987f5b74f280fe8b8709",
+    "tools/production-profile.json": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+    "tools/production_sram.py": "28ac97efea1a74ccb1eeebf46f8f8ce9d9137d5be6f98256d2c83d79a3309a93",
+    "tools/run_program_examples.py": "1162f0ea3ef41a1a4d51fbbc76dba7768c031ccf4a62f9b970eb756cf5b73908"
+  },
+  "measurements": {
+    "cases_per_backend": 347,
+    "cleanup_ns": {
+      "40": 152
+    },
+    "controller_sda_change_ns": {
+      "0": [
+        20,
+        40
+      ],
+      "170": [
+        3420,
+        3440
+      ],
+      "171": [
+        3440,
+        3460
+      ],
+      "24": [
+        500,
+        520
+      ],
+      "8": [
+        180,
+        200
+      ]
+    },
+    "council_traces": 159,
+    "outcomes": {
+      "0/NACK": 3,
+      "0/OK": 93,
+      "0/TIMEOUT": 76,
+      "170/OK": 1,
+      "171/OK": 1,
+      "24/NACK": 3,
+      "24/OK": 93,
+      "24/TIMEOUT": 76,
+      "8/OK": 1
+    },
+    "paired_differences": {
+      "boundaries": [],
+      "halt": [],
+      "scl_edges": []
+    },
+    "pairs": 172
+  },
+  "source_commit": "d31b72e54ce7c1e95ac0c02d8ffd459720432067"
+}

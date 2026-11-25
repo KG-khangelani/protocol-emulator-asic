@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261125" />
+    <testcase name="compare_guards" classname="guard_suite" file="/workspace/build/verilator-c/fixture/guard_suite.py" lineno="26" time="189.73326802253723" sim_time_ns="419450938.164" ratio_time="2210740.069654922" />
+  </testsuite>
+</testsuites>

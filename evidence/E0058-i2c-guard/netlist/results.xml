@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="20261125" />
+    <testcase name="compare_guards" classname="guard_suite" file="/workspace/build/netlist-c/fixture/guard_suite.py" lineno="26" time="1707.4289093017578" sim_time_ns="419450938.164" ratio_time="245662.31476983236" />
+  </testsuite>
+</testsuites>
