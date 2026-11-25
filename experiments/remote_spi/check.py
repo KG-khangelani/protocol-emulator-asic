@@ -218,12 +218,13 @@ def audit(raw,suite,strict=True):
     failures=[n for n,m in measured.items() if m['errors'] and not n.startswith('short-')]
     if strict:
         need(not failures,'failed case '+str([(k,measured[k]['errors']) for k in failures[:3]]))
-    def span(group, field):
-        values=[m[field] for m in groups[group] if field in m]
+    def span(families, field):
+        values=[m[field] for family in families for m in groups.get(family,()) if field in m]
         return [min(values),max(values)] if values else []
+    abort_families=('reselect','settled','gaps','fine')
     summary=dict(cases=len(wanted),failures=failures,groups={k:len(v) for k,v in groups.items()},
-                 abort_ns=span('reselect','abort_ns'),timeout_ns=span('pause','timeout_ns'),
-                 handoff_ns=span('reselect','handoff_ns'), samples=sum(m['capture_samples'] for m in measured.values()),
+                 abort_ns=span(abort_families,'abort_ns'),timeout_ns=span(('pause',),'timeout_ns'),
+                 handoff_ns=span(abort_families,'handoff_ns'), samples=sum(m['capture_samples'] for m in measured.values()),
                  short_controls={k:v for k,v in measured.items() if k.startswith('short-')})
     return summary,measured
 
