@@ -1,0 +1,7 @@
+# D61 — Run both I²C images against a hardware target
+
+25 November 2026. Board 4's installed MicroPython exposes `machine.I2CTarget`. Use the RP2350B I2C1 peripheral as an addressed memory device on GPIO26 (SDA) and GPIO27 (SCL). Keep the FPGA controller at the previously routed 12.5 MHz target and use the same uncontrolled board load for both firmware images. Stage the loader on separate pins. Only the two open-drain FPGA cells and the native peripheral may pull the bus low during execution.
+
+Load and read back the released and 24-clock guarded images. For each, try two different register addresses and response bytes and address a missing target. Decode SDA and SCL from peripheral-side GPIO samples. Require matching START, write address, acknowledged register byte, repeated START, read address, returned byte, final NACK and STOP on a successful transfer. Require first-address NACK and STOP for the missing target. Check the public terminal marker, byte and valid flag. Save the first disagreement, cold readback, board identity, raw digital changes and actual clock settings. Restore the public board selection.
+
+The capture shows the logic level at one RP2350 input threshold on one board. Receiver voltage thresholds, actual capacitance, SDA/SCL analog slew and driver turnoff need a separate bench. Use the [D60 criteria](0060-qualify-i2c-guard-and-measure-handoffs.md) for the firmware decision.
