@@ -1,8 +1,8 @@
 # Western Cape sources for the receiver bench
 
-Checked 25 November 2026. Prices below are in rand and include VAT unless stated. A retailer's national catalogue and a named branch's stock are different evidence. Collection and calibration quotes are still open. No order was placed.
+Strand stock, counter details and the Communica scope price were rechecked 26 November 2026 SAST. The other inventory checks date to 25 November. Prices are in rand. Next Dimension lists final prices and charges no VAT. Other prices include VAT unless indicated. Quantities are seller listings. Counter reservations and instrument quotes remain open.
 
-**One-stop sensor parts in Strand, R134.94.** Next Dimension Electronics has a walk-in counter at Unit 1, Comprop Square, 7 Henry Vos Close, Asla Park, Strand 7140. Phone **084 880 1881**. The shop lists Monday–Friday 08:00–17:00 and Saturday 08:00–13:00. Its live product pages showed the following quantities on 25 November. The shop lists final prices and free counter collection. [Shop and hours](https://nde3d.co.za/contact/) · [Collection](https://nde3d.co.za/delivery/)
+**One-stop sensor parts in Strand, R134.94.** Next Dimension Electronics has a walk-in counter at Unit 1, Comprop Square, 7 Henry Vos Close, Asla Park, Strand 7140. Phone **084 880 1881**. The shop lists Monday–Friday 08:00–17:00 and Saturday 08:00–13:00, with free counter collection. Its live product pages showed the following quantities on 26 November. [Shop and hours](https://nde3d.co.za/contact/) · [Collection](https://nde3d.co.za/delivery/)
 
 | Item and seller SKU | Quantity to buy | Price | Stock shown |
 | --- | ---: | ---: | ---: |
@@ -11,6 +11,10 @@ Checked 25 November 2026. Prices below are in rand and include VAT unless stated
 | [4.7 kΩ, 1%, ten-pack, D0503-14](https://nde3d.co.za/product/resistor-thl-14w-1-pack-of-10-14/) | 1 pack | R5.00 | 4 packs |
 
 The sensors have 2 m leads. For the short-wire bench, use the bare Stellenbosch sensors and keep the cable length fixed when comparing power modes. The seller does not certify the sensor manufacturer's identity or parasite-mode behavior. Verify the ROM and power response on each unit. A [400-point breadboard](https://nde3d.co.za/product/breadboard-400-points/) adds R19.70, for **R154.64** in Strand before a USB data cable and hookup wire. For the planned FPGA bench, the Strand Pico plus the Stellenbosch short-lead sensors, resistors and 2×10 headers total **R123.74** before the FPGA, instruments and remaining wiring. [Pico header wiring and sensor procedure](../../evidence/E0063-local-breakout/README.md)
+
+**R193.03 for the Strand sensor setup with breadboard, USB programming cable and jumpers.** The 1 m Micro-USB cable costs R19.00 (SKU `N1900-8`, 10 listed). The pack of forty 100 mm male-to-male jumpers costs R19.39 (`C1695`, 27 listed). There were 20 breadboards. The Pico listing includes headers. Check whether they are already soldered before choosing a breadboard setup. This basket runs the standalone sensor check. Exercising the project images locally also requires the FPGA. [Breadboard](https://nde3d.co.za/product/breadboard-400-points/) · [Programming cable](https://nde3d.co.za/product/micro-usb-cable-1m-for-nodemcu/) · [Jumpers](https://nde3d.co.za/product/cable-dupont-100mm-male-male-40-way/) · [Pico](https://nde3d.co.za/product/raspberry-pi-pico-rp2040/)
+
+For the planned SPI and UART measurements the same counter lists 1% packs of ten **470 Ω** sense resistors (SKU `D0503-9`, seven packs) and **1 kΩ** bias resistors (`D0503-11`, two packs) at R5 per pack. Including both brings the R193.03 basket to **R203.03**. Measure the actual resistors and capture active high, active low and released states with the scope and probes connected. The remote SPI inputs kept the previous bit at all 24 opposite-bias handoffs, so a logic-level reading alone could not time turnoff. [470 Ω](https://nde3d.co.za/product/resistor-thl-14w-1-pack-of-10-9/) · [1 kΩ](https://nde3d.co.za/product/resistor-thl-14w-1-pack-of-10-11/) · [Bench circuit](../../evidence/E0049-review-council/panel-b/fixture/bench.md) · [Physical SPI result](../../evidence/E0065-spi-branch-bias/README.md)
 
 | Local source | Parts or service | Availability observed |
 | --- | --- | --- |
