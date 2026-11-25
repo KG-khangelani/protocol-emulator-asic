@@ -15,7 +15,7 @@ PARENT = HERE.parent
 ROOT = PARENT.parents[1]
 sys.path[:0] = [str(PARENT), str(ROOT)]
 from requester import matrix
-from stress import assess, extra_cases
+from stress import assess, edge_ties, extra_cases
 from run import (ARCHIVE, ARCHIVE_SHA, NETLIST_SHA, PDK_FILES, REPRESENTATIVE, checked,
                  digest, make_plan, parse_pin_log)
 from selector_orders import memory_file
@@ -121,14 +121,16 @@ def main():
     backend.add_argument("--verilator", action="store_true", help="run production RTL through Verilator")
     parser.add_argument("--firmware", type=Path, default=HERE / "target.asm")
     parser.add_argument("--workers", type=int, default=4, choices=range(1, 17))
-    parser.add_argument("--smoke", action="store_true", help="use the fifteen prespecified cross-checks")
-    parser.add_argument("--stress", action="store_true", help="use the additional phase, boundary and abort sweeps")
+    suite = parser.add_mutually_exclusive_group()
+    suite.add_argument("--smoke", action="store_true", help="use the fifteen prespecified cross-checks")
+    suite.add_argument("--stress", action="store_true", help="use the additional phase, boundary and abort sweeps")
+    suite.add_argument("--edge-ties", action="store_true", help="replay coincident aborts and their neighboring phases")
     args = parser.parse_args()
     cases = dict(extra_cases()) if args.stress else baseline()
     if args.smoke:
-        if args.stress:
-            parser.error("choose either the baseline smoke test or the stress sweep")
         cases = {name: cases[name] for name in REPRESENTATIVE}
+    if args.edge_ties:
+        cases = dict(edge_ties())
     if not run(fresh_directory(args.out), args.firmware, cases, args.pdk, args.workers, args.verilator):
         raise SystemExit(1)
 

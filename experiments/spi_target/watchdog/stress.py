@@ -78,6 +78,17 @@ def extra_cases():
                     yield f"boundary-{command:02x}-{bit}-{polarity}-{width}", case
 
 
+def edge_ties():
+    """Move an otherwise identical requester 2 ns either side of a core-edge abort."""
+    for command in REPLIES:
+        for bit in range(1, 8):
+            # Match the dummy data in the original phase-19 early abort.
+            seed = command * 1000 + bit * 100 + 20
+            for phase in (17, 19, 21):
+                base = scenario(command, 250, phase, "reselect", bit, 0)
+                yield f"edge-{command:02x}-{bit}-0-{phase}-1", retime(base, seed, abort_offset=1)
+
+
 def marker_errors(rows, finish):
     # The existing SET publishes the terminal marker one clock before HALT.
     first = next((r for r in rows if r[1] & 0x30 or r[3]), None)
