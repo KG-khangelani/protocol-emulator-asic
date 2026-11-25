@@ -12,6 +12,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.remote_spi.remote import PROGRAM_SHA
+from experiments.remote_spi.fine import fine_trials
 from experiments.remote_spi.gaps import gap_schedule, gap_trials
 from experiments.remote_spi.schedules import schedule, tick, trials
 from experiments.remote_spi.wall import wall_schedule, wall_tick, wall_trials
@@ -59,7 +60,7 @@ def assess(descriptor, r, wall=False):
     name = descriptor[0]
     need(name==r['name'], 'case name')
     mode = descriptor[4]
-    case = (gap_schedule if mode in ('gaps','settled') else schedule)(scenario, descriptor)
+    case = (gap_schedule if mode in ('gaps','settled','fine') else schedule)(scenario, descriptor)
     units = wall_tick if wall else tick
     scale = 1 if wall else 4
     if wall:
@@ -197,7 +198,12 @@ def audit(raw,suite,strict=True):
          'wrong-byte control')
     need(cold['event']=='cold' and cold['rows']==1050 and cold['registers']==[[160,126],[161,60],[164,167]]
          and hashlib.sha256(bytes.fromhex(cold['image'])).hexdigest()==PROGRAM_SHA,'full program and register readback')
-    wanted=list(wall_trials(trials) if suite=='wall' else gap_trials(suite) if suite in ('gaps','settled') else trials(suite))
+    if suite=='wall':
+        wanted=list(wall_trials(trials))
+    elif suite=='fine':
+        wanted=list(fine_trials(gap_trials))
+    else:
+        wanted=list(gap_trials(suite) if suite in ('gaps','settled') else trials(suite))
     captures=rows[3:-1]
     need([r['name'] for r in captures]==[d[0] for d in wanted], 'case inventory')
     measured={}

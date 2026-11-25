@@ -43,6 +43,9 @@ def board_code(suite):
     extension = ''
     if suite in ('gaps','settled'):
         extension = (HERE/'gaps.py').read_text() + '\ntrials=gap_trials\nschedule=gap_schedule\n'
+    elif suite=='fine':
+        extension = (HERE/'gaps.py').read_text() + '\n' + (HERE/'fine.py').read_text() + (
+            '\ndef trials(suite): return fine_trials(gap_trials)\nschedule=gap_schedule\n')
     elif suite=='wall':
         extension = (HERE/'wall.py').read_text() + (
             '\nbase_trials=trials\nbase_schedule=schedule\ntick=wall_tick\n'
@@ -159,7 +162,7 @@ def run(args, out, rec):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--board',choices=('fpga-1','fpga-4'),required=True)
-    p.add_argument('--suite',choices=('pilot','matrix','gaps','settled','wall'),required=True)
+    p.add_argument('--suite',choices=('pilot','matrix','gaps','settled','wall','fine'),required=True)
     p.add_argument('--image',type=Path,required=True)
     p.add_argument('--wheel',type=Path)
     p.add_argument('--out',type=Path,required=True)
