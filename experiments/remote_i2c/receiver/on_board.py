@@ -6,6 +6,16 @@ def receiver_pins():
     in_(pins, 16)
 
 
+@rp2.asm_pio(in_shiftdir=rp2.PIO.SHIFT_RIGHT, out_shiftdir=rp2.PIO.SHIFT_RIGHT, autopush=True, push_thresh=32)
+def both_receivers():
+    # Snapshot the input group starting at GPIO18, then pack GPIO18/19 and GPIO26..34.
+    mov(osr, pins)
+    in_(osr, 2)
+    out(null, 8)
+    in_(osr, 9)
+    in_(null, 5)
+
+
 def receiver_trial(tt, name, plan, register, reply, address, clock_id, reader_id, capture):
     load_program(tt, plan, name)
     run_pin = Pin(32, Pin.OUT, value=0)
@@ -20,7 +30,8 @@ def receiver_trial(tt, name, plan, register, reply, address, clock_id, reader_id
     memory[register] = reply
     target = machine.I2CTarget(1, addr=address, mem=memory, mem_addrsize=8, scl=Pin(TARGET_SCL), sda=Pin(TARGET_SDA))
     timer = rp2.StateMachine(clock_id, project_clock, freq=-1, set_base=Pin(16))
-    reader = rp2.StateMachine(reader_id, receiver_pins, freq=SAMPLE_HZ, in_base=Pin(19))
+    program, speed, first_pin = (both_receivers, SAMPLE_HZ * 5, 18) if BOTH_SDA else (receiver_pins, SAMPLE_HZ, 19)
+    reader = rp2.StateMachine(reader_id, program, freq=speed, in_base=Pin(first_pin))
     dma = rp2.DMA()
     try:
         Pin(16, Pin.OUT, value=0)
@@ -67,12 +78,16 @@ def receiver_trial(tt, name, plan, register, reply, address, clock_id, reader_id
         target.deinit()
         for gpio in (18, 19, 25, 26, 27, 28, 29, 30, 31):
             Pin(gpio, Pin.IN, None)
-    # One 16-bit sample covers GPIO19..34. Keep the two SCL inputs, SDA,
-    # both controller drive commands and HALT. These six bits share a PIO read.
+    # Preserve the selected SDA/SCL inputs, both drive commands and HALT.
+    # The second encoder adds GPIO18 to the same 16-bit record.
     previous = -1
     changes = []
     for pos in range(0, len(capture), 2):
-        observed = (capture[pos] | capture[pos + 1] << 8) & 0x8d81
+        raw = capture[pos] | capture[pos + 1] << 8
+        if BOTH_SDA:
+            observed = ((raw & 1) << 1) | ((raw & 2) >> 1) | ((raw << 5) & 0x8d80)
+        else:
+            observed = raw & 0x8d81
         if observed != previous:
             changes.append([pos // 2, observed])
             previous = observed
@@ -107,8 +122,9 @@ def receiver_run():
         assert machine.freq() == 125000000
         emit(event="start", system_hz=machine.freq(), original_hz=initial_hz, project_divisor=10,
              sample_hz=SAMPLE_HZ, linked_pulls=EXTRA_PULL, gpio_base=16,
-             initial_bank=16 if initial_bank == Pin(16) else 0, in_base=19, pin_mask=0x8d81, machines=[clock_ids[0], 8],
-             target_sda=TARGET_SDA, target_scl=TARGET_SCL)
+             initial_bank=16 if initial_bank == Pin(16) else 0, in_base=18 if BOTH_SDA else 19,
+             pin_mask=0x8d83 if BOTH_SDA else 0x8d81, machines=[clock_ids[0], 8],
+             target_sda=TARGET_SDA, target_scl=TARGET_SCL, both_sda=BOTH_SDA)
         for cycles, register, reply, address, key in TRIALS:
             gc.collect()
             name = "%d-%02x-%02x" % (cycles, register, address)
@@ -120,7 +136,7 @@ def receiver_run():
         tt.reset_project(True)
         for gpio in range(25, 33):
             Pin(gpio, Pin.IN, None)
-        for pio, program in ((rp2.PIO(0), project_clock), (block, receiver_pins)):
+        for pio, program in ((rp2.PIO(0), project_clock), (block, both_receivers if BOTH_SDA else receiver_pins)):
             pio.remove_program(program)
         block.gpio_base(initial_bank)
         machine.freq(initial_hz)

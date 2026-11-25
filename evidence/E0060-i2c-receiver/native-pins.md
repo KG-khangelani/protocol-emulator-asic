@@ -1,0 +1,3 @@
+# Capture the native SDA pin in the crossed configuration
+
+The first swapped run returned the requested bytes and kept the extra SCL transitions on GPIO27 after I2C1 moved to GPIO18/19. Both earlier decoders used SDA from GPIO26. The next check will sample both physical SDA/SCL pairs and both drive commands from one PIO pin snapshot. With the same four pull-ups and 10 MHz acquisition, run the target on GPIO18/19, then GPIO26/27, then GPIO18/19 again. Require cold readback, correct terminal results, correct command counts, raw decoding of the entire transaction on the actual target pair and a repeat. Preserve failures. Receiver voltage and the analog transition between sample points remain open.

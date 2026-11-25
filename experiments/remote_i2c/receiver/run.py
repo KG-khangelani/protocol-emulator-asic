@@ -21,7 +21,7 @@ from tools.cold_load import fresh_directory
 from tools.production_sram import verify
 
 
-def payload(hz, extra, swap_target=False):
+def payload(hz, extra, swap_target=False, both_sda=False):
     """Reuse the exact plans and the MicroPython clock/loader functions from the earlier capture."""
     require(hz in (8_000_000, 10_000_000), "specified sample rates")
     require(not swap_target or extra, "paired pin swap requires equal requested pull-up settings")
@@ -40,7 +40,7 @@ def payload(hz, extra, swap_target=False):
         pieces.extend(lines[start - 1:node.end_lineno])
     require(found == helpers, "E0059 loader function inventory")
     sda, scl = (18, 19) if swap_target else (26, 27)
-    pieces.extend([f"\nSAMPLE_HZ={hz}\nTARGET_SDA={sda}\nTARGET_SCL={scl}\n",
+    pieces.extend([f"\nSAMPLE_HZ={hz}\nTARGET_SDA={sda}\nTARGET_SCL={scl}\nBOTH_SDA={both_sda!r}\n",
                    (HERE / "on_board.py").read_text(encoding="utf-8")])
     return "".join(pieces).encode()
 
@@ -102,14 +102,16 @@ def main():
     parser.add_argument("--hz", type=int, choices=(8_000_000, 10_000_000), default=10_000_000)
     parser.add_argument("--linked-pulls", action="store_true")
     parser.add_argument("--swap-target", action="store_true", help="select I2C1 on GPIO18/19 during the four-pull-up trial")
+    parser.add_argument("--both-sda", action="store_true", help="capture each receiver's SDA and SCL on a single PIO snapshot")
     args = parser.parse_args()
     out = fresh_directory(args.out)
     image = ROOT / "evidence/E0059-remote-i2c/fabricfox.bin"
     require(digest(image.read_bytes()) == remote.IMAGE_SHA, "E0059 configuration identity")
-    code = payload(args.hz, args.linked_pulls, args.swap_target)
+    code = payload(args.hz, args.linked_pulls, args.swap_target, args.both_sda)
     (out / "job.py.gz").write_bytes(gzip.compress(code, mtime=0))
     receipt = dict(board="fpga-4", started_utc=clock(), linked_pulls=args.linked_pulls, sample_hz=args.hz,
-                   image_sha256=remote.IMAGE_SHA, code_sha256=digest(code), status="INCOMPLETE", swap_target=args.swap_target,
+                   image_sha256=remote.IMAGE_SHA, code_sha256=digest(code), status="INCOMPLETE",
+                   swap_target=args.swap_target, both_sda=args.both_sda,
                    profile_sha256=verify(ROOT)["profile_sha256"])
     try:
         acquire(args.wheel, out, receipt, code)

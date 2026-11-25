@@ -15,6 +15,7 @@ from experiments.remote_i2c.check import IMAGES, REQUESTS, need, stable_bus, wir
 
 LINK, SDA, TARGET, SDA_OE, HALT, SCL_OE = (1 << n for n in (0, 7, 8, 10, 11, 15))
 MASK = LINK | SDA | TARGET | SDA_OE | HALT | SCL_OE
+LINK_SDA = 2
 
 
 def edges(values, mask):
@@ -25,19 +26,19 @@ def extent(observations):
     return {"n": len(observations), "min": min(observations, default=None), "max": max(observations, default=None)}
 
 
-def expand(changes, count):
+def expand(changes, count, mask):
     need(changes and changes[0][0] == 0, "first sample")
     values = []
     for (start, level), (end, nxt) in zip(changes, changes[1:] + [[count, None]]):
-        need(start < end <= count and level != nxt and not level & ~MASK, "raw sample journal")
+        need(start < end <= count and level != nxt and not level & ~mask, "raw sample journal")
         values.extend([level] * (end - start))
     return values
 
 
-def decode_wire(changes, count, scl, reg, reply, positive, period):
+def decode_wire(changes, count, sda, scl, reg, reply, positive, period):
     bus = []
     for t, v in changes:
-        level = (2 * bool(v & SDA) + 4 * bool(v & scl) + 16 * bool(v & SDA_OE) + 32 * bool(v & HALT))
+        level = (2 * bool(v & sda) + 4 * bool(v & scl) + 16 * bool(v & SDA_OE) + 32 * bool(v & HALT))
         if not bus or bus[-1][1] != level:
             bus.append([t, level])
     scores = {}
@@ -97,16 +98,16 @@ def input_timing(values, observed, commands, period):
                 sda_command_after_scl_command_ns=extent(sda_after_command))
 
 
-def analyze(changes, count, reg, reply, positive, period):
-    values = expand(changes, count)
+def analyze(changes, count, reg, reply, positive, period, both_sda=False):
+    values = expand(changes, count, MASK | LINK_SDA if both_sda else MASK)
     commands = edges(values, SCL_OE)
     expected_edges = 76 if positive else 20
     result = dict(scl_command_edges=len(commands), expected_command_edges=expected_edges,
                   commands_match=len(commands) == expected_edges and not (values[0] | values[-1]) & SCL_OE,
                   samples=count, period_ns=period)
-    for where, mask in (("gpio27", TARGET), ("gpio19", LINK)):
+    for where, data_pin, mask in (("gpio27", SDA, TARGET), ("gpio19", LINK_SDA if both_sda else SDA, LINK)):
         result[where] = {**input_timing(values, mask, commands, period),
-                         **decode_wire(changes, count, mask, reg, reply, positive, period)}
+                         **decode_wire(changes, count, data_pin, mask, reg, reply, positive, period)}
     disagreements = Counter()
     runs = []
     width = 0
@@ -132,8 +133,10 @@ def score(path):
     records = [json.loads(line[7:]) for line in stdout.splitlines() if line.startswith(b"I2CLAB ")]
     start, finish = records[0], records[-1]
     hz = start["sample_hz"]
+    both_sda = start.get("both_sda", False)
+    mapping = (10, 16, 18, MASK | LINK_SDA) if both_sda else (10, 16, 19, MASK)
     need(start["event"] == "start" and hz in (8_000_000, 10_000_000) and start["system_hz"] == 125_000_000
-         and (start["project_divisor"], start["gpio_base"], start["in_base"], start["pin_mask"]) == (10, 16, 19, MASK),
+         and (start["project_divisor"], start["gpio_base"], start["in_base"], start["pin_mask"]) == mapping,
          "capture clock and pin mapping")
     need(finish["event"] == "finish" and finish["restored_bank"] == start["initial_bank"]
          and finish["restored_hz"] == start["original_hz"] and finish["host_uio_oe"] == 0, "fixture cleanup")
@@ -159,7 +162,7 @@ def score(path):
                  == [addr, reg, reply, hz, hz * 24 // 10000] and record["idle"][:3] == [1, 1, 1], "stimulus " + name)
             need((record["status"], record["rx"], record["valid"]) == ((0x88, reply, 1) if positive else (0x90, 0, 1)),
                  "peripheral outcome " + name)
-            cases[name] = analyze(pins[name], record["samples"], reg, reply, positive, 1_000_000_000 // hz)
+            cases[name] = analyze(pins[name], record["samples"], reg, reply, positive, 1_000_000_000 // hz, both_sda)
             cases[name].update(status=record["status"], read_byte=record["rx"], offset=reg, address=addr)
             if "target_scl" in start:
                 need((start["target_sda"], start["target_scl"]) in ((18, 19), (26, 27))
