@@ -1,12 +1,21 @@
 # Current state
 
-Updated: 2026-11-25. **A firmware-only SPI target released the bus and served a fresh command in 384 modeled abort trials. It missed the selected-clock timeout. The calibrated UART line-release measurement remains open.**
+Updated 2026-11-25. **A 126-word SPI target now releases the bus on abort, serves the next command, and times out if the clock stops while selected. The calibrated UART line-release measurement remains open.**
 G1–G5 are complete. G6 is deferred until requested by the owner under
 [D52](decisions/0052-engineering-first-powered-loader.md). Hard deadline: **2027-01-18**.
 
+The selected firmware passed the 736 original schedules and 1,952 additional
+phase, timing and data trials. All 384 original reselections returned the correct
+fresh byte after releasing MISO in 61–99 ns. All 32 selected-clock pauses reached
+a released timeout in 1.383–1.493 µs. The largest release time on the extended
+abort grid was 140 ns against a 160 ns test deadline. Two instruction words
+remain free. The result supports the two literal mode-0 replies on the existing
+VM. Receiver-end timing still needs an equipped fixture.
+[E0056 firmware, measurements and reproduction](../evidence/E0056-spi-target-watchdog/README.md)
+
 Both named FabricFox boards were online on 25 November SAST. The public
 interfaces and wiring identified no calibrated probe on the UART target
-branch. The subsequent SPI comparison ran 736 shared schedules per program.
+branch. The earlier SPI comparison ran 736 shared schedules per program.
 The revised VM released MISO in 61–99 ns and delivered every fresh reply.
 It failed all 32 cases where the clock paused but chip select stayed low.
 The original VM passed those timeouts and failed all 384 full reselections.
@@ -859,10 +868,11 @@ efficiently express useful digital communication protocols under hard temporal c
   in the packet. REMOTE-T01 measured real host latency and two-frame delivery.
   BENCH-T01 now needs a calibrated high/low/released discriminator on the
   target branch. [Bench protocol](research/council-2026-11-24/next-experiments.md#3-measure-one-claimed-external-interface)
-- For an SPI firmware successor, fit the selected-clock watchdog into 128
-  words and rerun both the 384 deselections and 32 selected stalls. Keep
-  production at v0.1.0 while the full target role is open.
-  [Matched comparison](../evidence/E0055-spi-target-comparison/README.md)
+- SPI-TARGET-T02 closed the combined firmware timing objective. The next
+  SPI measurement needs a named requester's actual handoff deadline and
+  a fixture that can observe the target branch at the receiver. Use the
+  140 ns worst modeled release to budget that measurement.
+  [Watchdog results and scope](../evidence/E0056-spi-target-watchdog/README.md)
 - Supporting UI: maintain the integrated PR9 behavior. Its old draft-review
   next action is closed; broader platform/device coverage remains separate.
 - Resume the owner M0 teach-back only at the owner's explicit request under D52.

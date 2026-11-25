@@ -1,0 +1,61 @@
+{
+  "fresh_runs": [
+    {
+      "command": [
+        "experiments/spi_target/watchdog/replay.ps1"
+      ],
+      "started_utc": "2026-11-25T17:16:30.271152+00:00",
+      "ended_utc": "2026-11-25T17:17:17.542060+00:00",
+      "exit_code": 0,
+      "cases": 736,
+      "fresh_pin_sha256": "bd2a4c3e005b8db072196eae23089f82c054535d5786824a1d4154462c97c1d8",
+      "retained_pin_sha256": "bd2a4c3e005b8db072196eae23089f82c054535d5786824a1d4154462c97c1d8",
+      "all_observations_equal": true
+    },
+    {
+      "command": [
+        "experiments/spi_target/watchdog/replay.ps1",
+        "-Backend",
+        "gate",
+        "-Suite",
+        "ties",
+        "-Pdk",
+        "build/council-2026-11-24/panel-c/portable-pdk"
+      ],
+      "started_utc": "2026-11-25T17:16:30.429433+00:00",
+      "ended_utc": "2026-11-25T17:17:17.390716+00:00",
+      "exit_code": 0,
+      "cases": 42,
+      "fresh_pin_sha256": "480118effbe2a7edd88616692624f5eb91ce5180fd7ba20c28a43f80f2296148",
+      "retained_pin_sha256": "480118effbe2a7edd88616692624f5eb91ce5180fd7ba20c28a43f80f2296148",
+      "all_observations_equal": true
+    },
+    {
+      "command": [
+        "experiments/spi_target/watchdog/replay.ps1",
+        "-Backend",
+        "controls"
+      ],
+      "started_utc": "2026-11-25T17:16:30.230221+00:00",
+      "ended_utc": "2026-11-25T17:17:11.144308+00:00",
+      "exit_code": 0,
+      "cases": 6,
+      "fresh_pin_sha256": "dc15516c9325546665c6adb3960179c14248b97a0ef6d7db72574bbdab15fdf7",
+      "retained_pin_sha256": "dc15516c9325546665c6adb3960179c14248b97a0ef6d7db72574bbdab15fdf7",
+      "all_observations_equal": true
+    }
+  ],
+  "repository_check": {
+    "command": "make check",
+    "status": "PASS",
+    "created_utc": "20261125T171515523488Z",
+    "unit_test_groups": 16,
+    "unit_tests": 163
+  },
+  "windows_assembly": {
+    "command": "python -B tools/assembler.py experiments/spi_target/watchdog/target.asm --out build/spi-watchdog-image",
+    "bytes": 504,
+    "sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+    "backward_branch_warnings": 24
+  }
+}

@@ -21,7 +21,11 @@ The council's matched SPI target comparison now has 736 digital schedules
 per implementation. A 120-word VM program passed all 384 abort/reselect
 trials but failed all 32 selected-clock pauses. The hardware candidate
 remains v0.1.0. [D57](decisions/0057-compare-spi-target-firmware.md) · [E0055](../evidence/E0055-spi-target-comparison/README.md)
-Further instruction compression is valuable only when it improves that outcome.
+The 126-word successor met both gates on the existing VM and left two
+instruction words free. All 384 fresh replies and all 32 selected-clock timeouts
+passed. The wider sweep measured a worst digital release of 140 ns. The SPI
+hardware decision now depends on a named requester's electrical timing
+requirement. [D58](decisions/0058-combine-spi-abort-and-watchdog.md) · [E0056](../evidence/E0056-spi-target-watchdog/README.md)
 
 ## Priorities and planning targets
 

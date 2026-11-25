@@ -1,5 +1,23 @@
 # Research ledger
 
+## 25 November combined SPI firmware watchdog
+
+**Demonstrated.** A single 126-word firmware image met the original external
+mode-0 requester's two recovery requirements. MISO released within 61–99 ns
+on all 384 aborts, followed by a complete fresh reply. A clock stall with CS
+held low reached a released timeout in 1,383–1,493 ns on all 32 reply-bit
+and polarity cases. The two replies are literals. The program uses the
+released two-register input path to read the MISO level it already drives.
+[Firmware and evidence](../evidence/E0056-spi-target-watchdog/README.md)
+
+**Decision.** Keep the 126-word version as the experimental reference.
+Two of the 123-word version's 960 edge-adjacent aborts met the 160 ns
+limit exactly. Three extra CS checks reduced that grid's maximum to 140 ns.
+The absolute worst-case release on a real pad, analog input settling during
+self-read, and a named requester's turnaround budget remain open. The
+combined digital gate supplies no present reason to revise the wait instruction.
+[D58 acceptance](decisions/0058-combine-spi-abort-and-watchdog.md) · [Measured ranges](../evidence/E0056-spi-target-watchdog/measurements.json)
+
 ## 25 November SPI target abort and selected-clock timeout
 
 **Demonstrated in digital models.** All three programs returned both full
@@ -256,7 +274,7 @@ successful remote physical runs and Linux replays.
 | H1 | A temporal VM covers UART, SPI and I2C compactly | Requires protocol-specific RTL escape paths or misses timing/fit | E0045–E0047 demonstrate the nine named workloads on one routed core. Comparative compactness is open. E0049 supplies a second programmable implementation for two tasks. |
 | H2 | Explicit timing instructions simplify verification | A program plus timing table cannot predict every required edge/response, or hidden latency prevents bounded properties | E0046, E0048 and E0049 support trace prediction and mutation detection for named loads. Lower verification effort than a competing architecture has not been measured. |
 | H3 | The candidate instruction set is near minimal | Removing/merging an instruction preserves coverage at acceptable cost | Open. E0049 disabled timed UART burst on a full-top copy, saved 2.261% nominal cell-plus-macro area and broke published bytecode. Manual UART cost 17/18 words. No complete Pareto or minimum result. |
-| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Supported for G2's declared UART, SPI-host and I²C-controller digital envelopes and the G4 20 ns routing constraint. E0049 finds counterexamples for host service, a modeled bus load and a different SPI target role. Pad timing and silicon remain unmeasured. |
+| H4 | Interpretation overhead fits useful bit timing | Measured execution/post-route timing misses required sample/edge windows | Supported for G2's UART, SPI-host and I²C-controller digital envelopes and the G4 20 ns routing constraint. E0049 found counterexamples for host service, modeled bus load and SPI target abort. A [126-word SPI target](../evidence/E0056-spi-target-watchdog/README.md) now meets the tested abort and selected-stall deadlines for two literal replies. Receiver-end release timing remains unmeasured. |
 
 ## Design decisions
 

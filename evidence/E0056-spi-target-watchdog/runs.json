@@ -1,0 +1,561 @@
+[
+  {
+    "variant": "initial",
+    "suite": "baseline",
+    "pins": "pins/base-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:34:56.783787+00:00",
+      "ended_utc": "2026-11-25T16:35:22.347188+00:00",
+      "backend": "production-rtl",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "9bc39ed4a2fa1693911b96ec7c4a1af978311a944b474abe48c0a2698438939e",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 123,
+        "bytes": 492,
+        "binary_sha256": "8bf282af988ac9c18ea372fe5ebe19be2fea6d87e52986435476e124c3a80b4f",
+        "clocked_load_steps": 1026,
+        "plan_sha256": "aba317ed7035af1bb47ac7ade82e0fef2ef9cbfb9789665cd4babda12f502984",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 492,
+          "read_bank": 16,
+          "read_byte_after_edge": 492,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 736,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "initial",
+    "suite": "baseline",
+    "pins": "pins/base-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:35:33.573137+00:00",
+      "ended_utc": "2026-11-25T16:44:53.026238+00:00",
+      "backend": "submitted-netlist",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "9bc39ed4a2fa1693911b96ec7c4a1af978311a944b474abe48c0a2698438939e",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 123,
+        "bytes": 492,
+        "binary_sha256": "8bf282af988ac9c18ea372fe5ebe19be2fea6d87e52986435476e124c3a80b4f",
+        "clocked_load_steps": 1026,
+        "plan_sha256": "aba317ed7035af1bb47ac7ade82e0fef2ef9cbfb9789665cd4babda12f502984",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 492,
+          "read_bank": 16,
+          "read_byte_after_edge": 492,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 736,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "initial",
+    "suite": "stress",
+    "pins": "pins/stress-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:37:44.385843+00:00",
+      "ended_utc": "2026-11-25T16:39:15.697546+00:00",
+      "backend": "production-rtl",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "9bc39ed4a2fa1693911b96ec7c4a1af978311a944b474abe48c0a2698438939e",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 123,
+        "bytes": 492,
+        "binary_sha256": "8bf282af988ac9c18ea372fe5ebe19be2fea6d87e52986435476e124c3a80b4f",
+        "clocked_load_steps": 1026,
+        "plan_sha256": "aba317ed7035af1bb47ac7ade82e0fef2ef9cbfb9789665cd4babda12f502984",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 492,
+          "read_bank": 16,
+          "read_byte_after_edge": 492,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 1952,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "initial",
+    "suite": "stress",
+    "pins": "pins/initial-stress-cached.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:55:22.665067+00:00",
+      "ended_utc": "2026-11-25T17:15:06.180042+00:00",
+      "backend": "submitted-netlist",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "9bc39ed4a2fa1693911b96ec7c4a1af978311a944b474abe48c0a2698438939e",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 123,
+        "bytes": 492,
+        "binary_sha256": "8bf282af988ac9c18ea372fe5ebe19be2fea6d87e52986435476e124c3a80b4f",
+        "clocked_load_steps": 1026,
+        "plan_sha256": "aba317ed7035af1bb47ac7ade82e0fef2ef9cbfb9789665cd4babda12f502984",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 492,
+          "read_bank": 16,
+          "read_byte_after_edge": 492,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 1952,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "baseline",
+    "pins": "pins/margin-base-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:41:08.374222+00:00",
+      "ended_utc": "2026-11-25T16:42:24.534363+00:00",
+      "backend": "production-rtl",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 736,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "baseline",
+    "pins": "pins/margin-base-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:41:39.596831+00:00",
+      "ended_utc": "2026-11-25T16:43:46.447126+00:00",
+      "backend": "verilator-rtl",
+      "simulator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 736,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "baseline",
+    "pins": "pins/margin-base-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:55:21.682145+00:00",
+      "ended_utc": "2026-11-25T17:11:35.802549+00:00",
+      "backend": "submitted-netlist",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 736,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "stress",
+    "pins": "pins/margin-stress-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:41:09.686477+00:00",
+      "ended_utc": "2026-11-25T16:44:33.077381+00:00",
+      "backend": "production-rtl",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 1952,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "stress",
+    "pins": "pins/margin-stress-verilator.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:43:06.321735+00:00",
+      "ended_utc": "2026-11-25T16:47:03.356075+00:00",
+      "backend": "verilator-rtl",
+      "simulator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 1952,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "stress",
+    "pins": "pins/margin-stress-verilator.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:45:13.283081+00:00",
+      "ended_utc": "2026-11-25T17:09:10.493209+00:00",
+      "backend": "submitted-netlist",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 1952,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "ties",
+    "pins": "pins/ties-rtl.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:50:06.534683+00:00",
+      "ended_utc": "2026-11-25T16:50:50.704376+00:00",
+      "backend": "production-rtl",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 42,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "ties",
+    "pins": "pins/ties-verilator.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:49:59.031719+00:00",
+      "ended_utc": "2026-11-25T16:52:25.472223+00:00",
+      "backend": "verilator-rtl",
+      "simulator": "Verilator 5.051 devel rev v5.050-108-gcac2c3df1 (mod)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 42,
+      "failures": 0,
+      "first_failure": null
+    }
+  },
+  {
+    "variant": "selected",
+    "suite": "ties",
+    "pins": "pins/ties-verilator.json.gz",
+    "report": {
+      "started_utc": "2026-11-25T16:49:59.121284+00:00",
+      "ended_utc": "2026-11-25T16:53:53.900734+00:00",
+      "backend": "submitted-netlist",
+      "simulator": "Icarus Verilog version 14.0 (devel) (s20260301-328-geda9fdcd1-dirty)",
+      "production_profile_sha256": "85b0c9620200ef903c290f7c1b3bff9d02a2135e1f7fbb970ef69d011ebe5a9f",
+      "source_sha256": "06f4ac0e093bfc89c384a64f77b131959a37a04cd4e09697b9db91cab8d9cec2",
+      "assembler_sha256": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9",
+      "image": {
+        "words": 126,
+        "bytes": 504,
+        "binary_sha256": "e5d25fc51d17684ede5615ece99501084c69380091c61c9ea58aba65b23c9e58",
+        "clocked_load_steps": 1050,
+        "plan_sha256": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "payloads": {
+          "TX0": 60,
+          "TX1": 167
+        },
+        "step_counts": {
+          "reset": 1,
+          "identify": 1,
+          "write_bank": 16,
+          "write_byte": 504,
+          "read_bank": 16,
+          "read_byte_after_edge": 504,
+          "commit_length": 1,
+          "read_length": 1,
+          "write_TX0": 1,
+          "read_TX0": 1,
+          "write_TX1": 1,
+          "read_TX1": 1,
+          "flush_idle": 2
+        }
+      },
+      "case_count": 42,
+      "failures": 0,
+      "first_failure": null
+    }
+  }
+]

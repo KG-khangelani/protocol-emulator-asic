@@ -1,0 +1,1116 @@
+{
+  "initial": {
+    "baseline": {
+      "production-rtl": {
+        "groups": {
+          "invalid": {
+            "cases": 254,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "valid": {
+            "cases": 28,
+            "correct_completed_replies": 28,
+            "abort_ns": null,
+            "normal_release_ns": [
+              81,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 327
+          },
+          "reselect": {
+            "cases": 384,
+            "correct_completed_replies": 384,
+            "abort_ns": [
+              61,
+              99
+            ],
+            "normal_release_ns": [
+              81,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 203
+          },
+          "hold": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": [
+              63,
+              93
+            ],
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": 137,
+            "min_hold_ns": 203
+          },
+          "pause": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1383,
+              1473
+            ],
+            "min_setup_ns": 137,
+            "min_hold_ns": 343
+          },
+          "stuck_select": {
+            "cases": 2,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": [
+              83,
+              83
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 397,
+            "min_hold_ns": 563
+          },
+          "missing": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1703,
+              1703
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "missing_reply": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1443,
+              1443
+            ],
+            "min_setup_ns": 417,
+            "min_hold_ns": 583
+          },
+          "late": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1743,
+              1743
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "early": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      },
+      "submitted-netlist": {
+        "groups": {
+          "invalid": {
+            "cases": 254,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "valid": {
+            "cases": 28,
+            "correct_completed_replies": 28,
+            "abort_ns": null,
+            "normal_release_ns": [
+              81,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 327
+          },
+          "reselect": {
+            "cases": 384,
+            "correct_completed_replies": 384,
+            "abort_ns": [
+              61,
+              99
+            ],
+            "normal_release_ns": [
+              81,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 203
+          },
+          "hold": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": [
+              63,
+              93
+            ],
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": 137,
+            "min_hold_ns": 203
+          },
+          "pause": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1383,
+              1473
+            ],
+            "min_setup_ns": 137,
+            "min_hold_ns": 343
+          },
+          "stuck_select": {
+            "cases": 2,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": [
+              83,
+              83
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 397,
+            "min_hold_ns": 563
+          },
+          "missing": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1703,
+              1703
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "missing_reply": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1443,
+              1443
+            ],
+            "min_setup_ns": 417,
+            "min_hold_ns": 583
+          },
+          "late": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1743,
+              1743
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "early": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      }
+    },
+    "stress": {
+      "production-rtl": {
+        "groups": {
+          "varied": {
+            "cases": 640,
+            "correct_completed_replies": 640,
+            "abort_ns": [
+              60,
+              99
+            ],
+            "normal_release_ns": [
+              60,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 211
+          },
+          "boundary": {
+            "cases": 352,
+            "correct_completed_replies": 120,
+            "abort_ns": null,
+            "normal_release_ns": [
+              63,
+              63
+            ],
+            "timeout_ns": [
+              1383,
+              1473
+            ],
+            "min_setup_ns": 137,
+            "min_hold_ns": 313
+          },
+          "edge": {
+            "cases": 960,
+            "correct_completed_replies": 960,
+            "abort_ns": [
+              60,
+              160
+            ],
+            "normal_release_ns": [
+              80,
+              98
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 63
+          }
+        },
+        "watchdog_by_half_cycle_ns": {
+          "1000": {
+            "delivered": 32
+          },
+          "1200": {
+            "delivered": 32
+          },
+          "1280": {
+            "delivered": 32
+          },
+          "1320": {
+            "delivered": 22,
+            "timeout": 10
+          },
+          "1360": {
+            "timeout": 30,
+            "delivered": 2
+          },
+          "1400": {
+            "timeout": 32
+          },
+          "1440": {
+            "timeout": 32
+          },
+          "1480": {
+            "timeout": 32
+          },
+          "1600": {
+            "timeout": 32
+          },
+          "2000": {
+            "timeout": 32
+          },
+          "3000": {
+            "timeout": 32
+          }
+        }
+      },
+      "submitted-netlist": {
+        "groups": {
+          "varied": {
+            "cases": 640,
+            "correct_completed_replies": 640,
+            "abort_ns": [
+              60,
+              99
+            ],
+            "normal_release_ns": [
+              60,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 211
+          },
+          "boundary": {
+            "cases": 352,
+            "correct_completed_replies": 120,
+            "abort_ns": null,
+            "normal_release_ns": [
+              63,
+              63
+            ],
+            "timeout_ns": [
+              1383,
+              1473
+            ],
+            "min_setup_ns": 137,
+            "min_hold_ns": 313
+          },
+          "edge": {
+            "cases": 960,
+            "correct_completed_replies": 960,
+            "abort_ns": [
+              60,
+              158
+            ],
+            "normal_release_ns": [
+              80,
+              98
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 131,
+            "min_hold_ns": 63
+          }
+        },
+        "watchdog_by_half_cycle_ns": {
+          "1000": {
+            "delivered": 32
+          },
+          "1200": {
+            "delivered": 32
+          },
+          "1280": {
+            "delivered": 32
+          },
+          "1320": {
+            "delivered": 22,
+            "timeout": 10
+          },
+          "1360": {
+            "timeout": 30,
+            "delivered": 2
+          },
+          "1400": {
+            "timeout": 32
+          },
+          "1440": {
+            "timeout": 32
+          },
+          "1480": {
+            "timeout": 32
+          },
+          "1600": {
+            "timeout": 32
+          },
+          "2000": {
+            "timeout": 32
+          },
+          "3000": {
+            "timeout": 32
+          }
+        }
+      }
+    }
+  },
+  "selected": {
+    "baseline": {
+      "production-rtl": {
+        "groups": {
+          "invalid": {
+            "cases": 254,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "valid": {
+            "cases": 28,
+            "correct_completed_replies": 28,
+            "abort_ns": null,
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 311
+          },
+          "reselect": {
+            "cases": 384,
+            "correct_completed_replies": 384,
+            "abort_ns": [
+              61,
+              99
+            ],
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 203
+          },
+          "hold": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": [
+              63,
+              93
+            ],
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": 117,
+            "min_hold_ns": 203
+          },
+          "pause": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 343
+          },
+          "stuck_select": {
+            "cases": 2,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": [
+              63,
+              63
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 377,
+            "min_hold_ns": 563
+          },
+          "missing": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1703,
+              1703
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "missing_reply": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1483,
+              1483
+            ],
+            "min_setup_ns": 397,
+            "min_hold_ns": 603
+          },
+          "late": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1743,
+              1743
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "early": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      },
+      "verilator-rtl": {
+        "groups": {
+          "invalid": {
+            "cases": 254,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "valid": {
+            "cases": 28,
+            "correct_completed_replies": 28,
+            "abort_ns": null,
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 311
+          },
+          "reselect": {
+            "cases": 384,
+            "correct_completed_replies": 384,
+            "abort_ns": [
+              61,
+              99
+            ],
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 203
+          },
+          "hold": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": [
+              63,
+              93
+            ],
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": 117,
+            "min_hold_ns": 203
+          },
+          "pause": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 343
+          },
+          "stuck_select": {
+            "cases": 2,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": [
+              63,
+              63
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 377,
+            "min_hold_ns": 563
+          },
+          "missing": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1703,
+              1703
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "missing_reply": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1483,
+              1483
+            ],
+            "min_setup_ns": 397,
+            "min_hold_ns": 603
+          },
+          "late": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1743,
+              1743
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "early": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      },
+      "submitted-netlist": {
+        "groups": {
+          "invalid": {
+            "cases": 254,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "valid": {
+            "cases": 28,
+            "correct_completed_replies": 28,
+            "abort_ns": null,
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 311
+          },
+          "reselect": {
+            "cases": 384,
+            "correct_completed_replies": 384,
+            "abort_ns": [
+              61,
+              99
+            ],
+            "normal_release_ns": [
+              61,
+              79
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 203
+          },
+          "hold": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": [
+              63,
+              93
+            ],
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": 117,
+            "min_hold_ns": 203
+          },
+          "pause": {
+            "cases": 32,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 343
+          },
+          "stuck_select": {
+            "cases": 2,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": [
+              63,
+              63
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 377,
+            "min_hold_ns": 563
+          },
+          "missing": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1703,
+              1703
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "missing_reply": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1483,
+              1483
+            ],
+            "min_setup_ns": 397,
+            "min_hold_ns": 603
+          },
+          "late": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": [
+              1743,
+              1743
+            ],
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          },
+          "early": {
+            "cases": 1,
+            "correct_completed_replies": 0,
+            "abort_ns": null,
+            "normal_release_ns": null,
+            "timeout_ns": null,
+            "min_setup_ns": null,
+            "min_hold_ns": null
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      }
+    },
+    "stress": {
+      "production-rtl": {
+        "groups": {
+          "varied": {
+            "cases": 640,
+            "correct_completed_replies": 640,
+            "abort_ns": [
+              60,
+              99
+            ],
+            "normal_release_ns": [
+              60,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 214
+          },
+          "boundary": {
+            "cases": 352,
+            "correct_completed_replies": 124,
+            "abort_ns": null,
+            "normal_release_ns": [
+              83,
+              83
+            ],
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 313
+          },
+          "edge": {
+            "cases": 960,
+            "correct_completed_replies": 960,
+            "abort_ns": [
+              60,
+              140
+            ],
+            "normal_release_ns": [
+              60,
+              78
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 63
+          }
+        },
+        "watchdog_by_half_cycle_ns": {
+          "1000": {
+            "delivered": 32
+          },
+          "1200": {
+            "delivered": 32
+          },
+          "1280": {
+            "delivered": 32
+          },
+          "1320": {
+            "delivered": 22,
+            "timeout": 10
+          },
+          "1360": {
+            "timeout": 26,
+            "delivered": 6
+          },
+          "1400": {
+            "timeout": 32
+          },
+          "1440": {
+            "timeout": 32
+          },
+          "1480": {
+            "timeout": 32
+          },
+          "1600": {
+            "timeout": 32
+          },
+          "2000": {
+            "timeout": 32
+          },
+          "3000": {
+            "timeout": 32
+          }
+        }
+      },
+      "verilator-rtl": {
+        "groups": {
+          "varied": {
+            "cases": 640,
+            "correct_completed_replies": 640,
+            "abort_ns": [
+              60,
+              99
+            ],
+            "normal_release_ns": [
+              60,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 214
+          },
+          "boundary": {
+            "cases": 352,
+            "correct_completed_replies": 124,
+            "abort_ns": null,
+            "normal_release_ns": [
+              83,
+              83
+            ],
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 313
+          },
+          "edge": {
+            "cases": 960,
+            "correct_completed_replies": 960,
+            "abort_ns": [
+              60,
+              138
+            ],
+            "normal_release_ns": [
+              60,
+              78
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 63
+          }
+        },
+        "watchdog_by_half_cycle_ns": {
+          "1000": {
+            "delivered": 32
+          },
+          "1200": {
+            "delivered": 32
+          },
+          "1280": {
+            "delivered": 32
+          },
+          "1320": {
+            "delivered": 22,
+            "timeout": 10
+          },
+          "1360": {
+            "timeout": 26,
+            "delivered": 6
+          },
+          "1400": {
+            "timeout": 32
+          },
+          "1440": {
+            "timeout": 32
+          },
+          "1480": {
+            "timeout": 32
+          },
+          "1600": {
+            "timeout": 32
+          },
+          "2000": {
+            "timeout": 32
+          },
+          "3000": {
+            "timeout": 32
+          }
+        }
+      },
+      "submitted-netlist": {
+        "groups": {
+          "varied": {
+            "cases": 640,
+            "correct_completed_replies": 640,
+            "abort_ns": [
+              60,
+              99
+            ],
+            "normal_release_ns": [
+              60,
+              99
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 214
+          },
+          "boundary": {
+            "cases": 352,
+            "correct_completed_replies": 124,
+            "abort_ns": null,
+            "normal_release_ns": [
+              83,
+              83
+            ],
+            "timeout_ns": [
+              1383,
+              1493
+            ],
+            "min_setup_ns": 117,
+            "min_hold_ns": 313
+          },
+          "edge": {
+            "cases": 960,
+            "correct_completed_replies": 960,
+            "abort_ns": [
+              60,
+              138
+            ],
+            "normal_release_ns": [
+              60,
+              78
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 63
+          }
+        },
+        "watchdog_by_half_cycle_ns": {
+          "1000": {
+            "delivered": 32
+          },
+          "1200": {
+            "delivered": 32
+          },
+          "1280": {
+            "delivered": 32
+          },
+          "1320": {
+            "delivered": 22,
+            "timeout": 10
+          },
+          "1360": {
+            "timeout": 26,
+            "delivered": 6
+          },
+          "1400": {
+            "timeout": 32
+          },
+          "1440": {
+            "timeout": 32
+          },
+          "1480": {
+            "timeout": 32
+          },
+          "1600": {
+            "timeout": 32
+          },
+          "2000": {
+            "timeout": 32
+          },
+          "3000": {
+            "timeout": 32
+          }
+        }
+      }
+    },
+    "ties": {
+      "production-rtl": {
+        "groups": {
+          "edge": {
+            "cases": 42,
+            "correct_completed_replies": 42,
+            "abort_ns": [
+              62,
+              140
+            ],
+            "normal_release_ns": [
+              68,
+              72
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 313
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      },
+      "verilator-rtl": {
+        "groups": {
+          "edge": {
+            "cases": 42,
+            "correct_completed_replies": 42,
+            "abort_ns": [
+              60,
+              118
+            ],
+            "normal_release_ns": [
+              68,
+              72
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 311
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      },
+      "submitted-netlist": {
+        "groups": {
+          "edge": {
+            "cases": 42,
+            "correct_completed_replies": 42,
+            "abort_ns": [
+              60,
+              118
+            ],
+            "normal_release_ns": [
+              68,
+              72
+            ],
+            "timeout_ns": null,
+            "min_setup_ns": 111,
+            "min_hold_ns": 311
+          }
+        },
+        "watchdog_by_half_cycle_ns": {}
+      }
+    }
+  }
+}

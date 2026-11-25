@@ -1,0 +1,29 @@
+{
+  "reason": "Superseded two runs that reread an immutable 15 MB compiled netlist through the host bind mount on every trial. Each replacement uses identical cold-start plan, submitted Verilog and release assembler, with a Linux RAM copy of the compiled executable. Counts written below are issued schedules; these two interrupted runs supply no scored results.",
+  "runs": [
+    {
+      "run": "stress-gate",
+      "replacement": "initial-stress-cached",
+      "started_utc": "2026-11-25T16:40:04.981288844Z",
+      "schedules_written": 439,
+      "identical_inputs_sha256": {
+        "target.plan": "aba317ed7035af1bb47ac7ade82e0fef2ef9cbfb9789665cd4babda12f502984",
+        "submitted.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "release-assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9"
+      },
+      "stopped_utc": "2026-11-25T16:59:17.927595+00:00"
+    },
+    {
+      "run": "margin-base-gate",
+      "replacement": "selected-base-cached",
+      "started_utc": "2026-11-25T16:42:57.787169662Z",
+      "schedules_written": 333,
+      "identical_inputs_sha256": {
+        "target.plan": "8a54f39f0586d8361d32f54c8a685749b52f499fc63d60160936c46cdb7e393c",
+        "submitted.v": "2a0304aebbb2c9a287cc16ac0e61221116c4f2001420baa7df9c0ab1f035cd2e",
+        "release-assembler.py": "8f953ea22782a6d9e8cc8ed1a92ae77ff523775ecaaa310b8e6cf7a60894dad9"
+      },
+      "stopped_utc": "2026-11-25T16:59:26.133366+00:00"
+    }
+  ]
+}
