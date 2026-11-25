@@ -40,9 +40,12 @@ def board_code(suite):
         e = step['expected']
         flags = int(step['host_drives_uio']) | (('uo_out' in e) << 1) | (('uio_out' in e) << 2) | ((step['action']=='flush_idle') << 3)
         rows.extend((step['rst_n'], step['ui_in'], step['uio_in'], flags, e.get('uo_out',0), e.get('uio_out',0)))
+    extension = ''
+    if suite in ('gaps','settled'):
+        extension = (HERE/'gaps.py').read_text() + '\ntrials=gap_trials\nschedule=gap_schedule\n'
     return ('import binascii\nPLAN=binascii.unhexlify("' + rows.hex() + '")\nSUITE=' + repr(suite) + '\n' +
             inspect.getsource(scenario) + '\n' + (HERE/'schedules.py').read_text() + '\n' +
-            (HERE/'on_board.py').read_text() + '\nrun_experiment()\n').encode()
+            (HERE/'on_board.py').read_text() + '\n' + extension + 'run_experiment()\n').encode()
 
 
 def terminal(connect, board, code, out):
@@ -151,7 +154,7 @@ def run(args, out, rec):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--board',choices=('fpga-1','fpga-4'),required=True)
-    p.add_argument('--suite',choices=('pilot','matrix'),required=True)
+    p.add_argument('--suite',choices=('pilot','matrix','gaps','settled'),required=True)
     p.add_argument('--image',type=Path,required=True)
     p.add_argument('--wheel',type=Path)
     p.add_argument('--out',type=Path,required=True)

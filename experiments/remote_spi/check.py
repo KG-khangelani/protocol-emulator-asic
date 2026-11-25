@@ -13,6 +13,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.remote_spi.remote import PROGRAM_SHA
+from experiments.remote_spi.gaps import gap_schedule, gap_trials
 from experiments.remote_spi.schedules import schedule, tick, trials
 from experiments.spi_target.requester import scenario, REPLIES
 
@@ -58,7 +59,7 @@ def assess(descriptor, r):
     name = descriptor[0]
     need(name==r['name'], 'case name')
     mode = descriptor[4]
-    case = schedule(scenario, descriptor)
+    case = (gap_schedule if mode in ('gaps','settled') else schedule)(scenario, descriptor)
     raw = unpack(r)
     need(len(raw)==4*((tick(case['finish'])+67)//4), 'capture does not span full case')
     # Align to the observed CS fall, then check every input change by pin. Two pins
@@ -129,10 +130,14 @@ def assess(descriptor, r):
             new_cs = edge[(2,fresh['select'])]
             bit = (REPLIES[first['command']]>>(7-first['bit']))&1
             test(active_value(abort-1)==bit, 'expected driven bit at abort')
+            if active_value(abort-1)!=bit:
+                first_match = next((t for t in range(abort,new_cs) if active_value(t)==bit),None)
+                metrics['preabort_bit_late_ns'] = None if first_match is None else (first_match-abort)*8
             disabled = disabled_after(abort)
             need(disabled is not None,'no output disable after abort')
             delta = (disabled-abort)*8
-            metrics.update(abort_ns=delta, handoff_ns=(new_cs-abort)*8, enabled_at_fresh=bool(raw[new_cs]&16))
+            metrics.update(abort_ns=delta, handoff_ns=(new_cs-abort)*8, enabled_at_fresh=bool(raw[new_cs]&16),
+                           release_to_fresh_lower_ns=(new_cs-disabled-1)*8)
             test(delta+8<=640,'scaled abort deadline')
             test(disabled<=new_cs and quiet(disabled,edge[(0,fresh['falls'][7])]),'fresh command did not stay released')
             check_frame(fresh)
@@ -162,7 +167,7 @@ def audit(raw,suite,strict=True):
          'wrong-byte control')
     need(cold['event']=='cold' and cold['rows']==1050 and cold['registers']==[[160,126],[161,60],[164,167]]
          and hashlib.sha256(bytes.fromhex(cold['image'])).hexdigest()==PROGRAM_SHA,'full program and register readback')
-    wanted=list(trials(suite))
+    wanted=list(gap_trials(suite) if suite in ('gaps','settled') else trials(suite))
     captures=rows[3:-1]
     need([r['name'] for r in captures]==[d[0] for d in wanted], 'case inventory')
     measured={}
