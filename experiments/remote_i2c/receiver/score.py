@@ -104,7 +104,7 @@ def analyze(changes, count, reg, reply, positive, period):
     result = dict(scl_command_edges=len(commands), expected_command_edges=expected_edges,
                   commands_match=len(commands) == expected_edges and not (values[0] | values[-1]) & SCL_OE,
                   samples=count, period_ns=period)
-    for where, mask in (("target_gpio27", TARGET), ("linked_gpio19", LINK)):
+    for where, mask in (("gpio27", TARGET), ("gpio19", LINK)):
         result[where] = {**input_timing(values, mask, commands, period),
                          **decode_wire(changes, count, mask, reg, reply, positive, period)}
     disagreements = Counter()
@@ -161,6 +161,10 @@ def score(path):
                  "peripheral outcome " + name)
             cases[name] = analyze(pins[name], record["samples"], reg, reply, positive, 1_000_000_000 // hz)
             cases[name].update(status=record["status"], read_byte=record["rx"], offset=reg, address=addr)
+            if "target_scl" in start:
+                need((start["target_sda"], start["target_scl"]) in ((18, 19), (26, 27))
+                     and [r[0] for r in record["pad_registers"]] == [18, 19, 26, 27], "captured GPIO controls")
+                cases[name].update(pad_registers=record["pad_registers"], pio2_input_sync_bypass=record["pio2_input_sync_bypass"])
     need(set(cases) == set(pins) == set(wanted), "all six trials are complete")
     return {"start": start, "finish": finish, "cases": cases}
 
@@ -172,6 +176,6 @@ if __name__ == "__main__":
     args = p.parse_args()
     decoded = score(args.terminal)
     print(json.dumps(decoded, indent=2, sort_keys=True))
-    if args.require_clean and not all(c["commands_match"] and c["target_gpio27"]["raw"]["passed"]
-                                      and c["linked_gpio19"]["raw"]["passed"] for c in decoded["cases"].values()):
+    if args.require_clean and not all(c["commands_match"] and c["gpio27"]["raw"]["passed"]
+                                      and c["gpio19"]["raw"]["passed"] for c in decoded["cases"].values()):
         raise SystemExit(1)
